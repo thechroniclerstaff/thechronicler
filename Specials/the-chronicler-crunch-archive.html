@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Crunch Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#141008;--aged:#f4edd6;--cream:#fdf9ee;--rust:#8b2513;--gold:#a07800;--grey:#635d4e;--rule:#d0c5a0;--green:#1a6b3c;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+
+  /* ── Masthead ── */
+  .masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:16px 40px 12px;text-align:center;}
+  .mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);letter-spacing:.05em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:6px;}
+  .ig-link{display:flex;align-items:center;gap:5px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;}
+  .ig-link svg{width:15px;height:15px;flex-shrink:0;}
+  .masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(34px,5.5vw,64px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+  .mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11.5px;color:var(--grey);margin-top:3px;}
+  .mast-sub{font-family:'Source Sans 3',sans-serif;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-top:8px;}
+
+  /* ── Page ── */
+  .page{max-width:960px;margin:0 auto;background:var(--cream);padding:32px 48px 48px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);min-height:80vh;}
+
+  /* ── Intro block ── */
+  .intro{border-left:4px solid var(--rust);padding:14px 18px;background:var(--aged);margin-bottom:36px;}
+  .intro p{font-family:'Libre Baskerville',serif;font-size:13px;line-height:1.75;color:var(--ink);}
+  .intro p + p{margin-top:8px;}
+
+  /* ── Filter bar ── */
+  .filter-bar{border:1px solid var(--rule);border-top:3px solid var(--ink);background:#f9f3e3;padding:16px 20px;margin-bottom:32px;}
+  .filter-bar-title{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);margin-bottom:12px;}
+  .filter-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;}
+  .filter-group{display:flex;flex-direction:column;gap:4px;}
+  .filter-group label{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);}
+  .filter-group input,.filter-group select{font-family:'Source Sans 3',sans-serif;font-size:12px;color:var(--ink);background:var(--cream);border:1px solid var(--rule);padding:5px 9px;border-radius:2px;outline:none;}
+  .filter-group input:focus,.filter-group select:focus{border-color:var(--rust);}
+  .filter-btn{font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:var(--aged);border:none;padding:7px 16px;cursor:pointer;border-radius:2px;}
+  .filter-btn:hover{background:var(--rust);}
+  .filter-btn.reset{background:transparent;color:var(--grey);border:1px solid var(--rule);}
+  .filter-btn.reset:hover{background:var(--aged);color:var(--ink);}
+  .filter-status{font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);font-style:italic;margin-top:10px;min-height:16px;}
+  .no-results{font-family:'Libre Baskerville',serif;font-style:italic;font-size:13px;color:var(--grey);padding:24px 0;display:none;}
+
+  /* ── Section header ── */
+  .section-hd{font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:6px;margin-bottom:20px;}
+
+  /* ── Puzzle card grid ── */
+  .puzzle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px;}
+
+  /* ── Individual puzzle card ── */
+  .puzzle-card{border:1px solid var(--rule);border-top:3px solid var(--ink);background:#f9f3e3;padding:16px 18px;}
+  .puzzle-card.flawed{border-top-color:var(--rust);opacity:.75;}
+  .puzzle-card.current{border-top-color:var(--gold);box-shadow:0 2px 10px rgba(0,0,0,.1);}
+
+  .card-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .card-edition{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--rust);}
+  .card-edition.current-tag{color:var(--gold);}
+  .card-date{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);}
+
+  .card-nums{display:flex;gap:8px;align-items:center;margin-bottom:10px;}
+  .num-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-size:16px;font-weight:900;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:2px;}
+  .num-sep{font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);}
+  .target-block{margin-left:auto;text-align:right;}
+  .target-label{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--grey);display:block;}
+  .target-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--ink);line-height:1;}
+
+  .card-rule{height:1px;background:var(--rule);margin:10px 0;}
+
+  .solution-toggle{font-family:'Source Sans 3',sans-serif;font-size:10.5px;font-weight:600;color:var(--rust);background:none;border:none;cursor:pointer;padding:0;letter-spacing:.05em;}
+  .solution-toggle:hover{text-decoration:underline;}
+  .solution-box{display:none;margin-top:8px;}
+  .solution-expr{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--green);line-height:1.4;margin-bottom:4px;}
+  .solution-expr.flawed-note{color:var(--rust);font-style:italic;font-size:12px;}
+  .solution-count{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;}
+
+  .card-link{display:block;margin-top:10px;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;}
+  .card-link:hover{text-decoration:underline;}
+
+  /* ── Footer ── */
+  .footer{background:var(--ink);color:var(--aged);text-align:center;padding:20px 40px;font-family:'Source Sans 3',sans-serif;font-size:11px;line-height:1.8;}
+  .footer a{color:var(--rust);text-decoration:none;}
+  .footer-disc{font-style:italic;color:var(--grey);font-size:10px;margin-top:8px;max-width:720px;margin-left:auto;margin-right:auto;}
+  .footer-ig{margin:6px 0;}
+  .footer-ig a{display:inline-flex;align-items:center;gap:5px;color:var(--rust);}
+  .footer-ig svg{width:13px;height:13px;}
+
+  /* ── Back link ── */
+  .back-bar{background:var(--ink);padding:8px 48px;max-width:960px;margin:0 auto;}
+  .back-bar a{font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--aged);text-decoration:none;}
+  .back-bar a:hover{color:var(--rust);}
+
+  @media(max-width:600px){
+    .page{padding:20px 18px 36px;}
+    .masthead{padding:12px 18px 10px;}
+    .stats-bar{flex-wrap:wrap;}
+    .stat{flex:1 1 45%;}
+    .puzzle-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Masthead -->
+<div class="masthead">
+  <div class="mast-top">
+    <span>Est. March 8, 2026 &bull; Independent &bull; Daily &bull; Free</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>thechronicler.ca</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+  <div class="mast-sub">&#128290; Crunch &mdash; Daily Puzzle Archive</div>
+</div>
+
+<!-- Back bar -->
+<div class="back-bar">
+  <a href="https://thechronicler.ca">&larr; Back to The Chronicler</a>
+</div>
+
+<div class="page">
+
+  <!-- Intro -->
+  <div class="intro">
+    <p>The <strong>Crunch</strong> is The Chronicler&rsquo;s daily number puzzle. Use all four numbers exactly once &mdash; with addition, subtraction, multiplication, division, and brackets &mdash; to reach the target. Every puzzle is computationally verified by Python across all permutations and bracket structures before publication.</p>
+    <p>This archive records every Crunch published since Vol. I, No. 15 (March 22, 2026), when the puzzle was introduced. Newest editions appear first.</p>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <div class="filter-bar-title">&#128269; Filter Puzzles</div>
+    <div class="filter-controls">
+      <div class="filter-group">
+        <label for="filter-from">From</label>
+        <input type="date" id="filter-from" min="2026-03-22" max="2026-04-10">
+      </div>
+      <div class="filter-group">
+        <label for="filter-to">To</label>
+        <input type="date" id="filter-to" min="2026-03-22" max="2026-04-10">
+      </div>
+      <div class="filter-group">
+        <label for="filter-week">Or jump to week</label>
+        <select id="filter-week">
+          <option value="">— All editions —</option>
+          <option value="2026-04-06|2026-04-10">Week of April 6, 2026</option>
+          <option value="2026-03-29|2026-04-05">Week of March 29, 2026</option>
+          <option value="2026-03-22|2026-03-28">Week of March 22, 2026</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-valid">Puzzle type</label>
+        <select id="filter-valid">
+          <option value="all">All puzzles</option>
+          <option value="valid">Valid only</option>
+          <option value="flawed">Flawed only</option>
+        </select>
+      </div>
+      <button class="filter-btn" onclick="applyFilter()">Apply</button>
+      <button class="filter-btn reset" onclick="resetFilter()">Reset</button>
+    </div>
+    <div class="filter-status" id="filter-status"></div>
+  </div>
+
+  <!-- Current edition -->
+  <div class="section-hd">Latest Edition</div>
+  <div class="puzzle-grid">
+
+    <!-- No. 27 — Current -->
+    <div class="puzzle-card current" data-date="2026-04-10" data-valid="valid">
+      <div class="card-meta">
+        <span class="card-edition current-tag">Vol. I, No. 27 &mdash; Today</span>
+        <span class="card-date">Fri, April 10, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">3</div>
+        <div class="num-tile">5</div>
+        <div class="num-tile">6</div>
+        <div class="num-tile">8</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">38</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">( 5 &times; 8 ) &minus; ( 6 &divide; 3 ) = 40 &minus; 2 = <strong>38</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 2 distinct solutions (commutative variants). All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no27.html#crunch">Read edition &rarr;</a>
+    </div>
+
+  </div>
+
+  <!-- Archive -->
+  <div class="section-hd">Archive &mdash; Newest First</div>
+  <div class="puzzle-grid">
+
+    <!-- No. 26 -->
+    <div class="puzzle-card" data-date="2026-04-09" data-valid="valid">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 26</span>
+        <span class="card-date">Thu, April 9, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">2</div>
+        <div class="num-tile">5</div>
+        <div class="num-tile">7</div>
+        <div class="num-tile">9</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">58</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">See edition for solution.</div>
+        <div class="solution-count">Python-verified. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no26.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 25 -->
+    <div class="puzzle-card" data-date="2026-04-08" data-valid="valid">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 25</span>
+        <span class="card-date">Wed, April 8, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">4</div>
+        <div class="num-tile">6</div>
+        <div class="num-tile">7</div>
+        <div class="num-tile">9</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">78</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">( 4 &times; 9 ) + ( 6 &times; 7 ) = 36 + 42 = <strong>78</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 8 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no25.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 24 -->
+    <div class="puzzle-card" data-date="2026-04-07" data-valid="valid">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 24</span>
+        <span class="card-date">Tue, April 7, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">2</div>
+        <div class="num-tile">4</div>
+        <div class="num-tile">6</div>
+        <div class="num-tile">9</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">48</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">( 9 &minus; 6 ) &times; ( 4 &times; 2 &times; 2 ) &mdash; see edition for full solution</div>
+        <div class="solution-count">Python-verified. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no24.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 23 -->
+    <div class="puzzle-card" data-date="2026-04-06" data-valid="valid">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 23</span>
+        <span class="card-date">Mon, April 6, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">3</div>
+        <div class="num-tile">6</div>
+        <div class="num-tile">7</div>
+        <div class="num-tile">8</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">54</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">(7 &times; 8) &minus; (6 &divide; 3) = 56 &minus; 2 = <strong>54</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 2 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no23.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 22 -->
+    <div class="puzzle-card" data-date="2026-03-23" data-valid="valid" data-date="2026-03-24" data-valid="valid" data-date="2026-03-25" data-valid="valid" data-date="2026-03-26" data-valid="valid" data-date="2026-03-27" data-valid="valid" data-date="2026-03-28" data-valid="valid" data-date="2026-03-29" data-valid="valid">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 22</span>
+        <span class="card-date">Sun, March 29, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">2</div>
+        <div class="num-tile">6</div>
+        <div class="num-tile">7</div>
+        <div class="num-tile">9</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">99</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">(6 + 7 &minus; 2) &times; 9 = 11 &times; 9 = <strong>99</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 16 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no22.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 21 -->
+    <div class="puzzle-card">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 21</span>
+        <span class="card-date">Sat, March 28, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">3</div>
+        <div class="num-tile">6</div>
+        <div class="num-tile">8</div>
+        <div class="num-tile">9</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">72</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">(6 + 9 &divide; 3) &times; 8 = (6 + 3) &times; 8 = <strong>72</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 20 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no21.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 20 -->
+    <div class="puzzle-card">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 20</span>
+        <span class="card-date">Fri, March 27, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">5</div>
+        <div class="num-tile">7</div>
+        <div class="num-tile">11</div>
+        <div class="num-tile">22</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">84</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">(5 &times; 11) + 7 + 22 = 55 + 29 = <strong>84</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 24 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no20.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 19 -->
+    <div class="puzzle-card">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 19</span>
+        <span class="card-date">Thu, March 26, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">3</div>
+        <div class="num-tile">7</div>
+        <div class="num-tile">15</div>
+        <div class="num-tile">27</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">96</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">(7 &times; 15) &minus; (27 &divide; 3) = 105 &minus; 9 = <strong>96</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 2 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no19.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 18 -->
+    <div class="puzzle-card">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 18</span>
+        <span class="card-date">Wed, March 25, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">2</div>
+        <div class="num-tile">9</div>
+        <div class="num-tile">25</div>
+        <div class="num-tile">50</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">116</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">50 &times; 2 + 25 &minus; 9 = 100 + 25 &minus; 9 = <strong>116</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 16 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no18.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 17 -->
+    <div class="puzzle-card">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 17</span>
+        <span class="card-date">Tue, March 24, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">4</div>
+        <div class="num-tile">7</div>
+        <div class="num-tile">25</div>
+        <div class="num-tile">50</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">103</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">(4 &times; 7) + 25 + 50 = 28 + 75 = <strong>103</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 24 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no17.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 16 -->
+    <div class="puzzle-card">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 16</span>
+        <span class="card-date">Mon, March 23, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">4</div>
+        <div class="num-tile">6</div>
+        <div class="num-tile">7</div>
+        <div class="num-tile">25</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">151</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">(7 &times; 25) &minus; (4 &times; 6) = 175 &minus; 24 = <strong>151</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 4 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no16.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 15 — Flawed -->
+    <div class="puzzle-card flawed" data-date="2026-03-22" data-valid="flawed">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 15</span>
+        <span class="card-date">Sun, March 22, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">4</div>
+        <div class="num-tile">6</div>
+        <div class="num-tile">8</div>
+        <div class="num-tile">25</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">112</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide note':'&#9660; Show note'">&#9660; Show note</button>
+      <div class="solution-box">
+        <div class="solution-expr flawed-note">&#9888; No valid solution exists for this combination. Python verification confirms 0 solutions across all permutations and bracket structures. This was The Chronicler&rsquo;s inaugural Crunch puzzle; the Python verification standard was introduced in subsequent editions to prevent recurrence.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/the-chronicler-vol1-no15.html">Read edition &rarr;</a>
+    </div>
+
+  </div>
+
+  <div id="no-results-msg" class="no-results">No puzzles match your filter. Try adjusting the date range or resetting.</div>
+
+  <!-- How it works -->
+  <div class="section-hd">How Crunch Works</div>
+  <div class="intro" style="border-color:var(--gold);">
+    <p>Each Crunch puzzle presents four numbers and a target. Using each number <strong>exactly once</strong>, combine them with any of the four standard arithmetic operations (+, &minus;, &times;, &divide;) and any bracket arrangement to reach the target.</p>
+    <p>From Vol. I, No. 16 onward, every Crunch is verified computationally before publication: a Python script tests all permutations of the four numbers across all operator combinations and five distinct bracket structures, confirming at least one valid solution exists and recording the total solution count. The cleanest solution is selected for publication.</p>
+    <p>The solution count reflects mathematical distinctness &mdash; different orderings of numbers or operators that each independently reach the target. Higher counts generally indicate more approachable puzzles; counts of 2&ndash;4 are the most challenging.</p>
+  </div>
+
+</div><!-- /page -->
+
+<!-- Footer -->
+<footer class="footer">
+  <div>The Chronicler &bull; Crunch Archive &bull; Vol. I &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+
+<script>
+(function(){
+
+  function applyFilter(){
+    var fromRaw = document.getElementById('filter-from').value;
+    var toRaw   = document.getElementById('filter-to').value;
+    var week    = document.getElementById('filter-week').value;
+    var valid   = document.getElementById('filter-valid').value;
+    var status  = document.getElementById('filter-status');
+
+    // Week selector overrides date fields
+    var from = fromRaw, to = toRaw;
+    if(week){ var wp = week.split('|'); from = wp[0]; to = wp[1]; }
+
+    // data-date and input values are both YYYY-MM-DD — safe string comparison
+    var cards = document.querySelectorAll('.puzzle-card');
+    var shown = 0;
+
+    cards.forEach(function(card){
+      var date    = card.getAttribute('data-date');
+      var isValid = card.getAttribute('data-valid');
+      var show    = true;
+      if(from && from.length === 10 && date < from) show = false;
+      if(to   && to.length   === 10 && date > to)   show = false;
+      if(valid !== 'all' && isValid !== valid) show = false;
+      card.style.display = show ? '' : 'none';
+      if(show) shown++;
+    });
+
+    // No-results
+    document.getElementById('no-results-msg').style.display = shown === 0 ? 'block' : 'none';
+
+    // Human-readable status
+    function fmt(iso){
+      if(!iso || iso.length !== 10) return null;
+      var p = iso.split('-');
+      var m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return m[parseInt(p[1],10)-1] + ' ' + parseInt(p[2],10) + ', ' + p[0];
+    }
+    var parts = [];
+    if(from || to){ parts.push((fmt(from)||'start') + ' – ' + (fmt(to)||'today')); }
+    if(valid !== 'all') parts.push(valid + ' puzzles only');
+    status.textContent = shown + ' puzzle' + (shown !== 1 ? 's' : '') + ' shown' +
+                         (parts.length ? ' — ' + parts.join(', ') : '');
+  }
+
+  function resetFilter(){
+    document.getElementById('filter-from').value  = '';
+    document.getElementById('filter-to').value    = '';
+    document.getElementById('filter-week').value  = '';
+    document.getElementById('filter-valid').value = 'all';
+    document.querySelectorAll('.puzzle-card').forEach(function(c){ c.style.display = ''; });
+    document.getElementById('filter-status').textContent = '';
+    document.getElementById('no-results-msg').style.display = 'none';
+  }
+
+  // Week selector clears date fields and vice versa
+  document.getElementById('filter-week').addEventListener('change', function(){
+    if(this.value){
+      document.getElementById('filter-from').value = '';
+      document.getElementById('filter-to').value   = '';
+    }
+  });
+  ['filter-from','filter-to'].forEach(function(id){
+    document.getElementById(id).addEventListener('change', function(){
+      document.getElementById('filter-week').value = '';
+    });
+  });
+
+  window.applyFilter = applyFilter;
+  window.resetFilter = resetFilter;
+})();
+</script>
+</body>
+</html>

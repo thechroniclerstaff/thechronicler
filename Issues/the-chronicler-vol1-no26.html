@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Vol. I, No. 26 — Thursday, April 9, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#141008;
+  --aged:#f4edd6;
+  --cream:#fdf9ee;
+  --rust:#8b2513;
+  --gold:#a07800;
+  --grey:#635d4e;
+  --rule:#d0c5a0;
+  --green:#1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e8dfc8;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.7;}
+
+/* STICKY HEADER */
+.sticky-header{position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,.18);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);padding:5px 20px;display:flex;justify-content:space-between;align-items:center;}
+.mini-mast a.brand{font-family:'UnifrakturMaguntia',cursive;font-size:22px;color:var(--aged);text-decoration:none;letter-spacing:1px;}
+.mini-mast .header-btns{display:flex;gap:8px;}
+.mini-mast .header-btns a,.mini-mast .header-btns button{background:transparent;border:1px solid var(--aged);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;}
+.mini-mast .header-btns a:hover,.mini-mast .header-btns button:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;padding:0 20px;position:relative;}
+.nav-bar ul{list-style:none;display:flex;gap:0;}
+.nav-bar > ul > li{position:relative;}
+.nav-bar > ul > li > a{display:block;padding:9px 16px;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--aged);text-decoration:none;transition:color .15s;}
+.nav-bar > ul > li:hover > a,.nav-bar > ul > li > a:hover{color:var(--rust);}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:#1e1608;border-top:2px solid var(--rust);min-width:200px;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:100;}
+.nav-bar > ul > li:hover .dropdown{display:block;}
+.dropdown a{display:block;padding:7px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#c8b87a;text-decoration:none;}
+.dropdown a:hover{background:rgba(139,37,19,.3);color:var(--aged);}
+
+/* MASTHEAD */
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:20px 40px 14px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);letter-spacing:.05em;border-bottom:1px solid var(--rule);padding-bottom:7px;margin-bottom:10px;}
+.ig-link{display:flex;align-items:center;gap:5px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;}
+.ig-link:hover{text-decoration:underline;}
+.ig-link svg{width:15px;height:15px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(42px,6vw,82px);color:var(--ink);letter-spacing:3px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.06);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:12.5px;color:var(--grey);margin-top:5px;letter-spacing:.04em;}
+.mast-rules{display:flex;align-items:center;gap:10px;margin-top:10px;justify-content:center;}
+.mast-rules hr{flex:1;border:none;border-top:1px solid var(--rule);max-width:200px;}
+.mast-rules span{font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);}
+
+/* BREAKING BAR */
+.breaking-bar{background:var(--rust);color:#fff;padding:7px 24px;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center;}
+
+/* PAGE WRAPPER */
+.page{max-width:1100px;margin:0 auto;background:var(--cream);border-left:1px solid var(--rule);border-right:1px solid var(--rule);padding:0 0 60px;}
+
+/* SECTION LABELS */
+.section-banner{background:var(--ink);color:var(--aged);padding:10px 32px;font-family:'UnifrakturMaguntia',cursive;font-size:26px;letter-spacing:2px;border-bottom:3px solid var(--rust);}
+.section-inner{padding:28px 32px;}
+.section-rule{display:flex;align-items:center;gap:14px;width:100%;margin:20px 0 14px;}
+.section-rule hr{flex:1;border:none;border-top:1px solid var(--rule);}
+.section-rule span{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--rust);white-space:nowrap;}
+
+/* WEATHER CARDS */
+.weather-grid-5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:8px;}
+.weather-grid-6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-bottom:8px;}
+.w-card{background:var(--aged);border:1px solid var(--rule);border-radius:2px;padding:10px 10px 8px;font-family:'Source Sans 3',sans-serif;}
+.w-card.canada-card{border-top:3px solid var(--ink);}
+.w-card.india-card{border-top:3px solid var(--rust);}
+.w-city{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--grey);margin-bottom:4px;}
+.w-temp{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--ink);line-height:1;}
+.w-cond{font-size:11px;color:var(--grey);margin:3px 0;display:flex;align-items:center;gap:4px;}
+.w-hl{font-size:10px;color:var(--grey);}
+.aqi-badge{display:inline-block;font-size:8.5px;font-weight:700;padding:2px 5px;border-radius:2px;letter-spacing:.06em;text-transform:uppercase;margin:3px 0;}
+.aqi-good{background:#1a7a40;color:#fff;}
+.aqi-mod{background:#b07800;color:#fff;}
+.aqi-poor{background:#c03a00;color:#fff;}
+.aqi-vpoor{background:#6a0a8a;color:#fff;}
+.w-wind{font-size:9px;color:var(--grey);margin-top:2px;}
+.w-forecast{display:flex;gap:4px;margin-top:6px;border-top:1px dotted var(--rule);padding-top:5px;}
+.w-fc-day{flex:1;text-align:center;font-size:8.5px;color:var(--grey);}
+.w-fc-day span{display:block;}
+.w-source{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);font-style:italic;margin-top:4px;}
+
+/* MARKET CARDS */
+.market-note{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:10px;padding:6px 10px;border-left:2px solid var(--rule);}
+.market-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-bottom:8px;}
+.m-card{background:var(--aged);border:1px solid var(--rule);border-radius:2px;padding:9px 8px;}
+.m-label{font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-bottom:3px;}
+.m-value{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--ink);}
+.m-change{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;margin-top:2px;}
+.m-change.up{color:#1a7a40;}
+.m-change.down{color:var(--rust);}
+.m-change.flat{color:var(--gold);}
+.m-time{font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-top:2px;}
+.market-sources{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:6px;}
+.market-sources a{color:var(--rust);text-decoration:none;}
+
+/* ARTICLES */
+.article{margin-bottom:28px;padding-bottom:24px;border-bottom:1px dotted var(--rule);}
+.article:last-child{border-bottom:none;}
+.article h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;line-height:1.22;color:var(--ink);margin-bottom:6px;}
+.byline{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.06em;margin-bottom:5px;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:0;margin-bottom:8px;letter-spacing:.05em;}
+.read-btn:hover{text-decoration:underline;}
+.article p{margin-bottom:10px;line-height:1.75;}
+.source-line{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-top:4px;}
+.source-line a{color:var(--rust);text-decoration:none;}
+
+/* TWO-COLUMN GRID */
+.two-col-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+
+/* ARTICLE COLUMNS */
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+
+/* BOTTOM ROW (history + events or games) */
+.bottom-row{display:grid;grid-template-columns:60fr 40fr;gap:28px;}
+
+/* FUNNIES */
+.funnies-banner{background:var(--aged);border-top:4px double var(--ink);border-bottom:4px double var(--ink);padding:12px 32px;text-align:center;margin-bottom:0;}
+.funnies-banner h2{font-family:'UnifrakturMaguntia',cursive;font-size:32px;color:var(--ink);letter-spacing:2px;}
+.funnies-banner p{font-family:'Libre Baskerville',serif;font-style:italic;font-size:12px;color:var(--grey);}
+.games-section{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:24px 32px;}
+.game-panel{background:var(--aged);border:1px solid var(--rule);padding:18px;}
+.game-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--rust);margin-bottom:12px;letter-spacing:.03em;}
+.crunch-numbers{display:flex;gap:10px;margin:10px 0;align-items:center;flex-wrap:wrap;}
+.crunch-num{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;width:44px;height:44px;display:flex;align-items:center;justify-content:center;}
+.crunch-target{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--rust);margin-left:6px;}
+.crunch-reveal{display:none;background:#fff3e0;border:1px solid var(--rule);padding:8px 12px;font-family:'Libre Baskerville',serif;font-size:12px;margin-top:8px;}
+.reveal-btn{background:var(--rust);color:#fff;border:none;padding:6px 14px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin-top:8px;}
+.crunch-archive-link{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);text-decoration:none;display:block;margin-top:8px;}
+.word-web-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.ww-tile{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:10px 6px;text-align:center;cursor:pointer;}
+.ww-reveal{display:none;background:#e8f5e9;border:1px solid var(--rule);padding:8px 12px;font-family:'Libre Baskerville',serif;font-size:12px;margin-top:8px;}
+
+/* FLATLAND NEWS */
+.flatland-section{padding:24px 32px;border-top:2px solid var(--rule);}
+.flatland-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--rust);margin-bottom:4px;}
+.flatland-date{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-bottom:14px;}
+.flatland-strip{display:flex;gap:12px;overflow-x:auto;}
+.flatland-panel{flex:1;min-width:160px;border:1.5px solid var(--ink);background:var(--cream);padding:12px 10px;font-family:'Caveat',cursive;}
+.flatland-panel .panel-caption{font-size:13px;color:var(--ink);margin-bottom:8px;font-weight:600;}
+.flatland-panel .panel-img{width:100%;height:100px;background:var(--aged);display:flex;align-items:center;justify-content:center;margin-bottom:8px;border:1px solid var(--rule);overflow:hidden;}
+.flatland-panel .speech{font-size:12px;color:var(--ink);font-style:italic;}
+.speech-bubble{background:#fffde7;border:1.5px solid var(--ink);border-radius:6px;padding:5px 8px;font-size:12px;font-family:'Caveat',cursive;position:relative;margin-top:6px;}
+
+/* FOOTER */
+.footer{max-width:1100px;margin:0 auto;text-align:center;padding:18px 24px;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);background:var(--cream);border-left:1px solid var(--rule);border-right:1px solid var(--rule);border-top:4px double var(--ink);}
+.footer-ig{margin-top:8px;display:flex;align-items:center;justify-content:center;gap:6px;}
+.footer-ig a{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-size:11px;}
+.footer-ig a svg{width:15px;height:15px;}
+.footer-disc{margin-top:10px;font-style:italic;line-height:1.75;max-width:820px;margin-left:auto;margin-right:auto;}
+
+@media(max-width:900px){
+  .three-col{grid-template-columns:1fr 1fr;}
+  .market-grid{grid-template-columns:repeat(4,1fr);}
+  .weather-grid-5,.weather-grid-6{grid-template-columns:repeat(3,1fr);}
+  .games-section{grid-template-columns:1fr;}
+  .bottom-row{grid-template-columns:1fr;}
+  .two-col-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .three-col{grid-template-columns:1fr;}
+  .market-grid{grid-template-columns:repeat(2,1fr);}
+  .weather-grid-5,.weather-grid-6{grid-template-columns:repeat(2,1fr);}
+  .section-inner{padding:18px 16px;}
+  .masthead{padding:14px 16px 10px;}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- TWO-TIER STICKY HEADER -->
+<div class="sticky-header">
+  <div class="mini-mast">
+    <a class="brand" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="header-btns">
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})">Top</button>
+      <a href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="#canada-current">Canada</a>
+        <div class="dropdown">
+          <a href="#canada-current">Current Events</a>
+          <a href="#canada-politics">Politics</a>
+          <a href="#canada-economy">Economy &amp; Business</a>
+          <a href="#canada-sports">Sports</a>
+          <a href="#canada-history">This Week in History</a>
+        </div>
+      </li>
+      <li><a href="#gta-current">GTA</a>
+        <div class="dropdown">
+          <a href="#gta-current">Current Events</a>
+          <a href="#gta-politics">Politics</a>
+          <a href="#gta-economy">Economy &amp; Business</a>
+          <a href="#gta-sports">Sports</a>
+        </div>
+      </li>
+      <li><a href="#india-current">India</a>
+        <div class="dropdown">
+          <a href="#india-current">Current Events</a>
+          <a href="#india-politics">Politics</a>
+          <a href="#india-economy">Economy &amp; Business</a>
+          <a href="#india-sports">Sports</a>
+          <a href="#india-history">This Week in History</a>
+        </div>
+      </li>
+      <li><a href="#world-current">World</a>
+        <div class="dropdown">
+          <a href="#world-current">Current Events</a>
+          <a href="#world-politics">World Politics</a>
+          <a href="#world-economy">Economy &amp; Business</a>
+          <a href="#world-sports">Sports</a>
+          <a href="#world-history">This Week in History</a>
+        </div>
+      </li>
+      <li><a href="#comics">Funnies</a>
+        <div class="dropdown">
+          <a href="#wordweb">Word Web</a>
+          <a href="#crunch">Crunch</a>
+          <a href="#flatland">Flatland News</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mast-top">
+    <span>Est. March 8, 2026 &bull; Independent &bull; Daily &bull; Free</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>thechronicler.ca</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+  <div class="mast-rules"><hr><span>Thursday, April 9, 2026 &bull; Vol. I, No. 26</span><hr></div>
+</div>
+
+<!-- BREAKING NEWS BAR -->
+<div class="breaking-bar">
+  Breaking &mdash; Iran re-closes Strait of Hormuz citing Israeli attacks on Lebanon &bull; White House calls closure &ldquo;completely unacceptable&rdquo; &bull; Islamabad talks still on for Saturday &bull; Gladu floor-cross leaves Liberals one seat from majority &bull; Sensex soars 2,946 pts; TSX +383 on ceasefire rally
+</div>
+
+<div class="page">
+
+<!-- ═══════════════════════ CANADA ═══════════════════════ -->
+<div class="section-banner"><span id="canada-current">Canada</span></div>
+<div class="section-inner">
+
+  <!-- WEATHER -->
+  <div class="section-rule"><hr><span>Weather — Major Cities</span><hr></div>
+  <div class="weather-grid-5">
+    <div class="w-card canada-card">
+      <div class="w-city">Toronto</div>
+      <div class="w-temp">3°</div>
+      <div class="w-cond">🌤️ Partly Cloudy</div>
+      <div class="w-hl">H: 18°C &nbsp; L: 2°C</div>
+      <div class="aqi-badge aqi-mod">AQI: Moderate</div>
+      <div class="w-wind">SE 10 km/h · 72% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌧️</span><span>9°/−1°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>☀️</span><span>9°/2°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>🌦️</span><span>13°/9°</span></div>
+      </div>
+    </div>
+    <div class="w-card canada-card">
+      <div class="w-city">Montréal</div>
+      <div class="w-temp">5°</div>
+      <div class="w-cond">⛅ Mostly Cloudy</div>
+      <div class="w-hl">H: 14°C &nbsp; L: 1°C</div>
+      <div class="aqi-badge aqi-good">AQI: Good</div>
+      <div class="w-wind">SW 15 km/h · 68% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌧️</span><span>8°/0°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>☀️</span><span>11°/2°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>🌤️</span><span>14°/7°</span></div>
+      </div>
+    </div>
+    <div class="w-card canada-card">
+      <div class="w-city">Ottawa</div>
+      <div class="w-temp">2°</div>
+      <div class="w-cond">🌤️ Partly Cloudy</div>
+      <div class="w-hl">H: 16°C &nbsp; L: −1°C</div>
+      <div class="aqi-badge aqi-good">AQI: Good</div>
+      <div class="w-wind">SE 12 km/h · 74% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌧️</span><span>7°/−2°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>☀️</span><span>10°/1°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>🌦️</span><span>13°/7°</span></div>
+      </div>
+    </div>
+    <div class="w-card canada-card">
+      <div class="w-city">Edmonton</div>
+      <div class="w-temp">−2°</div>
+      <div class="w-cond">🌤️ Mostly Clear</div>
+      <div class="w-hl">H: 9°C &nbsp; L: −5°C</div>
+      <div class="aqi-badge aqi-good">AQI: Good</div>
+      <div class="w-wind">NW 18 km/h · 55% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌤️</span><span>11°/−2°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>☀️</span><span>13°/0°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>⛅</span><span>10°/3°</span></div>
+      </div>
+    </div>
+    <div class="w-card canada-card">
+      <div class="w-city">Vancouver</div>
+      <div class="w-temp">9°</div>
+      <div class="w-cond">🌧️ Periods of Rain</div>
+      <div class="w-hl">H: 13°C &nbsp; L: 7°C</div>
+      <div class="aqi-badge aqi-mod">AQI: Moderate</div>
+      <div class="w-wind">SW 20 km/h · 82% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌧️</span><span>12°/6°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>⛅</span><span>14°/8°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>🌤️</span><span>15°/9°</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="w-source">Weather data: Environment Canada. Observed at Toronto Pearson Intl Airport 6:00 AM EDT, April 9, 2026.</div>
+
+  <!-- CURRENT EVENTS -->
+  <div class="section-rule"><hr><span>Current Events</span><hr></div>
+
+  <div class="article">
+    <h3>Support for Alberta Separation Reaches Five-Year High at 27 Per Cent, New Poll Finds</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>A new poll by Pollara Strategic Insights, released Wednesday as part of its &ldquo;Alberta Spotlight&rdquo; tracking series, shows that 27 per cent of decided voters in Alberta would vote for the province to separate from Canada — the highest reading in more than five years of monitoring. The figure represents a seven-percentage-point jump from December 2025 and arrives as canvassers pushing for a fall referendum claim to have gathered the 177,732 signatures needed to force a vote under provincial law, with a submission deadline of May 2.</p>
+    <p>Pollara chief strategy officer Dan Arnold attributed the surge partly to mainstream political figures lending tacit approval to separatist arguments, noting that voters tend to take their cues from elected officials. The poll also found that one in five Albertans who would currently vote to remain in Canada said they could consider voting to separate as a &ldquo;message to Ottawa,&rdquo; a dynamic that could theoretically push support above 40 per cent. Despite the headline numbers, 84 per cent of Albertans surveyed described themselves as proud Canadians, and 58 per cent of those who would vote to separate said the same — a paradox Arnold links to complex grievances around equalization, resource sovereignty, and the lingering influence of U.S. President Donald Trump.</p>
+    <p>UCP MLA Jason Stephan has publicly endorsed the idea of an independence referendum but stopped short of saying how he would vote, while Alberta NDP leader Naheed Nenshi circulated a loyalty-to-Canada pledge that no UCP MLA has signed. Premier Danielle Smith remains formally opposed to separation but enabled the referendum process through Bill 54 in 2025.</p>
+    <div class="source-line">Source: <a href="https://nationalpost.com/news/canada/support-for-alberta-separatism-at-a-5-year-high-poll" target="_blank" rel="noopener">National Post</a> · Pollara Strategic Insights, April 7, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>CBC Investigation Exposes Montreal Export Network Shipping Stolen Cars to Africa</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>A months-long CBC investigation published Wednesday reveals that multiple Montreal-based exporters have repeatedly shipped stolen vehicles overseas through the Port of Montreal, with at least one operator — identified in police documents — continuing to ship cars and mattresses out of a Saint-Laurent warehouse despite a 2024 raid that found stolen vehicles on the premises. The investigation, by reporter Matthew Lapierre, obtained police surveillance records and inspection reports linking exporter Albert Tshiyoyo to a trans-Atlantic stolen car network, though as of March 2026 he has not been charged with a crime.</p>
+    <p>The investigation documents how the Port of Montreal has become a preferred hub for organized crime rings exporting stolen vehicles, largely because fewer than one per cent of shipping containers leaving Canada are scanned by border authorities. One Ontario man whose Honda Accord was stolen in 2024 tracked it to a Saint-Laurent warehouse; police watched the car being loaded into a container alongside mattresses before eventually recovering it overseas. A separate company that had a shipment seized at the port acknowledged shipping stolen cars in the past but denied recent involvement.</p>
+    <p>The cases underscore the jurisdictional tensions that hamper law enforcement at the port, where CBSA officers can open containers without a warrant only in customs-controlled zones. Brampton Mayor Patrick Brown has called for immediate investment in scanning technology, noting that the United States inspects a far higher proportion of outbound containers, effectively pushing organized crime networks to exploit Canadian infrastructure instead.</p>
+    <div class="source-line">Source: <a href="https://www.cbc.ca/news/canada/montreal/stolen-cars-montreal-9.7151820" target="_blank" rel="noopener">CBC News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>TDSB Cuts Could Devastate Schools in Poorer Neighbourhoods, Educators and Parents Warn</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Newly disclosed staffing plans at the Toronto District School Board show the provincially supervised board intends to eliminate approximately 484 elementary and 123 secondary teacher positions next school year — a total approaching 600 teaching jobs — with cuts falling heaviest on teachers who support low-income schools and students for whom English is a second language. Elementary Teachers of Toronto president Helen Victoros called the cuts &ldquo;breathtaking in their depth,&rdquo; warning that larger class sizes and fewer specialists will disproportionately harm the board&rsquo;s most vulnerable learners.</p>
+    <p>Among the positions targeted are 175 teachers assigned to the board&rsquo;s Model School program, which provides additional capacity to schools in high-poverty areas, and 95 ESL instructors. TDSB spokesperson Ryan Bird attributed the cuts primarily to a projected enrollment decline of approximately 5,000 students in 2026–27, but trustees and union officials disputed the board&rsquo;s accounting, arguing the projected cuts far exceed what lower enrollment alone would justify. The board is under provincial supervision following Education Minister Paul Calandra&rsquo;s 2025 decision to appoint a supervisor, citing financial mismanagement.</p>
+    <p>Critics from the NDP and parent advocacy groups framed the planned reductions as a consequence of the province&rsquo;s demands for a balanced budget rather than a straightforward enrollment-driven adjustment. CTV News reported Wednesday that the cuts could particularly impact schools whose student populations face the steepest socioeconomic barriers.</p>
+    <div class="source-line">Source: <a href="https://www.ctvnews.ca/toronto/article/tdsb-cuts-could-hit-hard-at-schools-with-less-advantaged-kids-critics-warn/" target="_blank" rel="noopener">CTV News</a> · April 8, 2026</div>
+  </div>
+
+  <!-- POLITICS -->
+  <div class="section-rule" id="canada-politics"><hr><span>Politics</span><hr></div>
+
+  <div class="article">
+    <h3>Conservative MP Marilyn Gladu Crosses Floor to Liberals, Leaving Carney One Seat Shy of Majority</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Ontario Conservative MP Marilyn Gladu announced Wednesday morning that she is joining Prime Minister Mark Carney&rsquo;s Liberal government, becoming the fifth MP and fourth Conservative to cross the floor in as many months. The move brings the Liberal caucus to 171 seats — one short of the 172 needed for a technical majority — with three byelections, two in Toronto-area ridings with strong Liberal prospects, scheduled for Monday.</p>
+    <p>Gladu, who has represented the Sarnia&ndash;Lambton&ndash;Bkejwanong riding since 2015 and won more than 53 per cent of the vote in last year&rsquo;s election, said she acted because her constituents want &ldquo;serious leadership and a real plan to build a stronger and more independent Canadian economy.&rdquo; Standing alongside Carney at a Parliament Hill news conference, she cited her background as a chemical engineer and decades of experience in petrochemicals and international supply chains as the expertise she brings to the governing team. &ldquo;Sarnia Lambton has 30 per cent of the petrochemicals in the country,&rdquo; she said. &ldquo;We need a serious leader who can address the uncertainty that has arrived due to the unjustified American tariffs.&rdquo;</p>
+    <p>The defection drew sharp condemnation from Conservative Leader Pierre Poilievre, who noted that Gladu had publicly supported a petition in January calling for byelections whenever an MP crosses the floor. &ldquo;She should honour her word and let voters decide,&rdquo; Poilievre wrote on social media. The move is the latest in a series of blows to the Conservative caucus; Poilievre is also dealing with the departure of communications director Katy Merrifield. Gladu follows Nova Scotia&rsquo;s Chris d&rsquo;Entremont, Toronto-area MP Michael Ma, Edmonton&rsquo;s Matt Jeneroux, and NDP Nunavut MP Lori Idlout onto the government benches.</p>
+    <div class="source-line">Source: <a href="https://www.cbc.ca/news/politics/conservative-mp-marilyn-gladu-crosses-floor-to-liberals-9.7156167" target="_blank" rel="noopener">CBC News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Fellow Floor-Crosser d&rsquo;Entremont Says Conservative MPs &lsquo;Absolutely&rsquo; Inquire About Joining Liberal Caucus</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Liberal MP Chris d&rsquo;Entremont, himself a former Conservative who crossed the floor in November, said Wednesday that Conservative members of Parliament have &ldquo;absolutely&rdquo; asked him about the experience of switching caucuses and joining the Carney government. Speaking to reporters following the announcement of Gladu&rsquo;s floor-crossing, d&rsquo;Entremont declined to name specific individuals but indicated that the conversations are ongoing and that curiosity about life on the government benches has not abated among Conservative backbenchers.</p>
+    <p>The comments reinforce a pattern in which Carney&rsquo;s Liberals have picked up opposition members one by one since taking power in last April&rsquo;s general election. d&rsquo;Entremont was the first Conservative to cross, followed by Michael Ma in December and Matt Jeneroux in February. Each departure has prompted similar accusations from Poilievre of &ldquo;dirty backroom deals,&rdquo; while Carney has framed the crossings as evidence that Canadians of diverse political backgrounds are uniting around a common agenda of economic resilience and national sovereignty.</p>
+    <p>Federal ethics commissioner rulings have found no conflict-of-interest violations in any of the crossings examined so far. Parliament is not sitting this week, meaning the practical effect of Gladu&rsquo;s defection on House proceedings will first be felt following the Easter recess.</p>
+    <div class="source-line">Source: <a href="https://www.ctvnews.ca/politics/article/conservative-mps-absolutely-ask-about-experience-joining-liberal-caucus-floor-crosser-dentremont/" target="_blank" rel="noopener">CTV News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Feds to Restructure Disinformation Fund, End Program for Hiring Diverse Journalists</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>The federal government will restructure its fund for combating online disinformation and end a separate program designed to support the hiring of journalists from diverse communities, National Post reported Wednesday, citing government sources. The changes are part of a broader review of Heritage Canada spending programs that has been underway since the Carney government took office.</p>
+    <p>The disinformation fund, which was established to support research and civil society efforts to counter the spread of false information online, will be redesigned with a narrower mandate focused on foreign interference rather than domestic media literacy. The diverse journalist hiring program, critics of the cuts say, will leave smaller and community-focused news organizations without federal support at a time when the news industry is already under severe financial strain.</p>
+    <p>Press freedom advocates and journalism organizations were quick to decry the moves, arguing that cutting support for diverse voices in newsrooms runs counter to stated government priorities around representation and inclusion. Heritage Canada officials had not yet released a formal statement on the changes at time of publication.</p>
+    <div class="source-line">Source: <a href="https://nationalpost.com/news/politics/feds-to-restructure-fund-for-combating-disinformation-end-program-for-hiring-diverse-journalists" target="_blank" rel="noopener">National Post</a> · April 8, 2026</div>
+  </div>
+
+  <!-- ECONOMY & BUSINESS -->
+  <div class="section-rule" id="canada-economy"><hr><span>Economy &amp; Business</span><hr></div>
+
+  <div class="market-note">Market data as of close, Wednesday April 8, 2026. Canadian markets benefited from a broad global relief rally following the U.S.&ndash;Iran two-week ceasefire announcement. TSX hit a five-week high as energy prices retreated sharply. All values sourced from live session data.</div>
+  <div class="market-grid">
+    <div class="m-card">
+      <div class="m-label">S&amp;P/TSX</div>
+      <div class="m-value">33,621</div>
+      <div class="m-change up">+383 &nbsp;+1.15%</div>
+      <div class="m-time">Close Apr 8</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">WTI Crude</div>
+      <div class="m-value">$94.41</div>
+      <div class="m-change down">−$18.54 &nbsp;−16.4%</div>
+      <div class="m-time">May contract Apr 8</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">Gold USD/oz</div>
+      <div class="m-value">$4,777</div>
+      <div class="m-change up">+$92 &nbsp;+1.97%</div>
+      <div class="m-time">June contract Apr 8</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">CAD / USD</div>
+      <div class="m-value">0.7220</div>
+      <div class="m-change up">+0.29¢</div>
+      <div class="m-time">Live Apr 9 · XE.com</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">CAD / INR</div>
+      <div class="m-value">₹66.92</div>
+      <div class="m-change down">−0.01</div>
+      <div class="m-time">Live Apr 9 · XE.com</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">CAD / EUR</div>
+      <div class="m-value">€0.6187</div>
+      <div class="m-change flat">≈ flat</div>
+      <div class="m-time">Live Apr 9 · XE.com</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">CAD / GBP</div>
+      <div class="m-value">£0.5429</div>
+      <div class="m-change flat">≈ flat</div>
+      <div class="m-time">Live Apr 9 · XE.com</div>
+    </div>
+  </div>
+  <div class="market-sources">Sources: <a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters</a> · <a href="https://www.bnnbloomberg.ca" target="_blank" rel="noopener">BNN Bloomberg</a> · <a href="https://www.xe.com" target="_blank" rel="noopener">XE.com</a> · <a href="https://www.kitco.com" target="_blank" rel="noopener">Kitco</a></div>
+
+  <div class="article" style="margin-top:20px;">
+    <h3>CAE Cuts 280 Jobs, Mostly in Quebec, as Aviation Giant Braces for Airline Spending Downturn</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Montreal-based flight simulator maker CAE Inc. announced Wednesday it is laying off approximately 280 workers — two per cent of its global workforce — as the company adjusts to anticipated cutbacks in capital spending by commercial airlines. Nearly two-thirds of those affected, approximately 180 positions, are in Quebec, concentrated in the Montreal area where the company is headquartered. The cuts are part of a transformation plan unveiled last year by incoming chief executive Matthew Bromberg, a former U.S. Navy submarine commander tasked with boosting profitability after a decade of expansion.</p>
+    <p>The company confirmed it is also reviewing operations at three training centres in Brussels, Stockholm, and Barcelona with a view to a possible sale, though no final decision has been made. For employees in manufacturing operations in Montreal, CAE said it is offering a work-sharing program to help reduce hours rather than eliminate jobs outright, alongside early retirement packages for eligible staff.</p>
+    <p>CAE&rsquo;s civil aviation unit has faced softening demand — utilization rates at its training centres dropped to 71 per cent in its most recent quarter, down from 76 per cent a year earlier — while its defence business has expanded sharply, with revenue up 14 per cent. Bromberg is expected to lay out further financial targets at a business update in May. The company, which has 13,000 employees in 40 countries, is a major contender for training contracts tied to Canada&rsquo;s upcoming $20-billion-plus submarine procurement.</p>
+    <div class="source-line">Source: <a href="https://www.ctvnews.ca/montreal/article/cae-cuts-280-jobs-including-180-in-quebec/" target="_blank" rel="noopener">CTV News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Union Claims Airlines Flying the Plane on Ottawa&rsquo;s Unpaid Work Probe</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>The union representing flight attendants at several Canadian carriers is urging the federal government to move faster on an investigation into unpaid work in the aviation sector, accusing major airlines of continuing the very practices being probed while the inquiry drags on. The Canadian Union of Public Employees, which represents cabin crew at some carriers, told CTV News Wednesday that flight attendants regularly perform duties — safety checks, boarding assistance, onboarding procedures — for which they are not compensated under current pay structures that only begin ticking once aircraft doors close.</p>
+    <p>Labour Canada opened a formal review of unpaid aviation work last year following a wave of complaints from crew members, but the union argues the department has yet to compel airlines to change their practices in the interim. The complaint echoes broader concerns about compensation gaps in the aviation industry that have led to legal challenges and renegotiated contracts at carriers in the United States, where courts have ruled in favour of flight attendant unions on similar grounds.</p>
+    <p>Air Canada and WestJet both declined to comment on the specifics of the investigation, with spokespeople directing queries to Labour Canada. The federal department confirmed that the review remains open and that findings are expected later this year.</p>
+    <div class="source-line">Source: <a href="https://www.ctvnews.ca/politics/article/union-claims-airlines-are-flying-the-plane-in-ottawas-unpaid-work-probe/" target="_blank" rel="noopener">CTV News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Competition Bureau Opens Probe Into Keyera&rsquo;s Proposed Gas Acquisition</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Canada&rsquo;s Competition Bureau has launched a formal review of Keyera Corp.&rsquo;s proposed acquisition of a natural gas gathering and processing asset, the Financial Post reported Wednesday, adding regulatory uncertainty to a deal that the energy company had framed as a strategic expansion of its Alberta footprint. The Bureau declined to specify the precise transaction under review, but the review signals that regulators have identified potential competition concerns around market concentration in natural gas midstream services.</p>
+    <p>The development comes as Canada&rsquo;s energy sector navigates an unusual period of competing pressures: elevated energy prices driven by the Iran war&rsquo;s impact on global supply chains, domestic political scrutiny of pipeline and processing consolidation, and growing interest from the Carney government in accelerating internal energy infrastructure to reduce reliance on U.S. trade routes. Keyera declined to comment on the Bureau review; the company has positioned itself as a key processor and transporter of condensate and natural gas in the Deep Basin and Montney formation regions.</p>
+    <p>The Competition Bureau has stepped up its scrutiny of energy sector mergers over the past two years, part of a broader push to apply more rigorous standards to deals in sectors deemed critical to Canadian supply chains and economic sovereignty.</p>
+    <div class="source-line">Source: <a href="https://financialpost.com/commodities/energy/oil-gas/competition-bureau-probe-keyera-gas-acquisition" target="_blank" rel="noopener">Financial Post</a> · April 8, 2026</div>
+  </div>
+
+  <!-- SPORTS -->
+  <div class="section-rule" id="canada-sports"><hr><span>Sports</span><hr></div>
+
+  <div class="article">
+    <h3>Blue Jays End Six-Game Skid as Schneider Scores Go-Ahead Run in 4&ndash;3 Win Over Dodgers</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>The Toronto Blue Jays finally snapped a six-game losing streak Wednesday afternoon at Rogers Centre, rallying from behind to beat the Los Angeles Dodgers 4&ndash;3 in front of a matinee crowd of 37,766. The winning run came in the bottom of the eighth inning when outfielder Davis Schneider, having reached on a walk and advanced to third on an Andr&eacute;s Gim&eacute;nez single, raced home after shortstop Miguel Rojas could not corral catcher Will Smith&rsquo;s throw to second base during a stolen-base attempt. &ldquo;I didn&rsquo;t want to get thrown out at home,&rdquo; Schneider said afterward. &ldquo;I was just trying to see it through.&rdquo;</p>
+    <p>Toronto starter Dylan Cease was pulled in the sixth after loading the bases, but reliever Tyler Rogers worked five outs for the win and closer Jeff Hoffman survived a tense ninth — putting two runners aboard before retiring the final two outs — for his second save. Los Angeles starter Shohei Ohtani pitched six solid innings, allowing one unearned run and four hits while extending his on-base streak to 43 games, but left the game trailing after Toronto&rsquo;s late comeback. The win ended the Dodgers&rsquo; five-game winning streak.</p>
+    <p>The victory lifts Toronto to 5&ndash;7 on the season. The Blue Jays have a scheduled off-day Thursday before opening a homestand against the Minnesota Twins on Friday. Manager John Schneider, ejected in the final game of the series opener on Tuesday, will be eligible to return for Friday&rsquo;s contest. &ldquo;It&rsquo;s such a long season,&rdquo; Davis Schneider said. &ldquo;Hopefully we can use this as a jump-start.&rdquo;</p>
+    <div class="source-line">Source: <a href="https://www.ctvnews.ca/toronto/sports/article/schneider-scores-go-ahead-run-as-blue-jays-top-dodgers-4-3-to-end-six-game-skid/" target="_blank" rel="noopener">CTV News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Canada Soccer Reports Surplus as World Cup Preparations Accelerate</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Canada Soccer has posted a significant surplus driven largely by FIFA World Cup&ndash;related revenues, the organization confirmed in financial disclosures reported by CBC this week, offering a notable contrast to the financial turmoil and governance crises that plagued the federation in recent years. The surplus reflects advance payments from FIFA infrastructure contracts, ticketing revenue for Canada&rsquo;s co-hosted matches, and a sharp rise in sponsorship income as brands seek to align with the host nation ahead of the tournament.</p>
+    <p>The organization&rsquo;s improved fiscal position comes after years of deficit budgets and high-profile disputes with both the men&rsquo;s and women&rsquo;s national teams over pay equity, travel conditions, and commercial rights. Canada Soccer leadership credited tighter governance structures, independent board oversight, and a sustained push to grow the federation&rsquo;s commercial portfolio. The men&rsquo;s and women&rsquo;s national teams both have summer tournaments on the calendar as part of broader World Cup warm-up programming.</p>
+    <p>The financial turnaround is particularly significant given that Canada is co-hosting the men&rsquo;s World Cup alongside the United States and Mexico this summer, with major matches scheduled at BC Place in Vancouver and BMO Field in Toronto. Ticket demand has outpaced projections in several host city markets, contributing to the revenue improvement.</p>
+    <div class="source-line">Source: <a href="https://www.cbc.ca/sports/soccer/canada-soccer-surplus-world-cup-fifa-9.7156258" target="_blank" rel="noopener">CBC Sports</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>PWHL Victoire Tops Torrent to Extend Lead in Eastern Division Standings</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Montr&eacute;al Victoire strengthened its grip on first place in the Professional Women&rsquo;s Hockey League&rsquo;s Eastern Division with a victory over the Toronto Torrent, as reported by CBC Sports Wednesday. The win extends Victoire&rsquo;s lead at the top of the division standings with the regular season entering its final stretch. Montr&eacute;al has been one of the PWHL&rsquo;s most consistent teams this season, combining strong goaltending with an efficient offense built around set-piece plays and disciplined defensive structure.</p>
+    <p>The Torrent, for their part, remain in contention for a playoff berth but face a crowded field in the Eastern standings. Their offense has shown flashes of quality but has struggled at times with consistency on the power play, an area coaching staff have identified for improvement in recent weeks. The PWHL&rsquo;s second season has drawn strong attendance and broadcast numbers across its Canadian and U.S. markets, with league expansion discussions ongoing for the 2026&ndash;27 season.</p>
+    <p>The Victoire&ndash;Torrent rivalry has been one of the marquee matchups of the season, with both clubs drawing large crowds and generating significant social media engagement. With several games remaining in the regular season, the playoff picture in the East will likely not be resolved until the final week of play.</p>
+    <div class="source-line">Source: <a href="https://www.cbc.ca/sports/hockey/pwhl/pwhl-victoire-torrent-9.7155846" target="_blank" rel="noopener">CBC Sports</a> · April 8, 2026</div>
+  </div>
+
+  <!-- THIS WEEK IN HISTORY -->
+  <div class="section-rule" id="canada-history"><hr><span>This Week in History</span><hr></div>
+
+  <div class="article">
+    <h3>April 9, 1894: Birth of Cecilia Krieger &mdash; Canada&rsquo;s First Woman to Earn a Mathematics Doctorate</h3>
+    <div class="byline">The Chronicler Canada Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>On this day in 1894, Cypra Cecilia Krieger was born in Jas&#322;o, in the Galician region of what was then Austria-Hungary and is now southern Poland. She would go on to become the first woman — and only the third person overall — to earn a doctorate in mathematics from a Canadian university, completing her PhD at the University of Toronto in 1930. Her achievement was made more remarkable by the era in which it occurred: the University of Toronto officially discouraged the employment of women in academic positions, and for more than twenty years Krieger was held at the rank of Lecturer despite her scholarly distinction.</p>
+    <p>Krieger and her family emigrated to Canada in 1920 amid rising anti-Semitism in Europe, arriving with little English. Within four years she had completed a bachelor&rsquo;s degree in mathematics; within ten she had earned her doctorate under the supervision of W.J. Webber. Her most enduring contribution to the field was her English translation of Polish mathematician Wac&#322;aw Sierpi&#324;ski&rsquo;s foundational texts on general topology — <em>Introduction to General Topology</em> (1934) and <em>General Topology</em> (1952) — making Sierpi&#324;ski&rsquo;s work on set theory and infinite aggregates accessible to the English-speaking mathematics world. The 1952 volume featured a 30-page appendix on infinite cardinals and ordinals that Krieger added herself.</p>
+    <p>A dedicated mentor, Krieger is credited with encouraging mathematician Cathleen Morawetz to pursue graduate studies by arranging fellowship funding through the Canadian Association of University Women. She retired from teaching in 1961 but continued to lecture for several years thereafter. In 1995, the Canadian Mathematical Society established the Krieger&ndash;Nelson Prize — awarded annually to an outstanding woman in mathematics — in her honour and that of Evelyn Nelson. Today marks the 132nd anniversary of her birth.</p>
+    <div class="source-line">Source: <a href="https://thecanadianencyclopedia.ca/en/article/cecilia-krieger" target="_blank" rel="noopener">The Canadian Encyclopedia</a></div>
+  </div>
+
+</div><!-- end canada section-inner -->
+
+<!-- ═══════════════════════ GTA ═══════════════════════ -->
+<div class="section-banner"><span id="gta-current">Greater Toronto Area</span></div>
+<div class="section-inner">
+
+  <!-- GTA WEATHER -->
+  <div class="section-rule"><hr><span>Weather — GTA</span><hr></div>
+  <div class="weather-grid-5">
+    <div class="w-card canada-card">
+      <div class="w-city">Toronto</div>
+      <div class="w-temp">3°</div>
+      <div class="w-cond">🌤️ Partly Cloudy</div>
+      <div class="w-hl">H: 18°C &nbsp; L: 2°C</div>
+      <div class="aqi-badge aqi-mod">AQI: Moderate</div>
+      <div class="w-wind">SE 10 km/h · 72% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌧️</span><span>9°/−1°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>☀️</span><span>9°/2°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>🌦️</span><span>13°/9°</span></div>
+      </div>
+    </div>
+    <div class="w-card canada-card">
+      <div class="w-city">Brampton</div>
+      <div class="w-temp">2°</div>
+      <div class="w-cond">🌤️ Partly Cloudy</div>
+      <div class="w-hl">H: 17°C &nbsp; L: 1°C</div>
+      <div class="aqi-badge aqi-mod">AQI: Moderate</div>
+      <div class="w-wind">SE 11 km/h · 73% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌧️</span><span>8°/−1°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>☀️</span><span>9°/1°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>🌦️</span><span>13°/8°</span></div>
+      </div>
+    </div>
+    <div class="w-card canada-card">
+      <div class="w-city">Markham</div>
+      <div class="w-temp">2°</div>
+      <div class="w-cond">🌤️ Partly Cloudy</div>
+      <div class="w-hl">H: 17°C &nbsp; L: 1°C</div>
+      <div class="aqi-badge aqi-good">AQI: Good</div>
+      <div class="w-wind">SE 9 km/h · 70% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌧️</span><span>8°/−2°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>☀️</span><span>9°/1°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>🌦️</span><span>13°/8°</span></div>
+      </div>
+    </div>
+    <div class="w-card canada-card">
+      <div class="w-city">Oakville</div>
+      <div class="w-temp">4°</div>
+      <div class="w-cond">🌤️ Partly Cloudy</div>
+      <div class="w-hl">H: 18°C &nbsp; L: 3°C</div>
+      <div class="aqi-badge aqi-good">AQI: Good</div>
+      <div class="w-wind">SW 10 km/h · 70% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌧️</span><span>9°/0°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>☀️</span><span>10°/3°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>🌦️</span><span>14°/10°</span></div>
+      </div>
+    </div>
+    <div class="w-card canada-card">
+      <div class="w-city">Whitby</div>
+      <div class="w-temp">1°</div>
+      <div class="w-cond">🌤️ Partly Cloudy</div>
+      <div class="w-hl">H: 16°C &nbsp; L: 0°C</div>
+      <div class="aqi-badge aqi-good">AQI: Good</div>
+      <div class="w-wind">SE 8 km/h · 71% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌧️</span><span>7°/−2°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>☀️</span><span>8°/1°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>🌦️</span><span>12°/7°</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="w-source">Weather data: Environment Canada. Updated April 9, 2026, 6:00 AM EDT.</div>
+
+  <!-- GTA CURRENT EVENTS -->
+  <div class="section-rule"><hr><span>Current Events</span><hr></div>
+
+  <div class="article">
+    <h3>Ontario Falling Behind U.S. Neighbours, and the Gap Is Widening, New Report Finds</h3>
+    <div class="byline">The Chronicler GTA Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Ontario is losing economic ground to comparable American states at an accelerating pace, according to a new report flagged by CP24 Wednesday. The analysis documents widening gaps in productivity, per capita income, and business investment between Ontario and a range of neighbouring and peer U.S. jurisdictions, with the authors warning that the province&rsquo;s structural competitiveness challenges pre-date the current tariff environment and will persist beyond any resolution to trade tensions with Washington.</p>
+    <p>Researchers identified several compounding factors: relatively higher business costs including electricity and commercial property, a regulatory environment that companies describe as slower and less predictable than competing jurisdictions, and a skills mismatch in certain high-growth sectors. The report also pointed to population growth that has outpaced infrastructure and housing supply as a drag on productivity and quality of life, feeding into wage-to-cost-of-living dynamics that are becoming increasingly difficult for employers to navigate.</p>
+    <p>Provincial officials disputed the framing, pointing to sustained employment growth and major investment announcements in the electric vehicle and battery supply chain sectors. But the authors argued that headline job numbers mask underlying productivity weakness and that Ontario&rsquo;s share of national GDP has been quietly declining relative to its population weight.</p>
+    <div class="source-line">Source: <a href="https://www.cp24.com/local/toronto/2026/04/08/new-report-finds-ontario-is-falling-behind-its-us-neighbours-and-the-gap-is-widening/" target="_blank" rel="noopener">CP24</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Ontario Trucking Network Charged in Major Cross-Border Drug Smuggling Operation</h3>
+    <div class="byline">The Chronicler GTA Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>A coordinated Canada Border Services Agency and Ontario Provincial Police operation has dismantled a trucking-based drug smuggling network stretching from southern Ontario through multiple U.S. border crossings, National Post reported this week. Investigators allege that the organization used commercial trucking infrastructure to move narcotics — primarily fentanyl and methamphetamine — into Canada, exploiting the volume of trade traffic at southern Ontario crossings to conceal contraband. Several individuals with connections to the Greater Toronto Area trucking industry have been charged.</p>
+    <p>CBSA officials described the operation as one of the more sophisticated organized crime structures they have encountered in the commercial freight sector, noting that the network used a rotating cast of drivers, front companies, and altered manifests to evade detection. The investigation, which stretched over more than a year, involved cooperation with U.S. authorities who tracked associated flows on the American side of the border.</p>
+    <p>The case adds to growing concerns about the vulnerability of Canada&rsquo;s commercial freight sector to organized crime infiltration. Law enforcement agencies have in recent years pointed to the sheer volume of cross-border trade — hundreds of billions of dollars annually — as a structural challenge that provides criminal organizations with cover for smuggling operations.</p>
+    <div class="source-line">Source: <a href="https://nationalpost.com/news/true-crime/ontario-trucking-drug-smuggling" target="_blank" rel="noopener">National Post</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Historic McLaughlin Planetarium Being Demolished After Decades of Closure</h3>
+    <div class="byline">The Chronicler GTA Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>The former McLaughlin Planetarium, a landmark of downtown Toronto&rsquo;s museum district that closed its doors in 1995 and has sat in a state of limbo ever since, is finally being demolished, CTV News reported Wednesday. The beehive-domed building adjacent to the Royal Ontario Museum on Bloor Street was a beloved institution for generations of Toronto schoolchildren but fell victim to budget cuts and changing exhibition technology in the mid-1990s, with no viable plan emerging in the three decades since to restore or repurpose it.</p>
+    <p>The ROM has long held the property but indicated it does not have the financial resources to convert the planetarium into a functioning venue. Various proposals over the years — including a digital entertainment complex and an expanded museum gallery — failed to attract the necessary funding or approvals. Toronto city councillors and heritage advocates have periodically called for preservation of the structure, which is not formally heritage-designated, but the demolition proceeded without a formal review process.</p>
+    <p>For many Torontonians who grew up attending its star shows and space-themed programming in the 1970s and 1980s, the building&rsquo;s demolition marks the passing of an era of publicly accessible science education in the city core. Some advocates are pushing for a new public planetarium facility, though no government at any level has committed funding for such a project.</p>
+    <div class="source-line">Source: <a href="https://www.ctvnews.ca/toronto/article/former-mclaughlin-planetarium-in-downtown-toronto-being-demolished/" target="_blank" rel="noopener">CTV News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Train Derailment Near Niagara Disrupts GO Service on Lakeshore West Line</h3>
+    <div class="byline">The Chronicler GTA Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>A GO train derailment on the Lakeshore West corridor near Niagara disrupted service along one of the region&rsquo;s busiest transit lines Wednesday, CBC Hamilton reported, forcing Metrolinx to implement bus bridge service while crews assessed the derailed cars and cleared the track. No injuries were reported, and Metrolinx confirmed the derailment occurred in a section of track away from active passenger service at the time of the incident. The affected cars were part of an equipment movement rather than a revenue service run, though the resulting line blockage forced cancellations and delays for regular passengers for several hours.</p>
+    <p>The incident is the latest in a series of service disruptions on the GO network, which has been under strain as ridership has grown significantly since the return to office trends intensified following the Iran war energy shock and subsequent economic uncertainty. Metrolinx said track crews and CN Rail maintenance teams worked through the day to restore operations, with limited service resuming by early evening. Full restoration of normal scheduling was expected by Thursday morning.</p>
+    <div class="source-line">Source: <a href="https://www.cbc.ca/news/canada/hamilton/niagara-go-trains-train-derailment-9.7156577" target="_blank" rel="noopener">CBC News</a> · April 8, 2026</div>
+  </div>
+
+  <!-- GTA POLITICS -->
+  <div class="section-rule" id="gta-politics"><hr><span>Politics</span><hr></div>
+
+  <div class="article">
+    <h3>Ontario Municipalities Say Province Owes Them Billions, as Funding Gap Widens</h3>
+    <div class="byline">The Chronicler GTA Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Ontario&rsquo;s municipalities are sounding the alarm over a growing structural funding gap between the services they are required to deliver and the revenue they receive from the province, CBC News reported this week. The Association of Municipalities of Ontario estimates the shortfall has now reached several billion dollars annually, driven by downloading of social services, declining provincial grants for transit and housing, and the impact of growth-driven infrastructure costs that municipalities absorb without commensurate provincial support.</p>
+    <p>Toronto, Brampton, and Hamilton have been particularly vocal, with their respective mayors writing to the Minister of Municipal Affairs outlining specific line items where provincial transfers have failed to keep pace with obligations. The Carney government&rsquo;s $51-billion Build Communities Strong Fund, announced last week in Brampton, was welcomed as a positive signal but critics noted that the federal program alone cannot resolve a structural imbalance rooted in the Ontario government&rsquo;s fiscal relationship with its municipalities.</p>
+    <p>Municipal councillors say the gap is increasingly visible in deteriorating local infrastructure, stretched social services, and difficult choices between raising property taxes and cutting programs. The provincial government has maintained that it provides significant per-capita funding and that municipalities need to be more efficient in delivering services.</p>
+    <div class="source-line">Source: <a href="https://www.cbc.ca/news/canada/toronto/ontario-municipalities-funding-gap-9.7150596" target="_blank" rel="noopener">CBC News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Northeast Pickering Development Decision Delayed for Indigenous Consultation</h3>
+    <div class="byline">The Chronicler GTA Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>A provincial decision on a major planned development in northeast Pickering has been delayed to allow for additional consultations with local First Nations, CBC News reported Wednesday, following representations from Indigenous communities who argued their rights and treaty interests had not been adequately considered in the planning process. The Durham Region lands in question have been eyed by developers for a significant mixed-use community, but the delay signals that unresolved Indigenous consultation requirements continue to complicate large-scale urban growth decisions in the Greater Golden Horseshoe region.</p>
+    <p>Representatives of the Mississaugas of Scugog Island First Nation and other parties with interests in the area indicated they had raised concerns about archaeological heritage, water management, and treaty rights in the proposed development footprint. The province has committed to a structured consultation process before any approvals advance further, though a revised timeline has not yet been set. The delay adds to a growing list of major development projects across the GTA where Indigenous rights reviews are changing the pace and shape of approvals.</p>
+    <div class="source-line">Source: <a href="https://www.cbc.ca/news/canada/toronto/planned-northeast-pickering-development-decision-delayed-for-first-nations-consultations-9.7151935" target="_blank" rel="noopener">CBC News</a> · April 8, 2026</div>
+  </div>
+
+  <!-- GTA ECONOMY & BUSINESS -->
+  <div class="section-rule" id="gta-economy"><hr><span>Economy &amp; Business</span><hr></div>
+
+  <div class="article">
+    <h3>Gas Prices Set for Significant Drop at Ontario Pumps Friday as Oil Plunges on Ceasefire</h3>
+    <div class="byline">The Chronicler GTA Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Motorists across the GTA and Ontario can expect a meaningful reduction at the pumps beginning Friday, as the sharp fall in global crude oil prices following the U.S.&ndash;Iran two-week ceasefire announcement works through the wholesale pricing chain, CTV News reported Wednesday citing fuel price analyst Dan McTeague. WTI crude fell more than $18 per barrel in Wednesday trading, the largest single-day decline in more than a year, after Iran agreed to temporarily allow transit through the Strait of Hormuz as part of the truce conditions.</p>
+    <p>McTeague noted that Ontario drivers could see retail gasoline prices fall by as much as 10 to 12 cents per litre at Friday&rsquo;s pricing reset, providing welcome relief after weeks of historically elevated fuel costs driven by the Hormuz disruption. However, analysts cautioned that the reduction could be short-lived if the ceasefire collapses — as appeared plausible Wednesday evening when Iran re-closed the strait in response to Israeli attacks in Lebanon. The fragility of the agreement means any sustained price normalization remains contingent on the diplomatic process in Islamabad holding together.</p>
+    <p>Average regular gasoline prices in Toronto had risen above $2 per litre at points during the war&rsquo;s most acute phases, creating significant cost pressures for households and businesses dependent on road transport. The spring relief, however temporary, offers a measure of respite heading into the peak driving season.</p>
+    <div class="source-line">Source: <a href="https://www.ctvnews.ca/toronto/article/significant-price-drop-expected-at-the-pumps-on-friday-analyst/" target="_blank" rel="noopener">CTV News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Eastern Ontario Hospitals Post Alarming Deficits as Health Funding Falls Short</h3>
+    <div class="byline">The Chronicler GTA Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>New financial data published by CBC Ottawa reveals a grim picture of hospital fiscal health across eastern Ontario, with multiple facilities running structural deficits as provincial funding fails to keep pace with the rising costs of labour, supplies, and energy. The data, drawn from hospital financial reports filed with the Ministry of Health, shows that several mid-sized community hospitals in the Ottawa Valley and surrounding regions have been operating in the red for consecutive fiscal years, depleting reserve funds and limiting their ability to invest in equipment upgrades or service expansions.</p>
+    <p>Hospital administrators cited staffing costs — particularly for nursing, where persistent shortages have forced reliance on agency nurses at premium rates — and elevated energy bills during the Iran war energy shock as compounding pressures that overwhelmed their base provincial allocations. Several hospitals have written to the ministry asking for bridging funds; most have yet to receive a formal response. Health sector unions argue the province has systematically underfunded hospital operations while simultaneously demanding balanced books, a combination they describe as a formula for service degradation.</p>
+    <div class="source-line">Source: <a href="https://www.cbc.ca/news/canada/ottawa/how-financially-healthy-is-your-hospital-eastern-ontario-data-reveals-a-grim-picture-9.7151207" target="_blank" rel="noopener">CBC News</a> · April 8, 2026</div>
+  </div>
+
+  <!-- GTA SPORTS -->
+  <div class="section-rule" id="gta-sports"><hr><span>Sports</span><hr></div>
+
+  <div class="article">
+    <h3>Blue Jays&rsquo; Davis Schneider Scores Walk-Off on Dodgers Error to End Six-Game Slide</h3>
+    <div class="byline">The Chronicler GTA Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>In a matinee at Rogers Centre that felt like a turning point for a season gone sideways early, the Toronto Blue Jays beat the Los Angeles Dodgers 4&ndash;3 Wednesday, ending a six-game losing streak that had the home dugout in a quiet funk. The deciding moment came in the eighth inning: Davis Schneider, having worked a walk against reliever Ben Casparius, sprinted home from third base when catcher Will Smith&rsquo;s throw to second on Andr&eacute;s Gim&eacute;nez&rsquo;s stolen-base attempt skipped past shortstop Miguel Rojas. The run gave Toronto a 4&ndash;3 lead they did not surrender.</p>
+    <p>The win was sweet for a Blue Jays side that had lost the first two games of the series, including a Tuesday contest in which manager John Schneider was ejected. Shohei Ohtani was on the mound for Los Angeles and pitched six innings of controlled baseball, but the Jays pecked away against the Dodgers&rsquo; bullpen to force extra traffic in the seventh and ultimately manufacture the winning sequence in the eighth. Closer Jeff Hoffman, working on a second save, left a pair of runners on base in the ninth before retiring Freddie Freeman on a weak grounder to end the game.</p>
+    <p>The Blue Jays at 5&ndash;7 sit below .500 but remain very much within striking distance in the American League East. Friday&rsquo;s homestand opener against Minnesota provides an immediate opportunity to build momentum. &ldquo;You need a win to just get back to neutral,&rdquo; said manager John Schneider. &ldquo;Shake hands, high five, get the lights on in the clubhouse.&rdquo;</p>
+    <div class="source-line">Source: <a href="https://www.ctvnews.ca/toronto/sports/article/schneider-scores-go-ahead-run-as-blue-jays-top-dodgers-4-3-to-end-six-game-skid/" target="_blank" rel="noopener">CTV News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Raptors Battle Through Injuries for 121&ndash;95 Rout of Miami as Playoff Spot Beckons</h3>
+    <div class="byline">The Chronicler GTA Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Scottie Barnes scored 25 points with eight rebounds and five assists Tuesday night as the Toronto Raptors demolished the Miami Heat 121&ndash;95 at Scotiabank Arena, tightening their hold on the sixth and final playoff seed in the Eastern Conference with only three regular-season games remaining. It was a display of collective resilience from a club that, by head coach Darko Rajakovic&rsquo;s own admission, played through significant pain. Barnes himself had taken a hard shot to the ribs in Saturday&rsquo;s loss to Boston but gutted through it. &ldquo;I&rsquo;ve been banged up,&rdquo; Barnes said afterward. &ldquo;You&rsquo;ve just got to play through it.&rdquo;</p>
+    <p>Rookie centre Collin Murray-Boyles contributed six points and eight rebounds with two blocks and a steal, finishing plus-17 in his minutes despite managing a right-quad contusion and a sprained left thumb that has nagged him most of the year. Immanuel Quickley, playing with plantar fasciitis, started and provided three points and four assists in 18 minutes. Rajakovic said the Heat had been held under 100 points only six times all season — three of those by Toronto. &ldquo;Several guys played banged up, played through a lot of pain,&rdquo; the coach said. &ldquo;That&rsquo;s the NBA. That&rsquo;s the part of the season we&rsquo;re in.&rdquo;</p>
+    <p>The Heat loss effectively locked Miami out of anything better than seventh in the East, meaning they will face the play-in tournament regardless. Wednesday&rsquo;s opponent is again Miami, giving the Raptors a chance to extend their advantage before road games close the season.</p>
+    <div class="source-line">Source: <a href="https://www.cp24.com/news/sports/2026/04/08/banged-up-toronto-raptors-playing-through-the-pain-to-close-in-on-a-playoff-spot/" target="_blank" rel="noopener">CP24</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Stolarz Helped Off Ice After Lower-Body Injury as Leafs Fall 4&ndash;0 to Capitals</h3>
+    <div class="byline">The Chronicler GTA Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Toronto Maple Leafs goaltender Anthony Stolarz was helped off the ice just two minutes and 34 seconds into Wednesday night&rsquo;s game against the Washington Capitals after stretching out his left leg to make a save on a Cole Hutson shot, collapsing to the ice in visible distress. The 32-year-old was attended to by the team&rsquo;s medical staff before teammates assisted him down the tunnel to the dressing room; a lower-body injury was confirmed, though the extent remained unknown as of game&rsquo;s end. Backup Joseph Woll replaced him, allowing four goals in the Leafs&rsquo; 4&ndash;0 loss.</p>
+    <p>Head coach Craig Berube said after the game that Stolarz must undergo imaging before any prognosis can be offered. &ldquo;I don&rsquo;t know right now. Gotta get some imaging done,&rdquo; Berube said when asked whether Stolarz could return for the final four games of a season already ruined by the Leafs&rsquo; playoff elimination. To fill the void, Artur Akhtyamov was recalled from the AHL&rsquo;s Toronto Marlies and will make his first NHL start Thursday against the New York Islanders. Defenceman Brandon Carlo and forward Dakota Joshua also sustained injuries and will miss Thursday&rsquo;s contest.</p>
+    <p>Stolarz, who is in his second season in Toronto after signing as a free agent in 2024, struggled with a nerve-related upper-body issue that kept him out for 33 games earlier in the season. He had appeared to find his rhythm since February, posting a .914 save percentage in 11 appearances. His new four-year contract begins next season, making the health update closely watched.</p>
+    <div class="source-line">Source: <a href="https://www.cp24.com/news/sports/2026/04/09/stolarz-departs-maple-leafs-game-against-capitals-with-lower-body-injury/" target="_blank" rel="noopener">CP24</a> · April 9, 2026</div>
+  </div>
+
+</div><!-- end gta section-inner -->
+
+<!-- ═══════════════════════ INDIA ═══════════════════════ -->
+<div class="section-banner"><span id="india-current">India</span></div>
+<div class="section-inner">
+
+  <!-- INDIA WEATHER -->
+  <div class="section-rule"><hr><span>Weather — Major Cities</span><hr></div>
+  <div class="weather-grid-6">
+    <div class="w-card india-card">
+      <div class="w-city">New Delhi</div>
+      <div class="w-temp">28°</div>
+      <div class="w-cond">☀️ Sunny &amp; Hazy</div>
+      <div class="w-hl">H: 35°C &nbsp; L: 19°C</div>
+      <div class="aqi-badge aqi-poor">AQI: Poor</div>
+      <div class="w-wind">NW 14 km/h · 40% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>☀️</span><span>36°/20°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>🌤️</span><span>35°/19°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>⛅</span><span>34°/20°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-city">Hyderabad</div>
+      <div class="w-temp">30°</div>
+      <div class="w-cond">⛅ Partly Cloudy</div>
+      <div class="w-hl">H: 37°C &nbsp; L: 24°C</div>
+      <div class="aqi-badge aqi-mod">AQI: Moderate</div>
+      <div class="w-wind">SW 12 km/h · 45% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌦️</span><span>36°/25°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>🌧️</span><span>34°/24°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>⛅</span><span>35°/25°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-city">Mumbai</div>
+      <div class="w-temp">31°</div>
+      <div class="w-cond">🌤️ Mostly Sunny</div>
+      <div class="w-hl">H: 34°C &nbsp; L: 27°C</div>
+      <div class="aqi-badge aqi-mod">AQI: Moderate</div>
+      <div class="w-wind">SW 18 km/h · 65% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌤️</span><span>34°/27°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>⛅</span><span>33°/26°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>🌦️</span><span>33°/27°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-city">Bengaluru</div>
+      <div class="w-temp">26°</div>
+      <div class="w-cond">🌦️ Pre-Monsoon</div>
+      <div class="w-hl">H: 30°C &nbsp; L: 21°C</div>
+      <div class="aqi-badge aqi-good">AQI: Good</div>
+      <div class="w-wind">SE 10 km/h · 58% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌧️</span><span>29°/21°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>🌦️</span><span>30°/22°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>⛅</span><span>30°/22°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-city">Chennai</div>
+      <div class="w-temp">33°</div>
+      <div class="w-cond">☀️ Hot &amp; Humid</div>
+      <div class="w-hl">H: 37°C &nbsp; L: 27°C</div>
+      <div class="aqi-badge aqi-mod">AQI: Moderate</div>
+      <div class="w-wind">SE 14 km/h · 72% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>☀️</span><span>37°/27°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>🌤️</span><span>37°/27°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>⛅</span><span>36°/27°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-city">Pune</div>
+      <div class="w-temp">28°</div>
+      <div class="w-cond">⛅ Partly Cloudy</div>
+      <div class="w-hl">H: 34°C &nbsp; L: 21°C</div>
+      <div class="aqi-badge aqi-good">AQI: Good</div>
+      <div class="w-wind">NW 10 km/h · 48% humidity</div>
+      <div class="w-forecast">
+        <div class="w-fc-day"><span>Fri</span><span>🌦️</span><span>33°/21°</span></div>
+        <div class="w-fc-day"><span>Sat</span><span>⛅</span><span>33°/22°</span></div>
+        <div class="w-fc-day"><span>Sun</span><span>☀️</span><span>34°/22°</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="w-source">Weather data: IMD (India Meteorological Department). Updated April 9, 2026.</div>
+
+  <!-- INDIA CURRENT EVENTS -->
+  <div class="section-rule"><hr><span>Current Events</span><hr></div>
+
+  <div class="article">
+    <h3>Supreme Court Pushes Back on Government&rsquo;s Faith Argument in Waqf Amendment Case</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>The Supreme Court of India on Wednesday pushed back against the central government&rsquo;s contention that a faith-based threshold should determine who can administer Waqf properties, with the bench telling the government&rsquo;s counsel that legislative provisions &ldquo;cannot be completely denuded&rdquo; of constitutional scrutiny by invoking religious character alone. The observation came during hearings on petitions challenging the Waqf (Amendment) Act, which critics argue diminishes the autonomy of Waqf boards and opens the door to state interference in Muslim charitable endowments.</p>
+    <p>The bench, comprising Chief Justice and two other justices, questioned whether the government&rsquo;s position adequately addressed constitutional concerns around Articles 25 and 26, which protect the rights of religious denominations to manage their own affairs. Solicitor General Tushar Mehta, appearing for the Union, argued that the amendments were aimed at improving governance and preventing mismanagement of Waqf assets — a framing the petitioners rejected as a pretext for encroachment on minority religious rights.</p>
+    <p>The case has drawn significant attention from Muslim organizations, civil society groups, and opposition parties who argue that the legislation is part of a pattern of centralizing control over minority institutions. The court indicated it would continue hearing arguments before deciding whether to stay specific provisions of the Act.</p>
+    <div class="source-line">Source: <a href="https://www.hindustantimes.com/india-news/supreme-court-pushes-back-against-centres-faith-argument-cant-be-completely-denuded-101775703635245.html" target="_blank" rel="noopener">Hindustan Times</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>RBI Holds Rate, Projects Lower Growth and Higher Inflation Amid Iran War Fallout</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>The Reserve Bank of India kept its benchmark repo rate unchanged at 5.25 per cent Wednesday in a unanimous Monetary Policy Committee vote, adopting a cautious stance as it navigated the competing pressures of an energy price shock and a fragile domestic growth outlook caused by the U.S.&ndash;Iran war and the closure of the Strait of Hormuz. Governor Sanjay Malhotra said the committee had downgraded its growth forecast for the current fiscal year while simultaneously revising inflation projections upward, reflecting the imported price pressures from elevated global crude and fertilizer costs.</p>
+    <p>The RBI noted that India, as one of the world&rsquo;s largest oil importers, faces an asymmetric exposure to the Hormuz disruption — higher energy costs feed directly into consumer prices, logistics costs, and agricultural input costs. Malhotra said the committee was in &ldquo;wait and watch&rdquo; mode, monitoring whether the newly announced U.S.&ndash;Iran ceasefire would produce a durable easing of supply disruptions or whether its fragility would perpetuate volatility. The rupee had depreciated sharply during the war&rsquo;s most intense period, complicating the rate calculus.</p>
+    <p>The rate hold was broadly in line with market expectations, though some economists had argued for a precautionary cut given signs of demand softening in the manufacturing and construction sectors. Equity markets responded enthusiastically to both the hold and the ceasefire news, with the Sensex surging nearly 4 per cent — its best single-day performance in several years.</p>
+    <div class="source-line">Source: <a href="https://www.hindustantimes.com/india-news/rbi-projects-low-growth-high-inflation-amid-west-asia-conflict-in-wait-and-watch-mode-indian-economy-us-iran-war-101775702427810.html" target="_blank" rel="noopener">Hindustan Times</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>India Eases LPG Curbs, Allocates More Gas to Fertiliser Plants Amid Hormuz Energy Crunch</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>The Indian government announced Wednesday a partial rollback of restrictions on liquefied petroleum gas usage and an increase in natural gas allocations to fertiliser plants, seeking to cushion domestic food production from the supply disruptions caused by the Iran war and the Strait of Hormuz closure. The moves reflect the government&rsquo;s attempt to protect agriculture — and by extension food price stability — as global LPG supplies tightened and prices surged following the conflict&rsquo;s outbreak.</p>
+    <p>Officials said fertiliser plants had been operating below capacity due to inadequate gas supply, threatening the country&rsquo;s Kharif and Rabi cropping seasons if domestic fertiliser production remained constrained. By reallocating gas from certain industrial users and relaxing earlier conservation measures, the government aims to restore fertiliser output to near-normal levels ahead of the planting season. The announcement was welcomed by farmers&rsquo; organizations but drew some criticism from industrial users who will face tighter allocations.</p>
+    <p>India has also been accelerating alternative sourcing arrangements, including long-term LPG supply agreements with Gulf producers and increased procurement from non-Gulf suppliers including the United States and Australia. The ceasefire announced Tuesday offers the prospect of a partial normalization of Hormuz flows, but officials cautioned that logistics normalization would take weeks even under the most optimistic scenario.</p>
+    <div class="source-line">Source: <a href="https://www.hindustantimes.com/india-news/india-rolls-back-some-lpg-curbs-allots-more-gas-to-fertiliser-plants-us-iran-war-energy-crisis-hormuz-101775702351325.html" target="_blank" rel="noopener">Hindustan Times</a> · April 8, 2026</div>
+  </div>
+
+  <!-- INDIA POLITICS -->
+  <div class="section-rule" id="india-politics"><hr><span>Politics</span><hr></div>
+
+  <div class="article">
+    <h3>NDA Workers Booked in Cash-for-Votes Case in Kerala&rsquo;s Palakkad Constituency</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Election officials in Kerala booked several National Democratic Alliance workers in the Palakkad constituency on Wednesday on allegations of distributing cash inducements to voters ahead of Thursday&rsquo;s state assembly election, Hindustan Times reported. The arrests came as part of a broad enforcement operation that the Election Commission of India deployed across Kerala, Assam, and Puducherry — all of which vote on April 9 in what amounts to one of the largest simultaneous multi-state election days of 2026.</p>
+    <p>Flying squads in Palakkad intercepted cash and materials alleged to have been used for voter inducement, in a constituency that has been one of the most closely contested battlegrounds in the state. Officials confirmed that formal cases had been registered and that the individuals detained would be produced before election-designated magistrates. The BJP, whose state unit is the dominant component of the Kerala NDA, denied any organized cash distribution effort, attributing the seizures to mischaracterized routine campaign activity.</p>
+    <p>Kerala&rsquo;s election is being watched closely as a test of whether the Left Democratic Front&rsquo;s second consecutive term has generated enough goodwill to carry the party back to power, or whether the Congress-led United Democratic Front can capitalize on governance fatigue. The BJP is competing on a smaller slate but is competitive in a handful of constituencies including Palakkad.</p>
+    <div class="source-line">Source: <a href="https://www.hindustantimes.com/india-news/nda-workers-booked-in-cash-for-votes-case-in-palakkad-officials-101775679394605.html" target="_blank" rel="noopener">Hindustan Times</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Scholars Write to President Over NCERT Book Ban, Warn of Attack on Academic Freedom</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>A group of prominent scholars and retired educators has written a formal letter to President Droupadi Murmu urging intervention over what they describe as an ideologically motivated ban on certain NCERT textbooks and supplementary educational materials, Hindustan Times reported Wednesday. The signatories — historians, sociologists, and scientists among them — argued that changes to the national curriculum and the removal of specific content from school textbooks constitute a politically driven rewriting of history and science that will damage India&rsquo;s educational standards and international academic standing.</p>
+    <p>The letter cited specific examples including alterations to historical narratives of the Mughal period and changes to civic education content describing constitutional values. The scholars urged the President to direct the government to convene a transparent review process involving independent academics before any further curriculum changes are implemented.</p>
+    <p>NCERT officials defended the revisions as a necessary exercise in updating outdated content and aligning curricula with contemporary pedagogical standards, dismissing the letter as politically motivated opposition. The controversy is part of a broader ongoing debate about the relationship between government, educational institutions, and academic freedom in India.</p>
+    <div class="source-line">Source: <a href="https://www.hindustantimes.com/india-news/scholars-write-to-president-over-ncert-book-ban-101775702077221.html" target="_blank" rel="noopener">Hindustan Times</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Andhra Opposition Claims Government Misled Council Over Borrowing Records</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Andhra Pradesh&rsquo;s Leader of Opposition told the Legislative Council on Wednesday that the state government had &ldquo;misled&rdquo; the house by providing incomplete and inaccurate records of the state&rsquo;s total borrowings and outstanding debt obligations, Hindustan Times reported. The accusation was levelled during a budget session debate in which opposition members alleged that the YSRCP-led government had deliberately obscured the scale of contingent liabilities and off-balance-sheet commitments that would fall due to the incoming administration following the recent change of power.</p>
+    <p>The dispute over Andhra&rsquo;s debt profile has been a running point of contention between the outgoing YSRCP and the now-governing Telugu Desam Party alliance, with TDP leadership claiming the true fiscal position they inherited was significantly worse than disclosed before the election. Finance department officials from the previous government disputed the characterization, arguing that all statutory disclosures were made correctly and that any apparent gaps reflected accounting conventions rather than deliberate concealment.</p>
+    <div class="source-line">Source: <a href="https://www.hindustantimes.com/india-news/andhra-govt-misled-council-on-records-of-borrowings-lop-101775679034680.html" target="_blank" rel="noopener">Hindustan Times</a> · April 8, 2026</div>
+  </div>
+
+  <!-- INDIA ECONOMY -->
+  <div class="section-rule" id="india-economy"><hr><span>Economy &amp; Business</span><hr></div>
+
+  <div class="market-note">Indian market data reflects the April 8, 2026 close. BSE/NSE close at approximately 5:00 AM ET. INR/USD sourced from NSE futures data (April 9). Gold in INR sourced from MCX India April 8 close.</div>
+  <div class="market-grid">
+    <div class="m-card">
+      <div class="m-label">Sensex</div>
+      <div class="m-value">77,563</div>
+      <div class="m-change up">+2,946 &nbsp;+3.95%</div>
+      <div class="m-time">Close Apr 8</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">Nifty 50</div>
+      <div class="m-value">23,997</div>
+      <div class="m-change up">+874 &nbsp;+3.78%</div>
+      <div class="m-time">Close Apr 8</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">Gold INR/10g</div>
+      <div class="m-value">₹96,850</div>
+      <div class="m-change up">+1,420 &nbsp;est.</div>
+      <div class="m-time">MCX Apr 8</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">INR / USD</div>
+      <div class="m-value">₹92.51</div>
+      <div class="m-change up">+0.20</div>
+      <div class="m-time">NSE Futures Apr 9</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">INR / CAD</div>
+      <div class="m-value">₹0.01494</div>
+      <div class="m-change flat">≈ flat</div>
+      <div class="m-time">Live Apr 9 · XE.com</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">INR / GBP</div>
+      <div class="m-value">₹0.00811</div>
+      <div class="m-change flat">≈ flat</div>
+      <div class="m-time">Live Apr 9 · XE.com</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">INR / EUR</div>
+      <div class="m-value">₹0.00925</div>
+      <div class="m-change flat">≈ flat</div>
+      <div class="m-time">Live Apr 9 · XE.com</div>
+    </div>
+  </div>
+  <div class="market-sources">Sources: <a href="https://www.bseindia.com" target="_blank" rel="noopener">BSE India</a> · <a href="https://www.nseindia.com" target="_blank" rel="noopener">NSE India</a> · <a href="https://www.xe.com" target="_blank" rel="noopener">XE.com</a> · MCX India</div>
+
+  <div class="article" style="margin-top:20px;">
+    <h3>RBI Trims Core Inflation Forecast for FY27 as Ceasefire Eases Energy Pressure</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>The Reserve Bank of India revised its core inflation projection for FY2026&ndash;27 downward at Wednesday&rsquo;s monetary policy meeting, reflecting expectations that the U.S.&ndash;Iran two-week ceasefire, if it holds, will allow crude oil prices to ease from their war-elevated levels and relieve some of the imported inflationary pressure that has weighed on Indian consumer prices since late February. Governor Sanjay Malhotra told reporters that the revision was conditional on the ceasefire proving durable and that the committee retained a cautious bias given the fragility of the agreement and Iran&rsquo;s subsequent re-closure of the Strait of Hormuz on Wednesday evening.</p>
+    <p>Livemint reported that the MPC&rsquo;s projections incorporate a range of scenarios for crude oil prices over the next four quarters, with the baseline assuming a gradual normalization of Hormuz transit flows over six to eight weeks. Under that baseline, consumer inflation is expected to ease toward the RBI&rsquo;s 4 per cent target in the second half of FY27, though food prices remain elevated due to fertiliser cost pass-throughs already embedded in the agricultural supply chain.</p>
+    <p>Markets welcomed both the rate hold and the inflation outlook revision. The Sensex recorded its largest single-day gain in five years, with banking and FMCG stocks leading the advance on expectations of improved consumption demand if energy costs moderate as forecast.</p>
+    <div class="source-line">Source: <a href="https://www.livemint.com/economy/rbi-core-inflation-projection-fy27-sanjay-malhotra-11775627983377.html" target="_blank" rel="noopener">Livemint</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>India Launches Rare Earth Magnet Manufacturing Scheme to Attract Investment</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>The Indian government unveiled a production-linked incentive scheme targeting rare earth permanent magnet manufacturing, aiming to attract both domestic and foreign investment into a sector of growing strategic importance for India&rsquo;s electric vehicle, defence, and renewable energy industries. The scheme, reported by Livemint, will offer tiered incentives over a five-year period for companies that establish domestic rare earth processing and magnet fabrication facilities, reducing India&rsquo;s dependence on Chinese-dominated global rare earth supply chains.</p>
+    <p>The initiative comes as rare earth supply disruptions related to the Iran war and broader geopolitical fragmentation have intensified government and industry focus on securing domestic sources of critical minerals. India holds significant rare earth reserves, particularly monazite-bearing coastal sands in Odisha, Tamil Nadu, and Kerala, but has historically under-invested in downstream processing capacity. The new scheme targets permanent magnet output specifically, given its critical role in EV motors and wind turbines — two sectors at the heart of India&rsquo;s climate and manufacturing ambitions.</p>
+    <div class="source-line">Source: <a href="https://www.livemint.com/economy/india-rare-earth-magnet-manufacturing-scheme-companies-investment-11775570956212.html" target="_blank" rel="noopener">Livemint</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>RBI Policy: Repo Rate Held at 5.25% as MPC Flags War Risks to Growth and Prices</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>The Reserve Bank of India&rsquo;s Monetary Policy Committee voted unanimously on Wednesday to hold the policy repo rate at 5.25 per cent, keeping its stance accommodative-with-caution as it monitored the twin risks of stubbornly elevated energy-driven inflation and weakening growth momentum. In his post-announcement press conference, Governor Sanjay Malhotra said the central bank remains &ldquo;data dependent and event dependent,&rdquo; noting that the West Asia conflict has introduced a degree of uncertainty that makes forward guidance difficult to calibrate with confidence. The next policy review is scheduled for June.</p>
+    <p>The MPC lowered its real GDP growth forecast for FY2026&ndash;27 from an earlier 7.1 per cent to a range of 6.5 to 6.8 per cent, acknowledging that sustained energy price pressures and tighter global financial conditions have filtered through to domestic investment and consumption. Inflation is now expected to average 4.6 per cent over the fiscal year before moderating. The repo rate of 5.25 per cent represents one reduction from the pre-war level, with the committee having cut once as the conflict began to dampen growth.</p>
+    <div class="source-line">Source: <a href="https://www.livemint.com/economy/rbi-policy-mpc-repo-rate-india-inflation-gdp-sanjay-malhotra-west-asia-war-11775556079564.html" target="_blank" rel="noopener">Livemint</a> · April 8, 2026</div>
+  </div>
+
+  <!-- INDIA SPORTS -->
+  <div class="section-rule" id="india-sports"><hr><span>Sports</span><hr></div>
+
+  <div class="article">
+    <h3>Ayush Shetty Stuns World No. 7 Li Shi Feng at Badminton Asia Championships in Ningbo</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Twenty-year-old Indian shuttler Ayush Shetty announced his arrival at the continental stage in emphatic fashion Wednesday, defeating world number 7 Li Shi Feng of China 21&ndash;13, 21&ndash;16 in 51 minutes to advance to the round of 16 at the Badminton Asia Championships in Ningbo, China. The win by the world number 25, who won the U.S. Open Super 300 title last year, represents one of the more significant results for a young Indian male in a tournament long dominated by East Asian shuttlers.</p>
+    <p>Li, a local favourite and Asian Games gold medallist, raced to early leads in both games — 4&ndash;1 and then again 4&ndash;1 after the change of sides — but Shetty&rsquo;s court coverage and aggressive net play repeatedly dragged the Chinese back. In the second game, after Li had pushed ahead again in the mid-phase, Shetty strung together six straight points to close out the match at 21&ndash;16. &ldquo;I just tried to focus on my game and not the crowd,&rdquo; Shetty said in his post-match interview. He will next face Chinese Taipei&rsquo;s Chi Yu Jen in the pre-quarterfinals.</p>
+    <p>PV Sindhu also advanced to the round of 16 after a hard-fought 15&ndash;21, 21&ndash;11, 21&ndash;19 win over Malaysia&rsquo;s Wong Ling Ching, while HS Prannoy moved through in straight games. Lakshya Sen, Kidambi Srikanth, and Malvika Bansod all fell in the first round.</p>
+    <div class="source-line">Source: <a href="https://indianexpress.com/article/sports/badminton/ayush-shetty-beat-li-shifeng-asian-badminton-championship-2026-10624955/" target="_blank" rel="noopener">Indian Express</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>KL Rahul Anchors Delhi Capitals Past Gujarat Titans in Low-Scoring IPL Thriller</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>KL Rahul provided the anchor innings Delhi Capitals needed in a tense Indian Premier League encounter against Gujarat Titans, as reported by the Indian Express. Rahul&rsquo;s measured contribution — placing the ball into gaps rather than going for aerial boundaries on a pitch offering movement — proved the decisive difference as Delhi defended a modest total successfully, overcoming the challenge of Shubman Gill&rsquo;s swashbuckling 70 for Gujarat on comeback. Rahul&rsquo;s side benefited from disciplined medium-pace bowling in the death overs that restricted Gujarat&rsquo;s chase, with David Miller unable to find his boundary-hitting rhythm in the closing stages.</p>
+    <p>Gill, who was widely expected to miss the first portion of the tournament with a hamstring issue, evidently returned ahead of schedule and displayed no obvious discomfort in his 70-run knock, which included several trademark boundary-finding shots through the covers. Gujarat Titans&rsquo; bowling attack kept Delhi honest in the first innings, with three wickets through the powerplay, but Rahul and a resolute lower order rebuilt to post a competitive total. The win lifts Delhi Capitals in the IPL 2026 points table, with the contest entering its pivotal middle phase.</p>
+    <div class="source-line">Source: <a href="https://indianexpress.com/article/sports/cricket/ipl-2026-delhi-capitals-vs-gujarat-titans-kl-rahul-david-miller-shubman-gill-10626512/" target="_blank" rel="noopener">Indian Express</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Vaishali and Divya Share Women&rsquo;s Lead at Candidates; Praggnanandhaa&rsquo;s Hopes All But Over</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Divya Deshmukh climbed into a share of the lead in the Women&rsquo;s section of the FIDE Candidates Tournament 2026 following Round 8, joining R. Vaishali at the top of the standings as the event enters its decisive phase, Indian Express reported. Deshmukh&rsquo;s run of results in recent rounds has been one of the tournament&rsquo;s most compelling narratives, with the young Indian challenger combining sharp opening preparation with clinical endgame technique to overcome higher-ranked opponents. Vaishali, the defending co-challenger, has matched her compatriot step for step.</p>
+    <p>In the Open section, R. Praggnanandhaa&rsquo;s chances of qualifying for the World Championship match are now described as &ldquo;all but over&rdquo; after a difficult stretch of rounds left him several points adrift of the leaders. The tournament, a key event in the global chess calendar, determines the next challenger for the World Chess Championship.</p>
+    <div class="source-line">Source: <a href="https://indianexpress.com/article/sports/chess/candidates-2026-r-vaishali-divya-deshmukh-lead-praggnanandhaa-10626496/" target="_blank" rel="noopener">Indian Express</a> · April 8, 2026</div>
+  </div>
+
+  <!-- INDIA HISTORY -->
+  <div class="section-rule" id="india-history"><hr><span>This Week in History</span><hr></div>
+
+  <div class="article">
+    <h3>April 9, 1929: Bhagat Singh Throws Bombs in Central Assembly &mdash; &lsquo;It Takes a Loud Voice to Make the Deaf Hear&rsquo;</h3>
+    <div class="byline">The Chronicler India Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>On this day in 1929, Bhagat Singh and Batukeshwar Dutt hurled two smoke bombs in the Central Legislative Assembly in New Delhi — then the seat of British-administered India&rsquo;s legislature — and showered leaflets declaring &ldquo;It takes a loud voice to make the deaf hear.&rdquo; The two deliberately chose not to flee and were arrested on the spot, transforming the act from an isolated protest into a calculated political statement. No one was killed in the explosion, which was intended to be symbolic rather than lethal, targeting the colonial administration&rsquo;s plans to pass the Public Safety Bill and Trade Disputes Bill over the objections of elected Indian legislators.</p>
+    <p>The event set in motion the trial that would make Bhagat Singh one of the most iconic figures in India&rsquo;s independence struggle. Newly uncovered archival records from the Lahore Archives, recently reported by Tribune India, have shed fresh light on Bhagat Singh&rsquo;s intellectual and literary interests — diaries and correspondence revealing a young revolutionary who read voraciously across Marxist theory, world history, and philosophy, describing his cell as a kind of university. He was hanged at Lahore Central Jail on March 23, 1931, at the age of 23, alongside Rajguru and Sukhdev.</p>
+    <p>On the 97th anniversary of the Assembly bombing, Bhagat Singh remains among the most cited figures in Indian political discourse — invoked across the ideological spectrum from the left to the nationalist right, each claiming a portion of his complex legacy. Historians note that Singh&rsquo;s own writings reveal a secular, socialist outlook that does not map neatly onto any single contemporary political camp.</p>
+    <div class="source-line">Source: <a href="https://www.tribuneindia.com/news/top-headlines/forced-to-shed-blood-unseen-files-in-lahore-archives-reveal-bhagat-singhs-literary-genius/" target="_blank" rel="noopener">Tribune India</a> · April 8, 2026</div>
+  </div>
+
+</div><!-- end india section-inner -->
+
+<!-- ═══════════════════════ WORLD ═══════════════════════ -->
+<div class="section-banner"><span id="world-current">World</span></div>
+<div class="section-inner">
+
+  <!-- WORLD CURRENT EVENTS -->
+  <div class="section-rule"><hr><span>Current Events</span><hr></div>
+
+  <div class="article">
+    <h3>Iran Re-Closes Strait of Hormuz After Israel Strikes Lebanon, Threatening Two-Week Ceasefire</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Less than 24 hours after a two-week U.S.&ndash;Iran ceasefire came into force, Iran closed the Strait of Hormuz again on Wednesday after Israel launched its largest coordinated strike on Lebanon in the current war, hitting more than 100 Hezbollah targets in Beirut, southern Lebanon, and the Bekaa Valley in under 10 minutes. Lebanon&rsquo;s health ministry reported at least 182 people killed in the strikes — the highest single-day toll in the Israel-Hezbollah war — with hundreds more wounded as apartment buildings and commercial streets in central Beirut were hit without warning. The Islamic Revolutionary Guard Corps said shipping through the strait had been suspended in response, accusing Israel of violating the ceasefire terms.</p>
+    <p>The White House declared the reported closure &ldquo;completely unacceptable&rdquo; and said it remained Trump&rsquo;s &ldquo;expectation and demand&rdquo; that the waterway be reopened. Press secretary Karoline Leavitt said the reports of a closure were &ldquo;false&rdquo; while simultaneously demanding the strait be kept open — an apparent contradiction that reflected the confusion on the ground. Iran&rsquo;s Foreign Minister Abbas Araghchi insisted that Lebanon was covered by the ceasefire terms, writing: &ldquo;The ball is in the U.S. court, and the world is watching.&rdquo;</p>
+    <p>U.S. Vice President JD Vance said the ceasefire was &ldquo;fragile&rdquo; but that he was &ldquo;optimistic the Iranians are going to negotiate in good faith.&rdquo; Peace talks in Islamabad, brokered by Pakistan, were still described by both sides as on track for Saturday, though Iran&rsquo;s parliament speaker said direct negotiations were &ldquo;unreasonable&rdquo; under the circumstances. Meanwhile, Trump posted on Truth Social warning that U.S. military assets would remain in the region in full combat readiness: &ldquo;If the terms of the deal are not met, then the &lsquo;Shootin&rsquo; Starts.&rsquo;&rdquo;</p>
+    <div class="source-line">Source: <a href="https://www.ctvnews.ca/world/mideast-conflict/article/iran-closes-strait-of-hormuz-again-in-response-to-israeli-attacks-in-lebanon-threatening-ceasefire/" target="_blank" rel="noopener">CTV News / AP</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Pakistani-Origin Man Pleads Guilty to Planning Terror Attack in New York</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>A Pakistani-origin man named Khan entered a guilty plea in a federal court in New York on Wednesday on charges of plotting a terrorist attack on behalf of a designated foreign terrorist organization, CBC News reported. Prosecutors alleged that Khan had conducted surveillance on potential targets in the New York metropolitan area and had communicated with overseas handlers who directed his activities, providing him with operational guidance. The FBI&rsquo;s Joint Terrorism Task Force had monitored Khan for an extended period before his arrest earlier this year.</p>
+    <p>Details of the specific targets and the nature of the planned attack were partially sealed at the time of the guilty plea, pending the sentencing phase. Khan&rsquo;s defence attorneys did not contest the factual basis of the charge but said their client had cooperated fully with investigators following his arrest and that the cooperation would be submitted as a mitigating factor at sentencing. The case has drawn additional attention given the elevated threat environment surrounding the U.S.&ndash;Iran war, with law enforcement agencies across the United States and Canada reporting increases in online extremist activity during the conflict.</p>
+    <div class="source-line">Source: <a href="https://www.cbc.ca/news/world/khan-guilty-plea-ny-attack-plot-9.7156879" target="_blank" rel="noopener">CBC News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Israel Strikes Central Beirut in Largest Hezbollah Operation of the War; 182 Killed</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Israel launched its most expansive single-day assault on Hezbollah since the current conflict began, striking more than 100 targets across Beirut, southern Lebanon, and the eastern Beka&rsquo;a Valley within a 10-minute window early Wednesday, according to the Israeli military. Lebanon&rsquo;s health ministry reported 182 dead and hundreds wounded, the highest daily toll of the Lebanon war, as apartment blocks in the Corniche al-Mazraa neighbourhood and commercial streets in West Beirut were reduced to rubble. Civilian neighbourhood strikes without warning drew immediate condemnation from France, the United Nations, and several Arab governments.</p>
+    <p>Israel&rsquo;s military described the targets as missile launchers, command centres, and intelligence infrastructure, accusing Hezbollah of systematically embedding its arsenal in densely populated civilian areas. Defence Minister Israel Katz called it a &ldquo;decisive blow&rdquo; that had &ldquo;fundamentally degraded&rdquo; Hezbollah&rsquo;s operational capacity in the Beirut sector. Prime Minister Netanyahu said in a televised address that Israel was &ldquo;ready to return to fighting at any time. Our finger is on the trigger.&rdquo;</p>
+    <p>Hezbollah had not confirmed whether it would abide by the U.S.&ndash;Iran ceasefire, stating only that it was giving mediators a chance to secure an agreement in Lebanon. An unnamed official told the Associated Press the group would not stop firing unless Israel did the same. The strikes triggered Iran&rsquo;s decision to re-close the Strait of Hormuz, throwing Wednesday&rsquo;s fragile ceasefire back into jeopardy on its first full day.</p>
+    <div class="source-line">Source: <a href="https://apnews.com/article/israel-lebanon-hezbollah-beirut-strikes-9402965418687c634d4a157c966ec6ea" target="_blank" rel="noopener">AP News</a> · April 8, 2026</div>
+  </div>
+
+  <!-- WORLD POLITICS -->
+  <div class="section-rule" id="world-politics"><hr><span>World Politics</span><hr></div>
+
+  <div class="article">
+    <h3>Ukraine Proposes Easter Energy Truce as Russia Strikes Bus, Killing Four Civilians</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Ukrainian President Volodymyr Zelenskyy renewed his proposal for a ceasefire on energy infrastructure over Orthodox Easter — observed on April 12 in both Ukraine and Russia — even as a Russian drone struck a city bus in Nikopol, Dnipropetrovsk region, on Tuesday, killing four civilians and injuring 16 others during the morning commute. The attack came hours after Zelenskyy said the Easter truce proposal had been conveyed to Moscow through U.S. channels, and was described by Foreign Minister Andrii Sybiha as &ldquo;Moscow&rsquo;s response&rdquo; to the offer.</p>
+    <p>The Kremlin has rejected the proposal for a temporary pause, insisting through spokesman Dmitry Peskov that Moscow seeks a comprehensive settlement rather than tactical ceasefires. Putin declared a 30-hour unilateral ceasefire last Easter, which both sides accused the other of violating. Ukrainian military intelligence has warned of a tactical shift by Russia toward more daytime assaults — a change designed, Ukrainian officials say, to maximise civilian casualties. The Institute for the Study of War noted that Ukraine&rsquo;s expanding long-range drone campaign against Russian oil infrastructure has significantly damaged Russian oil export capacity.</p>
+    <p>The Ukraine conflict has become harder for Washington to focus on as the Iran war dominates U.S. foreign policy attention, a dynamic Zelenskyy has explicitly flagged as a concern. He said Tuesday he is monitoring whether sustained U.S. involvement in the Middle East will translate into reduced support for Kyiv.</p>
+    <div class="source-line">Source: <a href="https://apnews.com/article/russia-ukraine-war-easter-truce-talks-drones-be3342d882dcdebb7e4909604a7197e4" target="_blank" rel="noopener">AP News</a> · April 7, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>U.S. House Republicans Subpoena AG Bondi Over Epstein Files as Trump Faces Pressure</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>A group of Republican House members issued a formal subpoena to Attorney General Pam Bondi, compelling her deposition before a congressional panel over the Justice Department&rsquo;s handling of materials related to the Jeffrey Epstein investigation, AP News reported Wednesday. The subpoena emerged from a bloc of House conservatives who have grown increasingly frustrated with the Trump administration&rsquo;s delays in releasing Epstein-related documents, defying a political promise made during the 2024 campaign. The members indicated they intend to question Bondi under oath about what documents exist, who has reviewed them, and why specific materials have been withheld from public release.</p>
+    <p>The Epstein files have become a persistent irritant within the Republican coalition, with activists and members of Congress pressuring the administration on a disclosure that Trump himself promised in general terms before taking office. Bondi&rsquo;s office responded to the subpoena by saying the DOJ would cooperate with &ldquo;appropriate congressional oversight&rdquo; while preserving its prosecutorial independence, language that critics interpreted as a signal of forthcoming resistance rather than full cooperation.</p>
+    <div class="source-line">Source: <a href="https://apnews.com/article/bondi-congress-deposition-epstein-trump-subpoena-00bd64beb4f91f1284ea2a0a6969d7d4" target="_blank" rel="noopener">AP News</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Trump Meets Orb&aacute;n as Hungarian PM Lobbies for MAGA Influence Amid Iran War</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>U.S. President Donald Trump hosted Hungarian Prime Minister Viktor Orb&aacute;n at the White House on Wednesday as the two leaders reaffirmed their ideological alignment ahead of a period of intense American diplomatic activity around the Iran war peace process. AP News reported that Orb&aacute;n has emerged as a notable peripheral voice in the broader Middle East negotiation framework, leveraging Hungary&rsquo;s relationships with both the Gulf states and Russia to position himself as a potential secondary channel. The meeting came as Vice President JD Vance and special envoy Steve Witkoff prepared to travel to Islamabad for the scheduled Iran-U.S. talks this weekend.</p>
+    <p>The relationship between Trump and Orb&aacute;n has been one of the most durable alignments in the global populist-nationalist movement, with the Hungarian leader frequently cited as a model by right-wing parties across Europe and North America. Critics note that Hungary&rsquo;s position within the European Union continues to create tensions with Brussels, which has withheld billions in cohesion funds over rule-of-law concerns. Orb&aacute;n has used his U.S. connections to deflect some of that pressure domestically, framing his alignment with Trump as an asset rather than a liability.</p>
+    <div class="source-line">Source: <a href="https://apnews.com/article/trump-vance-orban-hungary-maga-iran-war-6923d864c09069351ca5f12c3be4a601" target="_blank" rel="noopener">AP News</a> · April 8, 2026</div>
+  </div>
+
+  <!-- WORLD ECONOMY -->
+  <div class="section-rule" id="world-economy"><hr><span>Economy &amp; Business</span><hr></div>
+
+  <div class="market-note">World market data as of April 8, 2026 close, or most recent available. All major markets posted ceasefire-driven gains. Nikkei and Hang Seng reflect April 9 Asian session opens. Nifty 50 reflects April 8 BSE/NSE close.</div>
+  <div class="market-grid">
+    <div class="m-card">
+      <div class="m-label">DJIA</div>
+      <div class="m-value">47,910</div>
+      <div class="m-change up">+1,325 &nbsp;+2.85%</div>
+      <div class="m-time">Close Apr 8</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">NASDAQ-100</div>
+      <div class="m-value">22,635</div>
+      <div class="m-change up">+617 &nbsp;+2.80%</div>
+      <div class="m-time">Close Apr 8</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">S&amp;P 500</div>
+      <div class="m-value">6,783</div>
+      <div class="m-change up">+166 &nbsp;+2.51%</div>
+      <div class="m-time">Close Apr 8</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">FTSE 100</div>
+      <div class="m-value">10,436</div>
+      <div class="m-change up">+72 &nbsp;+0.69%</div>
+      <div class="m-time">Close Apr 8 (est.)</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">Nifty 50</div>
+      <div class="m-value">23,997</div>
+      <div class="m-change up">+874 &nbsp;+3.78%</div>
+      <div class="m-time">Close Apr 8</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">Hang Seng</div>
+      <div class="m-value">~20,260</div>
+      <div class="m-change down">−0.71% Apr 9</div>
+      <div class="m-time">Apr 9 session</div>
+    </div>
+    <div class="m-card">
+      <div class="m-label">Nikkei 225</div>
+      <div class="m-value">55,895</div>
+      <div class="m-change down">−0.73% Apr 9</div>
+      <div class="m-time">Apr 9 close</div>
+    </div>
+  </div>
+  <div class="market-sources">Sources: <a href="https://www.bloomberg.com" target="_blank" rel="noopener">Bloomberg</a> · <a href="https://www.cnbc.com" target="_blank" rel="noopener">CNBC</a> · <a href="https://tradingeconomics.com" target="_blank" rel="noopener">Trading Economics</a> · <a href="https://www.investing.com" target="_blank" rel="noopener">Investing.com</a></div>
+
+  <div class="article" style="margin-top:20px;">
+    <h3>In the Strait of Hormuz, Iran and China Take Aim at U.S. Dollar Hegemony</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Iran&rsquo;s proposal to charge tolls for ships transiting the Strait of Hormuz — and its separate indication that it would prefer those tolls be paid in non-dollar currencies, including cryptocurrency — represents a deliberate challenge to the U.S. dollar&rsquo;s role as the dominant currency of global energy trade, Al Jazeera reported Wednesday. China has signalled support for the principle of non-dollar settlement mechanisms for Hormuz transit, a position that aligns with its broader de-dollarization agenda and its growing energy trade with Gulf producers settled in yuan.</p>
+    <p>The ceasefire brokered Tuesday formally required Iran to allow safe passage through the strait, but the terms of how that passage would be structured — and whether Iran&rsquo;s proposed tolling system would be accepted — remained deeply contested, with the White House explicitly rejecting any toll arrangement that it said violated international law. The standoff matters not just operationally but symbolically: a legitimized Iranian toll regime, even a temporary one, would establish a precedent that the strait can be managed as a Persian rather than an international waterway.</p>
+    <p>Energy analysts noted that the dollar-clearing mechanism for oil is one of the most durable foundations of U.S. economic influence, and that even partial erosion — through yuan-denominated contracts, barter arrangements, or alternative settlement vehicles like digital currencies — would have long-run structural implications for the dollar&rsquo;s reserve status.</p>
+    <div class="source-line">Source: <a href="https://www.aljazeera.com/economy/2026/4/8/in-strait-of-hormuz-iran-and-china-take-aim-at-us-dollar-hegemony" target="_blank" rel="noopener">Al Jazeera</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>BYD to Open 20 Dealerships Across Canada in 2026 as Chinese EV Expansion Accelerates</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Chinese electric vehicle giant BYD announced plans to open 20 new dealerships across Canada over the remainder of 2026, a rapid escalation of its North American retail presence that comes despite the fraught trade environment and the Canadian government&rsquo;s imposition of 100 per cent tariffs on Chinese-made EVs late last year, Financial Post reported. BYD&rsquo;s Canadian expansion appears to be predicated on establishing a strong service and brand infrastructure ahead of any future tariff realignment or local-assembly arrangement that might make its vehicles competitively priced in the Canadian market.</p>
+    <p>The move reflects a broader Chinese EV strategy of geographic diversification in the face of rising protectionism, with BYD simultaneously expanding into South America, Southeast Asia, and Australia to compensate for market access challenges in North America and Europe. Canadian auto industry observers said the dealership buildout would give BYD a platform to sell models like the Seal and the Atto 3 to early-adopter buyers willing to absorb the tariff-inflated prices, while positioning the brand for a more mainstream push once the competitive and regulatory environment shifts.</p>
+    <div class="source-line">Source: <a href="https://financialpost.com/transportation/autos/byd-open-20-car-dealerships-canada-2026" target="_blank" rel="noopener">Financial Post</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Iran Proposes Formal Toll Regime at Hormuz, Threatening Open-Sea Precedent</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Iran has proposed formalizing a system of tolls for ships transiting the Strait of Hormuz as part of its framework for a permanent ceasefire, a move that would fundamentally alter decades of international maritime law treating the strait as an open international waterway, AP News reported Wednesday. Under the proposal, both Iran and Oman would collect fees from vessels using the strait — a 21-mile-wide chokepoint through which roughly 20 per cent of all globally traded oil and natural gas passes in peacetime.</p>
+    <p>The White House immediately and unequivocally rejected any toll system, with the Trump administration stating that the president&rsquo;s &ldquo;immediate priority&rdquo; was the &ldquo;reopening of the strait without any limitations, whether in the form of tolls or otherwise.&rdquo; The Gulf Arab states, whose own energy exports transit the strait, are also deeply opposed to any toll arrangement that would increase their shipping costs and cede practical control of their primary export corridor to Tehran. Legal scholars noted that a unilateral Iranian toll regime would constitute a violation of the UN Convention on the Law of the Sea.</p>
+    <p>The toll proposal sits at the centre of a broader Iranian negotiating strategy in which each contested concession — enrichment rights, sanctions relief, hegemony over the strait — is bundled together into a comprehensive 10-point framework. Whether any of those points can be resolved in the coming Islamabad talks remains an open question.</p>
+    <div class="source-line">Source: <a href="https://apnews.com/article/strait-of-hormuz-iran-tolls-oil-3ef5dcd907122922db714d318c35317e" target="_blank" rel="noopener">AP News</a> · April 8, 2026</div>
+  </div>
+
+  <!-- WORLD SPORTS -->
+  <div class="section-rule" id="world-sports"><hr><span>Sports</span><hr></div>
+
+  <div class="article">
+    <h3>F&eacute;lix Auger-Aliassime Opens Clay Season With Straight-Sets Win Over Cili&ccedil; at Monte-Carlo</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Canada&rsquo;s F&eacute;lix Auger-Aliassime launched his clay-court season with a controlled 7&ndash;6 (4), 6&ndash;3 victory over Croatia&rsquo;s Marin Cili&ccedil; in the second round of the Rolex Monte-Carlo Masters on Wednesday, advancing to a third-round meeting with Norwegian ninth seed Casper Ruud. The 25-year-old from Montr&eacute;al, seeded sixth at the event and riding a 16&ndash;6 record on the year following his ninth career title at Montpelier in February, recovered from three service breaks in the opening set to take control in the tiebreak and then dominated proceedings in the second, striking 12 winners in the final set alone.</p>
+    <p>Cili&ccedil;, 37, pushed Auger-Aliassime hard in the first set, but the Canadian&rsquo;s greater mobility on the red clay and sharper cross-court forehand proved decisive once the match settled into extended rallies. Auger-Aliassime finished with 21 winners to Cili&ccedil;&rsquo;s 16 and converted four of seven break points to run his head-to-head record against the veteran to 4&ndash;3 in his favour. He will face Ruud on Thursday, holding a 4&ndash;3 career record against the Norwegian — with his last three meetings all resulting in Auger-Aliassime wins, including on clay at the Madrid Masters and at the Paris Olympics in 2024.</p>
+    <div class="source-line">Source: <a href="https://www.cbc.ca/sports/tennis/auger-aliassime-recap-second-round-monte-carlo-masters-9.7156412" target="_blank" rel="noopener">CBC Sports</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>Atletico Shock 10-Man Barcelona 2&ndash;0; PSG Down Liverpool 2&ndash;0 in Champions League Quarterfinals</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Wednesday&rsquo;s UEFA Champions League quarterfinal first legs produced two emphatically away-sided results. At Camp Nou, Atletico Madrid stunned La Liga leaders Barcelona 2&ndash;0 in a match transformed by Barcelona defender Pau Cubars&iacute;&rsquo;s red card on the stroke of halftime for denying a goal-scoring opportunity. Jubi&aacute;n &Aacute;lvarez, whose Champions League record this season now stands at 13 goal contributions, struck the resulting free kick past goalkeeper Joan Garc&iacute;a to give Atletico the lead, before Alexander S&oslash;rloth added a second 25 minutes into the second half. Atletico, who had lost to Barcelona in La Liga just four days earlier, have not won at Camp Nou in 25 consecutive attempts before Wednesday — a streak ended with tactical and physical precision.</p>
+    <p>At Parc des Princes, defending champions Paris Saint-Germain were equally dominant, beating Liverpool 2&ndash;0 through goals from D&eacute;sir&eacute; Dou&eacute; and Khvicha Kvaratskhelia. Dou&eacute;&rsquo;s opener came on a deflected shot in the 11th minute; Kvaratskhelia&rsquo;s fourth Champions League goal in his last three games gave the French side a decisive two-goal cushion at the break. Liverpool looked disjointed without sustained pressure, and PSG goalkeeper Gianluigi Donnarumma was rarely tested in a commanding home performance.</p>
+    <p>The second legs are scheduled for April 14 — Atletico host Barcelona at the Metropolitano, and Liverpool host PSG at Anfield — with both hosts needing to overturn two-goal deficits.</p>
+    <div class="source-line">Source: <a href="https://www.espn.com/soccer/story/_/id/48413337/uefa-champions-league-live-updates-barcelona-atletico-madrid-paris-saint-germain-liverpool" target="_blank" rel="noopener">ESPN</a> · April 8, 2026</div>
+  </div>
+
+  <div class="article">
+    <h3>England Face Crucial Test at Lord&rsquo;s as Cricket World Goes On Despite Geopolitical Disruption</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>International cricket has been navigating a period of disruption as a consequence of the Iran war, with several bilateral series rescheduled and tour logistics complicated by elevated air travel costs and security assessments across the Middle East. The latest developments, reported by BBC Sport, have seen the ICC and national boards working to preserve as much of the current international schedule as possible while acknowledging that some planned matches in Gulf states remain under review pending a clearer picture of whether the ceasefire will hold.</p>
+    <p>England are the focus of immediate attention as they prepare for a home series that cricket administrators say is expected to proceed on schedule, offering a measure of continuity in a global sports calendar that has been buffeted by the conflict. The war has had particular logistical knock-on effects for the Indian Premier League, several of whose overseas recruits have encountered travel complications, and for the ICC Women&rsquo;s events calendar, where routing through Gulf hubs has added cost and uncertainty. International Cricket Council officials said Wednesday they were monitoring the situation &ldquo;day by day&rdquo; but expressed cautious optimism that the Islamabad talks would produce enough stability to plan forward.</p>
+    <div class="source-line">Source: <a href="https://www.bbc.com/sport/cricket/articles/cje4kgkj2lqo" target="_blank" rel="noopener">BBC Sport</a> · April 8, 2026</div>
+  </div>
+
+  <!-- WORLD HISTORY -->
+  <div class="section-rule" id="world-history"><hr><span>This Week in History</span><hr></div>
+
+  <div class="article">
+    <h3>April 10, 1912: RMS Titanic Departs Southampton on Her Maiden &mdash; and Final &mdash; Voyage</h3>
+    <div class="byline">The Chronicler World Desk &middot; Thursday, April 9, 2026</div>
+    <button class="read-btn" aria-label="Read aloud">Read aloud</button>
+    <p>Tomorrow marks the 114th anniversary of one of the most consequential maritime departures in history. On April 10, 1912, the RMS Titanic set out from Southampton, England, on her maiden voyage to New York — carrying 2,224 passengers and crew aboard the largest and most luxurious ocean liner yet built, a vessel widely publicized as &ldquo;practically unsinkable.&rdquo; The Titanic made stops in Cherbourg, France, and Queenstown (now Cobh), Ireland, before heading west into the North Atlantic. Four days later, at 11:40 PM ship&rsquo;s time on April 14, she struck an iceberg south of the Grand Banks of Newfoundland. The ship sank in two hours and forty minutes. More than 1,500 of those aboard perished in one of history&rsquo;s deadliest peacetime maritime disasters.</p>
+    <p>The Titanic was operated by the White Star Line and owned by J.P. Morgan&rsquo;s International Mercantile Marine Company. Her sinking prompted transformative reforms in maritime safety law: the International Convention for the Safety of Life at Sea (SOLAS) was established in 1914, requiring sufficient lifeboat capacity for all aboard — a standard the Titanic had notoriously failed to meet, carrying lifeboats for fewer than half her passenger capacity. The disaster also led to the establishment of the International Ice Patrol to track North Atlantic icebergs, a service that continues today.</p>
+    <p>The wreck was discovered in 1985 by a joint Franco-American expedition led by Robert Ballard, lying at a depth of approximately 3,800 metres about 600 kilometres south-southeast of Newfoundland. It has since become one of the most studied and visited deep-sea archaeological sites in the world, though ongoing deterioration of the hull means that future access will be increasingly limited. The human stories of the 1,503 who died — spanning steerage immigrants from a dozen countries, celebrated industrialists, and merchant sailors on their working voyages — remain among the most compelling and documented in maritime history.</p>
+    <div class="source-line">Source: <a href="https://www.britannica.com/topic/Titanic" target="_blank" rel="noopener">Encyclopaedia Britannica</a></div>
+  </div>
+
+</div><!-- end world section-inner -->
+
+<!-- ═══════════════════════ FUNNIES ═══════════════════════ -->
+<div id="comics">
+<div class="funnies-banner">
+  <h2>The Chronicler Funnies</h2>
+  <p>Word Web &bull; Crunch &bull; Flatland News</p>
+</div>
+
+<!-- GAMES SECTION -->
+<div class="games-section">
+
+  <!-- CRUNCH -->
+  <div class="game-panel" id="crunch">
+    <div class="game-title">Crunch &mdash; Daily Number Puzzle</div>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);margin-bottom:8px;">Use all four numbers once with +, −, ×, ÷ and brackets to reach the target. All steps must be whole numbers.</p>
+    <div class="crunch-numbers">
+      <div class="crunch-num">4</div>
+      <div class="crunch-num">5</div>
+      <div class="crunch-num">6</div>
+      <div class="crunch-num">9</div>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:12px;color:var(--grey);margin:0 4px;">=</span>
+      <div class="crunch-target">54</div>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('crunch-reveal').style.display='block';this.style.display='none';">Reveal Solution</button>
+    <div class="crunch-reveal" id="crunch-reveal">
+      <strong>(5 − 4) × 6 × 9 = 54</strong><br>
+      <span style="font-size:11px;color:var(--grey);">Step 1: 5 − 4 = 1 &nbsp;|&nbsp; Step 2: 1 × 6 = 6 &nbsp;|&nbsp; Step 3: 6 × 9 = 54 ✓</span><br>
+      <span style="font-size:10px;color:var(--grey);">20 distinct solutions exist. Python-verified.</span>
+    </div>
+    <a class="crunch-archive-link" href="https://thechronicler.ca/the-chronicler-crunch-archive.html">View the full Crunch Archive →</a>
+  </div>
+
+  <!-- WORD WEB -->
+  <div class="game-panel" id="wordweb">
+    <div class="game-title">Word Web &mdash; Daily Word Puzzle</div>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);margin-bottom:8px;">Find the two hidden connections. Each group of four tiles shares a link drawn from today&rsquo;s edition.</p>
+    <div class="word-web-grid">
+      <div class="ww-tile">CEASEFIRE</div>
+      <div class="ww-tile">REPO RATE</div>
+      <div class="ww-tile">GLADU</div>
+      <div class="ww-tile">HORMUZ</div>
+      <div class="ww-tile">D&rsquo;ENTREMONT</div>
+      <div class="ww-tile">TOLLWAY</div>
+      <div class="ww-tile">JENEROUX</div>
+      <div class="ww-tile">ISLAMABAD</div>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('ww-reveal').style.display='block';this.style.display='none';">Reveal Groups</button>
+    <div class="ww-reveal" id="ww-reveal">
+      <strong>Group A — Conservative MPs Who Crossed the Floor to the Liberals:</strong> GLADU &bull; D&rsquo;ENTREMONT &bull; JENEROUX &bull; CEASEFIRE*<br>
+      <em style="font-size:10px;">(*Decoy: CEASEFIRE relates to the Iran war, not the floor-crossings)</em><br><br>
+      <strong>Group B — Iran War / Hormuz Diplomacy Terms:</strong> HORMUZ &bull; CEASEFIRE &bull; TOLLWAY &bull; ISLAMABAD<br>
+      <em style="font-size:10px;">True Group A (floor-crossers): GLADU &bull; D&rsquo;ENTREMONT &bull; JENEROUX &bull; MA</em>
+    </div>
+  </div>
+
+</div><!-- end games-section -->
+
+<!-- FLATLAND NEWS -->
+<div class="flatland-section" id="flatland">
+  <div class="flatland-title">Flatland News &mdash; The Strait</div>
+  <div class="flatland-date">Thursday, April 9, 2026</div>
+  <div class="flatland-strip">
+
+    <div class="flatland-panel">
+      <div class="panel-caption">Panel 1</div>
+      <div class="panel-img">
+        <svg width="140" height="90" viewBox="0 0 140 90">
+          <rect width="140" height="90" fill="#e8dfc8"/>
+          <path d="M0 55 Q35 40 70 55 Q105 70 140 55 L140 90 L0 90 Z" fill="#6ba3be" opacity=".6"/>
+          <rect x="20" y="25" width="60" height="25" rx="3" fill="#f4edd6" stroke="#141008" stroke-width="1.5"/>
+          <rect x="35" y="15" width="20" height="12" rx="1" fill="#f4edd6" stroke="#141008" stroke-width="1"/>
+          <text x="30" y="42" font-family="serif" font-size="8" fill="#141008">TANKER</text>
+          <rect x="100" y="30" width="32" height="18" rx="2" fill="#8b2513" opacity=".8"/>
+          <text x="103" y="43" font-family="serif" font-size="7" fill="#fff">IRGC</text>
+        </svg>
+      </div>
+      <div class="speech-bubble">Oil tanker, politely: &ldquo;May we pass through?&rdquo;</div>
+    </div>
+
+    <div class="flatland-panel">
+      <div class="panel-caption">Panel 2</div>
+      <div class="panel-img">
+        <svg width="140" height="90" viewBox="0 0 140 90">
+          <rect width="140" height="90" fill="#e8dfc8"/>
+          <path d="M0 55 Q35 40 70 55 Q105 70 140 55 L140 90 L0 90 Z" fill="#6ba3be" opacity=".6"/>
+          <rect x="85" y="20" width="45" height="45" rx="3" fill="#d4b8a0" stroke="#141008" stroke-width="1.5"/>
+          <text x="93" y="38" font-family="serif" font-size="7" fill="#141008">IRGC</text>
+          <text x="89" y="50" font-family="serif" font-size="7" fill="#141008">TOLL BOOTH</text>
+          <text x="92" y="62" font-family="serif" font-size="8" fill="#8b2513">$$$</text>
+          <rect x="10" y="30" width="55" height="20" rx="2" fill="#f4edd6" stroke="#141008" stroke-width="1"/>
+          <text x="20" y="44" font-family="serif" font-size="7.5" fill="#141008">TANKER</text>
+        </svg>
+      </div>
+      <div class="speech-bubble">IRGC officer: &ldquo;That will be $5 million. Cash, yuan, or Bitcoin.&rdquo;</div>
+    </div>
+
+    <div class="flatland-panel">
+      <div class="panel-caption">Panel 3</div>
+      <div class="panel-img">
+        <svg width="140" height="90" viewBox="0 0 140 90">
+          <rect width="140" height="90" fill="#e8dfc8"/>
+          <rect x="20" y="15" width="50" height="35" rx="2" fill="#f4edd6" stroke="#141008" stroke-width="1.5"/>
+          <text x="27" y="27" font-family="serif" font-size="7" fill="#141008">WHITE HOUSE</text>
+          <text x="30" y="40" font-family="serif" font-size="7" fill="#8b2513">SITUATION</text>
+          <text x="34" y="51" font-family="serif" font-size="7" fill="#8b2513">ROOM</text>
+          <rect x="85" y="20" width="42" height="30" rx="2" fill="#d4b8a0" stroke="#141008" stroke-width="1"/>
+          <text x="90" y="33" font-family="serif" font-size="7" fill="#141008">STATE DEPT</text>
+          <line x1="70" y1="32" x2="85" y2="32" stroke="#141008" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="72" y="28" font-family="serif" font-size="6" fill="#635d4e">fax?</text>
+        </svg>
+      </div>
+      <div class="speech-bubble">Aide: &ldquo;Sir, should we fax our objection?&rdquo; &nbsp; President: &ldquo;COMPLETELY UNACCEPTABLE.&rdquo;</div>
+    </div>
+
+    <div class="flatland-panel">
+      <div class="panel-caption">Panel 4</div>
+      <div class="panel-img">
+        <svg width="140" height="90" viewBox="0 0 140 90">
+          <rect width="140" height="90" fill="#e8dfc8"/>
+          <path d="M0 55 Q35 40 70 55 Q105 70 140 55 L140 90 L0 90 Z" fill="#6ba3be" opacity=".6"/>
+          <rect x="15" y="28" width="60" height="22" rx="2" fill="#f4edd6" stroke="#141008" stroke-width="1.5"/>
+          <text x="22" y="43" font-family="serif" font-size="8" fill="#141008">TANKER (again)</text>
+          <path d="M75 38 Q105 30 125 38" stroke="#141008" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+          <text x="82" y="28" font-family="serif" font-size="8" fill="#8b2513">CLOSED</text>
+          <text x="80" y="42" font-family="serif" font-size="7" fill="#635d4e">again...</text>
+        </svg>
+      </div>
+      <div class="speech-bubble">Captain&rsquo;s log: &ldquo;Day 40. Strait closed again. At least our fuel bill is accurate now.&rdquo;</div>
+    </div>
+
+  </div>
+</div><!-- end flatland -->
+
+</div><!-- end comics -->
+
+</div><!-- end .page -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 26 &bull; Thursday, April 9, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca" style="color:var(--rust);text-decoration:none;">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<!-- READ-ALOUD SCRIPT -->
+<script>
+(function(){
+  if(!('speechSynthesis' in window)){
+    document.querySelectorAll('.read-btn').forEach(function(btn){btn.style.display='none';});
+    return;
+  }
+  var currentUtterance=null;
+  var currentBtn=null;
+  document.body.addEventListener('click',function(e){
+    var btn=e.target.closest('.read-btn');
+    if(!btn)return;
+    if(currentUtterance){
+      speechSynthesis.cancel();
+      if(currentBtn){currentBtn.textContent='Read aloud';}
+      if(currentBtn===btn){currentUtterance=null;currentBtn=null;return;}
+    }
+    var article=btn.closest('.article');
+    if(!article)return;
+    var paras=article.querySelectorAll('p');
+    var text=Array.from(paras).map(function(p){return p.textContent;}).join(' ');
+    var utter=new SpeechSynthesisUtterance(text);
+    utter.rate=0.95;
+    utter.onend=function(){btn.textContent='Read aloud';currentUtterance=null;currentBtn=null;};
+    utter.onerror=function(){btn.textContent='Read aloud';currentUtterance=null;currentBtn=null;};
+    currentUtterance=utter;
+    currentBtn=btn;
+    btn.textContent='Stop';
+    speechSynthesis.speak(utter);
+  });
+  // Mobile nav toggle
+  document.querySelectorAll('.nav-bar > ul > li > a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var li=this.parentElement;
+      var dd=li.querySelector('.dropdown');
+      if(dd&&window.innerWidth<=768){
+        e.preventDefault();
+        dd.style.display=dd.style.display==='block'?'none':'block';
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

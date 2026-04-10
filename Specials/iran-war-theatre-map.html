@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Theatre of War — The Chronicler Iran War Special</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a1209;
+    --cream: #f5f0e8;
+    --rust: #8b3a1a;
+    --grey-mid: #6b6258;
+    --grey-light: #e8e2d8;
+    --panel-bg: rgba(245, 240, 232, 0.97);
+    --shadow: rgba(26,18,9,0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    background: var(--cream);
+    color: var(--ink);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── Header ── */
+  .map-header {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 20px 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex-shrink: 0;
+    border-bottom: 2px solid var(--rust);
+  }
+
+  .map-header .pub-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.7;
+  }
+
+  .map-header .map-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.1;
+  }
+
+  .map-header .map-subtitle {
+    font-size: 11px;
+    color: var(--cream);
+    opacity: 0.6;
+    font-style: italic;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  /* ── Map container ── */
+  #map {
+    flex: 1;
+    width: 100%;
+    background: #d9d4cc;
+  }
+
+  /* ── Layer control panel ── */
+  .layer-panel {
+    position: absolute;
+    top: 80px;
+    right: 14px;
+    z-index: 1000;
+    background: var(--panel-bg);
+    border: 1px solid var(--grey-light);
+    border-top: 3px solid var(--rust);
+    box-shadow: 0 4px 18px var(--shadow);
+    padding: 14px 16px;
+    min-width: 220px;
+    max-width: 240px;
+  }
+
+  .layer-panel h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--grey-light);
+  }
+
+  .layer-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: 2px;
+    transition: background 0.15s;
+  }
+
+  .layer-item:hover { background: var(--grey-light); }
+  .layer-item:last-child { margin-bottom: 0; }
+
+  .layer-item input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    accent-color: var(--rust);
+    flex-shrink: 0;
+  }
+
+  .layer-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1.5px solid rgba(0,0,0,0.2);
+  }
+
+  .layer-line {
+    width: 18px;
+    height: 3px;
+    flex-shrink: 0;
+    border-radius: 1px;
+  }
+
+  .layer-label {
+    font-size: 11.5px;
+    font-family: 'Libre Baskerville', serif;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .layer-count {
+    font-size: 10px;
+    color: var(--grey-mid);
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  /* ── Tooltip / popup styles ── */
+  .leaflet-popup-content-wrapper {
+    background: var(--panel-bg);
+    border-radius: 0;
+    border-top: 3px solid var(--rust);
+    box-shadow: 0 4px 18px var(--shadow);
+    font-family: 'Libre Baskerville', serif;
+    padding: 0;
+  }
+
+  .leaflet-popup-content {
+    margin: 12px 14px;
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .leaflet-popup-content strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+
+  .leaflet-popup-content em {
+    font-size: 10.5px;
+    color: var(--grey-mid);
+    font-style: normal;
+    display: block;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .leaflet-popup-tip { background: var(--panel-bg); }
+
+  .leaflet-popup-close-button {
+    color: var(--grey-mid) !important;
+    font-size: 16px !important;
+    top: 6px !important;
+    right: 8px !important;
+  }
+
+  /* ── Attribution ── */
+  .leaflet-control-attribution {
+    font-size: 9px !important;
+    background: rgba(245,240,232,0.85) !important;
+  }
+
+  /* ── Scale bar ── */
+  .leaflet-control-scale-line {
+    background: rgba(245,240,232,0.85);
+    border-color: var(--ink) !important;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 10px;
+  }
+
+  /* ── Watermark ── */
+  .map-watermark {
+    position: absolute;
+    bottom: 28px;
+    left: 14px;
+    z-index: 999;
+    font-family: 'Playfair Display', serif;
+    font-size: 10px;
+    font-style: italic;
+    color: var(--ink);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="map-header">
+  <span class="pub-name">The Chronicler</span>
+  <span class="map-title">The Theatre of War — Iran 2026</span>
+  <span class="map-subtitle">Interactive Regional Map · Updated: April 9, 2026 · Day 40 of conflict · Ceasefire fragile; Iran re-closed Hormuz after Israeli strikes on Beirut · Islamabad talks Saturday</span>
+</div>
+
+<div id="map"></div>
+
+<!-- Layer control panel -->
+<div class="layer-panel" id="layerPanel">
+  <h3>Map Layers</h3>
+
+  <label class="layer-item">
+    <input type="checkbox" id="toggle-cities" checked>
+    <span class="layer-dot" style="background:#3a3028;"></span>
+    <span class="layer-label">Key Cities</span>
+    <span class="layer-count">28</span>
+  </label>
+
+  <label class="layer-item">
+    <input type="checkbox" id="toggle-chokepoints" checked>
+    <span class="layer-line" style="background:#1a6fa8;"></span>
+    <span class="layer-label">Straits &amp; Canals</span>
+    <span class="layer-count">3</span>
+  </label>
+
+  <label class="layer-item">
+    <input type="checkbox" id="toggle-nuclear" checked>
+    <span class="layer-dot" style="background:#c0392b;"></span>
+    <span class="layer-label">Nuclear Sites</span>
+    <span class="layer-count">3</span>
+  </label>
+
+  <label class="layer-item">
+    <input type="checkbox" id="toggle-proxies" checked>
+    <span class="layer-dot" style="background:#7d3c98;"></span>
+    <span class="layer-label">Proxy Actors</span>
+    <span class="layer-count">4</span>
+  </label>
+
+  <label class="layer-item">
+    <input type="checkbox" id="toggle-bases" checked>
+    <span class="layer-dot" style="background:#1a6fa8;"></span>
+    <span class="layer-label">US Military Bases</span>
+    <span class="layer-count">5</span>
+  </label>
+</div>
+
+<div class="map-watermark">© The Chronicler · thechronicler.ca · Map data © OpenStreetMap contributors</div>
+
+<script>
+// ── Initialise map ──
+const map = L.map('map', {
+  center: [28, 52],
+  zoom: 4,
+  minZoom: 3,
+  maxZoom: 9,
+  maxBounds: [[5, 10], [55, 95]],
+  maxBoundsViscosity: 0.85,
+  zoomControl: true
+});
+
+// CartoDB Positron — neutral grey editorial tile
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+L.control.scale({ imperial: false, position: 'bottomleft' }).addTo(map);
+
+// ── Custom marker factories ──
+function cityIcon() {
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:7px;height:7px;background:#3a3028;border-radius:50%;border:1.5px solid #f5f0e8;box-shadow:0 1px 4px rgba(0,0,0,0.35);"></div>`,
+    iconSize: [7,7], iconAnchor: [3.5,3.5]
+  });
+}
+
+function capitalIcon() {
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:10px;height:10px;background:#1a1209;border-radius:50%;border:2px solid #f5f0e8;box-shadow:0 1px 5px rgba(0,0,0,0.4);"></div>`,
+    iconSize: [10,10], iconAnchor: [5,5]
+  });
+}
+
+function nuclearIcon() {
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:13px;height:13px;background:#c0392b;border-radius:50%;border:2px solid #f5f0e8;box-shadow:0 0 0 2px #c0392b44,0 2px 6px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;">
+      <div style="color:#fff;font-size:8px;font-weight:bold;line-height:1;">☢</div>
+    </div>`,
+    iconSize: [13,13], iconAnchor: [6.5,6.5]
+  });
+}
+
+function proxyIcon(color) {
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:13px;height:13px;background:${color};border-radius:2px;border:2px solid #f5f0e8;box-shadow:0 2px 6px rgba(0,0,0,0.35);transform:rotate(45deg);"></div>`,
+    iconSize: [13,13], iconAnchor: [6.5,6.5]
+  });
+}
+
+function baseIcon() {
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:13px solid #1a6fa8;filter:drop-shadow(0 2px 3px rgba(0,0,0,0.35));"></div>`,
+    iconSize: [14,13], iconAnchor: [7,13]
+  });
+}
+
+// ── Popup builder ──
+function pop(category, name, detail) {
+  return `<em>${category}</em><strong>${name}</strong>${detail}`;
+}
+
+// ══════════════════════════════════
+// LAYER 1 — KEY CITIES
+// ══════════════════════════════════
+const citiesLayer = L.layerGroup();
+
+const capitals = [
+  { ll:[35.6892,51.3890], name:'Tehran', detail:'Capital of Iran. Supreme Leader compound struck Feb 28.' },
+  { ll:[33.3152,44.3661], name:'Baghdad', detail:'Capital of Iraq. US bases targeted by Iran-aligned militias.' },
+  { ll:[33.8869,35.5131], name:'Beirut', detail:'Capital of Lebanon. April 8, 2026: Israel launched its largest single-day assault of the Lebanon war — 100+ Hezbollah targets struck within 10 minutes across central Beirut, southern Lebanon and the Bekaa Valley. 182 killed, hundreds wounded — the deadliest single day of the Israel-Hezbollah war. The strikes triggered Iran\'s re-closure of the Strait of Hormuz, threatening the two-week US-Iran ceasefire.' },
+  { ll:[31.7683,35.2137], name:'Jerusalem', detail:'Capital of Israel. US-Israel joint operations command.' },
+  { ll:[51.5074,45.9216], name:'Riyadh', detail:'Capital of Saudi Arabia. Struck by Iranian ballistic missiles Feb 28.' },
+  { ll:[25.2854,51.5310], name:'Doha', detail:'Capital of Qatar. Al Udeid Air Base — CENTCOM HQ.' },
+  { ll:[24.4539,54.3773], name:'Abu Dhabi', detail:'Capital of UAE. Iranian strikes intercepted; 438 missiles total.' },
+  { ll:[15.5527,32.5324], name:'Khartoum', detail:'Capital of Sudan.' },
+  { ll:[30.0444,31.2357], name:'Cairo', detail:'Capital of Egypt. Part of Four-Nation Mediation Bloc.' },
+  { ll:[39.9208,32.8541], name:'Ankara', detail:'Capital of Turkey. Iranian missile landed in Hatay province.' },
+  { ll:[33.8935,35.5016], name:'Nicosia', detail:'Capital of Cyprus. RAF Akrotiri struck by Hezbollah drone.' },
+  { ll:[33.5138,36.2765], name:'Damascus', detail:'Capital of Syria.' },
+  { ll:[31.9522,35.2332], name:'Amman', detail:'Capital of Jordan.' },
+  { ll:[15.3694,44.1910], name:"Sana'a", detail:'Houthi-controlled capital of Yemen. Ansar Allah command.' },
+  { ll:[23.5880,58.3829], name:'Muscat', detail:'Capital of Oman. First round of Iran-US nuclear talks (Feb 6).' },
+  { ll:[26.2235,50.5876], name:'Manama', detail:'Capital of Bahrain. US 5th Fleet HQ. Struck repeatedly.' },
+  { ll:[29.3759,47.9774], name:'Kuwait City', detail:'Capital of Kuwait. US tactical operations centre hit; 6 killed.' },
+  { ll:[33.6844,73.0479], name:'Islamabad', detail:'Capital of Pakistan. Hub of Four-Nation Mediation Bloc; hosts ceasefire talks.' },
+  { ll:[28.6139,77.2090], name:'New Delhi', detail:'Capital of India. Strategic restraint posture maintained.' },
+  { ll:[34.5553,69.2075], name:'Kabul', detail:'Capital of Afghanistan.' },
+  { ll:[40.4093,49.8671], name:'Baku', detail:'Capital of Azerbaijan.' },
+  { ll:[40.1792,44.4991], name:'Yerevan', detail:'Capital of Armenia.' },
+  { ll:[37.9601,58.3261], name:'Ashgabat', detail:'Capital of Turkmenistan.' },
+];
+
+const strategicCities = [
+  { ll:[35.6944,51.4215], name:'Natanz (city)', detail:'Natanz district. Nearby uranium enrichment facility.' },
+  { ll:[32.6546,51.6680], name:'Isfahan', detail:'Major Iranian city. Isfahan nuclear complex struck in June 2025 and Feb 2026.' },
+  { ll:[29.6100,50.8388], name:'Bushehr', detail:'Coastal city. Location of Iran\'s sole nuclear power plant (Bushehr reactor).' },
+  { ll:[30.2166,57.0788], name:'Kerman', detail:'Major Iranian city.' },
+  { ll:[29.3908,48.0000], name:'Kharg Island region', detail:'Iran\'s primary oil export terminal. Key strategic target.' },
+  { ll:[25.0657,55.1713], name:'Dubai', detail:'UAE financial hub. Iranian drones struck Jebel Ali port area.' },
+  { ll:[25.3548,56.2614], name:'Fujairah', detail:'UAE terminal on Gulf of Oman. Saudi pipeline alternative export point.' },
+];
+
+[...capitals].forEach(c => {
+  L.marker(c.ll, {icon: capitalIcon()})
+    .bindPopup(pop('Capital City', c.name, c.detail))
+    .addTo(citiesLayer);
+});
+
+[...strategicCities].forEach(c => {
+  L.marker(c.ll, {icon: cityIcon()})
+    .bindPopup(pop('Strategic Location', c.name, c.detail))
+    .addTo(citiesLayer);
+});
+
+citiesLayer.addTo(map);
+
+
+// ══════════════════════════════════
+// LAYER 2 — STRAITS & CANALS
+// ══════════════════════════════════
+const chokeLayer = L.layerGroup();
+
+// Strait of Hormuz
+const hormuzLine = L.polyline([
+  [26.3,56.4],[26.0,56.9],[25.8,57.2],[25.6,57.5],[25.4,57.8],[25.2,58.1]
+], {
+  color:'#1a6fa8', weight:3, opacity:0.85, dashArray:'6,4'
+}).bindPopup(pop('Strategic Chokepoint','Strait of Hormuz',
+  'Closed by IRGC March 2, 2026. 20M barrels/day normal flow — 20% of global petroleum. 21 miles at narrowest point. April 7: Two-week US-Iran ceasefire required Iran to reopen strait. April 8: Iran re-closed following Israeli strikes on Beirut, declaring ceasefire violated. White House called closure "completely unacceptable." Iran also proposed formal tolls — disputed by US and Gulf states. Islamabad talks scheduled April 11.'));
+
+// Label marker for Hormuz
+const hormuzLabel = L.marker([25.9,57.1], {
+  icon: L.divIcon({
+    className:'',
+    html:`<div style="font-family:'Playfair Display',serif;font-size:10px;font-weight:700;color:#1a6fa8;white-space:nowrap;text-shadow:0 1px 3px #fff,0 1px 3px #fff;letter-spacing:0.05em;">STRAIT OF HORMUZ</div>`,
+    iconSize:[130,16], iconAnchor:[65,8]
+  })
+});
+
+// Bab el-Mandeb
+const babLine = L.polyline([
+  [12.9,43.2],[12.7,43.5],[12.5,43.8],[12.3,44.0]
+], {
+  color:'#1a6fa8', weight:3, opacity:0.85, dashArray:'6,4'
+}).bindPopup(pop('Strategic Chokepoint','Bab el-Mandeb',
+  'Southern Red Sea chokepoint. 29km wide. Houthi forces threaten closure in solidarity with Tehran. Oil rerouted via Saudi East-West Pipeline transits here.'));
+
+const babLabel = L.marker([12.7,43.7], {
+  icon: L.divIcon({
+    className:'',
+    html:`<div style="font-family:'Playfair Display',serif;font-size:10px;font-weight:700;color:#1a6fa8;white-space:nowrap;text-shadow:0 1px 3px #fff,0 1px 3px #fff;letter-spacing:0.05em;">BAB EL-MANDEB</div>`,
+    iconSize:[120,16], iconAnchor:[60,8]
+  })
+});
+
+// Suez Canal
+const suezLine = L.polyline([
+  [30.7,32.3],[30.0,32.4],[29.2,32.5],[28.5,32.6]
+], {
+  color:'#1a6fa8', weight:3, opacity:0.85, dashArray:'6,4'
+}).bindPopup(pop('Strategic Waterway','Suez Canal',
+  'Primary rerouting corridor for tankers avoiding Hormuz via Red Sea. Oil from Saudi East-West Pipeline enters global market via Suez or SUMED pipeline.'));
+
+const suezLabel = L.marker([29.7,32.4], {
+  icon: L.divIcon({
+    className:'',
+    html:`<div style="font-family:'Playfair Display',serif;font-size:10px;font-weight:700;color:#1a6fa8;white-space:nowrap;text-shadow:0 1px 3px #fff,0 1px 3px #fff;letter-spacing:0.05em;">SUEZ CANAL</div>`,
+    iconSize:[90,16], iconAnchor:[45,8]
+  })
+});
+
+[hormuzLine, hormuzLabel, babLine, babLabel, suezLine, suezLabel].forEach(l => l.addTo(chokeLayer));
+chokeLayer.addTo(map);
+
+
+// ══════════════════════════════════
+// LAYER 3 — NUCLEAR SITES
+// ══════════════════════════════════
+const nuclearLayer = L.layerGroup();
+
+const nuclearSites = [
+  {
+    ll:[33.7256,51.7250], name:'Natanz Enrichment Facility',
+    detail:'Iran\'s primary uranium enrichment plant. Underground Fuel Enrichment Plant (FEP). Struck in Operation Midnight Hammer (June 2025) and again Feb 28, 2026. Location of IR-1 through IR-6 centrifuge cascades.'
+  },
+  {
+    ll:[34.8850,48.8100], name:'Fordow Fuel Enrichment Plant',
+    detail:'Underground facility near Qom, carved into mountain to resist strikes. Enriched uranium to 60% purity. Struck June 2025. 460kg of 60%-enriched HEU stockpile location unknown post-strikes.'
+  },
+  {
+    ll:[32.6200,51.7200], name:'Isfahan Nuclear Complex',
+    detail:'Uranium conversion and fuel fabrication. Struck June 2025 and Feb 28, 2026. Centrifuge manufacturing workshop, fuel rod production, natural uranium metal facility all confirmed hit.'
+  }
+];
+
+nuclearSites.forEach(s => {
+  L.marker(s.ll, {icon: nuclearIcon()})
+    .bindPopup(pop('Nuclear Site', s.name, s.detail))
+    .addTo(nuclearLayer);
+});
+
+nuclearLayer.addTo(map);
+
+
+// ══════════════════════════════════
+// LAYER 4 — PROXY ACTORS
+// ══════════════════════════════════
+const proxyLayer = L.layerGroup();
+
+const proxies = [
+  {
+    ll:[33.5731,35.3517], name:'Hezbollah — Lebanon',
+    color:'#7d3c98',
+    detail:'Founded 1982 in Bekaa Valley with IRGC support. Re-entered war March 2, 2026 after ceasefire since Nov 2024. Rocket barrages into northern Israel. Leader Nasrallah killed Sep 2024; Naim Qassem now heads organisation. Israel launched ground invasion of southern Lebanon March 17. April 8, 2026: Israel struck 100+ Hezbollah targets across Beirut, southern Lebanon and Bekaa Valley in 10 minutes — 182 killed. Hezbollah has not confirmed adherence to US-Iran ceasefire; Iran re-closed Hormuz in response.'
+  },
+  {
+    ll:[15.3500,44.2000], name:"Houthis (Ansar Allah) — Yemen",
+    color:'#7d3c98',
+    detail:'Zaydi Shia movement controlling northern Yemen and Sana\'a since 2014. Formally entered 2026 war March 28. Ballistic missiles fired at southern Israel. Threaten closure of Bab el-Mandeb Strait. Iran-supplied drones, missiles, and BeiDou navigation systems.'
+  },
+  {
+    ll:[33.2232,43.6793], name:'Iraq Shia Militias (PMF)',
+    color:'#7d3c98',
+    detail:'Popular Mobilisation Forces including Kataib Hezbollah and Asa\'ib Ahl al-Haq. Attacked US bases in Iraq, Syria, Kuwait. Fractured between ideological hardliners and political actors embedded in Iraqi state. Qatari IRGC cell arrested March 5.'
+  },
+  {
+    ll:[31.5000,34.4667], name:'Hamas — Gaza',
+    color:'#7d3c98',
+    detail:'Iran-backed Palestinian militant group. Severely weakened since Oct 7 2023 war. Organisational survival and disarmament negotiations ongoing. Iran\'s role now historical enablement rather than real-time command.'
+  }
+];
+
+proxies.forEach(p => {
+  L.marker(p.ll, {icon: proxyIcon(p.color)})
+    .bindPopup(pop('Proxy Actor', p.name, p.detail))
+    .addTo(proxyLayer);
+});
+
+proxyLayer.addTo(map);
+
+
+// ══════════════════════════════════
+// LAYER 5 — US MILITARY BASES
+// ══════════════════════════════════
+const basesLayer = L.layerGroup();
+
+const bases = [
+  {
+    ll:[25.1172,51.3150], name:'Al Udeid Air Base — Qatar',
+    detail:'Largest US military installation in the Middle East. Forward HQ of CENTCOM. Qatar shot down two Iranian Su-24s. Base struck by Iranian missiles.'
+  },
+  {
+    ll:[26.2285,50.6128], name:'NSA Bahrain — 5th Fleet HQ',
+    detail:'US Navy 5th Fleet headquarters. Bahrain struck repeatedly by Iranian drones and missiles throughout the conflict.'
+  },
+  {
+    ll:[29.2080,47.9650], name:'Ali Al Salem Air Base — Kuwait',
+    detail:'Key US Air Force installation. Iranian drone struck tactical operations centre; 6 US service members killed. State Department warned of further attacks on Kuwaiti universities.'
+  },
+  {
+    ll:[24.4330,54.6500], name:'Al Dhafra Air Base — UAE',
+    detail:'Major US Air Force base near Abu Dhabi. UAE air defences intercepted 438 ballistic missiles, 19 cruise missiles, 2,012 drones since conflict began.'
+  },
+  {
+    ll:[29.5500,34.9500], name:'Eilat / Negev — Israel forward positions',
+    detail:'US-Israel joint operational coordination. Israel contributed 200 fighter aircraft in 500 strike sorties on Feb 28 — largest in Israeli history. Israeli intelligence conducted leadership decapitation strikes.'
+  }
+];
+
+bases.forEach(b => {
+  L.marker(b.ll, {icon: baseIcon()})
+    .bindPopup(pop('US Military Presence', b.name, b.detail))
+    .addTo(basesLayer);
+});
+
+basesLayer.addTo(map);
+
+
+// ══════════════════════════════════
+// LAYER TOGGLES
+// ══════════════════════════════════
+document.getElementById('toggle-cities').addEventListener('change', function() {
+  this.checked ? citiesLayer.addTo(map) : map.removeLayer(citiesLayer);
+});
+document.getElementById('toggle-chokepoints').addEventListener('change', function() {
+  this.checked ? chokeLayer.addTo(map) : map.removeLayer(chokeLayer);
+});
+document.getElementById('toggle-nuclear').addEventListener('change', function() {
+  this.checked ? nuclearLayer.addTo(map) : map.removeLayer(nuclearLayer);
+});
+document.getElementById('toggle-proxies').addEventListener('change', function() {
+  this.checked ? proxyLayer.addTo(map) : map.removeLayer(proxyLayer);
+});
+document.getElementById('toggle-bases').addEventListener('change', function() {
+  this.checked ? basesLayer.addTo(map) : map.removeLayer(basesLayer);
+});
+
+// ── Fit map to desired theatre bounds ──
+// SE Greece → NW India: approx lat 10–45, lng 20–82
+map.fitBounds([[10, 20], [45, 82]]);
+
+</script>
+</body>
+</html>

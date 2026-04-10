@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Special Report: Canada's Jobs Crisis — March 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#141008;--aged:#f4edd6;--cream:#fdf9ee;--rust:#8b2513;--gold:#a07800;--grey:#635d4e;--rule:#d0c5a0;--green:#1a6b3c;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.7;}
+
+  /* ── MASTHEAD ── */
+  .masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:18px 40px 12px;text-align:center;}
+  .mast-top{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);letter-spacing:.05em;border-bottom:1px solid var(--rule);padding-bottom:6px;margin-bottom:6px;}
+  .masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(28px,4.5vw,56px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+  .mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11.5px;color:var(--grey);margin-top:3px;}
+
+  /* ── SPECIAL REPORT BANNER ── */
+  .sr-banner{background:var(--ink);color:var(--aged);text-align:center;padding:14px 20px;}
+  .sr-banner .sr-label{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+  .sr-banner h2{font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,30px);font-weight:900;line-height:1.2;}
+  .sr-banner .sr-sub{font-family:'Libre Baskerville',serif;font-style:italic;font-size:13px;color:var(--rule);margin-top:6px;}
+  .sr-banner .sr-meta{font-family:'Source Sans 3',sans-serif;font-size:10.5px;color:var(--grey);margin-top:8px;letter-spacing:.05em;}
+
+  /* ── PAGE LAYOUT ── */
+  .page{max-width:1080px;margin:0 auto;background:var(--cream);padding:30px 40px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+  .section-rule{border:none;border-top:3px double var(--ink);margin:28px 0 20px;}
+  .section-head{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin-bottom:16px;}
+  .sublabel{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--grey);margin:14px 0 8px;}
+
+  /* ── LEAD ARTICLE ── */
+  .lead-hed{font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,38px);font-weight:900;line-height:1.15;margin-bottom:10px;}
+  .lead-deck{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--grey);line-height:1.5;margin-bottom:12px;border-bottom:1px solid var(--rule);padding-bottom:12px;}
+  .byline{font-family:'Source Sans 3',sans-serif;font-size:10.5px;color:var(--grey);font-style:italic;margin-bottom:18px;}
+
+  /* ── BODY COPY ── */
+  .body-col{column-count:3;column-gap:28px;column-rule:1px solid var(--rule);}
+  @media(max-width:760px){.body-col{column-count:1;}}
+  .body-col p{font-size:13px;line-height:1.75;margin-bottom:10px;text-align:justify;hyphens:auto;}
+  .body-col p:first-child::first-letter{font-family:'Playfair Display',serif;font-size:3.8em;font-weight:900;float:left;line-height:.8;margin:4px 6px -2px 0;color:var(--rust);}
+
+  /* ── PULL QUOTE ── */
+  .pull{border-left:4px solid var(--rust);padding:8px 14px;margin:14px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--rust);line-height:1.5;break-inside:avoid;}
+  .pull-attr{font-family:'Source Sans 3',sans-serif;font-size:10px;font-style:normal;color:var(--grey);display:block;margin-top:5px;}
+
+  /* ── STAT CARDS ── */
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px;margin:16px 0;}
+  .stat-card{background:#ede6cf;border:1px solid var(--rule);padding:12px 13px;}
+  .stat-card.loss{border-top:3px solid var(--rust);}
+  .stat-card.gain{border-top:3px solid var(--green);}
+  .stat-card.warn{border-top:3px solid var(--gold);}
+  .stat-card .sc-label{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--grey);margin-bottom:5px;}
+  .stat-card .sc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:24px;line-height:1;}
+  .stat-card.loss .sc-val{color:var(--rust);}
+  .stat-card.gain .sc-val{color:var(--green);}
+  .stat-card.warn .sc-val{color:var(--gold);}
+  .stat-card .sc-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:5px;}
+
+  /* ── BAR CHARTS ── */
+  .chart-wrap{margin:16px 0;}
+  .bar-row{margin-bottom:10px;}
+  .bar-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;}
+  .bar-label span:first-child{font-family:'Libre Baskerville',serif;font-size:12px;color:var(--ink);}
+  .bar-label span:last-child{font-family:'monospace','Courier New',monospace;font-size:11.5px;font-weight:700;}
+  .bar-track{background:#e2d9c0;border-radius:3px;height:16px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:3px;}
+  .bar-fill.loss{background:var(--rust);opacity:.85;}
+  .bar-fill.gain{background:var(--green);opacity:.85;}
+  .bar-note{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);font-style:italic;margin-top:2px;}
+
+  /* ── REGION TABLE ── */
+  .region-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:12px;}
+  .region-table th{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--grey);border-bottom:2px solid var(--ink);padding:6px 8px;text-align:left;}
+  .region-table td{padding:7px 8px;border-bottom:1px solid var(--rule);font-family:'Libre Baskerville',serif;font-size:12px;}
+  .region-table tr:last-child td{border-bottom:none;}
+  .loss-cell{color:var(--rust);font-weight:700;font-family:monospace;}
+  .gain-cell{color:var(--green);font-weight:700;font-family:monospace;}
+  .flat-cell{color:var(--gold);font-weight:700;font-family:monospace;}
+
+  /* ── WHAT COMES NEXT BOX ── */
+  .next-box{background:var(--ink);color:var(--aged);padding:18px 22px;margin:20px 0;}
+  .next-box h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:var(--gold);margin-bottom:12px;letter-spacing:.05em;}
+  .next-box ul{list-style:none;padding:0;}
+  .next-box ul li{font-family:'Libre Baskerville',serif;font-size:12.5px;color:var(--aged);padding:6px 0;border-bottom:1px solid #2a2010;display:flex;gap:10px;line-height:1.5;}
+  .next-box ul li:last-child{border-bottom:none;}
+  .next-box ul li .date{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--gold);font-weight:700;white-space:nowrap;margin-top:2px;min-width:70px;}
+
+  /* ── EXPERT PANEL ── */
+  .expert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin:16px 0;}
+  .expert-card{background:#ede6cf;border:1px solid var(--rule);border-left:4px solid var(--rust);padding:13px 15px;}
+  .expert-card blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:12.5px;color:var(--ink);line-height:1.6;margin-bottom:8px;}
+  .expert-card .attr{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);}
+  .expert-card .attr strong{color:var(--ink);}
+
+  /* ── SOURCE LINE ── */
+  .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:6px;margin-top:14px;}
+  .src a{color:var(--rust);text-decoration:none;}
+  .src a:hover{text-decoration:underline;}
+
+  /* ── FOOTER ── */
+  .footer{max-width:1080px;margin:0 auto;text-align:center;padding:14px;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);background:var(--cream);border:1px solid var(--rule);border-top:3px double var(--ink);}
+  .divider{height:11px;background:var(--ink);max-width:1080px;margin:0 auto;}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mast-top">
+    <span>EST. 2026 &bull; INDEPENDENT JOURNALISM</span>
+    <span>Sunday, March 15, 2026 &bull; Special Report</span>
+    <span>Published with Vol. I, No. 8</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">"All the News That's Fit to Chronicle"</div>
+</div>
+
+<!-- SPECIAL REPORT BANNER -->
+<div class="sr-banner">
+  <div class="sr-label">⚑ Special Report</div>
+  <h2>Canada's Jobs Crisis:<br>84,000 Lost in February, and the Worst May Be Ahead</h2>
+  <div class="sr-sub">How U.S. tariff uncertainty, Iran war energy shock, and structural fragility converged to deliver the country's worst non-pandemic jobs month in years</div>
+  <div class="sr-meta">The Chronicler National Desk &bull; Data: Statistics Canada LFS, February 2026 &bull; Released March 13, 2026</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MAIN PAGE -->
+<div class="page">
+
+  <!-- HEADLINE FIGURES -->
+  <div class="section-head">Headline Figures · February 2026</div>
+  <div class="stat-grid">
+    <div class="stat-card loss">
+      <div class="sc-label">Net Jobs Lost</div>
+      <div class="sc-val">84,000</div>
+      <div class="sc-note">Economists had forecast a gain of +10,000</div>
+    </div>
+    <div class="stat-card loss">
+      <div class="sc-label">Full-Time Jobs Lost</div>
+      <div class="sc-val">108,000</div>
+      <div class="sc-note">Partially offset by +24,500 part-time gains</div>
+    </div>
+    <div class="stat-card loss">
+      <div class="sc-label">Private Sector Lost</div>
+      <div class="sc-val">73,000</div>
+      <div class="sc-note">Public sector added back 11,200</div>
+    </div>
+    <div class="stat-card loss">
+      <div class="sc-label">Unemployment Rate</div>
+      <div class="sc-val">6.7%</div>
+      <div class="sc-note">Up from 6.5% in January</div>
+    </div>
+    <div class="stat-card loss">
+      <div class="sc-label">Youth Unemployment</div>
+      <div class="sc-val">14.1%</div>
+      <div class="sc-note">Ages 15–24 · +1.3pp month-over-month</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="sc-label">Left Labour Force</div>
+      <div class="sc-val">27,000</div>
+      <div class="sc-note">Participation rate fell to 64.9%</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="sc-label">12-Month Job Growth</div>
+      <div class="sc-val">+0.2%</div>
+      <div class="sc-note">BMO: "Almost zero job growth in a year"</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="sc-label">6-Month Net Gain</div>
+      <div class="sc-val">+80,000</div>
+      <div class="sc-note">After adding 189,000 in fall 2025</div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- LEAD ARTICLE -->
+  <div class="lead-hed">A Labour Market Frozen in Place — Trade War, Energy Shock, and a Hollowing-Out of Private Work</div>
+  <div class="lead-deck">Canada shed 84,000 jobs in February — its worst non-pandemic month in years. Behind the number lies a convergence of three distinct shocks that economists warn could persist well into 2026.</div>
+  <div class="byline">The Chronicler National Desk &bull; Sources: <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260313/dq260313a-eng.htm" target="_blank" style="color:var(--rust);">Statistics Canada</a> · <a href="https://www.cbc.ca/news/business/canada-labour-force-survey-february-2026-9.7127105" target="_blank" style="color:var(--rust);">CBC News</a> · <a href="https://www.bnnbloomberg.ca/business/economics/2026/03/13/canada-lost-84000-jobs-in-february-unemployment-rate-up-to-67/" target="_blank" style="color:var(--rust);">BNN Bloomberg</a> · <a href="https://www.theglobeandmail.com/business/economy/jobs/article-canada-jobs-report-unemployment-rate-february/" target="_blank" style="color:var(--rust);">Globe and Mail</a> · <a href="https://economics.td.com/ca-employment" target="_blank" style="color:var(--rust);">TD Bank</a> · <a href="https://economics.bmo.com/en/publications/detail/dfeb4359-8e7e-4d71-a3b2-ce1acbbc1d7b/" target="_blank" style="color:var(--rust);">BMO</a> · <a href="https://www.bankofcanada.ca/2026/02/structural-change-canada-at-a-crossroads/" target="_blank" style="color:var(--rust);">Bank of Canada</a> &bull; Sunday, March 15, 2026</div>
+
+  <div class="body-col">
+    <p>Canada's labour market recorded one of its worst single-month performances since the pandemic in February 2026, shedding a net 83,900 jobs while the unemployment rate climbed two-tenths of a point to 6.7 per cent. The result was almost entirely the opposite of what economists had forecast — a gain of 10,000 — and landed at a moment when the country was already absorbing two simultaneous economic shocks of historic proportions.</p>
+
+    <p>The primary cause, according to Prime Minister Mark Carney, speaking from Norway on Friday, is unambiguous: the uncertainty generated by the United States' escalating tariff actions against Canadian goods has induced a freezing of private sector hiring and investment. "Given the scale of the trade actions, the uncertainty that is associated with the trade actions in the United States, that is causing big adjustments in the economy," Carney told reporters. BMO chief economist Douglas Porter was blunter, calling the result "simply brutal" and describing it as ranking among the worst non-pandemic monthly job losses in Canadian history.</p>
+
+    <div class="pull">
+      "The bigger picture is that after the surprising strength in jobs last fall, the recent weakness has washed those gains away and leaves overall employment up just 0.2 per cent year over year — almost zero job growth in the past year."
+      <span class="pull-attr">— Douglas Porter, Chief Economist, BMO · <a href="https://economics.bmo.com/en/publications/detail/dfeb4359-8e7e-4d71-a3b2-ce1acbbc1d7b/" target="_blank" style="color:var(--rust);">BMO Economics Note, March 13, 2026 ↗</a></span>
+    </div>
+
+    <p>The February losses were broad-based and concentrated in full-time and private sector work — the categories economists regard as the most meaningful signals of underlying economic health. Full-time employment fell by more than 108,000 positions, only partially cushioned by the addition of 24,500 part-time roles. Private sector employment dropped 73,000. The employment rate — the share of the population aged 15 and older who are working — fell 0.2 percentage points to 60.6 per cent, its second consecutive monthly decline.</p>
+
+    <p>The composition of losses tells a story of an economy under structural duress, not merely seasonal noise. Wholesale and retail trade — sectors directly exposed to U.S.-Canada cross-border commerce — led with 17,900 positions eliminated. Construction shed 11,800 roles, manufacturing 9,200, and the information, culture and recreation sector 12,000. Only transportation and warehousing (+10,300) and public administration (+8,100) added jobs in meaningful numbers, the latter reflecting continued government hiring ahead of expected federal budget cutbacks.</p>
+
+    <p>The second shock is the Iran war. TD Bank senior economist Andrew Hencic described the Middle East conflict as a "wildcard" for the Canadian economy — a variable that was not factored into 2026 forecasts and whose duration remains impossible to model. With Brent crude above $100 per barrel and the Strait of Hormuz effectively closed, Canadian consumers face a compounding burden: pump prices above 155 cents per litre GTA-wide, home heating cost increases, and rising freight premiums for imported goods. These energy costs reduce disposable income, suppress consumer spending, and threaten to reignite inflation at precisely the moment the Bank of Canada has been managing it down toward its 2 per cent target.</p>
+
+    <div class="pull">
+      "This is clearly a very worrisome report for the Bank of Canada — labour market slack has increased and activity is frozen amidst trade uncertainty."
+      <span class="pull-attr">— Katherine Judge, Senior Economist, CIBC Capital Markets · <a href="https://www.bnnbloomberg.ca/business/economics/2026/03/13/canada-lost-84000-jobs-in-february-unemployment-rate-up-to-67/" target="_blank" style="color:var(--rust);">BNN Bloomberg, March 13, 2026 ↗</a></span>
+    </div>
+
+    <p>The third force is structural. The Bank of Canada's February Monetary Policy Report had already flagged that Canadian GDP growth was expected to average only approximately 1.25 per cent over the next two years — soft growth driven by export weakness, cautious business investment, and a flattening of the population growth that drove labour demand in 2022–24. The LFS report released Friday confirms that the structural weakening the Bank had identified in its projections has now arrived in the employment data with a velocity that surprised even the most cautious forecasters.</p>
+
+    <p>Quebec accounted for 57,000 of the national losses — the province's first significant single-month employment decline in over four years — with the jobless rate rising 0.7 percentage points to 5.9 per cent. British Columbia shed 20,000 positions; Saskatchewan and Manitoba also contracted. Ontario, which had lost 67,000 jobs in January, held broadly steady in February — a pattern suggesting the shock is rotating across provinces rather than stabilising at the national level.</p>
+
+    <p>For the Bank of Canada, which meets Wednesday and will have February inflation data in hand by Monday morning, the February jobs report has significantly shifted the policy calculus. CIBC's Katherine Judge noted the data "should offset inflationary pressures from the recent oil spike," and said CIBC's base case for the remainder of 2026 remains a hold, though "weakness in data like Friday's report tilt risks toward a further cut." Porter went further, arguing the Bank "should be actively considering the possibility of rate cuts if this kind of weakness in the economy continues." Markets are pricing a 90 per cent probability of a hold on Wednesday — but the risk dial has rotated meaningfully toward easing.</p>
+
+    <p>What makes the moment particularly fraught is the simultaneous upward pressure on inflation from energy costs and the downward pressure on growth from trade uncertainty and labour market weakness. The Bank of Canada faces the spectre of a stagflationary environment — sluggish growth and rising prices — that is among the most difficult conditions for monetary policy to navigate. Rate hikes would deepen the jobs slump; rate cuts risk inflaming an energy-driven inflation rebound. The February data has made that dilemma unavoidably concrete.</p>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTOR BREAKDOWN -->
+  <div class="section-head">Jobs Lost and Gained by Sector</div>
+  <div class="sublabel">▼ Sectors That Lost Jobs</div>
+  <div class="chart-wrap">
+
+    <div class="bar-row">
+      <div class="bar-label"><span>Wholesale &amp; Retail Trade</span><span style="color:var(--rust)">▼ 17,900 &nbsp;(−0.6%)</span></div>
+      <div class="bar-track"><div class="bar-fill loss" style="width:31.4%"></div></div>
+      <div class="bar-note">Trending down since October 2025; cumulative −52,000 over five months. Direct exposure to U.S.-Canada tariff uncertainty.</div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-label"><span>Information, Culture &amp; Recreation</span><span style="color:var(--rust)">▼ 12,000 &nbsp;(−1.4%)</span></div>
+      <div class="bar-track"><div class="bar-fill loss" style="width:21.1%"></div></div>
+      <div class="bar-note">Media, entertainment, and communications sectors all contracted. Advertising spending cuts linked to business uncertainty.</div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-label"><span>Construction</span><span style="color:var(--rust)">▼ 11,800 &nbsp;(−0.7%)</span></div>
+      <div class="bar-track"><div class="bar-fill loss" style="width:20.7%"></div></div>
+      <div class="bar-note">Losses spread across all regions. High interest rates and tariff uncertainty on building materials dampening new starts.</div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-label"><span>Other Services</span><span style="color:var(--rust)">▼ 13,900 &nbsp;(−1.8%)</span></div>
+      <div class="bar-track"><div class="bar-fill loss" style="width:24.4%"></div></div>
+      <div class="bar-note">Repair, maintenance, personal care, and laundry services. Reflects consumer caution and reduced discretionary spending.</div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-label"><span>Manufacturing</span><span style="color:var(--rust)">▼ 9,200 &nbsp;(−0.5%)</span></div>
+      <div class="bar-track"><div class="bar-fill loss" style="width:16.1%"></div></div>
+      <div class="bar-note">Heavily tariff-exposed. Honda Alliston among facilities idling production lines. Auto sector facing structural disruption.</div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-label"><span>Other Services Sectors (combined)</span><span style="color:var(--rust)">▼ 19,100</span></div>
+      <div class="bar-track"><div class="bar-fill loss" style="width:33.5%"></div></div>
+      <div class="bar-note">Finance, health support services, education auxiliaries, and accommodation. Broad-based contraction across service economy.</div>
+    </div>
+  </div>
+
+  <div class="sublabel">▲ Sectors That Added Jobs</div>
+  <div class="chart-wrap">
+    <div class="bar-row">
+      <div class="bar-label"><span>Transportation &amp; Warehousing</span><span style="color:var(--green)">▲ +10,300 &nbsp;(+0.9%)</span></div>
+      <div class="bar-track"><div class="bar-fill gain" style="width:18.1%"></div></div>
+      <div class="bar-note">Elevated logistics demand from Iran war supply chain rerouting and domestic freight. The one clear private-sector bright spot.</div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-label"><span>Public Administration</span><span style="color:var(--green)">▲ +8,100 &nbsp;(+0.7%)</span></div>
+      <div class="bar-track"><div class="bar-fill gain" style="width:14.2%"></div></div>
+      <div class="bar-note">Federal and provincial government hiring, including Statistics Canada's 2026 Census recruitment. Temporary in nature.</div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-label"><span>Utilities</span><span style="color:var(--green)">▲ +1,800 &nbsp;(+0.3%)</span></div>
+      <div class="bar-track"><div class="bar-fill gain" style="width:3.2%"></div></div>
+      <div class="bar-note">Modest gain. Energy infrastructure investment continues despite oil price volatility.</div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- REGIONAL BREAKDOWN -->
+  <div class="section-head">Jobs by Province</div>
+  <table class="region-table">
+    <thead>
+      <tr>
+        <th>Province</th>
+        <th>Jobs Change</th>
+        <th>Unemployment Rate</th>
+        <th>Change</th>
+        <th>Context</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Quebec</strong></td>
+        <td class="loss-cell">▼ 57,000</td>
+        <td>5.9%</td>
+        <td class="loss-cell">+0.7pp</td>
+        <td>First significant monthly loss in over 4 years; accounted for 68% of national losses</td>
+      </tr>
+      <tr>
+        <td><strong>British Columbia</strong></td>
+        <td class="loss-cell">▼ 20,200</td>
+        <td>6.1%</td>
+        <td class="flat-cell">unchanged</td>
+        <td>Construction and real estate hardest hit; tech sector hiring frozen</td>
+      </tr>
+      <tr>
+        <td><strong>Saskatchewan</strong></td>
+        <td class="loss-cell">▼ 5,500</td>
+        <td>—</td>
+        <td>—</td>
+        <td>Agriculture-linked services and potash supply chain exposure</td>
+      </tr>
+      <tr>
+        <td><strong>Manitoba</strong></td>
+        <td class="loss-cell">▼ 4,000</td>
+        <td>—</td>
+        <td>—</td>
+        <td>Manufacturing and logistics contraction</td>
+      </tr>
+      <tr>
+        <td><strong>Ontario</strong></td>
+        <td class="flat-cell">— Flat</td>
+        <td>—</td>
+        <td>—</td>
+        <td>Held after losing 67,000 in January. Auto sector remains under severe tariff pressure</td>
+      </tr>
+      <tr>
+        <td><strong>Alberta</strong></td>
+        <td class="flat-cell">— Marginal</td>
+        <td>—</td>
+        <td>—</td>
+        <td>Energy sector stable; LNG Canada exports partially offsetting losses</td>
+      </tr>
+      <tr>
+        <td><strong>Newfoundland &amp; Labrador</strong></td>
+        <td class="gain-cell">▲ +2,100</td>
+        <td>—</td>
+        <td>—</td>
+        <td>Offshore energy and public sector hiring</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="section-rule">
+
+  <!-- DEMOGRAPHIC BREAKDOWN -->
+  <div class="section-head">Who Was Hit Hardest</div>
+  <div class="stat-grid">
+    <div class="stat-card loss">
+      <div class="sc-label">Youth (15–24)</div>
+      <div class="sc-val">▼ 47,000</div>
+      <div class="sc-note">Unemployment 14.1% — near Sep 2025 peak of 14.6%, itself the highest since 2010. Racialized youth rates "notably higher."</div>
+    </div>
+    <div class="stat-card loss">
+      <div class="sc-label">Core-Age Men (25–54)</div>
+      <div class="sc-val">▼ 22,000</div>
+      <div class="sc-note">Construction and manufacturing losses disproportionately male. Unemployment rate up +0.3pp for cohort.</div>
+    </div>
+    <div class="stat-card loss">
+      <div class="sc-label">Women (all ages)</div>
+      <div class="sc-val">▼ 15,000</div>
+      <div class="sc-note">Services and retail losses. Women represent 47.3% of total employed.</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="sc-label">Discouraged Workers</div>
+      <div class="sc-val">27,000</div>
+      <div class="sc-note">Left the labour force entirely. Participation fell to 64.9% — masks true scale of labour market distress.</div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- EXPERT PANEL -->
+  <div class="section-head">What Economists Are Saying</div>
+  <div class="expert-grid">
+    <div class="expert-card">
+      <blockquote>"This was a very bad report on almost every single measure. Labour market slack has increased and activity is frozen amidst trade uncertainty."</blockquote>
+      <div class="attr"><strong>Katherine Judge</strong> · Senior Economist, CIBC Capital Markets<br><a href="https://www.bnnbloomberg.ca/business/economics/2026/03/13/canada-lost-84000-jobs-in-february-unemployment-rate-up-to-67/" target="_blank" style="color:var(--rust);font-size:9px;">BNN Bloomberg, March 13, 2026 ↗</a></div>
+    </div>
+    <div class="expert-card">
+      <blockquote>"Simply brutal. It ranks as one of the worst non-pandemic months ever for jobs. Weak almost from head to toe — almost zero net job growth in the past year."</blockquote>
+      <div class="attr"><strong>Douglas Porter</strong> · Chief Economist, BMO Capital Markets<br><a href="https://economics.bmo.com/en/publications/detail/dfeb4359-8e7e-4d71-a3b2-ce1acbbc1d7b/" target="_blank" style="color:var(--rust);font-size:9px;">BMO Economics Note, March 13, 2026 ↗</a></div>
+    </div>
+    <div class="expert-card">
+      <blockquote>"A decidedly weak report. The wild card is how big the inflation shock from the Middle East will be. Its length will impact inflation, consumer spending, and the economy at large."</blockquote>
+      <div class="attr"><strong>Andrew Hencic</strong> · Senior Economist, TD Bank<br><a href="https://www.theglobeandmail.com/business/economy/jobs/article-canada-jobs-report-unemployment-rate-february/" target="_blank" style="color:var(--rust);font-size:9px;">Globe and Mail, March 13, 2026 ↗</a></div>
+    </div>
+    <div class="expert-card">
+      <blockquote>"February's labour report is a bit of a gut punch. Businesses aren't just pausing — they're contracting. The question now is whether this is a shock or a trend."</blockquote>
+      <div class="attr"><strong>Shannon Terrell</strong> · Senior Writer, NerdWallet Canada<br><a href="https://www.cbc.ca/news/business/canada-labour-force-survey-february-2026-9.7127105" target="_blank" style="color:var(--rust);font-size:9px;">CBC News, March 13, 2026 ↗</a></div>
+    </div>
+    <div class="expert-card">
+      <blockquote>"The LFS is volatile — 2026 started weak, but it followed a surprisingly strong stretch to end 2025. At least some of the recent slip appears to be a reversal of exaggerated earlier strength."</blockquote>
+      <div class="attr"><strong>Brendon Bernard</strong> · Senior Economist, Indeed Canada<br><a href="https://ca.finance.yahoo.com/news/simply-brutal-canada-lost-84k-jobs-in-february-unemployment-rises-to-67-123843924.html" target="_blank" style="color:var(--rust);font-size:9px;">Yahoo Finance Canada, March 13, 2026 ↗</a></div>
+    </div>
+    <div class="expert-card">
+      <blockquote>"US tariffs have weakened our economy. Exports are down sharply. GDP growth is forecast at only about 1¼% over the next two years — soft growth."</blockquote>
+      <div class="attr"><strong>Bank of Canada</strong> · February Monetary Policy Report<br><a href="https://www.bankofcanada.ca/2026/02/structural-change-canada-at-a-crossroads/" target="_blank" style="color:var(--rust);font-size:9px;">Bank of Canada MPR, February 2026 ↗</a></div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- WHAT COMES NEXT -->
+  <div class="next-box">
+    <h4>⏱ What Comes Next — The Critical Week Ahead</h4>
+    <ul>
+      <li>
+        <span class="date">Mon, Mar 16</span>
+        <span><strong>February CPI released</strong> — RBC and CIBC expect headline inflation at approximately 2.0%, driven down by carbon tax removal. But Iran war energy costs may already be showing. This is the final major data release before Wednesday's rate decision.</span>
+      </li>
+      <li>
+        <span class="date">Mon, Mar 16</span>
+        <span><strong>National Balance Sheet Accounts</strong> — Updated snapshot of household and financial sector health. Will reveal how much debt Canadians are carrying into this jobs shock.</span>
+      </li>
+      <li>
+        <span class="date">Wed, Mar 18</span>
+        <span><strong>Bank of Canada Rate Decision</strong> — Markets price 90% hold at 2.25% for the third consecutive pause. But February's jobs data has shifted the conversation: BMO now says the Bank "should be actively considering rate cuts." Any dovish language in the accompanying statement will be closely read.</span>
+      </li>
+      <li>
+        <span class="date">Thu, Mar 20</span>
+        <span><strong>January Retail Sales</strong> — Statistics Canada advance indicator showed a +1.5% rise in January, reversing December's decline. Final number will test whether consumer spending held up before the Iran war hit gas prices in late February.</span>
+      </li>
+      <li>
+        <span class="date">Sun, Mar 29</span>
+        <span><strong>NDP Leadership Result</strong> — Avi Lewis vs. Heather McPherson. Whoever wins leads a party of at most six MPs and inherits the task of defining the NDP's economic policy response to a deteriorating jobs market — a classic NDP political territory.</span>
+      </li>
+      <li>
+        <span class="date">Wed, Mar 26</span>
+        <span><strong>Ontario Budget</strong> — Finance Minister Bethlenfalvy must now absorb both the Iran war oil shock and the weakest jobs environment in years into a provincial fiscal plan whose growth assumptions were set when oil was at $67/bbl. Fuel relief, trades investment, and teacher supply accounts all in play.</span>
+      </li>
+    </ul>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- CONTEXT BOX -->
+  <div class="section-head">Context: How February Fits the Broader Trend</div>
+  <div class="body-col">
+    <p>Canada's labour market added a cumulative 189,000 positions in the final four months of 2025 — a stretch of hiring strength that gave policymakers cautious optimism heading into 2026. That optimism has now been almost entirely erased. Two consecutive months of job losses (−25,000 in January, −84,000 in February) have returned overall employment to broadly where it was in September 2025. On a year-over-year basis, total employment is up just 0.2 per cent — what Porter describes as "almost zero" growth over twelve months.</p>
+
+    <p>The youth employment picture is particularly troubling. The 14.1 per cent youth unemployment rate in February is near the September 2025 peak of 14.6 per cent — itself the highest reading since 2010. Statistics Canada noted that racialized youth face "notably higher" unemployment rates than non-racialized, non-Indigenous youth — a structural disparity that has worsened under the current economic conditions.</p>
+
+    <div class="pull">
+      "2026 has offset some of those gains with two consecutive months of job losses to start the year. The labour market added 189,000 positions in the final four months of 2025 — and most of that has now been given back."
+      <span class="pull-attr">— BNN Bloomberg / Statistics Canada analysis · <a href="https://www.bnnbloomberg.ca/business/economics/2026/03/13/canada-lost-84000-jobs-in-february-unemployment-rate-up-to-67/" target="_blank" style="color:var(--rust);">BNN Bloomberg, March 13, 2026 ↗</a></span>
+    </div>
+
+    <p>The shrinking labour force — 27,000 Canadians left it entirely in February — is a particular concern. When people stop looking for work, they are not counted as unemployed, which means the headline 6.7 per cent unemployment rate may understate the true degree of labour market distress. The participation rate at 64.9 per cent is its second consecutive monthly decline, and has fallen 0.4 percentage points year-over-year — partly attributable to declining temporary resident numbers and a slower population growth rate.</p>
+
+    <p>The Bank of Canada's own structural analysis, published in its February Monetary Policy Report, identified AI-driven labour market transformation, population growth moderation, and trade disruption as converging forces that would constrain job growth in 2026 and 2027. TD Bank had pre-emptively projected annual job growth of only 75,000–100,000 for the year — a range that February's single-month loss of 84,000 has already nearly consumed in isolation, before the Iran war's full economic effects have had time to register in the data.</p>
+  </div>
+
+  <div class="src">
+    Sources:
+    <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260313/dq260313a-eng.htm" target="_blank">Statistics Canada LFS</a> ·
+    <a href="https://www.cbc.ca/news/business/canada-labour-force-survey-february-2026-9.7127105" target="_blank">CBC News</a> ·
+    <a href="https://www.bnnbloomberg.ca/business/economics/2026/03/13/canada-lost-84000-jobs-in-february-unemployment-rate-up-to-67/" target="_blank">BNN Bloomberg</a> ·
+    <a href="https://www.theglobeandmail.com/business/economy/jobs/article-canada-jobs-report-unemployment-rate-february/" target="_blank">Globe and Mail</a> ·
+    <a href="https://ca.finance.yahoo.com/news/simply-brutal-canada-lost-84k-jobs-in-february-unemployment-rises-to-67-123843924.html" target="_blank">Yahoo Finance / Canadian Press</a> ·
+    <a href="https://www.bankofcanada.ca/2026/02/structural-change-canada-at-a-crossroads/" target="_blank">Bank of Canada MPR</a> ·
+    <a href="https://economics.td.com/ca-employment" target="_blank">TD Economics</a> ·
+    <a href="https://www.rbc.com/en/economics/forward-guidance/forward-guidance-our-weekly-preview/" target="_blank">RBC Economics</a>
+  </div>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="footer">
+  <p><strong>The Chronicler</strong> &bull; Special Report: Canada's Jobs Crisis &bull; Published Sunday, March 15, 2026 &bull; Distributed with Vol. I, No. 8</p>
+  <p style="margin-top:4px;">All figures sourced from Statistics Canada Labour Force Survey (reference week Feb 15–21, 2026), released March 13, 2026. Economist commentary sourced from CBC News, BNN Bloomberg, Globe and Mail, and bank research notes. This report does not constitute financial or investment advice. © 2026 The Chronicler.</p>
+</div>
+
+</body>
+</html>
