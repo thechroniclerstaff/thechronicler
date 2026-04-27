@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Monday, April 27, 2026 — Vol. I, No. 29</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141008;--aged:#f4edd6;--cream:#fdf9ee;--rust:#8b2513;--gold:#a07800;--grey:#635d4e;--rule:#d0c5a0;--green:#1a6b3c;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+
+/* STICKY HEADER */
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover,.nav-item.open>a{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+
+/* MASTHEAD */
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+
+/* PAGE */
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+
+/* ARTICLES — stack on mobile, 3-col on wide */
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+
+/* WEATHER — scroll horizontally on mobile */
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+
+/* MARKET CARDS — 2-col on mobile, 4-col on tablet, 7 across on desktop */
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1;}
+.mkt-card .mc-chg{display:inline-flex;align-items:center;gap:3px;margin-top:3px;border-radius:3px;padding:2px 5px;align-self:flex-start;font-family:monospace;font-size:9.5px;font-weight:700;white-space:nowrap;}
+.mc-chg.down{background:#f8d7da;color:#8b2513;border:1px solid #f0c0c0;}
+.mc-chg.up{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.mc-chg.flat{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.mkt-card .mc-note{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);font-style:italic;margin-top:3px;border-top:1px solid var(--rule);padding-top:3px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-bottom:14px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+
+/* PUZZLES — stack on mobile */
+.games-row{display:grid;grid-template-columns:1fr;gap:16px;margin-top:14px;}
+.puzzle-box{border:1px solid var(--rule);border-top:3px solid var(--ink);padding:14px;background:#f9f3e3;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-bottom:8px;line-height:1.5;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;}
+.ww-mini-tile{background:var(--cream);border:1.5px solid var(--ink);padding:8px 4px;text-align:center;font-family:'Playfair Display',serif;font-weight:700;font-size:11px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:10.5px;font-weight:600;color:var(--rust);cursor:pointer;background:none;border:none;padding:6px 0;margin-top:6px;border-top:1px dashed var(--rule);width:100%;text-align:left;}
+.answer-box{margin-top:6px;display:none;}
+.answer-cat{padding:6px 9px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;margin-bottom:4px;line-height:1.5;}
+.answer-cat.a{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.answer-cat.b{background:#fff3cd;color:#6b4f00;border:1px solid #ffeeba;}
+.crunch-nums{display:flex;gap:10px;margin:10px 0;align-items:center;flex-wrap:wrap;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;}
+.crunch-target{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--rust);}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-top:8px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+
+/* FOOTER */
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+
+/* TABLET: 600px+ */
+@media(min-width:600px){
+  .page{padding:24px 28px 36px;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+  .games-row{grid-template-columns:1fr 1fr;}
+  article.s p{text-align:justify;hyphens:auto;}
+}
+
+/* DESKTOP: 800px+ */
+@media(min-width:800px){
+  .page{padding:28px 38px 42px;}
+  .col-3{grid-template-columns:repeat(3,1fr);gap:20px;}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 17px 0 0;margin-bottom:0;}
+  article.s:last-child{border-right:none;padding-right:0;}
+  .mkt-grid{grid-template-columns:repeat(7,1fr);}
+}
+</style>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2c9f324e65f4bde97c20728d6349a04"}'></script>
+</head>
+<body>
+<!-- STICKY HEADER -->
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+      <a class="top-btn" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#puzzles">Puzzles</a></div>
+  </nav>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 29 &nbsp;&middot;&nbsp; Monday, April 27, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">Today's Record. Tomorrow's Reference.</div>
+</div>
+
+<!-- CANADA -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <!-- Canada Weather -->
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+    <div class="w-card">
+      <div class="w-top"><span class="city">Toronto</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">14°C</div>
+      <div class="w-rng">H: 16° &nbsp; L: 8°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 58 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 W 18 km/h</span><span>💧 62%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>🌧️</span><span>13/7</span></div>
+        <div class="dm">Tue<span>🌦️</span><span>15/9</span></div>
+        <div class="dm">Wed<span>⛅</span><span>17/10</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Montréal</span><span class="w-icon">🌥️</span></div>
+      <div class="w-temp">12°C</div>
+      <div class="w-rng">H: 14° &nbsp; L: 5°</div>
+      <div class="w-cond">Mostly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 32 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 NW 22 km/h</span><span>💧 70%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>🌧️</span><span>11/6</span></div>
+        <div class="dm">Tue<span>🌦️</span><span>13/7</span></div>
+        <div class="dm">Wed<span>⛅</span><span>16/8</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Ottawa</span><span class="w-icon">⛅</span></div>
+      <div class="w-temp">13°C</div>
+      <div class="w-rng">H: 15° &nbsp; L: 6°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 28 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 W 15 km/h</span><span>💧 65%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>🌧️</span><span>12/5</span></div>
+        <div class="dm">Tue<span>🌦️</span><span>14/7</span></div>
+        <div class="dm">Wed<span>☀️</span><span>17/9</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Edmonton</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">18°C</div>
+      <div class="w-rng">H: 20° &nbsp; L: 7°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 18 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SW 12 km/h</span><span>💧 38%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>⛅</span><span>17/8</span></div>
+        <div class="dm">Tue<span>🌤️</span><span>19/9</span></div>
+        <div class="dm">Wed<span>☀️</span><span>21/10</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Vancouver</span><span class="w-icon">🌧️</span></div>
+      <div class="w-temp">11°C</div>
+      <div class="w-rng">H: 13° &nbsp; L: 7°</div>
+      <div class="w-cond">Rain</div>
+      <span class="aqi-badge aqi-good">AQI 22 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SW 25 km/h</span><span>💧 88%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>🌧️</span><span>12/8</span></div>
+        <div class="dm">Tue<span>🌦️</span><span>13/7</span></div>
+        <div class="dm">Wed<span>⛅</span><span>14/8</span></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="w-note">Weather data: Environment Canada. Updated approx. 5:30 AM ET, April 27, 2026. Values are placeholders — publisher to confirm or correct before publication.</div>
+
+  <!-- Canada Articles -->
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="canada-1">
+      <h3>Manitoba to become first province to ban social media for children</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Monday, April 27, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Manitoba Premier Wab Kinew announced Saturday that his government will introduce legislation banning youth from using social media platforms and artificial intelligence chatbots — a first in Canada. Kinew made the announcement before approximately 900 New Democrats at a party fundraiser, describing the platforms as tools that "hack our children's reward system" and contribute to anxiety, depression, and trafficking risks.</p>
+      <p>The province has not yet specified the age limit, enforcement mechanism, or legislative timeline. Manitoba's plan follows Australia's law requiring social media companies to prevent users under 16 from creating accounts, with fines of up to $48.8 million for non-compliance. Saskatchewan and Quebec have also raised similar proposals, while the federal government is considering national age restrictions.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/manitoba/manitoba-social-media-age-restrictions-9.7177470" target="_blank" rel="noopener">CBC News</a> &middot; April 25–26, 2026</div>
+    </article>
+    <article class="s" id="canada-2">
+      <h3>Carney government tables spring fiscal update Tuesday amid trade uncertainty</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Monday, April 27, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Finance Minister François-Philippe Champagne will deliver the Liberals' spring economic statement on April 28, exactly one year after the party secured its minority mandate under Prime Minister Mark Carney. The update will be the first full fiscal accounting under Carney's leadership, incorporating new spending commitments, the energy price shock from the Iran war, and GST benefit enhancements.</p>
+      <p>The November budget projected a deficit of $78.3 billion for the last fiscal year, nearly double prior-year projections. Former Parliamentary Budget Officer Kevin Page has called on the government to demonstrate results, while the C.D. Howe Institute warned this week that Canada "can no longer pride itself on fiscal discipline." The IMF has nonetheless praised Canada's fiscal position as the strongest among G7 peers.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/spring-economic-update-9.7163590" target="_blank" rel="noopener">CBC News</a> &middot; April 27, 2026</div>
+    </article>
+    <article class="s" id="canada-3">
+      <h3>Carney and Sheinbaum align on CUSMA as July deadline approaches</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Monday, April 27, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Prime Minister Mark Carney spoke by phone Friday with Mexican President Claudia Sheinbaum to coordinate ahead of the upcoming review of the Canada-United States-Mexico Agreement, with the July 1 deadline for renewal now unlikely to hold. Canada has no confirmed start date for formal bilateral trade talks with Washington, while the U.S. and Mexico are set to begin official discussions in late May.</p>
+      <p>Carney has maintained that sectoral tariffs on steel, aluminum, automobiles, and forest products must be addressed alongside any CUSMA renewal — a position at odds with the U.S. insistence on treating them as separate matters. The Prime Minister also thanked Sheinbaum for Mexican cooperation following the killing of a Canadian tourist at the Teotihuacan archaeological site earlier in the week.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-sheinbaum-phone-call-cusma-9.7177039" target="_blank" rel="noopener">CBC News</a> &middot; April 24, 2026</div>
+    </article>
+  </div>
+
+  <!-- Canada Market Cards -->
+  <span class="cat" style="margin-top:30px;">Markets</span>
+  <div class="mkt-note">Canada market data reflects Friday, April 25 close. Currency rates sourced live from XE.com, April 27, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">33,904</div>
+      <span class="mc-chg down">▼ −8.82 (−0.03%)</span>
+      <div class="mc-note">Fri Apr 25 close · CAD</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$94.40</div>
+      <span class="mc-chg down">▼ −1.45 (−1.51%)</span>
+      <div class="mc-note">Fri Apr 25 close</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,741</div>
+      <span class="mc-chg up">▲ +16.90 (+0.36%)</span>
+      <div class="mc-note">Fri Apr 25 close</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7311</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 26</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">₹68.91</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 26</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">€0.6217</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 26</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">£0.5410</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 26</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; Yahoo Finance &middot; TMX (TSX) &middot; CME Group (WTI, Gold)</div>
+</div>
+</div>
+<!-- INDIA -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <!-- India Weather -->
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">New Delhi</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">38°C</div>
+      <div class="w-rng">H: 40° &nbsp; L: 26°</div>
+      <div class="w-cond">Hot and sunny</div>
+      <span class="aqi-badge aqi-poor">AQI 165 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>💨 W 14 km/h</span><span>💧 22%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>☀️</span><span>39/27</span></div>
+        <div class="dm">Tue<span>🌤️</span><span>37/26</span></div>
+        <div class="dm">Wed<span>⛅</span><span>36/25</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Hyderabad</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">35°C</div>
+      <div class="w-rng">H: 37° &nbsp; L: 24°</div>
+      <div class="w-cond">Partly cloudy, hazy</div>
+      <span class="aqi-badge aqi-moderate">AQI 88 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SW 11 km/h</span><span>💧 35%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>⛅</span><span>36/25</span></div>
+        <div class="dm">Tue<span>🌦️</span><span>34/24</span></div>
+        <div class="dm">Wed<span>🌧️</span><span>32/23</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Mumbai</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">32°C</div>
+      <div class="w-rng">H: 33° &nbsp; L: 26°</div>
+      <div class="w-cond">Humid, partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 74 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SW 19 km/h</span><span>💧 72%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>⛅</span><span>33/26</span></div>
+        <div class="dm">Tue<span>🌤️</span><span>33/26</span></div>
+        <div class="dm">Wed<span>⛅</span><span>32/25</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Bengaluru</span><span class="w-icon">⛅</span></div>
+      <div class="w-temp">29°C</div>
+      <div class="w-rng">H: 31° &nbsp; L: 20°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 45 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SE 10 km/h</span><span>💧 48%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>🌦️</span><span>30/20</span></div>
+        <div class="dm">Tue<span>⛅</span><span>31/21</span></div>
+        <div class="dm">Wed<span>🌤️</span><span>31/20</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Chennai</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">36°C</div>
+      <div class="w-rng">H: 38° &nbsp; L: 27°</div>
+      <div class="w-cond">Hot, sunny</div>
+      <span class="aqi-badge aqi-moderate">AQI 95 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SE 16 km/h</span><span>💧 60%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>☀️</span><span>37/28</span></div>
+        <div class="dm">Tue<span>🌤️</span><span>36/27</span></div>
+        <div class="dm">Wed<span>⛅</span><span>35/27</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Pune</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">33°C</div>
+      <div class="w-rng">H: 35° &nbsp; L: 22°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 68 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 W 13 km/h</span><span>💧 40%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>⛅</span><span>34/23</span></div>
+        <div class="dm">Tue<span>🌦️</span><span>32/22</span></div>
+        <div class="dm">Wed<span>🌤️</span><span>33/22</span></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="w-note">Weather data: IMD / India Meteorological Department. Updated approx. 5:30 AM ET, April 27, 2026. Values are placeholders — publisher to confirm or correct before publication.</div>
+
+  <!-- India Articles -->
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="india-1">
+      <h3>India marks one year since Pahalgam attack; Modi vows zero tolerance on terror</h3>
+      <div class="by">The Chronicler India Desk &middot; Monday, April 27, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Prime Minister Narendra Modi paid tribute Wednesday to the 26 civilians killed in the Pahalgam terror attack on its first anniversary, declaring that India "will never bow to any form of terror." The attack, carried out by Lashkar-e-Taiba militants in Indian-administered Jammu and Kashmir on April 22, 2025, struck a popular tourist area and triggered Operation Sindoor — India's retaliatory military strikes on terror infrastructure in Pakistan and Pakistan-occupied Kashmir.</p>
+      <p>The Indian Army also marked the anniversary with a strongly worded statement affirming that "Operation Sindoor continues," alongside a reference to Operation Mahadev, the subsequent counter-terror effort that tracked down and eliminated those directly responsible for the killings. Israel, Australia, and the European Union expressed solidarity with India on the occasion.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/india-news/india-marks-pahalgam-attack-anniversary-vows-zero-tolerance-to-terror-126042201296_1.html" target="_blank" rel="noopener">Business Standard</a> &middot; April 22, 2026</div>
+    </article>
+    <article class="s" id="india-2">
+      <h3>UN projects India's GDP growth at 6.4% for 2026 as U.S. tariff drag weighs</h3>
+      <div class="by">The Chronicler India Desk &middot; Monday, April 27, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>A report by the United Nations Economic and Social Commission for Asia and the Pacific projects India's economy will grow 6.4 per cent in 2026 and 6.6 per cent in 2027, moderating from 7.4 per cent growth in 2025. The slowdown reflects reduced exports to the United States — which fell 25 per cent after Washington imposed 50 per cent tariffs in August 2025 — and a new one per cent U.S. tax on all remittances, which could reduce India's $137-billion annual inflow.</p>
+      <p>Despite the headwinds, India remains the fastest-growing major economy and the primary engine of Asia-Pacific regional expansion. Domestic consumption, particularly in rural areas, and the services sector continue to underpin growth. The UN report notes that India attracted $50 billion in announced greenfield foreign direct investment in the first three quarters of 2025, the largest share in the Asia-Pacific region.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/economy/news/india-s-economy-projected-to-grow-at-6-4-in-2026-6-6-in-2027-un-report-126042100147_1.html" target="_blank" rel="noopener">Business Standard</a> &middot; April 21, 2026</div>
+    </article>
+    <article class="s" id="india-3">
+      <h3>NSA Doval meets UAE President Al Nahyan; discusses strategic partnership and West Asia conflict</h3>
+      <div class="by">The Chronicler India Desk &middot; Monday, April 27, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>National Security Adviser Ajit Doval met with UAE President Sheikh Mohamed bin Zayed Al Nahyan in Abu Dhabi on Sunday, conveying greetings from Prime Minister Narendra Modi and discussing measures to deepen the India-UAE Comprehensive Strategic Partnership. The talks covered the evolving regional security situation in West Asia and global energy security, with Crown Prince of Abu Dhabi Sheikh Khaled bin Mohamed bin Zayed Al Nahyan also present.</p>
+      <p>The visit is the second senior Indian diplomatic engagement with the UAE this month, following External Affairs Minister S. Jaishankar's two-day visit in which he thanked UAE leadership for safeguarding the welfare of the Indian community — estimated at over 3.5 million — during the ongoing Iran war. India has maintained a careful diplomatic posture throughout the conflict, allowing Indian-flagged vessels to transit the Strait of Hormuz under Iranian permission.</p>
+      <div class="src">Source: <a href="https://aninews.in/news/world/middle-east/nsa-doval-meets-uae-president-in-abu-dhabi-discusses-strengthening-strategic-partnership-energy-security20260426135212/" target="_blank" rel="noopener">ANI</a> &middot; April 27, 2026</div>
+    </article>
+  </div>
+
+  <!-- India Market Cards -->
+  <span class="cat" style="margin-top:30px;">Markets</span>
+  <div class="mkt-note">Indian market data reflects Friday, April 25 close (NSE/BSE). Currency rates sourced live from XE.com, April 27, 2026. Reciprocal check: CAD/INR × INR/CAD = 0.9992 ✓</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div>
+      <div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">76,664</div>
+      <span class="mc-chg down">▼ −1,000 (−1.29%)</span>
+      <div class="mc-note">Fri Apr 25 close · INR</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE Index</div>
+      <div class="mc-val">23,898</div>
+      <span class="mc-chg down">▼ −275 (−1.14%)</span>
+      <div class="mc-note">Fri Apr 25 close · INR</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">INR / 10g (24K)</div>
+      <div class="mc-val">₹1,54,040</div>
+      <span class="mc-chg down">▼ −1,740 (−1.11%)</span>
+      <div class="mc-note">Goodreturns · Apr 26</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">$0.0106</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 26</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">$0.0145</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 26</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">£0.0078</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 26</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">1 INR in EUR</div>
+      <div class="mc-val">€0.0090</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 26</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; <a href="https://bseindia.com" target="_blank" rel="noopener">BSE India</a> &middot; <a href="https://nseindia.com" target="_blank" rel="noopener">NSE India</a> &middot; MCX India (Gold)</div>
+</div>
+</div>
+<!-- WORLD -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <!-- World Articles -->
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="world-1">
+      <h3>Trump cancels Pakistan trip as Iran peace talks collapse for second time</h3>
+      <div class="by">The Chronicler World Desk &middot; Monday, April 27, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>President Donald Trump on Saturday abruptly cancelled the planned trip by his top negotiators — special envoy Steve Witkoff and son-in-law Jared Kushner — to Islamabad for a second round of Iran war peace talks, minutes after Iranian Foreign Minister Abbas Araghchi left Pakistan without meeting American officials. Trump wrote on Truth Social that there was "tremendous infighting and confusion" within the Iranian leadership, adding: "Nobody knows who is in charge, including them."</p>
+      <p>Araghchi had arrived in Pakistan on Friday for what was expected to be a fresh round of mediated talks, but met only with Pakistani officials before departing for Oman. Iran's President Masoud Pezeshkian subsequently told Pakistani Prime Minister Shehbaz Sharif that Tehran would not enter "forced negotiations" under pressure or while facing a U.S. naval blockade. The diplomatic collapse raises the prospect of resumed hostilities once the ceasefire — already past its original two-week term — expires.</p>
+      <div class="src">Source: <a href="https://www.cnbc.com/2026/04/25/iran-says-no-meeting-with-us-negotiators-planned-in-pakistan.html" target="_blank" rel="noopener">CNBC</a> &middot; April 25–26, 2026</div>
+    </article>
+    <article class="s" id="world-2">
+      <h3>Gunman opens fire at White House Correspondents' Dinner; Trump and officials evacuated</h3>
+      <div class="by">The Chronicler World Desk &middot; Monday, April 27, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>A gunman opened fire Saturday night at the White House Correspondents' Association Dinner at the Washington Hilton, forcing the evacuation of President Trump, Vice President Vance, and senior administration officials. The suspect, identified Sunday as Cole Tomas Allen, 31, of Torrance, California, charged a security checkpoint outside the ballroom and fired one or two shots before being apprehended. One Secret Service agent was struck in a bulletproof vest and is expected to recover.</p>
+      <p>Allen had sent a message to family members before the attack stating his intent to target administration officials, and was charged with using a firearm during a crime of violence and assault of a federal officer. Trump, speaking at the White House after the incident, praised law enforcement but took aim at the press, calling media figures "almost one in the same" as the Democratic Party. The White House Correspondents' Association confirmed its board would assess the security failures that allowed a disassembled long gun past hotel staff.</p>
+      <div class="src">Source: <a href="https://www.npr.org/2026/04/26/g-s1-118807/trump-white-house-correspondents-dinner" target="_blank" rel="noopener">NPR</a> &middot; April 27, 2026</div>
+    </article>
+    <article class="s" id="world-3">
+      <h3>Iran sends U.S. new proposal to reopen Strait of Hormuz, defer nuclear talks</h3>
+      <div class="by">The Chronicler World Desk &middot; Monday, April 27, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Iran passed a new proposal to the United States through Pakistani mediators on Sunday, offering to reopen the Strait of Hormuz and end the war while deferring negotiations over its nuclear programme to a later stage, Axios reported citing a U.S. official and two sources with knowledge of the matter. The proposal would separate the resolution of the maritime crisis — which has disrupted approximately 20 per cent of global seaborne oil trade since February — from the harder questions of uranium enrichment and weapons capacity.</p>
+      <p>The White House received the proposal but has not confirmed whether it will engage with it, saying only that it "will not negotiate through the press." Trump is expected to convene a Situation Room meeting with his national security team on Monday to assess the diplomatic stalemate. Araghchi simultaneously travelled to Oman — a traditional mediating back-channel — before planning to proceed to Moscow to consult Russian President Vladimir Putin.</p>
+      <div class="src">Source: <a href="https://www.usnews.com/news/world/articles/2026-04-26/iran-gave-us-a-proposal-for-reopening-the-strait-of-hormuz-and-ending-the-war-axios-reports" target="_blank" rel="noopener">Reuters</a> &middot; April 27, 2026</div>
+    </article>
+  </div>
+
+  <!-- World Market Cards -->
+  <span class="cat" style="margin-top:30px;">Markets</span>
+  <div class="mkt-note">World indices reflect Friday, April 25 close (US, UK). Asian markets (Nikkei 225, Hang Seng) reflect Friday April 25 close. Nifty 50 carried from India desk.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">DJIA</div>
+      <div class="mc-sub">Dow Jones Industrial</div>
+      <div class="mc-val">49,231</div>
+      <span class="mc-chg down">▼ −79.61 (−0.16%)</span>
+      <div class="mc-note">Fri Apr 25 close · USD</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nasdaq Comp.</div>
+      <div class="mc-sub">Composite Index</div>
+      <div class="mc-val">24,837</div>
+      <span class="mc-chg up">▲ +398.09 (+1.63%)</span>
+      <div class="mc-note">Fri Apr 25 close · USD</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US Broad Market</div>
+      <div class="mc-val">7,165</div>
+      <span class="mc-chg up">▲ +56.68 (+0.80%)</span>
+      <div class="mc-note">Fri Apr 25 close · USD</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">10,387</div>
+      <span class="mc-chg down">▼ −70 (−0.67%)</span>
+      <div class="mc-note">Fri Apr 25 close · GBP</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,898</div>
+      <span class="mc-chg down">▼ −275 (−1.14%)</span>
+      <div class="mc-note">Fri Apr 25 close · INR</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">25,978</div>
+      <span class="mc-chg up">▲ +0.24%</span>
+      <div class="mc-note">Thu Apr 24 close · HKD</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">59,736</div>
+      <span class="mc-chg up">▲ +596 (+1.01%)</span>
+      <div class="mc-note">Fri Apr 25 close · JPY</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: Yahoo Finance &middot; <a href="https://hsi.com.hk" target="_blank" rel="noopener">Hang Seng Index</a> &middot; <a href="https://asia.nikkei.com" target="_blank" rel="noopener">Nikkei Asia</a> &middot; LSEG / FTSE Russell &middot; NASDAQ</div>
+</div>
+</div>
+<!-- PUZZLES -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Puzzles</h2><div class="flag">The Chronicler Daily Games</div></div>
+  <div class="games-row">
+
+    <!-- CRUNCH -->
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, −, ×, ÷ and brackets to reach the target. All steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">3</div>
+        <div class="crunch-tile">4</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">8</div>
+        <span style="font-family:'Source Sans 3',sans-serif;font-size:13px;color:var(--grey);margin:0 6px;">=</span>
+        <div class="crunch-target">60</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.textContent=this.textContent==='▶ Show solution'?'▼ Hide solution':'▶ Show solution';">▶ Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat a">3 × (4 × 7 − 8) = 60</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-top:4px;">Step 1: 4 × 7 = 28 &nbsp;·&nbsp; Step 2: 28 − 8 = 20 &nbsp;·&nbsp; Step 3: 3 × 20 = 60</div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="https://thechronicler.ca/Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive</a></div>
+    </div>
+
+    <!-- WORD WEB -->
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">WITKOFF</div>
+        <div class="ww-mini-tile">KINEW</div>
+        <div class="ww-mini-tile">HORMUZ</div>
+        <div class="ww-mini-tile">DOVAL</div>
+        <div class="ww-mini-tile">ARAGHCHI</div>
+        <div class="ww-mini-tile">CARNEY</div>
+        <div class="ww-mini-tile">CHAMPAGNE</div>
+        <div class="ww-mini-tile">PEZESHKIAN</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.textContent=this.textContent==='▶ Show solution'?'▼ Hide solution':'▶ Show solution';">▶ Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat a">🟢 Canadian political figures: KINEW · CARNEY · CHAMPAGNE · DOVAL</div>
+        <div class="answer-cat b" style="margin-top:4px;">🟡 Iran war negotiators / principals: WITKOFF · ARAGHCHI · PEZESHKIAN · HORMUZ</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-top:5px;">Decoy: DOVAL appears in today's India story but is not Canadian — careful readers may hesitate. HORMUZ is the geographic flashpoint, not a person, distinguishing it from the other Iran-side entries.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 29 &bull; Monday, April 27, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+(function(){
+  var current=null;
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('.read-btn');
+    if(!btn)return;
+    if(!('speechSynthesis' in window)){btn.style.display='none';return;}
+    if(current&&current.btn===btn){window.speechSynthesis.cancel();btn.textContent='\uD83D\uDD0A Read aloud';current=null;return;}
+    if(current){window.speechSynthesis.cancel();current.btn.textContent='\uD83D\uDD0A Read aloud';}
+    var art=btn.closest('article');
+    var txt='';
+    if(art){art.querySelectorAll('p').forEach(function(p){txt+=p.innerText+' ';});}
+    if(!txt.trim())return;
+    var utt=new SpeechSynthesisUtterance(txt.trim());
+    utt.onend=function(){btn.textContent='\uD83D\uDD0A Read aloud';current=null;};
+    utt.onerror=function(){btn.textContent='\uD83D\uDD0A Read aloud';current=null;};
+    window.speechSynthesis.speak(utt);
+    btn.textContent='\u23F9 Stop';
+    current={btn:btn,utt:utt};
+  });
+  document.querySelectorAll('.nav-item>a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var item=a.parentElement;
+      if(item.querySelector('.dropdown')){
+        var open=item.classList.contains('open');
+        document.querySelectorAll('.nav-item').forEach(function(i){i.classList.remove('open');});
+        if(!open)item.classList.add('open');
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
