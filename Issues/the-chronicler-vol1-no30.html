@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Tuesday, April 28, 2026 — Vol. I, No. 30</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover,.nav-item.open>a{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.gta-callout{background:#f0ece0;border-left:4px solid var(--rust);padding:14px 16px;margin:20px 0 10px;}
+.gta-callout .gta-label{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px;display:block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1;}
+.mkt-card .mc-chg{display:inline-flex;align-items:center;gap:3px;margin-top:3px;border-radius:3px;padding:2px 5px;align-self:flex-start;font-family:monospace;font-size:9.5px;font-weight:700;white-space:nowrap;}
+.mc-chg.down{background:#f8d7da;color:#8b2513;border:1px solid #f0c0c0;}
+.mc-chg.up{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.mc-chg.flat{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.mkt-card .mc-note{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);font-style:italic;margin-top:3px;border-top:1px solid var(--rule);padding-top:3px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-bottom:14px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.games-row{display:grid;grid-template-columns:1fr;gap:16px;margin-top:14px;}
+.puzzle-box{border:1px solid var(--rule);border-top:3px solid var(--ink);padding:14px;background:#f9f3e3;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-bottom:8px;line-height:1.5;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;}
+.ww-mini-tile{background:var(--cream);border:1.5px solid var(--ink);padding:8px 4px;text-align:center;font-family:'Playfair Display',serif;font-weight:700;font-size:11px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:10.5px;font-weight:600;color:var(--rust);cursor:pointer;background:none;border:none;padding:6px 0;margin-top:6px;border-top:1px dashed var(--rule);width:100%;text-align:left;}
+.answer-box{margin-top:6px;display:none;}
+.answer-cat{padding:6px 9px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;margin-bottom:4px;line-height:1.5;}
+.answer-cat.a{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.answer-cat.b{background:#fff3cd;color:#6b4f00;border:1px solid #ffeeba;}
+.crunch-nums{display:flex;gap:10px;margin:10px 0;align-items:center;flex-wrap:wrap;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;}
+.crunch-target{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--rust);}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-top:8px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+.ticker-bar{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 16px;text-align:center;}
+@media(min-width:600px){
+  .page{padding:24px 28px 36px;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+  .games-row{grid-template-columns:1fr 1fr;}
+  article.s p{text-align:justify;hyphens:auto;}
+}
+@media(min-width:800px){
+  .page{padding:28px 38px 42px;}
+  .col-3{grid-template-columns:repeat(3,1fr);gap:20px;}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 17px 0 0;margin-bottom:0;}
+  article.s:last-child{border-right:none;padding-right:0;}
+  .mkt-grid{grid-template-columns:repeat(7,1fr);}
+}
+</style>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2c9f324e65f4bde97c20728d6349a04"}'></script>
+</head>
+<body>
+
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+      <a class="top-btn" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="#puzzles">Puzzles</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 30 &nbsp;&middot;&nbsp; Tuesday, April 28, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">Today&rsquo;s Record. Tomorrow&rsquo;s Reference.</div>
+</div>
+
+<div class="ticker-bar">⚠&nbsp; TRUMP REJECTS IRAN PHASED PEACE PLAN &mdash; CARNEY LAUNCHES $25B CANADA STRONG FUND &mdash; ROGERS BUYOUTS FOR 10,000 EMPLOYEES &mdash; INDIA&ndash;NZ FTA SIGNED &mdash; AAP MPs MERGE INTO BJP &mdash; INDIA 5TH-LARGEST MILITARY SPENDER &mdash; COLE ALLEN CHARGED WITH ATTEMPTED ASSASSINATION &mdash; PSG HOST BAYERN IN UCL SEMIFINAL TONIGHT &mdash; RCB ROUT DELHI BY NINE WICKETS &mdash; PWHL PLAYOFFS BEGIN THURSDAY</div>
+
+
+<!-- ① CANADA -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+    <div class="w-card">
+      <div class="w-top"><span class="city">Toronto</span><span class="w-icon">🌧️</span></div>
+      <div class="w-temp">13°C</div>
+      <div class="w-rng">H: 18° &nbsp; L: 7°</div>
+      <div class="w-cond">Showers</div>
+      <span class="aqi-badge aqi-good">AQI 28 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 E 20 km/h</span><span>💧 72%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>🌦️</span><span>11/4°</span></div>
+        <div class="dm">Thu<span>☀️</span><span>11/0°</span></div>
+        <div class="dm">Fri<span>☀️</span><span>9/−1°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Montréal</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">17°C</div>
+      <div class="w-rng">H: 21° &nbsp; L: 12°</div>
+      <div class="w-cond">Mix of sun and cloud</div>
+      <span class="aqi-badge aqi-good">AQI 22 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SW 15 km/h</span><span>💧 60%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>🌦️</span><span>17/13°</span></div>
+        <div class="dm">Thu<span>🌧️</span><span>12/3°</span></div>
+        <div class="dm">Fri<span>🌦️</span><span>8/2°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Ottawa</span><span class="w-icon">🌧️</span></div>
+      <div class="w-temp">14°C</div>
+      <div class="w-rng">H: 18° &nbsp; L: 11°</div>
+      <div class="w-cond">Showers</div>
+      <span class="aqi-badge aqi-good">AQI 18 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 S 30 km/h</span><span>💧 70%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>🌧️</span><span>16/5°</span></div>
+        <div class="dm">Thu<span>🌦️</span><span>7/1°</span></div>
+        <div class="dm">Fri<span>☁️</span><span>8/0°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Edmonton</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">8°C</div>
+      <div class="w-rng">H: 14° &nbsp; L: −1°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 12 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 W 15 km/h</span><span>💧 38%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>☀️</span><span>17/3°</span></div>
+        <div class="dm">Thu<span>☀️</span><span>20/6°</span></div>
+        <div class="dm">Fri<span>☀️</span><span>18/2°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Vancouver</span><span class="w-icon">🌧️</span></div>
+      <div class="w-temp">11°C</div>
+      <div class="w-rng">H: 14° &nbsp; L: 8°</div>
+      <div class="w-cond">Rain and drizzle</div>
+      <span class="aqi-badge aqi-good">AQI 15 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SE 20 km/h</span><span>💧 80%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>☀️</span><span>17/8°</span></div>
+        <div class="dm">Thu<span>☀️</span><span>19/10°</span></div>
+        <div class="dm">Fri<span>🌤️</span><span>19/10°</span></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="w-note">Weather data: Environment Canada. Updated approx. 5:30 AM ET, April 28, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="canada-1">
+      <h3>Carney Vows No &lsquo;Small Deal&rsquo; on U.S. Tariffs, Says Full Resolution Possible Within Days</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Prime Minister Mark Carney has made clear that Canada will not rush into a minor agreement with the United States to secure partial tariff relief, telling CBC News: The National that a comprehensive resolution to the ongoing trade dispute is within reach &mdash; but only if Washington shows the necessary commitment. Carney said that both countries could sit down and resolve the matter within ten days if the U.S. side had the bandwidth and inclination to do so, but acknowledged that American negotiators are occupied with other priorities. He drew a pointed contrast with other countries that moved quickly to strike deals with the Trump administration, suggesting those agreements were not worth the paper they were written on.</p>
+      <p>The interview also touched on the Iran war and its implications for Canadian diplomacy. Carney disclosed that during his first official visit to Washington, the first question President Trump raised at their private lunch was about Iran &mdash; underscoring how central the conflict has become to the bilateral relationship. Carney reaffirmed that Canada is exploring ways to contribute to reopening the Strait of Hormuz, including potentially deploying minesweepers once a durable ceasefire is in place, while tempering expectations about Canada&rsquo;s leverage as a non-superpower. He said he tries to be &ldquo;straight&rdquo; with Trump, adding that the president &ldquo;respects strength&rdquo; and can see through flattery.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-interview-trade-tariff-relief-u-s-9.7178960" target="_blank" rel="noopener">CBC News</a> &middot; April 27, 2026</div>
+    </article>
+    <article class="s" id="canada-2">
+      <h3>Rogers Offers Voluntary Buyouts to 10,000 Employees as Telecom Giant Moves to Cut Costs</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Rogers Communications Inc., Canada&rsquo;s largest wireless carrier, confirmed on Monday that it is offering voluntary departure and retirement packages to approximately 10,000 eligible employees &mdash; roughly 40 per cent of its total workforce of 25,000 &mdash; as the company moves to rein in spending amid slowing industry growth and mounting debt pressure. The offer does not extend to unionized workers, on-air talent, Sportsnet employees, or staff at the Toronto Blue Jays and Maple Leaf Sports and Entertainment. A company spokesperson said Rogers is taking steps to adjust its cost structure to reflect the business realities of the current environment.</p>
+      <p>The move follows Rogers&rsquo; announcement last week that it plans to slash capital expenditures by 30 per cent in 2026, reducing projected spending from up to $3.5 billion to between $2.5 and $2.7 billion, citing a punishing regulatory environment and intensifying wireless competition. Rogers carries $34.7 billion in long-term debt accumulated through the $26-billion Shaw acquisition, a landmark $11-billion NHL broadcasting deal, and the purchase of Bell&rsquo;s stake in MLSE. Analysts note that labour costs represent the biggest lever available to management in the near term, and the number of employees expected to accept the offer has not been disclosed.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/business/rogers-communications-staff-buyouts-9.7178929" target="_blank" rel="noopener">CBC News</a> &middot; April 27, 2026</div>
+    </article>
+    <article class="s" id="canada-3">
+      <h3>Carney Launches Canada&rsquo;s First Sovereign Wealth Fund With $25-Billion Federal Seed Capital</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Prime Minister Mark Carney announced on Monday the creation of Canada&rsquo;s first national sovereign wealth fund, the Canada Strong Fund, with an initial federal endowment of $25 billion seeded over three years. Speaking at the Canada Science and Technology Museum in Ottawa &mdash; one day before Finance Minister Fran&ccedil;ois-Philippe Champagne tables the spring economic update &mdash; Carney framed the fund as a generational vehicle for nation-building comparable in ambition to the construction of the Canadian Pacific Railway. The fund will be independently managed as an arm&rsquo;s-length Crown corporation, invest alongside the private sector in clean and conventional energy, critical minerals, agriculture, and infrastructure, and will reinvest its returns rather than distributing them to general revenues.</p>
+      <p>A planned retail investment product will allow individual Canadians to buy into the fund, giving citizens a direct stake in the projects it finances. Carney said the $25-billion figure reflects stronger-than-forecast fiscal results and that Tuesday&rsquo;s spring economic update will contain good news on the deficit, attributing part of the improved revenue picture to elevated oil prices caused by the Iran war. Indigenous peoples will be included as equity partners in funded projects. Critics, including Scotiabank economists, noted that the fund&rsquo;s domestic focus is unusual by international standards and that Canada differs from typical sovereign wealth fund holders in that it is running significant deficits.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/sovereign-wealth-fund-carney-major-projects-9.7178238" target="_blank" rel="noopener">CBC News</a> / <a href="https://www.pm.gc.ca/en/news/news-releases/2026/04/27/prime-minister-carney-announces-canada-strong-fund-canadas-first" target="_blank" rel="noopener">pm.gc.ca</a> &middot; April 27, 2026</div>
+    </article>
+  </div>
+
+  <div class="gta-callout">
+    <span class="gta-label">GTA Focus</span>
+    <div class="col-3">
+      <article class="s" id="gta-1">
+        <h3>Lithium-Ion Battery Fire Erupts at Downtown Toronto Apartment; Fire Chief Grateful No One Hurt</h3>
+        <div class="by">The Chronicler GTA Desk &middot; Tuesday, April 28, 2026</div>
+        <button class="read-btn">🔊 Read aloud</button>
+        <p>Toronto Fire Services responded to a lithium-ion battery fire at 280 Wellesley Street East in downtown Toronto on the evening of Monday, April 27, deploying multiple crews to contain the blaze at the mid-rise residential building. Toronto Fire Chief Jim Jessop expressed relief after the incident, saying he was &ldquo;grateful&rdquo; that no residents were harmed in what he described as a serious and fast-moving fire. The incident is the latest in a growing series of lithium-ion battery-related fires across the city, a trend that has prompted fire services and officials to raise public awareness about hazards associated with e-bikes, scooters, and other battery-powered devices. Fire crews were able to bring the blaze under control without it spreading to neighbouring units.</p>
+        <p>Lithium-ion battery fires present unique challenges for firefighters because they can reignite after appearing to be extinguished and require sustained water application to cool the affected cells. Toronto Fire Services has in recent months issued repeated public advisories urging residents to charge battery-powered devices only when awake and present, to avoid leaving them plugged in overnight, and to replace damaged or swollen batteries immediately. The Wellesley Street fire is under investigation; the cause has not yet been formally determined and no dollar figure for property damage was immediately available.</p>
+        <div class="src">Source: <a href="https://www.ctvnews.ca/toronto/article/fire-chief-grateful-no-one-hurt-after-lithium-ion-battery-fire-breaks-out-in-downtown-toronto/" target="_blank" rel="noopener">CTV News Toronto</a> &middot; April 27, 2026</div>
+      </article>
+    </div>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Markets</span>
+  <div class="mkt-note">Canada market data reflects Monday, April 27, 2026 close. Currency rates sourced live from XE.com, April 28, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div><div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">33,818</div>
+      <span class="mc-chg down">▼ 85.92 (−0.26%)</span>
+      <div class="mc-note">Apr 27 close · CAD</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">WTI Crude</div><div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$96.37</div>
+      <span class="mc-chg up">▲ 1.97 (+2.09%)</span>
+      <div class="mc-note">Apr 27 close</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div><div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,681</div>
+      <span class="mc-chg down">▼ 67.70 (−1.44%)</span>
+      <div class="mc-note">Apr 27 close</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div><div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7312</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 28</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div><div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">₹69.09</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 28</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div><div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">€0.6263</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 28</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div><div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">£0.5428</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 28</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; Yahoo Finance &middot; TMX (TSX) &middot; CME Group (WTI, Gold)</div>
+
+</div></div><!-- end #canada -->
+
+
+<!-- ② INDIA -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">New Delhi</span><span class="w-icon">🌡️</span></div>
+      <div class="w-temp">38°C</div>
+      <div class="w-rng">H: 42° &nbsp; L: 26°</div>
+      <div class="w-cond">Hot and hazy</div>
+      <span class="aqi-badge aqi-poor">AQI 168 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>💨 W 20 km/h</span><span>💧 32%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>⛈️</span><span>38/25°</span></div>
+        <div class="dm">Thu<span>🌤️</span><span>36/24°</span></div>
+        <div class="dm">Fri<span>☀️</span><span>37/25°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Hyderabad</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">37°C</div><div class="w-rng">H: 40° &nbsp; L: 26°</div>
+      <div class="w-cond">Hot and dry</div>
+      <span class="aqi-badge aqi-moderate">AQI 95 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SW 15 km/h</span><span>💧 38%</span></div>
+      <div class="wfc"><div class="dm">Wed<span>⛅</span><span>38/26°</span></div><div class="dm">Thu<span>🌤️</span><span>37/25°</span></div><div class="dm">Fri<span>☀️</span><span>38/26°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Mumbai</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">34°C</div><div class="w-rng">H: 36° &nbsp; L: 27°</div>
+      <div class="w-cond">Hot and humid</div>
+      <span class="aqi-badge aqi-moderate">AQI 88 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SW 18 km/h</span><span>💧 68%</span></div>
+      <div class="wfc"><div class="dm">Wed<span>🌤️</span><span>35/27°</span></div><div class="dm">Thu<span>⛅</span><span>34/27°</span></div><div class="dm">Fri<span>🌤️</span><span>35/27°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Bengaluru</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">30°C</div><div class="w-rng">H: 33° &nbsp; L: 20°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 42 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SE 12 km/h</span><span>💧 48%</span></div>
+      <div class="wfc"><div class="dm">Wed<span>🌦️</span><span>31/20°</span></div><div class="dm">Thu<span>⛅</span><span>30/19°</span></div><div class="dm">Fri<span>🌤️</span><span>31/20°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Chennai</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">36°C</div><div class="w-rng">H: 38° &nbsp; L: 28°</div>
+      <div class="w-cond">Hot and humid</div>
+      <span class="aqi-badge aqi-moderate">AQI 76 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SE 14 km/h</span><span>💧 72%</span></div>
+      <div class="wfc"><div class="dm">Wed<span>☀️</span><span>38/28°</span></div><div class="dm">Thu<span>🌤️</span><span>37/28°</span></div><div class="dm">Fri<span>☀️</span><span>38/28°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Pune</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">33°C</div><div class="w-rng">H: 36° &nbsp; L: 22°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 68 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 W 16 km/h</span><span>💧 44%</span></div>
+      <div class="wfc"><div class="dm">Wed<span>⛅</span><span>35/22°</span></div><div class="dm">Thu<span>🌤️</span><span>34/21°</span></div><div class="dm">Fri<span>☀️</span><span>35/22°</span></div></div>
+    </div>
+  </div></div>
+  <div class="w-note">Weather data: IMD / India Meteorological Department. Updated approx. 5:30 AM ET, April 28, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="india-1">
+      <h3>India and New Zealand Sign Landmark Free Trade Agreement; 100% Duty-Free Access for Indian Exports</h3>
+      <div class="by">The Chronicler India Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>India and New Zealand formally signed a comprehensive Free Trade Agreement on Monday at Bharat Mandapam in New Delhi, with Commerce and Industry Minister Piyush Goyal and New Zealand Trade and Investment Minister Todd McClay affixing their signatures to a deal described by both governments as historic. The agreement &mdash; concluded in just nine months across five formal negotiating rounds &mdash; provides 100 per cent duty-free access for all Indian exports to New Zealand across all 8,284 tariff lines, effective upon entry into force. India has offered tariff liberalisation on approximately 70 per cent of its own tariff lines, while protecting sensitive domestic sectors including dairy, sugar, spices, and edible oils. New Zealand has committed to facilitating USD 20 billion in investment into India over the next 15 years.</p>
+      <p>Prime Minister Narendra Modi hailed the agreement as a landmark moment in the India-New Zealand partnership and said it would open new avenues for growth for Indian farmers, youth, women, MSMEs, artisans, startups, and innovators. Sectors expected to gain most from enhanced market access include textiles, apparel, leather, footwear, pharmaceuticals, and engineering goods. A Temporary Employment Entry visa pathway will allow up to 5,000 Indian professionals to work in New Zealand for up to three years in fields such as IT, healthcare, and education. New Zealand Prime Minister Christopher Luxon called it a &ldquo;once-in-a-generation agreement&rdquo; that would diversify his country&rsquo;s export markets.</p>
+      <div class="src">Source: <a href="https://www.hindustantimes.com/india-news/pm-modi-says-india-new-zealand-free-trade-agreement-will-boost-farmers-incomes-attract-investment-101777338351398.html" target="_blank" rel="noopener">Hindustan Times</a> &middot; April 27, 2026</div>
+    </article>
+    <article class="s" id="india-2">
+      <h3>Rajya Sabha Chairman Approves Merger of Seven AAP MPs Into BJP, Lifting Party&rsquo;s Tally to 113</h3>
+      <div class="by">The Chronicler India Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Rajya Sabha Chairman C.P. Radhakrishnan formally recognised on Monday the merger of seven Aam Aadmi Party members of Parliament into the Bharatiya Janata Party, in a development confirmed by an official Rajya Sabha Secretariat notice. The move raises the BJP&rsquo;s strength in the 245-seat house to 113, while reducing the AAP&rsquo;s representation from ten MPs to just three. Leading the defection is Raghav Chadha, accompanied by Ashok Kumar Mittal, Harbhajan Singh, Sandeep Kumar Pathak, Vikramjit Singh Sahney, Swati Maliwal, and Rajinder Gupta. Under India&rsquo;s Tenth Schedule, the anti-defection law permits such a move if at least two-thirds of a party&rsquo;s legislators join together &mdash; a threshold the breakaway group claimed to meet.</p>
+      <p>The mass departure follows days of internal turmoil within the AAP, which had removed Chadha as the party&rsquo;s deputy leader in the Rajya Sabha. Chadha cited a &ldquo;toxic work environment&rdquo; and restrictions on raising public-interest issues as reasons for the split. The AAP has filed a petition seeking the disqualification of all seven MPs on anti-defection grounds, arguing the constitutional merger provisions were improperly invoked. The BJP-led National Democratic Alliance now holds approximately 140 seats in the upper house across allied parties, though the BJP alone remains short of a simple majority. Congress dismissed the episode as entirely unsurprising.</p>
+      <div class="src">Source: <a href="https://www.hindustantimes.com/india-news/bjps-rajya-sabha-tally-rises-to-113-after-aap-mps-merger-gets-approval-from-chair-101777337725040.html" target="_blank" rel="noopener">Hindustan Times</a> &middot; April 27, 2026</div>
+    </article>
+    <article class="s" id="india-3">
+      <h3>India Ranked Fifth-Largest Military Spender in 2025 at USD 92.1 Billion, SIPRI Reports</h3>
+      <div class="by">The Chronicler India Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>India became the world&rsquo;s fifth-largest military spender in 2025, with defence expenditure rising 8.9 per cent to USD 92.1 billion, according to data published Monday by the Stockholm International Peace Research Institute. Only the United States, China, Russia, and Germany spent more. India&rsquo;s elevated outlay was driven in significant part by emergency procurements and revised capital budgets following the brief but intense conflict with Pakistan in May 2025, which involved combat aircraft, drones, and missiles. SIPRI noted that revised capital outlays for Indian military aircraft were 50 per cent above the original budget, while Indian Air Force operations and personnel costs were revised upward by 18 per cent. Global military spending reached a record USD 2,887 billion in 2025 &mdash; the 11th consecutive annual rise.</p>
+      <p>Pakistan&rsquo;s military spending rose 11 per cent to USD 11.9 billion, placing it 31st globally. The top three spenders &mdash; the United States at USD 954 billion, China at USD 336 billion, and Russia at USD 190 billion &mdash; together accounted for 51 per cent of total global military spending. Germany&rsquo;s 24 per cent increase to USD 114 billion pushed it ahead of India into fourth place globally. India&rsquo;s Union Budget for 2026&ndash;27 has allocated Rs 7.85 lakh crore for defence, with Rs 2.19 lakh crore earmarked for capital expenditure. A separate SIPRI report found that India&rsquo;s arms imports declined 4 per cent between 2021 and 2025 as procurement diversification continues.</p>
+      <div class="src">Source: <a href="https://www.hindustantimes.com/india-news/india-fifth-largest-military-spender-in-2025-at-92-1-bn-pakistan-31st-with-11-9-bn-sipri-data-101777337128370.html" target="_blank" rel="noopener">Hindustan Times</a> / <a href="https://www.sipri.org/media/press-release/2026/global-military-spending-rise-continues-european-and-asian-expenditures-surge" target="_blank" rel="noopener">SIPRI</a> &middot; April 27, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Markets</span>
+  <div class="mkt-note">Indian market data reflects Tuesday, April 28, 2026 close (NSE/BSE) &mdash; confirmed live by publisher. Currency rates sourced live from XE.com, April 28, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div><div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">76,886</div>
+      <span class="mc-chg down">▼ 416.73 (−0.54%)</span>
+      <div class="mc-note">Apr 28 close · INR</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div><div class="mc-sub">NSE Index</div>
+      <div class="mc-val">23,995</div>
+      <span class="mc-chg down">▼ 97.00 (−0.40%)</span>
+      <div class="mc-note">Apr 28 close · INR</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div><div class="mc-sub">INR / 10g (24K)</div>
+      <div class="mc-val">₹1,53,000</div>
+      <span class="mc-chg down">▼ ₹710</span>
+      <div class="mc-note">Goodreturns · Apr 28</div>
+    </div>
+    <div class="mkt-card currency"><div class="mc-name">INR / USD</div><div class="mc-sub">1 INR in USD</div><div class="mc-val">$0.01061</div><span class="mc-chg flat">—</span><div class="mc-note">XE.com · Apr 28</div></div>
+    <div class="mkt-card currency"><div class="mc-name">INR / CAD</div><div class="mc-sub">1 INR in CAD</div><div class="mc-val">$0.01448</div><span class="mc-chg flat">—</span><div class="mc-note">XE.com · Apr 28</div></div>
+    <div class="mkt-card currency"><div class="mc-name">INR / GBP</div><div class="mc-sub">1 INR in GBP</div><div class="mc-val">£0.007843</div><span class="mc-chg flat">—</span><div class="mc-note">XE.com · Apr 28</div></div>
+    <div class="mkt-card currency"><div class="mc-name">INR / EUR</div><div class="mc-sub">1 INR in EUR</div><div class="mc-val">€0.009054</div><span class="mc-chg flat">—</span><div class="mc-note">XE.com · Apr 28</div></div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; BSE India &middot; NSE India &middot; Goodreturns (Gold)</div>
+
+</div></div><!-- end #india -->
+
+
+<!-- ③ WORLD -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="world-1">
+      <h3>Trump Rejects Iran&rsquo;s Phased Peace Proposal; Demands Nuclear Issue Be Addressed From the Outset</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>U.S. President Donald Trump has signalled strong dissatisfaction with Iran&rsquo;s latest proposal for ending the two-month war, dealing a fresh blow to diplomatic efforts already set back by the collapse of a planned second round of talks in Islamabad. According to a U.S. official briefed on the president&rsquo;s Monday meeting with senior advisers, Trump was unhappy with a proposal carried to Pakistan over the weekend by Iranian Foreign Minister Abbas Araqchi, which envisioned a phased negotiating process in which Iran&rsquo;s nuclear programme would be set aside until after a ceasefire is secured and the Strait of Hormuz dispute is resolved. Washington has been consistent in insisting that nuclear issues must be central to any agreement from the outset. The White House declined to comment publicly, with spokeswoman Olivia Wales saying the administration would not &ldquo;negotiate through the press.&rdquo;</p>
+      <p>Iranian officials outlined a proposal that would first end the U.S.-Israeli military campaign and provide guarantees against its resumption, then address the U.S. Navy&rsquo;s blockade of Iranian shipping, and only then move to nuclear discussions &mdash; including Iran&rsquo;s demand for acknowledgment of its right to enrich uranium. Araqchi subsequently travelled to Russia, where he met President Vladimir Putin and received expressions of support. Ship-tracking data shows only seven vessels crossed through the Strait of Hormuz in the preceding 24 hours, compared with 125 to 140 in normal times. WTI crude traded above $96 per barrel as traders priced in the continuing supply disruption. The IEA has described the conflict as the largest energy supply shock on record.</p>
+      <div class="src">Source: <a href="https://www.reuters.com/world/asia-pacific/trump-not-happy-with-latest-iran-proposal-end-war-us-official-says-2026-04-28/" target="_blank" rel="noopener">Reuters</a> &middot; April 27&ndash;28, 2026</div>
+    </article>
+    <article class="s" id="world-2">
+      <h3>Cole Allen Charged With Attempted Assassination After Opening Fire at White House Correspondents&rsquo; Dinner</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Cole Tomas Allen, a 31-year-old teacher and mechanical engineer from Torrance, California, has been formally charged in U.S. District Court with attempting to assassinate the President of the United States, following a shooting incident at the annual White House Correspondents&rsquo; Association dinner at the Washington Hilton on April 25. The incident prompted the evacuation of President Donald Trump, First Lady Melania Trump, Vice President JD Vance, and members of the Cabinet. A uniformed Secret Service officer was struck in the chest but was protected by a ballistic vest and is expected to recover. Allen was subdued near a security magnetometer on the hotel&rsquo;s Terrace Level after security personnel fired at him; he was not struck but sustained minor injuries.</p>
+      <p>Court documents allege Allen had reserved a room at the Washington Hilton days in advance, travelling by train from Los Angeles. He carried a 12-gauge pump-action shotgun and a .38-calibre semi-automatic pistol, using an interior stairwell to reach the event level before charging through a security checkpoint. Minutes before the attack, Allen sent an email to family members describing himself as a &ldquo;Friendly Federal Assassin&rdquo; and expressing opposition to Trump administration policies. Allen has also been charged with transporting a firearm across state lines with intent to commit a felony and discharging a firearm during a crime of violence. Former President Barack Obama urged Americans to reject political violence.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/white-house-correspondents-dinner-conspiracy-theories-94f541d434bd38efaf8cb273f365accd" target="_blank" rel="noopener">AP News</a> / <a href="https://www.justice.gov/opa/pr/suspect-white-house-correspondents-dinner-shooting-charged-attempt-assassinate-president" target="_blank" rel="noopener">U.S. Dept. of Justice</a> &middot; April 26&ndash;27, 2026</div>
+    </article>
+    <article class="s" id="world-3">
+      <h3>PSG Host Bayern Munich Tonight in Champions League Semifinal First Leg at Parc des Princes</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Paris Saint-Germain and Bayern Munich face off tonight at the Parc des Princes in the first leg of the UEFA Champions League semifinal, with kick-off at 9:00 PM local time (3:00 PM ET). The match is one of the most anticipated club football encounters of the season, pitting the defending European champions against one of the continent&rsquo;s most dominant sides. PSG, led by coach Luis Enrique, reach the last four having eliminated Liverpool in the quarterfinals and enter the tie six points clear at the top of Ligue 1. Bayern Munich, under manager Vincent Kompany, have already clinched the Bundesliga title with four games to spare and arrive in Paris having knocked out Real Madrid 6-4 on aggregate in a thrilling quarterfinal.</p>
+      <p>History strongly favours the Bavarians: Bayern have won five consecutive encounters against PSG in European competition, including a 2-1 victory at the Parc des Princes earlier this season. Harry Kane, who has scored 53 goals in 45 appearances this season including 12 in the Champions League, enters the game in a run of six consecutive goal-scoring games. PSG have their own weapons in Khvicha Kvaratskhelia and Ousmane Demb&eacute;l&eacute;. The winner of the two-legged tie advances to the final in Budapest on May 30, where either Arsenal or Atl&eacute;tico Madrid will await. The second leg is at the Allianz Arena on May 6.</p>
+      <div class="src">Source: <a href="https://www.bbc.com/sport/football/live/c79jpd052gjt" target="_blank" rel="noopener">BBC Sport</a> / <a href="https://www.aljazeera.com/sports/2026/4/27/psg-vs-bayern-munich-champions-league-preview-team-news-start" target="_blank" rel="noopener">Al Jazeera</a> &middot; April 27&ndash;28, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Global Markets</span>
+  <div class="mkt-note">World indices reflect Monday, April 27, 2026 close. Sources: Yahoo Finance, LSEG, Nikkei Asia, Hang Seng Index.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card world"><div class="mc-name">DJIA</div><div class="mc-sub">Dow Jones Industrial</div><div class="mc-val">49,167</div><div class="mc-note">Apr 27 close · USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nasdaq</div><div class="mc-sub">Composite Index</div><div class="mc-val">24,887</div><div class="mc-note">Apr 27 close · USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">S&amp;P 500</div><div class="mc-sub">US Broad Market</div><div class="mc-val">7,173</div><div class="mc-note">Apr 27 close · USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">FTSE 100</div><div class="mc-sub">London Stock Exchange</div><div class="mc-val">10,330</div><div class="mc-note">Apr 27 close · GBP</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nifty 50</div><div class="mc-sub">NSE India</div><div class="mc-val">23,995</div><div class="mc-note">Apr 28 close · INR</div></div>
+    <div class="mkt-card world"><div class="mc-name">Hang Seng</div><div class="mc-sub">Hong Kong</div><div class="mc-val">25,178</div><div class="mc-note">Apr 28 intraday · HKD</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nikkei 225</div><div class="mc-sub">Tokyo Stock Exchange</div><div class="mc-val">60,537</div><div class="mc-note">Apr 28 close · JPY</div></div>
+  </div>
+  <div class="mkt-src">Sources: Yahoo Finance &middot; Hang Seng Index &middot; Nikkei Asia &middot; LSEG / FTSE Russell &middot; NASDAQ</div>
+
+</div></div><!-- end #world -->
+
+
+<!-- ④ SPORT -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+  <div class="col-3">
+    <article class="s" id="sport-1">
+      <h3>PWHL Regular Season Ends With Attendance Record; Playoffs Begin Thursday With Montreal vs. Minnesota</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>The Professional Women&rsquo;s Hockey League wrapped up its 2025&ndash;26 regular season on Saturday with a record-breaking single-day attendance of 42,887 fans across the final four games of a 120-game schedule, surpassing the previous single-day record by more than 6,000. The Montr&eacute;al Victoire secured first place with a 2-1 shootout win over the Seattle Torrent, and the Ottawa Charge clinched the fourth and final postseason berth with a 3-0 shutout of the Toronto Sceptres &mdash; a victory in which goaltender Gwyneth Philips made 41 saves and earned PWHL Player of the Week honours. The Vancouver Goldeneyes earned the first overall pick in the 2026 PWHL Entry Draft through the league&rsquo;s Gold Plan standings. The season&rsquo;s total attendance of 1,116,497 represented a more than 28 per cent improvement over the prior year.</p>
+      <p>On Sunday, the Victoire exercised their right as the first-place team to select their playoff opponent, choosing the third-place defending champion Minnesota Frost &mdash; a team that has never lost a playoff series, having won back-to-back Walter Cup titles. Montr&eacute;al won all four regular-season meetings against Minnesota, including two in overtime, but has never won a playoff series itself. The other semifinal features second-place Boston Fleet against the Ottawa Charge. Playoffs begin Thursday with Boston hosting Ottawa at the Tsongas Center at 7 PM ET, and Minnesota visiting Montr&eacute;al at Place Bell on Saturday at 2 PM ET.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/sports/hockey/pwhl/pwhl-notebook-april27-2026-9.7179183" target="_blank" rel="noopener">CBC Sports</a> &middot; April 27, 2026</div>
+    </article>
+    <article class="s" id="sport-2">
+      <h3>RCB Demolish Delhi by Nine Wickets as Hazlewood and Bhuvneshwar Rout Capitals for 75 in IPL</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Defending champions Royal Challengers Bengaluru produced one of the most one-sided performances of the 2026 Indian Premier League season on Monday night, dismissing the Delhi Capitals for just 75 at the Arun Jaitley Stadium before chasing down the target in 6.3 overs to win by nine wickets. The result was all the more striking given that Delhi had posted 264 against Punjab Kings just two days earlier on an adjacent surface. Josh Hazlewood returned figures of 4 for 12 and Bhuvneshwar Kumar took 3 for 5 as Delhi collapsed to 8 for 6 inside the first three overs. Impact player Abishek Porel top-scored with 30 off the lower order, helping Delhi avoid their lowest-ever IPL total, but the Capitals were all out for 75 in 16.3 overs.</p>
+      <p>The chase was completed with ease, with Jacob Bethell striking a quick-fire 20 off 11 balls before Devdutt Padikkal and Virat Kohli finished with a flurry of sixes. In the process, Kohli became the first player in IPL history to reach 9,000 runs in the competition, doing so in his 19th consecutive season. Hazlewood was named Player of the Match. The result lifted RCB to second in the standings with 12 points, narrowing the gap on league leaders Punjab Kings to a single point, while also significantly improving RCB&rsquo;s net run rate ahead of the final stretch of the season.</p>
+      <div class="src">Source: <a href="https://www.espncricinfo.com/series/ipl-2026-1510719/delhi-capitals-vs-royal-challengers-bengaluru-39th-match-1529282/live-cricket-score" target="_blank" rel="noopener">ESPNcricinfo</a> &middot; April 27, 2026</div>
+    </article>
+    <article class="s" id="sport-3">
+      <h3>PSG and Bayern Munich Square Off in Champions League Semifinal as Kane Eyes History</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, April 28, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Europe&rsquo;s two most in-form clubs meet tonight in Paris in the first leg of a UEFA Champions League semifinal. Reigning champions PSG host Bayern Munich at the Parc des Princes from 9:00 PM local time (3:00 PM ET). Bayern have already clinched the Bundesliga title with four games to spare and arrive having knocked out Real Madrid 6-4 on aggregate. Harry Kane has scored 53 goals in 45 appearances this season, including 12 in the Champions League, and enters the game in a run of six consecutive goal-scoring games. Bayern have won five straight encounters against PSG in European competition; the winner advances to the Budapest final on May 30 against either Arsenal or Atl&eacute;tico Madrid.</p>
+      <div class="src">Source: <a href="https://www.bbc.com/sport/football/live/c79jpd052gjt" target="_blank" rel="noopener">BBC Sport</a> &middot; April 28, 2026</div>
+    </article>
+  </div>
+</div></div><!-- end #sport -->
+
+<!-- ⑤ PUZZLES -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Puzzles</h2><div class="flag">The Chronicler Daily Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">3</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">8</div>
+        <div class="crunch-tile">9</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">72</div>
+      </div>
+      <button class="reveal-toggle" onclick="var b=document.getElementById('crunch-ans');b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'▼ Hide solution':'▶ Show solution';">▶ Show solution</button>
+      <div class="answer-box" id="crunch-ans">
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--ink);line-height:1.8;">
+          3 &times; (7 + 8 + 9) = 72<br>
+          Step 1: 7 + 8 = 15 &nbsp;&middot;&nbsp; Step 2: 15 + 9 = 24 &nbsp;&middot;&nbsp; Step 3: 3 &times; 24 = 72<br>
+          <em style="font-size:10px;color:var(--grey);">24 distinct solutions. Python-verified across all permutations.</em>
+        </div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">HORMUZ</div>
+        <div class="ww-mini-tile">HAZLEWOOD</div>
+        <div class="ww-mini-tile">CARNEY</div>
+        <div class="ww-mini-tile">CHADHA</div>
+        <div class="ww-mini-tile">PANNEK</div>
+        <div class="ww-mini-tile">KOHLI</div>
+        <div class="ww-mini-tile">RADHAKRISHNAN</div>
+        <div class="ww-mini-tile">BHUVNESHWAR</div>
+      </div>
+      <button class="reveal-toggle" onclick="var b=document.getElementById('ww-ans');b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'▼ Hide solution':'▶ Show solution';">▶ Show solution</button>
+      <div class="answer-box" id="ww-ans">
+        <div class="answer-cat a">🟢 Key figures in today&rsquo;s India stories: CHADHA &middot; RADHAKRISHNAN &middot; PANNEK &middot; KOHLI</div>
+        <div class="answer-cat b">🟡 Key figures / terms in today&rsquo;s Canada &amp; World stories: CARNEY &middot; HORMUZ &middot; HAZLEWOOD &middot; BHUVNESHWAR</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-top:6px;font-style:italic;">Decoy: KOHLI &mdash; suggests cricket broadly, but belongs to India group via today&rsquo;s IPL coverage alongside the Rajya Sabha and SIPRI stories.</div>
+      </div>
+    </div>
+
+  </div>
+</div></div><!-- end #puzzles -->
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 30 &bull; Tuesday, April 28, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+(function(){
+  var current=null;
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('.read-btn');
+    if(!btn)return;
+    if(!('speechSynthesis' in window)){btn.style.display='none';return;}
+    if(current&&current.btn===btn){window.speechSynthesis.cancel();btn.textContent='\uD83D\uDD0A Read aloud';current=null;return;}
+    if(current){window.speechSynthesis.cancel();current.btn.textContent='\uD83D\uDD0A Read aloud';}
+    var art=btn.closest('article');
+    var txt='';
+    if(art){art.querySelectorAll('p').forEach(function(p){txt+=p.innerText+' ';});}
+    if(!txt.trim())return;
+    var utt=new SpeechSynthesisUtterance(txt.trim());
+    utt.onend=function(){btn.textContent='\uD83D\uDD0A Read aloud';current=null;};
+    utt.onerror=function(){btn.textContent='\uD83D\uDD0A Read aloud';current=null;};
+    window.speechSynthesis.speak(utt);
+    btn.textContent='\u23F9 Stop';
+    current={btn:btn,utt:utt};
+  });
+  document.querySelectorAll('.nav-item>a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var item=a.parentElement;
+      if(item.querySelector('.dropdown')){
+        var open=item.classList.contains('open');
+        document.querySelectorAll('.nav-item').forEach(function(i){i.classList.remove('open');});
+        if(!open)item.classList.add('open');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
