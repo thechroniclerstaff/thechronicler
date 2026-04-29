@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Wednesday, April 29, 2026 — Vol. I, No. 31</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover,.nav-item.open>a{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.gta-callout{background:#f0ece0;border-left:4px solid var(--rust);padding:14px 16px;margin:20px 0 10px;}
+.gta-callout .gta-label{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px;display:block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1;}
+.mkt-card .mc-chg{display:inline-flex;align-items:center;gap:3px;margin-top:3px;border-radius:3px;padding:2px 5px;align-self:flex-start;font-family:monospace;font-size:9.5px;font-weight:700;white-space:nowrap;}
+.mc-chg.down{background:#f8d7da;color:#8b2513;border:1px solid #f0c0c0;}
+.mc-chg.up{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.mc-chg.flat{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.mkt-card .mc-note{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);font-style:italic;margin-top:3px;border-top:1px solid var(--rule);padding-top:3px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-bottom:14px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.games-row{display:grid;grid-template-columns:1fr;gap:16px;margin-top:14px;}
+.puzzle-box{border:1px solid var(--rule);border-top:3px solid var(--ink);padding:14px;background:#f9f3e3;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-bottom:8px;line-height:1.5;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;}
+.ww-mini-tile{background:var(--cream);border:1.5px solid var(--ink);padding:8px 4px;text-align:center;font-family:'Playfair Display',serif;font-weight:700;font-size:11px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:10.5px;font-weight:600;color:var(--rust);cursor:pointer;background:none;border:none;padding:6px 0;margin-top:6px;border-top:1px dashed var(--rule);width:100%;text-align:left;}
+.answer-box{margin-top:6px;display:none;}
+.answer-cat{padding:6px 9px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;margin-bottom:4px;line-height:1.5;}
+.answer-cat.a{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.answer-cat.b{background:#fff3cd;color:#6b4f00;border:1px solid #ffeeba;}
+.crunch-nums{display:flex;gap:10px;margin:10px 0;align-items:center;flex-wrap:wrap;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;}
+.crunch-target{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--rust);}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-top:8px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+.ticker-bar{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 16px;text-align:center;}
+@media(min-width:600px){
+  .page{padding:24px 28px 36px;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+  .games-row{grid-template-columns:1fr 1fr;}
+  article.s p{text-align:justify;hyphens:auto;}
+}
+@media(min-width:800px){
+  .page{padding:28px 38px 42px;}
+  .col-3{grid-template-columns:repeat(3,1fr);gap:20px;}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 17px 0 0;margin-bottom:0;}
+  article.s:last-child{border-right:none;padding-right:0;}
+  .mkt-grid{grid-template-columns:repeat(7,1fr);}
+}
+</style>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2c9f324e65f4bde97c20728d6349a04"}'></script>
+</head>
+<body>
+
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+      <a class="top-btn" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="#puzzles">Puzzles</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 31 &nbsp;&middot;&nbsp; Wednesday, April 29, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">Today&rsquo;s Record. Tomorrow&rsquo;s Reference.</div>
+</div>
+
+<div class="ticker-bar">⚠&nbsp; CARNEY TABLES SPRING FISCAL UPDATE &mdash; GENERIC OZEMPIC APPROVED IN CANADA &mdash; UNGA PRESIDENT QUESTIONS TRUMP&rsquo;S BOARD OF PEACE &mdash; UAE QUITS OPEC &mdash; KING CHARLES ADDRESSES U.S. CONGRESS &mdash; INDIA AIRLINES WARN OF FLIGHT CANCELLATIONS &mdash; PSG BEAT BAYERN 5&ndash;4 IN UCL THRILLER &mdash; ATLETICO HOST ARSENAL TONIGHT</div>
+
+
+<!-- ① CANADA -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+    <div class="w-card">
+      <div class="w-top"><span class="city">Toronto</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">9°C</div>
+      <div class="w-rng">H: 11° &nbsp; L: 0°</div>
+      <div class="w-cond">Clearing, cool</div>
+      <span class="aqi-badge aqi-good">AQI 22 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 NW 25 km/h</span><span>💧 55%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>☀️</span><span>11/0°</span></div>
+        <div class="dm">Fri<span>☀️</span><span>9/−1°</span></div>
+        <div class="dm">Sat<span>🌤️</span><span>12/2°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Montréal</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">14°C</div>
+      <div class="w-rng">H: 16° &nbsp; L: 3°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 18 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 W 18 km/h</span><span>💧 42%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>☀️</span><span>17/5°</span></div>
+        <div class="dm">Fri<span>🌤️</span><span>15/3°</span></div>
+        <div class="dm">Sat<span>⛅</span><span>14/4°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Ottawa</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">11°C</div>
+      <div class="w-rng">H: 13° &nbsp; L: 1°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 14 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 NW 20 km/h</span><span>💧 46%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>☀️</span><span>14/2°</span></div>
+        <div class="dm">Fri<span>🌤️</span><span>12/1°</span></div>
+        <div class="dm">Sat<span>⛅</span><span>13/3°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Edmonton</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">8°C</div>
+      <div class="w-rng">H: 12° &nbsp; L: 2°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 19 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 W 15 km/h</span><span>💧 50%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>☀️</span><span>14/4°</span></div>
+        <div class="dm">Fri<span>☀️</span><span>16/5°</span></div>
+        <div class="dm">Sat<span>🌤️</span><span>15/4°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Vancouver</span><span class="w-icon">🌦️</span></div>
+      <div class="w-temp">12°C</div>
+      <div class="w-rng">H: 14° &nbsp; L: 9°</div>
+      <div class="w-cond">Showers</div>
+      <span class="aqi-badge aqi-good">AQI 16 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SW 22 km/h</span><span>💧 82%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>🌤️</span><span>15/9°</span></div>
+        <div class="dm">Fri<span>☀️</span><span>17/9°</span></div>
+        <div class="dm">Sat<span>☀️</span><span>18/10°</span></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="w-note">Weather data: Environment Canada. Updated approx. 5:30 AM ET, April 29, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="canada-1">
+      <h3>Carney Tables Spring Fiscal Update; Deficit Lower but Spending Climbs on Skills and Pensions</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Prime Minister Mark Carney and Finance Minister Fran&ccedil;ois-Philippe Champagne tabled the federal government&rsquo;s first-ever spring economic update on Tuesday, revealing a better-than-expected deficit for the last fiscal year alongside substantial new spending commitments. The 167-page document, titled &ldquo;Canada Strong For All,&rdquo; showed the 2024&ndash;25 deficit came in at $66.9 billion &mdash; $11.4 billion lower than the $78.3 billion forecast in November&rsquo;s fall budget, a figure Champagne attributed to a resilient economy, elevated oil prices tied to the Iran war, and tighter spending controls. The projected deficit for the current 2026&ndash;27 fiscal year stands at $65.3 billion, only marginally lower than the $65.4 billion estimated in the fall budget.</p>
+      <p>The update&rsquo;s headline commitment is a $5.9 billion, five-year &ldquo;Team Canada Strong&rdquo; initiative aimed at recruiting between 80,000 and 100,000 new Red Seal skilled trades workers by 2030&ndash;31. Measures include wage subsidies, $400-per-week apprenticeship income top-ups of up to $16,000 per worker, a $5,000 Red Seal completion bonus, and employer incentives of up to $10,000. The update also reduces Canada Pension Plan contribution rates from 9.9 to 9.5 per cent beginning in January, commits $755 million over five years for sport funding, and extends EI for affected workers. Conservative Leader Pierre Poilievre called the package &ldquo;credit card budgeting.&rdquo;</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/takeaways-from-spring-economic-update-carney-9.7180305" target="_blank" rel="noopener">CBC News</a> &middot; April 28, 2026</div>
+    </article>
+    <article class="s" id="canada-2">
+      <h3>Canada Becomes First G7 Nation to Approve Generic Ozempic, Potentially Cutting Drug Costs</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Health Canada has approved the first generic version of Novo Nordisk&rsquo;s blockbuster diabetes drug Ozempic, making Canada the first G7 country to authorise generic semaglutide. The injectable medication, manufactured by Indian pharmaceutical company Dr. Reddy&rsquo;s Laboratories and sold in India under the brand name &ldquo;Obeda,&rdquo; was approved following a thorough review confirming the drug meets standards for safety, efficacy, and quality. It is approved for once-weekly treatment of Type 2 diabetes in adults. Eight other generic semaglutide submissions from competing manufacturers remain under active review, with Health Canada expecting regulatory decisions on additional applications in the coming weeks.</p>
+      <p>The approval is expected to put significant downward pressure on semaglutide costs in Canada, where Ozempic currently runs several hundred dollars per month and is widely used off-label for weight loss. Novo Nordisk&rsquo;s Canadian patent expired on January 4, 2026. Under the pan-Canadian Pharmaceutical Alliance pricing framework, the first generic enters at 75 to 85 per cent of brand-name price, dropping to 50 per cent when a second competitor arrives, and to 35 per cent when three or more generics are on the market. Dr. Seema Nagpal cautioned that lower cost &ldquo;doesn&rsquo;t mean automatically anybody should use it,&rdquo; warning against use by individuals with eating disorders or those who cycle on and off the medication.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/health/ozempic-generic-health-canada-9.7180566" target="_blank" rel="noopener">CBC News</a> &middot; April 28, 2026</div>
+    </article>
+    <article class="s" id="canada-3">
+      <h3>Carney Tops Alberta Approval Charts as UCP Widens Lead Over NDP, Poll Finds</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>A new poll conducted for CBC News by Janet Brown Opinion Research reveals an unusual political dynamic in Alberta: Prime Minister Mark Carney is the most popular political figure in the province, outranking both Premier Danielle Smith and Conservative Leader Pierre Poilievre in personal favourability ratings. Sixty-five per cent of the 1,200 Albertans surveyed said they were impressed with Carney. Poilievre&rsquo;s favourability dropped seven points from last year&rsquo;s Road Ahead poll, falling from 61 to 54 per cent. Brown described the numbers as extraordinary, saying she could not recall a federal Liberal leader ever registering favourability ratings like these in Alberta.</p>
+      <p>On provincial voting intentions, the United Conservative Party continues to dominate: 49 per cent of respondents said they would vote UCP in an election held today, compared to 36 per cent for the NDP &mdash; a 13-point gap wider than at the 2023 provincial election. A fault line within the UCP base was also revealed: 57 per cent of UCP supporters said they would vote for Alberta separatism in a referendum, even as province-wide separatist sentiment remains well short of majority support. Brown cautioned that the results reflect a period of deceptive calm. The survey of 1,200 Albertans was conducted between April 7 and 22 by Edmonton-based Trend Research; its margin of error is &plusmn;2.8 percentage points, 19 times out of 20.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/calgary/janet-brown-poll-ucp-danielle-smith-road-ahead-9.7177527" target="_blank" rel="noopener">CBC News</a> &middot; April 28, 2026</div>
+    </article>
+  </div>
+
+  <div class="gta-callout">
+    <span class="gta-label">GTA Focus</span>
+    <div class="col-2">
+      <article class="s" id="gta-1">
+        <h3>Pickering&rsquo;s 17-Square-Kilometre Housing Plan Advances Despite First Nations Pushback</h3>
+        <div class="by">The Chronicler GTA Desk &middot; Wednesday, April 29, 2026</div>
+        <button class="read-btn">🔊 Read aloud</button>
+        <p>The City of Pickering is set to vote next month on a secondary plan that would transform a 17-square-kilometre stretch of agricultural land in northeast Pickering into housing for more than 70,000 people &mdash; but the proposal has drawn sharp criticism from an Indigenous community, urban planning advocates, and environmentalists. Mayor Kevin Ashe has framed the plan as a necessary response to Pickering&rsquo;s projected population growth from roughly 100,000 to over 150,000 over the next decade, consistent with the province&rsquo;s December 2024 decision to add the land to the city&rsquo;s urban boundary. The Mississaugas of Scugog Island First Nation said in a public statement that it has been subject to &ldquo;a complete lack of meaningful dialogue&rdquo; and that its requests for substantive consultation have &ldquo;largely been ignored.&rdquo;</p>
+        <p>Mayor Ashe met with Chief Kelly LaRocca on April 20 and subsequently postponed a planned council vote to allow more time for dialogue; a special council meeting is now scheduled for May 20. Urban planning advocates argue the city should prioritise intensification over greenfield sprawl, and that critical fiscal and environmental studies have not been completed. Abdullah Mir, co-chair of Stop Durham Sprawl, called the plan &ldquo;classic urban sprawl&rdquo; that is &ldquo;very, very costly.&rdquo; Durham Region&rsquo;s Official Plan projects the region&rsquo;s total population will reach 1.3 million by 2051, up from approximately 700,000 today.</p>
+        <div class="src">Source: <a href="https://www.cp24.com/local/durham/2026/04/27/a-major-housing-development-is-in-the-works-east-of-toronto-but-some-are-crying-foul/" target="_blank" rel="noopener">CP24</a> &middot; April 27, 2026</div>
+      </article>
+      <article class="s" id="gta-2">
+        <h3>TDSB Releases Map of 12 New Trustee Wards Ahead of Fall Municipal Election</h3>
+        <div class="by">The Chronicler GTA Desk &middot; Wednesday, April 29, 2026</div>
+        <button class="read-btn">🔊 Read aloud</button>
+        <p>The Toronto District School Board has released the map of its 12 new trustee wards ahead of the fall municipal election &mdash; a reduction from the current 22 wards mandated by Bill 101, the Ford government&rsquo;s Putting Students First Act. With the exception of one ward, each new trustee will represent two existing Toronto wards; the trustee for Ward 7 will serve the combined Toronto-St. Paul&rsquo;s, University-Rosedale, and Toronto Centre areas. Nomination papers for aspiring school trustees can be filed with the city clerk beginning May 1. The board&rsquo;s 22 current trustees have been under provincial supervision since June 2025, following Education Minister Paul Calandra&rsquo;s intervention citing financial mismanagement.</p>
+        <p>Critics, including sitting trustees and parent advocates, argue the reduction disproportionately targets Toronto &mdash; the only school board in Ontario with more than 12 trustees &mdash; and will make meaningful parental representation nearly impossible. Katrina Matheson, co-chair of the TDSB&rsquo;s parent involvement advisory committee, said trustees would be reduced to serving as a &ldquo;ministry scapegoat&rdquo; without the budget and policy authority to implement parents&rsquo; visions for their schools. A comparison has been drawn to Premier Ford&rsquo;s 2018 decision to cut Toronto city council from 47 to 25 seats mid-election.</p>
+        <div class="src">Source: <a href="https://www.ctvnews.ca/toronto/article/a-look-at-the-12-new-trustee-wards-of-the-toronto-district-school-board/" target="_blank" rel="noopener">CTV News Toronto</a> &middot; April 28, 2026</div>
+      </article>
+    </div>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Markets</span>
+  <div class="mkt-note">Canada market data reflects Tuesday, April 28, 2026 close. WTI and Gold reflect April 29, 2026 intraday. Currency rates sourced live from XE.com, April 29, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div><div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">33,584</div>
+      <span class="mc-chg down">▼ 234 (−0.70%)</span>
+      <div class="mc-note">Apr 28 close · CAD</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">WTI Crude</div><div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$99.32</div>
+      <span class="mc-chg down">▼ 0.61 (−0.61%)</span>
+      <div class="mc-note">Apr 29 intraday</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div><div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,569</div>
+      <span class="mc-chg down">▼ est. (−0.59%)</span>
+      <div class="mc-note">Apr 29 intraday</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div><div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7304</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 29</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div><div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">&#8377;68.19</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 29</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div><div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">&euro;0.6258</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 29</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div><div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">&pound;0.5409</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 29</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; Yahoo Finance &middot; TMX (TSX) &middot; CME Group (WTI, Gold)</div>
+
+</div></div><!-- end #canada -->
+
+
+<!-- ② INDIA -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">New Delhi</span><span class="w-icon">🌡️</span></div>
+      <div class="w-temp">39°C</div>
+      <div class="w-rng">H: 42° &nbsp; L: 27°</div>
+      <div class="w-cond">Hot and hazy</div>
+      <span class="aqi-badge aqi-poor">AQI 172 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>💨 W 18 km/h</span><span>💧 30%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>☀️</span><span>40/26°</span></div>
+        <div class="dm">Fri<span>⛈️</span><span>37/25°</span></div>
+        <div class="dm">Sat<span>🌤️</span><span>36/24°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Hyderabad</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">38°C</div><div class="w-rng">H: 41° &nbsp; L: 27°</div>
+      <div class="w-cond">Hot and dry</div>
+      <span class="aqi-badge aqi-moderate">AQI 92 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SW 14 km/h</span><span>💧 36%</span></div>
+      <div class="wfc"><div class="dm">Thu<span>⛅</span><span>39/27°</span></div><div class="dm">Fri<span>🌤️</span><span>37/25°</span></div><div class="dm">Sat<span>☀️</span><span>38/26°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Mumbai</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">34°C</div><div class="w-rng">H: 36° &nbsp; L: 27°</div>
+      <div class="w-cond">Hot and humid</div>
+      <span class="aqi-badge aqi-moderate">AQI 85 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SW 20 km/h</span><span>💧 70%</span></div>
+      <div class="wfc"><div class="dm">Thu<span>🌤️</span><span>35/27°</span></div><div class="dm">Fri<span>⛅</span><span>34/27°</span></div><div class="dm">Sat<span>🌤️</span><span>35/27°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Bengaluru</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">30°C</div><div class="w-rng">H: 33° &nbsp; L: 20°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 40 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SE 11 km/h</span><span>💧 47%</span></div>
+      <div class="wfc"><div class="dm">Thu<span>🌦️</span><span>31/20°</span></div><div class="dm">Fri<span>⛅</span><span>30/19°</span></div><div class="dm">Sat<span>🌤️</span><span>31/20°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Chennai</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">37°C</div><div class="w-rng">H: 39° &nbsp; L: 28°</div>
+      <div class="w-cond">Hot and humid</div>
+      <span class="aqi-badge aqi-moderate">AQI 74 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SE 13 km/h</span><span>💧 71%</span></div>
+      <div class="wfc"><div class="dm">Thu<span>☀️</span><span>38/29°</span></div><div class="dm">Fri<span>🌤️</span><span>37/28°</span></div><div class="dm">Sat<span>☀️</span><span>38/28°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Pune</span><span class="w-icon">⛅</span></div>
+      <div class="w-temp">33°C</div><div class="w-rng">H: 36° &nbsp; L: 22°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 65 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 W 16 km/h</span><span>💧 44%</span></div>
+      <div class="wfc"><div class="dm">Thu<span>🌤️</span><span>35/22°</span></div><div class="dm">Fri<span>⛅</span><span>34/22°</span></div><div class="dm">Sat<span>🌤️</span><span>35/21°</span></div></div>
+    </div>
+  </div></div>
+  <div class="w-note">Weather data: IMD / India Meteorological Department. Updated approx. 5:30 AM ET, April 29, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="india-1">
+      <h3>UNGA President Backs India on Multilateralism, Questions Trump&rsquo;s Board of Peace</h3>
+      <div class="by">The Chronicler India Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>United Nations General Assembly President Annalena Baerbock met External Affairs Minister S. Jaishankar in New Delhi on Tuesday for wide-ranging talks on multilateralism, UN reform, and the crisis in West Asia, taking the occasion to publicly question the legitimacy of U.S. President Donald Trump&rsquo;s &ldquo;Board of Peace&rdquo; framework. At a press conference following the meeting, Baerbock &mdash; a former German foreign minister &mdash; said that peace cannot be found &ldquo;if you have to pay the fee to join it,&rdquo; questioning how a mechanism based on a one-billion-dollar permanent membership fee could operate as a credible international forum. She warned that the United Nations was under &ldquo;direct attack,&rdquo; citing growing fragmentation across its three pillars of peace and security, development, and human rights.</p>
+      <p>Baerbock highlighted the Strait of Hormuz closure as an example of the cascading consequences of unilateral military action and called on all nations to reaffirm their commitment to international law. She praised India&rsquo;s historical contributions to UN peacekeeping, noting that India has contributed more than 300,000 troops across more than 53 missions since 1948, with more than 184 Indian peacekeepers having made the ultimate sacrifice. Jaishankar underscored the need for reformed multilateralism &ldquo;reflective of today&rsquo;s realities, particularly of the Global South.&rdquo; Baerbock is also visiting China from April 29 to 30 as part of her Asia tour; she expressed hope that the next UN Secretary-General will be a woman.</p>
+      <div class="src">Source: <a href="https://aninews.in/news/world/asia/unga-president-annalena-baerbock-arrives-in-india-for-official-visit20260428001340/" target="_blank" rel="noopener">ANI</a> / <a href="https://www.tribuneindia.com/news/annalena-baerbock/unga-president-baerbock-calls-for-renewed-commitment-to-multilateralism-during-india-visit" target="_blank" rel="noopener">The Tribune</a> &middot; April 28, 2026</div>
+    </article>
+    <article class="s" id="india-2">
+      <h3>Hormuz Cable Threat Raises Alarm Over India&rsquo;s Digital Connectivity and Trade</h3>
+      <div class="by">The Chronicler India Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Iran&rsquo;s warning last week that submarine fibre-optic cables running through the Strait of Hormuz represent a vulnerable point for the region&rsquo;s digital economy has heightened concern in India, where multiple critical internet infrastructure systems pass through the narrow waterway. Several major cable systems cross through the strait, including the Asia-Africa-Europe 1 (AAE-1) network connecting Southeast Asia to Europe via Egypt, and the FALCON network connecting India and Sri Lanka to Gulf countries. An estimated 99 per cent of the world&rsquo;s internet traffic runs on submarine cables, according to the International Telecommunication Union. For India specifically, disruption would affect not only internet connectivity but also financial data flows, cloud services, and telecommunications.</p>
+      <p>The disruption would also ripple into trade: aluminium imports, auto components, and other goods routed through the strait face compounding delays on top of existing Hormuz shipping constraints. India, as one of the world&rsquo;s largest importers of crude oil from Gulf producers, has already absorbed significant commodity price shocks from the conflict. Digital supply chain resilience has emerged as a new dimension of the crisis, with governments across the Indo-Pacific examining contingency routing options and cable repair preparedness. While most cable outages result from fishing activity or ship anchors rather than deliberate sabotage, experts note that state-sponsored interference remains a real if minority risk.</p>
+      <div class="src">Source: <a href="https://indianexpress.com/article/world/strait-of-hormuz-digital-chokepoint-internet-cables-india-aluminium-auto-impact-10660025/" target="_blank" rel="noopener">The Indian Express</a> (Reuters) &middot; April 28, 2026</div>
+    </article>
+    <article class="s" id="india-3">
+      <h3>Indian Airlines Warn of Flight Cancellations as Aviation Fuel Costs Hit Crisis Levels</h3>
+      <div class="by">The Chronicler India Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>The Federation of Indian Airlines has issued an urgent warning to the Ministry of Civil Aviation that the country&rsquo;s aviation sector is &ldquo;on the verge of shutdown or cessation of operation,&rdquo; as aviation turbine fuel prices spiral amid the West Asia conflict. In a letter dated April 26 and marked &ldquo;urgent and important,&rdquo; the FIA &mdash; which represents Air India, IndiGo, and SpiceJet &mdash; told the Centre that ATF prices for international operations surged by &#8377;73 per litre in April 2026 alone, rendering international routes &ldquo;completely unviable.&rdquo; The West Asia war has driven Brent crude from approximately USD 72 per barrel before the conflict to USD 118 per barrel, with ATF at one point touching USD 260 per barrel. Fuel, which previously accounted for roughly 40 per cent of airline operating costs, has climbed to nearly 60 per cent, with surcharges reaching as high as &#8377;26,000 on long-haul international routes.</p>
+      <p>The FIA urged the government to take three immediate steps: reinstate the pre-December 2024 &ldquo;crack band&rdquo; pricing mechanism that regulated refinery margins; temporarily suspend the 11 per cent excise duty on ATF; and reduce VAT in major aviation hubs including Delhi and Tamil Nadu. Without swift intervention, the body warned, airlines would be forced to ground aircraft, cut routes, and cancel flights &mdash; a disruption that would hit India&rsquo;s summer travel season directly. The depreciation of the rupee against the dollar has added further cost pressure, and suppliers have also sought price revisions on petrochemical inputs, compounding the squeeze on carriers already operating at narrow margins.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/industry/aviation/west-asia-conflict-indian-airlines-govt-rising-jet-fuel-costs-atf-flights-126042800653_1.html" target="_blank" rel="noopener">Business Standard</a> / <a href="https://www.tribuneindia.com/news/india/indias-aviation-sector-in-trouble-atf-cost-surge-triggers-sos-call/" target="_blank" rel="noopener">The Tribune</a> &middot; April 28, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Markets</span>
+  <div class="mkt-note">Indian market data reflects Wednesday, April 29, 2026 live readings provided by the publisher. Currency rates sourced live from XE.com, April 29, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div><div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">77,496</div>
+      <span class="mc-chg up">▲ 609.45 (+0.79%)</span>
+      <div class="mc-note">Apr 29 · INR</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div><div class="mc-sub">NSE Index</div>
+      <div class="mc-val">24,177</div>
+      <span class="mc-chg up">▲ 181.95 (+0.76%)</span>
+      <div class="mc-note">Apr 29 · INR</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div><div class="mc-sub">INR / 10g (24K)</div>
+      <div class="mc-val">&#8377;1,51,370</div>
+      <span class="mc-chg down">▼</span>
+      <div class="mc-note">Goodreturns · Apr 29</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div><div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">$0.0105</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 29</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div><div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">$0.01466</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 29</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div><div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">&pound;0.0078</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 29</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div><div class="mc-sub">1 INR in EUR</div>
+      <div class="mc-val">&euro;0.0090</div>
+      <span class="mc-chg flat">—</span>
+      <div class="mc-note">XE.com · Apr 29</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; <a href="https://www.goodreturns.in/gold-rates/" target="_blank" rel="noopener">Goodreturns</a> (Gold) &middot; BSE India &middot; NSE India</div>
+
+</div></div><!-- end #india -->
+
+
+<!-- ③ WORLD -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="world-1">
+      <h3>UAE Quits OPEC and OPEC+, Dealing Major Blow to Oil Cartel Amid Iran War</h3>
+      <div class="by">The Chronicler World Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>The United Arab Emirates announced Tuesday it is withdrawing from OPEC and OPEC+ effective May 1, delivering a significant blow to the oil cartel at a moment when the U.S.-Israel war against Iran has already disrupted global energy supply. The exit reflects the UAE&rsquo;s &ldquo;long-term strategic and economic vision and evolving energy profile,&rdquo; state media reported, adding that &ldquo;the time has come to focus our efforts on what our national interest dictates.&rdquo; UAE Energy Minister Suhail Mohamed al-Mazrouei confirmed that Abu Dhabi did not consult Saudi Arabia or any other OPEC member before reaching the decision. The UAE, which joined OPEC through the emirate of Abu Dhabi in 1967, has a production capacity of 4.8 million barrels per day and has long chafed under quota restrictions it believes disadvantage its plans for output growth.</p>
+      <p>The departure comes as Gulf producers struggle to ship crude through the Strait of Hormuz amid the ongoing Iran war, with the narrow waterway subject to threats, blockades, and attacks that have tightened global supply and driven oil prices sharply higher. Energy research firm Rystad Energy described the UAE&rsquo;s withdrawal as a structural blow to OPEC&rsquo;s capacity to manage global prices. &ldquo;Losing a member with 4.8 million barrels per day of capacity, and the ambition to produce more, takes a real tool out of the group&rsquo;s hands,&rdquo; said Rystad&rsquo;s head of geopolitical analysis Jorge Leon. Trump&rsquo;s prior accusations of OPEC price-gouging may have provided political cover for Abu Dhabi&rsquo;s decision; the UAE has also increasingly asserted an independent energy policy that at times diverges from Saudi Arabia.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com" target="_blank" rel="noopener">Al Jazeera English</a> &middot; April 28, 2026</div>
+    </article>
+    <article class="s" id="world-2">
+      <h3>King Charles Urges NATO Unity and Ukraine Support in Address to U.S. Congress</h3>
+      <div class="by">The Chronicler World Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Britain&rsquo;s King Charles III addressed a joint session of the United States Congress on Tuesday, using the historic occasion to deliver pointed messages in favour of NATO solidarity and continued support for Ukraine. The speech came during a four-day state visit against the backdrop of the U.S.-Israel war with Iran, growing U.S. trade pressure on the United Kingdom, and Trump&rsquo;s persistent criticism of NATO allies. Charles struck a light, joke-heavy tone early in the address, quipping that Washington D.C. was &ldquo;a tale of two Georges&rdquo; &mdash; referencing President George Washington and his own royal ancestor King George &mdash; and assuring lawmakers he was not in the U.S. as part of any &ldquo;cunning rearguard action&rdquo; in continuation of the Revolutionary War.</p>
+      <p>Beneath the warmth, Charles wove in substantive appeals: he praised NATO&rsquo;s invocation of Article 5 following the September 11 attacks and drew a direct line to the current moment, telling lawmakers that &ldquo;that same unyielding resolve is needed for the defence of Ukraine and her most courageous people.&rdquo; He hailed the $430 billion in annual bilateral trade and the $1.7 trillion in mutual investment between the two countries, and invoked the principles of the rule of law and independent judiciary &mdash; language widely interpreted as a diplomatically coded rebuke of political trends in the United States. The speech received multiple standing ovations; Charles and Camilla were subsequently hosted by Trump at a White House state dinner.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com" target="_blank" rel="noopener">Al Jazeera English</a> &middot; April 28, 2026</div>
+    </article>
+    <article class="s" id="world-3">
+      <h3>U.S. Appeals Court Rejects Trump&rsquo;s Mandatory Immigration Detention Policy</h3>
+      <div class="by">The Chronicler World Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>A federal appeals court has unanimously struck down the Trump administration&rsquo;s policy of subjecting most people arrested in its immigration crackdown to mandatory detention without bond hearings, ruling that the government had fundamentally misread a decades-old immigration statute. In a 3-0 decision, a panel of the Second Circuit Court of Appeals found that the administration&rsquo;s interpretation of the 1996 Illegal Immigration Reform and Immigrant Responsibility Act &ldquo;defies the statute&rsquo;s context, structure, history, and purpose&rdquo; and contradicts longstanding executive branch practice. U.S. Circuit Judge Joseph F. Bianco &mdash; himself a Trump appointee &mdash; warned that the government&rsquo;s reading &ldquo;would send a seismic shock through our immigration detention system and society,&rdquo; straining overcrowded facilities, separating families, and disrupting communities.</p>
+      <p>The ruling upholds an order that led to the release of Brazilian national Ricardo Aparecido Barbosa da Cunha, who had been arrested by immigration officials after more than 20 years of living in the United States with no criminal history. The Department of Homeland Security had taken the position that non-citizens already residing in the U.S. qualify as &ldquo;applicants for admission&rdquo; subject to mandatory detention, a departure from all previous administrations&rsquo; practice. The Second Circuit&rsquo;s ruling conflicts with decisions by two other federal appeals courts that upheld the administration&rsquo;s policy &mdash; a circuit split that legal observers say makes Supreme Court review increasingly likely. Amy Belsher of the New York Civil Liberties Union said the ruling affirmed that the government cannot mandatorily detain millions of noncitizens without an opportunity to seek release.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com" target="_blank" rel="noopener">Al Jazeera English</a> &middot; April 28&ndash;29, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Global Markets</span>
+  <div class="mkt-note">US indices reflect Tuesday, April 28, 2026 close. FTSE 100 reflects April 28 close. Nikkei 225 reflects April 28 close &mdash; Japan markets closed April 29 (Showa Day). Hang Seng reflects April 29, 2026 close.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card world"><div class="mc-name">DJIA</div><div class="mc-sub">Dow Jones Industrial</div><div class="mc-val">49,141</div><div class="mc-note">Apr 28 close · USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nasdaq</div><div class="mc-sub">Nasdaq-100</div><div class="mc-val">24,576</div><div class="mc-note">Apr 28 close · USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">S&amp;P 500</div><div class="mc-sub">US Broad Market</div><div class="mc-val">7,138</div><div class="mc-note">Apr 28 close · USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">FTSE 100</div><div class="mc-sub">London Stock Exchange</div><div class="mc-val">10,332</div><div class="mc-note">Apr 28 close · GBP</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nifty 50</div><div class="mc-sub">NSE India</div><div class="mc-val">24,177</div><div class="mc-note">Apr 29 · INR</div></div>
+    <div class="mkt-card world"><div class="mc-name">Hang Seng</div><div class="mc-sub">Hong Kong</div><div class="mc-val">25,679</div><div class="mc-note">Apr 29 close · HKD</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nikkei 225</div><div class="mc-sub">Tokyo Stock Exchange</div><div class="mc-val">59,917</div><div class="mc-note">Apr 28 close · JPY</div></div>
+  </div>
+  <div class="mkt-src">Sources: Yahoo Finance &middot; Hang Seng Index &middot; Nikkei Asia &middot; LSEG / FTSE Russell &middot; NASDAQ</div>
+
+</div></div><!-- end #world -->
+
+
+<!-- ④ SPORT -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+  <div class="col-3">
+    <article class="s" id="sport-1">
+      <h3>PSG Hold Off Bayern in 5&ndash;4 Champions League Thriller to Take First Leg Advantage</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Paris Saint-Germain produced one of the most extraordinary nights in Champions League history on Tuesday, beating Bayern Munich 5&ndash;4 at the Parc des Princes in the semifinal first leg &mdash; a result that set a record as the highest-scoring match ever played at this stage of the competition. Khvicha Kvaratskhelia and Ousmane Demb&eacute;l&eacute; each scored twice as PSG built a commanding lead, only to be pulled back by Bayern&rsquo;s own devastating attacking play before holding on. Harry Kane opened the scoring from the penalty spot &mdash; his 54th goal of the campaign &mdash; before Kvaratskhelia levelled and Jo&atilde;o Neves headed PSG ahead. Bayern equalised through Michael Olise, but Demb&eacute;l&eacute; converted a penalty won when the ball struck Canadian fullback Alphonso Davies on the arm, making it 3&ndash;2 at half-time.</p>
+      <p>Kvaratskhelia &mdash; who has now scored in seven consecutive Champions League knockout matches &mdash; made it 4&ndash;2 early in the second half, before Demb&eacute;l&eacute; swept in a low shot for 5&ndash;2. Bayern refused to concede the tie: Dayot Upamecano headed in from a Joshua Kimmich free-kick, and Luis Diaz dribbled past Marquinhos to slot home the night&rsquo;s final goal for 5&ndash;4. A late Senny Mayulu strike came back off Neuer&rsquo;s crossbar. Vincent Kompany&rsquo;s Bayern &mdash; coaching from the stands due to suspension &mdash; now travel to Paris with a one-goal deficit heading to the Allianz Arena on May 6. PSG, who hammered Inter Milan 5&ndash;0 in last year&rsquo;s final, are seeking to become only the second club in the modern era to retain the Champions League trophy.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com" target="_blank" rel="noopener">Al Jazeera English</a> &middot; April 28&ndash;29, 2026</div>
+    </article>
+    <article class="s" id="sport-2">
+      <h3>Hazlewood and Bhuvneshwar Rout Delhi for 75 as RCB Win by Nine Wickets in IPL</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Defending IPL champions Royal Challengers Bengaluru produced a devastating demolition of Delhi Capitals on Monday at the Arun Jaitley Stadium in New Delhi, winning by nine wickets after bowling the home side out for just 75 in a powerplay assault that recalled conditions more typically associated with Test cricket than the T20 format. Josh Hazlewood took 4 for 12 and veteran seamer Bhuvneshwar Kumar claimed 3 for 5, combining for six wickets inside the first four overs as Delhi Capitals collapsed to 8 for 6. Bhuvneshwar struck with precise swing in his very first over, while Hazlewood was relentlessly accurate from around the wicket. Only Abishek Porel, introduced as an Impact Player substitution, showed resistance, contributing 30 runs to steer Delhi past the competition&rsquo;s all-time lowest total of 49.</p>
+      <p>The chase was routine: Devdutt Padikkal struck 34 not out, while Virat Kohli finished the match with consecutive sixes off T. Natarajan to reach his unbeaten 23 &mdash; wrapping up the win in 6.3 overs. In the process, Kohli became the first player in IPL history to reach 9,000 career runs. Hazlewood was named Player of the Match. The result lifts RCB firmly in contention in the IPL 2026 standings. Delhi Capitals&rsquo; batting collapse drew comparisons to previous all-time low powerplay collapses in the competition&rsquo;s history.</p>
+      <div class="src">Source: <a href="https://indianexpress.com/article/sports/cricket/bhuvneshwar-kumar-josh-hazlewood-delhi-capitals-rcb-virat-kohli-ipl-2026-10658991/" target="_blank" rel="noopener">The Indian Express</a> &middot; April 27, 2026</div>
+    </article>
+    <article class="s" id="sport-3">
+      <h3>Atl&eacute;tico Madrid Host Arsenal Tonight in Champions League Semifinal First Leg</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Wednesday, April 29, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Atl&eacute;tico Madrid host Arsenal at the Metropolitano Stadium in Madrid on Wednesday in the first leg of the UEFA Champions League semifinal, with kick-off at 9:00 PM local time (3:00 PM ET). The tie pits two clubs seeking their first-ever European title, with the winner advancing to the Budapest final on May 30 to face PSG. Arsenal arrive as Premier League leaders and the only unbeaten team remaining in this season&rsquo;s Champions League, having conceded just five goals across 12 knockout matches. Atl&eacute;tico&rsquo;s Julian Alvarez leads the attack with nine Champions League goals this season. Arsenal manager Mikel Arteta noted it is &ldquo;the first time in our history, in 140 years&rdquo; that the club has reached consecutive Champions League semifinals.</p>
+      <p>The two sides met at the Emirates in October&rsquo;s league stage, with Arsenal winning 4&ndash;0 in a devastating second-half burst. Atl&eacute;tico&rsquo;s path to the semifinals involved taking first-leg leads against Tottenham and then beating Barcelona 3&ndash;2 on aggregate. Several injury doubts cloud Arsenal&rsquo;s selection: Kai Havertz and Jurrien Timber are unavailable, Martin Zubimendi and Eberechi Eze face late fitness assessments, and Mikel Merino is out for the season. Atl&eacute;tico&rsquo;s Pablo Barrios is also sidelined. The second leg is at the Emirates in London next Tuesday.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com" target="_blank" rel="noopener">Al Jazeera English</a> &middot; April 28&ndash;29, 2026</div>
+    </article>
+  </div>
+</div></div><!-- end #sport -->
+
+
+<!-- ⑤ PUZZLES -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Puzzles</h2><div class="flag">The Chronicler Daily Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">2</div>
+        <div class="crunch-tile">5</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">9</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">52</div>
+      </div>
+      <button class="reveal-toggle" onclick="var b=document.getElementById('crunch-ans');b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'▼ Hide solution':'▶ Show solution';">▶ Show solution</button>
+      <div class="answer-box" id="crunch-ans">
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--ink);line-height:1.8;">
+          2 &times; (5 &times; 7 &minus; 9) = 52<br>
+          Step 1: 5 &times; 7 = 35 &nbsp;&middot;&nbsp; Step 2: 35 &minus; 9 = 26 &nbsp;&middot;&nbsp; Step 3: 2 &times; 26 = 52<br>
+          <em style="font-size:10px;color:var(--grey);">4 distinct solutions. Python-verified across all permutations.</em>
+        </div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">CARNEY</div>
+        <div class="ww-mini-tile">BAERBOCK</div>
+        <div class="ww-mini-tile">KVARATSKHELIA</div>
+        <div class="ww-mini-tile">HAZLEWOOD</div>
+        <div class="ww-mini-tile">CHARLES</div>
+        <div class="ww-mini-tile">JAISHANKAR</div>
+        <div class="ww-mini-tile">KANE</div>
+        <div class="ww-mini-tile">BHUVNESHWAR</div>
+      </div>
+      <button class="reveal-toggle" onclick="var b=document.getElementById('ww-ans');b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'▼ Hide solution':'▶ Show solution';">▶ Show solution</button>
+      <div class="answer-box" id="ww-ans">
+        <div class="answer-cat a">🟢 Key figures in today&rsquo;s political stories: CARNEY &middot; BAERBOCK &middot; CHARLES &middot; JAISHANKAR</div>
+        <div class="answer-cat b">🟡 Scorers / match-winners in today&rsquo;s sport stories: KVARATSKHELIA &middot; HAZLEWOOD &middot; KANE &middot; BHUVNESHWAR</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-top:6px;font-style:italic;">Decoy: KANE &mdash; also a politician&rsquo;s surname (Harry Kane is the Bayern striker, not a political figure, but the name reads ambiguously alongside CARNEY and CHARLES).</div>
+      </div>
+    </div>
+
+  </div>
+</div></div><!-- end #puzzles -->
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 31 &bull; Wednesday, April 29, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+(function(){
+  var current=null;
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('.read-btn');
+    if(!btn)return;
+    if(!('speechSynthesis' in window)){btn.style.display='none';return;}
+    if(current&&current.btn===btn){window.speechSynthesis.cancel();btn.textContent='\uD83D\uDD0A Read aloud';current=null;return;}
+    if(current){window.speechSynthesis.cancel();current.btn.textContent='\uD83D\uDD0A Read aloud';}
+    var art=btn.closest('article');
+    var txt='';
+    if(art){art.querySelectorAll('p').forEach(function(p){txt+=p.innerText+' ';});}
+    if(!txt.trim())return;
+    var utt=new SpeechSynthesisUtterance(txt.trim());
+    utt.onend=function(){btn.textContent='\uD83D\uDD0A Read aloud';current=null;};
+    utt.onerror=function(){btn.textContent='\uD83D\uDD0A Read aloud';current=null;};
+    window.speechSynthesis.speak(utt);
+    btn.textContent='\u23F9 Stop';
+    current={btn:btn,utt:utt};
+  });
+  document.querySelectorAll('.nav-item>a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var item=a.parentElement;
+      if(item.querySelector('.dropdown')){
+        var open=item.classList.contains('open');
+        document.querySelectorAll('.nav-item').forEach(function(i){i.classList.remove('open');});
+        if(!open)item.classList.add('open');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

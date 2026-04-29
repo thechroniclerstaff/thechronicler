@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Note From the Editor — The Chronicler</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);min-height:100vh;display:flex;flex-direction:column;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:18px 40px 12px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);letter-spacing:.05em;border-bottom:1px solid var(--rule);padding-bottom:6px;margin-bottom:8px;}
+.ig-link{display:flex;align-items:center;gap:5px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;}
+.ig-link:hover{text-decoration:underline;}
+.ig-link svg{width:15px;height:15px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(38px,6vw,76px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:12px;color:var(--grey);margin-top:5px;letter-spacing:.03em;}
+.mast-rules{display:flex;align-items:center;gap:10px;margin-top:10px;justify-content:center;}
+.mast-rules hr{flex:1;border:none;border-top:1px solid var(--rule);max-width:200px;}
+.mast-rules span{font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);}
+.page{max-width:780px;margin:0 auto;flex:1;background:var(--cream);border-left:1px solid var(--rule);border-right:1px solid var(--rule);padding:52px 60px 80px;}
+.section-rule{display:flex;align-items:center;gap:14px;width:100%;margin-bottom:32px;}
+.section-rule hr{flex:1;border:none;border-top:1px solid var(--rule);}
+.section-rule span{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--rust);white-space:nowrap;}
+.letter-eyebrow{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--rust);margin-bottom:18px;}
+.letter-headline{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;color:var(--ink);margin-bottom:28px;}
+.letter-body{font-family:'Libre Baskerville',serif;font-size:15px;line-height:2;color:var(--ink);}
+.letter-body p{margin-bottom:24px;text-align:justify;hyphens:auto;}
+.letter-body p:last-of-type{margin-bottom:32px;}
+.letter-sig{margin-top:8px;padding-top:28px;border-top:1px solid var(--rule);}
+.letter-sig .sig-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.letter-sig .sig-title{font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);letter-spacing:.06em;margin-bottom:2px;}
+.letter-sig .sig-location{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);}
+.letter-contact{margin-top:24px;padding:16px 20px;border:1px solid var(--rule);border-left:4px solid var(--rust);background:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);line-height:1.7;}
+.letter-contact a{color:var(--rust);text-decoration:none;}
+.letter-contact a:hover{text-decoration:underline;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;color:var(--rust);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--rust);padding-bottom:2px;margin-bottom:40px;}
+.back-link:hover{opacity:.75;}
+.footer{max-width:780px;margin:0 auto;text-align:center;padding:16px 20px;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);background:var(--cream);border-left:1px solid var(--rule);border-right:1px solid var(--rule);border-top:4px double var(--ink);}
+.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin-top:8px;display:flex;align-items:center;justify-content:center;gap:6px;}
+.footer-ig a{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-size:11px;}
+.footer-ig a svg{width:15px;height:15px;}
+.footer-disc{margin-top:10px;font-style:italic;line-height:1.7;}
+@media(max-width:680px){
+  .page{padding:32px 24px 60px;}
+  .masthead{padding:14px 20px 10px;}
+}
+</style>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2c9f324e65f4bde97c20728d6349a04"}'></script>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Est. March 8, 2026 &bull; Independent &bull; Daily &bull; Free</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>thechronicler.ca</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+  <div class="mast-rules"><hr><span>Est. March 2026 &bull; Vol. I</span><hr></div>
+</div>
+
+<div class="page">
+
+  <div class="section-rule"><hr><span>From the Editor</span><hr></div>
+
+  <a class="back-link" href="https://thechronicler.ca">&larr; Back to The Chronicler</a>
+
+  <div class="letter-eyebrow">April 2026 &nbsp;&middot;&nbsp; A Note From the Editor</div>
+
+  <div class="letter-headline">A Change in Direction &mdash; and an Honest Account of Why</div>
+
+  <div class="letter-body">
+
+    <p>Hi,</p>
+
+    <p>My name is Anand Vijay Kumar, and I am the editor and curator of The Chronicler.</p>
+
+    <p>First, I want to thank you for your readership. Over the past many weeks, The Chronicler has had a definitive change in direction &mdash; and I owe you an honest account of why.</p>
+
+    <p>The Chronicler was built around an idea to bring back joy in reading the news, something that I am proud to say I have been able to experience. I don&rsquo;t want you to experience us as a feed, or a digest. I want you to experience us beyond a push notification on your phone. I intend for you to be able to sit with an issue of The Chronicler as your consistent reference and reflection of the world around you. The kind that covers Canada, India, and the world in one place, because that is the world many of us truly live in.</p>
+
+    <p>To do so well, I built a production standard that I am truly proud of. Every article was verified against a live source, every figure checked. Every edition assembled by hand. Our publishing standard ensures comprehensive, responsible, and meticulous reporting. It turns out though, that this standard, at a daily frequency, is unsustainable, and would eventually break.</p>
+
+    <p>So, I have had to change. And here&rsquo;s what changes.</p>
+
+    <p>The Chronicler will publish three articles each for Canada, India, and the World, with condensed coverage for the GTA and sports. It will no longer have the larger broadsheet reporting across multiple desks and categories.</p>
+
+    <p>And here&rsquo;s what doesn&rsquo;t change.</p>
+
+    <p>The commitment to responsible and meticulous reporting backed by the standard of verification remains The Chronicler&rsquo;s ethical pillar. The aesthetics, intent, and resolve do not change. Only the volume of reporting does.</p>
+
+    <p>I believe this is the only honest path forward to bring you consistent reporting. Because, over everything else, consistency is what you need from a news source you trust.</p>
+
+    <p>If you have any feedback, or something you&rsquo;d like to see covered, I&rsquo;d genuinely like to hear from you.</p>
+
+  </div>
+
+  <div class="letter-sig">
+    <div class="sig-name">Anand Vijay Kumar</div>
+    <div class="sig-title">Publisher &amp; Editor, The Chronicler</div>
+    <div class="sig-location">Whitby, Ontario</div>
+  </div>
+
+  <div class="letter-contact">
+    Write to us any time at <a href="mailto:thechroniclerstaff@proton.me">thechroniclerstaff@proton.me</a>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I &bull; Est. March 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+</body>
+</html>
