@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Thursday, April 30, 2026 — Vol. I, No. 32</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover,.nav-item.open>a{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.gta-callout{background:#f0ece0;border-left:4px solid var(--rust);padding:14px 16px;margin:20px 0 10px;}
+.gta-callout .gta-label{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px;display:block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1;}
+.mkt-card .mc-chg{display:inline-flex;align-items:center;gap:3px;margin-top:3px;border-radius:3px;padding:2px 5px;align-self:flex-start;font-family:monospace;font-size:9.5px;font-weight:700;white-space:nowrap;}
+.mc-chg.down{background:#f8d7da;color:#8b2513;border:1px solid #f0c0c0;}
+.mc-chg.up{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.mc-chg.flat{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.mkt-card .mc-note{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);font-style:italic;margin-top:3px;border-top:1px solid var(--rule);padding-top:3px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-bottom:14px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.games-row{display:grid;grid-template-columns:1fr;gap:16px;margin-top:14px;}
+.puzzle-box{border:1px solid var(--rule);border-top:3px solid var(--ink);padding:14px;background:#f9f3e3;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-bottom:8px;line-height:1.5;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;}
+.ww-mini-tile{background:var(--cream);border:1.5px solid var(--ink);padding:8px 4px;text-align:center;font-family:'Playfair Display',serif;font-weight:700;font-size:11px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:10.5px;font-weight:600;color:var(--rust);cursor:pointer;background:none;border:none;padding:6px 0;margin-top:6px;border-top:1px dashed var(--rule);width:100%;text-align:left;}
+.answer-box{margin-top:6px;display:none;}
+.answer-cat{padding:6px 9px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;margin-bottom:4px;line-height:1.5;}
+.answer-cat.a{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.answer-cat.b{background:#fff3cd;color:#6b4f00;border:1px solid #ffeeba;}
+.crunch-nums{display:flex;gap:10px;margin:10px 0;align-items:center;flex-wrap:wrap;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;}
+.crunch-target{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--rust);}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-top:8px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+.ticker-bar{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 16px;text-align:center;}
+@media(min-width:600px){
+  .page{padding:24px 28px 36px;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+  .games-row{grid-template-columns:1fr 1fr;}
+  article.s p{text-align:justify;hyphens:auto;}
+}
+@media(min-width:800px){
+  .page{padding:28px 38px 42px;}
+  .col-3{grid-template-columns:repeat(3,1fr);gap:20px;}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 17px 0 0;margin-bottom:0;}
+  article.s:last-child{border-right:none;padding-right:0;}
+  .mkt-grid{grid-template-columns:repeat(7,1fr);}
+}
+</style>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2c9f324e65f4bde97c20728d6349a04"}'></script>
+</head>
+<body>
+
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+      <a class="top-btn" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="#puzzles">Puzzles</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 32 &nbsp;&middot;&nbsp; Thursday, April 30, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">Today&rsquo;s Record. Tomorrow&rsquo;s Reference.</div>
+</div>
+
+<div class="ticker-bar">&#9888;&nbsp; ENBRIDGE SUNRISE PIPELINE APPROVED &mdash; CANADA EYES UK-STYLE TOBACCO BAN &mdash; TRUMP VOWS TO MAINTAIN IRAN BLOCKADE &mdash; ISRAEL RAIDS GLOBAL SUMUD FLOTILLA IN INTERNATIONAL WATERS &mdash; BENGAL RECORDS 92.47% TURNOUT &mdash; ARSENAL DRAW 1&ndash;1 AT ATLETICO MADRID &mdash; JODAR FALLS TO SINNER IN MADRID QF</div>
+
+
+<!-- ① CANADA -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+    <div class="w-card">
+      <div class="w-top"><span class="city">Toronto</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">11°C</div>
+      <div class="w-rng">H: 13° &nbsp; L: 2°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 20 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 NW 20 km/h</span><span>💧 52%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>☀️</span><span>9/−1°</span></div>
+        <div class="dm">Sat<span>🌤️</span><span>12/2°</span></div>
+        <div class="dm">Sun<span>⛅</span><span>14/4°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Montréal</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">17°C</div>
+      <div class="w-rng">H: 19° &nbsp; L: 5°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 16 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 W 16 km/h</span><span>💧 40%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌤️</span><span>15/3°</span></div>
+        <div class="dm">Sat<span>⛅</span><span>14/4°</span></div>
+        <div class="dm">Sun<span>🌦️</span><span>13/5°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Ottawa</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">14°C</div>
+      <div class="w-rng">H: 16° &nbsp; L: 2°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 12 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 NW 18 km/h</span><span>💧 44%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌤️</span><span>12/1°</span></div>
+        <div class="dm">Sat<span>⛅</span><span>13/3°</span></div>
+        <div class="dm">Sun<span>🌦️</span><span>12/4°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Edmonton</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">14°C</div>
+      <div class="w-rng">H: 16° &nbsp; L: 4°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 17 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 W 13 km/h</span><span>💧 48%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>☀️</span><span>16/5°</span></div>
+        <div class="dm">Sat<span>🌤️</span><span>15/4°</span></div>
+        <div class="dm">Sun<span>🌤️</span><span>14/3°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Vancouver</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">14°C</div>
+      <div class="w-rng">H: 16° &nbsp; L: 9°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 14 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SW 18 km/h</span><span>💧 70%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>☀️</span><span>17/9°</span></div>
+        <div class="dm">Sat<span>☀️</span><span>18/10°</span></div>
+        <div class="dm">Sun<span>🌤️</span><span>16/9°</span></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="w-note">Weather data: Environment Canada. Updated approx. 5:30 AM ET, April 30, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="canada-1">
+      <h3>Federal Government Approves Enbridge&rsquo;s $4-Billion Sunrise Natural Gas Pipeline Expansion in B.C.</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>The federal government has approved Enbridge Inc.&rsquo;s $4-billion Sunrise Expansion Program in British Columbia, marking the first major pipeline approval under Prime Minister Mark Carney&rsquo;s government. Natural Resources Minister Tim Hodgson announced Thursday that the project will add approximately 139 kilometres of new pipeline through 11 looping segments parallel to Enbridge&rsquo;s existing Westcoast system, increasing natural gas transportation capacity by up to 300 million cubic feet per day. The project is co-owned by Enbridge and 38 First Nations groups, and construction is expected to begin this summer, with completion targeted for late 2028. The government says the expansion will ensure B.C. has adequate gas supply as liquefied natural gas export facilities &mdash; including Woodfibre LNG, the world&rsquo;s first net-zero LNG facility &mdash; come online.</p>
+      <p>The approval drew praise from B.C. Premier David Eby as good news for provincial jobs, and from the Canadian Chamber of Commerce, which framed it as essential to economic resilience amid trade uncertainty. Environmental Defence called it a climate setback, noting that natural gas emissions were the largest contributor to rising global emissions in 2025. Conservative Leader Pierre Poilievre acknowledged the approval but said the process had taken far too long. Enbridge executive Matthew Akman welcomed the decision but urged even faster regulatory processes going forward. The project is projected to add more than $3 billion to Canada&rsquo;s GDP and generate over $700 million in tax revenue over its lifetime.</p>
+      <div class="src">Source: <a href="https://globalnews.ca/news/11815564/federal-government-natural-gas-pipeline-expansion/" target="_blank" rel="noopener">Global News</a> &middot; April 24, 2026</div>
+    </article>
+    <article class="s" id="canada-2">
+      <h3>U.K.&rsquo;s Smoke-Free Generation Tobacco Ban Gives Heart to Canadian Anti-Smoking Campaigners</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Canada&rsquo;s federal health minister says she is actively examining legislation that would permanently ban the sale of tobacco products to anyone born after 2008, following the United Kingdom&rsquo;s passage of its landmark Tobacco and Vapes Bill last week. Health Minister Majorie Michel told reporters on Parliament Hill on Tuesday that she is looking into the measure. The U.K. bill, which has passed both houses of Parliament and awaits royal assent, creates a rolling age ban preventing anyone born on or after January 1, 2009 from ever legally purchasing cigarettes in Britain. Canadian public health advocates have welcomed the precedent, with Rob Cunningham of the Canadian Cancer Society saying the U.K. move should inspire Canada to go further by including vaping products in any equivalent Canadian ban. A federal government study estimates that a similar smoke-free generation policy in Canada could reduce health-care costs by $2.3 billion over 50 years.</p>
+      <p>Canada has set a target of reducing tobacco use to below five per cent of the population by 2035; the 2024 Canadian Community Health Survey estimated that 11 per cent of Canadians over 18 still smoke. Federal Justice Minister Sean Fraser told reporters Tuesday he had not yet been formally engaged on the policy file but expected to discuss it with Michel and noted the importance of reducing youth tobacco consumption. Health Canada emphasised the government&rsquo;s $66 million annual investment in cessation programs since 2018 but did not confirm whether a generational ban was under serious consideration. University of Waterloo professor Geoffrey Fong, a WHO tobacco-policy expert, said Canada had fallen behind peers on tobacco policy and that the U.K.&rsquo;s precedent was an important signal. Advocates concede a Canadian ban is unlikely in the near term but see the health minister&rsquo;s statement as a meaningful first step.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/tobacco-generation-smoking-ban-uk-canada-9.7180845" target="_blank" rel="noopener">CBC News</a> &middot; April 29, 2026</div>
+    </article>
+    <article class="s" id="canada-3">
+      <h3>Windsor Mould Maker Says U.S. Ambassador Floated Steel-for-Booze Tariff Swap in Private Talks</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>A Windsor-area mould manufacturer says U.S. Ambassador Pete Hoekstra informally suggested a potential tariff swap &mdash; relief on steel and aluminum in exchange for Canada lifting its ban on American alcohol &mdash; during a meeting with industry leaders and politicians in Windsor last week. Marco Azzopardi, whose company employs more than 100 people, relayed the exchange after a group of business owners from Windsor&rsquo;s tool and mould sector wrapped up three days of meetings in Ottawa. Azzopardi said he believed a deal was within reach. The meetings came as Windsor&rsquo;s manufacturing sector faces acute pressure from U.S. tariffs on Canadian steel and aluminum &mdash; part of a broader trade war that regional business leaders describe as an existential threat. Azzopardi predicted companies of his size had three to six months before being forced to decide whether to remain in Canada or shift production to the United States.</p>
+      <p>Windsor West Conservative MP Harb Gill called the tariff increases absolutely unfair and urged Ottawa to act before the region&rsquo;s industrial base was permanently hollowed out. Regional business representative Vince Caron told CBC Radio&rsquo;s Windsor Morning that Windsor is disproportionately impacted and that tariff increases undermine the entire North American manufacturing economy, adding that relocating to the U.S. is not as straightforward as it may appear since more than 100,000 U.S. manufacturing jobs have already been lost under Trump-era tariffs. Prime Minister Mark Carney has previously indicated Canada could move quickly to lift provincial bans on U.S. alcohol if Washington pulled back tariffs on steel, aluminum, and autos, but no formal deal has been struck.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/windsor/steel-booze-canada-united-states-ambassador-9.7181646" target="_blank" rel="noopener">CBC News</a> &middot; April 29, 2026</div>
+    </article>
+  </div>
+
+  <div class="gta-callout">
+    <span class="gta-label">GTA Focus</span>
+    <div class="col-1">
+      <article class="s" id="gta-1">
+        <h3>Ontario Considers Outright Cellphone Ban Across All School Properties</h3>
+        <div class="by">The Chronicler GTA Desk &middot; Thursday, April 30, 2026</div>
+        <button class="read-btn">🔊 Read aloud</button>
+        <p>Ontario Education Minister Paul Calandra says the province is considering an outright ban on cellphones across all elementary and secondary school properties, going further than any provincial restriction currently in place. Speaking at a press conference in Kilworth, Ontario on Tuesday, Calandra said the evidence is becoming increasingly clear that cellphone use anywhere on school grounds has become a serious problem, and that most of his counterparts across the country agree that allowing students unrestricted access to phones and social media in schools has not been beneficial. He said he is also working closely with the federal government on a social media ban for children under a certain age, similar to measures Manitoba has announced. Medical exemptions would be carved out under any proposed ban.</p>
+        <p>The province already enforces partial restrictions: kindergarten to Grade 6 students must keep phones silent and out of sight throughout the day, while students in Grades 7 through 12 face bans during instructional time unless a teacher grants explicit permission. Critics argue a full property ban goes too far, with some educators noting that secondary students routinely use devices to access course materials and that the province&rsquo;s school WiFi infrastructure is often inadequate to replace device-based access. Others warned a blanket ban risks driving youth toward less regulated digital platforms. The announcement comes as TDSB continues to operate under provincial supervision imposed by Calandra in June 2025. No timeline for legislation was announced; the minister indicated further consultation is planned before any formal proposal is tabled.</p>
+        <div class="src">Source: <a href="https://www.ctvnews.ca/toronto/politics/queens-park/article/ontario-may-ban-cellphones-outright-in-schools/" target="_blank" rel="noopener">CTV News Toronto</a> &middot; April 28, 2026</div>
+      </article>
+    </div>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Markets</span>
+  <div class="mkt-note">S&amp;P/TSX reflects Wednesday, April 29, 2026 close. WTI Crude and Gold reflect April 30, 2026 intraday. Currency rates sourced live from XE.com, April 30, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div><div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">33,318</div>
+      <span class="mc-chg down">&#9660; 265.95 (&minus;0.79%)</span>
+      <div class="mc-note">Apr 29 close &middot; CAD</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">WTI Crude</div><div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$103.43</div>
+      <span class="mc-chg up">&#9650; rising (3rd session)</span>
+      <div class="mc-note">Apr 30 intraday</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div><div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,556</div>
+      <span class="mc-chg down">&#9660; 52.50 (&minus;1.14%)</span>
+      <div class="mc-note">Apr 30 intraday</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div><div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7308</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div><div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">&#8377;69.44</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div><div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">&euro;0.6257</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div><div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">&pound;0.5409</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; Yahoo Finance &middot; TMX (TSX) &middot; CME Group (WTI, Gold)</div>
+
+</div></div><!-- end #canada -->
+
+
+<!-- ② INDIA -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">New Delhi</span><span class="w-icon">🌡️</span></div>
+      <div class="w-temp">40°C</div>
+      <div class="w-rng">H: 43° &nbsp; L: 27°</div>
+      <div class="w-cond">Hot and hazy</div>
+      <span class="aqi-badge aqi-poor">AQI 165 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>💨 W 20 km/h</span><span>💧 28%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>⛈️</span><span>37/25°</span></div>
+        <div class="dm">Sat<span>🌤️</span><span>36/24°</span></div>
+        <div class="dm">Sun<span>☀️</span><span>38/25°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Hyderabad</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">39°C</div><div class="w-rng">H: 42° &nbsp; L: 27°</div>
+      <div class="w-cond">Hot and dry</div>
+      <span class="aqi-badge aqi-moderate">AQI 88 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SW 12 km/h</span><span>💧 34%</span></div>
+      <div class="wfc"><div class="dm">Fri<span>🌤️</span><span>37/25°</span></div><div class="dm">Sat<span>☀️</span><span>38/26°</span></div><div class="dm">Sun<span>🌤️</span><span>39/26°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Mumbai</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">34°C</div><div class="w-rng">H: 36° &nbsp; L: 27°</div>
+      <div class="w-cond">Hot and humid</div>
+      <span class="aqi-badge aqi-moderate">AQI 82 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SW 22 km/h</span><span>💧 72%</span></div>
+      <div class="wfc"><div class="dm">Fri<span>⛅</span><span>34/27°</span></div><div class="dm">Sat<span>🌤️</span><span>35/27°</span></div><div class="dm">Sun<span>🌤️</span><span>35/27°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Bengaluru</span><span class="w-icon">🌦️</span></div>
+      <div class="w-temp">29°C</div><div class="w-rng">H: 32° &nbsp; L: 20°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 38 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SE 10 km/h</span><span>💧 50%</span></div>
+      <div class="wfc"><div class="dm">Fri<span>⛅</span><span>30/19°</span></div><div class="dm">Sat<span>🌤️</span><span>31/20°</span></div><div class="dm">Sun<span>🌦️</span><span>30/20°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Chennai</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">37°C</div><div class="w-rng">H: 39° &nbsp; L: 28°</div>
+      <div class="w-cond">Hot and humid</div>
+      <span class="aqi-badge aqi-moderate">AQI 71 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SE 14 km/h</span><span>💧 73%</span></div>
+      <div class="wfc"><div class="dm">Fri<span>🌤️</span><span>37/28°</span></div><div class="dm">Sat<span>☀️</span><span>38/28°</span></div><div class="dm">Sun<span>☀️</span><span>38/29°</span></div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Pune</span><span class="w-icon">⛅</span></div>
+      <div class="w-temp">33°C</div><div class="w-rng">H: 36° &nbsp; L: 22°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 62 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 W 15 km/h</span><span>💧 45%</span></div>
+      <div class="wfc"><div class="dm">Fri<span>⛅</span><span>34/22°</span></div><div class="dm">Sat<span>🌤️</span><span>35/21°</span></div><div class="dm">Sun<span>🌤️</span><span>35/22°</span></div></div>
+    </div>
+  </div></div>
+  <div class="w-note">Weather data: IMD / India Meteorological Department. Updated approx. 5:30 AM ET, April 30, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="india-1">
+      <h3>West Bengal Records Post-Independence High as Phase 2 Pushes Overall Turnout to 92.47 Per Cent</h3>
+      <div class="by">The Chronicler India Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>West Bengal has recorded the highest voter turnout in its history since Independence, with the second and final phase of the 2026 state assembly election pushing the overall figure to approximately 92.47 per cent across all 294 constituencies &mdash; surpassing every previous benchmark in the state&rsquo;s electoral record, according to the Election Commission of India. Phase 2 polling, conducted across 142 constituencies on Wednesday, drew exceptionally long queues throughout the day in both urban and rural areas, with women voters in several constituencies outnumbering their male counterparts. Exit poll projections presented a sharply divided picture: a P-MARQ survey projected the Bharatiya Janata Party winning between 150 and 175 seats &mdash; above the majority threshold of 148 &mdash; while the ruling All India Trinamool Congress was projected to win between 118 and 138 seats, representing a potential decline from its previous dominance.</p>
+      <p>A contrasting survey by People&rsquo;s Pulse projected a strong Trinamool hold, placing the party at between 177 and 187 seats with the BJP securing 95 to 110. Political observers noted that the record turnout could prove decisive in what they described as one of the most consequential and closely contested elections in the state&rsquo;s history. The Trinamool Congress, led by Chief Minister Mamata Banerjee, has governed West Bengal since 2011. Counting is scheduled for the coming days. The exceptional turnout figure drew widespread attention nationally and internationally as a demonstration of sustained democratic engagement in one of India&rsquo;s most politically competitive states.</p>
+      <div class="src">Source: <a href="https://timesofindia.indiatimes.com/india/92-6-turnout-in-phase-2-takes-bengal-total-to-record-92-9/articleshow/130617699.cms" target="_blank" rel="noopener">Times of India</a> &middot; April 29, 2026</div>
+    </article>
+    <article class="s" id="india-2">
+      <h3>Rajnath Singh and China&rsquo;s Dong Jun Hold Bilateral at SCO Bishkek on LAC Stability and Regional Security</h3>
+      <div class="by">The Chronicler India Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Defence Minister Rajnath Singh met Chinese Defence Minister Admiral Dong Jun on the sidelines of the Shanghai Cooperation Organisation&rsquo;s Defence Ministers&rsquo; meeting in Bishkek, Kyrgyzstan on Tuesday, with the two sides discussing the maintenance of peace and tranquillity along the Line of Actual Control and the broader regional security situation including developments in West Asia. The bilateral was described as constructive, with Singh posting on social media afterward that it had been a pleasure to interact with his Chinese counterpart, signalling continued warming in ties. According to defence ministry sources, the two ministers exchanged views on the regional and global security landscape and underscored the importance of sustaining stability along the LAC following last year&rsquo;s disengagement at Depsang and Demchok, seen as a turning point after years of elevated border tensions following the Galwan Valley clashes of June 2020.</p>
+      <p>The meeting came as Chinese President Xi Jinping is expected to visit India later this year for the BRICS Summit, marking his first visit since the Galwan crisis. Singh also met Russian Defence Minister Andrei Belousov on the Bishkek sidelines, with discussions reported to cover ongoing defence cooperation including S-400 air defence missile deliveries. In his formal address to the SCO gathering, Singh issued a pointed warning against state-sponsored cross-border terrorism, asserting that terror epicentres are no longer immune to justifiable punishment &mdash; widely interpreted as directed at Pakistan &mdash; and called on SCO member states to end double standards in counter-terrorism. Pakistan&rsquo;s Defence Minister Khawaja Asif was present in the room. India had declined to sign last year&rsquo;s SCO joint communiqu&eacute;, citing inadequate reflection of its counter-terrorism concerns.</p>
+      <div class="src">Source: <a href="https://www.thehindu.com/news/national/india-china-discuss-lac-stability-regional-security-on-sco-sidelines/article70921280.ece" target="_blank" rel="noopener">The Hindu</a> &middot; April 28, 2026</div>
+    </article>
+    <article class="s" id="india-3">
+      <h3>Hafiz Saeed&rsquo;s Close Aide and Key LeT Figure Sheikh Yousaf Afridi Shot Dead in Pakistan</h3>
+      <div class="by">The Chronicler India Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Sheikh Yousaf Afridi, a senior commander of the banned Lashkar-e-Taiba terrorist organisation and a close associate of Mumbai attack mastermind Hafiz Saeed, was shot dead by unidentified gunmen in Landi Kotal in Pakistan&rsquo;s Khyber Pakhtunkhwa province on Sunday. According to PTI citing Pakistani police sources, unknown armed assailants opened fire on Afridi, killing him on the spot; no group has claimed responsibility. Afridi was described as a key figure in LeT&rsquo;s regional structure in Khyber Pakhtunkhwa, responsible for recruitment and operational coordination in the area. An official of Saeed&rsquo;s banned Jamaat-ud-Dawa organisation described Afridi as a renowned religious scholar from the Zakhakhel tribe of Khyber belonging to the Ahl-e-Hadith school of thought, and attributed the killing to extremist elements targeting Salafi scholars.</p>
+      <p>The assassination is the latest in a pattern of targeted killings of high-profile terror figures in Pakistan over recent months. Less than a fortnight earlier, Amir Hamza &mdash; LeT&rsquo;s second most senior figure after the imprisoned Saeed &mdash; survived a shooting outside a television station in Lahore. In March 2025, another LeT commander, Abu Qatal, was killed in Pakistan&rsquo;s Sindh province. Jaish-e-Mohammed chief Maulana Masood Azhar&rsquo;s elder brother also died under reportedly mysterious circumstances in Pakistan earlier this year. Indian security analysts have noted the acceleration of such killings since 2023, characterising them as a sustained series of targeted eliminations rather than isolated incidents.</p>
+      <div class="src">Source: <a href="https://www.thehindu.com/news/international/hafiz-saeeds-close-aide-and-key-let-figure-sheikh-yousaf-afridi-shot-dead-in-pakistan/article70914754.ece" target="_blank" rel="noopener">The Hindu</a> &middot; April 28, 2026</div>
+    </article>
+    <article class="s" id="india-4">
+      <h3>U.S. Returns 657 Stolen Artefacts Worth $14 Million to India in Landmark New York Ceremony</h3>
+      <div class="by">The Chronicler India Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>The Manhattan District Attorney&rsquo;s Office formally handed over 657 stolen antiquities valued at nearly $14 million to India on Tuesday in one of the most extensive repatriations of Indian cultural heritage objects on record. The ceremony was held in New York and attended by India&rsquo;s Consul General Binaya Pradhan, who expressed gratitude to the Manhattan DA&rsquo;s office, the U.S. Department of Homeland Security, and other law enforcement agencies for their sustained cooperation. The artefacts &mdash; including ancient sculptures, religious idols, bronze figures, and decorative objects &mdash; were recovered through investigations into international trafficking networks linked to convicted antiquities dealers Subhash Kapoor and Nancy Wiener. Among the most significant returns is a bronze statue of Avalokiteshvara valued at $2 million and a red sandstone Buddha statue valued at $7.5 million, identified as having been smuggled into New York by Kapoor and seized from one of his storage facilities.</p>
+      <p>Manhattan District Attorney Alvin L. Bragg Jr. described the scale of trafficking networks targeting India&rsquo;s cultural heritage as massive and affirmed that recovery efforts would continue. Officials indicated that more than 1,000 additional artefacts remain under investigation and are expected to be repatriated in due course. India&rsquo;s Consul General noted that the restitution represents a cultural homecoming, and that each recovered object carries not just its artistic and historical significance but the story of its theft and recovery. Since 2016, the United States has returned a total of 578 cultural artefacts to India &mdash; the largest number repatriated to any single country by the U.S. to date. The Manhattan DA&rsquo;s Antiquities Trafficking Unit has, over its history, recovered approximately 5,800 artefacts valued at around $460 million from more than 30 countries.</p>
+      <div class="src">Source: <a href="https://www.thehindu.com/news/national/us-returns-657-stolen-artefacts-to-india-in-14-million-restitution/article70919300.ece" target="_blank" rel="noopener">The Hindu</a> &middot; April 29, 2026</div>
+    </article>
+    <article class="s" id="india-5">
+      <h3>India and Sri Lanka Conclude IN-SLN DIVEX 2026, Reaffirm Maritime Partnership in Indian Ocean</h3>
+      <div class="by">The Chronicler India Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>India and Sri Lanka have concluded the fourth edition of their bilateral diving exercise, IN-SLN DIVEX 2026, conducted in Colombo from April 21 to 28, with both navies describing the week-long engagement as a significant step in deepening operational coordination and interoperability in the Indian Ocean Region. The exercise saw the participation of the Indian Navy&rsquo;s Diving Support and Submarine Rescue Vessel INS Nireekshak, alongside elite diving units from both navies, and focused on complex underwater operations including advanced mixed-gas diving drills and submarine rescue coordination. The Indian Navy said in a statement that the exercise strengthens shared maritime interests and aligns with India&rsquo;s broader MAHASAGAR vision &mdash; Mutual and Holistic Advancement for Security and Growth Across Regions &mdash; which frames India&rsquo;s approach to maritime cooperation with its neighbourhood.</p>
+      <p>As a humanitarian component of the visit, India handed over two BHISM &mdash; Bharat Health Initiative for Sahyog Hita and Maitri &mdash; medical cubes to Sri Lanka, and provided 50,000 rounds of 9mm ammunition to the Sri Lankan Navy to support operational readiness. Sri Lanka has reaffirmed in recent engagements that its territory will not be used against India&rsquo;s interests, a statement seen as reinforcing strategic trust between the two nations. The two navies are also operating under a five-year Memorandum of Understanding signed in April 2025 that institutionalises cooperation in joint exercises, maritime surveillance, and defence industry collaboration. Officials on both sides described DIVEX 2026 as testament to the growing depth of India&ndash;Sri Lanka defence ties and a shared commitment to stability in the Indian Ocean.</p>
+      <div class="src">Source: <a href="https://www.thehindu.com/news/national/indiasri-lanka-maritime-ties-strengthened-through-insln-divex-2026/article70920948.ece" target="_blank" rel="noopener">The Hindu</a> &middot; April 29, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Markets</span>
+  <div class="mkt-note">Indian market data reflects Thursday, April 30, 2026 intraday readings provided by the publisher at 2:47&ndash;2:48 PM IST. Currency rates sourced live from XE.com, April 30, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div><div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">77,146</div>
+      <span class="mc-chg down">&#9660; 349.38 (&minus;0.45%)</span>
+      <div class="mc-note">Apr 30, 2:47 PM IST &middot; INR</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div><div class="mc-sub">NSE Index</div>
+      <div class="mc-val">24,046</div>
+      <span class="mc-chg down">&#9660; 131.55 (&minus;0.54%)</span>
+      <div class="mc-note">Apr 30, 2:48 PM IST &middot; INR</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div><div class="mc-sub">INR / 10g (24K)</div>
+      <div class="mc-val">&#8377;1,50,440</div>
+      <span class="mc-chg down">&#9660;</span>
+      <div class="mc-note">Goodreturns &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div><div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">$0.01050</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div><div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">$0.01440</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div><div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">&pound;0.0078</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div><div class="mc-sub">1 INR in EUR</div>
+      <div class="mc-val">&euro;0.0090</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; <a href="https://www.goodreturns.in/gold-rates/" target="_blank" rel="noopener">Goodreturns</a> (Gold) &middot; BSE India &middot; NSE India</div>
+
+</div></div><!-- end #india -->
+
+
+<!-- ③ WORLD -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="world-1">
+      <h3>Trump Vows to Maintain Iran Blockade; Tehran Threatens Practical and Unprecedented Response</h3>
+      <div class="by">The Chronicler World Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>U.S. President Donald Trump said on Wednesday that the United States will maintain its naval blockade of Iranian ports until a nuclear agreement is reached with Tehran, rejecting a reported Iranian proposal that would have seen Iran lift its own closure of the Strait of Hormuz in exchange for the U.S. ending the siege on Iranian ports. Speaking to Axios, Trump said the blockade is more effective than the bombing and described Iran as choking under the pressure. At least two commercial vessels linked to Iran have been captured as part of the blockade, and the U.S. military says it has redirected 39 ships in regional waters over the preceding weeks. The standoff drove Brent crude oil futures above $119 per barrel on Wednesday, while U.S. domestic petrol prices surpassed $4.22 per gallon &mdash; up from less than $3 before the war began. Iran has insisted on lifting the naval siege as a precondition for returning to negotiations.</p>
+      <p>Iranian Parliament Speaker Mohammad Bagher Ghalibaf responded on Wednesday, accusing the United States of trying to activate economic pressure and internal division to weaken or collapse the country from within, and vowing that Iran would achieve a brilliant victory. An unidentified senior Iranian security source separately told state broadcaster Press TV that the blockade would soon be met with practical and unprecedented action &mdash; language interpreted by regional analysts as a signal of possible escalatory measures. Trump also claimed Wednesday that U.S. strikes have severely degraded Iran&rsquo;s military capabilities, saying Iran has very little left in terms of offensive capability. The war, now in its 61st day, has reshaped global energy markets and strained U.S. relations with several allied governments pressing for a diplomatic resolution.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/4/29/trump-vows-to-maintain-iran-blockade-tehran-threaten-practical-action" target="_blank" rel="noopener">Al Jazeera English</a> &middot; April 29, 2026</div>
+    </article>
+    <article class="s" id="world-2">
+      <h3>Israeli Forces Board and Seize Global Sumud Flotilla Vessels in International Waters Near Crete</h3>
+      <div class="by">The Chronicler World Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Israeli military forces intercepted and boarded vessels belonging to the Global Sumud Flotilla in international waters near the Greek island of Crete on Wednesday, using armed speedboats, drones, and communications jamming to halt a 58-vessel humanitarian convoy attempting to deliver aid to Gaza. The Global Sumud Flotilla said its boats were approached by military speedboats that identified themselves as Israeli, with armed personnel ordering passengers to the front of their vessels at gunpoint. Seven of the flotilla&rsquo;s 58 boats were reported captured by Israel Army Radio, citing Israeli sources, while the flotilla itself said communications with 11 vessels had been lost. Flotilla spokesperson Gur Tsabar, speaking to Al Jazeera from Toronto, Canada, described the operation as a straight-up attack on unarmed civilian boats in international waters, hundreds of miles from Israel&rsquo;s territory, and called it illegal under international law, saying it amounted to kidnapping on the high seas.</p>
+      <p>Israel&rsquo;s Ambassador to the United Nations Danny Danon defended the operation on social media, saying the flotilla had been stopped before reaching Israeli waters and describing the activists as delusional attention-seeking agitators. Activist Tariq Ra&rsquo;ouf, who was aboard one of the flotilla&rsquo;s vessels, told Al Jazeera that Israeli military ships deployed rigid inflatable boats to encircle the fleet, that drones were used to flash lights at vessels, and that the Israeli military played music over radio channels in what he described as a psychological warfare tactic. The flotilla had been attempting to break Israel&rsquo;s continued blockade of Gaza, where a nominal ceasefire has been in effect since late 2025 but humanitarian access remains severely restricted. Multiple governments have been called upon to lodge formal protests over the intercept.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/4/29/israeli-military-speedboats-block-gaza-bound-aid-ship" target="_blank" rel="noopener">Al Jazeera English</a> &middot; April 29, 2026</div>
+    </article>
+    <article class="s" id="world-3">
+      <h3>World Military Spending Hit $2.88 Trillion in 2025, SIPRI Reports &mdash; $350 Per Person on Earth</h3>
+      <div class="by">The Chronicler World Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Global military spending reached $2.88 trillion in 2025, a 2.9 per cent increase from the previous year, according to the Stockholm International Peace Research Institute&rsquo;s latest annual report released Wednesday. The figure equates to approximately $350 in defence expenditure for every person on the planet. The five largest spenders were the United States at $954 billion, China at $336 billion, Russia at $190 billion, Germany at $114 billion, and India at $92 billion &mdash; together accounting for 58 per cent of total world military spending. The U.S. alone outspent the next six countries combined and has accounted for more than half of all global military expenditure since 1949. The SIPRI data shows that the Ukraine war and the ongoing Iran conflict have accelerated spending increases, particularly across NATO members and in the Middle East, and that Europe now accounts for a substantially larger share of global defence budgets than it did a decade ago.</p>
+      <p>The report also examines the trade-offs between military spending and investment in healthcare and education, finding that in many countries higher defence budgets have corresponded with constrained social spending. SIPRI analysts noted that spending has risen for the 11th consecutive year globally, with the 2014 Russian annexation of Crimea marking the key inflection point at which NATO members began targeting a two per cent of GDP benchmark for defence. Global spending crossed $2 trillion for the first time in 2009 following the U.S.-led wars in Afghanistan and Iraq, and has accelerated sharply since. The five largest arms exporters globally remain the United States, France, Russia, China, and Germany. SIPRI&rsquo;s annual report, widely regarded as the definitive benchmark for global defence economics, has been published continuously since 1969.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/4/29/five-charts-that-show-the-rise-of-global-militarisation" target="_blank" rel="noopener">Al Jazeera English</a> &middot; April 29, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Global Markets</span>
+  <div class="mkt-note">US indices reflect Wednesday, April 29, 2026 close. FTSE 100 reflects April 29 close. Nikkei 225 reflects April 30, 2026 close (markets reopened after Showa Day holiday). Hang Seng reflects April 30, 2026 close.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card world"><div class="mc-name">DJIA</div><div class="mc-sub">Dow Jones Industrial</div><div class="mc-val">49,141</div><div class="mc-note">Apr 29 close &middot; USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nasdaq</div><div class="mc-sub">Composite Index</div><div class="mc-val">24,663</div><div class="mc-note">Apr 29 close &middot; USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">S&amp;P 500</div><div class="mc-sub">US Broad Market</div><div class="mc-val">7,138</div><div class="mc-note">Apr 29 close &middot; USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">FTSE 100</div><div class="mc-sub">London Stock Exchange</div><div class="mc-val">10,332</div><div class="mc-note">Apr 29 close &middot; GBP</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nifty 50</div><div class="mc-sub">NSE India</div><div class="mc-val">24,046</div><div class="mc-note">Apr 30 intraday &middot; INR</div></div>
+    <div class="mkt-card world"><div class="mc-name">Hang Seng</div><div class="mc-sub">Hong Kong</div><div class="mc-val">26,112</div><div class="mc-note">Apr 30 close &middot; HKD</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nikkei 225</div><div class="mc-sub">Tokyo Stock Exchange</div><div class="mc-val">59,284</div><div class="mc-note">Apr 30 close &middot; JPY</div></div>
+  </div>
+  <div class="mkt-src">Sources: Yahoo Finance &middot; Hang Seng Index &middot; Nikkei Asia &middot; LSEG / FTSE Russell &middot; NASDAQ</div>
+
+</div></div><!-- end #world -->
+
+
+<!-- ④ SPORT -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+  <div class="col-3">
+    <article class="s" id="sport-1">
+      <h3>Arsenal Draw 1&ndash;1 at Atl&eacute;tico Madrid in UCL Semifinal First Leg as VAR Overturns Late Penalty Decision</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Arsenal left Madrid with a 1&ndash;1 draw from the UEFA Champions League semifinal first leg against Atl&eacute;tico Madrid on Wednesday, but manager Mikel Arteta expressed fury at a late VAR decision that overturned what appeared to be a clear penalty when Atl&eacute;tico&rsquo;s David Hancko fouled Arsenal&rsquo;s Eberechi Eze in the box. Viktor Gyokeres had put Arsenal ahead just before half-time, converting a penalty after he was fouled, but Julian Alvarez equalised for Atl&eacute;tico ten minutes into the second half following a Ben White handball, also from the spot. A subsequent penalty awarded to Arsenal for the Eze foul was then cancelled on VAR review &mdash; a decision that Arteta said was against the rules and could not happen at this level, noting that the referee had reviewed the footage thirteen times before overturning. Arsenal now carry the draw into the second leg at the Emirates Stadium.</p>
+      <p>Atl&eacute;tico captain Koke said his side had dominated the match and defended well, while acknowledging that Arsenal&rsquo;s solidity had kept the result close. The result puts Arsenal in a reasonable position to reach their first Champions League final since 2006, though Atl&eacute;tico will consider themselves capable of overturning the tie at the Emirates. In the other semifinal played the previous night, Paris Saint-Germain defeated Bayern Munich 5&ndash;4 in a remarkable contest. Arsenal, who lead the Premier League, are seeking to complete a domestic and European double under Arteta. The second leg at the Emirates is scheduled for next Tuesday, with the winner advancing to the Budapest final on May 30 to face PSG.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/4/29/arsenal-cruelly-denied-penalty-by-var-in-champions-league-tie-at-atletico" target="_blank" rel="noopener">Al Jazeera English</a> &middot; April 29, 2026</div>
+    </article>
+    <article class="s" id="sport-2">
+      <h3>Muralidaran Warns That Fair Pitches Will Kill Sponsor Interest in IPL as MI Beat SRH</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Former Sri Lanka spinner and Sunrisers Hyderabad bowling coach Muthiah Muralidaran has warned that introducing fairer pitches into the Indian Premier League risks destroying the very commercial appeal that sustains the tournament, saying that T20 followers expect entertainment in the form of boundaries and that balanced conditions would leave spectators calling the game boring. Muralidaran&rsquo;s comments came in the context of a Mumbai Indians versus Sunrisers Hyderabad match in which Ryan Rickelton&rsquo;s unbeaten 123 carried MI to their highest first-innings total in IPL history &mdash; only for the target to be chased down with relative ease by SRH, underscoring the run-heavy nature of pitches being used this season. The debate over pitch preparation has been a recurring theme in IPL 2026, with critics arguing that surfaces heavily favouring batters undermine the integrity of the competition.</p>
+      <p>Muralidaran&rsquo;s intervention as a coaching figure within the IPL ecosystem adds weight to the commercial argument, but it has drawn pushback from former players and analysts who argue that a contest between bat and ball is what makes cricket compelling across formats. Franchise owners and broadcasters maintain that high scores drive viewing figures and sponsorship revenue, and Muralidaran&rsquo;s direct framing of balanced pitches as a threat to sponsor interest represents an unusually frank acknowledgment of those commercial priorities at stake. The IPL, now in its 2026 edition, remains the world&rsquo;s most valuable cricket league. No formal response from the BCCI or IPL governing council has been issued in response to his comments.</p>
+      <div class="src">Source: <a href="https://www.espncricinfo.com/story/ipl-2026-mi-vs-srh-muthiah-muralidaran-feels-fair-contest-between-bat-and-ball-will-kill-sponsor-interest-in-ipl-1534564" target="_blank" rel="noopener">ESPNcricinfo</a> &middot; April 29, 2026</div>
+    </article>
+    <article class="s" id="sport-3">
+      <h3>Hometown Hero Jodar Falls to Sinner in Madrid Quarter-Finals but Departs Ranked 34th in the World</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Thursday, April 30, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Nineteen-year-old Spanish wildcard Rafael Jodar&rsquo;s breakthrough run at the Mutua Madrid Open ended in the quarter-finals on Wednesday when world number one Jannik Sinner defeated him 6&ndash;2, 7&ndash;6(0), but the Madrid native&rsquo;s performance against the tournament favourite drew admiration from the packed crowd at Manolo Santana Stadium and from Sinner himself. The Italian, who extended his winning streak to 21 consecutive tour-level matches and has now reached the semi-finals of all nine ATP Masters 1000 events he has entered this season, called Jodar an incredible player and wrote the same message while signing a courtside television camera after the match. Sinner saved all seven break points he faced during a contest in which Jodar pushed him hard in the second set before the world number one&rsquo;s composure at crucial moments proved decisive.</p>
+      <p>Jodar had arrived at the tournament ranked 168th in the world and reached the quarter-finals after beating Alex de Minaur &mdash; his first top-ten scalp &mdash; and fellow 19-year-old Jo&atilde;o Fonseca. Speaking after the match, Jodar said he would carry many positives forward and acknowledged there is a long road ahead, striking a composed and grounded tone in contrast to the electric atmosphere his run had generated in his home city. He leaves Madrid ranked 34th in the world, a rise of 134 places across a single tournament, and has qualified for the PIF ATP Next Gen Accelerator. Sinner will face either Jiri Lehecka or Arthur Fils in Thursday&rsquo;s semi-finals.</p>
+      <div class="src">Source: <a href="https://www.atptour.com/en/news/jodar-reaction-madrid-2026-wednesday" target="_blank" rel="noopener">ATP Tour</a> &middot; April 29, 2026</div>
+    </article>
+  </div>
+</div></div><!-- end #sport -->
+
+
+<!-- ⑤ PUZZLES -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Puzzles</h2><div class="flag">The Chronicler Daily Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">3</div>
+        <div class="crunch-tile">4</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">8</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">44</div>
+      </div>
+      <button class="reveal-toggle" onclick="var b=document.getElementById('crunch-ans');b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9660; Hide solution':'&#9654; Show solution';">&#9654; Show solution</button>
+      <div class="answer-box" id="crunch-ans">
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--ink);line-height:1.8;">
+          (7 &times; 8) &minus; (3 &times; 4) = 44<br>
+          Step 1: 7 &times; 8 = 56 &nbsp;&middot;&nbsp; Step 2: 3 &times; 4 = 12 &nbsp;&middot;&nbsp; Step 3: 56 &minus; 12 = 44<br>
+          <em style="font-size:10px;color:var(--grey);">4 distinct solutions. Python-verified across all permutations.</em>
+        </div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">SINNER</div>
+        <div class="ww-mini-tile">HORMUZ</div>
+        <div class="ww-mini-tile">ALVAREZ</div>
+        <div class="ww-mini-tile">FLOTILLA</div>
+        <div class="ww-mini-tile">JODAR</div>
+        <div class="ww-mini-tile">PIPELINE</div>
+        <div class="ww-mini-tile">EZE</div>
+        <div class="ww-mini-tile">BLOCKADE</div>
+      </div>
+      <button class="reveal-toggle" onclick="var b=document.getElementById('ww-ans');b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9660; Hide solution':'&#9654; Show solution';">&#9654; Show solution</button>
+      <div class="answer-box" id="ww-ans">
+        <div class="answer-cat a">&#127823; Players in today&rsquo;s top sports matches: SINNER &middot; JODAR &middot; ALVAREZ &middot; EZE</div>
+        <div class="answer-cat b">&#127936; Things blocked or intercepted today: HORMUZ &middot; FLOTILLA &middot; BLOCKADE &middot; PIPELINE</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-top:6px;font-style:italic;">Decoy: PIPELINE &mdash; may suggest a sports talent pipeline, but belongs in Group B (Enbridge Sunrise pipeline was blocked for nearly four years before today&rsquo;s federal approval).</div>
+      </div>
+    </div>
+
+  </div>
+</div></div><!-- end #puzzles -->
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 32 &bull; Thursday, April 30, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+(function(){
+  var current=null;
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('.read-btn');
+    if(!btn)return;
+    if(!('speechSynthesis' in window)){btn.style.display='none';return;}
+    if(current&&current.btn===btn){window.speechSynthesis.cancel();btn.textContent='\uD83D\uDD0A Read aloud';current=null;return;}
+    if(current){window.speechSynthesis.cancel();current.btn.textContent='\uD83D\uDD0A Read aloud';}
+    var art=btn.closest('article');
+    var txt='';
+    if(art){art.querySelectorAll('p').forEach(function(p){txt+=p.innerText+' ';});}
+    if(!txt.trim())return;
+    var utt=new SpeechSynthesisUtterance(txt.trim());
+    utt.onend=function(){btn.textContent='\uD83D\uDD0A Read aloud';current=null;};
+    utt.onerror=function(){btn.textContent='\uD83D\uDD0A Read aloud';current=null;};
+    window.speechSynthesis.speak(utt);
+    btn.textContent='\u23F9 Stop';
+    current={btn:btn,utt:utt};
+  });
+  document.querySelectorAll('.nav-item>a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var item=a.parentElement;
+      if(item.querySelector('.dropdown')){
+        var open=item.classList.contains('open');
+        document.querySelectorAll('.nav-item').forEach(function(i){i.classList.remove('open');});
+        if(!open)item.classList.add('open');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
