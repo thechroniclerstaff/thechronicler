@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Friday, May 1, 2026 — Vol. I, No. 33</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover,.nav-item.open>a{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.gta-callout{background:#f0ece0;border-left:4px solid var(--rust);padding:14px 16px;margin:20px 0 10px;}
+.gta-callout .gta-label{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px;display:block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1;}
+.mkt-card .mc-chg{display:inline-flex;align-items:center;gap:3px;margin-top:3px;border-radius:3px;padding:2px 5px;align-self:flex-start;font-family:monospace;font-size:9.5px;font-weight:700;white-space:nowrap;}
+.mc-chg.down{background:#f8d7da;color:#8b2513;border:1px solid #f0c0c0;}
+.mc-chg.up{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.mc-chg.flat{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.mkt-card .mc-note{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);font-style:italic;margin-top:3px;border-top:1px solid var(--rule);padding-top:3px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-bottom:14px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.games-row{display:grid;grid-template-columns:1fr;gap:16px;margin-top:14px;}
+.puzzle-box{border:1px solid var(--rule);border-top:3px solid var(--ink);padding:14px;background:#f9f3e3;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-bottom:8px;line-height:1.5;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;}
+.ww-mini-tile{background:var(--cream);border:1.5px solid var(--ink);padding:8px 4px;text-align:center;font-family:'Playfair Display',serif;font-weight:700;font-size:11px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:10.5px;font-weight:600;color:var(--rust);cursor:pointer;background:none;border:none;padding:6px 0;margin-top:6px;border-top:1px dashed var(--rule);width:100%;text-align:left;}
+.answer-box{margin-top:6px;display:none;}
+.answer-cat{padding:6px 9px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;margin-bottom:4px;line-height:1.5;}
+.answer-cat.a{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.answer-cat.b{background:#fff3cd;color:#6b4f00;border:1px solid #ffeeba;}
+.crunch-nums{display:flex;gap:10px;margin:10px 0;align-items:center;flex-wrap:wrap;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;}
+.crunch-target{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--rust);}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-top:8px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+.ticker-bar{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 16px;text-align:center;}
+@media(min-width:600px){
+  .page{padding:24px 28px 36px;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+  .games-row{grid-template-columns:1fr 1fr;}
+  article.s p{text-align:justify;hyphens:auto;}
+}
+@media(min-width:800px){
+  .page{padding:28px 38px 42px;}
+  .col-3{grid-template-columns:repeat(3,1fr);gap:20px;}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 17px 0 0;margin-bottom:0;}
+  article.s:last-child{border-right:none;padding-right:0;}
+  .mkt-grid{grid-template-columns:repeat(7,1fr);}
+}
+</style>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2c9f324e65f4bde97c20728d6349a04"}'></script>
+</head>
+<body>
+
+<!-- STICKY HEADER -->
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+      <a class="top-btn" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="#puzzles">Puzzles</a></div>
+  </nav>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 33 &nbsp;&middot;&nbsp; Friday, May 1, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">Today&rsquo;s Record. Tomorrow&rsquo;s Reference.</div>
+</div>
+
+<div class="ticker-bar">&#9888;&nbsp; IRAN WAR DAY 62: TRUMP VOWS EXTENDED BLOCKADE AS OIL TOPS $120 &mdash; GTA GAS JUMPS 8 CENTS TO $1.89/L &mdash; MIZORAM DECLARED INSURGENCY-FREE &mdash; ISRAEL KILLS 17 IN LEBANON DESPITE CEASEFIRE &mdash; MALI DEFENCE MINISTER KILLED AS BAMAKO BESIEGED &mdash; CANADA MILITARY TRAINING PASS RATE FALLS TO 77% &mdash; LPG PRICES HIKED &#8377;993 IN INDIA &mdash; GT BEAT RCB BY 4 WICKETS &mdash; BOSTON FLEET EDGE OTTAWA 2-1 IN PWHL PLAYOFFS</div>
+
+<!-- ① CANADA -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+    <div class="w-card">
+      <div class="w-top"><span class="city">Toronto</span><span class="w-icon">🌥️</span></div>
+      <div class="w-temp">8°C</div>
+      <div class="w-rng">H: 12° &nbsp; L: 1°</div>
+      <div class="w-cond">Partly cloudy, chance of showers</div>
+      <span class="aqi-badge aqi-good">AQI 32 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 N 20 km/h</span><span>💧 50%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>🌦️</span><span>11/3°</span></div>
+        <div class="dm">Sun<span>🌤️</span><span>10/0°</span></div>
+        <div class="dm">Mon<span>🌥️</span><span>11/7°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Montr&eacute;al</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">9°C</div>
+      <div class="w-rng">H: 13° &nbsp; L: 3°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 28 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 W 15 km/h</span><span>💧 55%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>🌥️</span><span>14/4°</span></div>
+        <div class="dm">Sun<span>🌤️</span><span>15/6°</span></div>
+        <div class="dm">Mon<span>🌦️</span><span>17/9°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Ottawa</span><span class="w-icon">🌦️</span></div>
+      <div class="w-temp">7°C</div>
+      <div class="w-rng">H: 11° &nbsp; L: 0°</div>
+      <div class="w-cond">Mainly cloudy, showers likely</div>
+      <span class="aqi-badge aqi-good">AQI 25 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 NW 20 km/h</span><span>💧 60%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>🌧️</span><span>13/2°</span></div>
+        <div class="dm">Sun<span>🌤️</span><span>10/0°</span></div>
+        <div class="dm">Mon<span>🌥️</span><span>11/7°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Edmonton</span><span class="w-icon">🌤️</span></div>
+      <div class="w-temp">4°C</div>
+      <div class="w-rng">H: 8° &nbsp; L: &minus;2°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 20 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 W 15 km/h</span><span>💧 45%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>☀️</span><span>12/1°</span></div>
+        <div class="dm">Sun<span>🌤️</span><span>14/3°</span></div>
+        <div class="dm">Mon<span>🌥️</span><span>11/4°</span></div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Vancouver</span><span class="w-icon">🌧️</span></div>
+      <div class="w-temp">11°C</div>
+      <div class="w-rng">H: 14° &nbsp; L: 7°</div>
+      <div class="w-cond">Cloudy with showers</div>
+      <span class="aqi-badge aqi-good">AQI 18 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SW 20 km/h</span><span>💧 80%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>🌦️</span><span>13/8°</span></div>
+        <div class="dm">Sun<span>🌤️</span><span>15/9°</span></div>
+        <div class="dm">Mon<span>🌥️</span><span>14/10°</span></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="w-note">Weather data: Environment Canada. Updated approx. 5:00 AM ET, May 1, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="canada-1">
+      <h3>Leaked Report: Military Basic Training Pass Rate Fell to 77% After Recruitment Push</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>A leaked internal report circulating within Canada&rsquo;s defence community reveals that the basic training pass rate for new military recruits dropped sharply after the federal government loosened enrolment standards to accelerate recruitment. The 15-page evaluation, dated January 27 and authored by Lt.-Col. Marc Kieley, commandant of the Canadian Forces Leadership and Recruit School in Saint-Jean-sur-Richelieu, Que., found that the success rate at basic training fell to 77 per cent in 2025, down from 85 per cent the year prior. Defence officials confirmed the report&rsquo;s authenticity on Thursday.</p>
+      <p>The document cites a surge in recruits presenting significant mental health conditions &mdash; notably anxiety &mdash; as well as cultural integration challenges. The proportion of candidates requiring multiple training attempts jumped to nearly 15 per cent, more than double the 2024 rate. Among units composed largely of newly arrived permanent residents, one French-language class graduated only 48 per cent of recruits. Kieley recommended closer monitoring of candidates with pre-existing medical conditions as the military recalibrates its enrolment approach.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/military-recruits-failure-defence-training-9.7183537" target="_blank" rel="noopener">CBC News</a> &middot; April 30, 2026</div>
+    </article>
+    <article class="s" id="canada-2">
+      <h3>Military Hits Recruitment Record But Remains Thousands Short of 2017 Targets</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Canada&rsquo;s military achieved its highest regular-force enrolment in more than three decades last fiscal year, with 7,310 applicants accepted &mdash; surpassing the Department of National Defence&rsquo;s benchmark. Defence Minister David McGuinty announced the milestone, noting that the reserves also beat their recruiting target by 137 per cent. The numbers represent a meaningful turnaround from warnings that military staffing had entered a &ldquo;death spiral&rdquo; of departures outpacing enrolment.</p>
+      <p>Despite the headline figure, the Canadian Armed Forces remain 3,600 short of the 71,500 regular-force target set in the 2017 defence policy, with 67,827 full-time members currently serving. Attrition also rose, with 8.5 per cent of members leaving last fiscal year. Lt.-Gen. Erick Simoneau acknowledged that training system capacity remains the binding constraint: &ldquo;I don&rsquo;t have enough beds,&rdquo; he said at a technical briefing, adding that meeting the next year&rsquo;s goal of 8,200 regular-force recruits will be &ldquo;challenging.&rdquo;</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/military-recruiting-training-defence-9.7170369" target="_blank" rel="noopener">CBC News</a> &middot; April 20, 2026</div>
+    </article>
+    <article class="s" id="canada-3">
+      <h3>Liberals Use New Committee Majority to Move Proceedings Behind Closed Doors</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Less than a week after formalising control of parliamentary committees, the Liberal government has moved to close four of them to public view. At the ethics, health, science and transport committees, Liberal members have requested in-camera sessions for government business &mdash; cutting off cameras and preventing opposition members from publicly discussing what transpired. Conservatives have condemned the move as anti-democratic, with ethics critic Michael Barrett warning the manoeuvre will impede accountability.</p>
+      <p>Critics point to specific substantive matters being sealed off from public scrutiny: a probe into a $200-million Spaceport Nova Scotia agreement; a Privy Council Office ethics-screen update; Port of Montreal expansion documents; and an audit request for the $300-million PrescribeIT digital prescriptions program, which reaches fewer than five per cent of prescriptions despite being launched in 2017. Government House Leader Steven MacKinnon defended the moves as routine procedure for confidential and contractual matters, saying committees are &ldquo;going quite smoothly.&rdquo;</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/liberals-in-camera-parliamentary-committees-9.7182912" target="_blank" rel="noopener">CBC News</a> &middot; April 30, 2026</div>
+    </article>
+  </div>
+
+  <div class="gta-callout">
+    <span class="gta-label">GTA Focus</span>
+    <div class="col-3">
+      <article class="s" id="gta-1">
+        <h3>GTA Gas Prices Jump Eight Cents to $1.89/L as Iran War Energy Crunch Bites</h3>
+        <div class="by">The Chronicler GTA Desk &middot; Friday, May 1, 2026</div>
+        <button class="read-btn">🔊 Read aloud</button>
+        <p>Drivers across the Greater Toronto Area woke Friday to fuel prices eight cents higher, with pump prices rising to $1.89 per litre overnight &mdash; a level not seen in the region since the early stages of the global energy shock triggered by the Iran war. Canadians for Affordable Energy president Dan McTeague said prices could ease two to three cents over the weekend but are broadly trending higher, with further record highs possible. The surge has effectively erased the benefit of the federal government&rsquo;s temporary suspension of the fuel excise tax, saving consumers roughly ten cents per litre since April 20.</p>
+        <p>Torontonians reacting at the pumps described the increase as a compounding burden on top of broader cost-of-living pressures. Construction worker John Mathewson said he has no choice but to absorb the cost for work, while delivery driver Mohammad Shaan said rising fuel prices are directly cutting into his earnings. The jump is directly tied to the effective closure of the Strait of Hormuz since the outbreak of the U.S.-Israeli campaign against Iran on February 28, which has disrupted roughly one-fifth of the world&rsquo;s oil supply.</p>
+        <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/toronto-gas-prices-going-up-reaction-9.7183563" target="_blank" rel="noopener">CBC News</a> &middot; April 30, 2026</div>
+      </article>
+    </div>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Sports</span>
+  <div class="col-3">
+    <article class="s" id="canada-sport-1">
+      <h3>Formal Offer Submitted to Relocate Vancouver Whitecaps to Las Vegas: Report</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>A formal bid to relocate the Vancouver Whitecaps to Las Vegas has been submitted to Major League Soccer&rsquo;s head office, according to The Athletic, citing multiple sources and a statement from the investor leading the proposal. Billionaire Grant Gustavson confirmed he is fronting an investment group that has put forward an offer, saying details would not be shared while the league deliberates. The Whitecaps, put up for sale in December 2024, have argued for over a year that revenue constraints &mdash; driven by their lease arrangement at provincially owned B.C. Place &mdash; make it financially untenable to attract buyers committed to keeping the club in Vancouver.</p>
+      <p>B.C. Jobs Minister Ravi Kahlon disclosed that provincial officials met with MLS commissioner Don Garber on Wednesday and asked the league to help broker a resolution. &ldquo;I&rsquo;m hoping that dialogue was genuine,&rdquo; he said, adding that if a decision to move had already been made, he would rather be told directly. If the relocation proceeds, Vancouver would lose its MLS franchise for the first time since the club&rsquo;s founding in 2011.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/british-columbia/formal-offer-vancouver-whitecaps-las-vegas-9.7183721" target="_blank" rel="noopener">CBC News</a> &middot; April 30, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Markets</span>
+  <div class="mkt-note">S&amp;P/TSX, WTI Crude and Gold reflect Thursday, April 30, 2026 close. Currency rates sourced live from XE.com / exchange-rates.org, April 30, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">S&amp;P/TSX</div><div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">33,964</div>
+      <span class="mc-chg up">&#9650; 645.94 (+1.94%)</span>
+      <div class="mc-note">Apr 30 close &middot; CAD</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">WTI Crude</div><div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$104.99</div>
+      <span class="mc-chg down">&#9660; 1.89 (&minus;1.77%)</span>
+      <div class="mc-note">Apr 30 close &middot; USD</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div><div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,575</div>
+      <span class="mc-chg up">&#9650; 25.00 (+0.55%)</span>
+      <div class="mc-note">Apr 30 close &middot; USD</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div><div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7347</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div><div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">&#8377;69.65</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div><div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">&euro;0.6272</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div><div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">&pound;0.5428</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; Yahoo Finance &middot; TMX (TSX) &middot; CME Group (WTI, Gold)</div>
+
+</div></div><!-- end #canada -->
+
+<!-- ② INDIA -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">New Delhi</span><span class="w-icon">☀️</span></div>
+      <div class="w-temp">36°C</div>
+      <div class="w-rng">H: 42° &nbsp; L: 26°</div>
+      <div class="w-cond">Hot and hazy</div>
+      <span class="aqi-badge aqi-poor">AQI 185 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>💨 NW 30 km/h</span><span>💧 22%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>☀️</span><span>43/27°</span></div>
+        <div class="dm">Sun<span>🌤️</span><span>41/26°</span></div>
+        <div class="dm">Mon<span>🌥️</span><span>38/25°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Hyderabad</span><span class="w-icon">⛅</span></div>
+      <div class="w-temp">34°C</div>
+      <div class="w-rng">H: 38° &nbsp; L: 25°</div>
+      <div class="w-cond">Partly cloudy, possible thunder</div>
+      <span class="aqi-badge aqi-moderate">AQI 95 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 S 20 km/h</span><span>💧 45%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>⛈️</span><span>36/24°</span></div>
+        <div class="dm">Sun<span>🌦️</span><span>34/23°</span></div>
+        <div class="dm">Mon<span>⛅</span><span>35/24°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Mumbai</span><span class="w-icon">🌥️</span></div>
+      <div class="w-temp">32°C</div>
+      <div class="w-rng">H: 34° &nbsp; L: 27°</div>
+      <div class="w-cond">Hot and humid, light showers possible</div>
+      <span class="aqi-badge aqi-poor">AQI 110 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>💨 SW 25 km/h</span><span>💧 72%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>🌦️</span><span>33/27°</span></div>
+        <div class="dm">Sun<span>🌤️</span><span>34/27°</span></div>
+        <div class="dm">Mon<span>🌦️</span><span>33/27°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Bengaluru</span><span class="w-icon">🌦️</span></div>
+      <div class="w-temp">28°C</div>
+      <div class="w-rng">H: 32° &nbsp; L: 20°</div>
+      <div class="w-cond">Pre-monsoon showers</div>
+      <span class="aqi-badge aqi-moderate">AQI 62 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SW 20 km/h</span><span>💧 60%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>🌦️</span><span>30/19°</span></div>
+        <div class="dm">Sun<span>⛅</span><span>31/20°</span></div>
+        <div class="dm">Mon<span>🌦️</span><span>29/20°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Chennai</span><span class="w-icon">⛅</span></div>
+      <div class="w-temp">33°C</div>
+      <div class="w-rng">H: 36° &nbsp; L: 27°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 88 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SE 25 km/h</span><span>💧 68%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>⛅</span><span>35/27°</span></div>
+        <div class="dm">Sun<span>🌤️</span><span>35/27°</span></div>
+        <div class="dm">Mon<span>🌦️</span><span>34/27°</span></div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Pune</span><span class="w-icon">⛅</span></div>
+      <div class="w-temp">30°C</div>
+      <div class="w-rng">H: 34° &nbsp; L: 21°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 78 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 NW 20 km/h</span><span>💧 40%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>⛅</span><span>33/20°</span></div>
+        <div class="dm">Sun<span>🌤️</span><span>34/21°</span></div>
+        <div class="dm">Mon<span>🌦️</span><span>31/21°</span></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="w-note">Weather data: IMD / India Meteorological Department. Updated approx. 5:00 AM ET, May 1, 2026. Indian markets closed today (Maharashtra Day).</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="india-1">
+      <h3>Mizoram Declared Insurgency-Free as Last Armed Group Lays Down Weapons</h3>
+      <div class="by">The Chronicler India Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Mizoram became officially insurgency-free on Thursday as the last remaining ethnic armed group in the northeastern state surrendered its weapons at a formal ceremony in Sesawng near Aizawl. A total of 43 cadres of the Hmar People&rsquo;s Convention (Democratic) &mdash; or HPC(D) &mdash; including faction leader Lalhmingthanga Sanate, handed over their arms under a peace accord signed with the state government on April 14. Chief Minister Lalduhoma, who had resigned from the IPS decades ago to participate in Mizoram&rsquo;s peace process, presided over the ceremony alongside the state home minister, legislators and Hmar community leaders from Mizoram, Manipur and Assam.</p>
+      <p>The HPC(D) had its roots in dissatisfaction with the 1994 peace accord that ended Mizoram&rsquo;s main insurgency. Though largely dormant in recent years, the Sanate faction was classified as the state&rsquo;s last active insurgent outfit, engaging in sporadic criminal activities. Under the April 14 settlement, the group dropped its long-standing demand for an autonomous district council in favour of a development and rehabilitation framework. Lalduhoma called the milestone a vindication of patient negotiation, and Home Minister K. Sapdanga described the day as historic.</p>
+      <div class="src">Source: <a href="https://www.deccanherald.com/india/mizoram/mizoram-declared-insurgency-free-as-last-militant-group-lays-down-arms-3986783" target="_blank" rel="noopener">Deccan Herald</a> &middot; April 30, 2026</div>
+    </article>
+    <article class="s" id="india-2">
+      <h3>Vietnam Eyes &#8377;5,800 Crore BrahMos Deal as President To Lam Heads to New Delhi</h3>
+      <div class="by">The Chronicler India Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Vietnamese President To Lam is expected to make New Delhi his first major foreign destination after assuming office, with a BrahMos supersonic cruise missile agreement as the likely centrepiece of the visit. Sources cited by India Today indicate the proposed package &mdash; valued at approximately &#8377;5,800 crore &mdash; would include shore-based BrahMos battery systems for coastal defence, along with training, logistics and an initial missile complement. If concluded, Vietnam would become the third Southeast Asian nation to acquire the Indo-Russian supersonic cruise missile, following the Philippines in 2022 and Indonesia, which remains in ongoing negotiations.</p>
+      <p>The deal is seen as a direct response to China&rsquo;s expanding naval presence in the South China Sea. Russia, a co-developer of BrahMos, has cleared the technology transfer. For India, a successful Vietnam sale would further validate its &ldquo;Make in India&rdquo; defence export push and its positioning as a credible security partner across the Indo-Pacific, building on the missile system&rsquo;s combat visibility during Operation Sindoor.</p>
+      <div class="src">Source: <a href="https://www.indiatoday.in/india/story/brahmos-deal-looms-as-vietnam-eyes-major-defence-buy-2904041-2026-05-01" target="_blank" rel="noopener">India Today</a> &middot; May 1, 2026</div>
+    </article>
+    <article class="s" id="india-3">
+      <h3>Sabarimala Nine-Judge Bench Raises UCC Question as Arguments Enter Day Ten</h3>
+      <div class="by">The Chronicler India Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>The Supreme Court&rsquo;s nine-judge Constitution Bench hearing the Sabarimala reference case entered its tenth day of arguments on Tuesday with the bench raising pointed questions about whether the constitutional aspiration for a Uniform Civil Code bears on the court&rsquo;s power to mandate religious reforms. Headed by Chief Justice Surya Kant, the bench asked whether courts can apply the test of equality to negate an integral practice of a religion, or whether that task belongs to Parliament through legislation such as a UCC. Justice Joymalya Bagchi pressed senior advocate Indira Jaising &mdash; appearing for two women seeking entry to the Sabarimala temple &mdash; on whether the court, in the absence of a UCC, could bring about incremental equality in religious freedoms through judicial intervention.</p>
+      <p>Jaising argued that the question of a Uniform Civil Code falls within the Directive Principles of State Policy and is a matter for the legislature, not the courts. The bench observed that religion cannot be &ldquo;hollowed out&rdquo; in the name of social reform, and that matters of belief and conscience cannot be made subjects of judicial debate. The reference case encompasses 66 tagged matters including questions about the entry of Muslim women into mosques, making it among the most consequential religious freedom hearings in the court&rsquo;s recent history.</p>
+      <div class="src">Source: <a href="https://www.ndtv.com/india-news/will-sabarimala-case-pave-way-for-uniform-civil-code-call-for-9-judge-bench-11433297" target="_blank" rel="noopener">NDTV</a> &middot; April 29, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Markets</span>
+  <div class="mkt-note">Sensex and Nifty 50 reflect Thursday, April 30, 2026 close. Indian markets closed today, Friday May 1 (Maharashtra Day). Currency rates sourced live from XE.com, April 30, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div><div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">76,913</div>
+      <span class="mc-chg down">&#9660; 582.86 (&minus;0.75%)</span>
+      <div class="mc-note">Apr 30 close &middot; INR</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div><div class="mc-sub">NSE Index</div>
+      <div class="mc-val">23,997</div>
+      <span class="mc-chg down">&#9660; 180.10 (&minus;0.74%)</span>
+      <div class="mc-note">Apr 30 close &middot; INR</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div><div class="mc-sub">INR / 10g (24K)</div>
+      <div class="mc-val">&#8377;1,50,660</div>
+      <span class="mc-chg up">&#9650; est.</span>
+      <div class="mc-note">Goodreturns &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div><div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">$0.01049</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div><div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">$0.01436</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div><div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">&pound;0.00780</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div><div class="mc-sub">1 INR in EUR</div>
+      <div class="mc-val">&euro;0.00901</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; Apr 30</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; <a href="https://www.bseindia.com" target="_blank" rel="noopener">BSE India</a> &middot; <a href="https://www.nseindia.com" target="_blank" rel="noopener">NSE India</a> &middot; <a href="https://www.goodreturns.in/gold-rates/" target="_blank" rel="noopener">Goodreturns</a> (Gold)</div>
+
+</div></div><!-- end #india -->
+
+<!-- ③ WORLD -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+    <article class="s" id="world-1">
+      <h3>Iran War Day 62: Trump Presses Naval Blockade as Talks Stall and Oil Tops $120</h3>
+      <div class="by">The Chronicler World Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>The U.S.-Iran conflict entered its 62nd day on Thursday with no diplomatic breakthrough in sight, as President Donald Trump declared Washington&rsquo;s campaign a success and told Tehran to &ldquo;just give up,&rdquo; while Iranian officials pushed back sharply. Iranian President Masoud Pezeshkian called any naval blockade of Iranian ports &ldquo;doomed to fail,&rdquo; while Parliament Speaker Mohammad Bagher Ghalibaf argued the measures had only driven global oil prices higher. Trump directed national security officials to prepare for an extended blockade and was briefed by U.S. Central Command on potential military options against Iran, according to Axios. Kremlin aide Yuri Ushakov said President Putin had told Trump by telephone that extending the ceasefire was &ldquo;the right decision.&rdquo;</p>
+      <p>The sustained closure of the Strait of Hormuz sent oil markets into turmoil, with Brent crude touching $126 per barrel at its intraday peak before closing around $110 &mdash; its highest sustained level since 2022. U.S. gasoline prices jumped to a four-year high. The two sides remain deadlocked over Iran&rsquo;s nuclear programme, the scope of the blockade, the release of $20 billion in frozen Iranian assets, and Tehran&rsquo;s demand for $270 billion in war reparations. U.S. Defense Secretary Pete Hegseth told Congress the war has so far cost less than $25 billion. The EU warned that American troop deployment in Europe remains in Washington&rsquo;s own interest after Trump floated withdrawing forces from Germany amid tensions with Chancellor Friedrich Merz.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/4/30/iran-war-whats-happening-on-day-62-as-trump-asks-iran-to-give-up" target="_blank" rel="noopener">Al Jazeera</a> &middot; April 30, 2026</div>
+    </article>
+    <article class="s" id="world-2">
+      <h3>Deadly Israeli Strikes Kill 17 in Southern Lebanon Despite Ceasefire</h3>
+      <div class="by">The Chronicler World Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Israeli strikes on southern Lebanon killed at least 17 people on Thursday, including two children, and wounded 35 others &mdash; among them nine children and eight women &mdash; according to Lebanon&rsquo;s health ministry. Israel said the strikes targeted Hezbollah infrastructure, while Lebanese President Joseph Aoun condemned what he called &ldquo;continuing Israeli violations&rdquo; of a ceasefire now entering its second week. Aoun called for international pressure on Israel to cease targeting civilians, paramedics and humanitarian organisations. The Israeli military simultaneously issued evacuation orders for 15 villages in southern Lebanon, many of them beyond the self-designated &ldquo;Yellow Line&rdquo; extending roughly ten kilometres from the border.</p>
+      <p>The ceasefire, announced on April 16 following direct talks between Lebanese and Israeli ambassadors in Washington, has not halted fighting in the south. Israel maintains it is responding to Hezbollah violations; Hezbollah, which was not party to the agreement, had indicated willingness to abide by its terms if Israel did likewise. The violence has exposed deepening political divisions in Beirut: President Aoun favours direct talks toward a permanent agreement, while Parliament Speaker Nabih Berri, a Hezbollah ally, opposes direct negotiations. One Israeli soldier was also killed in combat in the south, bringing Israeli military deaths since early March to 17. Lebanese health ministry data puts total deaths in Lebanon since the conflict began on March 2 at more than 2,500.</p>
+      <div class="src">Source: <a href="https://www.bbc.com/news/articles/cq5pepj21g8o" target="_blank" rel="noopener">BBC News</a> &middot; April 30, 2026</div>
+    </article>
+    <article class="s" id="world-3">
+      <h3>Mali Teeters as Rebel Siege Closes on Bamako and Defence Minister Killed</h3>
+      <div class="by">The Chronicler World Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Mali is in acute crisis after an al-Qaeda-linked armed group working in coordination with Tuareg separatists launched simultaneous attacks on military bases across multiple cities last Saturday, seized the northern city of Kidal, and announced a siege on the capital, Bamako. Defence Minister Sadio Camara &mdash; the architect of Mali&rsquo;s partnership with Russian mercenaries &mdash; was killed alongside his family at his home in the garrison town of Kati. The government declared two days of national mourning. The assaults were carried out by JNIM, an al-Qaeda affiliate with an estimated 10,000 fighters, acting alongside the Liberation Front for Azawad, a Tuareg separatist movement fighting for an independent state in Mali&rsquo;s north.</p>
+      <p>The offensive has exposed the limits of Mali&rsquo;s security strategy under President Assimi Goita, who seized power in 2021 and has since expelled French forces, dismissed 15,000 UN peacekeepers, and relied on approximately 2,000 Russian mercenaries now integrated into Africa Corps. The loss of Kidal represents a significant blow to Bamako&rsquo;s territorial control, and the entry of JNIM and Tuareg fighters into areas approaching the capital marks a dangerous escalation in a crisis dating to 2012. International observers note that Mali&rsquo;s military government has steadily shed its institutional partnerships, leaving it increasingly isolated in the face of a coordinated multi-front offensive.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/4/30/mali-crisis-who-are-the-key-leaders-to-know-about" target="_blank" rel="noopener">Al Jazeera</a> &middot; April 30, 2026</div>
+    </article>
+  </div>
+
+  <div class="col-3" style="margin-top:0;">
+    <article class="s" id="world-4">
+      <h3>Panama Canal Emerges as New Maritime Flashpoint Between U.S. and China</h3>
+      <div class="by">The Chronicler World Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>The Panama Canal has become the latest arena of U.S.-China friction, with Washington and a coalition of regional allies &mdash; including Bolivia, Costa Rica, Guyana, Paraguay and Trinidad and Tobago &mdash; accusing Beijing of detaining Panama-flagged vessels in Chinese ports in an act of economic coercion. Their joint statement condemned what they called China&rsquo;s &ldquo;targeted economic pressure&rdquo; as a &ldquo;blatant attempt to politicise maritime trade.&rdquo; China denied the allegations, calling them &ldquo;hypocritical&rdquo; and accusing Washington of itself politicising global commerce and undermining Panamanian sovereignty.</p>
+      <p>The dispute has its roots in Panama&rsquo;s January Supreme Court ruling voiding a long-standing port concession held by a Hong Kong-linked company, following sustained U.S. pressure to reduce Chinese influence near the canal. The U.S. Federal Maritime Commission noted a surge in detentions of Panama-flagged vessels &ldquo;far exceeding historical norms&rdquo; since the ruling. Analysts warn that even a temporary disruption to canal traffic could generate supply bottlenecks, market volatility and inflationary pressure globally. The flashpoint arrives as the Strait of Hormuz remains effectively closed due to the U.S.-Iran conflict, compounding a broader erosion of maritime norms across the world&rsquo;s most critical shipping lanes.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/4/30/hormuz-effect-how-us-china-are-ramping-up-tensions-over-the-panama-canal" target="_blank" rel="noopener">Al Jazeera</a> &middot; April 30, 2026</div>
+    </article>
+    <article class="s" id="world-5">
+      <h3>Ukrainian Drone Strikes on Russian Refinery Trigger Ecological Crisis on Black Sea Coast</h3>
+      <div class="by">The Chronicler World Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Three successive Ukrainian drone strikes on Russia&rsquo;s Tuapse oil refinery &mdash; one of the country&rsquo;s largest, on the Black Sea coast &mdash; have triggered what local environmentalists describe as an ecological disaster. The strikes on April 16, April 20, and again this week destroyed at least eight storage tanks, spilled petroleum into the Tuapse River and then the Black Sea, and sent toxic smoke across a town that was ultimately evacuated after the third attack. Air sampling after the second strike found benzene, xylene and soot concentrations at three times above safe levels; a black rain of soot-blackened water droplets fell across parts of the region, coating vehicles, animals and homes.</p>
+      <p>Environmental campaigner Ruslan Khvostov warned that oil settling in the Black Sea&rsquo;s sediments could disrupt marine food chains for five to ten years, with dolphins, birds and shellfish among the most vulnerable. Emergency crews deployed boats and booms to contain the coastal slick, while volunteers from as far as Sochi arrived to clean oil from stranded animals. Independent Russian media reported that in some locations authorities covered contaminated shoreline with fresh pebbles rather than removing the underlying oil &mdash; an approach Khvostov said obscured rather than remediated the damage.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/4/30/its-all-very-toxic" target="_blank" rel="noopener">Al Jazeera</a> &middot; April 30, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat" style="margin-top:30px;">Global Markets</span>
+  <div class="mkt-note">US indices reflect Thursday, April 30, 2026 close. FTSE 100, Nikkei 225 and Hang Seng reflect April 30, 2026 close.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card world"><div class="mc-name">DJIA</div><div class="mc-sub">Dow Jones Industrial</div><div class="mc-val">49,652</div><div class="mc-note">Apr 30 close &middot; USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nasdaq</div><div class="mc-sub">Composite Index</div><div class="mc-val">24,892</div><div class="mc-note">Apr 30 close &middot; USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">S&amp;P 500</div><div class="mc-sub">US Broad Market</div><div class="mc-val">7,209</div><div class="mc-note">Apr 30 close &middot; USD</div></div>
+    <div class="mkt-card world"><div class="mc-name">FTSE 100</div><div class="mc-sub">London Stock Exchange</div><div class="mc-val">10,228</div><div class="mc-note">Apr 30 close &middot; GBP</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nifty 50</div><div class="mc-sub">NSE India</div><div class="mc-val">23,997</div><div class="mc-note">Apr 30 close &middot; INR</div></div>
+    <div class="mkt-card world"><div class="mc-name">Hang Seng</div><div class="mc-sub">Hong Kong</div><div class="mc-val">25,814</div><div class="mc-note">Apr 30 close &middot; HKD</div></div>
+    <div class="mkt-card world"><div class="mc-name">Nikkei 225</div><div class="mc-sub">Tokyo Stock Exchange</div><div class="mc-val">59,284</div><div class="mc-note">Apr 30 close &middot; JPY</div></div>
+  </div>
+  <div class="mkt-src">Sources: Yahoo Finance &middot; Hang Seng Index &middot; Nikkei Asia &middot; LSEG / FTSE Russell &middot; NASDAQ</div>
+
+</div></div><!-- end #world -->
+
+<!-- ④ SPORT -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+  <div class="col-3">
+    <article class="s" id="sport-1">
+      <h3>Arsenal Host Fulham in Title-Defining Premier League Clash as City Wait Until Monday</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Arsenal face London rivals Fulham at the Emirates Stadium on Saturday in what could prove a pivotal moment in the Premier League title race, with Mikel Arteta&rsquo;s side needing a win to re-establish a six-point lead over Manchester City at the top of the table. City&rsquo;s 2-1 victory over Arsenal at the Etihad on April 29 knocked the Gunners off top spot for the first time since October, threatening to swing a race City had trailed by ten points only weeks earlier. However, City do not play again in the league until Monday, when they travel to Everton, giving Arsenal an immediate opportunity to restore their lead before City can respond.</p>
+      <p>Data analysts Opta still list Arsenal as slight favourites to win the title, but the margin for error is razor-thin. Arsenal carry some fatigue after a 1-1 draw at Atl&eacute;tico Madrid in the Champions League semi-finals on Wednesday, while Fulham &mdash; sitting tenth with European ambitions still alive &mdash; will be well-rested. Fulham midfielder Josh King said his side would go to the Emirates &ldquo;with no fear.&rdquo; Fulham have played 32 times away to Arsenal across all competitions and have never won. A victory on Saturday would put Arsenal back in pole position for what would be the club&rsquo;s first English top-flight championship since 2004.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/4/30/arsenal-vs-fulham-premier-league-teams-start-lineups-title-race" target="_blank" rel="noopener">Al Jazeera</a> &middot; April 30, 2026</div>
+    </article>
+    <article class="s" id="sport-2">
+      <h3>Boston Fleet Edge Ottawa Charge 2-1 in PWHL Playoff Opener</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>The Boston Fleet opened the PWHL Walter Cup Playoffs with a 2-1 victory over the Ottawa Charge on Thursday night, taking a 1-0 lead in the best-of-five semifinal series. Alina M&uuml;ller and Jamie Lee Rattray scored less than two minutes apart in the closing stages of the second period to overturn Ottawa&rsquo;s early advantage. M&uuml;ller opened the scoring for Boston with 2:03 remaining in the second, splitting two defenders and beating Ottawa goaltender Sanni Ahola over the glove. Rattray added the winner 91 seconds later on a backhand through Ahola&rsquo;s pads. It was the first time in five meetings this season between the two clubs that the game was not settled in overtime or a shootout.</p>
+      <p>Ottawa had taken the lead in the first period through defender Jocelyne Larocque, who tipped in Rory Guilday&rsquo;s shot on the power play with 1:54 remaining &mdash; the first goal of the 2026 PWHL playoffs. Boston have never lost a Game 1 in any playoff series, including their run to the 2024 Walter Cup final. Jessie Eldridge, who set up M&uuml;ller&rsquo;s goal, entered the playoffs on a four-game point streak. Game 2 of the series shifts to Boston on Saturday.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/sports/hockey/pwhl/ottawa-charge-boston-fleet-recap-april30-9.7183682" target="_blank" rel="noopener">CBC Sports</a> &middot; April 30, 2026</div>
+    </article>
+    <article class="s" id="sport-3">
+      <h3>Gujarat Titans Beat Defending Champions RCB by Four Wickets in Ahmedabad</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Friday, May 1, 2026</div>
+      <button class="read-btn">🔊 Read aloud</button>
+      <p>Gujarat Titans defeated defending IPL champions Royal Challengers Bengaluru by four wickets at the Narendra Modi Stadium in Ahmedabad on Thursday night, chasing down a target of 156 in 15.5 overs to register their fifth win of the season and move to ten points in the standings. RCB were bowled out for 155 in 19.2 overs. Devdutt Padikkal top-scored with 40 off 24 balls and Virat Kohli added 28, but consistent wickets kept the defending champions under pressure throughout. Jason Holder took 2 for 29 and held three catches, earning Player of the Match for what was described as an omnipresent performance across all phases of the game.</p>
+      <p>In reply, captain Shubman Gill dominated the powerplay with 43 off 18 before falling, with Jos Buttler contributing 39. GT&rsquo;s middle order briefly wobbled before Holder&rsquo;s cameo of 12 off 10 and Impact Player Rahul Tewatia steadied the chase. Bhuvneshwar Kumar led RCB&rsquo;s bowling effort with three wickets. Rashid Khan sealed the victory with a six in the final over. The win inflicts RCB&rsquo;s third defeat of the tournament and solidifies GT&rsquo;s push toward a playoff berth.</p>
+      <div class="src">Source: <a href="https://www.espncricinfo.com/series/ipl-2026-1510719/gujarat-titans-vs-royal-challengers-bengaluru-42nd-match-1529285/full-scorecard" target="_blank" rel="noopener">ESPNcricinfo</a> &middot; April 30, 2026</div>
+    </article>
+  </div>
+</div></div><!-- end #sport -->
+
+
+<!-- ⑤ PUZZLES -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Puzzles</h2><div class="flag">The Chronicler Daily Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">2</div>
+        <div class="crunch-tile">5</div>
+        <div class="crunch-tile">6</div>
+        <div class="crunch-tile">9</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">63</div>
+      </div>
+      <button class="reveal-toggle" onclick="var b=document.getElementById('crunch-ans');b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9660; Hide solution':'&#9654; Show solution';">&#9654; Show solution</button>
+      <div class="answer-box" id="crunch-ans">
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--ink);line-height:1.8;">
+          (2 &times; 6 &minus; 5) &times; 9 = 63<br>
+          Step 1: 2 &times; 6 = 12 &nbsp;&middot;&nbsp; Step 2: 12 &minus; 5 = 7 &nbsp;&middot;&nbsp; Step 3: 7 &times; 9 = 63<br>
+          <em style="font-size:10px;color:var(--grey);">4 distinct solutions. Python-verified across all permutations.</em>
+        </div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">IRAN</div>
+        <div class="ww-mini-tile">CRUDE</div>
+        <div class="ww-mini-tile">MALI</div>
+        <div class="ww-mini-tile">GAS</div>
+        <div class="ww-mini-tile">LEBANON</div>
+        <div class="ww-mini-tile">TSX</div>
+        <div class="ww-mini-tile">UKRAINE</div>
+        <div class="ww-mini-tile">LPG</div>
+      </div>
+      <button class="reveal-toggle" onclick="var b=document.getElementById('ww-ans');b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9660; Hide solution':'&#9654; Show solution';">&#9654; Show solution</button>
+      <div class="answer-box" id="ww-ans">
+        <div class="answer-cat a">&#127823; Countries in active armed conflict today: IRAN &middot; MALI &middot; LEBANON &middot; UKRAINE</div>
+        <div class="answer-cat b">&#127936; Things that went up in today&rsquo;s edition: CRUDE &middot; GAS &middot; TSX &middot; LPG</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-top:6px;font-style:italic;">Decoy: CRUDE &mdash; plausibly linked to a country (Iran produces crude) but belongs in Group B (WTI crude rose on Day 62 of the war).</div>
+      </div>
+    </div>
+
+  </div>
+</div></div><!-- end #puzzles -->
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 33 &bull; Friday, May 1, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+(function(){
+  var current=null;
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('.read-btn');
+    if(!btn)return;
+    if(!('speechSynthesis' in window)){btn.style.display='none';return;}
+    if(current&&current.btn===btn){window.speechSynthesis.cancel();btn.textContent='\uD83D\uDD0A Read aloud';current=null;return;}
+    if(current){window.speechSynthesis.cancel();current.btn.textContent='\uD83D\uDD0A Read aloud';}
+    var art=btn.closest('article');
+    var txt='';
+    if(art){art.querySelectorAll('p').forEach(function(p){txt+=p.innerText+' ';});}
+    if(!txt.trim())return;
+    var utt=new SpeechSynthesisUtterance(txt.trim());
+    utt.onend=function(){btn.textContent='\uD83D\uDD0A Read aloud';current=null;};
+    utt.onerror=function(){btn.textContent='\uD83D\uDD0A Read aloud';current=null;};
+    window.speechSynthesis.speak(utt);
+    btn.textContent='\u23F9 Stop';
+    current={btn:btn,utt:utt};
+  });
+  document.querySelectorAll('.nav-item>a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var item=a.parentElement;
+      if(item.querySelector('.dropdown')){
+        var open=item.classList.contains('open');
+        document.querySelectorAll('.nav-item').forEach(function(i){i.classList.remove('open');});
+        if(!open)item.classList.add('open');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
