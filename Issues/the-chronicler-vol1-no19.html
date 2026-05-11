@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Thursday, March 26, 2026 — Vol. I, No. 19</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#141008;--aged:#f4edd6;--cream:#fdf9ee;--rust:#8b2513;--gold:#a07800;--grey:#635d4e;--rule:#d0c5a0;--green:#1a6b3c;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+  .masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:16px 40px 10px;text-align:center;}
+  .mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);letter-spacing:.05em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;}
+  .ig-link{display:flex;align-items:center;gap:5px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;}
+  .ig-link:hover{text-decoration:underline;}
+  .ig-link svg{width:15px;height:15px;flex-shrink:0;}
+  .masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(34px,5.5vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+  .mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11.5px;color:var(--grey);margin-top:3px;}
+  .breaking-bar{background:var(--rust);color:#fff;text-align:center;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;padding:5px 12px;}
+  .nav-bar{display:flex;justify-content:center;flex-wrap:wrap;background:var(--ink);position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+  .nav-bar a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:9px 18px;border-right:1px solid #2a2010;transition:background .2s;}
+  .nav-bar a:last-child{border-right:none;}
+  .nav-bar a:hover{background:var(--rust);color:#fff;}
+  .page{max-width:1080px;margin:0 auto;background:var(--cream);padding:28px 38px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+  .section-banner{text-align:center;margin:28px 0 18px;padding:13px 20px;background:var(--ink);color:var(--aged);}
+  .section-banner h2{font-family:'Playfair Display',serif;font-size:25px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+  .section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+  .cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:22px 0 13px;display:block;}
+  .col-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  article.s{border-right:1px solid var(--rule);padding-right:17px;}
+  article.s:last-child{border-right:none;padding-right:0;}
+  article.s h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+  article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10.5px;color:var(--grey);font-style:italic;margin-bottom:8px;}
+  article.s p{font-size:13px;line-height:1.72;text-align:justify;margin-bottom:8px;hyphens:auto;}
+  article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:8px;}
+  article.s .src a{color:var(--rust);text-decoration:none;}
+  article.s .src a:hover{text-decoration:underline;}
+  .divider{height:11px;background:var(--ink);max-width:1080px;margin:0 auto;}
+  /* Weather cards */
+  .w-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin:8px 0 14px;}
+  .w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;text-align:left;}
+  .w-card.india-card{border-top-color:var(--rust);}
+  .w-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;}
+  .w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);}
+  .w-top .w-icon{font-size:16px;line-height:1;}
+  .w-top .temp{font-family:'Playfair Display',serif;font-weight:900;font-size:18px;color:var(--ink);line-height:1;}
+  .w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+  .w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9.5px;color:var(--grey);margin-bottom:4px;line-height:1.35;}
+  .aqi-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;margin-bottom:3px;}
+  .aqi-badge .al{font-weight:400;opacity:.85;}
+  .aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+  .aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+  .aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+  .aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+  .w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);margin-bottom:5px;}
+  .wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:5px;margin-top:3px;}
+  .wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);flex:1;}
+  .wfc .dm span{display:block;font-size:11px;margin:1px 0;}
+  .w-note{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-top:8px;text-align:center;padding:5px;border-top:1px solid var(--rule);}
+  /* Market cards */
+  .mkt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px;margin-bottom:14px;}
+  .mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:11px 12px 9px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+  .mkt-card.currency{border-top-color:var(--gold);}
+  .mkt-card.commodity-up{border-top-color:var(--green);}
+  .mkt-card.commodity-down{border-top-color:var(--rust);}
+  .mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:12.5px;color:var(--ink);line-height:1.1;}
+  .mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px;}
+  .mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:19px;color:var(--ink);line-height:1;}
+  .mkt-card .mc-chg{display:inline-flex;align-items:center;gap:3px;margin-top:3px;border-radius:3px;padding:2px 6px;align-self:flex-start;font-family:monospace;font-size:10px;font-weight:700;white-space:nowrap;}
+  .mc-chg.down{background:#f8d7da;color:#8b2513;border:1px solid #f0c0c0;}
+  .mc-chg.up{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+  .mc-chg.flat{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+  .mkt-card .mc-note{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);font-style:italic;margin-top:3px;border-top:1px solid var(--rule);padding-top:3px;}
+  .mkt-note{border-left:4px solid var(--rust);padding:7px 11px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--ink);line-height:1.65;margin-bottom:10px;}
+  .mkt-src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-bottom:16px;}
+  .mkt-src a{color:var(--rust);text-decoration:none;}
+  /* Bottom row */
+  .bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;margin-top:18px;}
+  .ev-item{padding:7px 0;border-bottom:1px solid var(--rule);}
+  .ev-item:last-child{border-bottom:none;}
+  .ev-date{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:2px;}
+  .ev-title{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+  .ev-venue{font-family:'Source Sans 3',sans-serif;font-size:10px;font-style:italic;color:var(--grey);}
+  .ev-tag{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;color:var(--rust);margin-top:2px;}
+  .ev-src{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);}
+  .ev-src a{color:var(--rust);text-decoration:none;}
+  /* Word Web + Crunch */
+  .ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;}
+  .ww-mini-tile{background:var(--cream);border:1.5px solid var(--ink);padding:7px 4px;text-align:center;font-family:'Playfair Display',serif;font-weight:700;font-size:11px;}
+  .puzzle-box{border:1px solid var(--rule);border-top:3px solid var(--ink);padding:14px;background:#f9f3e3;margin-bottom:14px;}
+  .puzzle-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+  .puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-bottom:8px;}
+  .reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:10.5px;font-weight:600;color:var(--rust);cursor:pointer;background:none;border:none;padding:4px 0;margin-top:6px;border-top:1px dashed var(--rule);width:100%;text-align:left;}
+  .answer-box{margin-top:6px;display:none;}
+  .answer-cat{padding:5px 9px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;margin-bottom:4px;}
+  .answer-cat.a{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+  .answer-cat.b{background:#fff3cd;color:#6b4f00;border:1px solid #ffeeba;}
+  .cr-row{display:flex;gap:8px;margin:8px 0;}
+  .cr-mini-tile{background:var(--cream);border:1.5px solid var(--ink);width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:16px;}
+  .cr-target{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--rust);text-align:center;margin:6px 0;}
+  /* Comics */
+  .comic-wrap{max-width:1080px;margin:0 auto;background:var(--cream);padding:28px 38px;border:1px solid var(--rule);}
+  .comic-masthead{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(26px,4vw,48px);text-align:center;color:var(--ink);margin-bottom:3px;}
+  .comic-strip-title{font-family:'Libre Baskerville',serif;font-style:italic;font-size:13px;color:var(--grey);text-align:center;margin-bottom:18px;}
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);border:3px solid var(--ink);box-shadow:4px 4px 0 rgba(0,0,0,.18);}
+  .panel{border-right:3px solid var(--ink);background:#fdfaf2;min-height:260px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+  .panel:last-child{border-right:none;}
+  .panel-bg{width:100%;flex:1;position:relative;}
+  .speech{background:#fffde7;border:2px solid var(--ink);border-radius:12px;padding:6px 9px;font-family:'Caveat',cursive;font-size:13px;color:var(--ink);position:absolute;line-height:1.3;max-width:85%;}
+  .speech::after{content:'';position:absolute;border:8px solid transparent;}
+  .speech.bl::after{border-top-color:var(--ink);bottom:-17px;left:18px;}
+  .speech.br::after{border-top-color:var(--ink);bottom:-17px;right:18px;}
+  .speech.tl::after{border-bottom-color:var(--ink);top:-17px;left:18px;}
+  .cap-box{background:var(--ink);color:var(--aged);font-family:'Caveat',cursive;font-size:11px;padding:4px 8px;line-height:1.4;}
+  .footer{max-width:1080px;margin:0 auto;text-align:center;padding:14px 20px;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);background:var(--cream);border-left:1px solid var(--rule);border-right:1px solid var(--rule);border-top:4px double var(--ink);}
+  .footer .footer-ig{margin-top:7px;display:flex;align-items:center;justify-content:center;gap:6px;}
+  .footer .footer-ig a{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-size:11px;}
+  .footer .footer-ig a svg{width:15px;height:15px;}
+  .footer .footer-disc{margin-top:8px;font-style:italic;line-height:1.7;max-width:820px;margin-left:auto;margin-right:auto;}
+  @media(max-width:760px){
+    .col-3{grid-template-columns:1fr;}
+    .w-grid{grid-template-columns:repeat(2,1fr);}
+    .mkt-grid{grid-template-columns:repeat(2,1fr);}
+    .bottom-row{grid-template-columns:1fr;}
+    .strip{grid-template-columns:repeat(2,1fr);}
+    .page{padding:20px 18px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mast-top">
+    <span>Toronto &bull; Canada &bull; India &bull; The World</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Vol. I, No. 19 &bull; Thursday, March 26, 2026 &bull; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<div class="breaking-bar">&#9888;&nbsp; Day 27 of the Iran War &mdash; Iran rejects U.S. 15-point ceasefire plan; issues 5-point counter &mdash; Kuwait airport fuel tank hit by Iranian drone &mdash; Oil near $91 WTI &mdash; TSX +1.35% Wed; S&P 500 +0.54% &mdash; NDP Convention opens in Winnipeg &mdash; Ram Navami: Indian markets closed &mdash; IPL 2026 begins Saturday</div>
+
+<nav class="nav-bar">
+  <a href="#canada">&#127809; Canada</a>
+  <a href="#gta">&#127809; GTA</a>
+  <a href="#india">&#127470;&#127475; India</a>
+  <a href="#world">&#127758; World</a>
+  <a href="#comics">&#9999;&#65039; Funnies</a>
+</nav>
+
+<!-- ===================== CANADA ===================== -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">&#127809; Nation &bull; Politics &bull; Economy &bull; Sports &bull; History</div></div>
+
+  <!-- Canada Current Events -->
+  <span class="cat">Current Events</span>
+
+  <!-- Canada Weather Cards -->
+  <div class="w-grid">
+    <!-- Toronto -->
+    <div class="w-card">
+      <div class="w-top"><span class="city">Toronto</span><span class="w-icon">🌧️</span></div>
+      <div class="w-top"><span class="temp">7°C</span></div>
+      <div class="w-rng">H: 9° / L: 3°</div>
+      <div class="w-cond">Periods of rain; breezy</div>
+      <div><span class="aqi-badge aqi-moderate">AQI 58 <span class="al">Moderate</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌦️</span>8°</div>
+        <div class="dm">Sat<span>⛅</span>10°</div>
+        <div class="dm">Sun<span>🌤️</span>11°</div>
+      </div>
+    </div>
+    <!-- Montreal -->
+    <div class="w-card">
+      <div class="w-top"><span class="city">Montréal</span><span class="w-icon">🌨️</span></div>
+      <div class="w-top"><span class="temp">3°C</span></div>
+      <div class="w-rng">H: 5° / L: -1°</div>
+      <div class="w-cond">Wet snow / rain mix; foggy</div>
+      <div><span class="aqi-badge aqi-good">AQI 32 <span class="al">Good</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌧️</span>4°</div>
+        <div class="dm">Sat<span>⛅</span>7°</div>
+        <div class="dm">Sun<span>🌤️</span>9°</div>
+      </div>
+    </div>
+    <!-- Ottawa -->
+    <div class="w-card">
+      <div class="w-top"><span class="city">Ottawa</span><span class="w-icon">🌨️</span></div>
+      <div class="w-top"><span class="temp">2°C</span></div>
+      <div class="w-rng">H: 4° / L: -2°</div>
+      <div class="w-cond">Freezing rain risk; overcast</div>
+      <div><span class="aqi-badge aqi-good">AQI 28 <span class="al">Good</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌧️</span>5°</div>
+        <div class="dm">Sat<span>⛅</span>8°</div>
+        <div class="dm">Sun<span>🌤️</span>9°</div>
+      </div>
+    </div>
+    <!-- Edmonton -->
+    <div class="w-card">
+      <div class="w-top"><span class="city">Edmonton</span><span class="w-icon">❄️</span></div>
+      <div class="w-top"><span class="temp">-4°C</span></div>
+      <div class="w-rng">H: -1° / L: -8°</div>
+      <div class="w-cond">Flurries; partly cloudy</div>
+      <div><span class="aqi-badge aqi-good">AQI 18 <span class="al">Good</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌤️</span>-2°</div>
+        <div class="dm">Sat<span>☀️</span>2°</div>
+        <div class="dm">Sun<span>🌤️</span>4°</div>
+      </div>
+    </div>
+    <!-- Vancouver -->
+    <div class="w-card">
+      <div class="w-top"><span class="city">Vancouver</span><span class="w-icon">🌧️</span></div>
+      <div class="w-top"><span class="temp">11°C</span></div>
+      <div class="w-rng">H: 13° / L: 7°</div>
+      <div class="w-cond">Rain; mild west coast low</div>
+      <div><span class="aqi-badge aqi-good">AQI 22 <span class="al">Good</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌦️</span>12°</div>
+        <div class="dm">Sat<span>⛅</span>13°</div>
+        <div class="dm">Sun<span>🌤️</span>14°</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-note">Weather data indicative; source: Environment and Climate Change Canada forecasts, March 26, 2026. AQI from AQHI.ca.</div>
+
+  <div class="col-3">
+    <article class="s">
+      <h3>PM Carney Tours Halifax Warship, Pledges New Arctic Defence Upgrades for CAF</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>Prime Minister Mark Carney visited Halifax on Thursday morning, touring a Royal Canadian Navy vessel before announcing new measures to strengthen the Canadian Armed Forces. The visit comes as Carney's defence platform promises to hit NATO's two per cent GDP spending target, while also pledging to address a personnel shortfall of some 14,500 service members through enhanced recruitment incentives including pay raises, improved base housing and expanded childcare.</p>
+      <p>The Halifax tour underscores the Liberals' campaign emphasis on sovereignty and security as Canada continues to navigate a turbulent relationship with the United States amid ongoing tariff pressures. A visit to an aerospace and defence manufacturing facility in the afternoon was also on the Prime Minister's schedule, reflecting the broader focus on domestic defence-industry investment as part of Canada's first-ever Defence Industrial Strategy.</p>
+      <div class="src">Source: <a href="https://www.pm.gc.ca/en/news/media-advisories/2026/03/25/thursday-march-26-2026" target="_blank" rel="noopener">Prime Minister of Canada — Media Advisory, March 26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>NTSB Probes Staffing, Comms Failures After Two Canadian Pilots Killed at LaGuardia</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>U.S. safety investigators are examining whether staffing, fatigue, and communication failures contributed to Sunday night's fatal collision between an Air Canada Express jet and a Port Authority fire truck on a runway at New York's LaGuardia Airport. Both Canadian pilots — Antoine Forest of Coteau-du-Lac, Quebec, and Mackenzie Gunther of Peterborough, Ontario — were killed when the CRJ-900, operating as Jazz Aviation Flight 8646 from Montreal, struck the truck at more than 100 miles per hour on landing. Forty-one others were hospitalised, with some remaining under care.</p>
+      <p>The National Transportation Safety Board confirmed the fire truck involved had no transponder, limiting its visibility on ground radar, and that the airport's surface detection system failed to generate an alert because of vehicles merging nearby. An air traffic controller was heard on recordings saying "stop" at least ten times before the collision, and later saying "I messed up." The Transportation Safety Board of Canada has dispatched investigators to assist the U.S.-led probe — the first fatal crash at LaGuardia in 34 years.</p>
+      <div class="src">Source: <a href="https://www.theglobeandmail.com/business/article-air-canada-investigation-fatal-collision-laguardia-airport/" target="_blank" rel="noopener">The Globe and Mail / CBC News, March 24–26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Vancouver International Auto Show Opens, Showcasing 200+ Vehicles Amid EV Shift</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>The 2026 Vancouver International Auto Show opened Wednesday at the Vancouver Convention Centre, drawing thousands of visitors in its first hours to see more than 200 vehicles from major global manufacturers. The five-day showcase spotlights the latest developments in electric and hybrid powertrains, with several manufacturers debuting Canadian-market editions for the first time. Organisers say the EV pavilion has expanded significantly year-over-year, reflecting a decisive shift in industry focus as federal clean-vehicle incentives continue to drive consumer interest.</p>
+      <p>South Korean automakers were notably prominent, in line with an MOU signed last year between Seoul and Ottawa to bring South Korean vehicle manufacturing to Canada. Several concept vehicles targeting the Canadian winter-driving market were also on display, drawing particular interest from fleet and commercial operators.</p>
+      <div class="src">Source: <a href="https://vancouverinternationalautoshow.com/news-releases/vancouver-auto-show-announces-2026-dates-following-record-breaking-2025-edition/" target="_blank" rel="noopener">Vancouver International Auto Show / Vancouver Is Awesome, March 25–26, 2026</a></div>
+    </article>
+  </div>
+
+  <!-- Canada Politics -->
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>NDP Convention Opens in Winnipeg as Leadership Race Nears Climax</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>The federal NDP opened its historic 2026 Winnipeg convention on Thursday, with the Youth Convention kicking off proceedings at the RBC Convention Centre. The three-day gathering, running March 27 to 29, will culminate in the announcement of a new permanent leader on Sunday — chosen from five candidates: Rob Ashton, Tanille Johnston, Avi Lewis, Heather McPherson, and Tony McQuail.</p>
+      <p>The race to succeed interim leader Don Davies has drawn intense attention from progressive circles. MP Heather McPherson, currently the party's sole elected member, is viewed as the front-runner given her parliamentary experience in Edmonton Strathcona. Avi Lewis, the journalist-activist, has built momentum with younger members. The result will be announced on March 29 after a ranked-ballot vote that has been open since March 9.</p>
+      <div class="src">Source: <a href="https://www.cpac.ca/articles/2026_ndp_leadership" target="_blank" rel="noopener">CPAC — 2026 NDP Convention and Leadership</a></div>
+    </article>
+    <article class="s">
+      <h3>Three Federal By-Elections Set for April 13: Liberals Eye Thin Majority</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>With early voting now underway, all eyes are on three federal by-elections scheduled for April 13 in University-Rosedale, Scarborough Southwest, and Terrebonne. The Liberals currently hold 169 seats in the House of Commons — just three short of the 172 needed for a thin majority government. The Terrebonne race is the most contentious: the Supreme Court of Canada annulled the 2025 result there after discovering a postal error in mail-in voting, forcing a re-run between the same Liberal and Bloc Québécois candidates who faced off last spring.</p>
+      <p>In Toronto, Liberals are looking to hold both University-Rosedale — vacated by Chrystia Freeland, now advising Ukraine — and Scarborough Southwest, previously held by Bill Blair. Conservative, NDP and Green candidates are contesting all three ridings, with NDP candidates in the Toronto races running their second campaign in under a year.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-byelection-terrebonne-scarborough-southwest-university-rosedale-ndp-conservatives-9.7119497" target="_blank" rel="noopener">CBC News, March 8, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Rycroft Review Recommends Moratorium on Crypto Political Donations</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>The Rycroft Review, an independent study into electoral finance integrity, released its findings on Wednesday recommending that Canada place a moratorium on political donations made in cryptocurrency assets. The report, issued March 25, cited concerns about anonymity, money-laundering risks, and the difficulty of timely disclosure under existing Elections Canada reporting frameworks.</p>
+      <p>The government indicated it intends to bring forward an amendment to existing electoral legislation to implement the moratorium, which would apply to all federally registered political parties and candidates. The review comes as digital-asset holdings have grown significantly among younger donors and following allegations in recent years about foreign-linked cryptocurrency flows in both Conservative and Liberal leadership contests.</p>
+      <div class="src">Source: <a href="https://commonslibrary.parliament.uk/research-briefings/cbp-10244/" target="_blank" rel="noopener">House of Commons Library — Canada 2025 Federal Election Briefing (March 25, 2026 update)</a></div>
+    </article>
+  </div>
+
+  <!-- Canada Economy & Business -->
+  <span class="cat">Economy &amp; Business</span>
+
+  <!-- Canada Market Cards -->
+  <div class="mkt-grid">
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">32,383</div>
+      <span class="mc-chg up">▲ +442 (+1.38%)</span>
+      <div class="mc-note">Wed Mar 25 close. Financials and gold miners led.</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">Per barrel (USD)</div>
+      <div class="mc-val">$90.84</div>
+      <span class="mc-chg down">▼ −4.8% on day</span>
+      <div class="mc-note">Iran ceasefire hopes pulled crude off $112 peak.</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">Spot (USD/oz)</div>
+      <div class="mc-val">$4,435</div>
+      <span class="mc-chg up">▲ +2.7% rebnd</span>
+      <div class="mc-note">Weaker USD lifts safe-haven demand.</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">$0.7244</div>
+      <span class="mc-chg down">▼ −0.36%</span>
+      <div class="mc-note">Source: XE.com, March 26, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">vs. Indian Rupee</div>
+      <div class="mc-val">₹68.01</div>
+      <span class="mc-chg flat">≈ Flat</span>
+      <div class="mc-note">Source: XE.com, March 26, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">vs. Euro</div>
+      <div class="mc-val">€0.6271</div>
+      <span class="mc-chg down">▼ −0.2%</span>
+      <div class="mc-note">Source: XE.com, March 26, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">vs. Pound Sterling</div>
+      <div class="mc-val">£0.5408</div>
+      <span class="mc-chg flat">≈ Flat</span>
+      <div class="mc-note">Source: XE.com, March 26, 2026</div>
+    </div>
+  </div>
+  <div class="mkt-note">"Markets continued to build on the previous day's momentum as global risk sentiment improved, with hopes of peace emerging on the radar. Potential diplomatic progress between the US and Iran — despite mixed geopolitical commentary — led to easing crude oil prices." — Vinod Nair, Head of Research, Geojit Investments</div>
+  <div class="mkt-src">Market data: TSX — <a href="https://tradingeconomics.com/canada/stock-market" target="_blank">tradingeconomics.com</a> &bull; Currencies — <a href="https://xe.com" target="_blank">xe.com</a> &bull; WTI — <a href="https://www.investing.com/commodities/crude-oil" target="_blank">investing.com</a> &bull; Gold — <a href="https://www.jmbullion.com/charts/gold-price/" target="_blank">JM Bullion</a></div>
+
+  <div class="col-3">
+    <article class="s">
+      <h3>Tariff-Hit Industries Struggling as Trade War Drags Into Second Year</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>Canadian manufacturers are grappling with the compounding effects of U.S. tariffs now entering their second year. Sectors including softwood lumber, steel, cabinet-making and wood flooring are bearing the brunt, with a sharp bifurcation emerging: targeted manufacturing subsectors are shedding jobs even as overall manufacturing employment has grown slightly. RBC economist Claire Fan noted that five to six key manufacturing sub-sectors are "really, really hurting versus the rest of the economy."</p>
+      <p>The softwood lumber industry has seen production drop more than 25 per cent since the first round of tariffs, with 22 mills closed since 2022 and 50 more operating at reduced capacity. Steel exporters report Canadian shipments to the U.S. fell 50 per cent in December year-over-year, with monthly figures continuing to decline. Industry coalitions are calling on Ottawa to introduce import barriers against the flood of goods from other tariff-affected nations now seeking alternative markets.</p>
+      <div class="src">Source: <a href="https://www.bnnbloomberg.ca/tariffs/2026/03/24/tariff-hit-industries-struggling-as-trade-war-drags-into-second-year/" target="_blank" rel="noopener">BNN Bloomberg / The Canadian Press, March 24, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>TSX Surges 1.4% as Diplomacy Hopes Ease Oil Shock; Gold Miners Lead Gains</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>The S&P/TSX Composite Index closed Wednesday at 32,383 — a gain of over 1.4% — as optimism over a potential diplomatic resolution to the Iran war fuelled a broad rally across Canadian equities. Gold miners drove the charge: Agnico Eagle Mines jumped more than 5%, and Kinross Gold soared 4.3% as bullion prices firmed and the U.S. dollar softened. The financial sector was equally strong, with TD Bank, Bank of Nova Scotia, Royal Bank, and BMO all advancing between 0.6% and 1.3% on falling bond yields.</p>
+      <p>Shopify advanced more than 3.5% following a CIBC upgrade to outperformer. Energy producers, despite the day's sharp crude oil drop, found resilience: Suncor Energy and Imperial Oil each gained around 1% as investors positioned for a potential peace-driven demand recovery. The two-day TSX gain now totals over 2%, recovering a large portion of losses sustained since Iran hostilities began on February 28.</p>
+      <div class="src">Source: <a href="https://www.bnnbloomberg.ca/markets/2026/03/25/stocks-jump-and-oil-eases-as-wall-streets-see-saw-swings-back-to-hope-for-an-end-to-the-iran-war/" target="_blank" rel="noopener">BNN Bloomberg / The Canadian Press, March 25, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>CUSMA Review Clock Ticking: Canadian Businesses Brace for July Renegotiation</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>With the mandatory July 1 review of the Canada-United States-Mexico Agreement approaching, Canadian exporters and trade officials are intensifying preparations. Canada-U.S. Trade Minister Dominic LeBlanc met his American counterpart, Trade Representative Jamieson Greer, in Washington earlier this month, though U.S. Ambassador Pete Hoekstra has since acknowledged Washington faces "headwinds" in negotiations with Canada after a lack of substantive talks since October. The review sets up a three-way choice for each country: renew for another 16 years, withdraw, or trigger annual extensions that could keep negotiations going for up to a decade.</p>
+      <p>Analysts at Boston Consulting Group outline three potential outcomes — a targeted extension, a new three-way deal, or CUSMA's termination in favour of bilateral agreements. Prime Minister Carney has stated CUSMA has been "effectively broken in the short term by U.S. actions," yet energy-price shocks from the Iran war may be shifting Washington's perspective on Canada's value as a secure commodity supplier, potentially giving Ottawa unexpected leverage heading into the talks.</p>
+      <div class="src">Source: <a href="https://www.bnnbloomberg.ca/business/2026/03/13/price-shocks-from-iran-war-could-have-us-looking-differently-at-canada-in-cusma-talks-experts/" target="_blank" rel="noopener">BNN Bloomberg / The Canadian Press, March 13, 2026</a></div>
+    </article>
+  </div>
+
+  <!-- Canada Sports -->
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>NHL Playoff Picture Sharpens: Avalanche, Canadiens and Senators All in Action Tonight</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>Canadian NHL franchises are in the thick of the playoff push as the regular season's final weeks arrive. The Colorado Avalanche (47-13-10, 1st overall) visit the Winnipeg Jets tonight in a marquee matchup at Canada Life Centre. The Montréal Canadiens (playoff position secured) host the Columbus Blue Jackets, while the Ottawa Senators face off against Pittsburgh at home.</p>
+      <p>On the West Coast, the Los Angeles Kings visit the Vancouver Canucks (10 PM ET), and the Anaheim Ducks travel to the Calgary Flames. The Edmonton Oilers play the Vegas Golden Knights in a pivotal Pacific Division contest. The Toronto Maple Leafs, having been beat by the Rangers 7:30 PM Wednesday, now sit fifth in the Atlantic and are closely tracking the Senators for wild-card position as eight teams chase the final playoff berths.</p>
+      <div class="src">Source: <a href="https://plaintextsports.com/nhl/2025-2026/schedule" target="_blank" rel="noopener">Plain Text Sports — NHL Schedule, March 26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Toronto Raptors Fighting for Play-In Spot With Crucial April Stretch Ahead</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>The Toronto Raptors continue to fight for playoff positioning in the Eastern Conference, pressing into April with a record that keeps them in the play-in tournament conversation. The team has leaned on a rotation of young contributors alongside veterans, posting competitive performances in a competitive East. The Raptors' coaching staff has emphasised defensive intensity over the final weeks, a strategy yielding results against mid-tier Eastern Conference opponents.</p>
+      <p>General manager Masai Ujiri remains committed to the team's rebuild-with-youth approach, resisting calls for a late-season trade that might have sacrificed future assets for marginal playoff improvement. With the play-in tournament offering a second chance for teams finishing 7th through 10th, Toronto's front office is calculating whether a strong finish can translate into meaningful postseason minutes for its developing core.</p>
+      <div class="src">Source: <a href="https://www.ctvnews.ca/" target="_blank" rel="noopener">CTV News Toronto — NBA Coverage, March 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Canada vs. Iceland Friendly at BMO Field Saturday Ahead of World Cup</h3>
+      <div class="by">Canada Desk &bull; March 26, 2026</div>
+      <p>The Canadian men's national soccer team hosts Iceland in a pre-World Cup friendly at BMO Field on Saturday, March 28 at 1 p.m., with tickets starting around $60. The match comes just days after the City of Toronto and MLSE unveiled a completed $158 million renovation of the stadium — now temporarily dubbed Toronto Stadium — in preparation for six FIFA World Cup 2026 matches beginning June 12, including Canada's opening game.</p>
+      <p>Stadium upgrades include 17,000 temporary seats for a total capacity of 45,000, four new LED videoboards, a FIFA-standard natural/synthetic hybrid pitch, and upgraded audio and broadcast infrastructure. FIFA's economic assessment estimates the tournament could generate up to $940 million in economic output for the GTA, including $520 million in GDP growth. Mayor Olivia Chow called the stadium "ready to welcome the world."</p>
+      <div class="src">Source: <a href="https://www.toronto.ca/news/city-of-toronto-and-mlse-complete-toronto-stadium-upgrades-for-fifa-world-cup-2026-2/" target="_blank" rel="noopener">City of Toronto Newsroom, March 24, 2026</a></div>
+    </article>
+  </div>
+
+  <!-- Canada This Week in History -->
+  <span class="cat">This Week in History</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>March 26, 1979: Egypt and Israel Sign Historic Peace Treaty at the White House</h3>
+      <div class="by">Canada Desk — History</div>
+      <p>On March 26, 1979, Egyptian President Anwar Sadat and Israeli Prime Minister Menachem Begin signed the Egypt–Israel Peace Treaty on the South Lawn of the White House, with U.S. President Jimmy Carter as witness. The treaty ended 30 years of official hostilities between the two nations, returned the Sinai Peninsula to Egyptian sovereignty, and established normal diplomatic relations — the first between Israel and an Arab state. Both Sadat and Begin had received the Nobel Peace Prize the previous year for the Camp David Accords that laid the groundwork for the agreement. The treaty remains in force today and is widely regarded as one of the most consequential diplomatic achievements of the 20th century. For Canada, the treaty reinforced the importance of multilateral diplomacy and the viability of negotiated solutions in protracted regional conflicts — a lesson being reflected upon keenly as the 2026 Iran war now enters its fourth week.</p>
+      <div class="src">Source: <a href="https://en.wikipedia.org/wiki/Egypt%E2%80%93Israel_peace_treaty" target="_blank" rel="noopener">Wikipedia — Egypt–Israel Peace Treaty</a></div>
+    </article>
+  </div>
+
+  <!-- Canada Upcoming Events -->
+  <span class="cat">Upcoming Events</span>
+  <div class="ev-item">
+    <div class="ev-date">Mar 27–29, 2026</div>
+    <div class="ev-title">NDP Federal Convention &amp; Leadership Announcement</div>
+    <div class="ev-venue">RBC Convention Centre, Winnipeg, MB</div>
+    <div class="ev-tag">Politics</div>
+    <div class="ev-src"><a href="https://convention.ndp.ca/" target="_blank">convention.ndp.ca</a></div>
+  </div>
+  <div class="ev-item">
+    <div class="ev-date">Mar 28, 2026</div>
+    <div class="ev-title">Canada vs. Iceland — Pre-World Cup Friendly</div>
+    <div class="ev-venue">Toronto Stadium (BMO Field), 1:00 PM ET</div>
+    <div class="ev-tag">Sports — Soccer</div>
+    <div class="ev-src"><a href="https://www.bmofield.com/events/fifa26" target="_blank">bmofield.com</a></div>
+  </div>
+  <div class="ev-item">
+    <div class="ev-date">Apr 13, 2026</div>
+    <div class="ev-title">Federal By-Elections: University-Rosedale, Scarborough Southwest &amp; Terrebonne</div>
+    <div class="ev-venue">Polling stations across three ridings; advance voting open now</div>
+    <div class="ev-tag">Politics — Federal</div>
+    <div class="ev-src"><a href="https://www.elections.ca" target="_blank">elections.ca</a></div>
+  </div>
+  <div class="ev-item">
+    <div class="ev-date">Jun 12, 2026</div>
+    <div class="ev-title">FIFA World Cup 2026 — Canada's Opening Match</div>
+    <div class="ev-venue">Toronto Stadium, Toronto</div>
+    <div class="ev-tag">Sports — FIFA World Cup</div>
+    <div class="ev-src"><a href="https://www.fifa.com/en/articles/world-cup-2026-host-city-toronto-guide" target="_blank">fifa.com</a></div>
+  </div>
+
+</div><!-- /Canada page -->
+</div><!-- /canada -->
+
+<!-- ===================== GTA ===================== -->
+<div id="gta">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Greater Toronto Area</h2><div class="flag">&#127809; Local &bull; City &bull; Economy &bull; Sports &bull; History</div></div>
+
+  <!-- GTA Current Events -->
+  <span class="cat">Current Events</span>
+
+  <!-- GTA Weather Cards -->
+  <div class="w-grid">
+    <!-- Toronto -->
+    <div class="w-card">
+      <div class="w-top"><span class="city">Toronto</span><span class="w-icon">🌧️</span></div>
+      <div class="w-top"><span class="temp">7°C</span></div>
+      <div class="w-rng">H: 9° / L: 3°</div>
+      <div class="w-cond">Rain; wind gusts to 40 km/h</div>
+      <div><span class="aqi-badge aqi-moderate">AQI 58 <span class="al">Moderate</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌦️</span>8°</div>
+        <div class="dm">Sat<span>⛅</span>10°</div>
+        <div class="dm">Sun<span>🌤️</span>11°</div>
+      </div>
+    </div>
+    <!-- Brampton -->
+    <div class="w-card">
+      <div class="w-top"><span class="city">Brampton</span><span class="w-icon">🌧️</span></div>
+      <div class="w-top"><span class="temp">6°C</span></div>
+      <div class="w-rng">H: 8° / L: 2°</div>
+      <div class="w-cond">Showers; overcast</div>
+      <div><span class="aqi-badge aqi-moderate">AQI 55 <span class="al">Moderate</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌦️</span>8°</div>
+        <div class="dm">Sat<span>⛅</span>10°</div>
+        <div class="dm">Sun<span>🌤️</span>11°</div>
+      </div>
+    </div>
+    <!-- Markham -->
+    <div class="w-card">
+      <div class="w-top"><span class="city">Markham</span><span class="w-icon">🌧️</span></div>
+      <div class="w-top"><span class="temp">7°C</span></div>
+      <div class="w-rng">H: 9° / L: 3°</div>
+      <div class="w-cond">Rain; breezy east winds</div>
+      <div><span class="aqi-badge aqi-moderate">AQI 52 <span class="al">Moderate</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌦️</span>9°</div>
+        <div class="dm">Sat<span>⛅</span>11°</div>
+        <div class="dm">Sun<span>🌤️</span>12°</div>
+      </div>
+    </div>
+    <!-- Oakville -->
+    <div class="w-card">
+      <div class="w-top"><span class="city">Oakville</span><span class="w-icon">🌧️</span></div>
+      <div class="w-top"><span class="temp">7°C</span></div>
+      <div class="w-rng">H: 9° / L: 3°</div>
+      <div class="w-cond">Rain; mild lakeshore effect</div>
+      <div><span class="aqi-badge aqi-good">AQI 44 <span class="al">Good</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌦️</span>9°</div>
+        <div class="dm">Sat<span>⛅</span>11°</div>
+        <div class="dm">Sun<span>🌤️</span>12°</div>
+      </div>
+    </div>
+    <!-- Whitby -->
+    <div class="w-card">
+      <div class="w-top"><span class="city">Whitby</span><span class="w-icon">🌧️</span></div>
+      <div class="w-top"><span class="temp">6°C</span></div>
+      <div class="w-rng">H: 8° / L: 2°</div>
+      <div class="w-cond">Showers; patchy fog</div>
+      <div><span class="aqi-badge aqi-good">AQI 46 <span class="al">Good</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌦️</span>8°</div>
+        <div class="dm">Sat<span>⛅</span>10°</div>
+        <div class="dm">Sun<span>🌤️</span>11°</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-note">Weather data indicative; source: Environment and Climate Change Canada, March 26, 2026. AQI from AQHI.ca.</div>
+
+  <div class="col-3">
+    <article class="s">
+      <h3>Toronto Stadium Renovation Complete: City Ready for Six World Cup Matches</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>The City of Toronto and Maple Leaf Sports &amp; Entertainment confirmed Tuesday that all major upgrades at Toronto Stadium (BMO Field) are finished ahead of the FIFA World Cup 2026. The $157.9 million overhaul — with $132.9 million from the city and $25 million from MLSE — delivers 17,000 temporary seats for a total capacity of 45,000, a new FIFA-standard pitch, four large LED videoboards roughly the size of a three-bedroom apartment each, and comprehensive audio and broadcast upgrades.</p>
+      <p>Mayor Olivia Chow, speaking at the unveiling, pointed to Toronto's track record of handling major events: "We hosted Taylor Swift for six nights. On some of those nights, we had the Jays and the Raptors playing — 100,000-plus people near the waterfront. We've done it before." Canada's opening World Cup match on June 12 will be the first-ever men's FIFA World Cup game played on Canadian soil. A friendly against Iceland takes place this Saturday at 1 PM to inaugurate the upgraded ground.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/toronto-stadium-fifa-world-cup-9.7140412" target="_blank" rel="noopener">CBC News, March 24, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Gas Prices Rise 7 Cents in GTA Thursday, Reversing Wednesday's 13-Cent Drop</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>GTA drivers who enjoyed a 13-cent-per-litre drop in pump prices Wednesday are seeing those gains reversed Thursday, with petroleum analyst Roger McKnight of En-Pro International projecting a five-to-seven cent rebound. McKnight attributed the volatile swings directly to U.S. President Donald Trump's shifting statements on the Iran war. After crude oil fell sharply Wednesday on ceasefire-negotiation reports, the mood reversed overnight as Iran publicly rejected the U.S. proposal.</p>
+      <p>Wednesday's prices dipped to approximately $1.65 per litre in the GTA. Thursday's increase is expected to push prices back toward $1.72. McKnight told CP24: "I don't know who to believe. He changes his mind every day, so the price is going up and down depending on what he pronounces on the given day." The swings are fuelling calls among consumer advocates for emergency federal measures to stabilise fuel prices, particularly for commercial operators and commuters in transit-underserved parts of the GTA.</p>
+      <div class="src">Source: <a href="https://www.cp24.com/local/toronto/2026/03/25/gas-prices-to-rise-by-7-cents-thursday-in-gta-after-dropping-13-cents-at-midnight-expert/" target="_blank" rel="noopener">CP24 / En-Pro International, March 25, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Ford Government Holds Firm on Supervised Drug Site Closures Despite Ex-Mayor Pressure</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>Ontario Premier Doug Ford and his Health Minister said Wednesday they will not reverse a decision to shutter additional supervised drug consumption sites, even after a letter signed by six former Toronto mayors urged the province to reconsider. The letter, citing public health data on overdose prevention, argued that closures will increase deaths in communities already strained by the opioid crisis. The Ford government maintained that supervised consumption sites have not reduced drug use in surrounding areas and that alternative treatment and abstinence programs represent a better use of public funds.</p>
+      <p>The controversy echoes similar battles in Vancouver and Ottawa, where provincial governments have also moved to restrict harm-reduction services. Health advocates warn the closures will place additional strain on emergency rooms and paramedic services already under pressure, particularly in inner-city Toronto neighbourhoods where street drug supply remains dominated by fentanyl and other highly toxic substances.</p>
+      <div class="src">Source: <a href="https://www.cp24.com" target="_blank" rel="noopener">CP24, March 25–26, 2026</a></div>
+    </article>
+  </div>
+
+  <!-- GTA Politics -->
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>ICE Involvement in Toronto During FIFA World Cup Raises Alarm at City Hall</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>Mayor Olivia Chow has called on Toronto City Council to pass a motion opposing any involvement of U.S. Immigration and Customs Enforcement agents within city limits during the FIFA World Cup this summer. The motion responds to concerns raised by immigrant rights groups that the presence of international visitors from dozens of nations could expose some fans to immigration enforcement actions by U.S. federal agents working under FIFA's multinational policing agreements.</p>
+      <p>City solicitors are reviewing the extent of the city's legal authority to formally restrict ICE operations, given that federal and provincial law enforcement take precedence in Canadian jurisdiction. The federal government, for its part, has stated clearly that Canadian law and the Canadian Charter of Rights and Freedoms will govern all law enforcement activity during the tournament. The debate reflects broader anxieties in Toronto's diverse communities about the Trump administration's immigration posture and its potential reach beyond U.S. borders.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/mayor-olivia-chow-no-ice-motion-9.7136886" target="_blank" rel="noopener">CBC News, March 20, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Ontario Education Minister Defends Letter Calling for Apolitical Graduation Ceremonies</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>Ontario's Education Minister defended a letter sent to school boards earlier this week urging that graduation ceremonies be kept "strictly student-centred, apolitical, inclusive and respectful." The letter drew swift criticism from teachers' unions and equity advocates who argued it was designed to suppress acknowledgments of Black, Indigenous, and LGBTQ+ student experiences — topics commonly addressed in inclusive graduation remarks.</p>
+      <p>The minister responded that the intent was to ensure ceremonies focus on students' academic achievements rather than any particular political ideology, and that schools remain free to celebrate student diversity. Trustees in several large GTA boards, including the Toronto District School Board, publicly pushed back, stating they would continue to allow valedictorians and guest speakers to speak authentically to their experiences. The dispute arrives as provincial education policy continues to be a flashpoint in the lead-up to a potential Ontario election.</p>
+      <div class="src">Source: <a href="https://www.cp24.com" target="_blank" rel="noopener">CP24, March 26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>GTA Housing Benchmark Holds at ~$1 Million as Spring Market Tests Buyer Confidence</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>The Greater Toronto Area housing market is entering the spring selling season at a critical juncture. The Toronto Regional Real Estate Board's February data showed the average selling price at $1,008,968 — down 7.1% year-over-year — while the benchmark price slipped 7.9%. New listings are falling, however, which analysts say could tighten supply heading into spring and support prices even in the face of weak buyer demand driven by elevated borrowing costs.</p>
+      <p>Falling new listings could tighten the GTA market in the weeks ahead, according to a CBC report citing TRREB data, creating a paradox where prices remain sticky despite soft fundamentals. First-time buyers in particular are struggling under the combined weight of high prices, still-elevated mortgage rates, and the psychological uncertainty created by U.S. tariffs and the ongoing Iran war's effect on consumer confidence. Industry watchers note that a Bank of Canada rate cut later in 2026 could be the catalyst the market is waiting for.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca" target="_blank" rel="noopener">CBC News / TRREB, March 5, 2026</a></div>
+    </article>
+  </div>
+
+  <!-- GTA Economy & Business -->
+  <span class="cat">Economy &amp; Business</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>FIFA 2026 Economic Windfall: GTA Braces for $940 Million Boost</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>A Deloitte Canada economic-impact assessment commissioned by FIFA projects that the 2026 World Cup could generate up to $940 million in positive economic output for the Greater Toronto Area — including $520 million in GDP growth, $340 million in labour income, and $25 million in government revenue. The tournament is also expected to create more than 6,600 jobs between June 2023 and August 2026. Local hospitality, tourism, and food-service operators are bracing for a surge unlike any since the Pan Am Games.</p>
+      <p>MP Vince Gasparro (Eglinton-Lawrence) called the upcoming matches a "once in a generation" opportunity to showcase what Canada has to offer the world while stimulating domestic economic activity. The federal government has invested over $104 million toward preparations, while Ontario is supporting infrastructure and logistics. For the GTA's retail, restaurant, and hotel sectors — many still recovering from years of tariff headwinds — the summer injection could be transformative.</p>
+      <div class="src">Source: <a href="https://www.villagereport.ca/village-picks/toronto-fifa-stadium-first-look-12057906" target="_blank" rel="noopener">Village Report / Deloitte Canada / City of Toronto, March 24, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Eglinton Crosstown Settles In: Ridership Climbs as TTC Prepares for World Cup Crush</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>Seven weeks after the Eglinton Crosstown LRT (Line 5) opened February 8, early ridership data suggest the line is attracting healthy use along its corridor through Midtown Toronto. The TTC updated its transit map to integrate Line 5 as a core rapid-transit line, reducing complexity for daily commuters navigating the expanded network. Midtown properties near key stations on Eglinton Avenue are already showing increased listing activity, according to real estate agents in the area.</p>
+      <p>The TTC is now working urgently to plan how it will handle tens of thousands of FIFA World Cup fans arriving at Union Station and dispersing across the city to stadiums, fan zones, and hotels. Senior transit officials have acknowledged that transit capacity and frequency for match-day surges is still being finalised. City officials point to the Line 5 corridor as a key relief valve for traffic pressure on Yonge and University avenues during the June matches.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/livestory/line-5-lrt-eglinton-crosstown-opening-9.7077945" target="_blank" rel="noopener">CBC News / CP24, February–March 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>CBSA Seizes Over 1,000 kg of Illegal Cannabis at Pearson in First Two Months of 2026</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>Canada Border Services Agency officers at Pearson International Airport, working alongside the RCMP Toronto Airport Detachment, intercepted more than 1,066 kilograms of illegal cannabis in January and February 2026 alone — a significant haul that underscores the persistent challenge of outbound cannabis smuggling despite Canada's legal domestic market. Single seizures included 72 kg from a passenger bound for the United Kingdom and 61.5 kg intercepted from another UK-bound traveller after a CBSA detector dog indicated on their luggage.</p>
+      <p>The agency noted that many of the seizures involved commercial shipments as well as individual travellers. The CBSA emphasised that exporting cannabis without proper federal permits remains a federal offence regardless of the legal domestic market. The agency indicated it will continue deploying detector-dog teams and enhanced intelligence-sharing protocols at Pearson through the high-traffic spring and summer season, including during the FIFA World Cup, when foot traffic at the airport will spike significantly.</p>
+      <div class="src">Source: <a href="https://www.canada.ca/en/border-services-agency/news/2026/03/cbsa-seizes-1066-kg-of-cannabis-in-the-greater-toronto-area.html" target="_blank" rel="noopener">CBSA / Canada.ca, March 2026</a></div>
+    </article>
+  </div>
+
+  <!-- GTA Sports -->
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Maple Leafs Fall to Rangers 7:30 PM Wednesday; Playoff Seeding Battle Intensifies</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>The Toronto Maple Leafs lost to the New York Rangers in Wednesday evening's match-up, dealing a modest setback to their Atlantic Division playoff positioning. The Leafs currently sit fifth in the Atlantic and are in a close race with the Ottawa Senators for wild-card placement as the regular season winds down. With roughly two weeks left before the playoffs begin on April 18, every game-point matters for teams on the cusp of seeding positions that could determine first-round opponents.</p>
+      <p>The Leafs' offence has been generating opportunities, but defensive inconsistencies — particularly on the penalty kill — have cost the team in close games during March. Head coach Craig Berube is expected to make lineup adjustments for the final stretch. Several key Canadian markets have teams already confirmed for the playoffs: the Avalanche lead the overall standings, while both Montreal and Ottawa are poised to make deep runs if health holds.</p>
+      <div class="src">Source: <a href="https://plaintextsports.com/nhl/2025-2026/schedule" target="_blank" rel="noopener">Plain Text Sports — NHL Schedule, March 25–26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Toronto FC Prepares for MLS Season Restart on Fresh FIFA-Standard Pitch</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>Toronto FC's coaching staff welcomed the newly installed FIFA-standard hybrid pitch at Toronto Stadium, calling it a significant upgrade over previous surfaces. The playing surface, a combination of natural and synthetic grass designed for high-frequency use, will serve the World Cup this summer before TFC retakes possession for the MLS regular season. The club had to adjust its training and home scheduling around the stadium renovations but stands to benefit from permanent infrastructure improvements that will long outlast the tournament.</p>
+      <p>TFC enters the 2026 MLS season in a transitional phase, having overhauled its roster over the past year. The upgraded stadium facilities, including new dugouts, player areas, and hospitality infrastructure, are expected to boost the club's ability to attract higher-quality talent. The combination of World Cup exposure and a revamped ground could generate renewed local interest in the club, which has struggled to fill the stadium consistently in recent seasons.</p>
+      <div class="src">Source: <a href="https://www.toronto.ca/news/city-of-toronto-and-mlse-complete-toronto-stadium-upgrades-for-fifa-world-cup-2026-2/" target="_blank" rel="noopener">City of Toronto Newsroom, March 24, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Blue Jays Spring Training Wraps; Season Opener Set for Friday</h3>
+      <div class="by">GTA Desk &bull; March 26, 2026</div>
+      <p>The Toronto Blue Jays are preparing to open their 2026 MLB regular season on Friday, wrapping up a spring training camp in Dunedin, Florida. The club enters the year with a blend of returning veterans and highly-touted prospects who drew attention during the Grapefruit League. Manager John Schneider has spoken of a renewed emphasis on pitching depth and situational hitting, two areas that plagued the club in the second half of 2025.</p>
+      <p>Key storylines entering the season include the status of top prospects the club promoted late last year, a rebuilt bullpen anchored by newly signed free agents, and whether the offence can maintain its early-season production across the gruelling 162-game schedule. Rogers Centre, which hosted several sell-outs during last season's playoff push, is expected to be lively for the home opener. For GTA sports fans, the convergence of NHL playoffs, the Blue Jays season, Raptors play-in basketball, and FIFA World Cup preparations makes spring 2026 one of the most sports-dense seasons in the region's history.</p>
+      <div class="src">Source: <a href="https://www.ctvnews.ca/toronto/" target="_blank" rel="noopener">CTV News Toronto — Blue Jays Season Preview, March 2026</a></div>
+    </article>
+  </div>
+
+  <!-- GTA This Week in History -->
+  <span class="cat">This Week in History</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>March 27, 1998: Toronto City Council Votes to Amalgamate Six Municipalities Into One Megacity</h3>
+      <div class="by">GTA Desk — History</div>
+      <p>On March 27, 1998, the amalgamation of the former Metropolitan Toronto municipalities — Toronto, North York, Scarborough, Etobicoke, York, and East York — came into legal effect, creating the unified City of Toronto that residents know today. The merger had been mandated by the Harris government in Queen's Park over fierce local opposition, including a plebiscite in which 76 per cent of residents voted against the change. Supporters argued that a single city government would eliminate duplication, reduce costs, and give Toronto a stronger voice regionally and nationally. Critics contended it buried distinct neighbourhood identities and concentrated power away from local communities. Nearly three decades on, debate continues about whether amalgamation delivered its promised efficiencies — the question resonating especially as the city grapples with managing six FIFA World Cup matches this summer as a unified municipal entity.</p>
+      <div class="src">Source: <a href="https://en.wikipedia.org/wiki/Toronto_amalgamation" target="_blank" rel="noopener">Wikipedia — Toronto Amalgamation</a></div>
+    </article>
+  </div>
+
+  <!-- GTA Upcoming Events -->
+  <span class="cat">Upcoming Events</span>
+  <div class="ev-item">
+    <div class="ev-date">Mar 28, 2026</div>
+    <div class="ev-title">Canada vs. Iceland — Pre-World Cup Soccer Friendly</div>
+    <div class="ev-venue">Toronto Stadium (BMO Field), 1:00 PM ET — Tickets from ~$60</div>
+    <div class="ev-tag">Sports — Soccer</div>
+    <div class="ev-src"><a href="https://www.bmofield.com/events/fifa26" target="_blank">bmofield.com</a></div>
+  </div>
+  <div class="ev-item">
+    <div class="ev-date">Apr 13, 2026</div>
+    <div class="ev-title">Federal By-Elections: University-Rosedale &amp; Scarborough Southwest</div>
+    <div class="ev-venue">Polling stations across both Toronto ridings; advance voting open</div>
+    <div class="ev-tag">Politics — Federal</div>
+    <div class="ev-src"><a href="https://www.elections.ca" target="_blank">elections.ca</a></div>
+  </div>
+  <div class="ev-item">
+    <div class="ev-date">Apr 18, 2026</div>
+    <div class="ev-title">NHL Stanley Cup Playoffs Begin</div>
+    <div class="ev-venue">TBD — Leafs seeding and first-round opponent TBC</div>
+    <div class="ev-tag">Sports — NHL</div>
+    <div class="ev-src"><a href="https://www.nhl.com" target="_blank">nhl.com</a></div>
+  </div>
+  <div class="ev-item">
+    <div class="ev-date">Jun 12, 2026</div>
+    <div class="ev-title">FIFA World Cup 2026 — Canada's Opening Game</div>
+    <div class="ev-venue">Toronto Stadium, Exhibition Place</div>
+    <div class="ev-tag">Sports — FIFA World Cup</div>
+    <div class="ev-src"><a href="https://www.fifa.com/en/articles/world-cup-2026-host-city-toronto-guide" target="_blank">fifa.com</a></div>
+  </div>
+
+</div><!-- /GTA page -->
+</div><!-- /gta -->
+
+<!-- ===================== INDIA ===================== -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">&#127470;&#127475; Nation &bull; Politics &bull; Economy &bull; Sports &bull; History</div></div>
+
+  <!-- India Current Events -->
+  <span class="cat">Current Events</span>
+
+  <!-- India Weather Cards -->
+  <div class="w-grid">
+    <!-- New Delhi -->
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">New Delhi</span><span class="w-icon">🌦️</span></div>
+      <div class="w-top"><span class="temp">26°C</span></div>
+      <div class="w-rng">H: 29° / L: 18°</div>
+      <div class="w-cond">Partly cloudy; light showers possible</div>
+      <div><span class="aqi-badge aqi-poor">AQI 168 <span class="al">Unhealthy</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌤️</span>28°</div>
+        <div class="dm">Sat<span>☀️</span>30°</div>
+        <div class="dm">Sun<span>🌤️</span>31°</div>
+      </div>
+    </div>
+    <!-- Hyderabad -->
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Hyderabad</span><span class="w-icon">🌤️</span></div>
+      <div class="w-top"><span class="temp">34°C</span></div>
+      <div class="w-rng">H: 37° / L: 24°</div>
+      <div class="w-cond">Hot and dry; haze</div>
+      <div><span class="aqi-badge aqi-moderate">AQI 82 <span class="al">Moderate</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>☀️</span>36°</div>
+        <div class="dm">Sat<span>☀️</span>37°</div>
+        <div class="dm">Sun<span>🌤️</span>36°</div>
+      </div>
+    </div>
+    <!-- Mumbai -->
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Mumbai</span><span class="w-icon">🌤️</span></div>
+      <div class="w-top"><span class="temp">32°C</span></div>
+      <div class="w-rng">H: 33° / L: 25°</div>
+      <div class="w-cond">Humid; partly cloudy</div>
+      <div><span class="aqi-badge aqi-moderate">AQI 95 <span class="al">Moderate</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌤️</span>33°</div>
+        <div class="dm">Sat<span>⛅</span>32°</div>
+        <div class="dm">Sun<span>🌤️</span>33°</div>
+      </div>
+    </div>
+    <!-- Bengaluru -->
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Bengaluru</span><span class="w-icon">⛅</span></div>
+      <div class="w-top"><span class="temp">28°C</span></div>
+      <div class="w-rng">H: 31° / L: 19°</div>
+      <div class="w-cond">Partly cloudy; pleasant evening</div>
+      <div><span class="aqi-badge aqi-moderate">AQI 76 <span class="al">Moderate</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>🌤️</span>30°</div>
+        <div class="dm">Sat<span>⛅</span>29°</div>
+        <div class="dm">Sun<span>🌦️</span>27°</div>
+      </div>
+    </div>
+    <!-- Chennai -->
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Chennai</span><span class="w-icon">☀️</span></div>
+      <div class="w-top"><span class="temp">36°C</span></div>
+      <div class="w-rng">H: 38° / L: 27°</div>
+      <div class="w-cond">Very hot; humid sea breeze</div>
+      <div><span class="aqi-badge aqi-moderate">AQI 88 <span class="al">Moderate</span></span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>☀️</span>37°</div>
+        <div class="dm">Sat<span>☀️</span>38°</div>
+        <div class="dm">Sun<span>🌤️</span>37°</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-note">Weather data indicative; source: India Meteorological Department, March 26, 2026. AQI from CPCB India.</div>
+
+  <div class="col-3">
+    <article class="s">
+      <h3>India Marks Ram Navami; Banks and Markets Closed Across Most States</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>Ram Navami — celebrating the birth of Lord Rama on the ninth day of the Chaitra Navratri — is being observed across India on Thursday, March 26, with major public celebrations in Ayodhya, Varanasi, and dozens of other cities. Banks in Maharashtra, Gujarat, Uttar Pradesh, and West Bengal are closed for the occasion, while states including Telangana, Bihar, and Andhra Pradesh observe the holiday on Friday, March 27. The BSE and NSE are shut for the full trading day, with regular equity markets set to resume Friday.</p>
+      <p>The Multi Commodity Exchange will observe a morning holiday but resume trading in its evening session from 5 PM. The IMD has forecast light showers in Delhi-NCR and northwest India around the festival period, driven by two new Western disturbances set to activate between March 26 and 28. Panic buying of petrol and diesel was reported at some pumps in Uttar Pradesh and Assam ahead of the holiday closure, amid global fuel-price volatility linked to the Iran war.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/finance/news/bank-holidays-march-2026-banks-to-remain-closed-for-next-4-days-ram-navami-nc-126032500959_1.html" target="_blank" rel="noopener">Business Standard, March 26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Modi Chairs CCS Meeting on Energy Security; Seven Ministerial Groups Formed to Monitor Crisis</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>Prime Minister Narendra Modi chaired a Cabinet Committee on Security meeting on Sunday that reviewed the availability of crude oil, gas, and petroleum products amid the West Asia conflict. The PM directed the formation of seven groups of ministers and secretaries to work in a "whole-of-government approach" covering energy security, fertiliser supply, power, essential commodities, trade, and public communications. Modi noted that 22 Indian-flagged merchant vessels carrying LNG, petrol, and diesel remain stranded near the Strait of Hormuz, stressing the importance of safeguarding freedom of navigation.</p>
+      <p>In a phone call with Iranian President Pezeshkian, Modi urged "unhindered transit of goods and energy" and condemned attacks on the region's energy infrastructure. India has expanded its energy import sources from 27 to 41 countries since 2014 and holds over 5.3 million tonnes in strategic petroleum reserves. The government has prioritised household LPG needs, ramped up domestic production, and is seeking diversified supplies from Russia, Jordan, and Morocco to offset Gulf disruption ahead of the kharif crop season.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/india-news/pm-reviews-energy-supply-ccs-west-asia-conflict-hormuz-126032200657_1.html" target="_blank" rel="noopener">Business Standard, March 22, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Modi and Trump Stress Open Hormuz; India Secures Safe Transit for Stranded Vessels</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>Prime Minister Narendra Modi received a call from U.S. President Donald Trump on Tuesday, with both leaders stressing that the Strait of Hormuz "remains open, secure and accessible." Modi told Parliament in the Rajya Sabha that the situation arising from the severe global energy crisis is "worrisome" and a matter of "serious concern," with many Indian ships stranded in the Strait. External Affairs Minister S. Jaishankar met Iran's Ambassador to India Mohammed Fathali separately, as India continued its diplomatic engagement with all parties to the conflict.</p>
+      <p>The government confirmed that several Indian-flagged vessels stranded near the Strait have since returned safely to Indian ports following bilateral co-ordination with Iranian authorities. India's careful positioning — maintaining working relations with Tehran while co-ordinating with Washington — has been widely watched as a model of strategic balance. Brent crude briefly crossed $103 per barrel Thursday morning after Iran's overnight strike hit a fuel tank at Kuwait International Airport, underscoring the market's continued sensitivity to every development in the conflict.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/india-news/trump-modi-call-jaishankar-iran-meet-govt-forms-seven-groups-126032401286_1.html" target="_blank" rel="noopener">Business Standard, March 24, 2026</a></div>
+    </article>
+  </div>
+
+  <!-- India Politics -->
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Modi Tells Parliament: India Must Stay United and Prepared for Long Haul of West Asia War</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>Addressing the Lok Sabha on Monday in his first parliamentary statement since the West Asia conflict began, Prime Minister Narendra Modi called on Indians to "remain prepared and united," drawing a parallel to the country's response during the COVID-19 pandemic. Modi noted that India faces economic, national-security, and human-rights challenges from the war, acknowledging that the conflict "might persist for a long time." He said shipping through the Strait of Hormuz — from which India gets the bulk of its oil, fertiliser, and gas — had become "highly challenging."</p>
+      <p>Modi said the government had prioritised household LPG supply and was working to ensure oil and gas supplies "from wherever possible." He highlighted that India now imports energy from 41 countries, up from 27 before 2014, as evidence of resilience built over a decade of supply diversification. In a subsequent Rajya Sabha statement on Tuesday, the PM said India's strong economic fundamentals were helping the country manage the crisis, and that the government was "in constant contact" with multiple global suppliers to ensure continuity of supply.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/politics/pm-modi-urges-unity-preparedness-as-west-asia-crisis-poses-risks-126032301297_1.html" target="_blank" rel="noopener">Business Standard, March 23, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Modi Steps Up Iran Engagement as LPG Shortages Bite; Two Tankers Secured</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>India's government secured the safe transit of two LPG tankers through the near-closed Strait of Hormuz last week through direct diplomatic engagement with Iran, becoming one of only a handful of nations — alongside China — whose ships have passed safely through the Strait since the war began February 28. The tankers' safe passage was hailed by the government as a demonstration of India's unique diplomatic standing, though critics noted it required accepting Iran's new practice of charging fees and seeking advance co-ordination for passage — a precedent with long-term implications for freedom of navigation.</p>
+      <p>Several urea factories have already reduced production due to disrupted LNG supply, and some states are reporting cooking-gas shortages. The government's task force is in daily contact with energy companies and international suppliers to manage the crisis. Modi's diplomatic engagement with Tehran has created tension with Washington, which views any normalisation of Iranian sovereignty claims over the Strait as a strategic setback in its campaign to compel regime change.</p>
+      <div class="src">Source: <a href="https://www.bloomberg.com/news/articles/2026-03-15/modi-walks-fine-line-between-iran-and-us-as-war-hits-economy" target="_blank" rel="noopener">Bloomberg, March 15–16, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Rajya Sabha Passes Appropriation Bill–II 2026; India's Forex Reserves Hold at $686 Billion</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>The Rajya Sabha passed Appropriation Bill–II 2026 this week amid opposition protests, with BJP lawmakers defending India's fiscal posture. Party MP Sat Sharma highlighted total government expenditure of ₹357.14 lakh crore and noted that India's foreign exchange reserves remain robust at approximately $686 billion. An Economic Stabilisation Fund of ₹57,381 crore has been set aside as a safeguard against global energy-price shocks.</p>
+      <p>During the debate, PM Modi referenced India's recent trade deals with both the European Union and the United States as evidence of growing global confidence in the Indian economy. The EU-India Free Trade Agreement — described by both sides as the "Mother of All Deals" — was concluded at the January 27 summit and is now being implemented. Opposition members pressed on rising import costs linked to the weakening rupee and elevated crude prices, but Treasury benches maintained that India's underlying economic trajectory remains sound, targeting continued strong GDP growth despite the external headwinds from the Iran conflict.</p>
+      <div class="src">Source: <a href="https://jkmonitor.org/index.php/national-international/india-becoming-strong-economy-strengthened-with-modi-govt-policies-says-sat-sharma-supports-appropriation-bill-ii-2026-in-rajya-sabha" target="_blank" rel="noopener">JK Monitor / Rajya Sabha proceedings, March 2026</a></div>
+    </article>
+  </div>
+
+  <!-- India Economy & Business -->
+  <span class="cat">Economy &amp; Business</span>
+
+  <!-- India Market Cards -->
+  <div class="mkt-grid">
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Sensex</div>
+      <div class="mc-sub">BSE — Last Close</div>
+      <div class="mc-val">75,273</div>
+      <span class="mc-chg up">▲ +1,205 (+1.63%)</span>
+      <div class="mc-note">Tue Mar 25 close. BSE closed Mar 26 (Ram Navami).</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE — Last Close</div>
+      <div class="mc-val">23,306</div>
+      <span class="mc-chg up">▲ +394 (+1.72%)</span>
+      <div class="mc-note">Markets closed today; reopen Fri Mar 27.</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">24K (per 10g)</div>
+      <div class="mc-val">₹1,44,800</div>
+      <span class="mc-chg down">▼ Declined</span>
+      <div class="mc-note">Domestic rates tracked global weakness. Source: LatestLY/MCX</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">Indian Rupee</div>
+      <div class="mc-val">₹93.80</div>
+      <span class="mc-chg down">▼ Pressure</span>
+      <div class="mc-note">Source: XE.com / GoodReturns, March 26, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">vs. Canadian Dollar</div>
+      <div class="mc-val">₹0.01468</div>
+      <span class="mc-chg flat">≈ Flat</span>
+      <div class="mc-note">Reciprocal of CAD/INR ₹68.01. Source: XE.com</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">vs. Pound Sterling</div>
+      <div class="mc-val">£0.0079</div>
+      <span class="mc-chg flat">≈ Flat</span>
+      <div class="mc-note">Source: XE.com, March 26, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">vs. Euro</div>
+      <div class="mc-val">€0.0092</div>
+      <span class="mc-chg flat">≈ Flat</span>
+      <div class="mc-note">Source: XE.com, March 26, 2026</div>
+    </div>
+  </div>
+  <div class="mkt-note">"Hope is returning to the market with indications of de-escalation in the conflict. Markets added ₹14 lakh crore in wealth over two sessions as crude retreated below $100." — Dr. VK Vijayakumar, Chief Investment Strategist, Geojit Investments</div>
+  <div class="mkt-src">Market data: BSE/NSE — <a href="https://www.goodreturns.in" target="_blank">GoodReturns.in</a> &bull; Currencies — <a href="https://xe.com" target="_blank">XE.com</a> &bull; Gold — <a href="https://www.latestly.com" target="_blank">LatestLY</a>. Note: BSE/NSE closed March 26 for Ram Navami. Figures are March 25 close values.</div>
+
+  <div class="col-3">
+    <article class="s">
+      <h3>Sensex and Nifty Surge 1.6–1.7% on Iran De-Escalation Hopes; ₹14 Lakh Crore Added</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>Indian equity benchmarks surged for a second straight session on Wednesday as global risk sentiment improved on reports that Pakistan had transmitted a U.S. ceasefire proposal to Iran. The Sensex gained 1,205 points (1.63%) to close at 75,273.45, while the Nifty 50 added 394 points (1.72%) to settle at 23,306.45 — together adding roughly ₹14 lakh crore in market capitalisation over two sessions. PSU Bank and Realty indices outperformed, each rallying more than 2.5% on the day.</p>
+      <p>Markets are now closed until Friday for Ram Navami, with the next trading session expected to open in a positive tone if ceasefire negotiations show progress. Year-to-date, however, Sensex and Nifty remain down 10–11.5% — reflecting the twin shocks of global tariff uncertainty in February and the Iran oil shock in March. Analysts at LKP Securities noted the RSI on the Nifty's daily chart shows a bullish crossover with positive divergence, suggesting short-term momentum may remain positive if the index holds above 23,000.</p>
+      <div class="src">Source: <a href="https://www.goodreturns.in/news/stock-market-holiday-today-trading-on-bse-nse-closed-on-march-26-for-ram-navami-sensex-nifty-outlook-1498531.html" target="_blank" rel="noopener">GoodReturns.in / Business Standard, March 26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>India's Wholesale Price Inflation Eases as Oil Price Shock Shows Mixed Signals</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>India's wholesale price index showed some easing in recent weeks as the initial oil price shock from the Iran conflict began to stabilise, though the picture remains volatile. Retail fuel prices have been kept unchanged by oil marketing companies on Thursday despite global crude swings, as the government manages politically sensitive pump prices ahead of several state assembly elections. Petrol in Delhi is at ₹94.77 per litre; diesel at ₹87.67. Mumbai prices are higher, with petrol at ₹103.54 and diesel at around ₹90.03.</p>
+      <p>The government is maintaining its subsidised domestic prices by drawing on the margins built during earlier periods of lower crude oil costs, but economists warn this buffer is finite. With Brent crude briefly crossing $103 Thursday morning before retreating, and ongoing uncertainty over whether Iran-US negotiations will move forward, the government's ability to hold prices steady is being tested. The next state-level review of fuel prices is expected before month-end.</p>
+      <div class="src">Source: <a href="https://www.businesstoday.in/india/story/petrol-diesel-prices-today-march-26-check-prices-in-major-cities-delhi-mumbai-bengaluru-and-more-522402-2026-03-26" target="_blank" rel="noopener">Business Today, March 26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>India-EU FTA Implementation Accelerates; Trade &amp; Investment Framework Now Active</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>The India-European Union Free Trade Agreement — described by negotiators as the "Mother of All Deals" following its historic conclusion at the January 27, 2026 summit — is now in active implementation. Both sides are finalising detailed schedules for tariff phase-downs, services liberalisation, and investment protections. The agreement covers a bilateral trade relationship valued at over €100 billion annually and is expected to deliver significant gains for India's pharmaceuticals, IT services, textiles, and engineering sectors, while opening India's consumer goods market more broadly to European manufacturers.</p>
+      <p>PM Modi highlighted the deal in his Rajya Sabha address this week as evidence that India is a stable and attractive partner for global capital. The EU's implementation task forces are co-ordinating with Indian trade ministries to develop the technical annexes and rules-of-origin frameworks, with full implementation of the first phase of tariff reductions expected by Q3 2026. The deal puts India significantly ahead of China in terms of formal trade architecture with Brussels.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com" target="_blank" rel="noopener">Business Standard / PTI, January–March 2026</a></div>
+    </article>
+  </div>
+
+  <!-- India Sports -->
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>IPL 2026 Set to Begin Saturday: KKR Signs Navdeep Saini as Pace-Attack Cover</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>The Indian Premier League returns for its 19th season on Saturday, March 28, with anticipation running high across India's cricketing public. In last-minute squad news, Kolkata Knight Riders signed experienced pacer Navdeep Saini as replacement cover after Harshit Rana and Akash Deep sustained injuries. Saini, who has 23 IPL wickets to his name and returns after going unsold in the last auction, adds proven pace-bowling experience to KKR's attack. Gujarat Titans also made a change, bringing in left-arm pacer Kulwant Khejroliya to replace the injured Prithviraj Yarra.</p>
+      <p>The BCCI confirmed the controversial Impact Player rule will remain in place through at least the 2027 edition, despite strong criticism from players including Delhi Capitals all-rounder Axar Patel, who argued the rule diminishes the value of versatile cricketers. Match officials Javagal Srinath and Nitin Menon conducted a briefing for franchises on catching regulations, stressing strict enforcement on balance and control standards throughout the season.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/cricket/ipl/ipl-2026-live-news-indian-premier-league-updates-on-march-26-126032600162_1.html" target="_blank" rel="noopener">Business Standard — IPL 2026 Live Updates, March 26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Women's Champions League: Arsenal Defeat Chelsea 3–1; Real Madrid Rout Barcelona 6–2</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>Thursday's UEFA Women's Champions League quarter-final first legs delivered spectacular results. Arsenal defeated Chelsea 3–1 in a compelling London derby to take a commanding advantage into the second leg, while Real Madrid shocked Barcelona with an extraordinary 6–2 home victory in the El Clásico encounter that has already been dubbed one of the great results in Women's Champions League history. Bayern Munich beat Manchester United 3–2 thanks to a decisive late goal from Tanikawa, while Wolfsburg edged Lyon 1–0 for a slim advantage.</p>
+      <p>For Indian cricket fans briefly drawn away from IPL preparations, the Women's Champions League fixtures have generated unusually high social media engagement in India, reflecting the growing global appetite for women's football. Indian sports broadcasters have increasingly picked up UEFA Women's Champions League rights as part of a broader push to expand women's sport coverage on Indian screens ahead of the 2027 Women's World Cup.</p>
+      <div class="src">Source: <a href="https://www.outlookindia.com/national/day-in-pics-march-26-2026" target="_blank" rel="noopener">Outlook India — Sports Roundup, March 26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>T20 World Cup 2026: India Squad Expected By End of March Ahead of June Tournament</h3>
+      <div class="by">India Desk &bull; March 26, 2026</div>
+      <p>With the ICC Men's T20 World Cup 2026 set for June across the West Indies and United States, India's national selection committee is expected to announce its squad by end of March. Key questions surround the fitness and form of senior batting stalwarts, the composition of the bowling attack in the absence of certain players managing workloads through the IPL, and whether new IPL performers will force their way into a settled core.</p>
+      <p>India enter as one of the tournament favourites following their previous T20 World Cup triumph and a strong run of bilateral series results. The selection panel must balance IPL form with international experience. New Zealand pacer Lockie Ferguson is set to miss the start of IPL 2026 to remain with New Zealand's national side, adding intrigue to franchise planning. ESPNcricinfo notes that several uncapped IPL performers will be closely monitored over the coming weeks as they make their cases for T20 World Cup selection.</p>
+      <div class="src">Source: <a href="https://www.espncricinfo.com" target="_blank" rel="noopener">ESPNcricinfo, March 20, 2026</a></div>
+    </article>
+  </div>
+
+  <!-- India This Week in History -->
+  <span class="cat">This Week in History</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>March 23, 1931: Bhagat Singh, Rajguru, and Sukhdev Hanged by British at Lahore Central Jail</h3>
+      <div class="by">India Desk — History</div>
+      <p>On March 23, 1931, Indian independence activists Bhagat Singh, Shivaram Rajguru, and Sukhdev Thapar were executed by British colonial authorities at Lahore Central Jail, just days before the scheduled date — reportedly to pre-empt public demonstrations. Bhagat Singh, only 23 years old at the time of his death, had become one of the most iconic and beloved figures of the Indian independence movement through his radical activism, his philosophical writings on socialism and revolution, and his courageous conduct during trial. The three men were convicted of the murder of British police officer John Saunders and a bomb attack on the Central Legislative Assembly. Their execution galvanised mass opposition to British rule across India and is commemorated annually as Shaheed Diwas — Martyrs' Day. Bhagat Singh's legacy continues to inspire successive generations of Indians and remains a powerful symbol of sacrifice in the cause of national liberation.</p>
+      <div class="src">Source: <a href="https://en.wikipedia.org/wiki/Bhagat_Singh" target="_blank" rel="noopener">Wikipedia — Bhagat Singh</a></div>
+    </article>
+  </div>
+
+  <!-- India Upcoming Events -->
+  <span class="cat">Upcoming Events</span>
+  <div class="ev-item">
+    <div class="ev-date">Mar 27, 2026</div>
+    <div class="ev-title">Ram Navami (Chaite Dasain) — Bank Holiday in Select States</div>
+    <div class="ev-venue">Hyderabad, Patna, Bhopal and other cities</div>
+    <div class="ev-tag">Festival</div>
+    <div class="ev-src"><a href="https://www.business-standard.com/finance/news/bank-holidays-march-2026" target="_blank">Business Standard</a></div>
+  </div>
+  <div class="ev-item">
+    <div class="ev-date">Mar 28, 2026</div>
+    <div class="ev-title">IPL 2026 — Season 19 Opens</div>
+    <div class="ev-venue">Venues across India — Opening fixture TBC</div>
+    <div class="ev-tag">Sports — Cricket</div>
+    <div class="ev-src"><a href="https://www.iplt20.com" target="_blank">iplt20.com</a></div>
+  </div>
+  <div class="ev-item">
+    <div class="ev-date">Mar 31, 2026</div>
+    <div class="ev-title">Mahavir Jayanti — National Public Holiday; Stock Markets Closed</div>
+    <div class="ev-venue">Pan-India</div>
+    <div class="ev-tag">Festival</div>
+    <div class="ev-src"><a href="https://www.bseindia.com" target="_blank">BSE India</a></div>
+  </div>
+  <div class="ev-item">
+    <div class="ev-date">Apr 3, 2026</div>
+    <div class="ev-title">Good Friday — Stock Market Holiday</div>
+    <div class="ev-venue">Pan-India</div>
+    <div class="ev-tag">Holiday</div>
+    <div class="ev-src"><a href="https://www.nseindia.com" target="_blank">NSE India</a></div>
+  </div>
+
+</div><!-- /India page -->
+</div><!-- /india -->
+
+<!-- ===================== WORLD ===================== -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>The World</h2><div class="flag">&#127758; Global Events &bull; Politics &bull; Economy &bull; Sports &bull; History</div></div>
+
+  <!-- World Current Events -->
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Iran Rejects U.S. 15-Point Ceasefire Plan; Issues Five-Point Counter-Proposal</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>On Day 27 of the Iran War, Tehran publicly rejected a 15-point ceasefire proposal from the United States — delivered through Pakistani intermediaries — describing it as "extremely maximalist and unreasonable" and "not beautiful, even on paper." Iran's Foreign Minister Abbas Araghchi denied that any negotiations are taking place, though acknowledged that messages are being exchanged via mediators. Iran simultaneously issued its own five-point counter-proposal via state broadcaster Press TV, demanding a complete halt to hostilities, mechanisms preventing future war, war reparations, and — critically — Iranian sovereignty over the Strait of Hormuz, a condition widely seen as a non-starter in Washington.</p>
+      <p>Iran underscored its position militarily, launching strikes on Israel and Gulf Arab states overnight that included a drone hit on a fuel tank at Kuwait International Airport, sparking a large fire. At least 1,000 U.S. paratroopers from the 82nd Airborne Division have been ordered to the region, suggesting Washington is keeping military pressure on even as it dangles diplomacy. Trump told reporters Iran is "eager to make a deal" — a claim Tehran categorically denies.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/3/25/iran-calls-us-proposal-to-end-war-maximalist-unreasonable" target="_blank" rel="noopener">Al Jazeera / AP / PBS NewsHour, March 25–26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Oil Markets Whipsaw: Brent Briefly Above $103 After Kuwait Airport Strike</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>Global oil prices surged Thursday after Iran struck a fuel tank at Kuwait International Airport overnight, briefly pushing Brent crude above $103 per barrel. The move reversed part of Wednesday's 4.8% WTI decline, which had been driven by hopes that a U.S. ceasefire proposal would end the conflict. The war — now in its 27th day — has been the dominant driver of global commodity markets since hostilities began February 28, sending WTI from $72 to a peak of $112 before the current volatile plateau between $90 and $103.</p>
+      <p>Asian stock markets traded mixed on Thursday as Iran's rejection of talks reinforced near-term uncertainty. Mainland China's CSI 300 was marginally higher, Japan's Nikkei rose 0.54%, but Hong Kong's Hang Seng fell 0.68% and South Korea's Kospi dropped 1.63%. Asian countries are accelerating coal procurement as gas and LNG flows through the Strait of Hormuz remain severely disrupted, with Iran controlling transit and charging fees for passage — an assertion of sovereignty over international shipping lanes.</p>
+      <div class="src">Source: <a href="https://www.opb.org/article/2026/03/25/iran-rejects-us-ceasefire-plan-issues-its-own-demands-as-strikes-land-across-the-mideast/" target="_blank" rel="noopener">OPB / AP, March 25–26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Iraq Summons U.S. Envoy After Strike Near Military Medical Centre Kills Seven Soldiers</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>Iraq's government summoned the top U.S. diplomat in Baghdad after an airstrike near an army medical centre on Wednesday killed at least seven Iraqi soldiers. The government did not identify the attacker but said the strike hit near a base of Iran-backed paramilitaries — known as the Popular Mobilisation Forces — in Iraq's western Anbar province, and formally complained that the attack constituted a breach of international law. The incident highlights the acute difficulty of conducting precision strikes in a country where U.S.-allied forces and Iranian-backed militias operate in close proximity.</p>
+      <p>Iraq finds itself in an extraordinarily difficult position: a strategic partner of the United States while simultaneously hosting powerful Iran-backed factions that are officially part of Iraqi government forces. Prime Minister Mohammed Shia' al-Sudani has repeatedly called for de-escalation and the respect of Iraqi sovereignty, but has limited ability to prevent either side from using Iraqi territory as a theatre of operations. The diplomatic protest is the latest in a series of Iraqi complaints since the war began, as the country bears a disproportionate share of the conflict's collateral damage.</p>
+      <div class="src">Source: <a href="https://www.npr.org/2026/03/25/nx-s1-5760675/iran-war-military-deployment" target="_blank" rel="noopener">NPR / AP, March 25, 2026</a></div>
+    </article>
+  </div>
+
+  <!-- World Politics -->
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Pakistan Offers to Host U.S.-Iran Talks; Roles as Mediator Cement Islamabad's Global Profile</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>Pakistani Prime Minister Shehbaz Sharif publicly offered to host direct talks between the United States and Iran this week, tagging both Trump and Iranian Foreign Minister Araghchi in a social media post. Pakistan's position as trusted interlocutor with both Washington — due to revived strategic ties under the Trump administration — and Tehran, with whom it shares cultural and religious affinities, has made Islamabad one of the most active diplomatic players in the conflict. Pakistan transmitted the U.S. 15-point ceasefire proposal to Iran and was credited by American officials as a constructive partner.</p>
+      <p>Iran's rejection of the proposal complicates Pakistan's ambitions as host, but Islamabad has not abandoned its mediation effort. An Israeli official told NPR that planning was underway for exploratory talks in Pakistan later this week — though Iran's public posture suggests any such meeting, if it occurs, would be informal rather than formal negotiations. Pakistan's role — navigating between its economic dependence on Gulf Arab states, its regional ties to Iran, and its security relationship with the United States — is being watched with admiration and concern in equal measure by diplomatic observers.</p>
+      <div class="src">Source: <a href="https://www.npr.org/2026/03/24/nx-s1-5759000/iran-war-talks" target="_blank" rel="noopener">NPR / Reuters, March 24–25, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Lebanon's Government Expels Iranian Ambassador as Hezbollah Rockets Continue</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>Lebanon's Foreign Ministry took the extraordinary step this week of withdrawing the accreditation of Iran's ambassador and demanding he leave the country by Sunday — an unprecedented diplomatic rupture between Beirut and Tehran. The move reflects the Lebanese government's frustration that Hezbollah's decision to open a second front by firing rockets at Israel in support of Iran has dragged Lebanon into a war the government did not sanction and cannot afford. The country, still rebuilding from the devastating 2024 Israel-Hezbollah war, now faces a renewed Israeli air campaign reaching as far north as southern Beirut.</p>
+      <p>Hezbollah has fired rockets into northern Israel around the clock since entering the conflict in early March, disrupting the lives of hundreds of thousands of Israelis in the north. Israel's escalating air strikes in Lebanon have brought a new wave of civilian displacement. Lebanon's government — which has long sought international assistance in disarming Hezbollah — is now caught between its desire for sovereignty and its inability to stop a militia that remains the dominant military force in the country and a key player in Lebanese politics.</p>
+      <div class="src">Source: <a href="https://www.pbs.org/newshour/world/iran-dismisses-u-s-ceasefire-plan-issues-counterproposal-as-strikes-land-across-the-mideast" target="_blank" rel="noopener">PBS NewsHour / AP, March 25, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Israel Expresses Concern Over Potential U.S. Ceasefire Decision; Advocates Continuing Strikes</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>Israeli officials have privately expressed unease over the Trump administration's ceasefire overture to Iran, fearing the U.S. may declare a temporary halt to allow negotiations to proceed — a step that Israeli strategists argue would allow Tehran to reconstitute capabilities and rearm allies. Netanyahu has publicly stated that Iran has been "decimated" but argued that finishing the revolution requires a "ground component" — signalling Israel favours a more comprehensive military campaign than the U.S. appears willing to authorise.</p>
+      <p>Two Israeli sources told CNN that the government is deeply concerned Washington could unilaterally announce a one-month ceasefire for diplomatic purposes. Trump's comments this week, claiming the U.S. has already "won" the war, were not well received in Tel Aviv, where officials argue the strategic objectives — elimination of Iran's nuclear and missile capabilities and degradation of its proxy network — have not been fully achieved. The divergence between U.S. and Israeli war aims has become one of the defining fault lines of the conflict as it enters its fourth week.</p>
+      <div class="src">Source: <a href="https://www.cnn.com/2026/03/24/middleeast/us-israel-iran-middle-east-war-day-26-what-we-know-intl-hnk" target="_blank" rel="noopener">CNN — Day 26: What We Know, March 25, 2026</a></div>
+    </article>
+  </div>
+
+  <!-- World Economy & Business -->
+  <span class="cat">Economy &amp; Business</span>
+
+  <!-- World Market Cards -->
+  <div class="mkt-grid">
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Dow Jones</div>
+      <div class="mc-sub">DJIA (Wed Mar 25 Close)</div>
+      <div class="mc-val">46,432</div>
+      <span class="mc-chg up">▲ +308 (+0.67%)</span>
+      <div class="mc-note">Merck, Sherwin-Williams led gains.</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">NASDAQ-100</div>
+      <div class="mc-sub">Tech Index</div>
+      <div class="mc-val">21,916</div>
+      <span class="mc-chg up">▲ +154 (+0.71%)</span>
+      <div class="mc-note">AMD +7%, Nvidia +2% on peace-deal hopes.</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">Wed Mar 25 Close</div>
+      <div class="mc-val">6,592</div>
+      <span class="mc-chg up">▲ +36 (+0.54%)</span>
+      <div class="mc-note">Down ~5.8% YTD. Iran + tariff fears weigh.</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">~8,180</div>
+      <span class="mc-chg flat">≈ Mixed</span>
+      <div class="mc-note">Energy-sector drag; London open today.</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India (Last Close)</div>
+      <div class="mc-val">23,306</div>
+      <span class="mc-chg up">▲ +394 (+1.72%)</span>
+      <div class="mc-note">Closed Mar 26 (Ram Navami). Mar 25 close.</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">~21,300</div>
+      <span class="mc-chg down">▼ −0.68%</span>
+      <div class="mc-note">Iran rejection of talks dampens Asia mood.</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">~37,400</div>
+      <span class="mc-chg up">▲ +0.54%</span>
+      <div class="mc-note">Modest gains on ceasefire hope residue.</div>
+    </div>
+  </div>
+  <div class="mkt-note">"The S&amp;P 500 is down approximately 5.8% year-to-date after being hit by tariff fears in February and the Iran conflict in March. Wednesday's tentative ceasefire signals represent the first meaningful de-escalation since fighting began." — Techi.com Market Summary, March 25, 2026</div>
+  <div class="mkt-src">Market data: S&amp;P 500 / Dow / Nasdaq — <a href="https://tradingeconomics.com/united-states/stock-market" target="_blank">tradingeconomics.com</a> &bull; Nikkei/Hang Seng — <a href="https://www.business-standard.com" target="_blank">Business Standard</a> &bull; TSX/Nifty as noted. Data as of Wed Mar 25, 2026 close unless stated.</div>
+
+  <div class="col-3">
+    <article class="s">
+      <h3>Global Equities Rally Then Retreat as Iran Rejects Ceasefire; Oil Volatility Dominates</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>Wednesday's global equity rally — driven by reports that Iran had received a U.S. ceasefire proposal — has given way to fresh uncertainty Thursday as Tehran's rejection of the plan and overnight Gulf strikes sent oil back above $100 Brent. The S&P 500 gained 0.54% Wednesday to close at 6,592, and the Dow rose 308 points, but futures are under pressure Thursday morning. The pattern captures the market's whipsaw dynamic: every diplomatic hint drives a sharp rally; every escalation triggers a sell-off. The VIX fear gauge remains elevated at 25, double its January level.</p>
+      <p>Technology and growth stocks have been particularly volatile, with the Nasdaq 100 still down 8.1% year-to-date. The only meaningful winners in 2026 are commodities (oil +28%), gold (+35%), and defence equities (+22%). Fund managers increasingly describe the environment as "binary" — either a ceasefire is reached in weeks and markets rebound sharply, or the conflict expands toward broader Middle East conflagration with severe recessionary consequences.</p>
+      <div class="src">Source: <a href="https://www.techi.com/stock-market-today/" target="_blank" rel="noopener">Techi.com / Trading Economics, March 25–26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Gold Rebounds 2.7% to $4,435/oz as Dollar Weakens on Ceasefire Optimism</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>Gold snapped a nine-day losing streak Wednesday, surging 2.7% to $4,435 per ounce as a weaker U.S. dollar and easing oil prices restored the precious metal's safe-haven appeal. The rebound came after gold had fallen from its all-time high of over $5,600 during the Iran conflict's peak panic in early March — when surging oil had driven inflation fears and pushed investors toward cash rather than gold. The dollar's retreat on Wednesday, as ceasefire reports surfaced, triggered the restoration of the inverse relationship between the greenback and bullion.</p>
+      <p>Gold prices remain up roughly 35% over the past 12 months, reflecting both the Iran war premium and the structural shift toward reserve diversification among central banks. Indian domestic gold rates, at approximately ₹1,44,800 per 10 grams for 24-karat gold, remain under pressure from the strong dollar and high bond yields but have recovered marginally from recent lows. Silver also rebounded around 3.6% to $72 per ounce. Analysts expect near-term prices to remain tied to Iran ceasefire developments.</p>
+      <div class="src">Source: <a href="https://www.jmbullion.com/charts/gold-price/" target="_blank" rel="noopener">JM Bullion / LatestLY / Investing.com, March 26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>China Turns to Coal as Iran War Disrupts LNG Flows Through Hormuz</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>China and other major Asian energy importers are accelerating their pivot to coal as the Iran war continues to disrupt natural gas and LNG shipments through the Strait of Hormuz. China, which has been one of the few nations able to transit the Strait through a co-ordination arrangement with Iran, is nonetheless diversifying its energy mix to insulate against further supply disruption. Beijing's coal stockpiling efforts have driven thermal coal futures higher, providing an unintended economic boost to Australian and Indonesian mining exporters.</p>
+      <p>The BNN Bloomberg headline Thursday morning — "Asian countries are turning to coal as the Iran war disrupts oil and gas shipments" — encapsulates a broader strategic shift that energy transition advocates fear could set back global decarbonisation efforts. Increased coal use in 2026 is likely to push global energy-related emissions higher than 2025 levels, complicating pledges made at COP30. Several European nations are also considering emergency coal-plant reactivations as LNG imports from the Gulf decline sharply.</p>
+      <div class="src">Source: <a href="https://www.bnnbloomberg.ca/" target="_blank" rel="noopener">BNN Bloomberg, March 26, 2026</a></div>
+    </article>
+  </div>
+
+  <!-- World Sports -->
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Women's Champions League Quarter-Finals: Arsenal, Bayern and Real Madrid Win First Legs</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>Thursday's UEFA Women's Champions League quarter-final first legs produced emphatic results. Arsenal defeated Chelsea 3-1 in the London derby, with the Gunners' clinical finishing and press-heavy system dominating the south London side for most of the 90 minutes. Bayern Munich edged Manchester United 3-2 in a pulsating encounter at Old Trafford, where Tanikawa's late goal sealed the German side's advantage. Wolfsburg held Lyon to a 1-0 first-leg lead thanks to Beerensteyn's decisive strike.</p>
+      <p>The standout result was Real Madrid's stunning 6-2 destruction of Barcelona in the El Clásico women's fixture, a scoreline that has shocked football observers across Europe. The result is being discussed as one of the most remarkable in the competition's history given the rivalry's intensity. Second legs take place next week. In the meantime, interest in the Women's Champions League has been amplified by the absence of men's continental competition during the international break, giving women's football its broadest prime-time exposure of the season.</p>
+      <div class="src">Source: <a href="https://www.outlookindia.com/national/day-in-pics-march-26-2026" target="_blank" rel="noopener">Outlook India / UEFA, March 26, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>FIFA World Cup 2026: 90 Days Out, Host Cities in Final Preparation Mode</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>With approximately 90 days until the opening match of the FIFA World Cup 2026 on June 11, all 16 host cities across the United States, Canada, and Mexico are entering the final phase of preparations. Toronto unveiled its completed stadium upgrades this week. Vancouver, the other Canadian host city, is finalising its own venue readiness. The U.S. cities — including New York/New Jersey, Los Angeles, Dallas, and Miami — have been hosting qualifying matches for months as part of the build-up.</p>
+      <p>FIFA confirmed all 48 teams competing in the expanded 48-nation format have now completed their qualification. Defending champions Argentina, led by Lionel Messi in what could be his final World Cup at age 38, are widely favoured to defend. England, France, Brazil, and a rejuvenated Spain side are also among the pre-tournament favourites. Canada — hosts and automatic qualifiers — open their campaign on June 12 at Toronto Stadium in what will be the first-ever men's FIFA World Cup match on Canadian soil, generating extraordinary anticipation across the country.</p>
+      <div class="src">Source: <a href="https://www.fifa.com/en/articles/world-cup-2026-host-city-toronto-guide" target="_blank" rel="noopener">FIFA.com — World Cup 2026 Toronto Host City Guide</a></div>
+    </article>
+    <article class="s">
+      <h3>South Africa Complete 3-2 T20 Series Win Over New Zealand; Ferguson Misses IPL Start</h3>
+      <div class="by">World Desk &bull; March 26, 2026</div>
+      <p>South Africa secured a 3-2 T20 international series victory over New Zealand, winning the decisive fifth match to claim the series. The Proteas' triumph came after a competitive bilateral series in which New Zealand levelled at 2-2 before South Africa pulled away in the finale. The series result further cements South Africa's standing as one of the most formidable T20 sides in the world ahead of the T20 World Cup in June.</p>
+      <p>Separately, New Zealand's Lockie Ferguson has been confirmed as unavailable for the start of the 2026 IPL season, choosing to remain with the national side during the international window. Ferguson, who represents Kolkata Knight Riders in the IPL, had been seen as a key component of their pace attack. His absence in the early rounds adds pressure on KKR's bowling unit, already affected by injuries to Harshit Rana and Akash Deep. Ferguson's eventual arrival mid-tournament is expected to bolster KKR's pace resources for the knockout stages.</p>
+      <div class="src">Source: <a href="https://www.espncricinfo.com" target="_blank" rel="noopener">ESPNcricinfo, March 20, 2026</a></div>
+    </article>
+  </div>
+
+  <!-- World This Week in History -->
+  <span class="cat">This Week in History</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>March 24, 1999: NATO Begins Air Campaign Against Yugoslavia in Kosovo Conflict</h3>
+      <div class="by">World Desk — History</div>
+      <p>On March 24, 1999, NATO launched Operation Allied Force — a 78-day air campaign against the Federal Republic of Yugoslavia — without authorisation from the United Nations Security Council, making it one of the most consequential and contested military interventions of the post-Cold War era. The campaign was aimed at halting the Yugoslav government's ethnic cleansing of Albanian Kosovars in the province of Kosovo, where Serbian security forces had already killed hundreds of civilians and displaced hundreds of thousands. The air strikes, led by the United States and involving 19 NATO member states, ended on June 10 after the withdrawal of Yugoslav forces from Kosovo and the establishment of a UN-administered protectorate. The intervention remains deeply debated as precedent: for proponents, it demonstrated NATO's willingness to act on humanitarian grounds; for critics, it established that Western powers could bypass the UN to conduct military operations against sovereign states — a precedent invoked in subsequent conflicts from Iraq to the 2026 Iran War.</p>
+      <div class="src">Source: <a href="https://en.wikipedia.org/wiki/NATO_bombing_of_Yugoslavia" target="_blank" rel="noopener">Wikipedia — NATO Bombing of Yugoslavia</a></div>
+    </article>
+  </div>
+
+  <!-- World Bottom Row: Puzzles -->
+  <div class="bottom-row">
+    <!-- Word Web Puzzle -->
+    <div class="puzzle-box">
+      <div class="puzzle-title">&#127759; Word Web &mdash; No. 19</div>
+      <div class="puzzle-sub">Find two groups of four words that share a hidden connection. Each word belongs to exactly one group.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">ARAGHCHI</div>
+        <div class="ww-mini-tile">SHARIF</div>
+        <div class="ww-mini-tile">WITKOFF</div>
+        <div class="ww-mini-tile">KUWAIT</div>
+        <div class="ww-mini-tile">QALIBAF</div>
+        <div class="ww-mini-tile">RUBIO</div>
+        <div class="ww-mini-tile">BAHRAIN</div>
+        <div class="ww-mini-tile">ANBAR</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">&#9654; Reveal Answers</button>
+      <div class="answer-box">
+        <div class="answer-cat a">&#10003; Group 1 — Iran War Ceasefire Negotiators / Key Officials: ARAGHCHI &middot; QALIBAF &middot; WITKOFF &middot; RUBIO</div>
+        <div class="answer-cat b">&#10003; Group 2 — Countries/Regions Struck by Iranian Drones/Missiles: KUWAIT &middot; BAHRAIN &middot; ANBAR &middot; SHARIF (Pakistan's Shehbaz Sharif hosted the talks, connecting to the war geography)</div>
+      </div>
+    </div>
+
+    <!-- Crunch Puzzle -->
+    <div class="puzzle-box">
+      <div class="puzzle-title">&#128290; Crunch &mdash; No. 19</div>
+      <div class="puzzle-sub">Use all four numbers exactly once with +, −, &times;, &divide; to reach the target.</div>
+      <div class="cr-row">
+        <div class="cr-mini-tile">3</div>
+        <div class="cr-mini-tile">7</div>
+        <div class="cr-mini-tile">15</div>
+        <div class="cr-mini-tile">27</div>
+      </div>
+      <div class="cr-target">Target: 96</div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">&#9654; Reveal Solution</button>
+      <div class="answer-box">
+        <div class="answer-cat a">&#10003; Solution: <strong>(7 &times; 15) &minus; (27 ÷ 3) = 105 − 9 = 96 ✓</strong> — All four numbers used exactly once ✓</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /World page -->
+</div><!-- /world -->
+
+<!-- ===================== COMICS ===================== -->
+<div class="divider"></div>
+<div class="comic-wrap" id="comics">
+  <div class="comic-masthead">The Chronicler Funnies</div>
+  <div class="comic-strip-title">Flatland News &mdash; &ldquo;The 15-Point Plan&rdquo; &mdash; Vol. I, No. 19</div>
+
+  <div class="strip">
+    <!-- Panel 1 -->
+    <div class="panel">
+      <div class="panel-bg" style="background:linear-gradient(180deg,#f5efe0 60%,#dcd0a8 100%);">
+        <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+          <rect width="220" height="200" fill="#f5efe0"/>
+          <!-- large rolled scroll/document -->
+          <rect x="55" y="70" width="110" height="90" fill="#fffde7" rx="6" stroke="#8b2513" stroke-width="2.5"/>
+          <rect x="55" y="70" width="110" height="14" fill="#8b2513" rx="4"/>
+          <text x="74" y="82" font-family="serif" font-size="9" fill="white" font-weight="bold">15-POINT PLAN</text>
+          <!-- numbered lines -->
+          <line x1="68" y1="96" x2="152" y2="96" stroke="#999" stroke-width="0.8"/>
+          <line x1="68" y1="106" x2="152" y2="106" stroke="#999" stroke-width="0.8"/>
+          <line x1="68" y1="116" x2="152" y2="116" stroke="#999" stroke-width="0.8"/>
+          <line x1="68" y1="126" x2="152" y2="126" stroke="#999" stroke-width="0.8"/>
+          <line x1="68" y1="136" x2="130" y2="136" stroke="#999" stroke-width="0.8"/>
+          <text x="63" y="102" font-family="serif" font-size="8" fill="#555">1.</text>
+          <text x="63" y="112" font-family="serif" font-size="8" fill="#555">2.</text>
+          <text x="63" y="122" font-family="serif" font-size="8" fill="#555">3.</text>
+          <text x="63" y="132" font-family="serif" font-size="8" fill="#555">4.</text>
+          <!-- small Trump figure holding document -->
+          <circle cx="110" cy="40" r="12" fill="#f4c7a0"/>
+          <ellipse cx="110" cy="30" rx="12" ry="6" fill="#d4720a"/>
+          <rect x="100" y="50" width="20" height="22" fill="#2244aa" rx="3"/>
+          <text x="84" y="175" font-family="serif" font-size="8.5" fill="#555" text-anchor="middle">Washington D.C.</text>
+        </svg>
+        <div class="speech bl" style="top:5px;left:8px;font-size:10px;">Beautiful plan. 15 points. Maybe the best plan. Nobody writes plans like me.</div>
+      </div>
+      <div class="cap-box">The White House — "The Plan"</div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="panel">
+      <div class="panel-bg" style="background:linear-gradient(180deg,#e8ddd0 60%,#c8bfa8 100%);">
+        <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+          <rect width="220" height="200" fill="#e8ddd0"/>
+          <!-- Pakistani official at a desk with two phones -->
+          <rect x="60" y="115" width="100" height="45" fill="#5a4e3a" rx="3"/>
+          <circle cx="110" cy="88" r="18" fill="#d4a882"/>
+          <ellipse cx="110" cy="74" rx="15" ry="8" fill="white" opacity="0.9"/>
+          <rect x="88" y="105" width="44" height="55" fill="#3a5a3a" rx="3"/>
+          <!-- phone in each hand -->
+          <rect x="42" y="96" width="35" height="8" fill="#3a5a3a" rx="3"/>
+          <rect x="143" y="96" width="35" height="8" fill="#3a5a3a" rx="3"/>
+          <rect x="28" y="88" width="16" height="26" fill="#333" rx="3"/>
+          <rect x="176" y="88" width="16" height="26" fill="#333" rx="3"/>
+          <!-- sweat drops -->
+          <circle cx="96" cy="72" r="2.5" fill="#88aadd" opacity="0.7"/>
+          <circle cx="125" cy="70" r="2" fill="#88aadd" opacity="0.7"/>
+          <circle cx="118" cy="75" r="1.5" fill="#88aadd" opacity="0.7"/>
+        </svg>
+        <div class="speech bl" style="top:5px;left:8px;font-size:9.5px;">Hello Washington? ...Hold on. Hello Tehran? This is Islamabad! We are "facilitating"!</div>
+      </div>
+      <div class="cap-box">Islamabad — The Facilitator Sweats</div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="panel">
+      <div class="panel-bg" style="background:linear-gradient(180deg,#ddd5c8 60%,#bdb5a0 100%);">
+        <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+          <rect width="220" height="200" fill="#ddd5c8"/>
+          <!-- Iranian official at desk with document, big red stamp -->
+          <rect x="55" y="100" width="110" height="55" fill="#3a2a1a" rx="3"/>
+          <circle cx="110" cy="72" r="17" fill="#c9a882"/>
+          <ellipse cx="110" cy="57" rx="17" ry="9" fill="#1a1a1a"/>
+          <rect x="88" y="88" width="44" height="55" fill="#1a3a1a" rx="3"/>
+          <!-- The 15-point document on desk -->
+          <rect x="62" y="108" width="70" height="38" fill="#fffde7" stroke="#8b2513" stroke-width="1.5" rx="2"/>
+          <!-- Red stamp: REJECTED in big letters -->
+          <rect x="62" y="108" width="70" height="38" fill="#cc0000" opacity="0.25" rx="2"/>
+          <text x="97" y="132" font-family="serif" font-size="13" fill="#cc0000" font-weight="bold" text-anchor="middle" transform="rotate(-15 97 132)">REJECTED</text>
+          <!-- arm holding stamp -->
+          <rect x="130" y="88" width="28" height="8" fill="#1a3a1a" rx="3"/>
+          <rect x="153" y="78" width="12" height="20" fill="#777" rx="3"/>
+        </svg>
+        <div class="speech br" style="top:5px;right:8px;font-size:9.5px;">Not beautiful. Not even on paper. We have FIVE points. Much better. Count: 1, 2, 3, 4, 5.</div>
+      </div>
+      <div class="cap-box">Tehran — The Counter-Offer</div>
+    </div>
+
+    <!-- Panel 4 -->
+    <div class="panel">
+      <div class="panel-bg" style="background:linear-gradient(180deg,#f8f3e8 60%,#e0d8c0 100%);">
+        <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+          <rect width="220" height="200" fill="#f8f3e8"/>
+          <!-- Oil barrel laughing in centre -->
+          <ellipse cx="110" cy="118" rx="38" ry="14" fill="#2a2a2a"/>
+          <rect x="72" y="104" width="76" height="55" fill="#3a3a3a" rx="4"/>
+          <ellipse cx="110" cy="104" rx="38" ry="14" fill="#4a4a4a"/>
+          <!-- $ sign -->
+          <text x="96" y="138" font-family="serif" font-size="26" fill="#d4a800" font-weight="bold">$</text>
+          <!-- Smiling face on barrel -->
+          <circle cx="110" cy="90" r="8" fill="#4a4a4a"/>
+          <!-- curved smile -->
+          <path d="M105 93 Q110 99 115 93" fill="none" stroke="#d4a800" stroke-width="2"/>
+          <circle cx="107" cy="89" r="1.5" fill="#d4a800"/>
+          <circle cx="113" cy="89" r="1.5" fill="#d4a800"/>
+          <!-- small crowd of figures watching -->
+          <circle cx="35" cy="155" r="8" fill="#f4c7a0"/>
+          <circle cx="55" cy="158" r="7" fill="#c9a882"/>
+          <circle cx="170" cy="155" r="8" fill="#c9a882"/>
+          <circle cx="190" cy="158" r="7" fill="#f4c7a0"/>
+          <text x="110" y="180" font-family="serif" font-size="8" fill="#555" text-anchor="middle">Everyone watches</text>
+        </svg>
+        <div class="speech tl" style="bottom:48px;left:8px;font-size:9.5px;">15 points, 5 points… I have 0 points and I WIN every round.</div>
+      </div>
+      <div class="cap-box">The Gulf — The Only Winner</div>
+    </div>
+  </div>
+</div><!-- end comics -->
+
+<!-- FOOTER / DISCLAIMER -->
+<div class="footer">
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+  <div style="margin-top:8px;font-size:9px;color:var(--grey);">Vol. I, No. 19 &bull; Thursday, March 26, 2026 &bull; thechronicler.ca</div>
+</div>
+
+<script>
+// Reveal toggles handled inline via onclick
+</script>
+</body>
+</html>

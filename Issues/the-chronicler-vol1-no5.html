@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Thursday, March 12, 2026 — Vol. I, No. 5</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#141008; --aged:#f4edd6; --cream:#fdf9ee; --rust:#8b2513; --gold:#a07800; --grey:#635d4e; --rule:#d0c5a0; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+  .masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:16px 40px 10px;text-align:center;}
+  .mast-top{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);letter-spacing:.05em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;}
+  .masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(34px,5.5vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+  .mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11.5px;color:var(--grey);margin-top:3px;}
+  .breaking-bar{background:var(--rust);color:#fff;text-align:center;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;padding:5px;}
+  .nav-bar{display:flex;justify-content:center;background:var(--ink);position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+  .nav-bar a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:9px 20px;border-right:1px solid #2a2010;transition:background .2s;}
+  .nav-bar a:last-child{border-right:none;}
+  .nav-bar a:hover{background:var(--rust);color:#fff;}
+  .page{max-width:1080px;margin:0 auto;background:var(--cream);padding:28px 38px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+  .section-banner{text-align:center;margin:28px 0 18px;padding:13px 20px;background:var(--ink);color:var(--aged);}
+  .section-banner h2{font-family:'Playfair Display',serif;font-size:25px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+  .section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+  .cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:22px 0 13px;display:block;}
+  .col-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  article.s{border-right:1px solid var(--rule);padding-right:17px;}
+  article.s:last-child{border-right:none;padding-right:0;}
+  article.s h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+  article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10.5px;color:var(--grey);font-style:italic;margin-bottom:8px;}
+  article.s p{font-size:13px;line-height:1.72;text-align:justify;margin-bottom:8px;hyphens:auto;}
+  article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:8px;word-break:break-all;}
+  article.s .src a{color:var(--rust);text-decoration:none;}
+  .pull{border-left:4px solid var(--rust);padding:7px 11px;margin:9px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:13.5px;color:var(--rust);}
+  .divider{height:11px;background:var(--ink);max-width:1080px;margin:0 auto;}
+  .w-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:16px;margin-top:18px;}
+  .w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:14px;text-align:center;}
+  .w-card .city{font-family:'Playfair Display',serif;font-weight:700;font-size:14.5px;margin-bottom:1px;}
+  .w-card .region{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;}
+  .w-icon{font-size:38px;display:block;margin-bottom:5px;}
+  .w-card .temp{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;}
+  .w-card .rng{font-family:'Source Sans 3',sans-serif;font-size:10.5px;color:var(--grey);margin-bottom:7px;}
+  .w-card .cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11.5px;color:var(--grey);margin-bottom:7px;}
+  .w-card .drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:3px;}
+  .aqi-bar{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:9px;padding:6px 8px;border-radius:4px;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;}
+  .aqi-bar .aqi-label{font-size:9px;font-weight:400;color:inherit;opacity:.85;}
+  .aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+  .aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+  .aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+  .wfc{display:flex;justify-content:space-between;margin-top:9px;padding-top:7px;border-top:1px solid var(--rule);}
+  .wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);}
+  .wfc .dm span{display:block;font-size:13px;margin:2px 0;}
+  .w-note{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-top:16px;text-align:center;padding:8px;border-top:1px solid var(--rule);}
+  .comic-wrap{max-width:1080px;margin:0 auto;background:var(--cream);padding:28px 38px;border:1px solid var(--rule);border-bottom:4px double var(--ink);}
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);margin-top:18px;}
+  .strip2{display:grid;grid-template-columns:repeat(3,1fr);border-left:2px solid var(--ink);border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+  .panel{border-right:2px solid var(--ink);background:#fff;padding:10px;min-height:260px;display:flex;flex-direction:column;}
+  .panel:last-child{border-right:none;}
+  .panel svg{flex:1;width:100%;}
+  .cap{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);text-align:center;margin-top:5px;font-style:italic;}
+  .plbl{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);text-align:right;margin-bottom:3px;}
+  .panel2t{border-top:2px solid var(--ink);}
+  .footer{max-width:1080px;margin:0 auto;text-align:center;padding:14px;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);background:var(--cream);border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+  @media(max-width:760px){.col-3{grid-template-columns:1fr;}article.s{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:14px;}.page,.comic-wrap{padding:18px 14px;}.strip{grid-template-columns:repeat(2,1fr);}.nav-bar a{padding:8px 10px;font-size:10px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="masthead">
+    <div class="mast-top">
+      <span>EST. 2026 &bull; INDEPENDENT JOURNALISM</span>
+      <span>Thursday, March 12, 2026 &bull; Vol. I, No. 5</span>
+      <span>Price: Worth Every Penny</span>
+    </div>
+    <h1>The Chronicler</h1>
+    <div class="mast-tag">"All the News That's Fit to Chronicle"</div>
+  </div>
+  <div class="breaking-bar">⚡ IRGC Threatens $200 Oil as IEA Releases 400M Barrels — Markets Unmoved &bull; NDP's Idlout Defects to Liberals, Carney at 170 Seats &bull; India Secures Hormuz Safe Passage After Jaishankar Diplomacy &bull; Rupee Hits Record Low 92.36 &bull; Leafs Host Ducks Tonight — Can 9-Game Skid End? &bull; Ford's Lake Ontario Infill Convention Plan</div>
+</header>
+<nav class="nav-bar">
+  <a href="#gta">🍁 Greater Toronto</a>
+  <a href="#canada">🇨🇦 Canada</a>
+  <a href="#india">🇮🇳 India</a>
+  <a href="#world">🌐 World</a>
+  <a href="#weather">☁️ Weather</a>
+  <a href="#comics">🖊 Comics</a>
+</nav>
+
+<!-- GTA -->
+<div class="page" id="gta">
+  <div class="section-banner"><div class="flag">Local Coverage</div><h2>Greater Toronto Area</h2></div>
+
+  <span class="cat">Urban Development</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Ford's Lake Ontario Infill Plan Returns — New Convention Centre the Goal</h3>
+      <div class="by">GTA Construction Report · March 12, 2026</div>
+      <p>Premier Doug Ford has renewed discussion of artificially expanding Toronto's shoreline into Lake Ontario using fill materials — silica sand, recycled tire crumb, cork, and coconut fibres — to create land for a world-class convention centre. Ford argued the Metro Toronto Convention Centre is "dated" and the city forfeits major international events for want of floor space.</p>
+      <p>An announcement on a preferred site is expected imminently. Any lake-infill scheme would require environmental review under federal and provincial legislation, but Ford noted that the province has "a tremendous amount of fill" available from ongoing construction projects across the region.</p>
+      <div class="src">Source: <a href="https://www.gtaconstructionreport.com/ford-explores-expanding-toronto-shoreline-with-infill-to-build-new-convention-centre/" target="_blank">GTA Construction Report</a></div>
+    </article>
+    <article class="s">
+      <h3>Torontonians Invited to Name Two New Electric Island Ferries</h3>
+      <div class="by">City of Toronto · March 11, 2026</div>
+      <p>The City of Toronto is seeking public nominations to name two fully electric ferries being added to the Toronto Island Ferry fleet as part of a broader zero-emission modernization program. The battery-powered vessels will replace older diesel-fuelled boats on the harbour crossing, and residents can submit names and vote on finalists through the City's online portal.</p>
+      <p>The naming campaign is framed as a civic celebration of Toronto's green transit ambitions, with the new ferries expected to enter service before summer 2026. City staff expect thousands of submissions given strong public interest in the program.</p>
+      <div class="src">Source: <a href="https://www.toronto.ca/news/" target="_blank">City of Toronto</a></div>
+    </article>
+    <article class="s">
+      <h3>Rainfall Warning Clears — Gardiner Flooding Reported After Wednesday Deluge</h3>
+      <div class="by">CP24 · March 11–12, 2026</div>
+      <p>A rainfall warning that blanketed southwestern Ontario through Wednesday has lifted, though Toronto police fielded multiple reports of roadway flooding including on the Gardiner Expressway near York Street. Environment Canada issued the warning for up to 40mm of rain, the highest accumulation in several weeks for the region.</p>
+      <p>Thursday's conditions: overcast and cool at 3–4°C with a northwest wind. Drivers are cautioned to watch for black ice on shaded overpasses as residual moisture freezes overnight.</p>
+      <div class="src">Source: <a href="https://www.cp24.com" target="_blank">CP24</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Politics & Security</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Byelection Countdown: Conservatives Nominate Candidates in Two of Three Ridings</h3>
+      <div class="by">CTV News · March 12, 2026</div>
+      <p>The federal Conservative Party has nominated candidates in University-Rosedale (Don Hodgson) and Terrebonne (Adrienne Charles, returning from 2025) ahead of the April 13 byelections. The Conservatives have yet to announce a candidate for Scarborough Southwest. NDP candidates Serena Purdy (University-Rosedale) and Fatima Shaban (Scarborough Southwest) are also confirmed, along with Green Party nominees in all three ridings.</p>
+      <p>Advance polls open April 3–6. The Liberals need all three seats to reach 172 and a working majority; they are widely expected to hold the two Toronto ridings, with Terrebonne considered genuinely competitive.</p>
+      <div class="src">Source: <a href="https://www.ctvnews.ca" target="_blank">CTV News</a></div>
+    </article>
+    <article class="s">
+      <h3>Chow Holds 18-Point Lead in 2026 Toronto Mayoral Race — New Liaison Poll</h3>
+      <div class="by">Global News · March 10, 2026</div>
+      <p>Mayor Olivia Chow commands an 18-point advantage over Councillor Brad Bradford in the latest Liaison Strategies poll of the 2026 Toronto mayoral race. Bradford leads Doug Ford's nephew Michael Ford for second. Analysts note the centre-right vote remains split, and Bradford will need to consolidate it substantially to mount a serious challenge.</p>
+      <p>The fall campaign has not officially begun, but fundraising is underway across all major camps. Chow continues to benefit from strong name recognition and incumbency, while Bradford is positioning himself as the pro-development, fiscally disciplined alternative.</p>
+      <div class="src">Source: <a href="https://globalnews.ca/news/11724321/toronto-election-poll-olivia-chow-lead/" target="_blank">Global News</a></div>
+    </article>
+    <article class="s">
+      <h3>Ford Announces $750 Annual Supply Account for Ontario Elementary Teachers</h3>
+      <div class="by">CP24 · March 12, 2026</div>
+      <p>Premier Doug Ford announced that Ontario's elementary school teachers will no longer pay out of pocket for classroom supplies, with the province committing to an annual $750 spending account per teacher. Teacher federations welcomed the gesture while noting that average out-of-pocket spending in recent surveys significantly exceeds the offered amount.</p>
+      <p>The announcement is read as both a pre-budget signal ahead of the March 26 Ontario budget and an olive branch before collective bargaining negotiations later this year. It comes as the Ford government faces pressure on multiple affordability fronts.</p>
+      <div class="src">Source: <a href="https://www.cp24.com" target="_blank">CP24</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Economy</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>GTA Pump Prices Rise Again as Oil Rebounds Toward $95 — Brent Up on IRGC Threat</h3>
+      <div class="by">The Chronicler Energy Desk · March 12, 2026</div>
+      <p>Greater Toronto Area gasoline prices resumed their climb Thursday as Brent crude rebounded toward $95 following the IRGC's renewed threat to block all Western-linked tankers from the Strait of Hormuz indefinitely. The IEA's 400-million-barrel reserve release produced only a brief dip before markets concluded it cannot compensate for the 20-million-barrel daily Hormuz shortfall.</p>
+      <p>Some analysts project GTA prices could approach 2022 post-Ukraine shock levels if the conflict extends into April without a ceasefire. The Ontario government faces growing cross-party calls for a fuel tax holiday ahead of the March 26 budget.</p>
+      <div class="src">Source: <a href="https://www.nbcnews.com/business/energy" target="_blank">NBC News Energy Desk</a></div>
+    </article>
+    <article class="s">
+      <h3>LNG Canada Exports Surge — Japan and South Korea Envoys in Ottawa</h3>
+      <div class="by">CP24 / The Chronicler · March 12, 2026</div>
+      <p>British Columbia's LNG Canada terminal has already exported nearly half of February's total volume in just the first eleven days of March, as Asian nations scramble to diversify energy supplies in response to the Hormuz crisis. Japan — which sources approximately 70 per cent of its oil via the strait — and South Korea have both dispatched energy envoys to Ottawa to accelerate long-term supply agreements.</p>
+      <p>Natural Resources Minister Tim Hodgson said Canada will "do its part" to help stabilize global oil costs, framing LNG exports as a national security contribution to allied energy resilience during the crisis.</p>
+      <div class="src">Source: <a href="https://www.cp24.com" target="_blank">CP24</a></div>
+    </article>
+    <article class="s">
+      <h3>Daily Bread Food Bank Ship Among Gulf Attack Victims — $90,000 in Aid at Risk</h3>
+      <div class="by">CTV News Toronto · March 11, 2026</div>
+      <p>A cargo vessel carrying approximately $90,000 worth of goods destined for Toronto's Daily Bread Food Bank was among ships struck in the Persian Gulf Wednesday, according to the organization's CEO. The food bank is actively seeking alternative supply routes as the conflict disrupts humanitarian shipments alongside commercial cargo.</p>
+      <p>The incident illustrates how the Hormuz crisis is reaching into food security and charitable supply chains far removed from oil markets. Daily Bread said it is in contact with domestic donors and suppliers to offset any shortfall affecting operations.</p>
+      <div class="src">Source: <a href="https://www.ctvnews.ca/toronto/video/" target="_blank">CTV News Toronto</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Leafs Host Ducks Tonight — Seeking to End Nine-Game Skid at Scotiabank</h3>
+      <div class="by">CBS Sports / The Chronicler · March 12, 2026</div>
+      <p>The Toronto Maple Leafs host the Anaheim Ducks (36-25-3) at Scotiabank Arena at 7:00 PM Thursday, hoping to end a nine-game losing streak that has dropped them to 27-27-11 and 11 points out of a playoff position. The Leafs enter as slight favourites at -109 odds, though recent form gives little comfort. Toronto was outshot 33-18 in Tuesday's 3-1 loss to Montreal.</p>
+      <div class="pull">Auston Matthews has gone 12 straight games without a goal. William Nylander, 59 points in 47 games, remains the one bright light.</div>
+      <p>Goalie Joseph Woll has been particularly inconsistent — 0-4-0 since the Olympic break with 15 goals allowed in four starts, two surrendered through his pads Tuesday. Coach Craig Berube is expected to assess goaltending options for the stretch run.</p>
+      <div class="src">Source: <a href="https://www.cbssports.com/nhl/teams/TOR/toronto-maple-leafs/" target="_blank">CBS Sports</a></div>
+    </article>
+    <article class="s">
+      <h3>Raptors Beat Houston 118-104 Wednesday — Barrett 24 Points, Team Now 37-27</h3>
+      <div class="by">The Chronicler Sports Desk · March 12, 2026</div>
+      <p>The Toronto Raptors dispatched the Houston Rockets 118-104 Wednesday, with RJ Barrett continuing his strong form with 24 points. The win moves Toronto to 37-27 on the season — firmly in contention for a top-six Eastern Conference seed with the regular season winding down. Next game: Friday at Chicago.</p>
+      <p>The Raptors' consistent form stands in sharp contrast to the Leafs' prolonged freefall, and Toronto's basketball franchise is increasingly the source of good news for a frustrated sports public. Raptors tickets for the remaining home games have seen a notable demand uptick.</p>
+      <div class="src">Source: <a href="https://www.nba.com/raptors" target="_blank">NBA.com / Toronto Raptors</a></div>
+    </article>
+    <article class="s">
+      <h3>FIFA World Cup: 96 Days Out — Toronto Venue Preparations Enter Final Phase</h3>
+      <div class="by">The Chronicler Sports Desk · March 12, 2026</div>
+      <p>With 96 days until the 2026 FIFA World Cup opening match, Toronto's BMO Field and surrounding infrastructure are entering the final preparation phase. The city hosts six group stage matches and a round of sixteen contest. Transit planners are finalising game-day routing from Union Station, and downtown accommodation is now commanding record premiums for the July window.</p>
+      <p>Several cultural programming announcements are expected before the end of March, and FIFA's local host committee confirmed that volunteer orientation begins next week for the thousands of local recruits who will staff match-day operations.</p>
+      <div class="src">Source: <a href="https://www.fifa.com/fifaplus/en/tournaments/mens/worldcup/canadamexicousa2026" target="_blank">FIFA / World Cup 2026</a></div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CANADA -->
+<div class="page" id="canada">
+  <div class="section-banner"><div class="flag">National Affairs</div><h2>Canada</h2></div>
+
+  <span class="cat">Parliament & Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>NDP's Lori Idlout Crosses Floor to Liberals — Carney Reaches 170 Seats</h3>
+      <div class="by">CBC News / Bloomberg · March 11, 2026</div>
+      <p>NDP MP Lori Idlout — Nunavut's sole representative — defected to the Liberal caucus Wednesday, bringing the government to 170 seats and just two short of a working majority. She becomes the fourth party-switcher to join Carney's Liberals, following three former Conservatives, creating an ideologically improbable coalition under one banner.</p>
+      <div class="pull">"Mark Carney is using backroom deals to seize a costly majority that voters rejected." — Conservative Leader Pierre Poilievre</div>
+      <p>Winning University-Rosedale and Scarborough Southwest on April 13 would bring the Liberals to 172 — the minimum for a working majority. A Terrebonne win would add committee control at 173. NDP interim leader Don Davies called Idlout's move an override of the "sacred trust" of the ballot box. Carney's camp is elated.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-idlout-majority-poilievre-ndp-analysis-9.7124771" target="_blank">CBC News</a> / <a href="https://www.bloomberg.com/news/articles/2026-03-11/canada-pm-carney-approaches-majority-with-fourth-defecting-rival" target="_blank">Bloomberg</a></div>
+    </article>
+    <article class="s">
+      <h3>An Improbable Caucus: Conservative Jeneroux and NDP Idlout Now Share Liberal Benches</h3>
+      <div class="by">CBC News Analysis · March 11, 2026</div>
+      <p>The philosophical contradiction at the heart of Carney's emerging majority is now stark: Matt Jeneroux, a four-time Conservative from Edmonton, and Lori Idlout, twice elected as an NDP MP for Nunavut, now sit together in the Liberal caucus — a pairing that analysts note "would have seemed impossible a year ago." CBC's Aaron Wherry argues this complicates the narrative that Carney governs as a Progressive Conservative.</p>
+      <p>For the NDP, the blow is existential. The party could shrink to five MPs if Alexandre Boulerice moves to Quebec provincial politics. The new leader chosen March 29 will inherit a caucus of at most six MPs from what was once a 103-seat caucus in 2011.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-idlout-majority-poilievre-ndp-analysis-9.7124771" target="_blank">CBC News</a></div>
+    </article>
+    <article class="s">
+      <h3>Terrebonne Byelection: Supreme Court Annulment Sets Up High-Stakes Rematch</h3>
+      <div class="by">CBC News · March 8, 2026</div>
+      <p>The Supreme Court of Canada's annulment of the 2025 Terrebonne result — where the Liberals won by a single vote after a judicial recount — sets up a rematch on April 13 between Liberal Tatiana Auguste and Bloc candidate Nathalie Sinclair-Desgagné. The annulment traced to a misprint on a return envelope that caused a Bloc voter's mail-in ballot to go uncounted.</p>
+      <p>The race is considered genuinely competitive: a Liberal win brings the government to 173 seats and committee majority control. Conservatives have renominated Adrienne Charles. The riding's strong Bloc and Quebec nationalist sentiment makes it the most uncertain of the three contests.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-byelection-terrebonne-scarborough-southwest-university-rosedale-ndp-conservatives-9.7119497" target="_blank">CBC News</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Energy & Economy</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Canada "Will Do Its Part" to Lower Global Oil Prices — Hodgson</h3>
+      <div class="by">CP24 / The Chronicler · March 12, 2026</div>
+      <p>Natural Resources Minister Tim Hodgson pledged Thursday that Canada will contribute to global oil price stabilization through accelerated LNG exports and reserve drawdowns, as the IEA's coordinated 400-million-barrel release took effect. The announcement came after Hodgson met with Japanese and South Korean energy envoys in Ottawa, both nations heavily dependent on Hormuz-transiting oil.</p>
+      <p>Canada's contribution will not involve domestic price controls — a politically sensitive option the government has ruled out — but will be channelled through export acceleration and pipeline throughput increases. The loonie remained under pressure at 71.4 US cents.</p>
+      <div class="src">Source: <a href="https://www.cp24.com" target="_blank">CP24</a></div>
+    </article>
+    <article class="s">
+      <h3>Canadian Dollar at 71.4 US Cents — Weakest Since 2016</h3>
+      <div class="by">The Chronicler Business Desk · March 12, 2026</div>
+      <p>The loonie slumped to 71.4 US cents Thursday — its weakest level since 2016 — as the compounding pressures of the Iran oil shock, tariff-induced manufacturing slowdowns, and eroded consumer confidence overwhelmed Canada's nominal benefit as a net oil exporter. The Bank of Canada's next policy statement is expected to address the currency dynamic and interest rate trajectory.</p>
+      <p>Markets remain roughly split between expecting a 25 basis-point rate cut and a hold. The inflation risk from higher oil prices has shifted some economists toward the hold camp, even as Canada's employment data has weakened. The loonie's slide is particularly acute against the Japanese yen and Swiss franc, both benefiting from safe-haven flows.</p>
+      <div class="src">Source: <a href="https://www.bankofcanada.ca/rates/exchange/daily-exchange-rates/" target="_blank">Bank of Canada / Exchange Rates</a></div>
+    </article>
+    <article class="s">
+      <h3>Ontario Budget March 26 — Bethlenfalvy Navigates Oil Shock and Deficit Math</h3>
+      <div class="by">The Chronicler Queen's Park Desk · March 12, 2026</div>
+      <p>Finance Minister Peter Bethlenfalvy is preparing an Ontario budget under the most complex fiscal conditions in years: oil-driven inflation, tariff-displaced manufacturing workers, and political pressure to deliver tangible affordability relief ahead of an expected provincial election cycle. The March 26 budget is anticipated to include energy rebates or gas tax measures, the teacher supply account, and infrastructure commitments tied to the convention centre and transit priorities.</p>
+      <p>Bethlenfalvy has signalled a commitment to a credible deficit reduction path despite the spending pressures — a constraint that will force difficult choices between immediate relief and longer-term fiscal sustainability.</p>
+      <div class="src">Source: <a href="https://www.ontario.ca/page/2026-ontario-budget" target="_blank">Government of Ontario / Budget 2026</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Foreign Affairs & NDP</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>5,200 Canadians Registered for Middle East Evacuation — Operations Ongoing</h3>
+      <div class="by">The Chronicler National Desk · March 12, 2026</div>
+      <p>Global Affairs Canada reports 5,200 Canadians have registered for evacuation assistance from the Middle East as the Iran war enters its 13th day. Canadian Armed Forces transport aircraft and chartered commercial flights have already evacuated hundreds, with operations continuing from Beirut, Amman, and Dubai. The government has called it the largest Canadian evacuation since Lebanon in 2006.</p>
+      <p>Consular communications from Tehran remain severely hampered by Iran's ongoing internet blackout. Many dual nationals are unable to communicate with family or Canadian officials, and the government is relying on satellite-link back-channels for consular coordination inside Iran.</p>
+      <div class="src">Source: <a href="https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/response_conflict-reponse_conflits/crisis-crises/iran.aspx" target="_blank">Global Affairs Canada</a></div>
+    </article>
+    <article class="s">
+      <h3>G7 Emergency Session: Carney Presses for De-Escalation Framework — U.S. Resists</h3>
+      <div class="by">The Chronicler International Desk · March 12, 2026</div>
+      <p>France's Macron convened a G7 emergency session Wednesday, with Carney pressing allied leaders for a coordinated de-escalation and energy price stabilization framework. Germany and Japan backed the push. The United States and United Kingdom maintained that military objectives must be achieved before ceasefire talks can begin. The meeting produced no joint statement on a timeline for diplomatic engagement.</p>
+      <p>Canadian officials described the session as "frank and productive" — diplomatic language widely interpreted as signalling deep disagreement. The loonie's continued slide suggests markets have not been reassured by the G7 meetings held so far.</p>
+      <div class="src">Source: <a href="https://www.reuters.com/world/g7/" target="_blank">Reuters / G7 Coverage</a></div>
+    </article>
+    <article class="s">
+      <h3>NDP Leadership: Lewis Leads on Donors — Winner Announced March 29</h3>
+      <div class="by">The Chronicler National Desk · March 12, 2026</div>
+      <p>The NDP leadership race between Avi Lewis and Heather McPherson enters its final stretch with voting open and results due March 29. Lewis leads on declared donor count at 18,000 versus McPherson's 13,500. The race has been overshadowed by Idlout's floor crossing, which stripped the party of yet another seat and deepened questions about its long-term viability as a parliamentary force.</p>
+      <p>Whoever wins will inherit a caucus of at most six MPs — potentially five if Boulerice moves to Quebec provincial politics — and the challenge of re-building a party whose traditional base has largely migrated to the Liberals or disengaged entirely from federal politics.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/ndp-leadership-race-2026" target="_blank">CBC News / NDP Leadership</a></div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- INDIA -->
+<div class="page" id="india">
+  <div class="section-banner"><div class="flag">South Asian Correspondent</div><h2>India</h2></div>
+
+  <span class="cat">Energy & Economy</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Iran Grants India Hormuz Safe Passage After Jaishankar–Araghchi Talks</h3>
+      <div class="by">India TV News / Sunday Guardian · March 12, 2026</div>
+      <p>In a significant diplomatic breakthrough, Iran has granted Indian-flagged tankers safe passage through the Strait of Hormuz following talks between External Affairs Minister S. Jaishankar and Iranian Foreign Minister Abbas Araghchi. At least two Indian tankers have already crossed safely Thursday. Tehran has maintained a selective blockade targeting ships linked to the U.S., Israel, and Western allies — India's non-alignment status has earned it an explicit carve-out.</p>
+      <div class="pull">The Shenlong Suezmax, carrying 135,335 tonnes of Saudi crude, docked at Mumbai Wednesday — the first India-bound crude shipment to clear the strait since the war began.</div>
+      <p>Iran separately warned all vessels to seek explicit permission before transiting. The arrangement is fragile: Tehran has also denied the carve-out exists, creating diplomatic ambiguity that requires constant back-channel maintenance.</p>
+      <div class="src">Source: <a href="https://www.indiatvnews.com/news/world/indian-oil-to-get-safe-passage-through-strait-of-hormuz-after-jaishankar-s-call-with-iranian-counterpart-latest-updates-2026-03-12-1033488" target="_blank">India TV News</a></div>
+    </article>
+    <article class="s">
+      <h3>Rupee Hits Record Low 92.36 — RBI Intervenes as Oil Surges Back to $100</h3>
+      <div class="by">Reuters / U.S. News · March 12, 2026</div>
+      <p>The Indian rupee fell to a record low of 92.3575 Thursday as Brent crude's renewed climb to $100 per barrel reignited fears about India's energy import bill and widening current account deficit. The Reserve Bank of India intervened in spot currency markets to slow the decline, limiting losses to 0.3 per cent on the day. The Nifty 50 fell about 1 per cent and the 10-year bond yield rose 4 basis points.</p>
+      <p>Goldman Sachs analysts noted India and other Asian currencies are among the most exposed globally to the Hormuz shock, given large energy trade deficits and specific dependence on Hormuz crude flows. Morgan Stanley added that India also faces export growth risks from the global demand slowdown on top of the inflation threat.</p>
+      <div class="src">Source: <a href="https://money.usnews.com/investing/news/articles/2026-03-12/indian-rupee-hits-record-low-as-oil-surge-pummels-asian-assets" target="_blank">Reuters / U.S. News</a></div>
+    </article>
+    <article class="s">
+      <h3>India Diversifies Crude Imports — 70% Now Bypass Hormuz</h3>
+      <div class="by">Organiser / MoP&NG · March 11, 2026</div>
+      <p>Officials from India's Ministry of Petroleum revealed at an inter-ministerial briefing that 70 per cent of crude imports now arrive through routes outside the Strait of Hormuz — up from 55 per cent before the crisis — as diversification efforts accelerate. India imports from approximately 40 countries, and volumes secured in the current period exceed normal Hormuz throughput.</p>
+      <p>The government also issued a Natural Gas Control Order under the Essential Commodities Act, prioritising piped natural gas and CNG for vehicles (100% supply maintained) while reducing industrial and petrochemical allocations. LPG remains the most exposed sector: 90 per cent of India's LPG imports normally transit Hormuz.</p>
+      <div class="src">Source: <a href="https://organiser.org/2026/03/11/343646/bharat/india-cuts-reliance-on-strait-of-hormuz-70-crude-imports-now-routed-through-alternative-channels/" target="_blank">Organiser / MoP&amp;NG</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Diplomacy & Security</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Indian Sailor Killed as U.S.-Owned Ship Attacked Near Basra — 15 Rescued</h3>
+      <div class="by">Hindustan Times · March 12, 2026</div>
+      <p>An Indian sailor was killed and 15 crew members rescued after a U.S.-owned cargo vessel came under attack near Basra, Iraq on Thursday — the first confirmed Indian maritime fatality in the conflict. The Ministry of External Affairs summoned Iran's chargé d'affaires for an explanation, even as Jaishankar's diplomatic back-channel remains active.</p>
+      <p>The attack underscores the fragility of India's safe-passage arrangement: the vessel was not India-flagged, and the presence of Indian crew aboard Western-linked ships remains a grave and growing risk. The government is reviewing whether to advise Indian seafarers to avoid service on Western-registered vessels operating in the Gulf.</p>
+      <div class="src">Source: <a href="https://www.hindustantimes.com/india-news" target="_blank">Hindustan Times</a> / <a href="https://news24online.com" target="_blank">News24</a></div>
+    </article>
+    <article class="s">
+      <h3>Farooq Abdullah Survives Apparent Assassination Attempt at Jammu Wedding</h3>
+      <div class="by">Hindustan Times / News24 · March 12, 2026</div>
+      <p>Former Jammu and Kashmir Chief Minister Farooq Abdullah survived an apparent assassination attempt at a wedding function in Jammu Thursday. Suspect Kamal Singh Jamwal was arrested. An unfazed Abdullah told reporters: "I thought it was a firecracker." Security has been tightened around the National Conference leader and his family.</p>
+      <p>The attempted attack drew condemnation across party lines. Home Minister Amit Shah called for a full NIA investigation, while Lieutenant Governor Sinha termed it an act of "cowardice" aimed at destabilising J&K's political process ahead of expected legislative sessions.</p>
+      <div class="src">Source: <a href="https://www.hindustantimes.com/india-news" target="_blank">Hindustan Times</a> / <a href="https://news24online.com" target="_blank">News24</a></div>
+    </article>
+    <article class="s">
+      <h3>India Walks Tightrope at UN — Abstains on Iran Ceasefire Resolution</h3>
+      <div class="by">The Chronicler International Desk · March 12, 2026</div>
+      <p>India abstained on a UN Security Council resolution calling for an immediate ceasefire in Iran — consistent with its long-standing non-alignment posture but drawing criticism from domestic voices who argue that with Indian lives and energy supplies directly at risk, a more assertive stance is warranted. Washington has praised New Delhi's "constructive role" in oil market stabilisation through Russian crude purchases.</p>
+      <p>India's strategic balance — maintaining functional relations with both the U.S. and Iran — is coming under its most severe test since the Ukraine war. The Jaishankar–Araghchi diplomatic channel has so far proven effective at the operational level, even as India refuses to take sides publicly at the political level.</p>
+      <div class="src">Source: <a href="https://www.thehindu.com/news/international/" target="_blank">The Hindu / International</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Society & Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Supreme Court Rules OBC 'Creamy Layer' Threshold "Not Sustainable" — Revision Ordered</h3>
+      <div class="by">News24 / The Chronicler · March 12, 2026</div>
+      <p>The Supreme Court of India ruled Thursday that the current income threshold for excluding affluent OBC members from reservation benefits is "not sustainable" given decades of inflation, and directed the government to revise the criteria. The bench held that the static income ceiling no longer reflects contemporary economic reality and must be updated through an expert committee process.</p>
+      <p>The judgment has significant political implications ahead of several state elections. Opposition parties called it vindication of longstanding demands for OBC policy reform. The government is expected to constitute the expert committee within 60 days.</p>
+      <div class="src">Source: <a href="https://news24online.com" target="_blank">News24</a> / <a href="https://www.sci.gov.in" target="_blank">Supreme Court of India</a></div>
+    </article>
+    <article class="s">
+      <h3>LPG Shortage Hits Zomato and Swiggy Delivery Workers — Orders Drop 30–40%</h3>
+      <div class="by">News24 · March 12, 2026</div>
+      <p>India's food delivery gig economy is feeling a direct impact of the LPG shortage caused by the Hormuz disruption, with Zomato and Swiggy delivery workers reporting a 30–40 per cent drop in restaurant orders as cloud kitchens and eateries without piped gas face fuel scarcity. Worker daily earnings have fallen substantially. The petroleum ministry said relief is expected as alternative supply routes are operationalised in coming days.</p>
+      <div class="src">Source: <a href="https://news24online.com" target="_blank">News24</a></div>
+    </article>
+    <article class="s">
+      <h3>IPL 2026: Full Schedule Released — Season Opens in 16 Days</h3>
+      <div class="by">Sunday Guardian · March 12, 2026</div>
+      <p>The complete IPL 2026 fixture list has been released with the tournament's opening match 16 days away. Highlights include: Delhi Capitals vs. Rishabh Pant's Lucknow Super Giants (a high-profile reunion), KKR vs. Shreyas Iyer's Punjab Kings, and Rajasthan Royals vs. Ravindra Jadeja's former club Chennai Super Kings. Defending champions Royal Challengers Bengaluru open against a testing early schedule. Sanju Samson has reported to Rajasthan Royals camp in Jaipur.</p>
+      <div class="src">Source: <a href="https://www.sundayguardianlive.com" target="_blank">Sunday Guardian</a> / <a href="https://www.bcci.tv" target="_blank">BCCI</a></div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WORLD -->
+<div class="page" id="world">
+  <div class="section-banner"><div class="flag">International Dispatch</div><h2>World</h2></div>
+
+  <span class="cat">Iran War — Day 13</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>IRGC: "Not One Litre" Through Hormuz — Iran Threatens $200 Oil</h3>
+      <div class="by">Al Jazeera · March 11–12, 2026</div>
+      <p>Iran's IRGC issued its most defiant statement yet Wednesday, pledging to block every vessel linked to the United States, Israel, or their allies from the Strait of Hormuz — dismissing the IEA's 400-million-barrel reserve release as futile. Three ships were struck by projectiles in the strait Wednesday, including a Thai-flagged bulk carrier 11 nautical miles north of Oman.</p>
+      <div class="pull">Iran to the world: "You will not be able to artificially lower the price of oil." Brent climbs back above $95 by Thursday morning.</div>
+      <p>President Trump told reporters the U.S. encourages ships to keep transiting, promising "great safety, very very quickly." Markets took a different view: oil rebounded to $95 after only a brief dip on the IEA release news, and the IRGC's $200 warning kept risk premiums elevated.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/3/11/irans-irgc-says-not-one-litre-of-oil-will-get-through-strait-of-hormuz" target="_blank">Al Jazeera</a></div>
+    </article>
+    <article class="s">
+      <h3>IEA Releases 400 Million Barrels — U.S. SPR Drawdown Begins Next Week</h3>
+      <div class="by">NBC News · March 11, 2026</div>
+      <p>The International Energy Agency announced unanimous agreement among member nations to release 400 million barrels from strategic petroleum reserves — the largest coordinated release since the 2022 Ukraine shock. The U.S. will contribute 172 million barrels from its Strategic Petroleum Reserve over approximately 120 days. Japan begins its drawdown Monday.</p>
+      <p>The release produced only a brief price dip before oil climbed back above $95 — a market verdict that the release cannot replace the 20-million-barrel daily throughput the Hormuz closure has removed. U.S. crude is up more than 30 per cent since the war began, and retail gasoline averages $3.57 per gallon nationally, up 50 cents in two weeks.</p>
+      <div class="src">Source: <a href="https://www.nbcnews.com/business/energy/iea-release-400-million-barrels-oil-iran-war-rcna262931" target="_blank">NBC News</a></div>
+    </article>
+    <article class="s">
+      <h3>Lebanon Displacement Tops 750,000 — France Warns Against Israeli Ground Invasion</h3>
+      <div class="by">NBC News · March 11–12, 2026</div>
+      <p>More than 750,000 people have been displaced in Lebanon in the 13 days since the conflict began, with over 100,000 registered in a single 24-hour window earlier this week, per Lebanese government data. The death toll has passed 500. France convened a UN Security Council meeting calling on Hezbollah to "end its operations and hand over its weapons" while urging Israel to refrain from any ground or long-term interventions in Lebanese territory.</p>
+      <p>U.S. Ambassador Mike Waltz presided over the session as Security Council president for March. The meeting produced no binding resolution — Russia and China vetoed the draft — but France is pursuing a parallel diplomatic track.</p>
+      <div class="src">Source: <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-israel-us-lebanon-tehran-oil-prices-hormuz-rcna262889" target="_blank">NBC News</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Conflict & Geopolitics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Russia Confirmed Supplying Intelligence to Iran — Four Sources; Kremlin Denies</h3>
+      <div class="by">NBC News / Intelligence sources · March 11–12, 2026</div>
+      <p>Four independent intelligence sources confirmed to Western media that Russia is providing real-time intelligence support to Iran's military, including targeting data and satellite reconnaissance, while publicly maintaining neutrality. The Kremlin categorically denied the reports. The White House said it is taking the claims "very seriously" and investigating. NATO allies convened in emergency session to assess the intelligence picture.</p>
+      <p>If confirmed, Russian intelligence support would constitute a significant escalation of proxy involvement and could trigger further allied sanctions on Moscow. The development adds a new dimension to the conflict's strategic complexity for Western policymakers already managing a war with no clear off-ramp.</p>
+      <div class="src">Source: <a href="https://www.nbcnews.com/world/iran" target="_blank">NBC News / Iran War Coverage</a></div>
+    </article>
+    <article class="s">
+      <h3>Iran Internet Blackout Surpasses 270 Hours — "Among Most Severe on Record"</h3>
+      <div class="by">NBC News / NetBlocks · March 12, 2026</div>
+      <p>Iran's near-total internet shutdown has now exceeded 270 hours, making it one of the longest and most comprehensive digital blackouts ever recorded globally, according to internet monitoring group NetBlocks. The shutdown has severed civilian communications, hampered humanitarian coordination, and prevented Iranians from communicating with family abroad or accessing independent news.</p>
+      <p>Back-channel diplomatic communications between Iranian officials and potential mediators must rely on secure satellite links that bypass the domestic blackout. State media and IRGC channels remain active via separate hardened infrastructure.</p>
+      <div class="src">Source: <a href="https://www.nbcnews.com/world/iran" target="_blank">NBC News</a> / <a href="https://netblocks.org" target="_blank">NetBlocks</a></div>
+    </article>
+    <article class="s">
+      <h3>Dry Bulk Trade Through Hormuz Collapses 91% — 280 Bulk Carriers Stranded in Gulf</h3>
+      <div class="by">Windward Maritime AI · March 10, 2026</div>
+      <p>The Hormuz crisis has severed global dry bulk trade at an extraordinary scale beyond oil: Windward Maritime Intelligence reports dry bulk transits have fallen by approximately 91 per cent, with an estimated 280 bulk carriers trapped in the Persian Gulf. The disruption affects approximately 18 per cent of global iron ore pellet exports and nearly 10 per cent of primary aluminum production, triggering sharp price increases in both commodities.</p>
+      <p>Saudi Arabia has pivoted crude exports via the East–West Petroline to the Red Sea, causing a 330 per cent surge in Yanbu crude exports. Red Sea terminal berths are operating near maximum capacity; the Cape of Good Hope remains the primary alternative routing for vessels avoiding the crisis zone.</p>
+      <div class="src">Source: <a href="https://windward.ai/blog/march-10-maritime-intelligence-daily/" target="_blank">Windward Maritime AI</a></div>
+    </article>
+  </div>
+
+  <span class="cat">U.S. &amp; Americas</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Trump: "Over Very Soon." Hegseth: "Total Defeat." The Contradiction Continues.</h3>
+      <div class="by">CNN / NBC News · March 11–12, 2026</div>
+      <p>The White House continued to project contradictory signals Thursday. Trump repeated his claim the war will be over "very soon." Defence Secretary Hegseth maintained it won't end until Iran is "totally and decisively defeated" on the U.S.'s own timeline. Asked to reconcile the two positions, Trump told reporters: "You could say both."</p>
+      <p>Markets and allies increasingly read Hegseth's framing as the operational reality. The CIA and DIA remain divided on the actual state of Iran's nuclear infrastructure — a disagreement that extends the timeline for declaring military objectives achieved and leaves diplomatic back-channels in limbo.</p>
+      <div class="src">Source: <a href="https://www.cnn.com/world/iran" target="_blank">CNN</a> / <a href="https://www.nbcnews.com/world/iran" target="_blank">NBC News</a></div>
+    </article>
+    <article class="s">
+      <h3>U.S. February Inflation Holds at 2.4% — But Oil Surge Complicates Fed's Path</h3>
+      <div class="by">NBC News · March 12, 2026</div>
+      <p>U.S. consumer prices rose 2.4 per cent year-over-year in February, a figure that under normal circumstances would provide some comfort to Federal Reserve officials. But the Iran war oil price surge — which has added 50 cents per gallon to U.S. gasoline in two weeks — threatens to push March and April readings sharply higher, potentially keeping the Fed on hold through the summer when rate cuts had been expected.</p>
+      <p>Markets are now roughly split between a hold and a 25 basis-point cut at the next Fed meeting, having tilted strongly toward a cut just two weeks ago. Fed Chair Powell faces a classic supply-shock dilemma: inflation is being driven by external factors the Fed cannot control through interest rates.</p>
+      <div class="src">Source: <a href="https://www.nbcnews.com/business/economy" target="_blank">NBC News</a> / <a href="https://www.bls.gov/cpi/" target="_blank">U.S. Bureau of Labor Statistics</a></div>
+    </article>
+    <article class="s">
+      <h3>Australia Grants Asylum to Iranian Women Footballers — Players Remain as War Rages</h3>
+      <div class="by">NBC News · March 10–12, 2026</div>
+      <p>Five members of Iran's women's national football team, eliminated at the AFC Women's Asian Cup in Australia, have been granted asylum by the Australian government rather than returning to a country at war. The players' silence during the anthem before their opening match was widely interpreted as an act of resistance and mourning; their subsequent participation — singing the anthem in later matches — added ambiguity to their public posture.</p>
+      <p>The remainder of the squad's status remains under review. Human rights organizations have urged Australia to grant protection to all members of the delegation who wish to remain.</p>
+      <div class="src">Source: <a href="https://www.nbcnews.com/world/iran" target="_blank">NBC News</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Other World News</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>China Dispatches Special Envoy to Middle East — Eyes Mediation Role</h3>
+      <div class="by">The Chronicler International Desk · March 12, 2026</div>
+      <p>China has dispatched a special envoy to the Middle East, positioning Beijing as a potential mediator and building on its 2023 Iran–Saudi normalisation agreement. The envoy will meet Iranian, Turkish, and Gulf Arab officials. Washington has not invited Chinese mediation; Beijing frames its engagement as a humanitarian and economic stabilization initiative rather than a security intervention.</p>
+      <p>China's economic exposure to the crisis is significant: it is among the largest buyers of Iranian crude and Gulf oil, and the Hormuz disruption is already affecting Chinese refinery operations, industrial input costs, and the yuan's value against the dollar.</p>
+      <div class="src">Source: <a href="https://www.reuters.com/world/middle-east/" target="_blank">Reuters / Middle East</a></div>
+    </article>
+    <article class="s">
+      <h3>F1 2026 Australian GP: New Regulations Cause Pre-Race Chaos in Melbourne</h3>
+      <div class="by">The Chronicler Sports Desk · March 12, 2026</div>
+      <p>The first race under Formula One's sweeping 2026 technical regulations is this weekend in Melbourne, and the paddock remains unsettled. Several teams flagged unexpected handling characteristics from the new active aerodynamics systems; at least two constructors submitted technical queries to the FIA over floor legality. Red Bull and Mercedes appeared quickest in practice, with McLaren looking strong in race trim. Max Verstappen, who leads the championship from 2025, acknowledges the new rules have "reset the order in ways nobody fully expected."</p>
+      <div class="src">Source: <a href="https://www.formula1.com/en/results/2026/races" target="_blank">Formula 1 Official</a></div> — State of Emergency Declared</h3>
+      <div class="by">AccuWeather / USGS · March 12, 2026</div>
+      <p>Louisiana has been struck by a cluster of four earthquakes within days of what seismologists described as the state's strongest tremor in a decade. The governor declared a state of emergency for affected parishes as structural assessments of older buildings proceed. No fatalities were reported, though some infrastructure damage was confirmed in affected communities.</p>
+      <p>Geologists are investigating whether the seismic activity is linked to the state's deep injection wells used for oilfield wastewater disposal — a well-documented mechanism for induced seismicity in previously low-risk geological zones.</p>
+      <div class="src">Source: <a href="https://www.accuweather.com" target="_blank">AccuWeather</a> / <a href="https://www.usgs.gov/natural-hazards/earthquake-hazards" target="_blank">USGS</a></div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WEATHER -->
+<div class="page" id="weather">
+  <div class="section-banner"><div class="flag">Meteorological Report</div><h2>Weather &amp; Air Quality</h2></div>
+  <div class="w-grid">
+    <div class="w-card">
+      <div class="city">Whitby</div>
+      <div class="region">Durham Region, ON</div>
+      <span class="w-icon">🌥️</span>
+      <div class="temp">3°C</div>
+      <div class="rng">H: 3° · L: −2°</div>
+      <div class="cond">Post-rain overcast, clearing evening</div>
+      <div class="drow"><span>Humidity: 70%</span><span>Wind: NW 18 km/h</span></div>
+      <div class="aqi-bar aqi-good">AQHI 2 <span class="aqi-label">— Low Risk</span></div>
+      <div class="wfc">
+        <div class="dm"><span>⛅</span>Fri<br>5°/−1°</div>
+        <div class="dm"><span>☀️</span>Sat<br>7°/0°</div>
+        <div class="dm"><span>⛅</span>Sun<br>6°/1°</div>
+        <div class="dm"><span>🌦️</span>Mon<br>4°/−2°</div>
+        <div class="dm"><span>☁️</span>Tue<br>3°/−3°</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="city">Toronto</div>
+      <div class="region">416 · Downtown Core</div>
+      <span class="w-icon">🌧️</span>
+      <div class="temp">4°C</div>
+      <div class="rng">H: 4° · L: −1°</div>
+      <div class="cond">Residual wet, northwest wind, clearing</div>
+      <div class="drow"><span>Humidity: 68%</span><span>Wind: NW 20 km/h</span></div>
+      <div class="aqi-bar aqi-good">AQHI 2 <span class="aqi-label">— Low Risk</span></div>
+      <div class="wfc">
+        <div class="dm"><span>⛅</span>Fri<br>6°/−1°</div>
+        <div class="dm"><span>☀️</span>Sat<br>8°/1°</div>
+        <div class="dm"><span>⛅</span>Sun<br>7°/1°</div>
+        <div class="dm"><span>🌧️</span>Mon<br>5°/−1°</div>
+        <div class="dm"><span>☁️</span>Tue<br>4°/−2°</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="city">New Delhi</div>
+      <div class="region">NCT · India</div>
+      <span class="w-icon">🌤️</span>
+      <div class="temp">28°C</div>
+      <div class="rng">H: 28° · L: 14°</div>
+      <div class="cond">Hazy sunshine, pre-summer warmth</div>
+      <div class="drow"><span>Humidity: 34%</span><span>Wind: NW 14 km/h</span></div>
+      <div class="aqi-bar aqi-poor">AQI 205 <span class="aqi-label">— Very Unhealthy</span></div>
+      <div class="wfc">
+        <div class="dm"><span>🌤️</span>Fri<br>29°/15°</div>
+        <div class="dm"><span>☀️</span>Sat<br>30°/15°</div>
+        <div class="dm"><span>☀️</span>Sun<br>31°/16°</div>
+        <div class="dm"><span>🌤️</span>Mon<br>30°/15°</div>
+        <div class="dm"><span>⛅</span>Tue<br>29°/14°</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="city">Pune</div>
+      <div class="region">Maharashtra · India</div>
+      <span class="w-icon">☀️</span>
+      <div class="temp">34°C</div>
+      <div class="rng">H: 34° · L: 18°</div>
+      <div class="cond">Sunny, dry March heat building</div>
+      <div class="drow"><span>Humidity: 28%</span><span>Wind: W 12 km/h</span></div>
+      <div class="aqi-bar aqi-moderate">AQI 95 <span class="aqi-label">— Moderate</span></div>
+      <div class="wfc">
+        <div class="dm"><span>☀️</span>Fri<br>35°/19°</div>
+        <div class="dm"><span>☀️</span>Sat<br>36°/19°</div>
+        <div class="dm"><span>🌤️</span>Sun<br>35°/18°</div>
+        <div class="dm"><span>⛅</span>Mon<br>34°/18°</div>
+        <div class="dm"><span>☀️</span>Tue<br>35°/19°</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="city">Hyderabad</div>
+      <div class="region">Telangana · India</div>
+      <span class="w-icon">🌤️</span>
+      <div class="temp">33°C</div>
+      <div class="rng">H: 33° · L: 19°</div>
+      <div class="cond">Partly cloudy, muggy afternoon</div>
+      <div class="drow"><span>Humidity: 42%</span><span>Wind: SE 10 km/h</span></div>
+      <div class="aqi-bar aqi-moderate">AQI 88 <span class="aqi-label">— Moderate</span></div>
+      <div class="wfc">
+        <div class="dm"><span>⛅</span>Fri<br>34°/20°</div>
+        <div class="dm"><span>☀️</span>Sat<br>35°/20°</div>
+        <div class="dm"><span>🌤️</span>Sun<br>34°/19°</div>
+        <div class="dm"><span>⛅</span>Mon<br>33°/19°</div>
+        <div class="dm"><span>🌦️</span>Tue<br>31°/18°</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-note"><strong>Air Quality Scales:</strong> Canadian cities use Environment Canada AQHI (1–10; 1–3 Low, 4–6 Moderate, 7–10 High Risk). Indian cities use U.S. EPA AQI (0–50 Good, 51–100 Moderate, 101–150 Unhealthy Sensitive, 151–200 Unhealthy, 201–300 Very Unhealthy). Temperatures in Celsius. Verify with Environment Canada and India Meteorological Department.</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- COMICS -->
+<div class="comic-wrap" id="comics">
+  <div style="text-align:center;margin-bottom:4px;">
+    <span style="font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.1em;">The Chronicler Funnies</span>
+  </div>
+  <div style="text-align:center;font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);font-style:italic;margin-bottom:2px;">"Day 13: Everyone Wants a Carve-Out"</div>
+  <div style="text-align:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);">Vol. I, No. 5 &bull; Thursday, March 12, 2026</div>
+
+  <!-- TOP ROW: 4 panels -->
+  <div class="strip">
+    <!-- Panel 1: Idlout floor crossing -->
+    <div class="panel">
+      <div class="plbl">Panel 1</div>
+      <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="230" fill="#fafafa"/>
+        <!-- Parliament aisle -->
+        <rect x="0" y="140" width="200" height="90" fill="#e8e0cc"/>
+        <line x1="100" y1="110" x2="100" y2="200" stroke="#bbb" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <text x="30" y="130" font-family="sans-serif" font-size="9" fill="#e85d04">NDP</text>
+        <text x="140" y="130" font-family="sans-serif" font-size="9" fill="#cc0000">LIBERAL</text>
+        <!-- Walking figure (Idlout) -->
+        <ellipse cx="100" cy="165" rx="9" ry="11" fill="#5d3fd3"/>
+        <circle cx="100" cy="148" r="8" fill="#5d3fd3"/>
+        <!-- Moving arrow -->
+        <path d="M50,162 L87,162" stroke="#5d3fd3" stroke-width="2.5" marker-end="url(#arw1)"/>
+        <defs><marker id="arw1" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#5d3fd3"/></marker></defs>
+        <!-- Speech bubble -->
+        <rect x="110" y="115" width="84" height="28" rx="5" fill="white" stroke="#333" stroke-width="1"/>
+        <polygon points="117,143 110,150 124,143" fill="white" stroke="#333" stroke-width="1"/>
+        <text x="152" y="128" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#333">For Nunavut's</text>
+        <text x="152" y="139" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#333">future. I cross.</text>
+        <!-- NDP figures left -->
+        <rect x="20" y="153" width="7" height="15" rx="2" fill="#e85d04"/><circle cx="23" cy="150" r="4.5" fill="#e85d04"/>
+        <rect x="36" y="153" width="7" height="15" rx="2" fill="#e85d04"/><circle cx="39" cy="150" r="4.5" fill="#e85d04"/>
+        <!-- Liberal figures right -->
+        <rect x="140" y="153" width="7" height="15" rx="2" fill="#cc0000"/><circle cx="143" cy="150" r="4.5" fill="#cc0000"/>
+        <rect x="155" y="153" width="7" height="15" rx="2" fill="#cc0000"/><circle cx="158" cy="150" r="4.5" fill="#cc0000"/>
+        <!-- Count badge -->
+        <rect x="5" y="25" width="90" height="24" rx="4" fill="#cc0000"/>
+        <text x="50" y="41" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">LIBERALS: 170 SEATS</text>
+      </svg>
+      <div class="cap">Idlout #4 joins Liberal caucus. Carney: 170 seats. Majority = 172. Two more to go.</div>
+    </div>
+
+    <!-- Panel 2: Poilievre at podium -->
+    <div class="panel">
+      <div class="plbl">Panel 2</div>
+      <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="230" fill="#fafafa"/>
+        <!-- Podium -->
+        <rect x="72" y="155" width="58" height="45" rx="3" fill="#c8b89a" stroke="#555" stroke-width="1"/>
+        <text x="101" y="175" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">CPC</text>
+        <!-- Figure -->
+        <rect x="84" y="120" width="34" height="40" rx="3" fill="#1a3a6b"/>
+        <circle cx="101" cy="108" r="14" fill="#f5d5a8"/>
+        <!-- Angry eyebrows -->
+        <line x1="93" y1="101" x2="100" y2="105" stroke="#333" stroke-width="2"/>
+        <line x1="109" y1="101" x2="102" y2="105" stroke="#333" stroke-width="2"/>
+        <circle cx="96" cy="107" r="2" fill="#333"/>
+        <circle cx="106" cy="107" r="2" fill="#333"/>
+        <path d="M96,115 Q101,111 106,115" stroke="#333" stroke-width="1" fill="none"/>
+        <!-- Steam -->
+        <line x1="95" y1="92" x2="93" y2="83" stroke="#cc0000" stroke-width="2"/>
+        <line x1="101" y1="91" x2="101" y2="81" stroke="#cc0000" stroke-width="2"/>
+        <line x1="107" y1="92" x2="109" y2="83" stroke="#cc0000" stroke-width="2"/>
+        <!-- Speech bubble -->
+        <rect x="8" y="22" width="184" height="60" rx="6" fill="white" stroke="#333" stroke-width="1"/>
+        <polygon points="95,82 88,92 102,82" fill="white" stroke="#333" stroke-width="1"/>
+        <text x="100" y="40" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#8b0000" font-weight="bold">"Backroom deals to</text>
+        <text x="100" y="53" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#8b0000" font-weight="bold">seize a majority</text>
+        <text x="100" y="66" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#8b0000" font-weight="bold">voters REJECTED!"</text>
+        <!-- Analysts note tiny text -->
+        <text x="100" y="215" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#888">[Analysts note: Tories may prefer no election soon]</text>
+      </svg>
+      <div class="cap">Poilievre's outrage, Day 4. NB: Conservatives trailing in polls may not actually want an election.</div>
+    </div>
+
+    <!-- Panel 3: Oil thermometer with IEA vs IRGC arrows -->
+    <div class="panel">
+      <div class="plbl">Panel 3</div>
+      <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="230" fill="#fafafa"/>
+        <!-- Thermometer body -->
+        <rect x="88" y="22" width="24" height="140" rx="12" fill="#eee" stroke="#555" stroke-width="1.5"/>
+        <!-- Mercury fill — $95 level -->
+        <rect x="91" y="82" width="18" height="80" fill="#c0392b"/>
+        <circle cx="100" cy="170" r="18" fill="#c0392b" stroke="#555" stroke-width="1.5"/>
+        <!-- Scale ticks -->
+        <line x1="112" y1="82" x2="123" y2="82" stroke="#555" stroke-width="1"/>
+        <text x="125" y="86" font-family="sans-serif" font-size="9" fill="#c0392b" font-weight="bold">$95</text>
+        <line x1="112" y1="105" x2="118" y2="105" stroke="#bbb" stroke-width=".8"/>
+        <text x="120" y="109" font-family="sans-serif" font-size="8" fill="#888">$86</text>
+        <line x1="112" y1="135" x2="118" y2="135" stroke="#bbb" stroke-width=".8"/>
+        <text x="120" y="139" font-family="sans-serif" font-size="8" fill="#888">$67</text>
+        <!-- IEA arrow (push down) -->
+        <path d="M58,105 L84,105" stroke="#2980b9" stroke-width="2.5" marker-end="url(#arw2)"/>
+        <defs><marker id="arw2" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#2980b9"/></marker></defs>
+        <text x="8" y="97" font-family="sans-serif" font-size="8" fill="#2980b9" font-weight="bold">IEA: 400M</text>
+        <text x="12" y="108" font-family="sans-serif" font-size="7.5" fill="#2980b9">barrels!</text>
+        <!-- IRGC arrow (push up) -->
+        <path d="M55,120 L84,90" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arw3)"/>
+        <defs><marker id="arw3" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#c0392b"/></marker></defs>
+        <text x="4" y="118" font-family="sans-serif" font-size="8" fill="#c0392b" font-weight="bold">IRGC:</text>
+        <text x="4" y="129" font-family="sans-serif" font-size="7" fill="#c0392b">$200 or bust!</text>
+        <!-- Title -->
+        <text x="100" y="15" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555" font-style="italic">Brent Crude, Mar 12</text>
+        <!-- Result label -->
+        <rect x="25" y="190" width="150" height="18" rx="4" fill="#fff3cd" stroke="#e09000" stroke-width="1"/>
+        <text x="100" y="202" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#7d4e00">Market: oil back to $95. Shrug.</text>
+      </svg>
+      <div class="cap">400 million barrels released. IEA hopes: temporary dip. Reality: back to $95 by morning.</div>
+    </div>
+
+    <!-- Panel 4: Jaishankar on phone, carve-out diplomacy -->
+    <div class="panel">
+      <div class="plbl">Panel 4</div>
+      <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="230" fill="#fafafa"/>
+        <!-- Faint India flag stripes background -->
+        <rect x="0" y="0" width="200" height="77" fill="#ff9933" opacity=".10"/>
+        <rect x="0" y="77" width="200" height="76" fill="#fff" opacity=".4"/>
+        <rect x="0" y="153" width="200" height="77" fill="#138808" opacity=".10"/>
+        <!-- Desk -->
+        <rect x="35" y="155" width="130" height="14" rx="2" fill="#b8956a" stroke="#888" stroke-width="1"/>
+        <!-- Figure -->
+        <rect x="78" y="120" width="44" height="40" rx="3" fill="#1a1a6b"/>
+        <circle cx="100" cy="107" r="15" fill="#c8824e"/>
+        <ellipse cx="100" cy="96" rx="15" ry="8" fill="#111"/>
+        <circle cx="94" cy="107" r="2" fill="#333"/>
+        <circle cx="106" cy="107" r="2" fill="#333"/>
+        <path d="M94,115 Q100,120 106,115" stroke="#333" stroke-width="1" fill="none"/>
+        <!-- Phone -->
+        <rect x="112" y="102" width="24" height="16" rx="3" fill="#333" stroke="#111" stroke-width="1"/>
+        <rect x="116" y="101" width="7" height="4" rx="1" fill="#666"/>
+        <rect x="125" y="101" width="7" height="4" rx="1" fill="#666"/>
+        <!-- Speech bubble -->
+        <rect x="5" y="28" width="110" height="62" rx="6" fill="white" stroke="#333" stroke-width="1"/>
+        <polygon points="90,90 83,100 97,90" fill="white" stroke="#333" stroke-width="1"/>
+        <text x="60" y="48" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#333" font-style="italic">Araghchi,</text>
+        <text x="60" y="60" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#333">safe passage for</text>
+        <text x="60" y="72" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#138808" font-weight="bold">Indian tankers.</text>
+        <text x="60" y="84" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#333">We stay neutral.</text>
+        <!-- Mini tanker -->
+        <rect x="140" y="165" width="45" height="16" rx="2" fill="#4a90d9" stroke="#333" stroke-width="1"/>
+        <polygon points="140,165 158,152 185,165" fill="#4a90d9" stroke="#333" stroke-width="1"/>
+        <text x="163" y="177" text-anchor="middle" font-family="sans-serif" font-size="9">🛢️</text>
+        <text x="163" y="190" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#138808">INDIA ✓</text>
+        <!-- Result banner -->
+        <rect x="115" y="30" width="80" height="24" rx="4" fill="#d4edda" stroke="#138808" stroke-width="1"/>
+        <text x="155" y="45" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#155724" font-weight="bold">CARVE-OUT GRANTED</text>
+      </svg>
+      <div class="cap">Non-alignment has its perks. India's tankers get through. Iran denies it. Both things somehow true.</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM ROW: 3 panels -->
+  <div class="strip2">
+    <!-- Panel 5: Bizarre Liberal caucus meeting -->
+    <div class="panel panel2t">
+      <div class="plbl">Panel 5</div>
+      <svg viewBox="0 0 200 245" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="245" fill="#fafafa"/>
+        <!-- Room banner -->
+        <rect x="15" y="18" width="170" height="22" rx="3" fill="#cc0000"/>
+        <text x="100" y="33" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white" font-weight="bold">LIBERAL CAUCUS ROOM</text>
+        <!-- Figure A: Ex-NDP (purple) -->
+        <rect x="28" y="120" width="34" height="50" rx="3" fill="#5d3fd3"/>
+        <circle cx="45" cy="108" r="14" fill="#c8a07a"/>
+        <ellipse cx="45" cy="98" rx="14" ry="7" fill="#1a1a1a"/>
+        <text x="45" y="185" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#5d3fd3" font-weight="bold">IDLOUT</text>
+        <!-- Figure B: Ex-Conservative (blue) -->
+        <rect x="138" y="120" width="34" height="50" rx="3" fill="#1a3a6b"/>
+        <circle cx="155" cy="108" r="14" fill="#d4956a"/>
+        <ellipse cx="155" cy="98" rx="14" ry="7" fill="#555"/>
+        <text x="155" y="185" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#1a3a6b" font-weight="bold">JENEROUX</text>
+        <!-- Awkward handshake -->
+        <path d="M62,138 Q100,130 138,138" stroke="#888" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
+        <!-- Carney tiny figure beaming between -->
+        <rect x="88" y="155" width="24" height="28" rx="2" fill="#cc0000"/>
+        <circle cx="100" cy="148" r="10" fill="#d4956a"/>
+        <path d="M93,153 Q100,158 107,153" stroke="#333" stroke-width="1.2" fill="none"/>
+        <text x="100" y="200" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#cc0000" font-weight="bold">CARNEY 😊</text>
+        <!-- Bubbles -->
+        <rect x="5" y="58" width="80" height="26" rx="4" fill="white" stroke="#5d3fd3" stroke-width="1"/>
+        <polygon points="38,84 32,92 44,84" fill="white" stroke="#5d3fd3" stroke-width="1"/>
+        <text x="45" y="70" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#5d3fd3">So you're</text>
+        <text x="45" y="81" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#5d3fd3">the Tory.</text>
+        <rect x="115" y="58" width="80" height="26" rx="4" fill="white" stroke="#1a3a6b" stroke-width="1"/>
+        <polygon points="155,84 149,92 161,84" fill="white" stroke="#1a3a6b" stroke-width="1"/>
+        <text x="155" y="70" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#1a3a6b">So you're</text>
+        <text x="155" y="81" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#1a3a6b">the NDP'er.</text>
+      </svg>
+      <div class="cap">Conservative Jeneroux and NDPer Idlout — now Liberal colleagues. Carney grins. Political scientists weep.</div>
+    </div>
+
+    <!-- Panel 6: Leafs locker room, Matthews goalless streak -->
+    <div class="panel panel2t">
+      <div class="plbl">Panel 6</div>
+      <svg viewBox="0 0 200 245" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="245" fill="#fafafa"/>
+        <!-- Scoreboard -->
+        <rect x="18" y="18" width="164" height="55" rx="4" fill="#111" stroke="#444" stroke-width="1"/>
+        <text x="100" y="38" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff0">⬛ 9-GAME LOSING STREAK ⬛</text>
+        <text x="100" y="52" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#4fc3f7">TOR vs ANA DUCKS · 7 PM</text>
+        <text x="100" y="63" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#aaa">Scotiabank Arena</text>
+        <!-- Ice rink background -->
+        <ellipse cx="100" cy="175" rx="90" ry="52" fill="white" stroke="#b0d0ff" stroke-width="1.5"/>
+        <ellipse cx="100" cy="175" rx="60" ry="34" fill="none" stroke="#b0d0ff" stroke-width=".8"/>
+        <!-- Maple leaf on ice -->
+        <text x="100" y="185" text-anchor="middle" font-size="32">🍁</text>
+        <!-- Matthews figure, head down -->
+        <rect x="82" y="120" width="36" height="45" rx="3" fill="#003e7e"/>
+        <circle cx="100" cy="108" r="14" fill="#003e7e"/>
+        <rect x="86" y="96" width="28" height="10" rx="2" fill="#003e7e" stroke="#aac8ff" stroke-width=".5"/>
+        <text x="100" y="107" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#aac8ff">34</text>
+        <!-- Drought counter -->
+        <rect x="112" y="92" width="78" height="22" rx="4" fill="#fff3cd" stroke="#e09000" stroke-width="1"/>
+        <text x="151" y="106" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#7d4e00">Matthews: 0 G in 12</text>
+        <rect x="5" y="92" width="72" height="22" rx="4" fill="#d4edda" stroke="#138808" stroke-width="1"/>
+        <text x="41" y="106" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#155724">Nylander: 59 pts 🔥</text>
+      </svg>
+      <div class="cap">Nine-game skid. Matthews in a 12-game goal drought. Nylander somehow keeping the lights on. Tonight: Ducks.</div>
+    </div>
+
+    <!-- Panel 7: G7 still deliberating, oil in background -->
+    <div class="panel panel2t">
+      <div class="plbl">Panel 7</div>
+      <svg viewBox="0 0 200 245" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="245" fill="#fafafa"/>
+        <!-- Conference table oval (top-down) -->
+        <ellipse cx="100" cy="160" rx="88" ry="52" fill="#c8b89a" stroke="#555" stroke-width="1.5"/>
+        <!-- 7 nation circles at table -->
+        <circle cx="100" cy="110" r="9" fill="#cc0000"/><text x="100" y="115" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">CA</text>
+        <circle cx="57" cy="123" r="9" fill="#003189"/><text x="57" y="128" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">FR</text>
+        <circle cx="30" cy="160" r="9" fill="#000"/><text x="30" y="165" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">DE</text>
+        <circle cx="57" cy="197" r="9" fill="#009246"/><text x="57" y="202" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">IT</text>
+        <circle cx="100" cy="208" r="9" fill="#bc002d"/><text x="100" y="213" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">JP</text>
+        <circle cx="143" cy="197" r="9" fill="#012169"/><text x="143" y="202" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">UK</text>
+        <circle cx="170" cy="160" r="9" fill="#b22234"/><text x="170" y="165" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">US</text>
+        <!-- Table sign -->
+        <rect x="65" y="148" width="70" height="22" rx="3" fill="white" stroke="#999" stroke-width=".8"/>
+        <text x="100" y="159" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#555">G7 EMERGENCY III</text>
+        <text x="100" y="169" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#999">Session ongoing...</text>
+        <!-- US bubble -->
+        <rect x="118" y="18" width="78" height="44" rx="5" fill="white" stroke="#b22234" stroke-width="1"/>
+        <polygon points="162,62 155,72 169,62" fill="white" stroke="#b22234" stroke-width="1"/>
+        <text x="157" y="34" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#b22234">Victory first.</text>
+        <text x="157" y="46" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#b22234">THEN we talk</text>
+        <text x="157" y="58" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#b22234">about talking.</text>
+        <!-- Canada bubble -->
+        <rect x="4" y="18" width="88" height="44" rx="5" fill="white" stroke="#cc0000" stroke-width="1"/>
+        <polygon points="38,62 32,72 44,62" fill="white" stroke="#cc0000" stroke-width="1"/>
+        <text x="48" y="34" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#cc0000">Framework for</text>
+        <text x="48" y="46" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#cc0000">a framework to</text>
+        <text x="48" y="58" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#cc0000">consider talking.</text>
+      </svg>
+      <div class="cap">G7 Emergency Session III. US: "Victory first." Canada: "Framework for a framework." $95 oil: "Cool, still here."</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p><strong>The Chronicler</strong> &bull; Vol. I, No. 5 &bull; Thursday, March 12, 2026 &bull; Published Daily &bull; Independent Journalism</p>
+  <p style="margin-top:4px;">Sources include CP24, CBC News, CTV News, Global News, Bloomberg, Al Jazeera, NBC News, India TV News, Sunday Guardian, Reuters, Windward Maritime AI, ESPN, CBS Sports, GTA Construction Report, and public government releases. Comic strip content is original satire. © 2026 The Chronicler.</p>
+</div>
+
+</body>
+</html>

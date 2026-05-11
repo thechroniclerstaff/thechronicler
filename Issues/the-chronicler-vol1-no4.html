@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Wednesday, March 11, 2026 — Vol. I, No. 4</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #141008;
+    --aged: #f4edd6;
+    --cream: #fdf9ee;
+    --rust: #8b2513;
+    --gold: #a07800;
+    --grey: #635d4e;
+    --rule: #d0c5a0;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#e2d9c0; font-family:'Libre Baskerville',Georgia,serif; color:var(--ink); font-size:14px; line-height:1.65; }
+
+  /* MASTHEAD */
+  .masthead { background:var(--cream); border-bottom:4px double var(--ink); padding:16px 40px 10px; text-align:center; }
+  .mast-top { display:flex; justify-content:space-between; font-family:'Source Sans 3',sans-serif; font-size:11px; color:var(--grey); letter-spacing:.05em; border-bottom:1px solid var(--rule); padding-bottom:5px; margin-bottom:5px; }
+  .masthead h1 { font-family:'UnifrakturMaguntia',cursive; font-size:clamp(34px,5.5vw,68px); color:var(--ink); letter-spacing:2px; line-height:1; text-shadow:2px 2px 0 rgba(0,0,0,.07); }
+  .mast-tag { font-family:'Libre Baskerville',serif; font-style:italic; font-size:11.5px; color:var(--grey); margin-top:3px; }
+  .breaking-bar { background:var(--rust); color:#fff; text-align:center; font-family:'Source Sans 3',sans-serif; font-size:11px; font-weight:600; letter-spacing:.13em; text-transform:uppercase; padding:5px; overflow:hidden; }
+  .nav-bar { display:flex; justify-content:center; background:var(--ink); position:sticky; top:0; z-index:200; box-shadow:0 3px 10px rgba(0,0,0,.35); }
+  .nav-bar a { color:var(--aged); text-decoration:none; font-family:'Source Sans 3',sans-serif; font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:9px 20px; border-right:1px solid #2a2010; transition:background .2s; }
+  .nav-bar a:last-child { border-right:none; }
+  .nav-bar a:hover { background:var(--rust); color:#fff; }
+
+  /* PAGES */
+  .page { max-width:1080px; margin:0 auto; background:var(--cream); padding:28px 38px; border-left:1px solid var(--rule); border-right:1px solid var(--rule); }
+  .section-banner { text-align:center; margin:28px 0 18px; padding:13px 20px; background:var(--ink); color:var(--aged); }
+  .section-banner h2 { font-family:'Playfair Display',serif; font-size:25px; font-weight:900; letter-spacing:.15em; text-transform:uppercase; }
+  .section-banner .flag { font-family:'Source Sans 3',sans-serif; font-size:11px; letter-spacing:.2em; text-transform:uppercase; opacity:.65; margin-top:2px; }
+  .cat { font-family:'Source Sans 3',sans-serif; font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--rust); border-bottom:2px solid var(--rust); padding-bottom:4px; margin:22px 0 13px; display:block; }
+  .col-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .col-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  article.s { border-right:1px solid var(--rule); padding-right:17px; }
+  article.s:last-child { border-right:none; padding-right:0; }
+  article.s h3 { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; line-height:1.25; margin-bottom:6px; }
+  article.s .by { font-family:'Source Sans 3',sans-serif; font-size:10.5px; color:var(--grey); font-style:italic; margin-bottom:8px; }
+  article.s p { font-size:13px; line-height:1.72; text-align:justify; margin-bottom:8px; hyphens:auto; }
+  article.s .src { font-family:'Source Sans 3',sans-serif; font-size:10px; color:var(--grey); border-top:1px solid var(--rule); padding-top:5px; margin-top:8px; word-break:break-all; }
+  article.s .src a { color:var(--rust); text-decoration:none; }
+  article.s .src a:hover { text-decoration:underline; }
+  .pull { border-left:4px solid var(--rust); padding:7px 11px; margin:9px 0; font-family:'Playfair Display',serif; font-style:italic; font-size:13.5px; color:var(--rust); }
+  hr.sr { border:none; border-top:1px solid var(--rule); margin:17px 0; }
+  .divider { height:11px; background:var(--ink); max-width:1080px; margin:0 auto; }
+
+  /* WEATHER + AQI */
+  .w-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(175px,1fr)); gap:16px; margin-top:18px; }
+  .w-card { background:#ede6cf; border:1px solid var(--rule); border-top:3px solid var(--ink); padding:14px; text-align:center; }
+  .w-card .city { font-family:'Playfair Display',serif; font-weight:700; font-size:14.5px; margin-bottom:1px; }
+  .w-card .region { font-family:'Source Sans 3',sans-serif; font-size:9.5px; color:var(--grey); text-transform:uppercase; letter-spacing:.1em; margin-bottom:10px; }
+  .w-icon { font-size:38px; display:block; margin-bottom:5px; }
+  .w-card .temp { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; }
+  .w-card .rng { font-family:'Source Sans 3',sans-serif; font-size:10.5px; color:var(--grey); margin-bottom:7px; }
+  .w-card .cond { font-family:'Libre Baskerville',serif; font-style:italic; font-size:11.5px; color:var(--grey); margin-bottom:7px; }
+  .w-card .drow { display:flex; justify-content:space-between; font-family:'Source Sans 3',sans-serif; font-size:9.5px; color:var(--grey); border-top:1px solid var(--rule); padding-top:5px; margin-top:3px; }
+  .aqi-bar { display:flex; align-items:center; justify-content:center; gap:7px; margin-top:9px; padding:6px 8px; border-radius:4px; font-family:'Source Sans 3',sans-serif; font-size:10px; font-weight:600; }
+  .aqi-bar .aqi-label { font-size:9px; font-weight:400; color:inherit; opacity:.85; }
+  .aqi-good     { background:#d4edda; color:#155724; border:1px solid #c3e6cb; }
+  .aqi-moderate { background:#fff3cd; color:#856404; border:1px solid #ffeeba; }
+  .aqi-sensitive{ background:#ffe5b4; color:#7d4e00; border:1px solid #ffd08a; }
+  .aqi-poor     { background:#f8d7da; color:#721c24; border:1px solid #f5c6cb; }
+  .aqi-vpoor    { background:#e2c5f5; color:#4b0082; border:1px solid #d4aaed; }
+  .wfc { display:flex; justify-content:space-between; margin-top:9px; padding-top:7px; border-top:1px solid var(--rule); }
+  .wfc .dm { text-align:center; font-family:'Source Sans 3',sans-serif; font-size:9px; color:var(--grey); }
+  .wfc .dm span { display:block; font-size:13px; margin:2px 0; }
+
+  /* COMIC */
+  .comic-wrap { max-width:1080px; margin:0 auto; background:var(--cream); padding:28px 38px; border:1px solid var(--rule); border-bottom:4px double var(--ink); }
+  .strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin-top:18px; }
+  .strip2 { display:grid; grid-template-columns:repeat(3,1fr); border-left:2px solid var(--ink); border-right:2px solid var(--ink); border-bottom:2px solid var(--ink); }
+  .panel { border-right:2px solid var(--ink); background:#fff; padding:10px; min-height:260px; display:flex; flex-direction:column; }
+  .panel:last-child { border-right:none; }
+  .panel svg { flex:1; width:100%; }
+  .bub { background:#fff; border:1.5px solid #333; border-radius:9px; padding:5px 7px; font-family:'Source Sans 3',sans-serif; font-size:10px; line-height:1.3; text-align:center; position:relative; margin-bottom:5px; }
+  .bub::after { content:''; position:absolute; bottom:-7px; left:50%; transform:translateX(-50%); border:4px solid transparent; border-top-color:#333; }
+  .cap { font-family:'Source Sans 3',sans-serif; font-size:9px; color:var(--grey); text-align:center; margin-top:5px; font-style:italic; }
+  .plbl { font-family:'Source Sans 3',sans-serif; font-size:9px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--grey); text-align:right; margin-bottom:3px; }
+  .panel2t { border-top:2px solid var(--ink); }
+
+  /* FOOTER */
+  .footer { max-width:1080px; margin:0 auto; text-align:center; padding:14px; font-family:'Source Sans 3',sans-serif; font-size:10px; color:var(--grey); background:var(--cream); border-left:1px solid var(--rule); border-right:1px solid var(--rule); }
+
+  @media(max-width:760px){
+    .col-3,.col-2{grid-template-columns:1fr;}
+    article.s{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:14px;}
+    .page,.comic-wrap{padding:18px 14px;}
+    .strip{grid-template-columns:repeat(2,1fr);}
+    .nav-bar a{padding:8px 10px;font-size:10px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="masthead">
+    <div class="mast-top">
+      <span>EST. 2026 &bull; INDEPENDENT JOURNALISM</span>
+      <span>Wednesday, March 11, 2026 &bull; Vol. I, No. 4</span>
+      <span>Price: Worth Every Penny</span>
+    </div>
+    <h1>The Chronicler</h1>
+    <div class="mast-tag">"All the News That's Fit to Chronicle"</div>
+  </div>
+  <div class="breaking-bar">⚡ Shots Fired at U.S. Consulate Toronto — National Security Incident &bull; Hegseth: "Most Intense Day of Strikes" on Iran &bull; Leafs Lose 8th Straight — 3-1 to Habs &bull; India Buys 30M Barrels Russian Oil After U.S. Waiver &bull; Iran Internet Blackout Hits 264 Hours &bull; Carney: Canada "Will Never" Join Iran War</div>
+</header>
+<nav class="nav-bar">
+  <a href="#gta">🍁 Greater Toronto</a>
+  <a href="#canada">🇨🇦 Canada</a>
+  <a href="#india">🇮🇳 India</a>
+  <a href="#world">🌐 World</a>
+  <a href="#weather">☁️ Weather</a>
+  <a href="#comics">🖊 Comics</a>
+</nav>
+
+<!-- ===================== GTA ===================== -->
+<div id="gta"></div>
+<div class="page">
+  <div class="section-banner">
+    <div class="flag">Part One</div>
+    <h2>Greater Toronto Area</h2>
+  </div>
+  <p style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:13.5px;color:var(--grey);margin-bottom:18px;">Wednesday's city: a bullet at the consulate, an eight-game skid, and a budget date circled in red.</p>
+
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Shots Fired Outside U.S. Consulate on University Avenue — Carney Calls It a National Security Incident</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>Gunfire erupted Tuesday outside the United States Consulate on University Avenue in downtown Toronto, sending staff inside to shelter and prompting an emergency response from Toronto Police, CSIS, and the RCMP. The shooting, which occurred in the late morning against the consulate's external perimeter, did not breach the building's interior and no consular staff were reported injured. A suspect was taken into custody in the vicinity of the scene within the hour. The motive remained under active investigation as of Wednesday morning.</p>
+      <p>Prime Minister Mark Carney, who was in Ottawa for question period, was briefed immediately and described the incident from the floor of the House of Commons as a "national security incident" — language that carries specific legal and investigative implications and that immediately signalled the government's view that this was not a random act of violence. CSIS Director David Vigneault confirmed in a brief statement that the agency was actively supporting the investigation, and declined to characterize the incident's connection, if any, to the ongoing Iran war and the elevated threat environment it has created on Canadian soil.</p>
+      <p>U.S. Ambassador Pete Hoekstra released a statement describing the shooting as "deeply troubling" and thanking Canadian security services for their rapid response. The Israeli Consulate in Toronto also issued a statement, noting it was "monitoring the shooting" alongside "persistent and concerning incidents targeting Jewish institutions in the city." The juxtaposition of the consulate shooting with the ongoing synagogue attack pattern — now extending to four incidents in the GTA over recent weeks — creates a security picture that Toronto Police Chief Demkiw acknowledged is "one of the most complex environments this service has operated in." No further details on the suspect's identity or background had been released by Wednesday morning.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/world/livestory/iran-israel-us-war-day-12-9.7119190" target="_blank">CBC News — March 11, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Ontario Budget Set for March 26 — All Eyes on Bethlenfalvy's Energy Calculation</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>Finance Minister Peter Bethlenfalvy confirmed Tuesday that Ontario's provincial budget will be tabled on March 26 — a date that has acquired considerably more significance than the ministry's fiscal team anticipated when they first set it. The budget was always going to be a consequential document: Ontario is navigating trade tensions with the United States, a softening housing market, elevated public sector labour costs, and a capital investment programme in transit and healthcare that is stretching the province's fiscal capacity. The Iran oil shock, in the fortnight since it erupted, has added a new and highly uncertain variable to every major economic assumption the budget is built upon.</p>
+      <p>The budget's energy and affordability sections will be watched most closely. Ontario's gasoline prices, which had already been the subject of political controversy, are now subject to a global commodity shock whose duration is unknown. The Progressive Conservative government has resisted calls to cut fuel taxes as a relief measure — on the grounds that the fiscal cost would be high and the consumer benefit would be temporary — but the political pressure has intensified as pump prices reflect the oil market's volatility. The budget document will need to thread a needle between fiscal restraint and affordability messaging at a moment when households are acutely sensitive to energy costs.</p>
+      <p>The transit capital envelope — the largest single non-healthcare expenditure commitment in Ontario's recent budgets — will also be closely scrutinised. The Metrolinx restructuring announced this week, which shed more than 400 consultant positions, was framed partly as a cost-management exercise. Whether the budget will confirm, extend, or revise the capital commitments for the Ontario Line, Hazel McCallion Line, and Finch West LRT will be a major political signal about the government's commitment to its infrastructure programme in a period of fiscal tightening. Transit advocates have scheduled pre-budget rallies for next week.</p>
+      <div class="src">Source: <a href="https://www.cp24.com" target="_blank">CP24 / Ontario Ministry of Finance — March 10, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>CSIS Raises Vigilance Across Canada — Toronto Jewish Institutions on Highest Alert</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>The Canadian Security Intelligence Service announced Tuesday that it has significantly increased its "operational efforts" to prevent potential extremist violence on Canadian soil, with a particular focus on targets that could be affected by the polarising dynamics of the Iran war. The service's public statement — unusually explicit for an agency that rarely comments on specific threat assessments — noted that "Iranian threat-related activities directed at Canada and its allies are likely to continue in 2026," and that CSIS's national terrorism threat level remains at medium, meaning a violent extremist act is assessed as capable of occurring at any time.</p>
+      <p>Toronto's Jewish community institutions, already reeling from four shooting incidents in the past month, have been briefed by CSIS and Toronto Police on the elevated threat picture. The United Jewish Appeal Federation and the Centre for Israel and Jewish Affairs released a joint statement Wednesday calling on the federal government to accelerate the deployment of dedicated protection resources for Jewish communal institutions and to criminalise the possession of hate literature directed at Jewish Canadians with harsher consequences than currently exist under the Criminal Code.</p>
+      <p>The broader security environment has prompted a review by the City of Toronto of its "soft target" protection protocols — the framework governing security around publicly accessible buildings, cultural institutions, community centres, and places of worship that are not entitled to the same level of physical hardening as government facilities but that may be targeted precisely because they are accessible. The review, which began in the aftermath of the first synagogue attack, is now being accelerated in light of Tuesday's consulate shooting, and a preliminary report is expected to be presented to the City's Public Safety Committee before month's end.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/world/livestory/iran-israel-us-war-day-12-9.7119190" target="_blank">CBC News — March 11, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Ford Government Tables March 26 Budget Amid Rare Cross-Party Calls for Affordability Relief</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>Queen's Park has not seen such broad cross-partisan agreement on a policy problem since the COVID-19 emergency spending era: members from all parties are, in their various ways, pressing the Ford government to use the March 26 budget to address the acute affordability pressures facing Ontario households. The NDP opposition, led at Queen's Park by Marit Stiles, has tabled a pre-budget motion calling for an emergency fuel tax cut, a rent increase freeze, and an expansion of the provincial child benefit — a package whose individual elements enjoy majority support in published polling but whose combined fiscal cost is more than the government's advisors believe the province can absorb without breaching its deficit targets.</p>
+      <p>The Ford government's own backbenchers from suburban and exurban ridings — where household budgets are most exposed to fuel costs, since public transit access is limited and commuting distances are long — have been quietly pressing the Finance Ministry to include some form of automotive affordability measure. Several sources told The Chronicler that the internal discussion has included a one-time energy relief payment modelled on the previous Ontario Energy and Property Tax Credit, rather than a blanket fuel tax reduction that would primarily benefit higher-income households who drive more.</p>
+      <p>The budget will also be the first significant fiscal document since the federal government's C-5 One Canadian Economy Act passed third reading, and Ontario's budget writers will need to decide how to characterise the province's fiscal relationship with a federal government whose own accounts are under pressure from the Iran shock. The federal-provincial fiscal architecture — particularly transfer payments and health funding formulas — is the subtext of every Ontario budget, and the March 26 document will signal the degree to which Queen's Park sees itself as working with Ottawa or operating in parallel to it.</p>
+      <div class="src">Source: Ontario Legislative Assembly / CP24 Queen's Park Bureau — March 2026</div>
+    </article>
+    <article class="s">
+      <h3>Toronto Mayoral Race Takes Shape — Who Runs After Tory's Exit?</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>The confirmation that John Tory will not seek a return to the Toronto mayoralty has concentrated minds across the city's political class about who, exactly, will run to lead Canada's largest city in the next municipal election. The field, at this early stage, has the character of a gathering of potential candidates carefully observing one another without committing — a common feature of Toronto municipal politics in the pre-race period, when the costs of a failed campaign are high enough to counsel patience, but the benefits of early momentum are also real.</p>
+      <p>Several names circulate consistently in the conversations of municipal political observers. Former Deputy Mayor Shelley Carroll, who has served on the Toronto budget committee and has a profile that blends fiscal competence with community engagement, is seen as a credible potential candidate. City Councillor Josh Matlow, who has been among the most vocal critics of both Tory's leadership and the current interim administration, has not ruled out a run and his communications infrastructure appears to be preparing for a campaign. Ana Bailão, who served as deputy mayor for housing, is another name frequently mentioned by observers of the moderate progressive wing of Toronto politics.</p>
+      <p>The policy agenda for the next mayor will be shaped largely by crises inherited rather than chosen: the homelessness and mental health emergency that has become the defining urban challenge in Toronto's downtown core; the fiscal relationship between the city and the province on transit capital and social services; and the management of the FIFA World Cup in June and July, which will be the largest international event the city has ever hosted and which the next mayor may well be in office to deliver. The interplay between these inherited challenges and the personal visions of whoever runs will define a campaign that Torontonians will be watching with the particular intensity that political vacuums generate.</p>
+      <div class="src">Source: Global News Toronto / Toronto City Hall Sources — March 2026</div>
+    </article>
+    <article class="s">
+      <h3>Byelection Countdown: 33 Days — Liberals Brace for Iran Voter Backlash in Scarborough</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>With 33 days remaining until the April 13 byelections in University-Rosedale, Scarborough Southwest, and Terrebonne, the Liberal campaign apparatus in the two GTA ridings is conducting its most intensive internal polling — and the results are making strategists uncomfortable. Sources familiar with the polling indicate that the war in Iran has registered more strongly as a voter concern in the Scarborough Southwest contest than in University-Rosedale, reflecting the riding's significant Tamil, South Asian, and Middle Eastern diaspora communities, many of whose members have family ties to the affected region and who are expressing genuine anger at the government's initial support for the U.S.-Israeli strikes.</p>
+      <p>The Tuesday consulate shooting has further complicated the political picture: it is the kind of dramatic security event that typically produces a "rally around the government" effect in polling, but which in the current context may instead sharpen questions about whether the government's initial Iran messaging created a climate in which such incidents were more likely. Liberal candidates in both GTA ridings are, privately, hoping that Carney's Tuesday question period performance — where he was direct, declarative, and present — will begin to stabilise the government's credibility on the issue before the ballots open.</p>
+      <p>Conservative candidate preparations in Scarborough Southwest, meanwhile, have been energised by internal polling suggesting the riding is more competitive than its historical record suggests. The Conservative riding association confirmed it has engaged a door-knocking operation and digital advertising campaign targeting younger voters who, the data suggests, are significantly less Liberal-identified than the riding's historical cohort. For a riding that returned a Liberal MP with more than 55 per cent of the vote in the last general election, the margin of competition is itself a story.</p>
+      <div class="src">Source: Liberal Party of Canada internal sources / Global News — March 2026</div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <span class="cat">Economy &amp; Business</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>GTA Fuel Prices Edge Up Again as Oil Climbs Above $95 Overnight</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>The brief relief that GTA motorists felt Monday when oil retreated toward $86 lasted approximately 36 hours before overnight market movements pushed Brent crude back above $95 per barrel on the back of Hegseth's announcement that Tuesday would be "the most intense day of strikes" on Iran to date. The renewed escalation signal from the Pentagon — combined with Iran's parliament speaker's declaration that Iran was "definitely not looking for a ceasefire" — removed from the market the ambiguous optimism that Trump's "very complete, pretty much" comment had briefly installed, and crude prices resumed their climb toward the triple-digit territory that Qatar's energy minister warned could become the sustained new normal.</p>
+      <p>At the pump, GTA gasoline retailers began implementing increases of approximately 4 to 7 cents per litre across the region overnight, with some stations in the inner suburbs already reflecting prices not seen since the post-COVID commodity spike of 2022. GasBuddy's Canadian analyst noted that the psychological impact of the increases is compounded by their unpredictability: drivers who tank up expecting stable prices find them different two days later, and the planning uncertainty is itself a source of economic anxiety that affects consumer spending decisions beyond the fuel purchase itself.</p>
+      <p>The indirect impacts on the GTA economy are also accumulating. Logistics companies servicing the Toronto region's extensive warehousing and distribution infrastructure — much of it concentrated in Mississauga, Brampton, and the 400-series highway corridors — have begun invoking fuel surcharge clauses in their contracts, passing elevated costs to retailers and, ultimately, to consumers. The supermarket chains serving the GTA confirmed this week that they have begun receiving fuel-adjustment notifications from their major logistics partners, which will translate into modest but measurable cost-of-goods increases within the current quarter.</p>
+      <div class="src">Source: GasBuddy Canada / Financial Post — March 11, 2026</div>
+    </article>
+    <article class="s">
+      <h3>Toronto Condo Market Enters Buyers' Territory — Inventory at Six-Year High</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>Toronto's condominium market, which spent the better part of the post-pandemic years defined by frenzied competition for limited supply, has crossed a statistical threshold this week that agents and analysts describe as definitionally significant: the months-of-inventory figure for GTA condominiums has risen above five months, a level that is conventionally associated with a buyers' market where purchasers hold the negotiating leverage. Active condo listings are at their highest level since 2020, price reductions are more common than at any point in the past decade, and new listing-to-sales ratios are at levels that would have seemed implausible to anyone operating in the market in 2021 or 2022.</p>
+      <p>The causes are multiple and reinforcing. The investor segment — which had been a significant buyer cohort throughout the pandemic and post-pandemic period, acquiring units as rental income properties in a rising-rate-of-return environment — has largely exited the buying market as the economics of rental yield against carrying costs at elevated mortgage rates have become unfavourable. The pre-construction pipeline, which committed large numbers of units to delivery schedules based on the market conditions of 2021-22, is now delivering those units into a market whose fundamentals are fundamentally different. And first-time buyers, who are the natural primary market for smaller condo units, are navigating the combination of still-elevated sticker prices and mortgage rates that, while lower than their 2023 peak, remain materially higher than the historic lows that defined the pandemic era.</p>
+      <p>Real estate economists note that the condo market's current adjustment is distinct from the freehold market, which remains constrained by supply scarcity in the 905 and by the aspirational demand of families seeking detached homes. The two markets — previously moving in tandem — have diverged significantly, creating a rare opportunity window for buyers who have the down payment, the mortgage qualification, and the flexibility to consider a condo purchase while sellers retain pricing power in the freehold segment. For a generation of potential Toronto homeowners who spent the pandemic decade convinced that home ownership was permanently beyond their reach, the condo market of March 2026 offers something that was genuinely absent for years: optionality.</p>
+      <div class="src">Source: Toronto Regional Real Estate Board / Urbanation Condo Market Report — March 2026</div>
+    </article>
+    <article class="s">
+      <h3>LNG Canada Surges: B.C. Exports Already Half of February Volume in Eleven Days</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>LNG Canada's Kitimat export terminal — whose first cargoes shipped only recently after years of construction delays — has emerged as one of the Iran war's unexpected Canadian winners. LSEG shipping data published Tuesday shows that the B.C. facility has already exported five LNG cargoes in the first eleven days of March, a pace that by mid-month will see the terminal exceed its entire February export volume. The acceleration reflects the acute global demand for non-Middle Eastern natural gas supply triggered by the Iran conflict's disruption of Gulf LNG flows, and represents the most concrete near-term economic benefit that the Canada-U.S. energy relationship has produced in the current geopolitical environment.</p>
+      <p>The implications for Canadian energy policy are not lost on the Carney government, which has been navigating the tension between its climate commitments and the economic and strategic arguments for expanded fossil fuel export capacity. Canada's LNG exports are primarily sourced from Alberta natural gas fields whose producers had been lobbying for expanded pipeline capacity to the west coast for more than a decade. The Iran shock, by temporarily transforming LNG Canada from a controversial infrastructure project into a national economic asset, has shifted the political terrain on which those lobbying arguments are made — and has complicated the NDP's calculus in its leadership race, where both leading candidates have taken positions that resist the expansion of fossil fuel infrastructure.</p>
+      <p>The broader energy geopolitics are equally significant. Japan, South Korea, and Taiwan — three major Asian economies that depend heavily on LNG imports — have all seen their procurement teams make direct contact with Canadian export facilities since the conflict began, seeking to understand the maximum available supply. Canadian natural gas producers, who had been managing their output to prevailing market conditions, are now being asked to consider whether a supply surge is feasible in the short to medium term — a question whose answer depends on pipeline capacity, wellhead readiness, and the liquefaction capacity at Kitimat that, at its current stage of development, remains limited relative to the potential demand signal.</p>
+      <div class="src">Source: LSEG Shipping Data / Global News Energy Desk — March 10, 2026</div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Kapanen's 20th Sinks Leafs 3-1 — Eight-Game Skid Is Now Season-Defining</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>Oliver Kapanen scored his 20th goal of the season — the exclamation point on a 3-1 Montreal victory at the Bell Centre on Tuesday night — and the Toronto Maple Leafs have now lost eight consecutive games, placing them in a losing sequence that, if it extends three more, will tie the franchise's worst modern-era skid from the Peter Horachek era. The game was played in Montreal rather than Toronto, and the Leafs lost without generating the kind of sustained offensive pressure that might make the result feel unlucky. It felt instead like the kind of defeat that says something true about a team: methodical, unheroic, and followed by a dressing room interview with Auston Matthews in which the captain, goalless in 12 straight games, said something measured and correct and utterly insufficient for the emotional weight of the moment.</p>
+      <p>The numbers are damning. The Leafs entered Tuesday's game 11 points outside the playoff line and 13 behind the Canadiens — the very team handing them this defeat — who sit in the Eastern Conference's second wild-card position. Montreal, expected to be a rebuilding team this season, is competing for playoff positioning while Toronto's veterans watch from the wrong side of the standings line. The irony is acute and the narrative writes itself, which is precisely why so many Toronto sports journalists have written it this week with a clarity that suggests they have been waiting for exactly this moment to arrive.</p>
+      <p>The Leafs host the Anaheim Ducks on Thursday — a game that, in any other season, would be a comfortable home win against a bottom-third team. In the current moral climate of the 2025-26 Leafs, no game feels comfortable. Coach Craig Berube has retained the confidence of management, at least publicly, and there is no indication that the organisation's assessment of the team has changed: the trade deadline moves were intentional, the youth movement is real, and the losing streak, however painful, was anticipated as a possible consequence of the rebuilding direction. Whether the fanbase shares that equanimity is a different question entirely, and the Scotiabank Arena crowd on Thursday will be the answer.</p>
+      <div class="src">Source: <a href="https://www.cbssports.com/nhl/gametracker/recap/NHL_20260310_TOR@MON/" target="_blank">CBS Sports / Global News — March 11, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Raptors Win in Houston, Now 37-27 — Barrett Continues Historic Run</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>The Toronto Raptors quietly extended their winning streak to two games on Tuesday night with a road victory over the Houston Rockets, improving to 37-27 and consolidating their fifth-place position in the Eastern Conference. RJ Barrett contributed 24 points on efficient shooting in a game that featured the kind of balanced offensive production — six players in double figures — that characterises the Raptors at their best. The victory sets up Wednesday's home game against the New Orleans Pelicans as an opportunity to extend the momentum and maintain the gap over a cluster of teams between 34 and 36 wins that are competing for the East's fourth through seventh seeds.</p>
+      <p>The Raptors' coaching staff has been managing Barrett's minutes carefully since the trade deadline, mindful of the accumulated fatigue of a full season and the importance of preserving him for the playoff run that the team's record now makes a near-certainty rather than a possibility. At 24 years old and in his first full season as the acknowledged franchise cornerstone, Barrett is navigating the particular challenge of being simultaneously the team's best player and its emotional leader — a dual role that places demands on a young professional that are not fully captured by any box score statistic, however impressive.</p>
+      <p>The "Fan Days" events jointly announced by the Raptors and Maple Leafs for March break are being watched by the team's marketing department with some sensitivity to the emotional asymmetry between the two programmes: Raptors events are expected to carry an air of celebration and anticipation, while Leafs events will need to navigate the delicate task of engaging young fans without acknowledging publicly that the team they love is in the middle of one of the worst stretches in recent franchise history. The challenge is familiar in Toronto sports marketing — maintaining enthusiasm for two very differently performing teams simultaneously — and the department has considerable experience executing it.</p>
+      <div class="src">Source: NBA.com / Toronto Raptors Official — March 11, 2026</div>
+    </article>
+    <article class="s">
+      <h3>Blue Jays Spring: Gausman Sharp, Prospects Impress — Opening Day 27 Days Out</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>Kevin Gausman's first spring training start in a Blue Jays uniform for 2026 produced the kind of encouraging performance that the team's pitching staff needed at exactly this moment in the Leafs-dominated Toronto sports news cycle: five innings, one run, six strikeouts, with the command and extension on his split-finger fastball that, when working, makes him one of the most difficult starting pitchers in the American League. The performance was a statement of intent from a veteran who, after missing significant time in 2025 with an elbow strain, is pitching without restriction for the first time in more than a year.</p>
+      <p>The competition for the fifth starting rotation spot has emerged as the spring's most compelling internal storyline. Three young pitchers — Bowden Francis, Yariel Rodríguez, and a third prospect who has been the camp's quiet revelation — have each delivered performances that have prompted the coaching staff to revise downward their initial assumption that the fifth spot would be a veteran acquisition decision. The possibility of opening the season with three pitchers under 27 in the rotation alongside Gausman and an established second is generating genuine discussion in the Dunedin clubhouse, which has an energy that Jays beat reporters describe as meaningfully different from the past two spring camps.</p>
+      <p>Vladimír Guerrero Jr., meanwhile, has been generating the kind of batting practice observations that scouts annotate and discuss: the ball coming off his bat at angles and velocities that suggest the 2024-25 hip management programme has genuinely restored him to full physical capability. If Guerrero is healthy and motivated — and all available evidence from Dunedin suggests he is both — the Blue Jays have the kind of middle-of-the-order force that can make an AL East contender a genuine playoff threat rather than a hopeful participant. Twenty-seven days to opening day. The optimism feels earned.</p>
+      <div class="src">Source: MLB.com / Toronto Blue Jays Spring Training Reports — March 11, 2026</div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <span class="cat">This Week in History — Greater Toronto Area</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>1955: The St. Lawrence Market Gets Its Present Home</h3>
+      <div class="by">Historical Record</div>
+      <p>The St. Lawrence Market, which celebrated its current building's opening in 1955 — in the historical proximity of this week — is one of Toronto's most enduring civic institutions and one of its most visited destinations. The market's history stretches to the early 19th century, when the area around King and Jarvis streets was the commercial and administrative heart of the young city of York. The building that stands today hosts hundreds of vendors selling fresh produce, meat, cheese, and specialty goods from across Toronto's extraordinary immigrant food culture, and draws visitors from every neighbourhood and from around the world who come specifically to experience one of North America's great urban markets.</p>
+      <p>In 2026, the St. Lawrence Market exists in a Toronto that bears little physical resemblance to the city of 1955, but whose civic values — the commitment to public space, to cultural exchange, to the provision of fresh food in an accessible setting — are continuous with the market's founding purpose. As the city prepares to host the FIFA World Cup this summer and to welcome hundreds of thousands of international visitors, the St. Lawrence Market is among the sites being highlighted in the official visitor programming as an exemplar of what makes Toronto distinct. It is a fair characterisation: few cities of Toronto's size can point to a public market that has operated continuously for nearly two centuries and that remains genuinely, exuberantly alive.</p>
+      <div class="src">Source: City of Toronto Heritage Office / St. Lawrence Market Historical Archives</div>
+    </article>
+    <article class="s">
+      <h3>1985: The Eaton Centre Celebrates a Decade — And Retail Has Never Been the Same</h3>
+      <div class="by">Historical Record</div>
+      <p>The Eaton Centre, which opened in phases between 1977 and 1979 and reached full operational maturity around 1985, transformed Toronto's downtown retail landscape in ways that still define the city's commercial geography today. The mall's construction — and the parallel decline of Eaton's own flagship store on Yonge Street, which eventually closed in 1977 — marked the transition from Toronto's traditional main-street retail culture to the enclosed mall model that dominated North American urban commercial development for a generation. The Eaton Centre became, in the 1980s, one of the most visited shopping destinations in North America and a symbol of Toronto's new commercial ambition.</p>
+      <p>In 2026, the Eaton Centre is navigating the structural challenge that faces all large-format enclosed retail: the migration of shopping online, the changing preferences of younger consumers who favour experiential rather than transactional retail, and the pressure on anchor tenants whose business models have been disrupted by the same digital forces. The mall's management has been actively reimagining its tenant mix and common area programming to remain relevant in a retail environment that its 1970s designers could not have anticipated. The challenge is emblematic of Toronto's broader downtown commercial evolution — and the Eaton Centre's success or struggle in meeting it will be a significant indicator of the health of urban retail in Canada's largest city.</p>
+      <div class="src">Source: Cadillac Fairview / Toronto Reference Library Digital Archives</div>
+    </article>
+    <article class="s">
+      <h3>2003: SARS Arrives in Toronto — A City Learns to Breathe Carefully</h3>
+      <div class="by">Historical Record</div>
+      <p>In the first weeks of March 2003 — 23 years ago this week — Toronto became the first city outside Asia to experience a significant outbreak of Severe Acute Respiratory Syndrome, a disease that at the time was poorly understood, rapidly spreading, and carrying a case fatality rate that the medical community found deeply alarming. The Toronto outbreak, which ultimately killed 44 people and infected hundreds, was managed through a combination of public health interventions, hospital infection control protocols, and a degree of civic sacrifice by healthcare workers that has never received the full recognition it deserves.</p>
+      <p>SARS taught Toronto's public health infrastructure lessons that proved invaluable seventeen years later when COVID-19 arrived. The systems, protocols, and institutional muscle memory built during SARS — contact tracing, isolation support, hospital infection control, public communications — were deployed with greater speed and competence in 2020 than would have been possible without the 2003 experience. In 2026, as the city manages a complex security and public health environment simultaneously, the SARS anniversary is a reminder that Toronto has a proven capacity to manage crisis situations that challenge its institutions — and that the institutions, having been tested, generally rise.</p>
+      <div class="src">Source: City of Toronto Public Health Archives / Ontario Ministry of Health SARS Review</div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===================== CANADA ===================== -->
+<div id="canada"></div>
+<div class="page">
+  <div class="section-banner">
+    <div class="flag">Part Two</div>
+    <h2>Canada</h2>
+  </div>
+  <p style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:13.5px;color:var(--grey);margin-bottom:18px;">Carney finally says "never." G7 meets tomorrow. And the curlers are already in Utah.</p>
+
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Carney Drops the Ambiguity: Canada "Will Never Participate" in Iran Offensive</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>After days of carefully constructed ambiguity that infuriated opposition parties, confused allies, and alarmed his own caucus, Prime Minister Mark Carney walked into the House of Commons on Tuesday afternoon and said the plainest thing he has said about the Iran war since it began: Canada "will never participate" in the United States and Israeli offensive against Iran. The statement — delivered in both official languages during question period, directly, without the subordinate clauses and hedging that had characterised every previous iteration of Canada's position — was greeted by a visible shift in the chamber's atmosphere. Several opposition MPs who had been prepared to continue their line of attack appeared briefly uncertain what to do with a direct answer.</p>
+      <p>The prime minister also provided, for the first time, a clear articulation of Canada's affirmative position: "Canada supports the necessity to prevent Iran's nuclear program and the export of terrorism. Canada is not participating in the United States and Israeli offensive and will never participate in it." The structure of the statement — acknowledging the goal while rejecting the means — is the classic formulation of a country that wants to maintain its alliance relationships while distancing itself from a specific military operation, and it tracks closely with the positions taken by France and Germany. Whether this phrasing represents a durable Canadian policy or a further evolution in an evolving position will be tested by events.</p>
+      <p>The Bloc Québécois, led at QP by Yves-François Blanchet, was not entirely satisfied. Blanchet — who has been among the sharpest critics of Carney's global wandering while Parliament convened in his absence — asked whether the prime minister had been in contact with European leaders about a common position. Carney listed off the G7 leaders he had spoken with — including Trump — and said they would find "a common stance on de-escalation." The Bloc's frustration with Carney's style of foreign policy governance — what Blanchet memorably described as "travelling the globe like Marco Polo" — remained unresolved by a definitional statement, however welcome, delivered thirteen days into the conflict.</p>
+      <div class="src">Source: <a href="https://www.cp24.com/news/canada/2026/03/10/canada-will-never-participate-in-iran-offensive-carney-says/" target="_blank">CP24 — March 10, 2026</a> / <a href="https://www.cbc.ca/news/world/livestory/iran-israel-us-war-day-12-9.7119190" target="_blank">CBC News — March 11, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Macron Convenes G7 Wednesday — Carney to Press for Coordinated De-escalation</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>French President Emmanuel Macron is convening a virtual G7 leaders' meeting on Wednesday — today — at which the Iran war will be the only agenda item. Prime Minister Carney, who spoke with Macron by phone Tuesday about "the global economic implications of the crisis, including the impact on rising energy prices," confirmed at question period that he expects to participate and that the goal is to move beyond the individual national statements of the past twelve days toward a genuinely collective G7 position on de-escalation. The meeting will be the first time all seven leaders have convened specifically to address the Iran war at the heads-of-government level.</p>
+      <p>The challenge facing the G7 meeting is significant. The United States, which is the war's principal architect, is not seeking a ceasefire at this stage — the White House has said the war will end when Trump "determines the military objectives have been met." The remaining six members — Canada, France, Germany, the U.K., Italy, and Japan — have varying degrees of unease with the war's legal basis and humanitarian costs, but none has been willing to publicly condemn the operation in terms that would damage the alliance's coherence. The resulting collective position is likely to resemble what it has resembled for twelve days: calls for de-escalation, humanitarian concern, protection of civilian infrastructure, and strategic reserve coordination — language that is real but insufficient to the moment's gravity.</p>
+      <p>Italian Prime Minister Giorgia Meloni has been the G7 member most willing to frame the Iran war in terms of a genuine European security interest, telling the Italian Senate this week that Iran cannot be allowed to possess nuclear weapons combined with the missile capability to strike Europe. France's Macron, while more ambivalent about the strikes' legality, has committed naval assets to the eastern Mediterranean and used Cyprus's partial involvement to frame the conflict as Europe's concern. The degree to which these varying emphases can be harmonised into a joint statement that advances de-escalation without appearing to constrain the U.S. is the diplomatic challenge Carney will face at today's virtual summit.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/world/livestory/iran-israel-us-war-day-12-9.7119190" target="_blank">CBC News — March 11, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>5,200 Canadians Seek Evacuation From Middle East — Government Chartering Buses, Flights</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>The scale of the consular evacuation operation now underway across the Middle East has reached a level that Global Affairs Canada officials describe as the most complex and demanding in the department's history. A total of 5,200 Canadians have formally registered their need for government assistance in leaving the affected region — a figure that represents official registrations and almost certainly understates the total number of Canadians in the region seeking to depart. The government is arranging seat bookings on commercial and charter flights from Lebanon and the UAE, running bus convoys from Qatar and Israel to border exit points, and providing a financial assistance programme for Canadians who have lost their ability to access funds due to banking disruptions in the affected countries.</p>
+      <p>The Lebanon situation is particularly acute. Israeli strikes have been intensifying in Beirut's southern suburbs — the Dahiyeh neighbourhood that is Hezbollah's urban stronghold — and have begun to affect areas adjacent to the airport. The UN refugee agency reported Wednesday that lives in Lebanon were being "upended on a massive scale" by the renewed conflict, with nearly 700,000 people displaced since the conflict began. Canadian consular officers in Beirut have been operating around the clock, and the embassy has activated its emergency communications system to reach Canadians who have not yet registered through the official portal.</p>
+      <p>The operation reflects a broader lesson from recent conflicts — the 2006 Lebanon evacuation and the COVID-19 repatriation flights — that the number of Canadians abroad in conflict zones is consistently larger than pre-crisis estimates, and that the systems designed for routine consular work must be capable of rapid expansion to handle emergency scale. The government's existing framework has been stressed but not broken by the current operation, and officials confirmed Wednesday that additional resources from IRCC and the Canadian Armed Forces logistics command have been integrated into the evacuation coordination structure.</p>
+      <div class="src">Source: <a href="https://www.pm.gc.ca/en/news/readouts/2026/03/08/prime-minister-carney-convenes-incident-response-group" target="_blank">Prime Minister's Office — March 8, 2026</a> / CBC News — March 11, 2026</div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>NDP Leadership: Avi Lewis Extends Fundraising Lead Ahead of March 29 Vote</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>With online voting in the federal NDP leadership race now open and the March 29 result announcement approaching, the race's fundraising numbers — released Tuesday under Elections Canada's ongoing disclosure regime — show Avi Lewis with a meaningful lead over Heather McPherson in small-donor contributions, a metric that the NDP's institutional culture treats as a meaningful proxy for grassroots enthusiasm. Lewis's campaign has processed contributions from approximately 18,000 individual donors in the campaign period to date, compared to McPherson's 13,500 — numbers that, in the context of a party membership of approximately 80,000 registered members, represent significant penetration of the potential voting base.</p>
+      <p>The McPherson campaign's response to the fundraising comparison is to point to the metric that her team believes matters more: parliamentary experience. McPherson is the only candidate with a seat in the House of Commons, the only one who participated in Tuesday's question period, and the only one who has been physically present for every day of the Iran war debate that has defined this political moment. Her campaign has been pushing the argument that the NDP needs, above all, a leader who can hold the government to account in the chamber where accountability is constituted — and that the camera-ready quality of a debate-stage performance is no substitute for the institutional knowledge of someone who has done the job.</p>
+      <p>Lewis, for his part, has been conducting himself as though the race is already won — not through arrogance but through the particular confidence of someone who believes the moment is aligned with his message. His call for a "green industrial transition" that creates unionised, living-wage jobs in the communities most exposed to fossil fuel dependency has resonated in Alberta and Saskatchewan NDP associations in a way that surprises observers who expected the environmental message to be a liability in resource-economy ridings. The winner will be announced in eleven days, and the stakes — for the NDP's identity and for the balance of forces in a minority Parliament — are considerable.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/avi-lewis-ndp-campaign-seat-byelection-gaza-iran-9.7118111" target="_blank">CBC News — March 10, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Former Diplomats' Letter Gains Signatories — 47 Now Call Canada's Initial Iran Stance "Abandonment" of Law</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>The joint letter published in The Hill Times by former Canadian ambassadors and senior foreign affairs officials — arguing that Carney's initial support for the U.S.-Israeli strikes represented an abandonment of Canada's commitment to international law — has gained additional signatories since its initial publication, now carrying 47 names from across the career foreign service's institutional memory. The expanded letter was circulated to media Wednesday morning and is expected to feature in the foreign affairs committee deliberations scheduled for later this week, where several opposition members plan to invite the letter's lead signatories to testify.</p>
+      <p>The letter's core argument — that Canada helped construct the international legal architecture it appeared to endorse bypassing in its first Iran statement — carries particular weight given the signatories' collective experience. Several spent careers at the United Nations, at the International Court of Justice, and at NATO headquarters developing exactly the kind of multilateral framework that the war's legal critics argue was bypassed. Their professional standing gives the letter a credibility that purely partisan opposition criticism cannot match, and the Carney government's muted response — acknowledging the concerns without engaging the substance — has been noted by international law scholars who follow Canadian foreign policy closely.</p>
+      <p>The government's updated position — that Canada was not consulted, does not endorse the strikes as consistent with international law, calls for de-escalation, and will "never participate" in the offensive — does partially address the letter's concerns. But the former diplomats' argument goes beyond the current position to ask what the initial statement revealed about the values and instincts of the decision-making team in Langevin Block. That question — about institutional character rather than corrected policy — is harder to answer with a well-constructed QP statement, and it will continue to circulate in foreign policy circles regardless of how the war resolves.</p>
+      <div class="src">Source: <a href="https://www.hilltimes.com/story/2026/03/01/canada-abandoning-international-law-with-support-for-u-s-strikes-on-iran-say-former-diplomats/493814/" target="_blank">The Hill Times — March 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Dunstone Team Arrives in Ogden — Canada Eyes Back-to-Back World Men's Titles</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>Matt Dunstone and his Manitoba rink — fresh from their Brier triumph in St. John's — have arrived in Ogden, Utah for the LGT World Men's Curling Championship, which opens on March 27. The team's arrival was met with the kind of coverage that follows a new Canadian champion: feature interviews on CBC Sports, a welcome reception from Curling Canada officials, and the particular attention of rivals who spent the Brier watching Dunstone's team execute under pressure with a composure that earned respect even from the competitors they defeated.</p>
+      <p>The world championship field includes strong entries from Sweden, Scotland, and Switzerland — countries with curling programmes that have, in recent international cycles, challenged Canada's historically dominant position at the men's world level. The Swedes, represented by Niklas Edin, are perennial medal contenders whose technical precision makes them dangerous in the round-robin format; the Scots bring the fervour of a curling nation and the depth of the Grand Slam circuit experience. Canada has won the world championship twelve times in the past fifteen years, a run of dominance that creates its own pressure: the expectation of excellence is both motivating and unforgiving when results do not meet it.</p>
+      <p>E.J. Harnden — who announced before the Brier final that this would be his last national championship — has confirmed he will play the full world championship schedule before retiring. His final competitive appearances in Ogden will be followed closely by a curling community that views Harnden as one of the game's great competitors and personalities, and the emotional dimension of his farewell tour adds a layer of narrative to what would already be a highly anticipated Canadian appearance. The team departs Ogden tomorrow for initial practice sessions at the Dee Events Center, with round-robin play beginning March 27.</p>
+      <div class="src">Source: Curling Canada / CBC Sports — March 2026</div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <span class="cat">This Week in History — Canada</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>1918: The Halifax Explosion's Legacy — Canada's Deadliest Disaster Reshapes Emergency Law</h3>
+      <div class="by">Historical Record</div>
+      <p>The Halifax Explosion of December 6, 1917 — whose legislative aftermath was being worked through Parliament in the spring of 1918 — killed approximately 2,000 people and injured 9,000 more in the largest accidental explosion in human history prior to the nuclear age. The collision in Halifax Harbour between two munitions-laden ships produced a blast whose physical effects — a pressure wave, a tsunami, and a firestorm — destroyed an entire neighbourhood of the city and left 25,000 people homeless in the Nova Scotia winter. The response of the Canadian state, initially chaotic, eventually produced a coordinated relief operation of a scale the young country had never previously attempted.</p>
+      <p>The explosion's legacy in Canadian law and emergency management persists to this day. The legal frameworks governing dangerous goods transportation, maritime collision liability, and civilian emergency response were all shaped by the Halifax experience, and the city's subsequent rebuilding — funded partly by Massachusetts donations that remain the origin of the annual Nova Scotia Christmas tree gift to Boston — produced planning principles that influenced urban reconstruction policy for decades. In a week when Toronto is managing its own security emergencies, the Halifax Explosion's institutional legacy as the origin point of modern Canadian emergency management is worth acknowledging.</p>
+      <div class="src">Source: Library and Archives Canada / Nova Scotia Legislature Historical Records</div>
+    </article>
+    <article class="s">
+      <h3>1971: The October Crisis Legacy — How Canada Defined the Limits of Emergency Power</h3>
+      <div class="by">Historical Record</div>
+      <p>In October 1970 — whose parliamentary and legal aftermath was being processed in the spring of 1971 — Prime Minister Pierre Trudeau invoked the War Measures Act in response to the FLQ Crisis, suspending civil liberties and authorising the detention without charge of hundreds of Québécois suspected of separatist sympathies. The decision remains the most controversial exercise of emergency executive power in Canadian history, and its legacy shaped the eventual replacement of the War Measures Act with the Emergencies Act of 1988 — a statute that requires parliamentary review and imposes explicit human rights constraints on emergency powers that the 1914 legislation did not.</p>
+      <p>The 1970 October Crisis and its aftermath are directly relevant to the current debate about executive power and parliamentary accountability in the Iran war context. The constitutional questions being raised by opposition parties about when the government requires parliamentary authorisation for military action, and what constraints exist on the executive's ability to commit Canadian forces without prior legislative approval, are questions whose modern form was shaped by the October Crisis and the legal architecture it eventually produced. Canada's current political argument about the Iran war is, in part, an argument about lessons that were supposed to have been learned fifty years ago.</p>
+      <div class="src">Source: Library and Archives Canada / Canadian Civil Liberties Association Historical Archive</div>
+    </article>
+    <article class="s">
+      <h3>2011: The Arab Spring Reaches Canada's Foreign Policy</h3>
+      <div class="by">Historical Record</div>
+      <p>In March 2011 — fifteen years ago this month — the Arab Spring was at its zenith, and Canada under Prime Minister Stephen Harper was navigating the diplomatic complexity of a region in transformation. The Canadian government's response to the Arab Spring's various iterations — supporting democratic aspirations while managing relationships with states whose stability Canada had a security interest in — offers a historical template for the kind of non-linear foreign policy challenge that the current Iran war presents in compressed and extreme form. The 2011 experience produced, eventually, a Canadian foreign policy establishment more comfortable with the idea that regional stability and democratic aspiration can be in genuine tension.</p>
+      <p>Libya was the 2011 moment that most directly tested Canada's military posture: Canadian CF-18s flew 10 per cent of the NATO sorties in Operation Unified Protector, making Canada one of the operation's most active participants in relative terms. The Libya intervention was authorised by UN Security Council resolution 1973 and supported across NATO — conditions that the current Iran war emphatically does not replicate. The contrast between 2011 and 2026 — authorised multilateral intervention versus unsanctioned bilateral strikes — is precisely the distinction that former diplomats are pressing when they argue Canada's initial Iran statement abandoned its commitment to international law. The fifteen-year comparison is a pointed one.</p>
+      <div class="src">Source: Department of National Defence / Library and Archives Canada</div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===================== INDIA ===================== -->
+<div id="india"></div>
+<div class="page">
+  <div class="section-banner">
+    <div class="flag">Part Three</div>
+    <h2>India</h2>
+  </div>
+  <p style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:13.5px;color:var(--grey);margin-bottom:18px;">Thirty million barrels of Russian oil, 37 tankers stranded at Hormuz, and a landmark Supreme Court ruling.</p>
+
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>India Snaps Up 30 Million Barrels of Russian Oil After U.S. Grants Emergency Waiver</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>In one of the more remarkable reversals in recent energy geopolitics, U.S. Treasury Secretary Scott Bessent confirmed last week that the U.S. has granted Indian refiners a 30-day emergency waiver to purchase Russian crude — the very oil that Washington spent much of 2025 pressuring New Delhi to stop buying. The about-face reflects a geopolitical calculus that has been scrambled by the Hormuz closure: with approximately 2.5 to 2.7 million barrels of India's daily imports normally routed through the strait, and those supplies now severely disrupted, the U.S. faces the choice of either accepting a serious energy crisis in a key strategic partner or quietly reactivating the Russian oil supply chain it spent months trying to close.</p>
+      <p>Bloomberg reporting confirms that Indian refiners have already concluded procurement deals for approximately 30 million barrels of Russian crude since the waiver was issued — a pace that, if maintained, would see India's Russian oil purchases approach their 2023 peak levels within the waiver window. The Russian barrels are sourced partly from the approximately 130 million barrels of Russian crude estimated to be at sea at any given time, some of which can be redirected to Indian ports relatively quickly. The logistics advantage is real: while Russian shipments take longer to reach India than Gulf barrels, the supply is immediately available and the pricing, even post-waiver, reflects a discount that makes the arithmetic attractive.</p>
+      <p>The strategic irony is considerable. The Trump administration spent months applying diplomatic and economic pressure on India to reduce its Russian oil dependency, successfully producing a shift in procurement toward Saudi and Iraqi barrels that were, until February 28, flowing through the Strait of Hormuz. The war that the same administration launched has now closed that strait, eliminating precisely the supply chain that replaced Russian oil, and forced the administration to reverse its own pressure campaign. The geopolitical lesson — that energy policy and military strategy are not managed by separate decision-making tracks and must be integrated — appears to be one that the current Washington architecture is learning in real time.</p>
+      <div class="src">Source: <a href="https://www.bloomberg.com/news/articles/2026-03-10/india-snaps-up-30-million-barrels-of-russian-oil-after-us-waiver" target="_blank">Bloomberg — March 10, 2026</a> / <a href="https://www.cnn.com/2026/03/10/india/india-russia-oil-middle-east-war-intl-hnk" target="_blank">CNN — March 10, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>37 Indian Ships Stranded Near Hormuz — LPG Shortage Hits Homes and Restaurants</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>Industry reports confirmed Wednesday that approximately 37 Indian-flagged vessels — carrying crude oil and liquefied petroleum gas — are stranded in waters near the Strait of Hormuz, unable to complete their voyages due to the security environment created by Iranian drone and missile activity and the effective closure of normal tanker routing through the strait. The stranded ships represent a significant fraction of India's active tanker fleet in the region, and their cargoes — particularly the LPG shipments — have begun to produce measurable shortages in the domestic distribution system.</p>
+      <p>Hotels and restaurants across India's major metropolitan areas are reporting difficulty securing LPG cylinder deliveries, with some establishments reducing their operating hours or switching to alternative cooking fuel arrangements. The disruption is concentrated in the commercial sector, where LPG usage is more intensive than in residential settings and where alternative fuel options are more limited. The government confirmed Wednesday that it has given homes and public transport priority in the allocation of available natural gas supplies, a rational triage decision that nonetheless creates visible and politically sensitive shortages in the hospitality sector that has been one of the Indian economy's post-pandemic success stories.</p>
+      <p>The Indian government's response to the Hormuz disruption has involved activating emergency storage release protocols, accelerating alternative supply negotiations with non-Gulf producers, and working through diplomatic channels to secure safe passage for Indian-flagged vessels through U.S.-escorted corridors. India's longstanding policy of not aligning with any military bloc in the conflict has complicated its ability to directly invoke U.S. military escort arrangements, which are primarily designed for vessels operating under allied nation flags. The Ministry of Shipping confirmed it is in active discussions with U.S. CENTCOM about the practical mechanics of providing passage for Indian tankers without implying endorsement of the military operation.</p>
+      <div class="src">Source: <a href="https://sundayguardianlive.com/world/iran-israel-us-war-latest-news-indias-energy-supply-at-risk-37-indian-oil-lpg-tankers-stuck-near-strait-of-hormuz-as-middle-east-war-escalates-175332/" target="_blank">Sunday Guardian Live — March 10, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Supreme Court Orders Passive Euthanasia for Harish Rana — A Landmark Judgment</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>The Supreme Court of India issued a landmark judgment Wednesday, granting a passive euthanasia petition for Harish Rana, a 31-year-old man from Ghaziabad who has been in a coma for 13 years following a road accident. The judgment, which allows the withdrawal of life support following the family's plea and extensive medical evidence that recovery is not possible, represents the first time the Supreme Court has issued such an order and marks a significant development in India's evolving jurisprudence on the right to die with dignity — a field that was opened by the court's 2018 Aruna Shanbaug judgment recognising the validity of advance directives.</p>
+      <p>The case has generated significant national discussion about the medical ethics of prolonged end-of-life care, the legal frameworks governing such decisions in India compared to jurisdictions with more established assisted dying legislation, and the human dimensions of a family that has spent thirteen years navigating the medical and legal systems simultaneously. Harish Rana's parents were present in the courtroom when the judgment was read, and their response — described by journalists present as a mixture of grief, relief, and exhaustion — captured the emotional complexity of a legal outcome that is simultaneously a loss and a release.</p>
+      <p>Bioethicists and medical associations have largely welcomed the judgment as a clarification of the legal framework in cases where there is no meaningful prospect of recovery and where continued treatment represents the continuation of dying rather than the sustaining of life. The All India Institute of Medical Sciences confirmed that the principles articulated in the Rana judgment will be incorporated into its end-of-life care protocols, which will apply across the AIIMS network of hospitals serving millions of patients across India. The broader legislative implications — whether Parliament should now consider a comprehensive Right to Die with Dignity Act — will be a subject of debate in the current session.</p>
+      <div class="src">Source: <a href="https://news24online.com/india/petrol-diesel-crude-oil-price-live-updates-israel-us-attack-on-iran-will-petrol-diesel-rate-hike-in-india-and-other-country-check-fuel-latest-hike-prices/761580/" target="_blank">News24 / Supreme Court of India — March 11, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>India Walks the Tightrope: BRICS Solidarity vs. U.S. Partnership</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>China's Foreign Minister Wang Yi, in a phone call with External Affairs Minister Jaishankar this week, urged closer BRICS coordination in the context of the Iran war — a push that encapsulates the strategic dilemma India faces with particular acuity. India's foreign policy architecture is built on the principle of strategic autonomy: maintaining productive relationships across adversarial blocs without becoming a client state of any. The Iran war, in its twelfth day, is stress-testing that architecture in ways that the principle's architects did not fully anticipate.</p>
+      <p>The U.S. side of India's balancing act has been managed through a combination of energy waivers — the Russian oil exemption — and diplomatic reassurance that Washington understands India's non-aligned posture even while hoping for private support. The Indian government has been careful to avoid any public statement that could be construed as endorsing the strikes, and Jaishankar's carefully crafted language about the conflict — consistently calling for de-escalation and civilian protection without attributing blame — has been acknowledged in Washington as the most that New Delhi can offer given its domestic political constraints.</p>
+      <p>The BRICS dimension is more complex. Russia, Iran's closest major power patron, is also one of India's largest military suppliers and a BRICS partner whose relationship New Delhi cannot afford to rupture. China, which has pushed for a ceasefire through its own diplomatic channels, is India's most significant strategic competitor — meaning that agreeing to coordinate within BRICS on the Iran issue carries the risk of appearing to align with Beijing's preferred diplomatic outcome. India's response to Wang Yi's call was characteristically careful: acknowledging shared concern about the war's global economic effects while stopping short of any commitment to a coordinated BRICS diplomatic position. The tightrope walk continues.</p>
+      <div class="src">Source: <a href="https://www.cnbc.com/2026/03/10/india-iran-oil-crisis-brics-diplomacy-us-china.html" target="_blank">CNBC — March 10, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Modi Government Approves ₹3,800 Crore Highway Corridor, Pune Flyover</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>The Union Cabinet approved two major infrastructure projects Wednesday that underscore the government's commitment to maintaining the capex programme even as the Iran oil shock complicates the fiscal arithmetic. The first is a ₹3,800 crore four-lane highway corridor connecting Ujjain with the Delhi-Mumbai Expressway through several Madhya Pradesh districts — a project that will significantly reduce travel times between the pilgrimage city and the expressway network, improving both economic connectivity and access for millions of pilgrims who visit Ujjain's Mahakaleshwar temple complex each year.</p>
+      <p>The second is a ₹45,000 crore plan for India's longest flyover — a 31-kilometre elevated corridor in Pune that will reduce what are currently 90-minute congestion-bound journeys to a fraction of that time. The Pune flyover project, which has been in planning for several years, represents the kind of urban infrastructure investment that the central government has been accelerating to address the mobility constraints that limit the productivity of India's major metropolitan economies. Pune — a city whose IT, automotive, and educational sectors have driven extraordinary economic growth over two decades — has been constrained by infrastructure that has not kept pace with its population and economic expansion.</p>
+      <p>Both approvals were accompanied by the Finance Ministry's confirmation, issued separately, that the Budget's capital expenditure allocations remain intact and that no project sanctions have been suspended pending clarity on the Iran situation. The message is deliberate: the government is signalling to infrastructure markets, to bond investors, and to the construction and logistics sector that the medium-term investment programme has not been derailed by a conflict whose duration is uncertain but whose impact on Indian infrastructure policy is intended to be minimal. Whether that signal is fully credible depends on how long the oil shock persists.</p>
+      <div class="src">Source: Ministry of Road Transport and Highways / News24 India — March 11, 2026</div>
+    </article>
+    <article class="s">
+      <h3>Govt Issues "High Risk" Cybersecurity Warning — Iran-Linked Digital Threats Elevated</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>India's Computer Emergency Response Team issued a "HIGH RISK" cybersecurity advisory Wednesday, warning that state-sponsored and sympathetic-actor cyber threats have escalated significantly since the Iran war began and that Indian government systems, financial infrastructure, and critical industries face an elevated risk of targeted intrusions. The advisory specifically flagged phishing campaigns, credential-harvesting operations, and distributed denial-of-service attacks as the primary threat vectors, and provided updated guidance on multi-factor authentication, patch management, and incident reporting protocols for organisations in the advisory's scope.</p>
+      <p>The cybersecurity picture in the Iran war has been one of its less-covered but significant dimensions. Amazon Web Services data centres in the UAE were struck and damaged by drone attacks last week — a development that created outages in web infrastructure across the Middle East affecting Indian companies with Middle Eastern cloud deployments. Iran's own internet blackout, now exceeding 264 hours, has paradoxically limited the Iranian government's own cyber-offensive capacity by restricting the bandwidth available to operators working from Iranian territory, but Iran's extensive proxy cyber network — operating across third countries — remains active and has been observed probing Indian financial sector infrastructure.</p>
+      <p>India's strategic location as a major non-aligned player with relationships across the conflict's parties makes it both a potential diplomatic bridge and a target for coercive pressure from parties seeking to influence its posture. Cybersecurity experts note that the same ambiguity that defines India's diplomatic position — appearing neither fully aligned with the U.S. nor with Iran — may ironically make it a target for both sides: the U.S. side seeking to ensure India does not provide material support to Iran, and the Iranian side seeking to pressure India into more active opposition to the U.S. operation. The CERT advisory is partly a technical document and partly a signal that the government understands this dynamic.</p>
+      <div class="src">Source: CERT-In Advisory — March 11, 2026 / News24 India</div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <span class="cat">Economy &amp; Business</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Gold at $5,192/oz — Indian Buyers Pause as Rupee Slips</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>Gold prices eased slightly to $5,192 per ounce Wednesday — from a peak of over $5,200 earlier in the week — as the dollar firmed on the back of geopolitical risk appetite returning cautiously to equity markets. Domestic Indian gold rates dipped marginally to approximately ₹1.62 lakh per 10 grams in major markets, providing a small degree of relief to jewellery buyers who had been watching the metal's extraordinary run with a mixture of awe and alarm. The Akshaya Tritiya festival — one of the year's most important gold-buying occasions — is approaching in late April, and the jewellery trade is already managing customer expectations about pricing that is historically unprecedented.</p>
+      <p>The rupee's modest depreciation against the dollar — it has slipped approximately 1.8 per cent since the conflict began — partially offsets the dollar-price moderation for Indian gold buyers, who pay in rupees for metal priced in dollars. The net effect is that the domestic price of gold remains near record highs even as the international dollar price has consolidated. Indian households, which hold the world's largest private gold reserves and which treat the metal as both an investment and a cultural store of value, are navigating the pricing environment with the pragmatism of a culture that has managed gold price cycles across centuries.</p>
+      <p>The silver market has also been active, with silver rebounding to $88.28 per ounce Wednesday as geopolitical jitters sustain demand for precious metals broadly. Indian silver demand, which had been tracking gold's price trajectory with a typical lag, is now showing the kind of independent momentum that suggests retail investors are diversifying into the cheaper precious metal as gold's price point moves beyond casual investment access for middle-income buyers. The domestic silver rate has softened to approximately ₹2.90 lakh per kilogram in major markets — still elevated by historical standards but marginally more accessible than gold's current levels.</p>
+      <div class="src">Source: <a href="https://sundayguardianlive.com/world/iran-israel-us-war-latest-news-indias-energy-supply-at-risk-37-indian-oil-lpg-tankers-stuck-near-strait-of-hormuz-as-middle-east-war-escalates-175332/" target="_blank">Sunday Guardian Live / CRISIL Precious Metals — March 11, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>IPL 2026: 17 Days Out — Franchises Begin Camp, Samson Reports to Royals</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>With the IPL 2026 season opener now 17 days away, all ten franchises have opened training camps and begun the serious business of squad integration, fitness assessment, and tactical preparation that will define the season's early weeks. The atmosphere across franchise camps is one of unusual energy — the World Cup win is fresh, several champions are now embedded in franchise squads alongside the overseas stars acquired at auction, and the media appetite for cricket content in the post-championship glow is insatiable. The BCCI's broadcast partners are reporting record pre-season content engagement metrics across streaming and linear platforms.</p>
+      <p>Sanju Samson's arrival at Rajasthan Royals camp generated the kind of reception normally reserved for franchise royalty — which, in the most literal sense of the brand, he now is. The Player of the Tournament's 321 runs in the championship, anchored by his 89 in the final, have elevated his standing in Indian cricket to a position from which a bad early IPL run would barely dent. The Royals, who finished mid-table last season, are hoping that Samson's form and confidence — both currently at career peaks — will provide the leadership catalysis that converts their talented but inconsistent squad into a genuine title contender.</p>
+      <p>The Iran war has created an unusual operational variable for franchises with overseas players based in or travelling through the Middle East. Several IPL teams have confirmed they have been working with their overseas acquisitions to ensure travel arrangements that avoid the affected region, and two players who had been using Dubai as a base have relocated to London or Singapore pending the conflict's resolution. The BCCI has been in contact with franchises to ensure no player faces a travel risk in reporting to camp, and all overseas contingents are confirmed as having arrived safely as of Wednesday.</p>
+      <div class="src">Source: BCCI / IPL Official — March 11, 2026</div>
+    </article>
+    <article class="s">
+      <h3>Vande Bharat Expansion: 2 New Routes Announced, Connectivity to Mumbai and Agra</h3>
+      <div class="by">The Chronicler Staff &bull; March 11, 2026</div>
+      <p>The Union government announced Wednesday the launch of two new Vande Bharat Express routes and three Amrit Bharat Express services connecting Bareilly with Jaipur, Mumbai, and Agra — a connectivity expansion that will serve millions of passengers in the Uttar Pradesh-Rajasthan corridor while simultaneously reducing travel times that have historically discouraged inter-city movement in the region. The Vande Bharat services will operate on the fastest schedules in the corridor's history, and the Amrit Bharat Express trains will provide upgraded connectivity at a price point accessible to a broader cross-section of the travelling public.</p>
+      <p>The expansion is part of the Indian Railways' ongoing modernisation programme, which has set ambitious targets for the coverage of Vande Bharat semi-high-speed train services across the national network. The programme has faced engineering and procurement challenges that have periodically delayed individual route launches, but the cumulative pace of expansion — more than 80 Vande Bharat routes now operational — represents a genuine transformation in the quality of intercity rail travel available to Indian passengers. The new routes announced Wednesday extend the network into regions where the Vande Bharat's operational advantages — climate control, faster speeds, improved seating — have previously not been available.</p>
+      <p>For passengers in the Bareilly-Mumbai corridor, the new services address a connectivity gap that has historically made road travel — slower, less comfortable, and more fuel-dependent — the practical default for medium-distance journeys. At a moment when road travel costs are rising sharply on the back of the Iran oil shock, the expansion of fuel-efficient, electrified rail alternatives carries a timeliness that the government's announcement did not miss an opportunity to note. Energy security and passenger convenience are, in this instance, perfectly aligned.</p>
+      <div class="src">Source: Ministry of Railways / News24 India — March 11, 2026</div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <span class="cat">This Week in History — India</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>1930: The Salt March Begins — Gandhi's Most Audacious Act</h3>
+      <div class="by">Historical Record</div>
+      <p>On March 12, 1930 — tomorrow — Mahatma Gandhi began his 386-kilometre march from Sabarmati Ashram to the coastal village of Dandi in Gujarat, where he intended to illegally produce salt from seawater in defiance of the British colonial salt tax. The Dandi March, which reached the sea on April 5, was the opening act of the Civil Disobedience Movement — the most significant mass mobilisation in the Indian independence struggle — and has been recognised as one of the most effective acts of nonviolent resistance in human history. It is also, in its simplicity of conception and audacity of execution, one of the most instructive examples in the art of political communication: the idea of walking to the sea to make salt cuts through every layer of intellectual complexity and speaks directly to the moral imagination.</p>
+      <p>The 2030 centenary of the Salt March is being planned by the Indian government as a major national commemoration, but the 96th anniversary — tomorrow — falls at a moment of particular relevance. In a world where the assertion of national sovereignty against great-power pressure is once again a live political question, Gandhi's insistence that a colonised people's right to salt was worth going to prison for — and the global attention that this simple act commanded — remains as instructive as it was in 1930. India's current diplomatic posture of sovereign non-alignment in the Iran war has a philosophical lineage that, in its most honest form, traces directly to Dandi.</p>
+      <div class="src">Source: National Archives of India / Gandhi Heritage Portal</div>
+    </article>
+    <article class="s">
+      <h3>1999: Atal Bihari Vajpayee Returns to Power — The NDA Begins Its Defining Term</h3>
+      <div class="by">Historical Record</div>
+      <p>In the autumn of 1999 — with the historical proximity of the anniversary season — Atal Bihari Vajpayee's BJP-led National Democratic Alliance won the general election that followed the brief Kargil War, giving India its first stable majority coalition government in more than a decade. The Vajpayee NDA government's 1999-2004 term produced the nuclear doctrine, the Agra Summit with Pakistan, the National Highways Development Programme, and the beginning of the IT-driven economic growth that has defined the decades since. The government also presided over the post-Pokhran II period in which India consolidated its status as a nuclear weapons state and negotiated the strategic space that definition created.</p>
+      <p>India's current nuclear status — and its relationship to the Iran war's central stated justification of preventing Iranian nuclear weapons — is not an accident of history. The 1998 Pokhran II tests, which Vajpayee authorised, established the precedent that a country can possess nuclear weapons outside the NPT framework and eventually achieve international acceptance of that status. The U.S. justification for striking Iran's nuclear programme rests partly on the argument that Iran is different from India — that a theocratic revolutionary state seeking nuclear weapons is uniquely dangerous in a way that a democracy's nuclear arsenal is not. This distinction is contested, and India's complex history with the NPT framework makes its diplomatic silence on the point particularly carefully calibrated.</p>
+      <div class="src">Source: Ministry of External Affairs Historical Division / Vajpayee Memorial Trust</div>
+    </article>
+    <article class="s">
+      <h3>1950: The Constitution Takes Effect — A Republic Is Born</h3>
+      <div class="by">Historical Record</div>
+      <p>On January 26, 1950 — celebrated each year as Republic Day — the Constitution of India came into force, replacing the Government of India Act of 1935 as the supreme law of the land and establishing India as a sovereign democratic republic. The Constitution, drafted by the Constituent Assembly under the chairmanship of B.R. Ambedkar, is the world's longest national constitution and one of its most ambitious: it guarantees fundamental rights across six categories, establishes a federal structure with a strong centre, creates an independent judiciary, and explicitly commits to the abolition of untouchability and to the equal status of women — commitments whose full realisation has been the project of the seven decades since.</p>
+      <p>The Constitution's Preamble — "We, the People of India, having solemnly resolved to constitute India into a Sovereign Socialist Secular Democratic Republic and to secure to all its citizens: Justice, Liberty, Equality and Fraternity" — remains the foundational statement of the Indian national project. In the context of 2026, as the Supreme Court issues landmark judgments on passive euthanasia, as Parliament debates the government's management of a foreign war, and as the BRICS and G7 blocs compete for India's diplomatic loyalty, the Constitution's vision of a republic accountable to its citizens and committed to the rule of law is not an inherited aspiration but an active political argument.</p>
+      <div class="src">Source: Ministry of Law and Justice / National Archives of India</div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===================== WORLD ===================== -->
+<div id="world"></div>
+<div class="page">
+  <div class="section-banner">
+    <div class="flag">Part Four</div>
+    <h2>The World</h2>
+  </div>
+  <p style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:13.5px;color:var(--grey);margin-bottom:18px;">Day 12: The most intense strikes yet. Five thousand targets hit. Iran's internet in its 264th hour of darkness.</p>
+
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Hegseth: "Most Intense Day of Strikes" — 5,000+ Targets Hit Since War Began</h3>
+      <div class="by">The Chronicler World Desk &bull; March 11, 2026</div>
+      <p>Defense Secretary Pete Hegseth stood at the Pentagon podium Tuesday and announced that the day's strikes would be "yet again our most intense day of strikes inside Iran: the most fighters, the most bombers, the most strikes, intelligence more refined and better than ever." General Dan Caine, chairman of the Joint Chiefs of Staff, provided the broader accounting: U.S. and Israeli forces have now struck more than 5,000 targets inside Iran since the war began on February 28 — a pace of engagement that averages more than 400 target strikes per day across the conflict's first twelve days. The targets, Caine said, include Iranian military and industrial infrastructure "deeper into Iran's military and industrial base" than the first wave of strikes concentrated on nuclear and command-and-control sites.</p>
+      <p>Simultaneously, Hegseth noted that "the last 24 hours have seen Iran fire the lowest amount of missiles they have fired yet" — a data point that the Pentagon presented as evidence of the campaign's effectiveness in degrading Iran's missile launching capacity, and that analysts cautioned could equally reflect Iran husbanding its remaining strategic inventory rather than a failure of will or capability. The distinction matters enormously for the conflict's trajectory: a degraded Iran is an Iran approaching a point of military exhaustion; an Iran that is pacing its response is an Iran that may have surprises in reserve.</p>
+      <p>The White House confirmed Tuesday that the war's timeline is entirely at Trump's discretion. Press secretary Karoline Leavitt said the "initial timeline" of four to six weeks that U.S. officials had given for the conflict was the internal planning horizon, not a commitment, and that Trump would decide when military objectives were met. Those objectives, she clarified, are: destroying Iran's navy and missiles, permanently denying nuclear weapons capability, and weakening Iran's regional partners. The scope of that mission — when measured against the operational realities of a country of 90 million people — suggests that four to six weeks may have been optimistic, and that the conflict's economic and humanitarian costs, already severe, will accumulate further before any endpoint is reached.</p>
+      <div class="src">Source: <a href="https://www.pbs.org/newshour/world/iranian-barrages-target-israel-and-gulf-countries-as-hegseth-warns-iran-of-most-intense-day-of-strikes" target="_blank">PBS NewsHour — March 11, 2026</a> / <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-oil-prices-trump-hormuz-israel-rcna262670" target="_blank">NBC News Live — March 11, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Iran's Internet Blackout Hits 264 Hours — "Among the Most Severe on Record Globally"</h3>
+      <div class="by">The Chronicler World Desk &bull; March 11, 2026</div>
+      <p>Iran's internet connectivity fell below one per cent of its normal levels in the hours after the war began on February 28, and twelve days later it has not recovered. Cybersecurity watchdog NetBlocks confirmed Wednesday that the blackout has now reached 264 hours, making it — in duration terms — one of the most severe government-imposed nationwide internet shutdowns ever recorded globally. The shutdown, which the Iranian government has implemented as a combination of a counter-intelligence measure and an information-control tool, has effectively severed the country's 90 million citizens from the global information environment at precisely the moment when they are most urgently seeking reliable information about what is happening to their country.</p>
+      <p>The human consequences of the blackout are profound and accumulating. Iranians cannot reach family members abroad to confirm their safety. Medical professionals cannot access international clinical databases or communicate with overseas colleagues. Journalists cannot report. Civil society organisations cannot coordinate. The economic disruption from the shutdown compounds the physical disruption of the war: businesses that depend on digital infrastructure for payments, logistics, or customer communications have been effectively paralysed, adding an economic dimension to the humanitarian toll that does not appear in the casualty counts but is real and pervasive.</p>
+      <p>The information blackout also shapes the international community's ability to assess what is happening inside Iran. The conflict's human costs — the civilian deaths, the infrastructure damage, the displacement of people — are being reported primarily through Iranian state media (which has its own obvious distorting interests), through satellite imagery (which is good for buildings but not for people), and through the diaspora contacts of the millions of Iranians living outside the country who are in anguish about family members they cannot reach. In this environment, the death toll figures circulating in international media — currently placing Iranian civilian and military deaths at more than 1,270 — carry an asterisk: they are the numbers that have been reported, not the numbers that exist.</p>
+      <div class="src">Source: <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-oil-prices-trump-hormuz-israel-rcna262670" target="_blank">NBC News / NetBlocks — March 11, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Lebanon Death Toll Passes 500 — France Warns Against Israeli Ground Invasion</h3>
+      <div class="by">The Chronicler World Desk &bull; March 11, 2026</div>
+      <p>Deaths from Israeli strikes in Lebanon surpassed 500 Wednesday, according to Lebanese health authorities, as the IDF announced "wide-scale waves" of strikes against both Iranian infrastructure and Hezbollah targets in Beirut simultaneously — the most explicit statement yet that Israel considers the Lebanon and Iran operations as a unified front rather than parallel campaigns. The strikes in Beirut's southern suburbs — the Dahiyeh neighbourhood that is Hezbollah's urban stronghold — have destroyed multiple residential blocks and displaced tens of thousands of people in addition to the militant leadership and infrastructure they target.</p>
+      <p>France, which has been the most vocal European voice on Lebanon specifically, issued a statement Wednesday warning Israel against any land-based or long-term military intervention in Lebanese territory, and calling on all parties to exercise restraint. The French statement — simultaneously supporting Lebanon's territorial sovereignty, condemning Hezbollah's missile attacks on Israel, and warning against an Israeli ground incursion — captures the diplomatic position of a country that has deep historical ties to Lebanon and that views an Israeli ground operation in Lebanon as likely to produce consequences as destabilising as those of the 1982 invasion. The IDF has called on all residents south of the Litani River to evacuate, which the pattern of previous Israeli operations suggests may precede rather than merely accompany a ground advance.</p>
+      <p>A Maronite Catholic priest, Father Pierre al-Rahi, was killed by Israeli tank fire in the Christian village of Qlayaa this week — having reportedly refused an Israeli order to evacuate. His death, widely covered in Lebanese and international Christian media, illustrates the war's indifference to the religious and communal complexity of the country it is consuming. Lebanon is not a Hezbollah monolith; it is a country of extraordinary political and sectarian diversity whose civilian population is bearing the cost of a conflict between Israel and a militia that the Lebanese government itself has banned from military activity. The distinction matters morally and ought to matter strategically. Whether it does is a question the IDF's operational planners are, for now, not publicly addressing.</p>
+      <div class="src">Source: <a href="https://www.timesofisrael.com/liveblog-march-11-2026/" target="_blank">Times of Israel Live — March 11, 2026</a> / <a href="https://www.aljazeera.com/news/2026/3/10/iran-war-what-is-happening-on-day-11-of-us-israel-attacks" target="_blank">Al Jazeera — March 11, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>School Strike Investigation: Trump Sides With Iran — "Iran Did It." Pentagon Disagrees.</h3>
+      <div class="by">The Chronicler World Desk &bull; March 11, 2026</div>
+      <p>In a development that has further confused the intelligence picture around the strike on the elementary school near Bandar Abbas, President Trump told reporters Tuesday that he believes Iran was responsible for the strike — a position directly contrary to the preliminary DIA-adjacent assessment, reported by NBC News, that U.S. munitions were increasingly likely responsible. Trump's statement — "I believe Iran did it. They killed their own girl students." — is a presidential attribution that, if maintained, will become the administration's official position regardless of what the ongoing investigation finds, given the administration's history of treating presidential assertion as a form of evidence.</p>
+      <p>The Senate Minority Leader Chuck Schumer's call for an independent investigation into the strike — supported by six Democratic senators in a joint statement — continues to apply political pressure, but the administration's response has been to note that an investigation is already underway while declining to specify who is conducting it, what its scope is, or when results will be available. For human rights organisations and international legal bodies attempting to apply the laws of armed conflict to the incident, the combination of an information blackout in Iran, a presidential attribution that contradicts the preliminary intelligence, and an investigation whose parameters are undefined creates the conditions for a contested historical record that will never be fully resolved.</p>
+      <p>The ICJ application from Iran — submitted through diplomatic intermediaries, since Iran and the U.S. do not currently maintain the formal diplomatic relations required for direct filing — is at the preliminary admissibility stage and is unlikely to produce binding interim measures in any timeframe relevant to the current conflict. International law operates on timescales that are measured in years, not days, and the school strike — whatever the eventual factual determination — will be litigated and debated long after the guns have fallen silent. The 168 children killed near Bandar Abbas deserve better than that timeline, but it is the one available.</p>
+      <div class="src">Source: <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-oil-prices-trump-hormuz-israel-rcna262670" target="_blank">NBC News — March 11, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Iran's Parliament: "Definitely Not Looking for a Ceasefire." Iran Apologises to Gulf States.</h3>
+      <div class="by">The Chronicler World Desk &bull; March 11, 2026</div>
+      <p>Iran's parliament speaker Mohammad Bagher Qalibaf declared Tuesday that Iran was "definitely not looking for a ceasefire" and that "the aggressor should be punched in the mouth so that he learns a lesson." The statement, delivered via social media with the bellicose confidence of a man whose country's ground forces have not yet been engaged by an invading army, represents the hardline faction of the Iranian political spectrum that views any ceasefire as a repeat of the June 2025 twelve-day war truce — a pause that, Tehran believes, the U.S. and Israel used to prepare a more devastating follow-on campaign.</p>
+      <p>Meanwhile, the Iranian president's office issued a formal apology to Gulf Arab states for the strikes on their infrastructure and civilian populations — a diplomatic gesture that is simultaneously an acknowledgment of harm done and a bid to detach the Gulf states from the U.S.-Israeli operational structure. The apology was carefully worded to frame the strikes on Gulf infrastructure as a regrettable consequence of the war thrust upon Iran rather than a deliberate targeting of Gulf civilian populations. Saudi Arabia, Kuwait, and the UAE — each of which has sustained casualties and infrastructure damage — received the apology with varying degrees of public acknowledgment but with no indication that it would produce a change in their security coordination with U.S. forces.</p>
+      <p>The strategic logic of the apology is clear: if Iran can peel even one Gulf state away from active cooperation with U.S. operations — by offering a combination of an apology, a de-escalation signal, and a reminder of economic interdependence — the operational picture for U.S. CENTCOM becomes more complicated. Qatar, which hosts the Al Udeid Air Base and through which significant U.S. air operations are coordinated, is the most significant potential target of Iranian diplomatic outreach, given its historical role as an interlocutor between adversarial parties and its genuine concern about the war's impact on its own territory and economy.</p>
+      <div class="src">Source: <a href="https://www.pbs.org/newshour/world/iranian-barrages-target-israel-and-gulf-countries-as-hegseth-warns-iran-of-most-intense-day-of-strikes" target="_blank">PBS NewsHour — March 11, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Russia Provides Intelligence to Iran — Four Sources Confirm; Kremlin Denies</h3>
+      <div class="by">The Chronicler World Desk &bull; March 11, 2026</div>
+      <p>NBC News reported last week, confirmed by four independent sources with knowledge of the matter, that Russia has been providing Iran with intelligence on the location of U.S. forces in the Middle East — including intelligence that could help Iranian forces locate American warships. The Kremlin denied the report. The denial was expected; the confirmation from four independent sources has not been retracted and has been subsequently referenced in Congressional hearings without public rebuttal from the intelligence community. The practical implication — that Iran's missile and drone targeting is being aided by Russian satellite intelligence — would help explain some of the precision of Iranian strikes on U.S. assets and the relatively low intercept rate for certain missile categories.</p>
+      <p>Russia's strategic interest in Iran's prolonged resistance is straightforward. Every week that the U.S. is consumed by a Middle Eastern war is a week in which American military attention, logistics, and intelligence assets are diverted from Europe, where Russia's ongoing war in Ukraine continues to demand Western support for Kyiv. A weakened or distracted U.S. is an environment in which Russia's position in Ukraine is marginally more sustainable. The Kremlin also calculates that any conflict that strains the U.S.-Gulf Arab relationship — and the apology Iran issued to Gulf states is aimed precisely at opening that space — benefits Russia by reducing American leverage over the oil producers that are Russia's principal rivals in the global energy market.</p>
+      <p>The intelligence-sharing allegation, if confirmed and escalated, creates a new dimension to the conflict: a potential direct confrontation between the U.S. and Russia that neither party is seeking but that the operational dynamics of intelligence support could produce inadvertently. The threshold at which intelligence support becomes co-belligerence under the laws of armed conflict is contested, and the question of whether the U.S. would treat confirmed Russian intelligence support for Iranian targeting as an act of war is one that the White House has pointedly declined to answer in categorical terms.</p>
+      <div class="src">Source: <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-oil-prices-trump-hormuz-israel-rcna262670" target="_blank">NBC News — March 11, 2026</a> / <a href="https://en.wikipedia.org/wiki/2026_Iran_conflict" target="_blank">Wikipedia 2026 Iran War — updated March 11, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <span class="cat">This Week in History — The World</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>2011: The Fukushima Disaster — When Technology Meets Its Humility</h3>
+      <div class="by">Historical Record</div>
+      <p>On March 11, 2011 — fifteen years ago today — the most powerful earthquake ever recorded in Japan triggered a tsunami that struck the Fukushima Daiichi nuclear power plant on Japan's northeast coast, disabling its cooling systems and causing three reactor meltdowns in the largest nuclear accident since Chernobyl. The disaster killed approximately 20,000 people — almost all from the tsunami rather than the radiation release — and forced the evacuation of 150,000 residents from the surrounding area, many of whom have never been able to return to their homes. The Fukushima anniversary is an annual reminder that complex engineered systems, however carefully designed, contain failure modes that emerge only in the conjunction of events that planning could not fully anticipate.</p>
+      <p>The Fukushima legacy in 2026 is particularly resonant in the context of the Iran war. Japan's acute energy vulnerability — it imports more than 90 per cent of its primary energy, much of it historically from the Middle East — made it one of the countries most directly affected by the post-Fukushima decision to shut down its nuclear fleet. The Hormuz closure of 2026 has renewed the pressure on Japanese energy security in ways that the Fukushima decade partially masked. The fifteen-year arc from Fukushima to the current crisis connects directly: every reactor that was not restarted created a barrel of oil demand that now flows through the strait that is currently closed.</p>
+      <div class="src">Source: Japanese Cabinet Office / Nuclear Regulation Authority Historical Archive</div>
+    </article>
+    <article class="s">
+      <h3>1990: Lithuania Declares Independence — The USSR Begins to Fracture</h3>
+      <div class="by">Historical Record</div>
+      <p>On March 11, 1990 — 36 years ago today — Lithuania declared its restoration of independence from the Soviet Union, becoming the first Soviet republic to do so and setting in motion the chain of events that would culminate in the USSR's dissolution in December 1991. The Lithuanian declaration was not recognised by Moscow, which applied economic pressure and eventually used military force in January 1991 before ultimately accepting Lithuanian independence in September of that year. The declaration was drafted by Vytautas Landsbergis, a musicologist who had been elected president of the Lithuanian parliament in February, and its intellectual architecture drew on the principle that the Soviet annexation of 1940 — under the Molotov-Ribbentrop Pact — had been illegal under international law and could therefore be reversed rather than merely negotiated.</p>
+      <p>Lithuania's 1990 independence declaration is, in 2026, both history and living memory for a country that is now a full NATO member whose security is directly guaranteed by Article 5. The Baltic states' trajectory — from Soviet republic to NATO ally in a generation — is one of the post-Cold War era's most remarkable stories, and one whose significance is sharpened by the renewed relevance of Russian power and the limits of international law in the current global moment. The principle that annexation under an illegal treaty can be undone by declaration is a precedent whose applications are, in 2026, still being contested.</p>
+      <div class="src">Source: Seimas of Lithuania / European Parliament Historical Archive</div>
+    </article>
+    <article class="s">
+      <h3>1958: The CND March — Nuclear Weapons Protest Begins Its Long History</h3>
+      <div class="by">Historical Record</div>
+      <p>The Campaign for Nuclear Disarmament, founded in Britain in 1957, launched its first major public march on April 4, 1958 — in the historical proximity of this week — from Trafalgar Square to the Atomic Weapons Establishment at Aldermaston. The march established the template for nuclear weapons protest that would recur through the Cold War: peaceful mass marching, the iconic peace symbol (designed specifically for the CND by Gerald Holtom), and the moral argument that the possession of weapons capable of mass civilian destruction cannot be reconciled with the values of democratic societies. The CND's arguments were not ultimately successful in producing nuclear disarmament, but its cultural influence — on protest movements, on the peace symbol's global adoption, and on public attitudes toward nuclear risk — was profound and lasting.</p>
+      <p>In 2026, as the Iran war is fought partly over the question of whether the Islamic Republic should be allowed to develop nuclear weapons, the CND's original question — who should and should not possess weapons of mass civilian destruction, and on what authority — remains unanswered. The nuclear non-proliferation architecture built since 1968 is not the answer the CND sought; it is a managed hierarchy of permitted and prohibited nuclear possession that satisfies no one fully. The Aldermaston marchers of 1958, if transported to 2026, would find the argument they were making still in progress and still unresolved.</p>
+      <div class="src">Source: Campaign for Nuclear Disarmament Archive / Imperial War Museum</div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===================== WEATHER ===================== -->
+<div id="weather"></div>
+<div class="page" style="padding-top:0">
+  <div class="section-banner" style="margin-top:0">
+    <div class="flag">Weather &amp; Air Quality Centre</div>
+    <h2>Today's Forecast — Wednesday, March 11, 2026</h2>
+  </div>
+  <p style="text-align:center;font-style:italic;color:var(--grey);font-size:12.5px;margin:8px 0 18px;">Conditions across our readers' cities. °C. AQI on the US EPA 0–500 scale; Canadian cities report AQHI (1–10). Sources: Environment Canada &amp; India Meteorological Department.</p>
+
+  <div class="w-grid">
+    <div class="w-card">
+      <div class="city">Whitby</div>
+      <div class="region">Ontario, Canada</div>
+      <span class="w-icon">🌧️</span>
+      <div class="temp">8°C</div>
+      <div class="rng">↓ 4° tonight &nbsp;|&nbsp; ↑ 9° tomorrow</div>
+      <div class="cond">Rain developing, breezy</div>
+      <div class="drow"><span>💧 Humidity: 82%</span><span>💨 SE 28 km/h</span></div>
+      <div class="drow"><span>👁 Vis: 15 km</span><span>🌧 Rain 60%</span></div>
+      <div class="aqi-bar aqi-good">🌿 AQHI 2 — Low Risk <span class="aqi-label">&nbsp;(rain washing air)</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>🌧️</span>8°</div>
+        <div class="dm">Thu<span>🌦️</span>9°</div>
+        <div class="dm">Fri<span>❄️</span>1°</div>
+        <div class="dm">Sat<span>☀️</span>7°</div>
+        <div class="dm">Sun<span>🌤️</span>10°</div>
+      </div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:7px;">Environment Canada / Oshawa Station</div>
+    </div>
+
+    <div class="w-card">
+      <div class="city">Toronto</div>
+      <div class="region">Ontario, Canada</div>
+      <span class="w-icon">🌧️</span>
+      <div class="temp">9°C</div>
+      <div class="rng">↓ 4° tonight &nbsp;|&nbsp; ↑ 8° tomorrow</div>
+      <div class="cond">Overcast with periods of rain</div>
+      <div class="drow"><span>💧 Humidity: 79%</span><span>💨 SE 32 km/h</span></div>
+      <div class="drow"><span>👁 Vis: 12 km</span><span>🌧 Showers likely</span></div>
+      <div class="aqi-bar aqi-good">🌿 AQHI 2 — Low Risk <span class="aqi-label">&nbsp;(clean rainy air)</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>🌧️</span>9°</div>
+        <div class="dm">Thu<span>🌦️</span>8°</div>
+        <div class="dm">Fri<span>❄️</span>1°</div>
+        <div class="dm">Sat<span>☀️</span>6°</div>
+        <div class="dm">Sun<span>🌤️</span>11°</div>
+      </div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:7px;">Env. Canada / Toronto Pearson Airport</div>
+    </div>
+
+    <div class="w-card">
+      <div class="city">New Delhi</div>
+      <div class="region">Delhi, India</div>
+      <span class="w-icon">🔆</span>
+      <div class="temp">40°C</div>
+      <div class="rng">↓ 24° tonight &nbsp;|&nbsp; ↑ 40° tomorrow</div>
+      <div class="cond">Severe Heat — Record Territory</div>
+      <div class="drow"><span>💨 ~15 km/h</span><span>⚠️ Heat Emergency</span></div>
+      <div class="drow"><span>🌡 8–10°C above normal</span><span>☀️ Full sun</span></div>
+      <div class="aqi-bar aqi-poor">🏭 AQI 278 — Poor <span class="aqi-label">&nbsp;(PM2.5 dominant)</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>🔆</span>40°</div>
+        <div class="dm">Thu<span>🔆</span>40°</div>
+        <div class="dm">Fri<span>🔆</span>39°</div>
+        <div class="dm">Sat<span>🌤️</span>38°</div>
+        <div class="dm">Sun<span>🌤️</span>36°</div>
+      </div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:7px;">IMD New Delhi / Safdarjung Station</div>
+    </div>
+
+    <div class="w-card">
+      <div class="city">Pune</div>
+      <div class="region">Maharashtra, India</div>
+      <span class="w-icon">☀️</span>
+      <div class="temp">38°C</div>
+      <div class="rng">↓ 23° tonight &nbsp;|&nbsp; ↑ 39° tomorrow</div>
+      <div class="cond">Very Hot — Pre-monsoon heat</div>
+      <div class="drow"><span>💧 Humidity: Low</span><span>💨 ~10 km/h</span></div>
+      <div class="drow"><span>☀️ Intense sunshine</span><span>🌡 5°C above normal</span></div>
+      <div class="aqi-bar aqi-moderate">🌫 AQI 105 — Moderate <span class="aqi-label">&nbsp;(dust, ozone)</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>☀️</span>38°</div>
+        <div class="dm">Thu<span>☀️</span>39°</div>
+        <div class="dm">Fri<span>☀️</span>39°</div>
+        <div class="dm">Sat<span>☀️</span>38°</div>
+        <div class="dm">Sun<span>☀️</span>37°</div>
+      </div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:7px;">IMD / Pune Weather Observatory</div>
+    </div>
+
+    <div class="w-card">
+      <div class="city">Hyderabad</div>
+      <div class="region">Telangana, India</div>
+      <span class="w-icon">☀️</span>
+      <div class="temp">38°C</div>
+      <div class="rng">↓ 23° tonight &nbsp;|&nbsp; ↑ 38° tomorrow</div>
+      <div class="cond">Hot &amp; Hazy — Winds Easing</div>
+      <div class="drow"><span>💧 Humidity: Low-Mod</span><span>💨 ~8 km/h</span></div>
+      <div class="drow"><span>☀️ Strong sunshine</span><span>🌡 Seasonal normal +4°</span></div>
+      <div class="aqi-bar aqi-sensitive">🌬 AQI 155 — Sensitive Groups <span class="aqi-label">&nbsp;(PM10, ozone)</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>☀️</span>38°</div>
+        <div class="dm">Thu<span>☀️</span>38°</div>
+        <div class="dm">Fri<span>☀️</span>39°</div>
+        <div class="dm">Sat<span>🌤️</span>37°</div>
+        <div class="dm">Sun<span>☀️</span>37°</div>
+      </div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:7px;">IMD Hyderabad / Begumpet Station</div>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:10px;color:var(--grey);font-style:italic;margin-top:16px;">⚠️ Weather &amp; AQI data current as of Wednesday morning local time. AQI: 0–50 Good; 51–100 Moderate; 101–150 Sensitive Groups; 151–200 Unhealthy; 201–300 Very Unhealthy. AQHI: 1–3 Low; 4–6 Moderate; 7–10 High. Toronto and Whitby: enjoy the rain — Delhi residents would trade anything for it.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===================== COMICS ===================== -->
+<div id="comics"></div>
+<div class="comic-wrap">
+  <div class="section-banner" style="margin-top:0">
+    <div class="flag">The Chronicler Comic Strip — Vol. I, No. 4</div>
+    <h2>"Day 12: The One Where Nobody Stops"</h2>
+  </div>
+  <p style="text-align:center;font-family:'Libre Baskerville',serif;font-style:italic;font-size:12px;color:var(--grey);margin:8px 0 4px;">Our pencil-sketch studio considers: the internet blackout, eight Leafs losses, the Hormuz tanker jam, Carney's new clarity, and 5,000 targets hit.</p>
+
+  <!-- ROW 1 -->
+  <div class="strip">
+    <!-- Panel 1: Leafs 8th loss -->
+    <div class="panel">
+      <div class="plbl">Panel 1</div>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" fill="#f9f5e8"/>
+        <!-- Scoreboard sketch -->
+        <rect x="20" y="20" width="160" height="55" rx="5" fill="#111" stroke="#555" stroke-width="2"/>
+        <text x="32" y="43" font-family="Arial Black" font-size="11" fill="#0f0">MTL</text>
+        <text x="32" y="58" font-family="Arial Black" font-size="14" fill="#0f0">3</text>
+        <text x="92" y="50" font-family="Arial" font-size="9" fill="#888">FINAL</text>
+        <text x="130" y="43" font-family="Arial Black" font-size="11" fill="#4af">TOR</text>
+        <text x="140" y="58" font-family="Arial Black" font-size="14" fill="#4af">1</text>
+        <!-- Grieving Leafs fan (figure, jersey, head in hands) -->
+        <circle cx="100" cy="115" r="16" fill="none" stroke="#00205b" stroke-width="2"/>
+        <!-- Jersey number -->
+        <text x="94" y="118" font-family="Arial Black" font-size="11" fill="#00205b">🍁</text>
+        <ellipse cx="100" cy="145" rx="18" ry="20" fill="none" stroke="#00205b" stroke-width="2"/>
+        <!-- Arms on head in despair -->
+        <path d="M84 128 Q70 108 80 100 Q90 90 100 98" fill="none" stroke="#00205b" stroke-width="2"/>
+        <path d="M116 128 Q130 108 120 100 Q110 90 100 98" fill="none" stroke="#00205b" stroke-width="2"/>
+        <!-- "8" circled below -->
+        <circle cx="100" cy="183" r="11" fill="none" stroke="#c00" stroke-width="2"/>
+        <text x="95" y="188" font-family="Arial Black" font-size="13" fill="#c00">8</text>
+      </svg>
+      <div class="bub">Eight losses. EIGHT. In a row. Even the Habs feel a little bad for us. A LITTLE.</div>
+      <div class="cap">Auston Matthews, goalless in 12: "Sometimes it happens." Toronto: *screams*</div>
+    </div>
+
+    <!-- Panel 2: Iran internet blackout -->
+    <div class="panel">
+      <div class="plbl">Panel 2</div>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" fill="#f9f5e8"/>
+        <!-- Globe outline -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#888" stroke-width="1.5"/>
+        <!-- Iran region (rough) blacked out -->
+        <ellipse cx="120" cy="75" rx="35" ry="22" fill="#111" stroke="#333" stroke-width="1.5" opacity="0.9"/>
+        <text x="96" y="80" font-family="Arial" font-size="8" fill="#f00">IRAN</text>
+        <text x="92" y="90" font-family="Arial" font-size="7" fill="#888">NO SIGNAL</text>
+        <!-- WiFi crossed out -->
+        <path d="M85 115 Q100 100 115 115" fill="none" stroke="#333" stroke-width="2"/>
+        <path d="M80 122 Q100 104 120 122" fill="none" stroke="#333" stroke-width="2"/>
+        <circle cx="100" cy="132" r="3" fill="#333"/>
+        <line x1="75" y1="105" x2="125" y2="135" stroke="#c00" stroke-width="2.5"/>
+        <!-- "264 hrs" counter -->
+        <rect x="130" y="148" width="55" height="24" rx="4" fill="#c00"/>
+        <text x="133" y="160" font-family="Arial Black" font-size="8" fill="#fff">264 HOURS</text>
+        <text x="136" y="170" font-family="Arial" font-size="7" fill="#faa">BLACKOUT</text>
+      </svg>
+      <div class="bub">Iran: 90 million people. Zero internet. 264 hours. "Among the most severe on record."</div>
+      <div class="cap">Apparently bombing a country AND switching off its internet is now standard operating procedure.</div>
+    </div>
+
+    <!-- Panel 3: Carney finally says "NEVER" -->
+    <div class="panel">
+      <div class="plbl">Panel 3</div>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" fill="#f9f5e8"/>
+        <!-- House of Commons podium sketch -->
+        <rect x="55" y="110" width="90" height="60" rx="3" fill="none" stroke="#555" stroke-width="2"/>
+        <line x1="70" y1="110" x2="70" y2="170" stroke="#555" stroke-width="1"/>
+        <line x1="130" y1="110" x2="130" y2="170" stroke="#555" stroke-width="1"/>
+        <!-- Carney figure -->
+        <circle cx="100" cy="85" r="16" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Hair (suit collar) -->
+        <ellipse cx="100" cy="107" rx="15" ry="18" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Big speech bubble with NEVER -->
+        <rect x="10" y="20" width="110" height="48" rx="7" fill="#fff" stroke="#333" stroke-width="1.5"/>
+        <line x1="65" y1="68" x2="90" y2="80" stroke="#333" stroke-width="1.5"/>
+        <text x="14" y="40" font-family="Arial Black" font-size="14" fill="#c00">NEVER.</text>
+        <text x="14" y="55" font-family="Arial" font-size="8" fill="#555">Canada will NEVER</text>
+        <text x="14" y="64" font-family="Arial" font-size="8" fill="#555">participate.</text>
+        <!-- Poilievre (small, right) looking confused -->
+        <circle cx="170" cy="95" r="10" fill="none" stroke="#333" stroke-width="1.5"/>
+        <text x="155" y="115" font-family="Arial" font-size="7" fill="#888">Poilievre:</text>
+        <text x="152" y="124" font-family="Arial" font-size="7" fill="#888">"...Now he says it."</text>
+      </svg>
+      <div class="bub">Day 13. PM Carney discovers the word "never." Parliament: "WE KNOW. WE ASKED ON DAY ONE."</div>
+      <div class="cap">Better late than never. The second part of that idiom is doing a lot of work this week.</div>
+    </div>
+
+    <!-- Panel 4: 37 tankers stuck at Hormuz -->
+    <div class="panel">
+      <div class="plbl">Panel 4</div>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" fill="#f9f5e8"/>
+        <!-- Ocean waves (sketch) -->
+        <path d="M10 150 Q30 140 50 150 Q70 160 90 150 Q110 140 130 150 Q150 160 170 150 Q190 140 200 150" fill="none" stroke="#6af" stroke-width="2"/>
+        <path d="M10 162 Q30 152 50 162 Q70 172 90 162 Q110 152 130 162 Q150 172 170 162 Q190 152 200 162" fill="none" stroke="#6af" stroke-width="1.5"/>
+        <!-- Strait (narrow) label -->
+        <line x1="60" y1="130" x2="60" y2="180" stroke="#333" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <line x1="140" y1="130" x2="140" y2="180" stroke="#333" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <text x="62" y="127" font-family="Arial" font-size="7" fill="#333">HORMUZ</text>
+        <!-- 5 tanker shapes -->
+        <rect x="65" y="133" width="30" height="10" rx="2" fill="none" stroke="#555" stroke-width="1.5"/>
+        <rect x="72" y="126" width="18" height="8" rx="1" fill="none" stroke="#555" stroke-width="1"/>
+        <rect x="68" y="115" width="30" height="10" rx="2" fill="none" stroke="#888" stroke-width="1.5"/>
+        <rect x="75" y="108" width="18" height="8" rx="1" fill="none" stroke="#888" stroke-width="1"/>
+        <rect x="72" y="97" width="30" height="10" rx="2" fill="none" stroke="#aaa" stroke-width="1.5"/>
+        <!-- "37 STUCK" label -->
+        <rect x="10" y="50" width="90" height="38" rx="5" fill="#fff" stroke="#c00" stroke-width="2"/>
+        <text x="14" y="68" font-family="Arial Black" font-size="16" fill="#c00">37 SHIPS</text>
+        <text x="14" y="82" font-family="Arial" font-size="8" fill="#555">Indian tankers. Hormuz. Stuck.</text>
+        <!-- India flag tiny -->
+        <rect x="150" y="60" width="35" height="22" rx="2" fill="none" stroke="#555" stroke-width="1.5"/>
+        <line x1="150" y1="67" x2="185" y2="67" stroke="#555" stroke-width="1"/>
+        <line x1="150" y1="75" x2="185" y2="75" stroke="#555" stroke-width="1"/>
+        <circle cx="167" cy="71" r="4" fill="none" stroke="#00f" stroke-width="1"/>
+      </svg>
+      <div class="bub">37 Indian tankers: "Excuse me, we have an appointment on the other side of this strait." Iran: "No."</div>
+      <div class="cap">LPG shortage hits Indian restaurants. Menus this week: "Whatever's not on the stove."</div>
+    </div>
+  </div><!-- /row 1 -->
+
+  <!-- ROW 2 -->
+  <div class="strip2">
+    <!-- Panel 5: 5,000 targets / Hegseth -->
+    <div class="panel panel2t">
+      <div class="plbl">Panel 5</div>
+      <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="220" fill="#f9f5e8"/>
+        <!-- Pentagon podium -->
+        <rect x="60" y="130" width="80" height="55" rx="3" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Pentagon logo (rough pentagon) -->
+        <polygon points="100,138 118,148 112,165 88,165 82,148" fill="none" stroke="#333" stroke-width="1.5"/>
+        <!-- Hegseth figure -->
+        <circle cx="100" cy="105" r="15" fill="none" stroke="#333" stroke-width="2"/>
+        <ellipse cx="100" cy="125" rx="14" ry="17" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Stars (rank) on shoulders -->
+        <text x="83" y="123" font-size="8">⭐</text>
+        <text x="110" y="123" font-size="8">⭐</text>
+        <!-- Counter over head -->
+        <rect x="20" y="30" width="160" height="55" rx="5" fill="#111" stroke="#444" stroke-width="2"/>
+        <text x="28" y="52" font-family="Arial Black" font-size="11" fill="#0f0">5,000 TARGETS</text>
+        <text x="28" y="67" font-family="Arial" font-size="8" fill="#8f8">hit in 12 days.</text>
+        <text x="28" y="79" font-family="Arial" font-size="8" fill="#f88">"Most intense yet."</text>
+      </svg>
+      <div class="bub">Hegseth: "Today will be our MOST INTENSE strikes." Yesterday he said the same. And the day before.</div>
+      <div class="cap">At some point "most intense yet" stops being news and becomes an ominous brand promise.</div>
+    </div>
+
+    <!-- Panel 6: Trump says Iran bombed the school. Pentagon says US did it. -->
+    <div class="panel panel2t">
+      <div class="plbl">Panel 6</div>
+      <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="220" fill="#f9f5e8"/>
+        <!-- Broken school building -->
+        <rect x="65" y="100" width="70" height="60" rx="3" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Roof (broken) -->
+        <path d="M55 100 L100 70 L145 100" fill="none" stroke="#333" stroke-width="2"/>
+        <path d="M90 70 L110 78" fill="none" stroke="#c00" stroke-width="2" stroke-dasharray="3,2"/>
+        <!-- School sign -->
+        <rect x="75" y="115" width="50" height="14" rx="2" fill="#fff" stroke="#555" stroke-width="1"/>
+        <text x="77" y="126" font-family="Arial" font-size="7" fill="#333">ELEMENTARY</text>
+        <!-- Two bubbles: Trump left, Pentagon right -->
+        <rect x="5" y="20" width="80" height="35" rx="5" fill="#fff" stroke="#c00" stroke-width="1.5"/>
+        <text x="8" y="35" font-family="Arial Black" font-size="8" fill="#c00">TRUMP:</text>
+        <text x="8" y="46" font-family="Arial" font-size="7" fill="#333">"Iran did it."</text>
+        <rect x="115" y="20" width="80" height="35" rx="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+        <text x="118" y="35" font-family="Arial Black" font-size="7" fill="#333">PENTAGON:</text>
+        <text x="118" y="46" font-family="Arial" font-size="7" fill="#555">"Still looking into it."</text>
+        <!-- 168 number -->
+        <text x="82" y="96" font-family="Arial Black" font-size="11" fill="#c00">168 ☆</text>
+      </svg>
+      <div class="bub">Trump: "Iran killed their own children." Pentagon: "We're... investigating." DIA: "It was probably us."</div>
+      <div class="cap">168 children. Three competing narratives. Zero accountability so far.</div>
+    </div>
+
+    <!-- Panel 7: LNG Canada / B.C. winning -->
+    <div class="panel panel2t" style="border-right:none">
+      <div class="plbl">Panel 7</div>
+      <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="220" fill="#f9f5e8"/>
+        <!-- LNG tanker (big, happy) -->
+        <rect x="20" y="110" width="120" height="40" rx="6" fill="none" stroke="#006400" stroke-width="2.5"/>
+        <rect x="80" y="88" width="40" height="25" rx="3" fill="none" stroke="#006400" stroke-width="2"/>
+        <!-- Smoke/gas from tanker (happy puffs) -->
+        <circle cx="105" cy="75" r="10" fill="none" stroke="#8fa" stroke-width="2"/>
+        <circle cx="120" cy="62" r="8" fill="none" stroke="#8fa" stroke-width="1.5"/>
+        <circle cx="133" cy="50" r="6" fill="none" stroke="#8fa" stroke-width="1.5"/>
+        <!-- Flag of BC on ship -->
+        <rect x="25" y="95" width="22" height="14" rx="1" fill="none" stroke="#00205b" stroke-width="1.5"/>
+        <text x="27" y="106" font-family="Arial" font-size="8" fill="#00205b">B.C.</text>
+        <!-- "LNG CANADA" label -->
+        <text x="30" y="135" font-family="Arial Black" font-size="10" fill="#006400">LNG CANADA</text>
+        <!-- Ocean and dollar signs -->
+        <path d="M10 155 Q50 145 90 155 Q130 165 170 155" fill="none" stroke="#6af" stroke-width="1.5"/>
+        <!-- Dollar signs raining -->
+        <text x="150" y="100" font-family="Arial Black" font-size="14" fill="#b8860b">$$$</text>
+        <text x="155" y="120" font-family="Arial" font-size="12" fill="#b8860b">$</text>
+        <text x="162" y="85" font-family="Arial" font-size="10" fill="#b8860b">$</text>
+        <!-- Counter -->
+        <rect x="18" y="175" width="165" height="30" rx="4" fill="#006400"/>
+        <text x="24" y="189" font-family="Arial Black" font-size="9" fill="#fff">5 CARGOES IN 11 DAYS</text>
+        <text x="42" y="200" font-family="Arial" font-size="8" fill="#9f9">Kitimat: Accidental winner.</text>
+      </svg>
+      <div class="bub">LNG Canada: "We've already exceeded half of February's total exports. In eleven days." B.C.: "We'll take it."</div>
+      <div class="cap">Every cloud has a silver lining. In B.C.'s case, the lining is liquid natural gas.</div>
+    </div>
+  </div><!-- /row 2 -->
+
+  <p style="text-align:right;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-top:8px;font-style:italic;">"Day 12: The One Where Nobody Stops" — The Chronicler Editorial Cartoon Studio &bull; Wednesday, March 11, 2026</p>
+</div>
+
+<div class="footer">
+  <p>THE CHRONICLER — Vol. I, No. 4 — Wednesday, March 11, 2026 &bull; Today marks the 15th anniversary of the Fukushima disaster (March 11, 2011) and the 36th anniversary of Lithuania's declaration of independence (March 11, 1990). Tomorrow, March 12, marks the 96th anniversary of Gandhi's Salt March from Sabarmati Ashram (1930).</p>
+  <p style="margin-top:4px;">All articles grounded in live reporting from sources cited within. Historical content drawn from public record. Weather and AQI data current as of Wednesday morning local time. Comic strip is satire in the tradition of a free press. The Chronicler is editorially independent. No tankers have yet been freed from the Strait of Hormuz. The Maple Leafs still have 18 games left. There is hope. There is always hope.</p>
+  <p style="margin-top:6px;">🍁 Serving readers from Whitby to Hyderabad. &copy; 2026 The Chronicler. All rights reserved.</p>
+</div>
+
+</body>
+</html>

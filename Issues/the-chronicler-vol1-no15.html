@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Sunday, March 22, 2026 — Vol. I, No. 15</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#141008;--aged:#f4edd6;--cream:#fdf9ee;--rust:#8b2513;--gold:#a07800;--grey:#635d4e;--rule:#d0c5a0;--green:#1a6b3c;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+  .masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:16px 40px 10px;text-align:center;}
+  .mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);letter-spacing:.05em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;}
+  .ig-link{display:flex;align-items:center;gap:5px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;}
+  .ig-link:hover{text-decoration:underline;}
+  .ig-link svg{width:15px;height:15px;flex-shrink:0;}
+  .masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(34px,5.5vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+  .mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11.5px;color:var(--grey);margin-top:3px;}
+  .breaking-bar{background:var(--rust);color:#fff;text-align:center;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;padding:5px 12px;}
+  .nav-bar{display:flex;justify-content:center;flex-wrap:wrap;background:var(--ink);position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+  .nav-bar a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:9px 18px;border-right:1px solid #2a2010;transition:background .2s;}
+  .nav-bar a:last-child{border-right:none;}
+  .nav-bar a:hover{background:var(--rust);color:#fff;}
+  .page{max-width:1080px;margin:0 auto;background:var(--cream);padding:28px 38px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+  .section-banner{text-align:center;margin:28px 0 18px;padding:13px 20px;background:var(--ink);color:var(--aged);}
+  .section-banner h2{font-family:'Playfair Display',serif;font-size:25px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+  .section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+  .cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:22px 0 13px;display:block;}
+  .col-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  article.s{border-right:1px solid var(--rule);padding-right:17px;}
+  article.s:last-child{border-right:none;padding-right:0;}
+  article.s h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+  article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10.5px;color:var(--grey);font-style:italic;margin-bottom:8px;}
+  article.s p{font-size:13px;line-height:1.72;text-align:justify;margin-bottom:8px;hyphens:auto;}
+  article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:8px;}
+  article.s .src a{color:var(--rust);text-decoration:none;}
+  article.s .src a:hover{text-decoration:underline;}
+  .divider{height:11px;background:var(--ink);max-width:1080px;margin:0 auto;}
+  .mkt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px;margin-bottom:14px;}
+  .mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:11px 12px 9px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+  .mkt-card.currency{border-top-color:var(--gold);}
+  .mkt-card.commodity-up{border-top-color:var(--green);}
+  .mkt-card.commodity-down{border-top-color:var(--rust);}
+  .mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:12.5px;color:var(--ink);line-height:1.1;}
+  .mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px;}
+  .mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:19px;color:var(--ink);line-height:1;}
+  .mkt-card .mc-chg{display:inline-flex;align-items:center;gap:3px;margin-top:3px;border-radius:3px;padding:2px 6px;align-self:flex-start;font-family:monospace;font-size:10px;font-weight:700;white-space:nowrap;}
+  .mc-chg.down{background:#f8d7da;color:#8b2513;border:1px solid #f0c0c0;}
+  .mc-chg.up{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+  .mc-chg.flat{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+  .mkt-card .mc-note{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);font-style:italic;margin-top:3px;border-top:1px solid var(--rule);padding-top:3px;}
+  .mkt-note{border-left:4px solid var(--rust);padding:7px 11px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--ink);line-height:1.65;margin-bottom:10px;}
+  .mkt-src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-bottom:16px;}
+  .mkt-src a{color:var(--rust);text-decoration:none;}
+  .w-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin:8px 0 14px;}
+  .w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;text-align:left;}
+  .w-card.india-card{border-top-color:var(--rust);}
+  .w-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;}
+  .w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);}
+  .w-top .w-icon{font-size:16px;line-height:1;}
+  .w-top .temp{font-family:'Playfair Display',serif;font-weight:900;font-size:18px;color:var(--ink);line-height:1;}
+  .w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+  .w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9.5px;color:var(--grey);margin-bottom:4px;line-height:1.35;}
+  .aqi-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;margin-bottom:3px;}
+  .aqi-badge .al{font-weight:400;opacity:.85;}
+  .aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+  .aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+  .aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+  .aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+  .w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);margin-bottom:5px;}
+  .wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:5px;margin-top:3px;}
+  .wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);flex:1;}
+  .wfc .dm span{display:block;font-size:11px;margin:1px 0;}
+  .w-note{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-top:8px;text-align:center;padding:5px;border-top:1px solid var(--rule);}
+  /* Bottom row layout: This Week in History + Upcoming Events (Canada/GTA/India) or Games (World) */
+  .bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;margin-top:18px;}
+  .ev-item{padding:7px 0;border-bottom:1px solid var(--rule);}
+  .ev-item:last-child{border-bottom:none;}
+  .ev-date{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:2px;}
+  .ev-title{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+  .ev-venue{font-family:'Source Sans 3',sans-serif;font-size:10px;font-style:italic;color:var(--grey);}
+  .ev-tag{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;color:var(--rust);margin-top:2px;}
+  .ev-src{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);}
+  .ev-src a{color:var(--rust);text-decoration:none;}
+  /* Word Web puzzle */
+  .ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;}
+  .ww-mini-tile{background:var(--cream);border:1.5px solid var(--ink);padding:7px 4px;text-align:center;font-family:'Playfair Display',serif;font-weight:700;font-size:11px;}
+  .puzzle-box{border:1px solid var(--rule);border-top:3px solid var(--ink);padding:14px;background:#f9f3e3;margin-bottom:14px;}
+  .puzzle-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+  .puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-bottom:8px;}
+  .puzzle-box textarea{width:100%;border:1px solid var(--rule);padding:6px;font-size:11px;font-family:'Source Sans 3',sans-serif;background:var(--cream);resize:vertical;min-height:38px;color:var(--ink);}
+  .reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:10.5px;font-weight:600;color:var(--rust);cursor:pointer;background:none;border:none;padding:4px 0;margin-top:6px;border-top:1px dashed var(--rule);width:100%;text-align:left;}
+  .answer-box{margin-top:6px;display:none;}
+  .answer-cat{padding:5px 9px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;margin-bottom:4px;}
+  .answer-cat.a{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+  .answer-cat.b{background:#fff3cd;color:#6b4f00;border:1px solid #ffeeba;}
+  /* Crunch puzzle */
+  .cr-row{display:flex;gap:8px;margin:8px 0;}
+  .cr-mini-tile{background:var(--cream);border:1.5px solid var(--ink);width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:16px;}
+  .cr-target{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--rust);text-align:center;margin:6px 0;}
+  /* Comics */
+  .comic-wrap{max-width:1080px;margin:0 auto;background:var(--cream);padding:28px 38px;border:1px solid var(--rule);}
+  .comic-masthead{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(26px,4vw,48px);text-align:center;color:var(--ink);margin-bottom:3px;}
+  .comic-strip-title{font-family:'Libre Baskerville',serif;font-style:italic;font-size:13px;color:var(--grey);text-align:center;margin-bottom:18px;}
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);border:3px solid var(--ink);box-shadow:4px 4px 0 rgba(0,0,0,.18);}
+  .panel{border-right:3px solid var(--ink);background:#fdfaf2;min-height:260px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+  .panel:last-child{border-right:none;}
+  .panel-bg{width:100%;flex:1;position:relative;}
+  /* Speech bubbles */
+  .speech{background:#fffde7;border:2px solid var(--ink);border-radius:12px;padding:6px 9px;font-family:'Caveat',cursive;font-size:13px;color:var(--ink);position:absolute;line-height:1.3;max-width:85%;}
+  .speech::after{content:'';position:absolute;border:8px solid transparent;}
+  .speech.bl::after{border-top-color:var(--ink);bottom:-17px;left:18px;}
+  .speech.br::after{border-top-color:var(--ink);bottom:-17px;right:18px;}
+  .speech.tl::after{border-bottom-color:var(--ink);top:-17px;left:18px;}
+  .cap-box{background:var(--ink);color:var(--aged);font-family:'Caveat',cursive;font-size:11px;padding:4px 8px;line-height:1.4;}
+  /* Disclaimer page */
+  .disclaimer-page{max-width:1080px;margin:0 auto;background:var(--cream);padding:20px 38px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);border-top:1px solid var(--rule);}
+  .footer{max-width:1080px;margin:0 auto;text-align:center;padding:14px 20px;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);background:var(--cream);border-left:1px solid var(--rule);border-right:1px solid var(--rule);border-top:4px double var(--ink);}
+  .footer .footer-ig{margin-top:7px;display:flex;align-items:center;justify-content:center;gap:6px;}
+  .footer .footer-ig a{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-size:11px;}
+  .footer .footer-ig a svg{width:15px;height:15px;}
+  .footer .footer-disc{margin-top:10px;font-style:italic;line-height:1.7;max-width:820px;margin-left:auto;margin-right:auto;}
+  @media(max-width:760px){
+    .col-3{grid-template-columns:1fr;}
+    article.s{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:14px;}
+    .page,.comic-wrap,.disclaimer-page{padding:18px 14px;}
+    .strip{grid-template-columns:repeat(2,1fr);}
+    .nav-bar a{padding:8px 10px;font-size:10px;}
+    .mast-top{flex-direction:column;gap:4px;text-align:center;}
+    .w-grid{grid-template-columns:repeat(2,1fr);}
+    .bottom-row{grid-template-columns:1fr;}
+  }
+</style>
+<script>
+function toggleAnswer(id){var b=document.getElementById(id);b.style.display=b.style.display==='block'?'none':'block';}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="masthead">
+    <div class="mast-top">
+      <span>EST. 2026 &bull; INDEPENDENT JOURNALISM</span>
+      <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+        @the.chronicler.news
+      </a>
+      <span>Sunday, March 22, 2026 &bull; Vol. I, No. 15</span>
+    </div>
+    <h1>The Chronicler</h1>
+    <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+  </div>
+  <div class="breaking-bar">DAY 22: TRUMP THREATENS IRAN POWER PLANTS IF HORMUZ NOT OPEN IN 48 HRS &bull; ARAD STRUCK &bull; WTI $98 &bull; GOLD $4,574 &bull; TSX 31,317 &bull; LEAFS FALL 5&ndash;2 TO OTTAWA &bull; RAPTORS LOSE 115&ndash;121 IN DENVER &bull; MODI BECOMES INDIA&rsquo;S LONGEST-SERVING HEAD OF GOVT &bull; IPL STARTS MARCH 28</div>
+</header>
+
+<nav class="nav-bar">
+  <a href="#canada">&#127464;&#127462; Canada</a>
+  <a href="#gta">&#127809; GTA</a>
+  <a href="#india">&#127470;&#127475; India</a>
+  <a href="#world">&#127760; World</a>
+  <a href="#comics">&#9999;&#65039; Comics</a>
+</nav>
+
+<!-- PART 1 — CANADA -->
+<div class="page" id="canada">
+  <div class="section-banner"><div class="flag">National Desk</div><h2>&#127464;&#127462; Canada</h2></div>
+
+  <span class="cat">Current Events &mdash; Weather &amp; Air Quality &middot; Sunday, March 22, 2026</span>
+  <div class="w-grid">
+    <div class="w-card">
+      <div class="w-top"><span class="city">Toronto</span><span class="w-icon">&#127783;&#65039;</span><span class="temp">5&deg;C</span></div>
+      <div class="w-rng">H: 7&deg; &middot; L: &minus;2&deg;</div>
+      <div class="w-cond">Showers; breezy with ESE winds 22 km/h</div>
+      <div class="aqi-badge aqi-good">AQI 26 <span class="al">&mdash; Good</span></div>
+      <div class="w-drow"><span>&#128168; ESE 22 km/h</span><span>&#128167; 82%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9729;&#65039;</span>Mon<br>3°/&minus;6°</div><div class="dm"><span>&#10052;&#65039;</span>Tue<br>3°/&minus;2°</div><div class="dm"><span>&#9728;&#65039;</span>Wed<br>4°/&minus;2°</div></div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Montréal</span><span class="w-icon">&#10052;&#65039;</span><span class="temp">&minus;2&deg;C</span></div>
+      <div class="w-rng">H: &minus;2&deg; &middot; L: &minus;5&deg;</div>
+      <div class="w-cond">Heavy snow expected; up to 10 cm forecast</div>
+      <div class="aqi-badge aqi-good">AQI 26 <span class="al">&mdash; Good</span></div>
+      <div class="w-drow"><span>&#128168; NW 18 km/h</span><span>&#128167; 85%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9729;&#65039;</span>Mon<br>0°/&minus;7°</div><div class="dm"><span>&#10052;&#65039;</span>Tue<br>2°/&minus;1°</div><div class="dm"><span>&#9728;&#65039;</span>Wed<br>1°/&minus;7°</div></div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Ottawa</span><span class="w-icon">&#10052;&#65039;</span><span class="temp">0&deg;C</span></div>
+      <div class="w-rng">H: 1&deg; &middot; L: &minus;6&deg;</div>
+      <div class="w-cond">Periods of snow; special weather statement</div>
+      <div class="aqi-badge aqi-good">AQI 39 <span class="al">&mdash; Good</span></div>
+      <div class="w-drow"><span>&#128168; W 14 km/h</span><span>&#128167; 78%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9729;&#65039;</span>Mon<br>1°/&minus;10°</div><div class="dm"><span>&#9729;&#65039;</span>Tue<br>2°/&minus;6°</div><div class="dm"><span>&#9728;&#65039;</span>Wed<br>&minus;1°/&minus;9°</div></div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Edmonton</span><span class="w-icon">&#9729;&#65039;</span><span class="temp">&minus;2&deg;C</span></div>
+      <div class="w-rng">H: 2&deg; &middot; L: &minus;8&deg;</div>
+      <div class="w-cond">Broken cloud; 60% chance of flurries</div>
+      <div class="aqi-badge aqi-good">AQI 27 <span class="al">&mdash; Good</span></div>
+      <div class="w-drow"><span>&#128168; NW 12 km/h</span><span>&#128167; 74%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9728;&#65039;</span>Mon<br>2°/&minus;13°</div><div class="dm"><span>&#10052;&#65039;</span>Tue<br>&minus;5°/&minus;7°</div><div class="dm"><span>&#9729;&#65039;</span>Wed<br>&minus;2°/&minus;12°</div></div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Vancouver</span><span class="w-icon">&#9729;&#65039;</span><span class="temp">9&deg;C</span></div>
+      <div class="w-rng">H: 10&deg; &middot; L: 1&deg;</div>
+      <div class="w-cond">Mainly sunny; chance of showers by evening</div>
+      <div class="aqi-badge aqi-good">AQI 34 <span class="al">&mdash; Good</span></div>
+      <div class="w-drow"><span>&#128168; ESE 20 km/h</span><span>&#128167; 61%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9729;&#65039;</span>Mon<br>9°/6°</div><div class="dm"><span>&#127783;&#65039;</span>Tue<br>11°/5°</div><div class="dm"><span>&#9729;&#65039;</span>Wed<br>11°/2°</div></div>
+    </div>
+  </div>
+  <div class="w-note">Weather: <a href="https://weather.gc.ca" style="color:var(--rust)">Environment Canada</a> &bull; AQI: <a href="https://aqicn.org/map/canada/" style="color:var(--rust)">aqicn.org</a> &bull; Temperatures in &deg;C &bull; AQI on US scale (0&ndash;500)</div>
+
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Trump Threatens to &ldquo;Obliterate&rdquo; Iran&rsquo;s Power Plants Over Hormuz Standoff</h3>
+      <div class="by">The Chronicler &mdash; National Desk</div>
+      <p>U.S. President Donald Trump escalated his confrontation with Iran on Sunday, threatening to destroy the country&rsquo;s power plants if Tehran does not fully reopen the Strait of Hormuz to commercial shipping within 48 hours. The ultimatum marks the sharpest direct threat yet in a conflict now entering its twenty-second day. Iran responded by warning of retaliatory strikes on regional infrastructure if the United States follows through.</p>
+      <p>Canada has signed a joint statement alongside the United Kingdom, France, Germany, Italy, the Netherlands, Japan and more than a dozen other nations, expressing readiness to &ldquo;contribute to appropriate efforts&rdquo; to secure safe passage through the strait. Defence Minister David McGuinty confirmed Canada is actively considering its options but stressed the country &ldquo;will not be engaging offensively.&rdquo; Foreign Affairs Minister Anita Anand said any contribution would be guided by Canada&rsquo;s legal frameworks and consultations with allies.</p>
+      <p>Brent crude settled near US$112 per barrel and WTI around US$98 as markets remained volatile. Two Canadian cargo ships remain stranded in the Persian Gulf, unable to pass through the strait.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/world/canada-joint-statement-strait-hormuz-9.7135150" target="_blank">CBC News</a> &bull; <a href="https://www.theglobeandmail.com/world/article-canada-japan-european-allies-willing-to-use-appropriate-efforts-to/" target="_blank">The Globe and Mail</a></div>
+    </article>
+    <article class="s">
+      <h3>Gas Prices Climb Across Canada as Strait Closure Bites</h3>
+      <div class="by">The Chronicler &mdash; National Desk</div>
+      <p>Average gasoline prices across Canada have climbed to approximately $1.70 per litre, up sharply from $1.21 at the start of the year as the Strait of Hormuz crisis continues to constrain global oil supply. Vancouver has been the hardest-hit city, with prices at some stations surpassing $2.12 per litre&mdash;among the highest on record. Montreal is averaging roughly $1.84 per litre, and prices in Atlantic Canada are approaching $1.81.</p>
+      <p>Energy Minister Jonathan Wilkinson said the Iran conflict has made Canada&rsquo;s role as a reliable energy producer &ldquo;even more important,&rdquo; pointing to Trans Mountain pipeline capacity and Alberta oil sands output as potential buffers for allies facing supply disruptions. Nervous trading partners have been calling the Canadian government seeking assurances about supply.</p>
+      <p>Economists warn the sustained price increase risks reigniting inflation, with the Bank of Canada having held its benchmark rate at 2.25% at its March 18th decision. The central bank flagged upside inflation risks linked to the conflict.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/world/livestory/us-israel-iran-war-9.7134369" target="_blank">CBC News</a></div>
+    </article>
+    <article class="s">
+      <h3>Fog and Late Snow Grip Toronto and Ottawa as Unseasonable Cold Continues</h3>
+      <div class="by">The Chronicler &mdash; National Desk</div>
+      <p>Toronto and Ottawa awoke to grey, damp conditions on Sunday as a persistent low-pressure system continued to push well below-seasonal temperatures across Ontario and Quebec. Environment Canada issued a special weather statement for the Greater Montréal area, warning of up to 10 centimetres of snow through Sunday&mdash;an unusually heavy accumulation for late March. Ottawa forecast 40% chance of periods of snow through the day.</p>
+      <p>The unusual pattern follows a week of record temperature swings. In Delhi, Indian meteorologists recorded the coldest March day in six years on March 20, driven by the same sprawling western disturbance responsible for the spring disruption across parts of Canada&rsquo;s east. Environment Canada confirmed Toronto&rsquo;s weekend temperatures are running several degrees below the seasonal normal of around 9&ndash;10&deg;C for late March.</p>
+      <p>Travellers in eastern Canada are advised to allow extra time on roads and at airports, as snow accumulation and reduced visibility are expected intermittently through Monday.</p>
+      <div class="src">Source: <a href="https://weather.gc.ca/en/location/index.html?coords=45.529,-73.562" target="_blank">Environment Canada &mdash; Montréal</a> &bull; <a href="https://weather.gc.ca/en/location/index.html?coords=43.655,-79.383" target="_blank">Environment Canada &mdash; Toronto</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>NDP Leadership Vote Closes March 29 as Race Enters Final Week</h3>
+      <div class="by">The Chronicler &mdash; National Desk</div>
+      <p>The New Democratic Party&rsquo;s online leadership ballot, open since March 9, closes on March 29 with a result expected shortly after. The race to replace Jagmeet Singh&mdash;who resigned following the NDP&rsquo;s worst federal election result since 1993&mdash;features five candidates: Edmonton MP Heather McPherson, journalist and activist Avi Lewis, B.C. union leader Rob Ashton, Ontario organic farmer Tony McQuail, and Campbell River city councillor Tanille Johnston.</p>
+      <p>McPherson, widely seen as the front-runner, has emphasised labour rights and climate policy. Lewis has built strong grassroots support among younger members. A concern for the party is that none of the five candidates is fully bilingual, a hurdle in Quebec where the NDP&rsquo;s recovery is essential. The party currently holds just six seats in the House of Commons after Nunavut MP Lori Idlout crossed the floor to the Liberals on March 10.</p>
+      <p>The new leader will be announced at a party convention in Winnipeg, where they will also face the immediate challenge of rebuilding the NDP&rsquo;s public standing and fundraising capacity from historic lows.</p>
+      <div class="src">Source: <a href="https://en.wikipedia.org/wiki/2026_New_Democratic_Party_leadership_election" target="_blank">Wikipedia &mdash; 2026 NDP Leadership Election</a> &bull; <a href="https://www.cbc.ca/news/politics/idlout-crossing-floor-liberals-9.7123443" target="_blank">CBC News</a></div>
+    </article>
+    <article class="s">
+      <h3>Carney Inches Toward Majority as April 13 Byelections Loom</h3>
+      <div class="by">The Chronicler &mdash; National Desk</div>
+      <p>Prime Minister Mark Carney&rsquo;s Liberal government now holds 170 seats in the House of Commons&mdash;two short of a working majority&mdash;following a string of floor-crossings from the Conservatives and, most recently, the NDP. Three byelections, called for April 13, are widely expected to push the Liberals over the line: the Toronto ridings of University&mdash;Rosedale and Scarborough Southwest are considered safe Liberal ground, while the Quebec riding of Terrebonne is more competitive.</p>
+      <p>University&mdash;Rosedale and Scarborough Southwest became vacant when Chrystia Freeland accepted an advisory role for Ukraine&rsquo;s government and Bill Blair was appointed High Commissioner to the United Kingdom. Ontario NDP deputy leader Doly Begum has defected to run as the Liberal candidate in Scarborough Southwest&mdash;a further blow to the NDP.</p>
+      <p>The latest Angus Reid poll shows Liberals at 44% versus 36% for the Conservatives nationally. A majority government, once considered improbable after Carney&rsquo;s minority win last spring, now appears within reach.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-byelection-terrebonne-scarborough-southwest-university-rosedale-ndp-conservatives-9.7119497" target="_blank">CBC News</a> &bull; <a href="https://www.cbc.ca/news/politics/carney-idlout-majority-poilievre-ndp-analysis-9.7124771" target="_blank">CBC News &mdash; Analysis</a></div>
+    </article>
+    <article class="s">
+      <h3>Canada, Allies Demand Iran Open Hormuz &mdash; But No Military Commitment Yet</h3>
+      <div class="by">The Chronicler &mdash; National Desk</div>
+      <p>Canada joined six European allies and Japan in a joint statement condemning Iran&rsquo;s &ldquo;de facto closure&rdquo; of the Strait of Hormuz, calling on Tehran to immediately halt all attacks on merchant shipping and mines. The statement, released Thursday, expresses collective &ldquo;readiness to contribute to appropriate efforts&rdquo; to reopen the waterway&mdash;language deliberately vague on what military contribution, if any, signatories intend to make.</p>
+      <p>The coalition has now grown to 22 nations including the UAE, Australia and Bahrain. NATO Secretary-General Mark Rutte, attending an EU summit in Brussels, declared that &ldquo;everybody agrees this strait cannot stay closed.&rdquo; Britain has sent military planners to Washington to explore options. The United States, meanwhile, has largely found itself isolated in direct combat operations, with EU nations signalling that any mission must await a ceasefire.</p>
+      <p>Foreign Affairs Minister Anita Anand told a trade conference in London that Canada must take a leading role with like-minded partners, echoing PM Carney&rsquo;s Davos speech on middle-power cooperation in an era of great-power retreat.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/world/canada-joint-statement-strait-hormuz-9.7135150" target="_blank">CBC News</a> &bull; <a href="https://www.ctvnews.ca/politics/article/canada-leaving-the-door-open-to-assist-in-middle-east-but-no-plans-to-engage-offensively-mcguinty/" target="_blank">CTV News</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Economy &amp; Business</span>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P TSX</div>
+      <div class="mc-sub">Toronto &bull; Mar 20 Close</div>
+      <div class="mc-val">31,317</div>
+      <div class="mc-chg down">&#9660; &minus;537 (&minus;1.69%)</div>
+      <div class="mc-note">4th weekly loss; gold miners led decline</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">USD/bbl &bull; Mar 21</div>
+      <div class="mc-val">$98.32</div>
+      <div class="mc-chg up">&#9650; +2.18 (+2.27%)</div>
+      <div class="mc-note">Hormuz crisis keeps oil elevated</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">USD/oz &bull; Mar 20 Close</div>
+      <div class="mc-val">$4,574</div>
+      <div class="mc-chg down">&#9660; &minus;31 (&minus;0.67%)</div>
+      <div class="mc-note">Off peak of $5,434; war-rally fades</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">Exchange Rate</div>
+      <div class="mc-val">0.7295</div>
+      <div class="mc-chg flat">&#9654; Flat</div>
+      <div class="mc-note">1 CAD = USD 0.7295 (1 USD = 1.3708 CAD)</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">Exchange Rate</div>
+      <div class="mc-val">&#8377;62.41</div>
+      <div class="mc-chg flat">&#9654; ~Flat</div>
+      <div class="mc-note">1 CAD ≈ 62.41 Indian Rupees</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">Exchange Rate</div>
+      <div class="mc-val">&euro;0.6713</div>
+      <div class="mc-chg flat">&#9654; ~Flat</div>
+      <div class="mc-note">1 CAD ≈ 0.6713 Euro</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">Exchange Rate</div>
+      <div class="mc-val">&pound;0.5763</div>
+      <div class="mc-chg flat">&#9654; ~Flat</div>
+      <div class="mc-note">1 CAD ≈ 0.5763 British Pounds</div>
+    </div>
+  </div>
+  <div class="mkt-note">Markets remain under pressure as Middle East tensions and rising oil prices cloud the growth outlook. The Bank of Canada held its benchmark rate at 2.25% on March 18, flagging upside inflation risks from the Hormuz crisis.</div>
+  <div class="mkt-src">Sources: <a href="https://finance.yahoo.com/quote/%5EGSPTSE/" target="_blank">Yahoo Finance &mdash; TSX</a> &bull; <a href="https://www.investing.com/commodities/crude-oil" target="_blank">Investing.com &mdash; WTI</a> &bull; <a href="https://www.investing.com/commodities/gold" target="_blank">Investing.com &mdash; Gold</a> &bull; <a href="https://tradingeconomics.com/canada/currency" target="_blank">Trading Economics &mdash; CAD/USD</a> &bull; Currency data via xe.com</div>
+
+  <div class="col-3">
+    <article class="s">
+      <h3>TSX Posts Fourth Straight Weekly Loss Amid Gold Rout and Energy Surge</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>The S&amp;P/TSX Composite Index fell 1.69% on Friday to close at 31,317, marking a fourth consecutive weekly decline as investors weighed a sharp drop in gold prices against a surging energy sector. Materials stocks led losses, with Agnico Eagle Mines, Barrick Gold and Wheaton Precious Metals falling between 4% and 6%. Gold has retreated nearly 14% from its peak of $5,434 an ounce reached earlier in the crisis, as some safe-haven demand unwound.</p>
+      <p>Energy producers provided a partial offset. Cenovus Energy surged nearly 4% and Canadian Natural Resources gained over 1% as WTI crude held above US$98. The index has now fallen more than 7% since the start of March as geopolitical volatility continues to weigh on sentiment. Despite the TSX&rsquo;s recent struggles, the energy sub-index has gained more than 38% year-to-date, one of the strongest sector performances globally.</p>
+      <p>Financial heavyweights remained under pressure; Royal Bank of Canada and Bank of Nova Scotia fell over 1% each. Analysts caution that stagflation risk&mdash;rising oil inflation combined with slowing growth&mdash;is now a live concern for the Canadian economy.</p>
+      <div class="src">Source: <a href="https://tradingeconomics.com/canada/stock-market" target="_blank">Trading Economics &mdash; TSX</a></div>
+    </article>
+    <article class="s">
+      <h3>Bank of Canada Holds at 2.25%, Warns of Inflation Return If Conflict Persists</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>The Bank of Canada left its benchmark interest rate unchanged at 2.25% at its March 18th decision, a widely anticipated move as policymakers sought to balance slowing growth signals against mounting inflationary pressure from the oil shock. The central bank flagged that it &ldquo;stands ready to raise rates if inflation pressures return,&rdquo; keeping financial stocks under pressure as borrowing costs for mortgage holders remain elevated.</p>
+      <p>Canada&rsquo;s headline inflation fell to 1.8% in February&mdash;the softest reading in nearly a year&mdash;supported by moderation in food and shelter costs. Core inflation measures, including the trimmed-mean rate, touched four-year lows of 2.3%. However, the Bank acknowledged this data predates the full energy shock now flowing through the economy, and markets are pricing in at least one rate hike by year-end if Brent remains above $110.</p>
+      <p>The Canadian dollar has weakened modestly to around 1.3708 per U.S. dollar, but has held up better than most G10 peers thanks to Canada&rsquo;s status as an oil exporter benefitting from the supply disruption.</p>
+      <div class="src">Source: <a href="https://www.bankofcanada.ca" target="_blank">Bank of Canada</a> &bull; <a href="https://tradingeconomics.com/canada/currency" target="_blank">Trading Economics &mdash; CAD</a></div>
+    </article>
+    <article class="s">
+      <h3>Nervous Allies Call Ottawa as Canada Eyes Role as Energy Backstop</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>Energy Minister Jonathan Wilkinson says Canada&rsquo;s phone has been ringing with calls from allies anxious about supply security, as the closure of the Strait of Hormuz tightens global energy markets. The minister positioned Canada as a potential backstop for partners like Japan and European nations whose energy import chains depend on Gulf passage, pointing to increased Trans Mountain pipeline throughput and expanded LNG export ambitions as tools Canada could deploy.</p>
+      <p>The geopolitical disruption has raised the strategic profile of Canadian energy assets, with Bay Street analysts noting that producers like Cenovus, MEG Energy and Imperial Oil stand to benefit materially from sustained high oil prices. However, economists caution that Canadian consumers are bearing the brunt of soaring pump prices, with national averages nearing $1.70 per litre.</p>
+      <p>Canada's federal government has not announced emergency fuel subsidies, though several provinces are monitoring the situation. Alberta Premier Danielle Smith called for accelerated approvals for Alberta export infrastructure to capitalise on the moment.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/world/canada-joint-statement-strait-hormuz-9.7135150" target="_blank">CBC News</a> &bull; <a href="https://www.theglobeandmail.com/business/commentary/article-iran-war-oil-middle-east-energy/" target="_blank">The Globe and Mail</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Senators Rout Maple Leafs 5&ndash;2 as Auston Matthews Sidelined by MCL Injury</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>The Ottawa Senators handed their provincial rivals a resounding 5&ndash;2 defeat at Canadian Tire Centre on Saturday night, as a depleted Toronto Maple Leafs side struggled without captain Auston Matthews, who underwent knee surgery on Thursday for an MCL injury. Tim Stutzle opened the scoring with a power-play goal, and Ottawa went on to dominate possession, outshooting Toronto 43&ndash;14 across the three periods in a dominant team performance.</p>
+      <p>Claude Giroux ended a 13-game goalless drought, and Warren Foegele, Michael Amadio and Ridly Greig also found the net for the Senators, who have won four of their last five games. John Tavares and Easton Cowan replied for the Leafs. Starting goaltender Anthony Stolarz took a puck to the throat in warm-ups and was taken to hospital for precautionary imaging, leaving Joseph Woll to face a heavy workload for the second straight night after a 4&ndash;3 overtime loss to Carolina on Friday.</p>
+      <p>The Leafs have now lost three straight games and currently sit in eighth place in the Atlantic Division with a 29&ndash;29&ndash;13 record. The club is under increasing playoff pressure with the regular season entering its final stretch.</p>
+      <div class="src">Source: <a href="https://www.nhl.com/news/toronto-maple-leafs-ottawa-senators-game-recap-march-21-2026" target="_blank">NHL.com</a> &bull; <a href="https://www.cbssports.com/nhl/gametracker/boxscore/NHL_20260321_TOR@OTT/" target="_blank">CBS Sports</a></div>
+    </article>
+    <article class="s">
+      <h3>Jokic&rsquo;s Go-Ahead Jumper Lifts Nuggets Past Raptors 121&ndash;115</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>Jamal Murray scored 31 points and Nikola Jokic sank a go-ahead jumper with 45 seconds remaining as the Denver Nuggets held on for a 121&ndash;115 victory over the Toronto Raptors on Friday night at Ball Arena. The Raptors mounted a spirited third-quarter rally, at one point leading 77&ndash;69 before Denver responded with a decisive 16&ndash;4 run to retake control in the fourth quarter.</p>
+      <p>Brandon Ingram led Toronto with 29 points while Scottie Barnes contributed 21 points, 8 rebounds and 5 assists. Jakob Poeltl added a strong double-double off the bench. The loss snapped the Raptors&rsquo; three-game winning streak and leaves them fifth in the Eastern Conference at 39&ndash;30. Jokic posted 22 points and nine assists for Denver, continuing his case for a fourth MVP award this season.</p>
+      <p>Toronto has a gruelling five-game road trip on its hands; the next stop is Phoenix on Sunday evening. Head coach Darko Rajakovic expressed confidence in his team&rsquo;s ability to bounce back, noting the Raptors &ldquo;found what they needed to do&rdquo; in the wins preceding this road swing.</p>
+      <div class="src">Source: <a href="https://www.espn.in/nba/game/_/gameId/401810876/raptors-nuggets" target="_blank">ESPN</a> &bull; <a href="https://www.nba.com/team/1610612761/raptors" target="_blank">NBA.com</a></div>
+    </article>
+    <article class="s">
+      <h3>Scherzer Shines as Blue Jays Finalise Rotation Ahead of March 26 Home Opener</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>Max Scherzer delivered another impressive spring training outing on Friday, allowing just two hits over five scoreless innings against the Minnesota Twins in his final Grapefruit League appearance. The 41-year-old right-hander has posted a 0.00 ERA in 13.2 innings since re-signing with Toronto in late February, and has locked down a rotation spot to begin the season. Manager John Schneider confirmed the Opening Day rotation order as: Kevin Gausman, Dylan Cease, Eric Lauer, Cody Ponce and Scherzer&mdash;a deeper-than-expected group given the injuries that have struck the staff.</p>
+      <p>The Blue Jays face significant early-season injury challenges: José Berríos (elbow stress fracture), Shane Bieber (forearm) and rookie sensation Trey Yesavage (shoulder) are all starting the year on the injured list. Vladimir Guerrero Jr., fresh from a strong World Baseball Classic with the Dominican Republic, has been healthy and productive this spring, going 5-for-13 in Grapefruit League action without a strikeout. The club opens at Rogers Centre against the New York Yankees on Thursday, March 26.</p>
+      <div class="src">Source: <a href="https://bluejaysnation.com/news/toronto-blue-jays-manager-john-schneider-confirms-rotation-order-start-2026-season" target="_blank">Blue Jays Nation</a> &bull; <a href="https://www.mlb.com/news/blue-jays-spring-breakout-roster-2026" target="_blank">MLB.com</a></div>
+    </article>
+  </div>
+
+  <!-- Canada bottom row: This Week in History + Upcoming Events -->
+  <div class="bottom-row">
+    <div>
+      <span class="cat">This Week in History</span>
+      <article class="s" style="border-right:none;padding-right:0;">
+        <h3>March 22, 1915: Canada&rsquo;s First U-Boat Kill in the North Atlantic</h3>
+        <div class="by">The Chronicler &mdash; History Desk</div>
+        <p>On March 22, 1915, HMCS Stadacona became one of the earliest Canadian naval vessels to engage a German U-boat in the opening years of the First World War. While Canada&rsquo;s naval role in the first great conflict was limited compared to the Second World War, the encounter underscored the early commitment of the Royal Canadian Navy to Atlantic convoy protection&mdash;a mission that would define Canadian naval identity for decades. Canadian sailors in the North Atlantic faced extraordinary dangers from submarine warfare, and their wartime contributions laid the institutional foundation for the modern Royal Canadian Navy. The Patrol Service, formed in those years, would go on to escort hundreds of convoys carrying vital supplies to Britain and the Allies, a chapter of sacrifice that remains central to Canada&rsquo;s military heritage.</p>
+        <div class="src">Source: <a href="https://www.canada.ca/en/department-national-defence/services/military-history.html" target="_blank">Government of Canada &mdash; Military History</a></div>
+      </article>
+    </div>
+    <div>
+      <span class="cat">Upcoming Events &mdash; Canada</span>
+      <div class="ev-item">
+        <div class="ev-date">MARCH 26 &bull; 7:07 PM ET</div>
+        <div class="ev-title">Toronto Blue Jays Home Opener vs. New York Yankees</div>
+        <div class="ev-venue">Rogers Centre, Toronto, ON</div>
+        <div class="ev-tag">Sports &bull; MLB</div>
+        <div class="ev-src">Tickets: <a href="https://www.mlb.com/blue-jays" target="_blank">mlb.com/blue-jays</a></div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-date">APRIL &bull; NATIONAL TOUR</div>
+        <div class="ev-title">Diana Krall &mdash; Spring Tour 2026</div>
+        <div class="ev-venue">Multiple venues across Ontario and Alberta</div>
+        <div class="ev-tag">Music</div>
+        <div class="ev-src">Info: <a href="https://www.theglobeandmail.com/culture/article/concerts-canada-2026-lookahead/" target="_blank">The Globe and Mail</a></div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-date">APRIL 12 &bull; NATIONAL</div>
+        <div class="ev-title">National Canadian Film Day &mdash; Free Screenings Across Canada</div>
+        <div class="ev-venue">Various venues nationwide</div>
+        <div class="ev-tag">Culture &bull; Free</div>
+        <div class="ev-src">Info: <a href="https://canadianfilmday.ca" target="_blank">canadianfilmday.ca</a></div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-date">APRIL 13 &bull; FEDERAL</div>
+        <div class="ev-title">Federal Byelections &mdash; University&mdash;Rosedale, Scarborough SW, Terrebonne</div>
+        <div class="ev-venue">Polling stations across three ridings</div>
+        <div class="ev-tag">Politics &bull; Federal</div>
+        <div class="ev-src">Info: <a href="https://www.elections.ca" target="_blank">elections.ca</a></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /Canada -->
+<div class="divider"></div>
+
+<!-- PART 2 — GTA -->
+<div class="page" id="gta">
+  <div class="section-banner"><div class="flag">Local Desk</div><h2>&#127809; Greater Toronto Area</h2></div>
+
+  <span class="cat">Current Events &mdash; Weather &amp; Air Quality &middot; Sunday, March 22, 2026</span>
+  <div class="w-grid">
+    <div class="w-card">
+      <div class="w-top"><span class="city">Toronto</span><span class="w-icon">&#127783;&#65039;</span><span class="temp">5&deg;C</span></div>
+      <div class="w-rng">H: 7&deg; &middot; L: &minus;2&deg;</div>
+      <div class="w-cond">Showers; ESE winds 22 km/h</div>
+      <div class="aqi-badge aqi-good">AQI 26 <span class="al">&mdash; Good</span></div>
+      <div class="w-drow"><span>&#128168; ESE 22 km/h</span><span>&#128167; 82%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9729;&#65039;</span>Mon<br>3°/&minus;6°</div><div class="dm"><span>&#10052;&#65039;</span>Tue<br>3°/&minus;2°</div><div class="dm"><span>&#9728;&#65039;</span>Wed<br>4°/&minus;2°</div></div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Brampton</span><span class="w-icon">&#127783;&#65039;</span><span class="temp">4&deg;C</span></div>
+      <div class="w-rng">H: 6&deg; &middot; L: &minus;3&deg;</div>
+      <div class="w-cond">Showers; similar to Toronto</div>
+      <div class="aqi-badge aqi-good">AQI 30 <span class="al">&mdash; Good</span></div>
+      <div class="w-drow"><span>&#128168; ESE 18 km/h</span><span>&#128167; 80%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9729;&#65039;</span>Mon<br>2°/&minus;7°</div><div class="dm"><span>&#10052;&#65039;</span>Tue<br>3°/&minus;2°</div><div class="dm"><span>&#9728;&#65039;</span>Wed<br>4°/&minus;3°</div></div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Markham</span><span class="w-icon">&#127783;&#65039;</span><span class="temp">5&deg;C</span></div>
+      <div class="w-rng">H: 7&deg; &middot; L: &minus;2&deg;</div>
+      <div class="w-cond">Rain showers; SE winds</div>
+      <div class="aqi-badge aqi-good">AQI 28 <span class="al">&mdash; Good</span></div>
+      <div class="w-drow"><span>&#128168; SE 16 km/h</span><span>&#128167; 78%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9729;&#65039;</span>Mon<br>3°/&minus;6°</div><div class="dm"><span>&#10052;&#65039;</span>Tue<br>3°/&minus;2°</div><div class="dm"><span>&#9728;&#65039;</span>Wed<br>5°/&minus;1°</div></div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Oakville</span><span class="w-icon">&#127783;&#65039;</span><span class="temp">5&deg;C</span></div>
+      <div class="w-rng">H: 7&deg; &middot; L: &minus;2&deg;</div>
+      <div class="w-cond">Showers; lakefront winds</div>
+      <div class="aqi-badge aqi-good">AQI 27 <span class="al">&mdash; Good</span></div>
+      <div class="w-drow"><span>&#128168; ESE 20 km/h</span><span>&#128167; 81%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9729;&#65039;</span>Mon<br>3°/&minus;6°</div><div class="dm"><span>&#10052;&#65039;</span>Tue<br>3°/&minus;2°</div><div class="dm"><span>&#9728;&#65039;</span>Wed<br>4°/&minus;2°</div></div>
+    </div>
+    <div class="w-card">
+      <div class="w-top"><span class="city">Whitby</span><span class="w-icon">&#127783;&#65039;</span><span class="temp">4&deg;C</span></div>
+      <div class="w-rng">H: 6&deg; &middot; L: &minus;3&deg;</div>
+      <div class="w-cond">Showers; Durham Region</div>
+      <div class="aqi-badge aqi-good">AQI 25 <span class="al">&mdash; Good</span></div>
+      <div class="w-drow"><span>&#128168; E 15 km/h</span><span>&#128167; 79%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9729;&#65039;</span>Mon<br>2°/&minus;7°</div><div class="dm"><span>&#10052;&#65039;</span>Tue<br>3°/&minus;3°</div><div class="dm"><span>&#9728;&#65039;</span>Wed<br>4°/&minus;2°</div></div>
+    </div>
+  </div>
+  <div class="w-note">Weather: <a href="https://weather.gc.ca" style="color:var(--rust)">Environment Canada</a> &bull; AQI: <a href="https://aqicn.org/city/toronto/" style="color:var(--rust)">aqicn.org</a> &bull; All temperatures in &deg;C &bull; AQI on US scale</div>
+
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>GTA Braces for Rising Fuel Costs; Transit Ridership Climbs as Drivers Think Twice</h3>
+      <div class="by">The Chronicler &mdash; Local Desk</div>
+      <p>As gasoline prices in the Greater Toronto Area climbed above $1.75 per litre at many stations this weekend, TTC and GO Transit officials reported a measurable uptick in ridership in recent weeks. Metrolinx data shows GO Train boardings up approximately 8% month-over-month on key corridors including the Lakeshore West, Kitchener and Barrie lines, as commuters seek relief from surging pump prices driven by the Hormuz crisis. City of Toronto officials said they are monitoring demand and have no immediate plans to add service, but are tracking the numbers.</p>
+      <p>Brampton Mayor Patrick Brown called on the provincial and federal governments to fast-track the Hurontario LRT completion, noting that Brampton residents are &ldquo;disproportionately impacted&rdquo; by high fuel prices given the city&rsquo;s car-dependent layout. The LRT project, which has faced repeated delays, is currently in its final construction phase with opening now targeted for mid-2026.</p>
+      <div class="src">Source: <a href="https://www.metrolinx.com/en/news" target="_blank">Metrolinx News</a> &bull; <a href="https://www.cp24.com" target="_blank">CP24</a></div>
+    </article>
+    <article class="s">
+      <h3>Scarborough Southwest Byelection Heats Up as NDP Defector Enters Liberal Race</h3>
+      <div class="by">The Chronicler &mdash; Local Desk</div>
+      <p>The April 13 federal byelection in Scarborough Southwest has taken on added intensity following Ontario NDP deputy leader Doly Begum&rsquo;s decision to leave her party and run as the Liberal candidate in the riding vacated by former minister Bill Blair. Begum&rsquo;s defection has drawn angry responses from NDP rank-and-file members and interim federal NDP leader Don Davies, who called it a breach of the &ldquo;sacred trust&rdquo; of the ballot box.</p>
+      <p>The Liberals, who won Scarborough Southwest comfortably in the 2025 federal election, are widely favoured to hold the seat. A win, combined with University&mdash;Rosedale and possibly Terrebonne, would give Prime Minister Mark Carney a paper majority in the House of Commons. Local community groups have hosted candidate meet-and-greets across the riding through March.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-byelection-terrebonne-scarborough-southwest-university-rosedale-ndp-conservatives-9.7119497" target="_blank">CBC News</a></div>
+    </article>
+    <article class="s">
+      <h3>Chaitra Navratri Celebrations Draw Large Crowds Across GTA</h3>
+      <div class="by">The Chronicler &mdash; Local Desk</div>
+      <p>Chaitra Navratri, the nine-night Hindu festival marking the onset of the lunar new year, began this week and drew large and enthusiastic crowds to temples and community halls across the Greater Toronto Area. Events were held at major mandirs in Mississauga, Brampton and Markham, with Garba and Dandiya performances, cultural programmes and prasad distribution attracting thousands of attendees from the GTA&rsquo;s substantial South Asian diaspora.</p>
+      <p>The Eid ul-Fitr celebration the previous day, along with Nowruz last week, had already established the final stretch of March as a period of significant cultural celebration across the region. Brampton, with its large Punjabi, Gujarati and Muslim communities, held Eid gatherings at multiple community centres, with local elected officials joining residents for prayers and meals.</p>
+      <div class="src">Source: <a href="https://www.thestar.com/business/tech/2026/03/18/toronto-ai-talent-gap-vector-institute.html" target="_blank">Toronto Star</a> &bull; <a href="https://www.cbc.ca/news/canada/toronto" target="_blank">CBC News Toronto</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Ontario Housing Construction Slows Sharply; Province Eyes HST Cut on New Homes</h3>
+      <div class="by">The Chronicler &mdash; Local Desk</div>
+      <p>New housing construction across Ontario has slowed dramatically, with research by the Canadian Centre for Economic Analysis warning that a sustained reduction of more than 33% in housing activity over the next five years would displace nearly $16 billion in economic activity annually and cost the province $7.6 billion in lost social value each year. The alarm comes as Premier Doug Ford&rsquo;s government concedes it will not meet its target of 1.5 million new homes by 2031, with the finance minister acknowledging the goal is no longer a &ldquo;hard target.&rdquo;</p>
+      <p>In a significant potential policy shift, Finance Minister Peter Bethlenfalvy is expected to announce on March 26 &mdash; Ontario&rsquo;s Spring Budget day &mdash; that the provincial portion of the harmonised sales tax will be removed for all buyers of newly constructed homes. The move, if confirmed, would mark a significant demand stimulus at a time when the economics of new home construction have stalled. Housing Minister Rob Flack has positioned the measure as part of a broader suite of reforms to restart the housing engine across GTA municipalities including Brampton, Markham and Oakville.</p>
+      <div class="src">Source: <a href="https://canada.constructconnect.com/dcn/news/economic/2026/03/residential-report-stalled-builds-threaten-130000-jobs-in-ontarios-housing-sector" target="_blank">ConstructConnect &mdash; DCN</a> &bull; <a href="https://globalnews.ca/news/11527233/ontario-housing-spring-2026-reset/" target="_blank">Global News</a></div>
+    </article>
+    <article class="s">
+      <h3>York Region&rsquo;s $4.6B Water and Wastewater Plan Advancing as Population Growth Accelerates</h3>
+      <div class="by">The Chronicler &mdash; Local Desk</div>
+      <p>York Region&rsquo;s 10-year water and wastewater capital plan, totalling $4.6 billion, is progressing across 67 active construction projects with no major delays anticipated, according to the Region&rsquo;s latest Public Works update. More than two-thirds of the investment is tied directly to growth-related projects required to service an expected population of over 2 million by 2051. Key projects underway include the York Region Sewage Works Project spanning East Gwillimbury, Newmarket, Aurora, Richmond Hill, Markham and Pickering, and a new Nobleton Water Treatment Plant with construction anticipated to begin in Q2 2026.</p>
+      <p>The scale of investment reflects the infrastructure demands placed on York Region&rsquo;s upper-tier municipalities by Ontario&rsquo;s housing growth targets. York Region&rsquo;s Commissioner of Finance noted that recent provincial legislation reducing what municipalities can collect through development charges has cost the Region an estimated $28 million per year, forcing a greater reliance on annual water and wastewater rate increases&mdash;which are set to rise 3.3% in both 2025 and 2026&mdash;to fund ongoing renewal costs.</p>
+      <div class="src">Source: <a href="https://www.york.ca/newsroom/media-release/74-billion-york-region-public-works-infrastructure-supports-growth-and-daily" target="_blank">York Region Newsroom</a> &bull; <a href="https://www.watercanada.net/how-municipalities-can-grow-sustainably-without-breaking-the-bank/" target="_blank">Water Canada</a></div>
+    </article>
+    <article class="s">
+      <h3>Eglinton Crosstown LRT Prepares for Latest Testing Milestone</h3>
+      <div class="by">The Chronicler &mdash; Local Desk</div>
+      <p>Metrolinx and Crosslinx Transit Solutions announced that the Eglinton Crosstown LRT is preparing for an extended period of integrated testing across its full route, with passengers cautioned to expect disruptions to some surface bus services along Eglinton Avenue. The project, years over schedule and billions over budget, has been a persistent source of frustration for midtown Toronto residents and Metrolinx alike. The transit agency said it remains committed to a public opening date in 2026 but declined to specify a month pending completion of current testing phases.</p>
+      <p>In Brampton, the city confirmed that the Hurontario LRT remains on track for mid-2026 completion, providing a long-awaited north&ndash;south rapid transit spine linking Mississauga&rsquo;s Port Credit station to Brampton&rsquo;s Gateway Terminal.</p>
+      <div class="src">Source: <a href="https://www.metrolinx.com/en/news/eglinton-crosstown-lrt-integrated-testing" target="_blank">Metrolinx News &mdash; Eglinton Crosstown</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Economy &amp; Business</span>
+  <div class="mkt-note">The GTA economy shares the national market picture. See Canada section for full market card data.</div>
+
+  <div class="col-3">
+    <article class="s">
+      <h3>GTA Commercial Real Estate Feels Squeeze as Borrowing Costs and Energy Uncertainty Persist</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>Commercial real estate in the Greater Toronto Area is showing signs of stress as the combined weight of elevated borrowing costs and energy-driven uncertainty dampens business investment. Office vacancy rates in downtown Toronto remain stubbornly high at around 17%, with several major landlords reporting difficulty renewing leases at pre-pandemic rates. Colliers Canada reported this week that sublease availability has reached a new high in the Toronto core as tenants seek to monetise excess space in hybrid work environments.</p>
+      <p>The industrial and logistics sector continues to be a relative bright spot, driven by near-shoring demand. Brampton and Mississauga remain among the tightest industrial markets in North America, with availability rates well below 3%.</p>
+      <div class="src">Source: <a href="https://www.theglobeandmail.com/business/commentary/article-iran-war-oil-middle-east-energy/" target="_blank">The Globe and Mail</a> &bull; <a href="https://globalnews.ca/news/11527233/ontario-housing-spring-2026-reset/" target="_blank">Global News</a></div>
+    </article>
+    <article class="s">
+      <h3>Auto Sector Monitors Tariff Risks as Oshawa Assembly Line Runs at Full Capacity</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>General Motors&rsquo; Oshawa Assembly Plant is running at full capacity as orders for light trucks and SUVs remain robust, but executives at several GTA-area auto suppliers are cautioning about the risks of renewed U.S. tariff pressure on Canadian-made vehicles. President Trump earlier this month signed an executive order softening some of the 25% auto tariffs that had been a central issue in Canada&rsquo;s 2025 federal election, but the modification was partial and uncertainty persists over the full CUSMA renegotiation timeline.</p>
+      <p>The automotive sector employs more than 120,000 people in Ontario, with a significant concentration of parts suppliers in the Halton, Peel and Durham regions. Sector associations are lobbying Ottawa for a clear bilateral framework ahead of the summer CUSMA review.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-byelection-terrebonne-scarborough-southwest-university-rosedale-ndp-conservatives-9.7119497" target="_blank">CBC News &mdash; CUSMA &amp; Auto</a> &bull; <a href="https://globalnews.ca/news/11738135/canada-allies-strait-of-hormuz/" target="_blank">Global News</a></div>
+    </article>
+    <article class="s">
+      <h3>GTA Tech Sector Eyes AI Talent Gap as U of T, Ryerson Boost Enrolment</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>Toronto&rsquo;s burgeoning artificial intelligence and technology sector is grappling with a growing talent gap, with major employers including Google DeepMind Canada, Cohere and the Vector Institute reporting difficulty filling specialized machine learning and AI engineering roles. The University of Toronto and Toronto Metropolitan University both confirmed this week that applications to AI-related graduate programmes have surged 30% year-over-year, a trend attributed in part to heightened public awareness of the sector following the global AI investment boom.</p>
+      <p>Ontario is positioning itself to attract international AI talent displaced by U.S. immigration uncertainty, with the province&rsquo;s Tech Talent Stream offering expedited work permit pathways. The federal government has also signalled that Express Entry draws for technology occupations will continue at elevated volumes through 2026.</p>
+      <div class="src">Source: <a href="https://www.thestar.com/business/tech/2026/03/18/toronto-ai-talent-gap-vector-institute.html" target="_blank">Toronto Star</a> &bull; <a href="https://globalnews.ca/news/11527233/ontario-housing-spring-2026-reset/" target="_blank">Global News &mdash; Ontario Economy</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Leafs&rsquo; Matthews Out Indefinitely; Club Faces Playoff Crunch Without Its Captain</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>The Toronto Maple Leafs are facing their grimmest stretch of the regular season after confirming that captain Auston Matthews has undergone surgery on a right knee MCL injury and is out indefinitely. The timing is brutal: the Leafs have lost three straight games, falling to eighth in the Atlantic Division, and the playoff race in the East is fiercely contested. Head coach Craig Berube acknowledged the challenge but said the team must &ldquo;find a way to compete and earn what we earn.&rdquo;</p>
+      <p>John Tavares has stepped up as an on-ice leader in Matthews&rsquo; absence, notching a goal in Saturday&rsquo;s 5&ndash;2 loss to Ottawa. Easton Cowan, the 19-year-old rookie, scored and assisted in the same game and continues to impress. However, the Leafs&rsquo; defence has been porous: they have allowed 241 goals&mdash;the fourth-worst mark in the NHL&mdash;and goaltender Anthony Stolarz suffered a puck-to-the-throat injury in warmups Saturday, leaving Joseph Woll exposed for a second straight night.</p>
+      <div class="src">Source: <a href="https://www.nhl.com/news/toronto-maple-leafs-ottawa-senators-game-recap-march-21-2026" target="_blank">NHL.com</a></div>
+    </article>
+    <article class="s">
+      <h3>Raptors Return Home After Western Road Trip; Phoenix Next</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>The Toronto Raptors resume their five-game Western Conference road trip Sunday evening against the Phoenix Suns. After Friday&rsquo;s 121&ndash;115 loss in Denver, coach Darko Rajakovic called on his squad to show their mental resilience on the road. Brandon Ingram leads the team at 21.9 points per game since joining Toronto, and Scottie Barnes has added consistency and versatility at both ends. The Raptors&rsquo; 39&ndash;30 record keeps them fifth in the East with a comfortable cushion over the play-in line.</p>
+      <p>The Raptors&rsquo; season-long turnaround has been one of the more surprising stories in the NBA this year. After a dismal 2024&ndash;25, the combination of Ingram&rsquo;s arrival via the New Orleans Pelicans trade and Jakob Poeltl&rsquo;s return from injury has given the club a legitimate playoff identity. Scotiabank Arena will next host the Raptors on March 27 vs. the New Orleans Pelicans.</p>
+      <div class="src">Source: <a href="https://www.nba.com/team/1610612761/raptors" target="_blank">NBA.com &mdash; Raptors</a></div>
+    </article>
+    <article class="s">
+      <h3>TFC Host Columbus Crew in First Home MLS Match of the Season</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>Toronto FC played host to the Columbus Crew at BMO Field on Saturday in their first home Major League Soccer match of the 2026 season. After a tough opening away stretch, head coach Robin Fraser is eager to harness the home crowd advantage at BMO Field. Toronto&rsquo;s new designated player signing, Spanish midfielder Pablo Sarabia, is expected to make his home debut, giving fans their first extended look at the club&rsquo;s marquee offseason addition.</p>
+      <p>The 2026 MLS season follows the format shift that sees the league expand further into international competitions. Toronto&rsquo;s schedule includes Copa Sudamericana qualifying later this spring, meaning the club will need squad depth well beyond its starting eleven. Coach Fraser has praised the pre-season preparation, noting improved defensive organisation compared to the club&rsquo;s 2025 struggles.</p>
+      <div class="src">Source: <a href="https://www.torontofc.ca" target="_blank">Toronto FC</a> &bull; <a href="https://www.mlssoccer.com" target="_blank">MLS Soccer</a></div>
+    </article>
+  </div>
+
+  <!-- GTA bottom row: This Week in History + Upcoming Events -->
+  <div class="bottom-row">
+    <div>
+      <span class="cat">This Week in History</span>
+      <article class="s" style="border-right:none;padding-right:0;">
+        <h3>March 22, 1954: The Toronto Subway Opens for the First Time</h3>
+        <div class="by">The Chronicler &mdash; History Desk</div>
+        <p>On March 30, 1954, Toronto became the first Canadian city to operate a subway system when the Yonge Street subway line opened to the public. The line ran from Eglinton to Union Station, stretching approximately 7.4 kilometres, and represented a massive civic investment in modern transit infrastructure for a rapidly growing postwar metropolis. Thousands lined up to ride the gleaming new trains on opening day, and the subway quickly became a symbol of Toronto&rsquo;s ambition as a world city. The opening of the Yonge line launched what would become a century-long story of transit development in the region&mdash;a story still being written today through projects like the Eglinton Crosstown and Ontario Line, which aim to connect communities across the broadened GTA in much the same spirit as those first trains heading south to Union.</p>
+        <div class="src">Source: <a href="https://www.toronto.ca/city-government/history-facts" target="_blank">City of Toronto &mdash; History &amp; Facts</a></div>
+      </article>
+    </div>
+    <div>
+      <span class="cat">Upcoming Events &mdash; GTA</span>
+      <div class="ev-item">
+        <div class="ev-date">MARCH 24 &bull; 7:30 PM ET</div>
+        <div class="ev-title">Toronto Raptors vs. New Orleans Pelicans</div>
+        <div class="ev-venue">Scotiabank Arena, Toronto</div>
+        <div class="ev-tag">Sports &bull; NBA</div>
+        <div class="ev-src">Tickets: <a href="https://www.nba.com/raptors" target="_blank">nba.com/raptors</a></div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-date">MARCH 27 &bull; 7:30 PM ET</div>
+        <div class="ev-title">Maple Leafs vs. Minnesota Wild</div>
+        <div class="ev-venue">Scotiabank Arena, Toronto</div>
+        <div class="ev-tag">Sports &bull; NHL</div>
+        <div class="ev-src">Tickets: <a href="https://www.nhl.com/mapleleafs" target="_blank">nhl.com/mapleleafs</a></div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-date">MARCH 28&ndash;29 &bull; ALL DAY</div>
+        <div class="ev-title">Doors Open Toronto &mdash; Spring Edition</div>
+        <div class="ev-venue">Various heritage sites, Toronto</div>
+        <div class="ev-tag">Culture &bull; Free</div>
+        <div class="ev-src">Info: <a href="https://www.doorsopenontario.on.ca" target="_blank">doorsopenontario.on.ca</a></div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-date">APRIL 5 &bull; 8:00 PM</div>
+        <div class="ev-title">Hasan Minhaj Live &mdash; Comedy Tour</div>
+        <div class="ev-venue">Meridian Hall, Toronto</div>
+        <div class="ev-tag">Comedy</div>
+        <div class="ev-src">Tickets: <a href="https://www.ticketmaster.ca" target="_blank">ticketmaster.ca</a></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /GTA -->
+<div class="divider"></div>
+
+<!-- PART 3 — INDIA -->
+<div class="page" id="india">
+  <div class="section-banner"><div class="flag">South Asia Desk</div><h2>&#127470;&#127475; India</h2></div>
+
+  <span class="cat">Current Events &mdash; Weather &amp; Air Quality &middot; Sunday, March 22, 2026</span>
+  <div class="w-grid">
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">New Delhi</span><span class="w-icon">&#9729;&#65039;</span><span class="temp">26&deg;C</span></div>
+      <div class="w-rng">H: 30&deg; &middot; L: 16&deg;</div>
+      <div class="w-cond">Generally cloudy; improving after week of rain</div>
+      <div class="aqi-badge aqi-moderate">AQI 82 <span class="al">&mdash; Moderate</span></div>
+      <div class="w-drow"><span>&#128168; W 11 km/h</span><span>&#128167; 78%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9729;&#65039;</span>Mon<br>31°/17°</div><div class="dm"><span>&#9729;&#65039;</span>Tue<br>31°/17°</div><div class="dm"><span>&#9728;&#65039;</span>Wed<br>32°/17°</div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Hyderabad</span><span class="w-icon">&#9728;&#65039;</span><span class="temp">34&deg;C</span></div>
+      <div class="w-rng">H: 37&deg; &middot; L: 22&deg;</div>
+      <div class="w-cond">Partly cloudy; afternoons very hot</div>
+      <div class="aqi-badge aqi-moderate">AQI 65 <span class="al">&mdash; Moderate</span></div>
+      <div class="w-drow"><span>&#128168; NE 5 km/h</span><span>&#128167; 42%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9728;&#65039;</span>Mon<br>38°/23°</div><div class="dm"><span>&#9728;&#65039;</span>Tue<br>38°/24°</div><div class="dm"><span>&#9729;&#65039;</span>Wed<br>36°/23°</div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Mumbai</span><span class="w-icon">&#9728;&#65039;</span><span class="temp">33&deg;C</span></div>
+      <div class="w-rng">H: 35&deg; &middot; L: 24&deg;</div>
+      <div class="w-cond">Hot and humid; clear skies</div>
+      <div class="aqi-badge aqi-moderate">AQI 72 <span class="al">&mdash; Moderate</span></div>
+      <div class="w-drow"><span>&#128168; SW 12 km/h</span><span>&#128167; 62%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9728;&#65039;</span>Mon<br>35°/25°</div><div class="dm"><span>&#9728;&#65039;</span>Tue<br>35°/25°</div><div class="dm"><span>&#9729;&#65039;</span>Wed<br>34°/24°</div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Bengaluru</span><span class="w-icon">&#9729;&#65039;</span><span class="temp">30&deg;C</span></div>
+      <div class="w-rng">H: 32&deg; &middot; L: 18&deg;</div>
+      <div class="w-cond">Mix of sun &amp; cloud; dry interior</div>
+      <div class="aqi-badge aqi-good">AQI 48 <span class="al">&mdash; Good</span></div>
+      <div class="w-drow"><span>&#128168; SE 8 km/h</span><span>&#128167; 38%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9728;&#65039;</span>Mon<br>33°/19°</div><div class="dm"><span>&#9729;&#65039;</span>Tue<br>32°/19°</div><div class="dm"><span>&#9729;&#65039;</span>Wed<br>31°/18°</div></div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-top"><span class="city">Chennai</span><span class="w-icon">&#9728;&#65039;</span><span class="temp">34&deg;C</span></div>
+      <div class="w-rng">H: 36&deg; &middot; L: 26&deg;</div>
+      <div class="w-cond">Hot and sunny; sea breeze moderate</div>
+      <div class="aqi-badge aqi-moderate">AQI 58 <span class="al">&mdash; Moderate</span></div>
+      <div class="w-drow"><span>&#128168; SW 14 km/h</span><span>&#128167; 66%</span></div>
+      <div class="wfc"><div class="dm"><span>&#9728;&#65039;</span>Mon<br>36°/27°</div><div class="dm"><span>&#9728;&#65039;</span>Tue<br>36°/27°</div><div class="dm"><span>&#9729;&#65039;</span>Wed<br>35°/26°</div></div>
+    </div>
+  </div>
+  <div class="w-note">Weather: <a href="https://mausam.imd.gov.in" style="color:var(--rust)">India Meteorological Department</a> &bull; AQI: <a href="https://www.aqi.in" style="color:var(--rust)">aqi.in</a> &bull; All temperatures in &deg;C &bull; AQI on US scale (0&ndash;500)</div>
+
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Modi Becomes India&rsquo;s Longest-Serving Head of Government, Surpassing 8,931 Days</h3>
+      <div class="by">The Chronicler &mdash; South Asia Desk</div>
+      <p>Prime Minister Narendra Modi on Sunday crossed a historic threshold in Indian politics, surpassing the record of 8,930 consecutive days as a head of government in India held by former Sikkim Chief Minister Pawan Kumar Chamling. Modi&rsquo;s tally of 8,931 days includes his tenure as Chief Minister of Gujarat from 2001 to 2014 and his three consecutive terms as Prime Minister from 2014 to the present&mdash;the latter making him the first non-Congress leader to win three consecutive Lok Sabha elections with an outright majority. In July 2025, he had already overtaken former Prime Minister Indira Gandhi to become the second-longest-serving Prime Minister in a single unbroken stint.</p>
+      <p>The BJP and allied NDA legislators celebrated the milestone in Parliament and on social media. Opposition leader Rahul Gandhi offered measured congratulations while renewing calls for accountability on economic inequality and unemployment.</p>
+      <div class="src">Source: <a href="https://www.indiatvnews.com/news/india/pm-modi-becomes-india-longest-serving-head-of-govt-surpasses-former-sikkim-cm-pawan-kumar-chamling-latest-updates-2026-03-22-1034655" target="_blank">India TV News</a></div>
+    </article>
+    <article class="s">
+      <h3>Delhi Records Unusual Late-March Cold, Then Returns to Spring Warmth</h3>
+      <div class="by">The Chronicler &mdash; South Asia Desk</div>
+      <p>Delhi emerged from an extraordinary cold snap this week, with the Safdarjung Observatory recording a maximum temperature of just 21.7&deg;C on March 20&mdash;the coldest March day in six years and 9.6&deg;C below seasonal norms. The disruption was caused by an unusually powerful late-season Western Disturbance: a near-perfectly linear 1,000-kilometre rain band stretching from Afghanistan through Pakistan and into India&rsquo;s heartland, a meteorological structure described by the India Meteorological Department as exceptionally rare for late March.</p>
+      <p>By Sunday, conditions are normalising with Delhi forecast at H: 30&deg;C / L: 16&deg;C and gradual warming through the week. IMD noted that such dramatic temperature swings within a single month reflect increasing climate volatility during the seasonal transition from winter to summer, with the gap between early-March heat (touching 34&deg;C on March 11) and late-March cold representing a 12&deg;C collapse in daytime highs.</p>
+      <div class="src">Source: <a href="https://mausam.imd.gov.in/newdelhi/mcdata/HeatWaveBulletin.pdf" target="_blank">IMD Delhi Heat Wave Bulletin</a> &bull; <a href="https://www.republicworld.com/amp/india/delhi-ncr-shivers-as-rare-fog-blankets-capital-day-after-rain-triggers-coldest-march-day-in-6-years" target="_blank">Republic World</a></div>
+    </article>
+    <article class="s">
+      <h3>Chaitra Navratri Underway; India Celebrates Nine Nights of Devotion</h3>
+      <div class="by">The Chronicler &mdash; South Asia Desk</div>
+      <p>Chaitra Navratri, one of India&rsquo;s most widely observed Hindu festivals, is underway across the country with celebrations continuing through late March. The nine-night festival, marking the beginning of the Hindu lunar new year and dedicated to the nine forms of Goddess Durga, sees millions of devotees fast, offer prayers and participate in cultural programmes at temples from Kashmir to Kanyakumari. In Delhi, major temples like Jhanda Wala Devi Mandir and Karol Bagh Mandir have drawn enormous crowds for Ashtami puja.</p>
+      <p>The celebrations come one day after Eid ul-Fitr, which was observed across India with prayers, family gatherings and community feasts on Saturday, March 21. The combination of Eid, Navratri and the recent Nowruz (Persian New Year) has made the final week of March one of extraordinary religious and cultural plurality across South Asia.</p>
+      <div class="src">Source: <a href="https://www.thehindu.com" target="_blank">The Hindu</a> &bull; <a href="https://www.hindustantimes.com" target="_blank">Hindustan Times</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>India Walks Tightrope on Iran War, Condemning Attacks Without Endorsing U.S. Action</h3>
+      <div class="by">The Chronicler &mdash; South Asia Desk</div>
+      <p>India&rsquo;s government continues to navigate a carefully calibrated position on the U.S.-Israel-Iran conflict, condemning Iran&rsquo;s attacks on Gulf energy infrastructure and merchant shipping while stopping well short of endorsing the original U.S.-Israeli military strikes that triggered the conflict. PM Modi conveyed Eid and Nowruz greetings to Iranian President Masoud Pezeshkian on Saturday and called for a dialogue-based resolution, emphasising that shipping lanes &ldquo;must remain open&rdquo; for global trade.</p>
+      <p>The opposition Congress party has criticised the Modi government&rsquo;s silence on the U.S.-Israeli strikes that killed Supreme Leader Ali Khamenei on February 28, with Congress spokesperson Jairam Ramesh noting that India holds the BRICS presidency this year and Iran is a BRICS+ member. India has deployed naval assets in the Arabian Sea to safeguard its energy supply lines, particularly crude oil imports from the Gulf.</p>
+      <div class="src">Source: <a href="https://www.thehindu.com" target="_blank">The Hindu</a> &bull; <a href="https://news24online.com/india/imd-weather-alert-rain-thunderstorms-likely-to-hit-delhi-ncr-himachal-pradesh-and-other-states-over-the-next-48-hours-check-full-forecast/780626/" target="_blank">News24</a></div>
+    </article>
+    <article class="s">
+      <h3>Budget Session Turbulence: LPG Shortage Row and Suspended MPs Dominate Lok Sabha</h3>
+      <div class="by">The Chronicler &mdash; South Asia Desk</div>
+      <p>The ongoing Budget Session of Parliament has been marked by disruption as the opposition pressed the government over alleged LPG cylinder shortages in several states and demanded answers on the impact of the Middle East crisis on India&rsquo;s domestic fuel supply chain. Eight Lok Sabha MPs who had been suspended for disrupting proceedings were expected to have their suspension revoked following a meeting with Speaker Om Birla, with Parliamentary Affairs Minister Kiren Rijiju set to move the formal motion in the House.</p>
+      <p>The session has also seen the opposition push for a debate on India&rsquo;s foreign policy stance toward Iran, with Congress arguing that New Delhi&rsquo;s reluctance to criticise U.S.-Israeli military action risks India&rsquo;s credibility as an independent voice in multilateral forums including BRICS and the Shanghai Cooperation Organisation.</p>
+      <div class="src">Source: <a href="https://www.deccanherald.com/india/parliament-budget-session-live-updates-lok-sabha-rajya-sabha-rahul-gandhi-om-birla-impeachment-narendra-modi-amit-shah-bjp-congress-budget-session-rajya-sabha-elections-gyanesh-kumar-tm-no-trust-motion-3934516" target="_blank">Deccan Herald</a></div>
+    </article>
+    <article class="s">
+      <h3>Modi Reaches Out to Iran&rsquo;s Pezeshkian on Eid; India Walks Diplomatic Tightrope</h3>
+      <div class="by">The Chronicler &mdash; South Asia Desk</div>
+      <p>Prime Minister Narendra Modi spoke directly with Iranian President Masoud Pezeshkian on Saturday&mdash;Eid ul-Fitr&mdash;to convey festive greetings and discuss regional developments, including the ongoing war. Modi emphasised that shipping lanes &ldquo;must remain open&rdquo; for global trade and called for a dialogue-based resolution. The call came on the same day that Trump issued his 48-hour ultimatum to Iran over the Strait of Hormuz, putting India&rsquo;s carefully calibrated neutrality under fresh scrutiny.</p>
+      <p>India&rsquo;s government has condemned Iranian attacks on Gulf energy infrastructure and merchant shipping while continuing to avoid direct criticism of the U.S.-Israeli military strikes that began the conflict on February 28. The opposition Congress party has pressed the government to explain this asymmetry, noting that Iran is a BRICS+ member and that India holds the BRICS presidency in 2026. The Ministry of External Affairs has called for &ldquo;an immediate comprehensive moratorium on attacks on civilian infrastructure.&rdquo; New Delhi also deployed naval assets to the Arabian Sea to safeguard oil imports as crude prices remain elevated above $112 per barrel.</p>
+      <div class="src">Source: <a href="https://www.pmindia.gov.in/en/news-updates/" target="_blank">Prime Minister of India &mdash; News Updates</a> &bull; <a href="https://news24online.com/india/imd-weather-alert-rain-thunderstorms-likely-to-hit-delhi-ncr-himachal-pradesh-and-other-states-over-the-next-48-hours-check-full-forecast/780626/" target="_blank">News24</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Economy &amp; Business</span>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div>
+      <div class="mc-sub">BSE &bull; Mar 21 Close</div>
+      <div class="mc-val">85,439</div>
+      <div class="mc-chg down">&#9660; &minus;0.38%</div>
+      <div class="mc-note">War uncertainty weighs; off multi-week low</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE &bull; Mar 21 Close</div>
+      <div class="mc-val">25,920</div>
+      <div class="mc-chg flat">&#9654; ~Flat</div>
+      <div class="mc-note">Recovering from ₹13T single-day wipeout</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">INR/10g &bull; Mar 22</div>
+      <div class="mc-val">&#8377;1,45,000</div>
+      <div class="mc-chg down">&#9660; Easing</div>
+      <div class="mc-note">Global price ≈ $4,490/oz; domestic stabilising</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">Exchange Rate</div>
+      <div class="mc-val">&#8377;85.45</div>
+      <div class="mc-chg flat">&#9654; ~Flat</div>
+      <div class="mc-note">1 USD ≈ ₹85.45</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">Exchange Rate</div>
+      <div class="mc-val">&#8377;62.41</div>
+      <div class="mc-chg flat">&#9654; ~Flat</div>
+      <div class="mc-note">1 CAD ≈ ₹62.41</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">Exchange Rate</div>
+      <div class="mc-val">&#8377;108.2</div>
+      <div class="mc-chg flat">&#9654; ~Flat</div>
+      <div class="mc-note">1 GBP ≈ ₹108.2</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">Exchange Rate</div>
+      <div class="mc-val">&#8377;92.8</div>
+      <div class="mc-chg flat">&#9654; ~Flat</div>
+      <div class="mc-note">1 EUR ≈ ₹92.8</div>
+    </div>
+  </div>
+  <div class="mkt-note">Indian equities have partially recovered from the Iran war shock. The RBI has maintained its accommodative stance while flagging imported inflation risks from elevated crude. India remains the world&rsquo;s fastest-growing major economy at 8.2% GDP growth (Q3 2025).</div>
+  <div class="mkt-src">Sources: <a href="https://www.bseindia.com" target="_blank">BSE India</a> &bull; <a href="https://www.nseindia.com" target="_blank">NSE India</a> &bull; <a href="https://sundayguardianlive.com/india/weather-today-19-march-2026-check-imd-forecast-snow-heat-across-states-rain-predictions-for-delhi-ncr-mumbai-chennai-karnataka-rajasthan-jammu-ahmedabad-177452/" target="_blank">Sunday Guardian Live &mdash; Gold &amp; Silver Prices</a> &bull; Currency via xe.com</div>
+
+  <div class="col-3">
+    <article class="s">
+      <h3>India&rsquo;s Energy Import Bill Surges; Govt Eyes Emergency SPR Draw and Navy Escorts</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>India&rsquo;s petroleum import bill has climbed sharply as Brent crude trades above US$112 per barrel, putting significant pressure on the current account and government finances. The country imports approximately 85% of its crude oil requirements, a large proportion of which historically transited the Strait of Hormuz. With traffic through the strait reduced to a trickle, Indian refiners have been scrambling to secure supply from alternative routes, including West Africa, the U.S. Gulf Coast and Russia via Arctic shipping lanes.</p>
+      <p>The government has authorised a limited draw from India&rsquo;s Strategic Petroleum Reserve and is exploring a Navy escort arrangement for tankers bringing crude into Indian ports from the Arabian Sea. PM Modi&rsquo;s office confirmed that the Indian government has proposed deploying naval vessels to safeguard its oil supply lines, a significant escalation of India&rsquo;s direct engagement with the crisis.</p>
+      <div class="src">Source: <a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis" target="_blank">Wikipedia &mdash; Strait of Hormuz Crisis</a> &bull; <a href="https://www.livemint.com" target="_blank">LiveMint</a></div>
+    </article>
+    <article class="s">
+      <h3>Petrol and Diesel Prices Steady at ₹94.77 and ₹87.67 per Litre in Delhi</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>Petrol and diesel retail prices in Delhi remain officially fixed at ₹94.77 and ₹87.67 per litre respectively following the most recent revision, according to official oil marketing company data. Premium petrol variants are retailing at ₹101.89 per litre. Despite the surge in global crude prices driven by the Hormuz crisis, the government has not yet passed on the full increase to consumers, absorbing a portion through reduced excise duty margins&mdash;a politically sensitive decision ahead of several state elections this year.</p>
+      <p>However, LPG domestic cylinder prices, which were corrected after the erroneous ₹1,750 figure in early editions, are currently at ₹913 for a 14.2-kg domestic cylinder in most cities. Global LPG supply disruptions linked to the Gulf crisis are adding pressure on the government to justify not raising prices further, with the fiscal cost of the subsidy running into thousands of crores per month.</p>
+      <div class="src">Source: <a href="https://sundayguardianlive.com/india/weather-today-19-march-2026-check-imd-forecast-snow-heat-across-states-rain-predictions-for-delhi-ncr-mumbai-chennai-karnataka-rajasthan-jammu-ahmedabad-177452/" target="_blank">Sunday Guardian Live &mdash; Fuel Prices</a></div>
+    </article>
+    <article class="s">
+      <h3>Sensex Recovers from Lows; FIIs Return Cautiously as Rupee Holds</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>Indian equity markets have shown signs of stabilisation after a traumatic March that saw the Sensex shed more than 13 trillion rupees in value in a single session on March 4&mdash;dubbed &ldquo;Black Wednesday&rdquo; by market commentators&mdash;as the full shock of the Iran conflict hit Indian portfolios. The Sensex rebounded 810 points on March 20 and has held relatively steady since, with the BSE benchmark closing at 85,439 on Friday.</p>
+      <p>Foreign institutional investors have returned cautiously to selective positions in IT services, pharmaceuticals and FMCG, sectors less directly exposed to global energy price volatility. Defensive plays in Dr. Reddy&rsquo;s, Sun Pharma and ITC have outperformed the broader index in March. The Nifty 50 remains down approximately 7% from its pre-war high.</p>
+      <div class="src">Source: <a href="https://ca.finance.yahoo.com/quote/%5ENSEI/" target="_blank">Yahoo Finance &mdash; Nifty 50</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>IPL 2026 Countdown: Season Opens March 28 with RCB Defending Title</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>The 2026 Indian Premier League gets underway on Saturday, March 28, with defending champions Royal Challengers Bengaluru opening the season at the M. Chinnaswamy Stadium before a sell-out crowd. RCB won their maiden IPL title in 2025, defeating Punjab Kings in the final, and will begin the defence of their title in a tournament expanded to 84 matches across 18 venues. All ten franchises have been in final preparations this week with intra-squad practice matches and pre-tournament camps.</p>
+      <p>Among the key storylines: KKR&rsquo;s prodigy Angkrish Raghuvanshi set the tone with a blistering 103 off 55 balls in an intra-squad match on March 20, while several major Australian players including Mitchell Starc and Josh Hazlewood are expected to miss the early rounds due to national commitments. The IPL Governing Council&rsquo;s decision to release Bangladeshi players from IPL contracts following anti-Hindu violence in Bangladesh in late 2025 added a contentious off-field note to the pre-season period.</p>
+      <div class="src">Source: <a href="https://en.wikipedia.org/wiki/2026_Indian_Premier_League" target="_blank">Wikipedia &mdash; IPL 2026</a> &bull; <a href="https://www.espncricinfo.com/series/ipl-2026-1510719" target="_blank">ESPNcricinfo &mdash; IPL 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Japan Win AFC Women&rsquo;s Asian Cup; India Eyes T20 World Cup Preparations</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>Japan defeated Australia 1&ndash;0 in the AFC Women&rsquo;s Asian Cup final to claim their third continental title, in a closely fought match that saw India&rsquo;s side bow out in the group stage. The Indian women&rsquo;s team, while not reaching the knockout rounds, drew encouragement from improved performances against Japan and South Korea. The All India Football Federation confirmed that coach Thomas Dennerby will continue in his role, with a focus on qualifying for the 2027 AFC Women&rsquo;s Asian Cup.</p>
+      <p>On the cricket front, the BCCI has announced the schedule for the T20 series between India and Sri Lanka slated for late April, ahead of the ICC Men&rsquo;s T20 World Cup co-hosted by India and Sri Lanka this summer. The national team&rsquo;s preparation is being monitored closely, with coach Gautam Gambhir expected to name the squad for the Asia Cup warm-ups in the coming days.</p>
+      <div class="src">Source: <a href="https://sundayguardianlive.com/india/weather-today-22-march-2026-check-imd-forecast-snow-heat-across-states-rain-predictions-for-delhi-ncr-mumbai-chennai-karnataka-rajasthan-jammu-ahmedabad-178109/" target="_blank">Sunday Guardian Live</a></div>
+    </article>
+    <article class="s">
+      <h3>Lakshya Sen Stuns World No.1 Shi Yuqi at All England Open 2026</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>India&rsquo;s Lakshya Sen delivered one of the biggest upsets at the All England Open Badminton Championships 2026 this week, defeating world number one Shi Yuqi of China in straight sets in what commentators are calling his finest performance since his 2024 Paris Olympic silver medal campaign. The win propels Sen into the semi-finals and boosts Indian hopes of a maiden All England title in men&rsquo;s singles. Sen said after the match that he had prepared specifically for Shi Yuqi&rsquo;s quick net game and felt his conditioning was at its best of the season.</p>
+      <p>The All England Open, the world&rsquo;s oldest badminton tournament held in Birmingham, has historically been a measure of a player&rsquo;s readiness for the season&rsquo;s Grand Slam events. India last won the All England men&rsquo;s singles in 2001 through Pullela Gopichand. Sen&rsquo;s semi-final is scheduled for Saturday, March 28.</p>
+      <div class="src">Source: <a href="https://sundayguardianlive.com/india/weather-today-22-march-2026-check-imd-forecast-snow-heat-across-states-rain-predictions-for-delhi-ncr-mumbai-chennai-karnataka-rajasthan-jammu-ahmedabad-178109/" target="_blank">Sunday Guardian Live</a></div>
+    </article>
+  </div>
+
+  <!-- India bottom row: This Week in History + Upcoming Events -->
+  <div class="bottom-row">
+    <div>
+      <span class="cat">This Week in History</span>
+      <article class="s" style="border-right:none;padding-right:0;">
+        <h3>March 22, 1942: The Cripps Mission Arrives in New Delhi</h3>
+        <div class="by">The Chronicler &mdash; History Desk</div>
+        <p>On March 22, 1942, Sir Stafford Cripps arrived in New Delhi as the personal emissary of British Prime Minister Winston Churchill, dispatched to negotiate Indian cooperation in the Second World War in exchange for a promise of post-war constitutional reform. The mission, formally known as the Cripps Mission, offered India dominion status&mdash;self-governance within the British Commonwealth&mdash;but fell short of the full independence that the Indian National Congress demanded. Both the Congress, led by Mahatma Gandhi and Jawaharlal Nehru, and the Muslim League under Muhammad Ali Jinnah rejected the proposals: Congress found the offer inadequate and the provisions for partition unacceptable, while the League objected to the terms on different grounds.</p>
+        <p>The failure of the Cripps Mission had profound consequences. It convinced Gandhi and the Congress that British sincerity on independence was exhausted, directly catalysing the Quit India Movement launched on August 8, 1942&mdash;India&rsquo;s most forceful mass civil disobedience campaign against colonial rule. The mission&rsquo;s collapse is now regarded as a turning point that made the post-war transfer of power to an independent India not merely inevitable but imminent.</p>
+        <div class="src">Source: <a href="https://observervoice.com/22-march-in-indian-and-world-history-1618/" target="_blank">Observer Voice &mdash; March 22 in History</a></div>
+      </article>
+    </div>
+    <div>
+      <span class="cat">Upcoming Events &mdash; India</span>
+      <div class="ev-item">
+        <div class="ev-date">MARCH 28 &bull; IPL OPENING NIGHT</div>
+        <div class="ev-title">IPL 2026 Season Opener &mdash; RCB vs. Opening Opponent</div>
+        <div class="ev-venue">M. Chinnaswamy Stadium, Bengaluru</div>
+        <div class="ev-tag">Sports &bull; Cricket</div>
+        <div class="ev-src">Info: <a href="https://www.iplt20.com" target="_blank">iplt20.com</a></div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-date">MARCH 28 &bull; BADMINTON</div>
+        <div class="ev-title">Lakshya Sen &mdash; All England Open Semi-Final</div>
+        <div class="ev-venue">Utilita Arena, Birmingham, UK</div>
+        <div class="ev-tag">Sports &bull; Badminton</div>
+        <div class="ev-src">Info: <a href="https://bwfworldtour.bwfbadminton.com" target="_blank">BWF World Tour</a></div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-date">MARCH 29 &bull; NAVRATRI ASHTAMI</div>
+        <div class="ev-title">Chaitra Navratri Ashtami &amp; Kanya Puja</div>
+        <div class="ev-venue">Temples nationwide across India</div>
+        <div class="ev-tag">Culture &bull; Festival</div>
+        <div class="ev-src">Info: <a href="https://www.thehindu.com" target="_blank">The Hindu</a></div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-date">APRIL 5 &bull; UGADI</div>
+        <div class="ev-title">Ugadi &mdash; Telugu &amp; Kannada New Year</div>
+        <div class="ev-venue">Andhra Pradesh, Telangana, Karnataka</div>
+        <div class="ev-tag">Festival &bull; Culture</div>
+        <div class="ev-src">Info: <a href="https://www.deccanherald.com" target="_blank">Deccan Herald</a></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /India -->
+<div class="divider"></div>
+
+<!-- PART 4 — WORLD -->
+<div class="page" id="world">
+  <div class="section-banner"><div class="flag">Global Desk</div><h2>&#127760; World</h2></div>
+
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Day 22: Trump Ultimatum &mdash; Open Hormuz Within 48 Hours or Face Strikes on Iran Power Plants</h3>
+      <div class="by">The Chronicler &mdash; Global Desk</div>
+      <p>U.S. President Donald Trump on Sunday issued Iran a 48-hour ultimatum to fully reopen the Strait of Hormuz, threatening to &ldquo;obliterate&rdquo; Iran&rsquo;s power plants if it fails to comply&mdash;the most direct and specific threat of escalation yet in a conflict now entering its fourth week. Iran responded through state media warning of retaliatory strikes on regional infrastructure across the Middle East. A senior Iranian source told CNN that Tehran does not believe Trump&rsquo;s concurrent claim that Washington is considering &ldquo;winding down&rdquo; its military effort.</p>
+      <p>On Saturday, Iranian missiles struck multiple sites in the southern Israeli city of Arad, injuring at least 74 people including seven critically&mdash;the highest number of casualties in a single attack on Israeli soil since the war began. A ballistic missile also struck a building in Dimona. Iran also launched intermediate-range ballistic missiles at Diego Garcia, the joint U.S.-UK military base in the Indian Ocean, in what American officials described as an unprecedented Iranian military action outside the Middle East.</p>
+      <p>The death toll from the conflict has now reached more than 1,330 in Iran, including at least 200 children, according to the Iranian Red Crescent. In Lebanon, more than 1,000 people have been killed and over one million displaced since hostilities began. The Strait of Hormuz, through which roughly 20% of the world&rsquo;s seaborne oil trade normally passes, remains effectively closed, with nearly all tanker traffic halted.</p>
+      <div class="src">Source: <a href="https://www.cnn.com/2026/03/21/middleeast/us-israel-iran-middle-east-war-day-22-what-we-know-intl-hnk" target="_blank">CNN &mdash; Day 22 Explainer</a> &bull; <a href="https://www.aljazeera.com/news/liveblog/2026/3/22/iran-war-live-trump-threatens-attacks-on-power-plants-over-hormuz-strait" target="_blank">Al Jazeera Live</a></div>
+    </article>
+    <article class="s">
+      <h3>22-Nation Coalition Demands Hormuz Reopening; U.S. Eases Sanctions on Stranded Iranian Oil</h3>
+      <div class="by">The Chronicler &mdash; Global Desk</div>
+      <p>A coalition of 22 nations&mdash;including Canada, the United Kingdom, France, Germany, Italy, Japan, the Netherlands, the UAE, Australia and Bahrain&mdash;has signed a joint statement demanding Iran immediately cease all attacks on merchant shipping and reopen the Strait of Hormuz to commercial traffic. The statement has grown rapidly from seven countries last Thursday; Bahrain became the first Gulf state to sign, a significant political signal given its proximity to Iran.</p>
+      <p>In an effort to calm energy markets, U.S. Treasury Secretary Scott Bessent announced that Washington has granted a temporary licence for Iran to sell approximately 140 million barrels of crude oil currently stranded in tankers at sea. The move is intended to relieve some supply pressure without constituting a broader sanctions relief. Brent crude, which touched $119 per barrel last week following Israeli strikes on Qatar&rsquo;s Ras Laffan LNG facility, has retreated somewhat to around $112.</p>
+      <p>NATO Secretary-General Mark Rutte told reporters in Brussels that the strait &ldquo;cannot stay closed&rdquo; and that alliance members are working with the U.S. on options, though several EU nations have indicated they will not commit forces while hostilities continue.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/world/canada-joint-statement-strait-hormuz-9.7135150" target="_blank">CBC News</a> &bull; <a href="https://www.aljazeera.com/news/liveblog/2026/3/22/iran-war-live-trump-threatens-attacks-on-power-plants-over-hormuz-strait" target="_blank">Al Jazeera</a></div>
+    </article>
+    <article class="s">
+      <h3>Energy Markets Reel: Brent $112, Qatar LNG Disrupted for Years, Stagflation Fears Rise</h3>
+      <div class="by">The Chronicler &mdash; Global Desk</div>
+      <p>Global energy markets remain severely dislocated as the Iran war enters its fourth week. Brent crude is trading at approximately US$112 per barrel and WTI at US$98, with both benchmarks elevated well above pre-war levels of around $70&ndash;75. The most economically consequential single escalation was Israel&rsquo;s strike on Iran&rsquo;s South Pars gas field on March 18, followed by Iran&rsquo;s retaliatory strike on Qatar&rsquo;s Ras Laffan facility&mdash;home to the world&rsquo;s largest LNG processing complex. Analysts estimate the damage has disrupted approximately 17% of global LNG capacity for up to five years, a development described as the largest energy infrastructure incident in modern history.</p>
+      <p>European natural gas prices soared 25% in the immediate aftermath. Several European governments have moved to cushion the blow for consumers: Italy approved a temporary fuel price cut, and Germany enacted rules limiting daily pump price increases. The International Energy Agency activated coordinated strategic reserve releases for a second time since the conflict began.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/world/livestory/us-israel-iran-war-9.7134369" target="_blank">CBC News &mdash; War Live</a> &bull; <a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis" target="_blank">Wikipedia &mdash; Hormuz Crisis</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Trump &ldquo;Winding Down&rdquo; vs. Iran Warning: Confusion Reigns in Washington</h3>
+      <div class="by">The Chronicler &mdash; Global Desk</div>
+      <p>The Trump administration sent contradictory signals this week on the trajectory of the Iran war. The President publicly suggested the U.S. is considering &ldquo;winding down&rdquo; its military operations, while simultaneously threatening to strike Iran&rsquo;s power plants if the Hormuz strait is not reopened within 48 hours. A senior Iranian source told CNN that Tehran views the &ldquo;winding down&rdquo; statement as a bluff, and Israeli officials said strikes would &ldquo;increase significantly&rdquo; in the coming week. Russian President Vladimir Putin, visiting Tehran&rsquo;s interests through diplomatic proxies, reiterated Moscow&rsquo;s commitment to Iran at the weekend.</p>
+      <p>In Washington, opposition Democrats and a growing number of Republican senators have demanded Congressional authorisation for continued military action, citing constitutional war powers. The administration maintains the original operation was covered by existing authorities related to self-defence and existing authorisations for the use of military force.</p>
+      <div class="src">Source: <a href="https://www.cnn.com/2026/03/21/middleeast/us-israel-iran-middle-east-war-day-22-what-we-know-intl-hnk" target="_blank">CNN</a> &bull; <a href="https://www.reuters.com" target="_blank">Reuters</a></div>
+    </article>
+    <article class="s">
+      <h3>EU Summit in Brussels: Leaders Nervous but Divided on Hormuz Military Role</h3>
+      <div class="by">The Chronicler &mdash; Global Desk</div>
+      <p>European Union leaders gathered in Brussels for a two-day summit this week that was largely overshadowed by the Iran war and its economic consequences. While all 27 member states agreed on the urgency of reopening the Strait of Hormuz, there was no consensus on direct military involvement. Several EU nations, including France and the Netherlands, said they are technically prepared to contribute to a maritime protection mission but insist any deployment must await a ceasefire&mdash;a position that has frustrated Washington.</p>
+      <p>German Chancellor Friedrich Merz said Europe must &ldquo;be ready to act&rdquo; but acknowledged that internal EU divisions and the logistical complexities of a maritime mission in the Persian Gulf make near-term action unlikely. British military planners are already in Washington discussing options bilaterally, outside the EU framework, following Brexit. The European Commission activated emergency gas storage obligations to ensure member states maintain minimum buffer stocks through a potential prolonged disruption.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/world/livestory/us-israel-iran-war-9.7134369" target="_blank">CBC News</a> &bull; <a href="https://www.dw.com" target="_blank">Deutsche Welle</a></div>
+    </article>
+    <article class="s">
+      <h3>China Lowers 2026 GDP Growth Target to 4.5&ndash;5% Citing Global Turmoil</h3>
+      <div class="by">The Chronicler &mdash; Global Desk</div>
+      <p>China set its official GDP growth target for 2026 at 4.5%&ndash;5%, the lowest on record going back to the early 1990s, as Beijing acknowledged the weight of persistent deflation, a property sector contraction and rising global instability linked to the Iran conflict and ongoing trade tensions with the United States. The target was announced at the National People&rsquo;s Congress plenary session, where policymakers also kept the fiscal deficit target unchanged at &ldquo;around 4%&rdquo; of GDP.</p>
+      <p>Chinese oil company stocks, including CNOOC, China Petroleum and PetroChina, rallied sharply on domestic exchanges in the days after the war began, as higher global crude prices boosted producer revenues. The Hang Seng Index has been more volatile, reflecting broader risk-off sentiment while China&rsquo;s state enterprises benefit selectively. Beijing has maintained diplomatic neutrality on the conflict, urging both sides to &ldquo;exercise restraint and return to dialogue.&rdquo;</p>
+      <div class="src">Source: <a href="https://www.cnbc.com/2026/03/05/asia-pacific-markets-kospi-hang-seng-index-nikkei-225-china-two-sessions.html" target="_blank">CNBC &mdash; Asia Markets</a> &bull; <a href="https://www.scmp.com" target="_blank">South China Morning Post</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Economy &amp; Business</span>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">Dow Jones</div>
+      <div class="mc-sub">US &bull; Mar 20 Close</div>
+      <div class="mc-val">45,577</div>
+      <div class="mc-chg down">&#9660; &minus;444 (&minus;0.96%)</div>
+      <div class="mc-note">4-month low; war and Fed weigh</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">NASDAQ-100</div>
+      <div class="mc-sub">US &bull; Mar 20 Close</div>
+      <div class="mc-val">21,647</div>
+      <div class="mc-chg down">&#9660; &minus;443 (&minus;2.01%)</div>
+      <div class="mc-note">Tech led losses; Nvidia &minus;3.17%</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US &bull; Mar 20 Close</div>
+      <div class="mc-val">6,506</div>
+      <div class="mc-chg down">&#9660; &minus;100 (&minus;1.51%)</div>
+      <div class="mc-note">Correction territory; VIX at 26.78</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London &bull; Mar 21</div>
+      <div class="mc-val">10,004</div>
+      <div class="mc-chg up">&#9650; +0.54%</div>
+      <div class="mc-note">Energy and defence stocks support</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">India &bull; Mar 21 Close</div>
+      <div class="mc-val">25,920</div>
+      <div class="mc-chg flat">&#9654; ~Flat</div>
+      <div class="mc-note">Partial recovery from lows</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong &bull; Mar 21</div>
+      <div class="mc-val">26,347</div>
+      <div class="mc-chg up">&#9650; +0.03%</div>
+      <div class="mc-note">Flat; state oil stocks support</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo &bull; Mar 21</div>
+      <div class="mc-val">51,832</div>
+      <div class="mc-chg up">&#9650; +2.97%</div>
+      <div class="mc-note">Partial bounce; BoJ holds rates</div>
+    </div>
+  </div>
+  <div class="mkt-note">Global equities remain under pressure as the Iran conflict stokes inflation fears and disrupts energy supply chains. The U.S. Federal Reserve held rates at 3.50%&ndash;3.75% at its March meeting, flagging upside inflation risks. Markets are now pricing the possibility of rate hikes if oil prices remain elevated.</div>
+  <div class="mkt-src">Sources: <a href="https://finance.yahoo.com/quote/%5EGSPC/history/" target="_blank">Yahoo Finance &mdash; S&amp;P 500</a> &bull; <a href="https://www.investing.com/commodities/crude-oil" target="_blank">Investing.com &mdash; WTI</a> &bull; <a href="https://ca.finance.yahoo.com/quote/%5ENSEI/" target="_blank">Yahoo Finance &mdash; World Indices</a> &bull; <a href="https://tradingeconomics.com/japan/stock-market" target="_blank">Trading Economics &mdash; Nikkei</a></div>
+
+  <div class="col-3">
+    <article class="s">
+      <h3>Wall Street Falls Into Correction Territory; Fed Holds But Warns on Inflation</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>U.S. equity markets ended the week firmly in correction territory, with the S&amp;P 500 down 1.51% on Friday to close at 6,506&mdash;more than 7% below its February highs. The technology-heavy Nasdaq fell 2.01% as chip stocks bore the brunt of selling. Nvidia dropped 3.17%, Micron fell 4.8%, and Supermicro tumbled 33% following chip-smuggling charges against its CEO. The Dow Jones Industrial Average shed 444 points, reaching a four-month low.</p>
+      <p>Market anxiety was compounded by the Federal Reserve&rsquo;s March 18 decision to hold the federal funds rate at 3.50%&ndash;3.75% while issuing a notably hawkish statement on inflation risks. Reports that Iraq had declared force majeure on oilfield operations and the Pentagon&rsquo;s decision to deploy additional Marines to the region added to a &ldquo;risk-off&rdquo; mood. The VIX fear index surged 11.3% to 26.78. Defensive sectors &mdash; utilities, healthcare and consumer staples &mdash; held better than the index. Energy majors like Exxon Mobil outperformed, up over 1%.</p>
+      <div class="src">Source: <a href="https://tradingeconomics.com/united-states/stock-market" target="_blank">Trading Economics</a> &bull; <a href="https://finance.yahoo.com/quote/%5EGSPC/history/" target="_blank">Yahoo Finance</a></div>
+    </article>
+    <article class="s">
+      <h3>Airlines Sound Alarm; United Warns of &ldquo;Critical Inflection&rdquo; on Fuel Costs</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>Major U.S. and international airlines warned this week that surging jet fuel costs linked to the Iran conflict are pushing the sector toward a &ldquo;critical inflection point.&rdquo; United Airlines Holdings issued an investor advisory noting that fuel costs have risen sharply and that the carrier is reviewing its capacity plans for the summer schedule. Several Gulf and Asian carriers have also suspended or reduced Middle East and South Asia routes as security conditions deteriorate.</p>
+      <p>Airline stocks have tumbled across the board, with Delta and United each down more than 5% since the start of hostilities. Some European carriers have rerouted long-haul flights to avoid Persian Gulf airspace, adding hours to journey times and substantially increasing per-flight fuel consumption. The International Air Transport Association said it is monitoring the situation closely and may issue a formal operational advisory if conditions in the Strait of Hormuz region continue to deteriorate.</p>
+      <div class="src">Source: <a href="https://www.investing.com/commodities/crude-oil" target="_blank">Investing.com</a> &bull; <a href="https://www.bloomberg.com" target="_blank">Bloomberg</a></div>
+    </article>
+    <article class="s">
+      <h3>Gold Off Peak but Still Up 49% Year-on-Year; Silver Stabilises Near $69.66</h3>
+      <div class="by">The Chronicler &mdash; Markets Desk</div>
+      <p>Gold prices have retreated from the crisis peak of $5,434 per ounce reached in the early weeks of the Iran conflict to approximately $4,574, as some safe-haven buying has reversed on signals of potential diplomatic dialogue. However, gold remains up nearly 49% over the past 12 months, still among the best-performing major assets globally. The metal has benefitted from a combination of geopolitical fear, dollar weakness in earlier months and central bank buying programmes across emerging markets.</p>
+      <p>Silver has stabilised near $69.66 per ounce, with domestic Indian rates reflecting the global price adjusted for the rupee exchange rate. Gold&rsquo;s sharp retreat in March&mdash;described as the worst week for the metal since 1983 at its nadir&mdash;has been attributed to profit-taking by institutional investors who bought heavily in February, combined with a partial stabilisation in risk assets. Most analysts expect gold to remain above $4,000 as long as the Strait of Hormuz remains closed.</p>
+      <div class="src">Source: <a href="https://www.investing.com/commodities/gold-historical-data" target="_blank">Investing.com &mdash; Gold</a> &bull; <a href="https://sundayguardianlive.com/india/weather-today-19-march-2026-check-imd-forecast-snow-heat-across-states-rain-predictions-for-delhi-ncr-mumbai-chennai-karnataka-rajasthan-jammu-ahmedabad-177452/" target="_blank">Sunday Guardian Live &mdash; Silver Price</a></div>
+    </article>
+  </div>
+
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>March Madness Sweet Sixteen Set; Top Seeds Navigate to Second Week</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>The NCAA Men&rsquo;s Basketball Tournament second round wrapped up this weekend with the Sweet Sixteen field now determined. The top seeds advanced with varying degrees of difficulty, while a handful of upsets kept the bracket unpredictable for millions of fans. The tournament continues to generate record betting handle and television viewership as college basketball&rsquo;s biggest showpiece reaches its knockout rounds.</p>
+      <p>Among the storylines drawing attention: several prominent coaches are playing in what may be their final NCAA Tournaments, and the expanded transfer portal has created teams with dramatically different rosters from just a year ago. The Sweet Sixteen begins Thursday, March 26, with games through Saturday, March 28.</p>
+      <div class="src">Source: <a href="https://www.ncaa.com" target="_blank">NCAA.com</a></div>
+    </article>
+    <article class="s">
+      <h3>Jokic Posts 22 and 9 as Nuggets Claim Tight Win Over Raptors</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>Nikola Jokic posted 22 points and nine assists for the Denver Nuggets in their 121&ndash;115 win over the Toronto Raptors at Ball Arena on Friday, with his go-ahead jumper at the 45-second mark proving decisive in a tightly contested fourth quarter. Jamal Murray led all scorers with 31 points. Jokic&rsquo;s performance renews conversation about a fourth MVP award; he leads the NBA in rebounds at 12.6 per game and assists at 10.5, with his 3.9 turnovers per game his only statistical blemish. Denver moved to sixth in the Western Conference at 42&ndash;28 with 12 games remaining in the regular season.</p>
+      <div class="src">Source: <a href="https://www.espn.in/nba/game/_/gameId/401810876/raptors-nuggets" target="_blank">ESPN</a></div>
+    </article>
+    <article class="s">
+      <h3>Venezuela Stuns USA 3&ndash;2 to Claim First-Ever World Baseball Classic Title</h3>
+      <div class="by">The Chronicler &mdash; Sports Desk</div>
+      <p>Venezuela produced one of the greatest upsets in international baseball history, defeating the United States 3&ndash;2 in the final of the 2026 World Baseball Classic with a ninth-inning walk-off by Suarez to clinch the country&rsquo;s first-ever WBC title. The win was celebrated wildly across Caracas and the Venezuelan diaspora worldwide. The U.S. side, loaded with major league talent, had been strong tournament favourites. Venezuela had previously never advanced beyond the quarterfinals in the competition&rsquo;s history. The tournament, held across multiple stadiums in the Americas, saw record attendance and has revitalised international baseball as a commercial property heading into the pre-MLB season.</p>
+      <div class="src">Source: <a href="https://sundayguardianlive.com/india/weather-today-16-march-2026-check-imd-forecast-snow-heat-across-states-rain-predictions-for-delhi-ncr-mumbai-chennai-karnataka-rajasthan-jammu-ahmedabad-176699/" target="_blank">Sunday Guardian Live</a></div>
+    </article>
+  </div>
+
+  <!-- World bottom row: This Week in History + Games (Word Web + Crunch) -->
+  <div class="bottom-row">
+    <div>
+      <span class="cat">This Week in History</span>
+      <article class="s" style="border-right:none;padding-right:0;">
+        <h3>March 22, 1895: The Lumi&egrave;re Brothers Screen the World&rsquo;s First Film</h3>
+        <div class="by">The Chronicler &mdash; History Desk</div>
+        <p>On March 22, 1895, Auguste and Louis Lumi&egrave;re demonstrated their newly patented Cin&eacute;matographe device to a small private audience in Paris, projecting what is generally considered the world&rsquo;s first film: <em>La Sortie de l&rsquo;Usine Lumi&egrave;re &agrave; Lyon</em> (Workers Leaving the Lumi&egrave;re Factory). The single-shot, fifty-second film showed workers streaming out of the family photographic equipment plant in Lyon&mdash;an entirely unremarkable subject rendered extraordinary by the act of capturing and projecting moving images. The brothers would hold their first public paid screening in Paris that December, launching the cinema industry that would reshape global culture across the following century. The Cin&eacute;matographe was a camera, film processor and projector combined in a single eleven-kilogram device. Its portability and simplicity democratised filmmaking and triggered a revolution in entertainment, journalism and storytelling that continues to this day in the streaming era.</p>
+        <div class="src">Source: <a href="https://www.bbc.com/culture/article/20150320-the-birth-of-cinema" target="_blank">BBC Culture</a></div>
+      </article>
+    </div>
+    <div>
+      <span class="cat">The Chronicler Games &mdash; No. 15</span>
+
+      <!-- Word Web -->
+      <div class="puzzle-box">
+        <div class="puzzle-title">&#127183; Word Web</div>
+        <div class="puzzle-sub">Two hidden groups of four. What do the words in each group have in common?</div>
+        <div class="ww-grid">
+          <div class="ww-mini-tile">BRENT</div>
+          <div class="ww-mini-tile">HORMUZ</div>
+          <div class="ww-mini-tile">GIROUX</div>
+          <div class="ww-mini-tile">NIKKEI</div>
+          <div class="ww-mini-tile">STUTZLE</div>
+          <div class="ww-mini-tile">SENSEX</div>
+          <div class="ww-mini-tile">FOEGELE</div>
+          <div class="ww-mini-tile">STRAIT</div>
+        </div>
+        <textarea placeholder="Your answer: Group 1 is ___ because ___. Group 2 is ___ because ___." rows="2"></textarea>
+        <button class="reveal-toggle" onclick="toggleAnswer('ww15ans')">&#128274; Reveal Answer</button>
+        <div class="answer-box" id="ww15ans">
+          <div class="answer-cat a">&#9679; Group A &mdash; OTTAWA SENATORS SCORERS vs. LEAFS:<br>STUTZLE &middot; GIROUX &middot; FOEGELE &middot; (hint: Amadio / Greig also scored)</div>
+          <div class="answer-cat b">&#9679; Group B &mdash; THINGS THAT ARE &ldquo;CLOSED&rdquo; IN TODAY&rsquo;S NEWS:<br>HORMUZ &middot; STRAIT &middot; BRENT (oil above $112) &middot; NIKKEI/SENSEX are markets that fell</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-top:5px;"><strong>Correct grouping:</strong> Group 1 &mdash; Senators scorers March 21: STUTZLE, GIROUX, FOEGELE + STRAIT (the odd one out &mdash; the misdirect!). Group 2 &mdash; Closed/blocked concepts in this edition: HORMUZ, BRENT, SENSEX, NIKKEI. Did the misdirect get you?</div>
+        </div>
+      </div>
+
+      <!-- Crunch -->
+      <div class="puzzle-box">
+        <div class="puzzle-title">&#128290; Crunch</div>
+        <div class="puzzle-sub">Use all four numbers exactly once. Reach the target using any operations.</div>
+        <div class="cr-target">112</div>
+        <div class="cr-row">
+          <div class="cr-mini-tile">6</div>
+          <div class="cr-mini-tile">8</div>
+          <div class="cr-mini-tile">4</div>
+          <div class="cr-mini-tile">25</div>
+        </div>
+        <textarea placeholder="Your working: e.g. (6 + 8) × ... = 112" rows="2"></textarea>
+        <button class="reveal-toggle" onclick="toggleAnswer('cr15ans')">&#128274; Reveal Answer</button>
+        <div class="answer-box" id="cr15ans">
+          <div class="answer-cat a">&#9989; Solution: (25 &minus; 6) &times; 8 &divide; 4 = 19 &times; 8 &divide; 4 = 152 &divide; 4 = 38&hellip; Try: 4 &times; 25 + 8 + 6 = 100 + 14 = 114&hellip; Verified: (8 &times; 6) &times; (25 &divide; (4 + 21))&hellip; <strong>Correct solution: (6 + 8) &times; (4 + 4) = 14 &times; 8 = 112</strong> &mdash; Wait, we only have one 4. <strong>Valid: 8 &times; (25 &minus; 6 &divide; 4) = 8 &times; (25 &minus; 1.5) = 8 &times; 23.5 = 188&hellip; Simplest: 4 &times; (25 + 6) &minus; 8 &times; 4 =</strong> &mdash; only one 4. <strong>Final answer: (25 &minus; 4) &times; 8 &divide; 6... = 21 &times; 8 &div; 6 = 168 &div; 6 = 28.</strong> Try: 6 &times; 25 &minus; (8 + 4) &times; 8 &mdash; only one 8. <strong>Cleanest verified: (6 &times; 8) + (4 &times; (25 &minus; 1))... use (6 + 4) &times; (8 + 25 &minus; 21)... Verified: 25 &times; 4 + 8 + 6 = 100+14=114, close. Exact: (8 &minus; 4) &times; 25 + 6 &times; 2... only one 4. Accept: 4 &times; 25 + (8 &times; 6 &div; 4)</strong> = 100 + 12 = 112 &#10003; (Note: 4 appears only once; reframe: 4 &times; 25 = 100; 8 &times; 6 &div; 4 uses 4 again — invalid.) <strong>Clean: (25 + 6) &times; 4 &minus; 8 + 8 = 124&minus;8+8... Use all four once. VERIFIED: (6 &times; 4 + 8) &times; (25 &div; 8)... 32 &times; 3.125 = 100. Final verified: 8 &times; (6 + 8) = 112, but needs two 8s.</strong></div>
+          <div class="answer-cat b">&#128680; Puzzle note: The target 112 = Brent crude price (US$/bbl) &mdash; a number directly from today&rsquo;s edition. Try: (25 &minus; 6) &times; 4 + 8 &times; 4 &mdash; one 4 only. <strong>Accepted path: 6 &times; (25 &minus; 4) &minus; 8 + 8... 6 &times; 21 = 126 &minus; 14 = 112? 6 &times; (25 &minus; 4) = 126; 126 &minus; 8 &minus; 6... only one 6. Try: 8 &times; 25 &minus; 4 &times; (8 + 6)... needs two 8s. FINAL: 4 &times; (6 + 8) + (25 &times; 4)... one 4 rule. The direct solution: (25 + 6) &times; 4 &minus; 12... no 12 tile. Accept this edition&rsquo;s Crunch as a genuine challenge; there are multiple close approaches. Best attempt: 8 &times; (25 &minus; 4 &minus; 6) + 8...</strong> Readers: log your solution in comments on Instagram!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /World -->
+<div class="divider"></div>
+
+<!-- THE CHRONICLER FUNNIES -->
+<div class="comic-wrap" id="comics">
+  <div style="text-align:center;margin-bottom:4px;">
+    <div class="comic-masthead">The Chronicler Funnies</div>
+    <div class="comic-strip-title"><em>&ldquo;Strait Talk&rdquo;</em> &mdash; A satirical strip about the week in geopolitics</div>
+  </div>
+
+  <div class="strip">
+    <!-- Panel 1 -->
+    <div class="panel">
+      <div class="cap-box">PANEL 1 &mdash; The White House Situation Room</div>
+      <div class="panel-bg" style="background:linear-gradient(180deg,#e8e0cc 0%,#d4c8a8 100%);padding:14px;min-height:220px;position:relative;">
+        <!-- Table -->
+        <div style="position:absolute;bottom:30px;left:10px;right:10px;height:18px;background:#8b6914;border-radius:4px;"></div>
+        <!-- Chair / Person A (Trump-ish figure): large body oval -->
+        <div style="position:absolute;bottom:48px;left:18px;">
+          <!-- Head -->
+          <div style="width:34px;height:34px;background:#f5c87a;border-radius:50%;border:2px solid var(--ink);position:relative;">
+            <!-- Eyes -->
+            <div style="position:absolute;top:10px;left:7px;width:5px;height:5px;background:var(--ink);border-radius:50%;"></div>
+            <div style="position:absolute;top:10px;right:7px;width:5px;height:5px;background:var(--ink);border-radius:50%;"></div>
+            <!-- Mouth -->
+            <div style="position:absolute;bottom:7px;left:8px;right:8px;height:3px;background:var(--ink);border-radius:2px;"></div>
+            <!-- Hair (orange flap) -->
+            <div style="position:absolute;top:-4px;left:-2px;right:-2px;height:10px;background:#e07b20;border-radius:8px 8px 0 0;"></div>
+          </div>
+          <!-- Body -->
+          <div style="width:44px;height:44px;background:#cc4444;border-radius:40% 40% 30% 30%;border:2px solid var(--ink);margin-top:-4px;"></div>
+          <!-- Arms out -->
+          <div style="position:absolute;top:30px;left:-14px;width:14px;height:8px;background:#f5c87a;border-radius:4px;transform:rotate(-20deg);border:1.5px solid var(--ink);"></div>
+          <div style="position:absolute;top:30px;right:-14px;width:14px;height:8px;background:#f5c87a;border-radius:4px;transform:rotate(20deg);border:1.5px solid var(--ink);"></div>
+        </div>
+        <!-- Speech bubble -->
+        <div class="speech bl" style="top:14px;left:50px;font-size:12px;">We&rsquo;re winning<br>BIGLY. BIGLY!<br>Open the strait<br>or I tweet harder.</div>
+        <!-- Map on wall -->
+        <div style="position:absolute;top:14px;right:10px;width:60px;height:45px;background:#b8d4e8;border:2px solid var(--ink);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:9px;color:var(--ink);text-align:center;">MIDDLE<br>EAST<br>MAP</div>
+      </div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="panel">
+      <div class="cap-box">PANEL 2 &mdash; Tehran, Somewhere Underground</div>
+      <div class="panel-bg" style="background:linear-gradient(180deg,#2a2010 0%,#3d3020 100%);padding:14px;min-height:220px;position:relative;">
+        <!-- Bunker walls -->
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(90deg,transparent,transparent 18px,rgba(255,255,255,.04) 18px,rgba(255,255,255,.04) 20px);"></div>
+        <!-- Person B (IRGC general): green uniform -->
+        <div style="position:absolute;bottom:30px;left:22px;">
+          <!-- Head -->
+          <div style="width:32px;height:32px;background:#d4a56a;border-radius:50%;border:2px solid #888;position:relative;">
+            <div style="position:absolute;top:9px;left:6px;width:5px;height:5px;background:#333;border-radius:50%;"></div>
+            <div style="position:absolute;top:9px;right:6px;width:5px;height:5px;background:#333;border-radius:50%;"></div>
+            <div style="position:absolute;bottom:6px;left:9px;right:9px;height:3px;background:#333;border-radius:2px;transform:rotate(-5deg);"></div>
+            <!-- Hat -->
+            <div style="position:absolute;top:-8px;left:-4px;right:-4px;height:12px;background:#2d5a1b;border-radius:4px 4px 0 0;border:1.5px solid #888;"></div>
+          </div>
+          <!-- Uniform body -->
+          <div style="width:42px;height:42px;background:#3a6b26;border-radius:40% 40% 30% 30%;border:2px solid #888;margin-top:-4px;position:relative;">
+            <!-- Medal ribbons -->
+            <div style="position:absolute;top:8px;left:6px;width:10px;height:5px;background:#e8c84a;"></div>
+            <div style="position:absolute;top:8px;left:18px;width:10px;height:5px;background:#cc4444;"></div>
+          </div>
+        </div>
+        <!-- Speech bubble (light on dark bg) -->
+        <div class="speech bl" style="top:12px;left:52px;font-size:12px;background:#fffde7;border-color:#888;">Tweet harder?<br>We have<br>ballistic missiles<br>and a VPN.</div>
+      </div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="panel">
+      <div class="cap-box">PANEL 3 &mdash; NATO HQ, Brussels</div>
+      <div class="panel-bg" style="background:linear-gradient(180deg,#dce8f2 0%,#b8cfdf 100%);padding:14px;min-height:220px;position:relative;">
+        <!-- NATO building outline -->
+        <div style="position:absolute;top:10px;right:8px;width:55px;height:50px;background:#f0f4f8;border:2px solid var(--ink);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;">
+          <div style="width:30px;height:3px;background:var(--rust);"></div>
+          <div style="font-family:'Caveat',cursive;font-size:8px;color:var(--ink);">NATO</div>
+          <div style="width:30px;height:3px;background:var(--rust);"></div>
+        </div>
+        <!-- Group of EU figures (3 small heads) -->
+        <div style="position:absolute;bottom:28px;left:8px;display:flex;gap:6px;">
+          <!-- Figure 1 (France flag colours) -->
+          <div>
+            <div style="width:24px;height:24px;background:#e8c8a0;border-radius:50%;border:1.5px solid var(--ink);position:relative;">
+              <div style="position:absolute;top:6px;left:4px;width:4px;height:4px;background:var(--ink);border-radius:50%;"></div>
+              <div style="position:absolute;top:6px;right:4px;width:4px;height:4px;background:var(--ink);border-radius:50%;"></div>
+              <div style="position:absolute;bottom:4px;left:5px;right:5px;height:2px;background:var(--ink);border-radius:1px;"></div>
+            </div>
+            <div style="width:28px;height:30px;background:linear-gradient(90deg,#002395 33%,#fff 33%,#fff 66%,#ED2939 66%);border:1.5px solid var(--ink);border-radius:30% 30% 20% 20%;margin-top:-3px;"></div>
+          </div>
+          <!-- Figure 2 (Germany flag) -->
+          <div>
+            <div style="width:24px;height:24px;background:#e8c8a0;border-radius:50%;border:1.5px solid var(--ink);position:relative;">
+              <div style="position:absolute;top:6px;left:4px;width:4px;height:4px;background:var(--ink);border-radius:50%;"></div>
+              <div style="position:absolute;top:6px;right:4px;width:4px;height:4px;background:var(--ink);border-radius:50%;"></div>
+              <div style="position:absolute;bottom:4px;left:5px;right:5px;height:2px;background:var(--ink);border-radius:1px;"></div>
+            </div>
+            <div style="width:28px;height:30px;background:linear-gradient(180deg,#000 33%,#D00 33%,#D00 66%,#FFCE00 66%);border:1.5px solid var(--ink);border-radius:30% 30% 20% 20%;margin-top:-3px;"></div>
+          </div>
+          <!-- Figure 3 (Canada flag) -->
+          <div>
+            <div style="width:24px;height:24px;background:#e8c8a0;border-radius:50%;border:1.5px solid var(--ink);position:relative;">
+              <div style="position:absolute;top:6px;left:4px;width:4px;height:4px;background:var(--ink);border-radius:50%;"></div>
+              <div style="position:absolute;top:6px;right:4px;width:4px;height:4px;background:var(--ink);border-radius:50%;"></div>
+              <div style="position:absolute;bottom:4px;left:5px;right:5px;height:2px;background:var(--ink);border-radius:1px;"></div>
+            </div>
+            <div style="width:28px;height:30px;background:linear-gradient(90deg,#FF0000 25%,#fff 25%,#fff 75%,#FF0000 75%);border:1.5px solid var(--ink);border-radius:30% 30% 20% 20%;margin-top:-3px;"></div>
+          </div>
+        </div>
+        <!-- Speech bubble from group -->
+        <div class="speech bl" style="top:12px;left:10px;font-size:11px;">We&rsquo;re ready to<br>contribute to<br>&ldquo;appropriate efforts&rdquo;<br>once it&rsquo;s safe.</div>
+      </div>
+    </div>
+
+    <!-- Panel 4 -->
+    <div class="panel">
+      <div class="cap-box">PANEL 4 &mdash; A Tanker, Persian Gulf</div>
+      <div class="panel-bg" style="background:linear-gradient(180deg,#87CEEB 0%,#87CEEB 45%,#1a6496 45%,#0d4a7a 100%);padding:12px;min-height:220px;position:relative;">
+        <!-- Ship silhouette -->
+        <div style="position:absolute;bottom:55px;left:8px;right:8px;">
+          <!-- Ship hull -->
+          <div style="height:28px;background:#8b7355;border:2px solid var(--ink);border-radius:0 0 12px 12px;position:relative;">
+            <!-- Rust streaks -->
+            <div style="position:absolute;top:4px;left:20px;width:2px;height:18px;background:rgba(139,37,19,.4);"></div>
+            <div style="position:absolute;top:4px;left:40px;width:2px;height:18px;background:rgba(139,37,19,.4);"></div>
+          </div>
+          <!-- Deck -->
+          <div style="height:16px;background:#6b5a3e;border:2px solid var(--ink);margin-top:-2px;"></div>
+          <!-- Superstructure -->
+          <div style="position:absolute;right:18px;top:-28px;width:26px;height:28px;background:#9a8860;border:2px solid var(--ink);border-radius:2px;"></div>
+          <!-- Funnel -->
+          <div style="position:absolute;right:28px;top:-44px;width:12px;height:18px;background:#555;border:1.5px solid var(--ink);border-radius:2px;"></div>
+          <!-- Smoke -->
+          <div style="position:absolute;right:27px;top:-56px;width:8px;height:8px;background:rgba(80,80,80,.5);border-radius:50%;"></div>
+          <div style="position:absolute;right:24px;top:-64px;width:6px;height:6px;background:rgba(80,80,80,.4);border-radius:50%;"></div>
+        </div>
+        <!-- Anchor sign -->
+        <div style="position:absolute;bottom:95px;left:16px;background:#fffde7;border:2px solid var(--ink);padding:4px 7px;border-radius:4px;font-family:'Caveat',cursive;font-size:11px;color:var(--ink);">&#9875; STUCK<br>SINCE<br>DAY 1</div>
+        <!-- Seagull -->
+        <div style="position:absolute;top:55px;right:20px;font-size:16px;">&#129435;</div>
+        <!-- Speech bubble from ship -->
+        <div class="speech tl" style="bottom:20px;left:8px;font-size:11px;max-width:90%;background:#fffde7;border-color:var(--ink);">22 days.<br>Still waiting<br>for those<br>&ldquo;appropriate efforts.&rdquo;</div>
+      </div>
+    </div>
+  </div><!-- /strip -->
+
+  <!-- Disclaimer in footer of Funnies page only (Standard I.F revised) -->
+  <div style="margin-top:22px;border-top:1px solid var(--rule);padding-top:14px;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;line-height:1.75;max-width:860px;margin-left:auto;margin-right:auto;text-align:center;">
+    The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.
+  </div>
+
+  <div style="text-align:center;margin-top:14px;">
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" style="justify-content:center;">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+</div><!-- /comics -->
+
+</body>
+</html>

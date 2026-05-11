@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — Monday, March 9, 2026 — Vol. I, No. 2</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #141008;
+    --aged: #f4edd6;
+    --cream: #fdf9ee;
+    --rust: #8b2513;
+    --gold: #a07800;
+    --grey: #635d4e;
+    --rule: #d0c5a0;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#e2d9c0; font-family:'Libre Baskerville',Georgia,serif; color:var(--ink); font-size:14px; line-height:1.65; }
+
+  /* MASTHEAD */
+  .masthead { background:var(--cream); border-bottom:4px double var(--ink); padding:16px 40px 10px; text-align:center; position:sticky; top:0; z-index:100; box-shadow:0 2px 14px rgba(0,0,0,.2); }
+  .mast-top { display:flex; justify-content:space-between; font-family:'Source Sans 3',sans-serif; font-size:11px; color:var(--grey); letter-spacing:.05em; border-bottom:1px solid var(--rule); padding-bottom:5px; margin-bottom:5px; }
+  .masthead h1 { font-family:'UnifrakturMaguntia',cursive; font-size:clamp(34px,5.5vw,68px); color:var(--ink); letter-spacing:2px; line-height:1; text-shadow:2px 2px 0 rgba(0,0,0,.07); }
+  .mast-tag { font-family:'Libre Baskerville',serif; font-style:italic; font-size:11.5px; color:var(--grey); margin-top:3px; }
+  .breaking-bar { background:var(--rust); color:#fff; text-align:center; font-family:'Source Sans 3',sans-serif; font-size:11px; font-weight:600; letter-spacing:.15em; text-transform:uppercase; padding:5px; }
+
+  /* NAV */
+  .nav-bar { display:flex; justify-content:center; background:var(--ink); }
+  .nav-bar a { color:var(--aged); text-decoration:none; font-family:'Source Sans 3',sans-serif; font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:9px 20px; border-right:1px solid #2a2010; transition:background .2s; }
+  .nav-bar a:last-child { border-right:none; }
+  .nav-bar a:hover { background:var(--rust); color:#fff; }
+
+  /* PAGES */
+  .page { max-width:1080px; margin:0 auto; background:var(--cream); padding:28px 38px; border-left:1px solid var(--rule); border-right:1px solid var(--rule); }
+
+  /* SECTION BANNER */
+  .section-banner { text-align:center; margin:28px 0 18px; padding:13px 20px; background:var(--ink); color:var(--aged); }
+  .section-banner h2 { font-family:'Playfair Display',serif; font-size:25px; font-weight:900; letter-spacing:.15em; text-transform:uppercase; }
+  .section-banner .flag { font-family:'Source Sans 3',sans-serif; font-size:11px; letter-spacing:.2em; text-transform:uppercase; opacity:.65; margin-top:2px; }
+
+  .cat { font-family:'Source Sans 3',sans-serif; font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--rust); border-bottom:2px solid var(--rust); padding-bottom:4px; margin:22px 0 13px; display:block; }
+
+  /* COLS */
+  .col-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .col-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+
+  /* ARTICLE */
+  article.s { border-right:1px solid var(--rule); padding-right:17px; }
+  article.s:last-child { border-right:none; padding-right:0; }
+  article.s h3 { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; line-height:1.25; margin-bottom:6px; }
+  article.s .by { font-family:'Source Sans 3',sans-serif; font-size:10.5px; color:var(--grey); font-style:italic; margin-bottom:8px; }
+  article.s p { font-size:13px; line-height:1.72; text-align:justify; margin-bottom:8px; hyphens:auto; }
+  article.s .src { font-family:'Source Sans 3',sans-serif; font-size:10px; color:var(--grey); border-top:1px solid var(--rule); padding-top:5px; margin-top:8px; word-break:break-all; }
+  article.s .src a { color:var(--rust); text-decoration:none; }
+  article.s .src a:hover { text-decoration:underline; }
+  .pull { border-left:4px solid var(--rust); padding:7px 11px; margin:9px 0; font-family:'Playfair Display',serif; font-style:italic; font-size:13.5px; color:var(--rust); background:rgba(139,37,19,.04); }
+
+  hr.sr { border:none; border-top:1px solid var(--rule); margin:17px 0; }
+  hr.thick { border:none; border-top:3px double var(--rule); margin:26px 0; }
+
+  /* DIVIDER */
+  .divider { height:11px; background:var(--ink); max-width:1080px; margin:0 auto; }
+
+  /* WEATHER */
+  .w-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(175px,1fr)); gap:16px; margin-top:18px; }
+  .w-card { background:#ede6cf; border:1px solid var(--rule); border-top:3px solid var(--ink); padding:14px; text-align:center; }
+  .w-card .city { font-family:'Playfair Display',serif; font-weight:700; font-size:14.5px; margin-bottom:1px; }
+  .w-card .region { font-family:'Source Sans 3',sans-serif; font-size:9.5px; color:var(--grey); text-transform:uppercase; letter-spacing:.1em; margin-bottom:10px; }
+  .w-icon { font-size:38px; display:block; margin-bottom:5px; }
+  .w-card .temp { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; }
+  .w-card .rng { font-family:'Source Sans 3',sans-serif; font-size:10.5px; color:var(--grey); margin-bottom:7px; }
+  .w-card .cond { font-family:'Libre Baskerville',serif; font-style:italic; font-size:11.5px; color:var(--grey); margin-bottom:7px; }
+  .w-card .drow { display:flex; justify-content:space-between; font-family:'Source Sans 3',sans-serif; font-size:9.5px; color:var(--grey); border-top:1px solid var(--rule); padding-top:5px; margin-top:3px; }
+  .wfc { display:flex; justify-content:space-between; margin-top:9px; padding-top:7px; border-top:1px solid var(--rule); }
+  .wfc .dm { text-align:center; font-family:'Source Sans 3',sans-serif; font-size:9px; color:var(--grey); }
+  .wfc .dm span { display:block; font-size:13px; margin:2px 0; }
+
+  /* COMIC */
+  .comic-wrap { max-width:1080px; margin:0 auto; background:var(--cream); padding:28px 38px; border:1px solid var(--rule); border-bottom:4px double var(--ink); }
+  .strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin-top:18px; }
+  .strip2 { display:grid; grid-template-columns:repeat(3,1fr); border-left:2px solid var(--ink); border-right:2px solid var(--ink); border-bottom:2px solid var(--ink); }
+  .panel { border-right:2px solid var(--ink); background:#fff; padding:10px; min-height:260px; display:flex; flex-direction:column; }
+  .panel:last-child { border-right:none; }
+  .panel svg { flex:1; width:100%; }
+  .bub { background:#fff; border:1.5px solid #333; border-radius:9px; padding:5px 7px; font-family:'Source Sans 3',sans-serif; font-size:10px; line-height:1.3; text-align:center; position:relative; margin-bottom:5px; }
+  .bub::after { content:''; position:absolute; bottom:-7px; left:50%; transform:translateX(-50%); border:4px solid transparent; border-top-color:#333; }
+  .cap { font-family:'Source Sans 3',sans-serif; font-size:9px; color:var(--grey); text-align:center; margin-top:5px; font-style:italic; }
+  .plbl { font-family:'Source Sans 3',sans-serif; font-size:9px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--grey); text-align:right; margin-bottom:3px; }
+  .panel2t { border-top:2px solid var(--ink); }
+
+  /* FOOTER */
+  .footer { max-width:1080px; margin:0 auto; text-align:center; padding:14px; font-family:'Source Sans 3',sans-serif; font-size:10px; color:var(--grey); background:var(--cream); border-left:1px solid var(--rule); border-right:1px solid var(--rule); }
+
+  @media(max-width:760px){
+    .col-3,.col-2{grid-template-columns:1fr;}
+    article.s{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:14px;}
+    .page,.comic-wrap{padding:18px 14px;}
+    .strip{grid-template-columns:repeat(2,1fr);}
+    .nav-bar a{padding:8px 10px;font-size:10px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="masthead">
+    <div class="mast-top">
+      <span>EST. 2026 &bull; INDEPENDENT JOURNALISM</span>
+      <span>Monday, March 9, 2026 &bull; Vol. I, No. 2</span>
+      <span>Price: Priceless</span>
+    </div>
+    <h1>The Chronicler</h1>
+    <div class="mast-tag">"All the News That's Fit to Chronicle"</div>
+  </div>
+  <div class="breaking-bar">⚡ Breaking: Oil Surges Past $100 Per Barrel &bull; Iran Names New Supreme Leader &bull; Raptors Rout Mavericks &bull; India Wins T20 World Cup &bull; Dunstone Claims First Brier</div>
+  <nav class="nav-bar">
+    <a href="#gta">🍁 Greater Toronto</a>
+    <a href="#canada">🇨🇦 Canada</a>
+    <a href="#india">🇮🇳 India</a>
+    <a href="#world">🌐 World</a>
+    <a href="#weather">☁️ Weather</a>
+    <a href="#comics">🖊 Comics</a>
+  </nav>
+</header>
+
+<!-- ============================================================
+     PART 1 — GREATER TORONTO AREA
+============================================================= -->
+<div id="gta"></div>
+<div class="page">
+  <div class="section-banner">
+    <div class="flag">Part One</div>
+    <h2>Greater Toronto Area</h2>
+  </div>
+  <p style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:13.5px;color:var(--grey);margin-bottom:18px;">Monday's dispatches from the city that never stops — or at least never stops talking about itself.</p>
+
+  <!-- GTA: CURRENT EVENTS -->
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>"Shaken to Our Core": Jewish Community Demands Action After Third Synagogue Attack</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Community leaders, police chiefs, and representatives from municipal, provincial, and federal governments gathered outside a North York synagogue on Sunday to address one of the most disturbing weeks of antisemitic violence the Greater Toronto Area has witnessed in living memory. Three synagogues were struck by gunfire within a single seven-day period, and the response from Canada's Jewish community was one of grief and fury in equal measure.</p>
+      <p>Sara Lefton, chief development officer of the UJA Federation of Greater Toronto, delivered remarks that reverberated across the country. The events of the past week are "shocking, but not surprising given the trajectory of hate and violence towards Jewish people in Canada lately," she said, describing the community as "shaken to our core" and calling on "every part of Canadian society" to take action. She made clear that neither sympathy nor platitudes would suffice — what was needed was "specific commitments" and funding to help the community feel physically secure.</p>
+      <p>Toronto Deputy Mayor Mike Colle stated bluntly that he and councillor James Pasternak had been urging the provincial and federal governments to establish a dedicated antisemitism taskforce for three years, to no avail. "This is not a local police matter," Colle said, calling for the RCMP, OPP, and CSIS to be formally engaged. Toronto Police Chief Myron Demkiw offered the community a rallying statement: "An attack on one of our communities is an attack on all of us." Meanwhile, Ontario Solicitor General Michael Kerzner pledged to "leave no stone unturned," and federal minister Gary Anandasangaree confirmed that law enforcement and government would collaborate to improve access to grants for community security and strengthen hate crime legislation.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/jewish-community-reaction-synagogue-shootings-9.7119616" target="_blank">CBC News — March 8, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Eglinton LRT Marks One Month — Riders Give It Mixed Reviews</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>The Eglinton Crosstown LRT celebrated its one-month anniversary this week, prompting CBC to survey riders along the long-awaited line about their experience so far. The verdict was, as with most things involving this line, complicated. Many commuters expressed genuine appreciation for the reduced transit times along the Eglinton corridor, particularly those travelling between the western suburbs and the city centre. Others were more pointed in cataloguing persistent frustrations with unreliable service intervals, confusing fare integration, and the teething problems that have dogged the line since its opening.</p>
+      <p>The anniversary also coincided with renewed scrutiny following last week's collision between an LRT vehicle and a motor vehicle at one of the line's at-grade surface crossings in the east end, an incident that briefly suspended service and reignited debate about intersection safety design along the surface portions of the route. Metrolinx confirmed it is reviewing the incident and implementing additional safety protocols at identified risk points.</p>
+      <p>Transit advocates have urged the public to view the line's first month as a learning period rather than a verdict. "Every major transit opening in any city has growing pains," one urbanist noted. "What matters is whether the problems get addressed quickly and honestly." The Eglinton Crosstown, with its decades of delays and cost overruns, carries an unusually heavy burden of expectation — and an unusually thin margin for operational stumbles before public patience frays further. UrbanToronto noted the line's ridership has been growing steadily, a sign that riders are willing to work through the imperfections.</p>
+      <div class="src">Source: <a href="https://urbantoronto.ca/news/2026/03/news-roundup-march-9-2026.60532" target="_blank">UrbanToronto — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Toronto Water Meter Crisis: 470,000 Failing Units to Be Replaced</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>The City of Toronto announced this week that approximately 470,000 residential and commercial water meters across the city are failing and will need to be replaced beginning this spring — a massive infrastructure undertaking that officials say is necessary to ensure accurate billing and reliable water consumption data across the municipality. The failing meters, which are in use in homes and businesses spread across the city, have been found to be either malfunctioning or approaching the end of their functional lifespan.</p>
+      <p>The replacement programme will be one of the largest municipal infrastructure projects of the year and is expected to unfold in phases over multiple seasons. Crews will be dispatched to properties to swap out the defective meters, a process that will require appointments and access to interior spaces in residential buildings — logistics that city officials acknowledge will be complex to manage at scale. Residents will be notified in advance of when crews will be operating in their area.</p>
+      <p>The announcement raised immediate questions about the accuracy of water bills issued during the period in which the failing meters have been in operation — a concern that city officials sought to address at the press conference by indicating that a review process will be available for residents who suspect they have been overbilled. For a city already navigating contentious debates about property taxes, service delivery, and fiscal sustainability, the meter revelation arrived at a politically delicate moment, adding another line item to the sprawling infrastructure deficit that successive councils have grappled with for decades.</p>
+      <div class="src">Source: <a href="https://globalnews.ca/toronto/" target="_blank">Global News Toronto — March 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- GTA: POLITICS -->
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Byelections Called in University-Rosedale and Scarborough Southwest for April 13</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Prime Minister Mark Carney announced Sunday morning the calling of byelections in three federal ridings — the Toronto constituencies of University-Rosedale and Scarborough Southwest, and the Quebec riding of Terrebonne — to be held on April 13. The announcement carries enormous political weight: the Liberals currently hold 169 seats in the 343-seat House of Commons, and need 172 to form a wafer-thin majority government. Winning all three ridings would put them exactly at that threshold.</p>
+      <p>University-Rosedale, which falls in part within the GTA, became vacant when Chrystia Freeland stepped down to accept a role advising Ukrainian President Volodymyr Zelenskyy. Scarborough Southwest was vacated by Bill Blair, who has been appointed Canada's high commissioner to the United Kingdom. Both ridings have been safely Liberal for years, but the political environment has shifted since the last federal election, and local party organisations will take nothing for granted. Advance polls will run from April 3 to 6, with mail-in ballot applications due by April 7.</p>
+      <p>The Terrebonne riding carries the most dramatic backstory: the Supreme Court of Canada recently annulled the 2025 federal election result there after a mail-in ballot return envelope misprint effectively disenfranchised a Bloc Québécois voter. Liberal candidate Tatiana Auguste had been declared the winner by a single vote following a recount — a margin so narrow that the postal code error was deemed sufficient grounds to void the result entirely. The re-run will be held days after the Liberal national convention in Montreal, adding yet another layer of political significance to the spring calendar.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-byelection-terrebonne-scarborough-southwest-university-rosedale-ndp-conservatives-9.7119497" target="_blank">CBC News — March 8, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Liberal Caucus Confronts Carney Over Iran "Incoherence" in Monday Meeting</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Liberal Members of Parliament returned to Parliament Hill Monday after a constituency break week for a long-anticipated in-person caucus meeting at which they expected to hear directly from Prime Minister Carney about his government's shifting position on the U.S.-Israeli war against Iran. Several Liberal MPs had privately — and in some cases publicly — expressed dismay at the speed with which Carney initially declared Canadian support for the strikes, without consulting caucus. The Hill Times reported some members asking, in colourful terms, what the rationale had been for the abrupt announcement.</p>
+      <p>The criticism crossed party lines. Conservative foreign affairs critic Michael Chong described Carney's position on Iran as "utterly incoherent," and called for a full parliamentary debate before any consideration of Canadian military deployment — a debate the government ultimately proposed for Monday evening, with House leader Steven MacKinnon confirming the offer to opposition parties on Sunday via social media. NDP leadership candidate Avi Lewis went further, calling the Prime Minister's evolving statements "all over the place" and insisting Canada should clearly oppose what he characterised as an illegal war of aggression.</p>
+      <p>Carney, for his part, has been navigating a tightrope with considerable care. He has said Canada "supports the United States acting to prevent Iran from obtaining a nuclear weapon" while also calling on all parties to abide by international law, and more recently declining to "categorically rule out" participation in the conflict — a formulation that pleased almost no one. The broader political risk is significant: the Liberals' commanding polling lead was built partly on Carney's image as a measured, internationally credible leader, and any perception that his Iran positions are reactive rather than principled could erode that carefully cultivated brand.</p>
+      <div class="src">Source: <a href="https://www.hilltimes.com/story/2026/03/09/what-the-hell-is-this-carney-should-have-consulted-caucus-before-declaring-support-for-u-s-and-israeli-strikes-on-iran-say-some-liberal-mps/494530/" target="_blank">The Hill Times — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>King Street West Dining Scene Reshapes as Post-Pandemic Costs Take Toll</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>A wave of closures and pivots is redefining the character of King Street West's celebrated dining corridor, once considered one of North America's most vibrant restaurant strips and a symbol of Toronto's cultural and culinary ambition. A number of high-profile establishments have shuttered or dramatically scaled back their concepts in recent months, driven by the confluence of escalating commercial rents, persistent labour shortages, elevated food costs, and the lingering structural damage that the restaurant industry absorbed during the COVID-19 pandemic and its aftermath.</p>
+      <p>Industry observers note that the post-pandemic recovery, while real, has been uneven. Higher-end and concept-driven restaurants — the type that made King West famous — tend to operate on thin margins even in good times, and many are now finding that the combination of rising input costs and a dining public that has become more selective about where it spends discretionary dollars has made the economics increasingly untenable. Several of the closures involve beloved long-running establishments whose absence has prompted a nostalgic outpouring from longtime Toronto diners on social media.</p>
+      <p>The transformation is prompting broader questions about whether the city's most celebrated dining neighbourhoods can maintain their identity as real estate pressures and operating costs escalate. Some restaurateurs are experimenting with hybrid models — combining restaurant service with retail, cooking classes, or events programming — as a means of diversifying revenue. Others are relocating to less expensive corridors in the east end, Kensington Market, or emerging neighbourhoods in Scarborough, where rents are more forgiving for independent operators willing to build new communities of regulars.</p>
+      <div class="src">Source: <a href="https://urbantoronto.ca/news/2026/03/news-roundup-march-9-2026.60532" target="_blank">UrbanToronto News Roundup — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- GTA: ECONOMY & BUSINESS -->
+  <span class="cat">Economy &amp; Business</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Iran War Shock: GTA Drivers Brace for Another Fuel Price Jump</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Gasoline retailers across the Greater Toronto Area are preparing for another round of price increases at the pump as global crude oil markets absorbed the shock of Iran's new supreme leader announcement Monday and Brent crude briefly surged past $107 per barrel in overnight trading before settling around $102. For GTA drivers, who were already absorbing elevated fuel costs following the initial outbreak of the Iran conflict, the new escalation means that the spring commute is set to become significantly more expensive than it was even a week ago.</p>
+      <p>Industry analysts at GasBuddy and Natural Resources Canada projected that Ontario pump prices could rise by an additional eight to twelve cents per litre within days if crude prices consolidate at current levels — a jump that would push Toronto-area gasoline to its highest nominal price since the Russia-Ukraine energy shock of 2022. The increases are arriving as the spring driving season begins and inflation-fatigued Ontario households had been hoping for respite after a relatively stable winter fuel period.</p>
+      <p>Retailers and logistics companies across the GTA are also beginning to calculate the downstream effects of higher diesel prices on the cost of delivering goods to supermarkets, restaurants, and construction sites. The Ontario Trucking Association warned that fuel surcharges would need to be passed on to shippers, raising costs throughout the supply chain in ways that will ultimately reach consumers. For a city already dealing with elevated grocery bills and housing costs, the fuel shock represents another unwelcome pressure on household budgets heading into the spring.</p>
+      <div class="src">Source: <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-oil-prices-khamenei-supreme-leader-israel-trump-rcna262378" target="_blank">NBC News / Oil Market Reports — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Canada's Population Growth Slows — and Toronto Feels the Economic Shift</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>New data from Statistics Canada is prompting a re-evaluation of some of the economic assumptions that have underpinned Toronto's development boom over the past decade. Canada's population growth rate, which surged dramatically during the post-pandemic immigration surge to reach historic highs, has begun to slow measurably as the federal government implements tighter immigration caps and international student permit numbers are scaled back. For Toronto — which has relied on population growth as a primary engine of housing demand, service sector employment, and consumer spending — the deceleration carries significant economic implications.</p>
+      <p>Real estate economists note that the softening of population growth is already visible in certain segments of the Toronto condo market, where investor sentiment has cooled and pre-construction absorption rates have declined from the near-frenzied levels of 2022 and 2023. The shift is most pronounced in the downtown core, where a pipeline of units built to serve a rapidly growing population of newcomers and students now faces a somewhat smaller pool of prospective tenants and buyers than developers had anticipated.</p>
+      <p>However, economists are careful to distinguish between a slowdown and a reversal. Canada and Toronto in particular remain among the most attractive destinations for skilled immigrants globally, and the federal government's recalibration of temporary resident targets is a deliberate policy choice rather than a failure of demand. The adjustment period, while economically disruptive for sectors that grew accustomed to rapid growth conditions, may also offer some relief to housing affordability pressures that have defined Toronto's political landscape for the better part of a decade.</p>
+      <div class="src">Source: <a href="https://urbantoronto.ca/news/2026/03/news-roundup-march-9-2026.60532" target="_blank">UrbanToronto / Statistics Canada — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Liquor Store Sales Drop 1.6% in 2025 Despite Tariff-Driven Patriotism</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Recent data from Statistics Canada shows that Canadian liquor store sales fell 1.6 per cent in 2025 — an unexpected decline in a sector that had, if anything, been expected to benefit from the patriotic consumer impulse ignited by U.S.-Canada trade tensions and the resulting boycott of American alcohol brands. The buy-Canadian trend, which saw Canadian craft spirits, wine, and beer surge in popularity at the expense of bourbon, California wines, and American beer brands, was real and measurable. But it was apparently not enough to offset a broader behavioural shift toward reduced alcohol consumption.</p>
+      <p>Health economists and public health advocates have been tracking a gradual moderation of alcohol consumption among younger Canadians for several years, attributing it to increased health consciousness, cannabis as an alternative social lubricant, the rising cost of discretionary spending, and growing awareness of alcohol's health risks — particularly following a widely-discussed update to Canada's Low Risk Drinking Guidelines, which significantly reduced recommended consumption levels. The 2025 sales data appears to confirm that this generational shift is now visible in aggregate retail numbers.</p>
+      <p>For GTA retailers and the broader Ontario hospitality industry — which includes bars, restaurants, and event venues dependent on alcohol sales margins — the trend is one to watch carefully. The LCBO, which dominates Ontario's alcohol retail landscape, has been diversifying its revenue streams through expanded grocery store partnerships and premium service offerings. Independent bar and restaurant operators, who face thinner margins than the publicly owned retail monopoly, are monitoring the consumption shift with rather more personal concern.</p>
+      <div class="src">Source: <a href="https://www.cp24.com" target="_blank">CP24 / Statistics Canada — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- GTA: SPORTS -->
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>RJ Barrett Erupts for Season-High 31 as Raptors Rout Mavericks 122–92</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>RJ Barrett delivered the finest individual performance of his Toronto Raptors career so far on Sunday evening, exploding for a season-high 31 points on 13-of-19 shooting from the field as the Raptors dismantled the struggling Dallas Mavericks 122–92 at Scotiabank Arena. The dominant victory snapped a four-game losing streak for Toronto and gave the team their first home win in five attempts — a relief for both the players and a fanbase that had been growing restless through a difficult late-February stretch.</p>
+      <p>Barrett's performance came attached to a historic milestone: in the second quarter, he scored the 8,000th point of his NBA career, becoming the eighth Canadian player in league history to reach that mark. At 25 years old, he is the youngest of that group, which includes two-time MVP Steve Nash, reigning scoring champion Shai Gilgeous-Alexander, and Dillon Brooks. "I'm very proud — very proud Canadian," Barrett told reporters after the game. "Doing it for the Raptors makes it even more special." Scottie Barnes added 17 points, Jakob Poeltl recorded 16 and 10 rebounds, and eight Raptors scored in double digits in a display of the balanced attack coach Darko Rajakovic has been working to build.</p>
+      <p>Dallas, whose season has collapsed into an extended losing spiral — the Mavericks have now lost 17 of their last 19 — were largely powerless to slow Toronto down. Rookie Cooper Flagg impressed individually with 17 points and six assists, and Daniel Gafford went a perfect 10-for-10 from the field for 21 points, but the team context was far too dire for individual performances to matter. The Raptors moved to 36-27 on the season, maintaining their hold on fifth place in the Eastern Conference standings. They visit Houston and New Orleans on their upcoming road trip.</p>
+      <div class="src">Source: <a href="https://www.washingtonpost.com/sports/nba/2026/03/08/mavericks-raptors-score/" target="_blank">Washington Post / Raptors Republic — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Toronto Sceptres Blow Late Lead, Fall 3–2 in OT to Minnesota Frost</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>The Toronto Sceptres suffered yet another painful home defeat on Saturday night, losing 3–2 in overtime to the Minnesota Frost — their eighth loss in ten home games this season. The defeat continues a frustrating home form slump for a team that has shown considerably more consistency on the road, and is now testing the patience of the PWHL fanbase that packed Scotiabank Arena in such numbers and enthusiasm during the league's inaugural season.</p>
+      <p>The loss stings particularly because the Sceptres had the lead in the third period before Minnesota tied the game and then won it in overtime. A single point was earned from the overtime result, and that slim consolation may prove meaningful: the Sceptres now sit just four points out of a playoff position, meaning the path to the post-season remains open if they can arrest the slide and find the consistency that has eluded them at home this season.</p>
+      <p>The Sceptres coaching staff indicated after the game that they were addressing the team's home performance issues in practice, with particular attention to the defensive zone coverage that has allowed late goals to creep in. The PWHL's second full season has generally been viewed as a success for the league commercially and competitively, with fan engagement across all six cities remaining robust. But for Toronto, which won the inaugural championship and carries the expectations that come with it, missing the playoffs would constitute a significant disappointment regardless of the broader league story.</p>
+      <div class="src">Source: <a href="https://www.993countyfm.ca/news/march-9-2026/" target="_blank">99.3 County FM — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Toronto FC Score First-Ever TQL Stadium Goal in Cincinnati Win</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Toronto FC announced themselves in the MLS 2026 season opener with an away victory at FC Cincinnati — scoring their first-ever goal at TQL Stadium on their way to a victory that ended what had been a long and frustrating drought for the club at that particular ground. FC Cincinnati, who play in one of the league's most intimidating atmospheres, had previously been a graveyard for Toronto — a venue where TFC had been unable to find the net despite multiple attempts over the years. The win marks a symbolic breakthrough as well as a practical one, delivering three vital early-season points to the club.</p>
+      <p>The result will be welcomed at BMO Field as TFC seek to establish early momentum in a season where the club's management has made clear that returning to playoff football is the minimum expectation. The 2025 season was a difficult one by the club's recent standards, and the coaching staff enters 2026 with a renewed determination and several off-season acquisitions aimed at adding depth and quality to a squad that was stretched in the final months of last year's campaign.</p>
+      <p>The away win at Cincinnati comes as TFC build toward what promises to be a historically unique home season — the 2026 FIFA World Cup will see BMO Field host international matches this summer, and the entire city will be wearing football's colours. Whether TFC can capitalise on that atmosphere to drive a competitive MLS season simultaneously will be one of the intriguing subplots of Toronto's sporting summer. The scheduling logistics of running a World Cup alongside an MLS season at the same venue will require careful management from both MLS and FIFA's respective organisational apparatuses.</p>
+      <div class="src">Source: <a href="https://www.993countyfm.ca/news/march-9-2026/" target="_blank">99.3 County FM — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- GTA: THIS WEEK IN HISTORY -->
+  <span class="cat">This Week in History — Greater Toronto Area</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>1990: SkyDome Opens — A Stadium That Changed Toronto's Skyline</h3>
+      <div class="by">Historical Record</div>
+      <p>On June 3, 1989 — with the building fully operational by the summer of 1990 — Toronto's SkyDome (now Rogers Centre) opened as the world's first stadium with a fully retractable motorised roof, instantly becoming one of the most technologically ambitious sports venues on earth and a statement about Toronto's aspirations as a world-class city. The stadium cost $600 million to build — a figure that generated considerable controversy at the time and seems almost quaint by the standards of contemporary stadium construction — and hosted the Blue Jays, the CFL's Argonauts, and major concerts and events within its vast multi-purpose interior.</p>
+      <p>The SkyDome became part of Toronto's identity in a profound way. The Blue Jays won back-to-back World Series championships there in 1992 and 1993, cementing the stadium's place in Canadian sports history. The venue's Hotel restaurant and rooms with direct sightlines to the field became famous worldwide. The retractable roof — revolutionary in 1989 — has since been updated and replicated globally, but the original still draws visitors. In 2026, with the stadium having received its most extensive renovation in years, the Rogers Centre is preparing to stage FIFA World Cup matches before its own Blue Jays residents play their home opener — a fitting convergence for a stadium that has always aspired to global significance.</p>
+      <div class="src">Source: City of Toronto Archives / Rogers Centre Historical Records</div>
+    </article>
+    <article class="s">
+      <h3>1954: Toronto's Yonge Street — Once the World's Longest Street</h3>
+      <div class="by">Historical Record</div>
+      <p>In 1954, Yonge Street was listed in the Guinness Book of World Records as the world's longest street, stretching from the Toronto waterfront northward into Rainy River, Ontario — a total distance of 1,896 kilometres. While the Guinness designation has since been disputed, withdrawn, and argued over with the particular energy Torontonians reserve for matters of civic pride, the record stood for decades as a remarkable fact of geography and city planning in this part of the world. Yonge Street was originally laid out in 1796 by Lieutenant Governor John Graves Simcoe as a military supply route, and its commercial and cultural evolution over more than two centuries mirrors the growth of the city around it.</p>
+      <p>The stretch of Yonge south of Bloor — what planners now call the "Yonge-Dundas" zone — has itself been the subject of major planning debates this decade, as the City of Toronto has consulted on whether to pedestrianise sections of it, transform Yonge-Dundas Square, and reframe how the corridor serves as a gathering place for a changing city. The record may have been contested, but the street's centrality to Toronto's identity — and its ongoing role in defining the city's cultural and economic pulse — is not.</p>
+      <div class="src">Source: City of Toronto Archives / Guinness World Records Historical Database</div>
+    </article>
+    <article class="s">
+      <h3>2003: Toronto's SARS Crisis — The Week Everything Changed</h3>
+      <div class="by">Historical Record</div>
+      <p>In the week of March 9–16, 2003, the SARS (Severe Acute Respiratory Syndrome) crisis in Toronto entered its most acute phase, as hospital transmission chains were identified and emergency infection control measures were implemented across the city's healthcare system. The crisis, which had begun when a Toronto family returned from Hong Kong carrying the novel coronavirus, would eventually kill 44 people in Canada — nearly all in the GTA — and send more than 400 individuals into quarantine at its peak.</p>
+      <p>The 2003 SARS outbreak left a profound mark on Toronto's public health infrastructure, hospital design, emergency preparedness legislation, and the city's psychological relationship with pandemic risk. It also caused enormous reputational and economic damage to the city, as international travel advisories — including one briefly issued by the World Health Organisation — hammered the tourism and hospitality industries. The lessons learned in 2003, applied with great urgency during COVID-19 seventeen years later, saved lives and shaped Canada's pandemic response architecture in ways that are still being studied and refined. The memory of SARS is deeply embedded in the institutional culture of Toronto's hospital system to this day.</p>
+      <div class="src">Source: Toronto Public Health Archives / Public Health Agency of Canada Historical Records</div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     PART 2 — CANADA
+============================================================= -->
+<div id="canada"></div>
+<div class="page">
+  <div class="section-banner">
+    <div class="flag">Part Two</div>
+    <h2>Canada</h2>
+  </div>
+  <p style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:13.5px;color:var(--grey);margin-bottom:18px;">From Parliament Hill to the ice in St. John's, the nation navigates a complicated Monday.</p>
+
+  <!-- CANADA: CURRENT EVENTS -->
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Parliamentary Debate on Iran War Set for Monday Evening</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>The House of Commons is set to hold a parliamentary debate Monday evening on Canada's position regarding the rapidly escalating war in Iran — the first formal opportunity for elected representatives to address the conflict and the Carney government's response to it in the nation's legislature. House leader Steven MacKinnon confirmed the proposal via social media on Sunday, stating that the government has offered opposition parties the opportunity to debate "the hostilities in Iran and the impact for Canadians abroad." Opposition critics from both the Conservative and NDP benches swiftly indicated they would participate.</p>
+      <p>The debate comes as Parliament reconvenes after a break week, with dozens of Liberal MPs eager to ask pointed questions of the Prime Minister about the evolution of Canada's stated position — from the initial statement of support for U.S. and Israeli strikes, to the call for all parties to respect international law, to Carney's comment that Canada could not "categorically rule out" military participation. The sequence of formulations, issued in rapid succession as the conflict unfolded during Carney's foreign trip through Australia, Japan, and India, has given the impression of policy being made on the fly — a characterisation the government is keen to dispel.</p>
+      <p>For Canadians watching the debate from the GTA and across the country, the stakes are immediate and personal. Tens of thousands of Canadians reside in the Gulf states, Lebanon, and Israel, and the State Department's evacuation advisory for U.S. non-emergency personnel from Saudi Arabia — issued Sunday — has intensified concern about the safety of Canadians in the region. Foreign Affairs Minister Anita Anand has indicated that consular resources are being directed to assist Canadian citizens who need to leave the affected areas.</p>
+      <div class="src">Source: <a href="https://www.pentictonherald.ca/news/national_news/article_1b21c34f-69de-58fd-b451-0d9f982e723c.html" target="_blank">Penticton Herald / Canadian Press — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Public Service Job Cuts: Treasury Board Not Tracking Impact on Equity Groups</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>The Treasury Board of Canada has confirmed that it is not systematically tracking the impact of ongoing federal public service workforce reductions on designated equity groups — including women, visible minorities, Indigenous peoples, and persons with disabilities — a gap that critics and labour advocates say represents a significant accountability failure at a time when the government is reducing headcount through a combination of attrition, early departure incentives, and targeted programme eliminations.</p>
+      <p>The omission is politically sensitive. The federal public service has made significant investments over the past decade in building a more representative workforce, and the concern among equity advocates is that reductions applied without demographic monitoring will disproportionately affect the gains made by groups that were historically underrepresented in government ranks. Public sector unions representing federal employees have called for immediate disclosure of disaggregated data on who is leaving and why.</p>
+      <p>The Treasury Board's response — that it is offering what one official described as "white glove" treatment for laid-off public servants receiving severance, including financial counselling and job placement assistance — has been received coolly by unions, who say tailored support for individuals does not substitute for systemic data collection and accountability for outcomes across demographic categories. The issue is expected to be raised during the parliamentary session resuming Monday, with opposition MPs from both the NDP and Conservative benches signalling their intention to press the government on this front.</p>
+      <div class="src">Source: <a href="https://www.pentictonherald.ca/news/national_news/article_1b21c34f-69de-58fd-b451-0d9f982e723c.html" target="_blank">Canadian Press / Penticton Herald — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Frank Stronach Trial: Defence Begins as Dramatic Case Proceeds</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>The defence phase of the sexual assault trial of Canadian automotive billionaire Frank Stronach began Monday, following the conclusion of the Crown's presentation of evidence in what has been one of the most closely watched court proceedings in Ontario in years. Stronach, the founder of Magna International and one of Canada's most prominent industrialists, faces multiple charges related to alleged offences against several women over an extended period. He has pleaded not guilty to all charges.</p>
+      <p>The trial has drawn intense public interest, both because of Stronach's profile and because of the nature of the allegations, which speak to patterns of conduct in corporate and social settings. The defence is expected to challenge the credibility of prosecution witnesses and present evidence of its own in support of Stronach's denial of the allegations. Legal observers note that trials of this type — involving historical allegations by multiple complainants — present complex evidentiary challenges for both sides.</p>
+      <p>Stronach, who is in his late eighties, has attended trial throughout its proceedings. The case has unfolded against the backdrop of broader social conversations about power dynamics in corporate environments, consent, and accountability for prominent figures, conversations that have been given renewed urgency by the ongoing Epstein-related proceedings in the United States. A verdict is not expected for several more weeks, given the anticipated length of the defence's case.</p>
+      <div class="src">Source: <a href="https://www.pentictonherald.ca/news/national_news/article_1b21c34f-69de-58fd-b451-0d9f982e723c.html" target="_blank">Canadian Press — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- CANADA: POLITICS -->
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Carney Says Andrew Mountbatten-Windsor Should Lose Royal Succession Rights</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Prime Minister Mark Carney used an international press availability during his recent foreign trip to state publicly that Prince Andrew — formally styled Andrew Mountbatten-Windsor since his removal from royal duties — should be removed from the British line of royal succession following what Carney described as his "deplorable actions" tied to the Jeffrey Epstein scandal. The comment was notable for a sitting Canadian prime minister, given that Canada maintains the British monarch as its head of state and the Carney government has positioned itself as a champion of closer Commonwealth ties.</p>
+      <p>Carney's remark was welcomed by advocacy groups that have pushed for greater accountability regarding the Epstein network's connected figures, but raised eyebrows among constitutional scholars who noted that the succession question is formally a matter for the British Parliament and the Crown, not for comment from a Commonwealth prime minister. However, Carney appeared to be speaking in his capacity as a political leader expressing a moral position rather than making a formal constitutional demand.</p>
+      <p>The comment arrives as Epstein-related proceedings continue to generate headlines in the United States and United Kingdom, and as documents related to the Epstein network are periodically released through court proceedings in New York, each new release renewing public interest in which prominent figures will ultimately face accountability. Andrew has never been charged with any criminal offence and has denied wrongdoing, but his association with Epstein and the subsequent settlement of a civil lawsuit in the United States effectively ended his public royal duties.</p>
+      <div class="src">Source: <a href="https://www.ctvnews.ca/video/2026/03/07/carney-says-andrew-mountbatten-windsor-should-lose-royal-succession/" target="_blank">CTV News — March 7, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>NDP Leadership Race Enters Final Stretch: Lewis vs. McPherson</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Online voting in the federal NDP leadership race opened Monday, with the winner to be announced on March 29. The race has coalesced around two primary contenders: Avi Lewis, a documentary filmmaker and activist who has never held elected office, and Heather McPherson, the sole sitting NDP MP in the contest and the party's former foreign affairs critic who became an early and outspoken voice against the war in Gaza. Three other candidates — union leader Rob Ashton, social worker and first Indigenous woman to seek the leadership Tanille Johnston, and farmer-environmentalist Tony McQuail — round out the ballot.</p>
+      <p>Lewis, who is considered the front-runner by many party insiders, ruled out running in any of the upcoming April byelections if he wins, saying he would instead focus on rebuilding the party rather than immediately seeking a parliamentary seat. He has also been forthright in criticising Carney's Iran position as "incoherent," staking out the anti-war flank of the political spectrum in terms that are distinct from both the Liberals and Conservatives. His critics within the NDP worry that his lack of parliamentary experience will hamper his ability to hold the government to account in the House of Commons.</p>
+      <p>McPherson argues that her presence in Parliament from day one is a crucial practical advantage, and she has presented herself as the candidate who can most credibly challenge Carney's foreign policy from the opposition benches. The leadership contest has highlighted deep tensions within the NDP about its future direction — whether to pursue a social democratic pragmatism that could rebuild the party's appeal to working-class voters, or a more ideologically distinct politics that draws sharper contrasts with the governing Liberals. The members voting this week will render their verdict on March 29.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/avi-lewis-ndp-campaign-seat-byelection-gaza-iran-9.7118111" target="_blank">CBC News — March 6, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Carney Eyes Auto Sector Deal Using "Market Mechanism" to Meet Trump's Made-in-USA Demand</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Prime Minister Carney outlined a potential framework for addressing U.S. President Trump's insistence on a "made in America" content threshold for automobiles — suggesting that Canada could accommodate the principle through a market-driven credits mechanism rather than through direct production mandates. The framework, discussed during a media availability during Carney's Japan stop, would allow Canadian-built vehicles to generate transferable credits based on their North American content, providing a commercially flexible pathway toward meeting American content demands without requiring a bilateral treaty renegotiation in the current fraught trade environment.</p>
+      <p>The proposal reflects Carney's instinct — developed across decades at the Bank of Canada and Goldman Sachs — to solve complex policy problems through market architecture rather than regulatory dictate. Whether the Trump administration will accept a credits-based approach as a substitute for the hard domestic content requirements its trade hawks prefer remains an open question. Earlier rounds of CUSMA renegotiation have shown that the American side tends to view flexible mechanisms with suspicion, preferring quantitative commitments that can be easily measured and enforced.</p>
+      <p>Canada's auto sector, centred in Ontario and employing hundreds of thousands of workers directly and indirectly across the province, is watching these negotiations with existential attention. The integrated nature of North American auto production — with parts and assemblies crossing the Canada-U.S. border multiple times in a single vehicle's manufacturing lifecycle — means that any disruption to cross-border flow carries enormous cost implications for Canadian facilities. The Canadian Auto Workers union and Unifor have both stated that any deal must protect Canadian jobs and investment commitments, not merely satisfy American political optics.</p>
+      <div class="src">Source: <a href="https://www.ctvnews.ca/video/2026/03/07/carney-canada-could-adopt-trumps-made-in-us-auto-principle-through-market-mechanism/" target="_blank">CTV News — March 7, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- CANADA: ECONOMY & BUSINESS -->
+  <span class="cat">Economy &amp; Business</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Oil Crosses $100 — and Canada's Central Bank Faces a New Dilemma</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>The escalation of the Iran war — punctuated Monday by the naming of Mojtaba Khamenei as Iran's new supreme leader, Israel's continued strikes on Iranian infrastructure, and the resumption of Iranian missile and drone attacks across the Gulf — sent Brent crude past $100 per barrel for the first time since 2022, with overnight trading briefly touching $120 before the market settled. For the Bank of Canada, which had been cautiously navigating toward further interest rate cuts, the development has introduced a deeply unwelcome complication.</p>
+      <p>Governor Tiff Macklem and his governing council face a classic supply shock dilemma: the oil price surge will feed directly into Canadian consumer price inflation through higher fuel and transportation costs, potentially pushing headline CPI back above the Bank's 2 per cent target at precisely the moment when rate cuts had been helping to stimulate a softening domestic economy. The Bank's next rate decision is approaching, and financial markets have swiftly repriced the probability of a cut — with many now expecting the Bank to hold rather than ease, pending clarity on whether the conflict will be resolved quickly.</p>
+      <p>Canada's position as an oil producer provides some insulation that pure oil importers lack, with higher prices benefiting Alberta's energy sector and bolstering federal royalty revenues. However, the inflationary transmission mechanism means that net-oil-exporting status does not insulate ordinary Canadian households from the cost-of-living impact of higher pump prices, heating costs, and the cascade of price increases that flow through the economy when transportation costs rise. Finance watchers are urging the government to consider targeted relief measures if the price shock persists beyond the initial weeks of the conflict.</p>
+      <div class="src">Source: <a href="https://www.foxnews.com/live-news/us-iran-israel-war-latest-march-9-live-updates" target="_blank">Fox News / Reuters Markets — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Nature Conservation Funding Faces 62% Cut in Federal Budget Estimates</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>The Carney government's 2026-27 main estimates reveal a 62 per cent reduction in dedicated federal funding for nature conservation — a cut that has alarmed environmental groups and conservation scientists who warn the reduction will hollow out Canada's commitments to the Kunming-Montreal Global Biodiversity Framework, which Canada championed at the 2022 COP15 conference in Montreal. The Enhanced Nature Legacy Program, which sunsets on March 31, has not been confirmed for renewal despite the government's stated commitments to biodiversity protection.</p>
+      <p>The government says a broader national nature strategy is forthcoming, but environmental advocates say the gap between the funding sunset and the strategy's publication represents a dangerous vacuum during which conservation initiatives will go unfunded and field staff at parks and wildlife management agencies will face layoff notices. The Parliamentary Budget Officer and former Budget Watchdog Jean-Denis Giroux, who has been vocally critical of the government for leaving his post vacant while a successor is sought, described the conservation funding situation as part of a broader pattern of fiscal opacity.</p>
+      <p>The political optics are complicated. Carney's government has positioned itself as a champion of the natural environment globally, with the Prime Minister himself having championed carbon pricing and nature-based climate solutions as a central plank of both Canadian domestic policy and international climate diplomacy. A 62 per cent cut to nature conservation spending, if confirmed in final budget figures, will test the credibility of those commitments with both domestic environmental constituencies and international partners who look to Canada for leadership on biodiversity.</p>
+      <div class="src">Source: <a href="https://www.hilltimes.com/story/2026/03/09/what-the-hell-is-this-carney-should-have-consulted-caucus-before-declaring-support-for-u-s-and-israeli-strikes-on-iran-say-some-liberal-mps/494530/" target="_blank">The Hill Times — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Gold Surges to $5,172/oz as Geopolitical Anxiety Fuels Safe-Haven Demand</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Gold prices climbed to approximately $5,172 per troy ounce on Monday as global investors moved aggressively into safe-haven assets amid the Iran conflict's escalation, the appointment of a hardline new supreme leader in Tehran, and the resulting uncertainty about the duration and scope of the Middle East war. The price represents a significant increase over pre-conflict levels and reflects the precious metal's enduring role as the financial world's preferred shelter in times of geopolitical crisis — a role it has played reliably since Bretton Woods, and before that since antiquity.</p>
+      <p>For Canadian investors and the Canadian economy, gold's surge is a mixed picture. Canada is one of the world's major gold-producing nations, with significant operations in Ontario, Quebec, and British Columbia, and higher gold prices boost mining revenues, royalties, and employment in mining communities. However, the primary driver of gold's elevation — geopolitical terror — is not something any economy should welcome as a stimulus.</p>
+      <p>Financial advisers are counselling clients to avoid panic-driven portfolio reallocation in response to the spike, noting that gold prices in crisis periods tend to be volatile and that the long-term trajectory will depend heavily on how quickly the Iran conflict is resolved. What is clear is that the era of historically low geopolitical risk premiums that characterised the years between the Cold War's end and the mid-2020s appears to be over. The world of 2026 is one in which safe-haven assets are no longer a quaint insurance policy for doomsday preppers, but a mainstream portfolio component for prudent investors.</p>
+      <div class="src">Source: <a href="https://sundayguardianlive.com/gold-price-today-9-march-2026" target="_blank">Sunday Guardian Live — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- CANADA: SPORTS -->
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>"The Sheriff" Rides Into the Sunset — Dunstone Claims First Brier After Two Heartbreaks</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Matt Dunstone fell to his knees on the ice at the Mary Brown's Centre in St. John's on Sunday evening, and if you have followed his curling career even casually, you understood completely. The 30-year-old Manitoba skip, who had lost the Brier final in 2023 and again in 2025 — and had also fallen at the Olympic trials to Brad Jacobs — finally claimed the national men's curling championship with a composed 6-3 victory over Alberta's four-time champion Kevin Koe. The game was decided in a pivotal seventh end, when Koe missed a runback and Dunstone capitalised with a delicate multi-rock sequence, scoring three to take a lead that his rink never relinquished.</p>
+      <p>Dunstone's team — third Colton Lott, second E.J. Harnden, and lead Ryan Harnden — navigated a dramatic Sunday that included a 7-3 semifinal demolition of Olympic gold medalist Brad Jacobs, giving Dunstone the chance to avenge his Olympic trials loss from just months earlier. The Harnden brothers, who are Brad Jacobs' cousins, were at the centre of a particularly emotional storyline: E.J. Harnden, 42, claimed his fourth Brier title and announced it would be his final season of competitive curling. "I never imagined this being my last Brier, and to win it — this is incredible," he said after the final.</p>
+      <p>Total attendance at the 2026 Montana's Brier reached 143,100 — the highest since St. John's last hosted the event in 2017 — a testament to Newfoundland's legendary curling passion and the appeal of a tournament featuring marquee names across the competitive field. Dunstone and his rink will now represent Canada at the LGT World Men's Curling Championship in Ogden, Utah, March 27 to April 4. "This moment feels way more incredible than I ever would have imagined," said Dunstone, who shot 94 per cent in the final. "The heartbreak this group has had — and to win it. I played free and loose all week."</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/sports/olympics/winter/curling/dunstone-kevin-koe-brier-final-recap-march-8-st-johns-9.7120008" target="_blank">CBC Sports — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Edmonton Oilers, Canucks Battle for Pacific Crown in Final Weeks</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>With the NHL regular season entering its final stretch, the Edmonton Oilers and Vancouver Canucks are engaged in a tightly contested race for the Pacific Division title that has captivated Canadian hockey fans from coast to coast. The defending champion Oilers, anchored by Connor McDavid and Leon Draisaitl, hold a narrow lead in the division standings but the Canucks — bolstered by the continued development of Elias Pettersson and a rebuilt defensive corps — have proven far more persistent challengers than many preseason prognosticators predicted.</p>
+      <p>The division race matters beyond simple standings points, with the top seed in the Pacific offering a more favourable first-round matchup in the Stanley Cup Playoffs. Edmonton's management team has been cautious with McDavid's ice time in the wake of a minor lower-body concern earlier in March, though the captain confirmed Sunday he expects to be fully available for the final regular-season games and the playoffs. The Oilers' depth lines have contributed more consistently than in recent seasons, reducing the team's dependence on its generational talents to produce every key play.</p>
+      <p>Meanwhile, in the Eastern Conference, the Ottawa Senators' remarkable late-season push continues to delight fans and confound analysts who had written the team off earlier in the campaign. If the Senators can hold their position through the final games, it will be their first playoff appearance in several seasons and would represent a meaningful step forward for a rebuild that has tested the patience of the Sens' faithful. Canadian hockey fans hoping for a Stanley Cup Final featuring two Canadian teams have not entirely given up on the dream — but the bracket math remains challenging.</p>
+      <div class="src">Source: NHL.com / Composite Hockey Reporting</div>
+    </article>
+    <article class="s">
+      <h3>Canada's Women's Curling Team Eyes World Championship Berth</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>As the men's Brier celebrations wind down in St. John's, Canada's women's curling elite are preparing for the Scotties Tournament of Hearts — the national women's championship — with the Olympic cycle putting added significance on the results. Several top rinks are jostling for position in what promises to be a tightly contested national championship, with the winning team earning the right to represent Canada at the World Women's Curling Championship later this spring.</p>
+      <p>Canada's women's curling programme has been one of the sport's most consistently dominant forces internationally, and the country expects nothing less than a medal from its representative at the world stage. The sport's profile has continued to grow in Canada following strong performances at previous Olympic games, with grassroots participation numbers rising and broadcast audiences for major curling events remaining robust even in a crowded sports media marketplace.</p>
+      <p>The broader health of Canadian curling, demonstrated by the record attendance figures at this year's Brier in St. John's, reflects the sport's deep roots in Canadian communities from Newfoundland to British Columbia. The Dunstone victory and its associated emotional resonance — years of near misses finally yielding to triumph — is exactly the kind of storyline that reminds the country why it cares so deeply about a sport involving polished granite, brooms, and ice physics, a combination that probably should not make for compelling drama, but invariably does.</p>
+      <div class="src">Source: Curling Canada Historical Records</div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- CANADA: THIS WEEK IN HISTORY -->
+  <span class="cat">This Week in History — Canada</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>1867: The British North America Act — Canada's Constitutional Moment</h3>
+      <div class="by">Historical Record</div>
+      <p>In the weeks of March 1867, the British North America Act was receiving its final readings in the Parliament at Westminster, where it would receive Royal Assent on March 29 before coming into force on July 1, 1867 — the date Canadians celebrate as Confederation. The Act united the provinces of Canada (Ontario and Quebec), Nova Scotia, and New Brunswick into a single Dominion, creating a federal structure of government that has since been amended, repatriated in 1982 with the Charter of Rights and Freedoms, and litigated before countless courts, but which remains the foundational document of Canada's constitutional identity.</p>
+      <p>The men who negotiated Confederation — the Fathers of Confederation — did their work against a backdrop of American expansionism following the Civil War, economic pressures on the small British colonies, and the recognition that a collective arrangement would provide greater security and prosperity than independent small states could manage alone. In 2026, as Canada navigates renewed American pressure on its sovereignty and economic independence, the wisdom of that foundational choice — building a federation capable of standing on its own terms — resonates with fresh and particular relevance.</p>
+      <div class="src">Source: Library and Archives Canada / Parliament of Canada Historical Records</div>
+    </article>
+    <article class="s">
+      <h3>1988: Calgary's Winter Olympic Triumph</h3>
+      <div class="by">Historical Record</div>
+      <p>In February and early March 1988 — within this historical window — Calgary, Alberta hosted the XV Olympic Winter Games, Canada's second time hosting the Winter Olympics. The Calgary Games are remembered for several iconic moments, including Jamaica's first Olympic bobsled team, the British ski jumper "Eddie the Eagle" Edwards, and the spectacular performance of figure skater Brian Boitano. For Canada, the Games were a proud showcase of Western hospitality and organisational capacity, with Calgary itself transformed permanently by the infrastructure investments made to host the event.</p>
+      <p>The Canada Olympic Park and Saddledome — built for the 1988 Games — remain in use today. The Games set a template for Winter Olympics that subsequent host cities have drawn on. In the current moment, with Canada preparing for the 2026 FIFA World Cup and bidding for future large-scale international sporting events, Calgary's 1988 Games remain a touchstone for what Canadian cities are capable of when they commit to hosting the world with ambition and warmth.</p>
+      <div class="src">Source: Calgary Olympic Committee Archives / International Olympic Committee</div>
+    </article>
+    <article class="s">
+      <h3>1971: Canada Recognises the People's Republic of China</h3>
+      <div class="by">Historical Record</div>
+      <p>On October 13, 1970 — a diplomatic act whose effects were felt through the early months of 1971 — Canada became one of the first Western nations to formally recognise the People's Republic of China, doing so six months ahead of the famous Nixon-Kissinger opening of U.S.-China relations. Prime Minister Pierre Elliott Trudeau's government negotiated the recognition carefully, with Canada acknowledging Beijing's claim over Taiwan in terms that became known as the "Canadian formula" — language sufficiently ambiguous to allow diplomatic relations without an explicit endorsement of Beijing's territorial claims.</p>
+      <p>The Canada-China diplomatic breakthrough of 1971 foreshadowed the broader opening of the West to China that would reshape the global economy over the subsequent decades. Today, as his son Mark Carney's government manages the latest chapter in the Canada-China relationship — including the recent canola deal and EV tariff reduction — the 1971 recognition stands as a reminder that Canadian foreign policy, at its best, has historically found ways to engage pragmatically with complex global realities while maintaining its principled commitments to democratic governance and international law.</p>
+      <div class="src">Source: Global Affairs Canada Historical Archives / External Affairs Department Records</div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     PART 3 — INDIA
+============================================================= -->
+<div id="india"></div>
+<div class="page">
+  <div class="section-banner">
+    <div class="flag">Part Three</div>
+    <h2>India</h2>
+  </div>
+  <p style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:13.5px;color:var(--grey);margin-bottom:18px;">A nation celebrating a cricket championship while managing an energy shock — only in India.</p>
+
+  <!-- INDIA: CURRENT EVENTS -->
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Indian Markets Hemorrhage ₹12 Lakh Crore as Oil Shock Hits Sensex</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Indian equity markets suffered one of their worst single-session declines of the year Monday, as the combined shock of oil prices surging past $100 per barrel, Brent crude briefly touching $119.50 in intraday trading, and Iran naming a hardline new supreme leader sent investors scrambling for safety. The BSE Sensex fell sharply in morning trade, while the Nifty 50 dropped approximately 600 points, wiping out an estimated ₹12 lakh crore — roughly $145 billion — in market capitalisation in a single session. The rupee depreciated further against the U.S. dollar, adding currency pressure to equity pain.</p>
+      <p>The sectors hardest hit were predictable: aviation, logistics, paints, and petrochemicals — all directly exposed to elevated crude oil input costs. Counter-intuitively, oil and gas companies and oil marketing firms also declined, as investors weighed the prospect of government-mandated price controls on retail fuel against the higher input costs the companies would need to absorb. Meanwhile, safe-haven assets — gold stocks, pharma, and IT — were among the few green spots on the trading screen.</p>
+      <p>Government officials moved quickly to reassure markets and consumers. The Ministry of Petroleum emphasised that India's fuel supply is stable, citing a stockpile of more than 250 million barrels of crude and refined products as a buffer against short-term disruption. Retail petrol and diesel prices across major cities remained unchanged Monday despite global oil crossing $100 — a political decision as much as a market one, as the government seeks to contain the inflation implications of the oil shock for the hundreds of millions of Indians who feel every rupee of price movement at the pump.</p>
+      <div class="src">Source: <a href="https://news24online.com/business/petrol-diesel-prices-today-9-march-2026-live-updates-us-israel-iran-war-push-fuel-prices-higher-in-india-check-fuel-rates-in-delhi-noida-mumbai-bengaluru-kolkata-and-other-cities/769513/" target="_blank">News24 Online — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>India Defends Russian Oil Purchases, Rejects Need for U.S. Permission</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>India's petroleum ministry issued an unusually direct statement Monday, declaring that "India has never depended on permission from any country to buy Russian oil" and confirming that Russian crude imports were continuing even in February 2026, with Russia remaining India's largest crude supplier. The statement was a pointed response to Trump administration commentary suggesting that India had committed to reducing Russian oil purchases as part of an interim trade deal that reduced U.S. tariffs on Indian exports in February — a commitment the Indian government has neither confirmed nor denied while insisting its procurement decisions are guided solely by national interest.</p>
+      <p>The timing of the statement is significant. With Gulf oil supplies severely disrupted by the Hormuz closure and Indian refiners scrambling to source emergency alternative cargoes from the United States, West Africa, and Central Asia, the Indian government is simultaneously reinforcing its energy independence posture while also accepting U.S. oil at a premium — a diplomatic balancing act of considerable delicacy. U.S. Treasury Secretary Scott Bessent welcomed increased oil sales to India as something that "alleviates pressure caused by Iran's attempt to take global energy hostage," framing it as both commercially and strategically beneficial.</p>
+      <p>The episode illustrates India's unique and carefully cultivated position in the current geopolitical landscape: a country that maintains sovereign energy procurement while selectively accepting advantages that alignment with American commercial interests provides, without formalising any commitment that would constrain future flexibility. New Delhi's ability to maintain this posture as pressures intensify will be one of the key diplomatic stories of the coming weeks.</p>
+      <div class="src">Source: <a href="https://www.themoscowtimes.com/2026/03/07/india-says-it-will-continue-buying-russian-oil-rejects-need-for-us-permission-a92148" target="_blank">The Moscow Times / Indian Government Statement — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Cheetahs Roam Free: Two Born-in-India Cubs Track into Rajasthan</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>In a remarkable milestone for India's ambitious wildlife reintroduction programme, two first-generation Indian-born cheetahs — designated KP2 and KP3 — from Kuno National Park in Madhya Pradesh were tracked 60 to 70 kilometres into Baran district, Rajasthan in March 2026, demonstrating natural territorial dispersal for the first time since the species was reintroduced to India's landscape. The development is being celebrated by wildlife biologists and conservation officials as evidence that the cheetahs, now into their second generation in India, are beginning to exhibit the natural ranging behaviour that characterises healthy wild populations.</p>
+      <p>Project Cheetah, launched in September 2022 as the world's first intercontinental large carnivore translocation programme, has had a complicated trajectory. Of 29 adult cheetahs translocated from Namibia and South Africa, nine have died and mortality rates — particularly among cubs — have raised concerns about habitat readiness and prey density. However, 28 cubs have been born in India, and the natural dispersal of born-in-India individuals into new territory represents a qualitative leap in the programme's ambitions.</p>
+      <p>Nine new cheetahs from Botswana arrived on February 28 — making it India's third African source country — bringing fresh genetic diversity to the population. The most recent arrivals were settled into quarantine at Kuno before being released into the park's habitat zones. Conservation officials are cautiously optimistic that the natural dispersal of KP2 and KP3 signals a transition from managed introduction to genuinely self-sustaining population dynamics, though years of careful monitoring will be required before that conclusion can be confirmed with confidence.</p>
+      <div class="src">Source: <a href="https://www.legacyias.com/the-hindu-upsc-news-analysis-for-09-march-2026/" target="_blank">Legacy IAS / The Hindu Analysis — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- INDIA: POLITICS -->
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>President Murmu Snubbed in West Bengal — Constitutional Row Erupts</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>A significant constitutional controversy erupted this week when neither West Bengal Chief Minister Mamata Banerjee nor any nominated minister was present to receive President Droupadi Murmu during her official state visit to the province in March 2026. The omission from protocol — which requires either the Chief Minister or a designated minister to formally receive the President — triggered sharp criticism from the Centre and drew formal requests for explanation from New Delhi, casting a shadow over federal relations at a politically charged moment.</p>
+      <p>The BJP-led Union government characterised the incident as a deliberate snub by the Trinamool Congress-led West Bengal government, reading it as another episode in the long-running antagonism between Banerjee's administration and the central government. TMC spokespersons offered procedural explanations for the absence, but the explanations failed to satisfy constitutional scholars who noted that the convention of receiving the President is a fundamental expression of respect for the highest constitutional office in the land, irrespective of political differences.</p>
+      <p>The episode feeds into a broader narrative about the health of India's federal relations and institutional norms. Critics across the political spectrum have expressed concern that the erosion of constitutional conventions — whether in the reception of the President or in the conduct of inter-governmental consultations — weakens the institutional fabric that holds together a diverse and complex federation. The UPSC daily analysis noted the incident as relevant to questions about coordination between state governments and the Union in maintaining constitutional dignity and federal protocol norms.</p>
+      <div class="src">Source: <a href="https://www.insightsonindia.com/2026/03/09/upsc-current-affairs-9-march-2026/" target="_blank">Insights IAS Current Affairs — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>India's Iran Diplomacy: Jaishankar Walks Tightrope Between Allies</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>External Affairs Minister S. Jaishankar spent the weekend in intensive back-channel communications as the Iran conflict entered its tenth day with no signs of de-escalation, and as Mojtaba Khamenei's appointment as Iran's new supreme leader set the stage for what analysts predict will be a continuation — or intensification — of Iran's strategic posture. India's position, as a country with strong relationships with the United States, Israel, Iran, and the Gulf Arab states simultaneously, has never been more stressed.</p>
+      <p>India's food security concerns have become acute and concrete: according to one analysis, agricultural produce worth approximately ₹40,000 crore — including hundreds of thousands of tonnes of basmati rice, spices, and other commodities — is stranded at Middle Eastern ports or in transit, unable to reach buyers as the regional shipping disruption continues. Gulf nations, which collectively purchase enormous volumes of Indian agricultural exports and employ millions of Indian diaspora workers, are themselves under Iranian military pressure, adding a human dimension to the trade disruption that New Delhi cannot ignore.</p>
+      <p>India has officially called for de-escalation and the protection of civilian infrastructure, without explicitly condemning either the U.S.-Israeli strikes or Iran's retaliatory action. This carefully calibrated ambiguity is consistent with India's strategic autonomy doctrine, but it is being tested as pressures mount from all sides to take clearer positions. The appointment of a hardline successor to Khamenei — one who has close ties with the Revolutionary Guard and is seen as less amenable to negotiation than his father — has reduced the window for the diplomatic off-ramp that India has been quietly working to keep open.</p>
+      <div class="src">Source: <a href="https://www.deccanherald.com/world/middle-east/us-israel-strike-iran-live-updates-west-asia-conflict-killing-of-ayatollah-ali-khamenei-middle-east-attack-doha-qatar-kuwait-saudi-arabia-crude-oil-price-mojtaba-khamenei-new-supreme-leader-3924676" target="_blank">Deccan Herald — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>International Women's Day: India Recognises Women Farmers but Gaps Remain</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>International Women's Day on March 8 prompted a national conversation in India about the role of women in agriculture — a topic of particular resonance in 2026, which the United Nations has officially designated the International Year of the Woman Farmer. The statistics are both impressive and troubling: approximately 80 per cent of rural women in India are engaged in agriculture, handling nearly 70 per cent of all farm tasks, contributing to 75 per cent of crop production and 95 per cent of animal husbandry and fisheries. Yet only 13.9 per cent of agricultural landholdings are registered in women's names.</p>
+      <p>A similar paradox characterises women's participation in STEM. India produces the world's highest percentage of female STEM graduates at the bachelor's level — 43 per cent — but women constitute only 18 per cent of the research and development workforce. The phenomenon, described as the "leaky pipeline," reflects a systemic failure to convert educational achievement into professional employment and leadership, driven by a combination of cultural expectations, family care burdens, institutional bias, and the absence of targeted support structures in research environments.</p>
+      <p>Women's advocacy organisations used International Women's Day to call for concrete policy changes: land titling reforms that include women as co-holders of agricultural property, childcare provisions in research institutions, wage parity legislation with meaningful enforcement mechanisms, and the extension of social protection schemes to women agricultural workers who currently lack formal employment recognition. Prime Minister Modi's government marked the day with ceremony, but women's groups were insistent that 2026 must be a year of systemic structural change, not simply symbolic celebration.</p>
+      <div class="src">Source: <a href="https://www.insightsonindia.com/2026/03/09/upsc-current-affairs-9-march-2026/" target="_blank">Insights IAS Current Affairs — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- INDIA: ECONOMY -->
+  <span class="cat">Economy &amp; Business</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Indian Refiners Scramble for Emergency Crude as Gulf Supplies Dry Up</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>India's major refiners — including Reliance, IOC, and HPCL — are in intensive negotiations to secure emergency crude cargoes from alternative suppliers as the Hormuz disruption has effectively removed the Gulf as a viable near-term supply source for the world's third-largest oil consumer. Refiners are scouting for additional volumes from the United States, Russia, West Africa, and Central Asian producers, with elevated tanker freight costs adding to the already elevated procurement expenses driven by the oil price surge.</p>
+      <p>The Indian government's reassurance that fuel prices will remain stable reflects both a policy commitment and a financial gamble. India's oil marketing companies — which sell petrol and diesel at regulated prices — will absorb short-term losses if global oil remains elevated while domestic prices are held flat. The government has historically used excise duty adjustments to balance OMC finances during oil price shocks, and the finance ministry is understood to be reviewing its options in this regard as the Iran crisis evolves.</p>
+      <p>Indian refiners' capacity to absorb a short shock is considerable, given India's diversified supplier base and substantial strategic reserves. The critical question is duration: a conflict resolved within weeks is manageable. A conflict lasting months, particularly one that keeps the Hormuz corridor closed through the spring and into the summer, would create supply and price pressures of a fundamentally different magnitude. India's energy planners are gaming out both scenarios with increasing urgency, and the results of those calculations are feeding directly into India's diplomatic posture on the conflict.</p>
+      <div class="src">Source: <a href="https://www.deccanherald.com/world/middle-east/us-israel-strike-iran-live-updates-west-asia-conflict-killing-of-ayatollah-ali-khamenei-middle-east-attack-doha-qatar-kuwait-saudi-arabia-crude-oil-price-mojtaba-khamenei-new-supreme-leader-3924676" target="_blank">Deccan Herald / Reuters — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>AI-Powered Canal Cleaning Robot Deployed in Thiruvananthapuram Under Swachh Bharat</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>The Thiruvananthapuram Municipal Corporation has deployed the G-SPIDER robotic canal cleaning system — an AI-enabled technology developed by Genrobotic Innovations — in canal maintenance operations under the Swachh Bharat Mission–Urban 2.0 framework, marking a significant application of robotics and artificial intelligence to urban sanitation infrastructure. The G-SPIDER, developed by the creators of the Bandicoot robotic scavenger that has previously been used for manual scavenging elimination, uses computer vision and autonomous navigation to clean urban canals without placing human workers in hazardous conditions.</p>
+      <p>The deployment is being watched closely by municipal corporations across India, many of which face chronic challenges in maintaining urban water and drainage infrastructure — particularly in cities where rapid population growth and monsoon flooding place the canal network under severe seasonal stress. If the G-SPIDER system performs reliably in Thiruvananthapuram's conditions, it could provide a scalable template for AI-assisted urban infrastructure maintenance that other cities could adopt.</p>
+      <p>India's urban technology sector has been one of the most dynamic areas of growth in the country's innovation ecosystem, with government procurement programmes under Digital India and Smart Cities Mission providing a domestic market for homegrown solutions. The G-SPIDER represents precisely the kind of Make in India technology success story that the government has been trying to showcase — a domestically developed innovation solving a distinctly Indian urban challenge, with potential for export to other emerging-market cities facing similar sanitation and infrastructure problems.</p>
+      <div class="src">Source: <a href="https://www.insightsonindia.com/2026/03/09/upsc-current-affairs-9-march-2026/" target="_blank">Insights IAS Current Affairs — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Gold Hits ₹1.63 Lakh per 10g in India as Geopolitical Anxiety Spikes</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>Gold prices in India settled at approximately ₹1.63 lakh per 10 grams of 24-karat gold Monday — slightly below the preceding day's ₹1.63-lakh-plus levels but still at historically elevated figures, as the Iran war's continuation drove global safe-haven demand while domestic market sentiment factored in currency depreciation and equity market losses. International gold was trading near $5,172 per troy ounce, having surged dramatically over the past week alongside the escalating Middle East conflict.</p>
+      <p>For Indian households, gold occupies a unique psychological and financial position that has no real parallel in Western economies. It is simultaneously a jewellery staple for weddings and festivals, a traditional savings instrument for rural and semi-urban families without access to formal banking, a hedge against inflation and currency depreciation, and a highly liquid asset that can be pledged for emergency credit. The elevation of gold prices is therefore experienced by Indian families across the income spectrum in ways that range from the personally enriching — for holders of gold jewellery and gold ETFs — to the practically challenging, as rising prices make wedding jewellery purchases for middle-income families considerably more expensive.</p>
+      <p>The RBI, which holds substantial gold reserves as part of India's foreign exchange management strategy, benefits from higher gold valuations in its balance sheet. Analysts at Motilal Oswal noted that gold's enduring strength above $5,100 per ounce "indicates its durability as a safe-haven amid ongoing geopolitical uncertainty," and suggested that prices could remain elevated as long as the Iran conflict remains unresolved. For Indian investors who have maintained gold allocations through the recent turbulence, the patience appears to be paying off.</p>
+      <div class="src">Source: <a href="https://sundayguardianlive.com/gold-price-today-9-march-2026" target="_blank">Sunday Guardian Live — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- INDIA: SPORTS -->
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>India Defend T20 World Cup Title With Historic 96-Run Demolition of New Zealand</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>India etched their name into cricket history on Sunday at the Narendra Modi Stadium in Ahmedabad, becoming the first team to successfully defend the ICC Men's T20 World Cup title with a dominant 96-run victory over New Zealand in a final that set multiple records and produced the highest total ever seen in a World Cup decider. India's 255/5 — powered by a breathtaking 89 from Sanju Samson, a 21-ball fifty from Abhishek Sharma, and 54 from the returning Ishan Kishan — was the highest-ever T20 World Cup final score. Kishan had also, poignantly, lost a close family member the day before the match, choosing to play and dedicating his innings to her memory.</p>
+      <p>New Zealand never looked like threatening the total. After Finn Allen was reprieved by a dropped catch early in the chase, wickets fell with grim regularity under the pressure of India's full-strength bowling attack. Jasprit Bumrah was magnificent, claiming 4/15 in figures that defined the game, while Axar Patel added 3/27. Tim Seifert fought gamely for 52, but the Kiwis were bowled out for 159 in 19 overs — falling 96 short of a total that had, from the moment Shivam Dube's 24-run final over brought India past 250, always looked out of reach.</p>
+      <p>The celebrations that followed were of a scale and emotional intensity that only the Narendra Modi Stadium — the world's largest cricket venue — could properly contain. Captain Suryakumar Yadav and his players were engulfed in a wave of national joy. Four players — Sanju Samson (Player of the Tournament with 321 runs), Ishan Kishan, Hardik Pandya, and Jasprit Bumrah — were named in the ICC's Team of the Tournament. India has now won the T20 World Cup three times, holds back-to-back titles, and is the first host nation to win the tournament on home soil. Hardik Pandya, reprising his iconic shrug celebration from the 2024 final, simply let the gesture speak for itself.</p>
+      <div class="src">Source: <a href="https://www.outlookindia.com/sports/cricket/india-vs-new-zealand-final-icc-t20-world-cup-2026-hardik-pandya-pose-watch-video" target="_blank">Outlook India / ANI / Zee News — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Pandya: "I Want to Win 10 More ICC Titles in the Next 10 Years"</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>If there was a single statement from Sunday's World Cup final celebrations that captured the mood of India's cricket community, it came from Hardik Pandya in the post-match interview. "I have 10 more years left in me and I want to win 10 more ICC titles," the 31-year-old all-rounder told broadcasters, in a declaration of intent so brazen in its ambition that only someone who has just won a tournament in the fashion India managed on Sunday could deliver it with a straight face. Coming from Pandya — who has now been part of three World Cup-winning squads and counts this as his "fifth comeback" — it landed not as arrogance but as earned swagger.</p>
+      <p>Pandya's personal journey through the tournament was a story of redemption and hard-won perspective. He had been booed at IPL matches earlier in the season, subjected to intense public scrutiny over his personal life and form, and once again had fought through injury concerns to be fit for the knockout stages. His tournament figures — 185 runs at a strike rate of 162.5 and nine wickets at an average of 22.4 — were those of a cricketer playing the best cricket of his career at the moment it mattered most.</p>
+      <p>He reserved particular tenderness for teammates Sanju Samson and Ishan Kishan, both of whom had experienced career setbacks in the lead-up to the tournament before being recalled to the squad and seizing their opportunity in spectacular fashion. "This is what life teaches you," Pandya said. "When you work hard, when you stay quiet, when you find happiness in others' happiness — the divine gives you opportunities." Whether these reflections translate into the philosophical depth they appear to contain, or are simply the beautifully articulate post-match observations of a very happy cricketer, the sentiment resonated deeply across a nation celebrating its latest act of cricket supremacy.</p>
+      <div class="src">Source: <a href="https://www.indiatvnews.com/sports/cricket/hardik-pandya-aims-to-win-10-more-icc-titles-after-t20-world-cup-2026-win-2026-03-09-1033102" target="_blank">India TV News / ANI — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>IPL 2026 Anticipation Reaches Fever Pitch Ahead of March 28 Launch</h3>
+      <div class="by">The Chronicler Staff &bull; March 9, 2026</div>
+      <p>With India's T20 World Cup victory still warm and the champagne metaphorically still pouring, the cricket-mad nation is already casting its gaze forward to the Indian Premier League, which is now just 19 days away. The timing could scarcely be better: the World Cup final heroes — Sanju Samson, Ishan Kishan, Abhishek Sharma, Hardik Pandya, Jasprit Bumrah, Axar Patel — will disperse to their respective franchises within days, bringing their World Cup form and elevated national profiles into a tournament that already commands the largest domestic cricket audience on earth.</p>
+      <p>Royal Challengers Bengaluru enter as defending IPL champions, seeking an unprecedented consecutive title in what will be their most scrutinised campaign yet. Mumbai Indians, Kolkata Knight Riders, and Chennai Super Kings — perennial powerhouses — all strengthened their squads at the auction. The record-breaking acquisition of Australian all-rounder Cameron Green by KKR for ₹25.20 crore remains the headline overseas signing, but every franchise has marquee attractions worth following. Cameron Green himself, it should be noted, will arrive in India without having played much cricket lately — which is, if nothing else, a very Cameron Green thing to do.</p>
+      <p>The opening match on March 28 will benefit from an extraordinary backdrop: the entire cricket world is watching India, the T20 champions, deploy their best players in the most-watched domestic competition on the planet. Ticket demand across all venues is extreme, broadcast viewership projections are breaking internal records at streaming platforms, and sponsorship revenue is tracking toward all-time highs. After the euphoria of Sunday's World Cup final, India's cricket summer is only just beginning.</p>
+      <div class="src">Source: <a href="https://en.wikipedia.org/wiki/2026_Indian_Premier_League" target="_blank">Wikipedia — 2026 Indian Premier League / Zee News Cricket</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- INDIA: THIS WEEK IN HISTORY -->
+  <span class="cat">This Week in History — India</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>1930: Gandhi Sets Out from Sabarmati — The Salt March Begins</h3>
+      <div class="by">Historical Record</div>
+      <p>On March 12, 1930 — three days from today — Mahatma Gandhi led 78 chosen satyagrahis out of the Sabarmati Ashram near Ahmedabad, beginning the 241-mile Dandi Salt March that would become one of the most consequential acts of civil disobedience in history. The march, which concluded on April 6 when Gandhi picked up a small lump of natural salt from the beach at Dandi — deliberately breaking British laws that forbade Indians from producing or selling salt outside the colonial revenue system — mobilised mass resistance across India and transfixed the world.</p>
+      <p>The Salt March's genius lay in its simplicity and moral clarity. Gandhi identified in the salt tax a symbol that everyone from the wealthy lawyer to the illiterate farmer could understand and resent — a tax on a basic necessity of life, imposed by a foreign power for its own revenue. The British response — mass arrests, including Gandhi himself, and the jailing of over 60,000 Indians — served only to validate the movement's moral authority and extend its impact globally. The march is celebrated as one of the great acts of human dignity and non-violent resistance, its lessons studied in movements for justice from Birmingham to Johannesburg to Kyiv.</p>
+      <div class="src">Source: National Archives of India / Sabarmati Ashram Historical Records</div>
+    </article>
+    <article class="s">
+      <h3>1976: India's Emergency Ends — Democracy Restored</h3>
+      <div class="by">Historical Record</div>
+      <p>In March 1977 — within the historical window of this week — India held its first general election after the Emergency period declared by Prime Minister Indira Gandhi in June 1975, an extraordinary episode in which civil liberties were suspended, opposition leaders were imprisoned, censorship was imposed on the press, and constitutional governance was effectively set aside for 21 months. The 1977 election, held after Gandhi lifted the Emergency and called for votes, resulted in a landslide defeat for the Congress party — the first time since Independence that the party had lost a national election — and brought the Janata Party coalition to power.</p>
+      <p>The Emergency remains one of the most debated and controversial episodes in Indian political history: a period when democracy was suspended in the name of stability, only to be restored by the democratic will of the very people whose rights had been curtailed. The episode is cited by constitutional scholars as evidence both of Indian democracy's vulnerability to executive overreach and of its ultimate resilience — the voters, given the chance, chose freedom over order. In a global environment where democratic backsliding is a documented trend, India's 1977 restoration of constitutional governance through the ballot box carries enduring relevance.</p>
+      <div class="src">Source: Election Commission of India / National Archives of India</div>
+    </article>
+    <article class="s">
+      <h3>2011: India Wins Cricket World Cup After 28-Year Wait</h3>
+      <div class="by">Historical Record</div>
+      <p>On April 2, 2011 — in the historic period adjacent to this week — India defeated Sri Lanka by six wickets at the Wankhede Stadium in Mumbai to win the ICC Cricket World Cup, ending a 28-year wait for the country's second ODI World Cup title and providing scenes of national celebration that have few parallels in modern Indian life. M.S. Dhoni's iconic helicopter-shot six off Nuwan Kulasekara to seal the victory at 9:33 p.m. Mumbai time remains perhaps the single most celebrated shot in Indian cricket history, and the image of Dhoni walking off the Wankhede pitch under a cascade of fireworks is seared into the collective memory of an entire generation.</p>
+      <p>The 2011 win was particularly moving because Sachin Tendulkar — who had carried India's cricketing dreams on his shoulders for more than two decades and had said explicitly that winning the World Cup was the one thing he most wanted to do before retiring — was part of the team that finally did it. "I have carried the nation on my shoulders for 21 years, but today Sachin carried us on his shoulders," teammate Virat Kohli said famously after the final. In 2026, as India win their third T20 World Cup title just days before this anniversary, the sense of cricketing dynasty and national pride burns as brightly as ever.</p>
+      <div class="src">Source: ICC Historical Records / BCCI Archives</div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     PART 4 — THE WORLD
+============================================================= -->
+<div id="world"></div>
+<div class="page">
+  <div class="section-banner">
+    <div class="flag">Part Four</div>
+    <h2>The World</h2>
+  </div>
+  <p style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:13.5px;color:var(--grey);margin-bottom:18px;">Day 10 of a war that is reshaping the energy map, the geopolitical order, and the contents of your petrol receipt.</p>
+
+  <!-- WORLD: CURRENT EVENTS -->
+  <span class="cat">Current Events</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Iran Names Mojtaba Khamenei Supreme Leader; Israel Vows to Target Him</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>Iran's Assembly of Experts convened in an emergency session Monday and voted to appoint Mojtaba Khamenei — the 56-year-old second son of slain supreme leader Ayatollah Ali Khamenei — as the Islamic Republic's third supreme leader since its founding in 1979. The announcement, broadcast on state television and accompanied by rapid declarations of allegiance from the Revolutionary Guard and military leadership, signals that Iran's hardliners have chosen continuation and defiance over any accommodation with the U.S.-Israeli assault. Mojtaba is known as a mid-ranking cleric with close ties to the Revolutionary Guard and no significant political profile outside Iran's opaque clerical establishment — which is precisely what makes his appointment alarming to Western observers.</p>
+      <p>The response from the belligerent parties was immediate and unambiguous. Israeli Foreign Minister Gideon Sa'ar described Mojtaba as "a tyrant, like father like son," whose hands are "already stained with the bloodshed that defined his father's rule," and cryptically declined to answer when asked whether the new supreme leader was a target for assassination — replying only, "you'll have to wait and see." President Trump, who had previously called Mojtaba an "unacceptable" choice, told NBC News the appointment was "a big mistake" and suggested the new leader "is not going to last long." Russia's Vladimir Putin, in stark contrast, sent Mojtaba a message pledging "unwavering support" for Tehran, calling Russia "a reliable partner" to Iran. China's foreign ministry "noted" the appointment and called for non-interference in Iran's internal affairs.</p>
+      <p>The appointment came as Iran launched its first wave of missile and drone strikes under Mojtaba's symbolic authority, with state broadcaster IRIB posting a photograph of a projectile bearing the slogan "At Your Service, Sayyid Mojtaba." Israel simultaneously launched new strikes targeting Hezbollah infrastructure in the southern suburbs of Beirut and regime-linked infrastructure in central Tehran. The casualty toll continues to mount: more than 1,200 people have died in Iran, over 400 in Lebanon, and 11 in Israel, according to figures from respective health authorities.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/liveblog/2026/3/9/iran-war-live-mojtaba-khamenei-named-supreme-leader-israel-bombs-tehran" target="_blank">Al Jazeera Live — March 9, 2026</a> / <a href="https://www.pbs.org/newshour/world/the-war-in-iran-has-entered-a-second-week-heres-where-things-stand" target="_blank">PBS NewsHour — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Oil Near $120 Briefly, Markets Reel; G7 Finance Ministers Promise "Necessary Tools"</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>Global financial markets opened Monday to a scene of considerable disorder. Brent crude, the international benchmark, briefly spiked to nearly $120 per barrel in overnight trading before pulling back to around $102 in European morning hours — still a 16.5 per cent jump from its Friday closing price of $92.69. West Texas Intermediate similarly surged to approximately $106 before settling around $100. The S&P 500 opened down 1.4 per cent, the Nasdaq fell 1.3 per cent, and the Dow Jones shed nearly 700 points as U.S. markets digested the weekend's escalation, including Israel's strikes on Iranian oil depots and the Mojtaba Khamenei appointment.</p>
+      <p>The G7 finance ministers convened an emergency call, issuing a statement that they were prepared to use "any necessary tools" to stabilise markets, though France's finance minister Roland Lescure acknowledged "we're not there yet" when asked specifically whether the U.S. had agreed to release emergency reserves from the Strategic Petroleum Reserve. The SPR, which had been replenished after the drawdown during the Russia-Ukraine energy crisis, remains a potential stabilising instrument, but its deployment before a clearer picture of the conflict's duration emerges is a decision the administration has not yet made.</p>
+      <p>Economists at Goldman Sachs and JPMorgan have begun releasing revised forecasts for global growth in 2026, with scenarios modelled on conflict durations of four weeks, three months, and six months or more. Even the shortest scenario implies a meaningful upward revision to headline inflation across major economies and a consequent delay to the interest rate cutting cycle that central banks had been cautiously beginning. Trump's Sunday Truth Social post — that oil prices at current levels are "a very small price to pay for U.S.A., and World, Safety and Peace" — has not been received with universal agreement by financial market participants, many of whom would characterise the current price as large and the peace as conspicuously absent.</p>
+      <div class="src">Source: <a href="https://www.cnbc.com/2026/03/09/iran-war-updates-oil-brent-wti-crude-110-gulf-gcc-uae-iraq-saudi-arabia-kurds.html" target="_blank">CNBC — March 9, 2026</a> / <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-oil-prices-khamenei-supreme-leader-israel-trump-rcna262378" target="_blank">NBC News Live — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>U.S. Orders Non-Emergency Staff to Leave Saudi Arabia; Iran Women's Soccer Team Seeks Asylum</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>The U.S. government Monday ordered non-emergency government employees to leave Saudi Arabia, citing "heightened risks from armed conflict, terrorism and missile and drone attacks from Yemen and Iran" — the first such departure order issued for Saudi Arabia since the start of the conflict. The order, combined with the State Department's activation of Crisis Intake Forms for American citizens across six Gulf states, signals that Washington's assessment of the conflict's geographic reach has expanded significantly beyond the initial assumption that hostilities would be contained to Iran and its direct proxies. Saudi Arabia announced its first civilian deaths from Iranian attacks earlier in the day.</p>
+      <p>Meanwhile, a remarkable humanitarian story emerged from Australia, where Iran's women's national soccer team — competing in the AFC Women's Asian Cup when the conflict began — was reported to have refused to sing the national anthem following news of Ali Khamenei's killing, and to have flashed what Iranian-American journalist Masih Alinejad described as an "SOS signal" during a team photograph. Alinejad urged the Australian government to protect the players from forced return to Iran, where she said they had been labelled "war-time traitors." Australian Prime Minister Anthony Albanese confirmed to President Trump during a telephone call that Australia would ensure the safety of the players — a commitment Trump relayed to media.</p>
+      <p>The Iranian women's soccer team story has captured international attention as a human face of the conflict's consequences for ordinary Iranians. The players' silent act of defiance resonated globally as an expression of the sentiments of millions of Iranians who oppose the regime but fear retribution. Their situation sits at the intersection of international refugee law, sporting diplomacy, and the complex politics of regime change — a combination that the international community, which has clear legal frameworks for none of these scenarios, is navigating in real time.</p>
+      <div class="src">Source: <a href="https://www.foxnews.com/live-news/us-iran-israel-war-latest-march-9-live-updates" target="_blank">Fox News Live — March 9, 2026</a> / <a href="https://gulfnews.com/world/mena/usisrael-war-on-iran-day-10-mojtaba-khamenei-named-supreme-leader-gulf-states-face-new-attacks-1.500467987" target="_blank">Gulf News — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- WORLD: POLITICS -->
+  <span class="cat">Politics</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Trump Faces Political Heat as Democrats Hammer Iran Economic Fallout</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>President Trump's political standing continued to face headwinds Monday as the economic consequences of the Iran war became more tangible for ordinary Americans and Democratic strategists sharpened their midterm messaging around the intersection of foreign adventurism and domestic cost-of-living pain. A Fox News poll — conducted at the weekend — showed 61 per cent of voters disapproving of Trump's economic management, a figure that Republican strategists described privately as deeply concerning given that economic approval historically drives presidential approval more reliably than any other single factor.</p>
+      <p>The school strike controversy also deepened. Six key Democratic senators released a joint statement expressing being "horrified" over a strike on a school in southern Iran that officials say killed scores of children. The White House has not ruled out that U.S. military personnel launched the strike, with Defence Secretary Pete Hegseth saying the administration is "still investigating." Independent analysis cited by the senators "credibly suggests" the strike may have been conducted by U.S. forces, a conclusion that, if confirmed, would represent a moral and political crisis of the first order for the administration.</p>
+      <p>Trump's public posture remains one of unshaken confidence — he told Fox News on Sunday that he is "not happy" with Iran's choice of new supreme leader, suggesting the selection was made without his approval, a framing that implies a degree of U.S. authority over Iran's internal governance that would surprise constitutional scholars and the Iranian clerical establishment alike. Privately, sources familiar with White House deliberations describe an administration grappling with the gap between the war's theoretical objectives — eliminating Iran's nuclear programme — and its practical consequences, including the appointment of a potentially more hardline leader and a conflict that shows no signs of producing the quick resolution that was the plan's implicit premise.</p>
+      <div class="src">Source: <a href="https://www.npr.org/2026/03/09/nx-s1-5742327/us-israel-iran-war-new-supreme-leader" target="_blank">NPR — March 9, 2026</a> / <a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-09-26" target="_blank">CNN World Live — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Putin Pledges "Unwavering Support" for New Iranian Supreme Leader</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>Russian President Vladimir Putin sent a personal message to Mojtaba Khamenei on his appointment as Iran's new supreme leader, pledging that Russia would remain "a reliable partner" to Iran and expressing "unwavering support" for Tehran "at a time when Iran is confronting armed aggression." The message, which was made public by the Kremlin, is the most direct statement yet of Russia's alignment with Iran in the current conflict and will further complicate U.S. diplomatic efforts to build a broad international coalition in support of the military campaign. Putin also added that the tenure of the new supreme leader "will undoubtedly require great courage and dedication" — a formulation that reads, in the current context, almost as a direct challenge to Israel's threats against Mojtaba's life.</p>
+      <p>The Russia-Iran alignment is not new, but its public and fulsome expression in the context of an active military conflict with the United States and Israel marks a significant escalation of its visibility. Reports from the Associated Press — citing intelligence sources — indicate that Russia has provided Iran with information that could help Tehran target U.S. military assets in the region, a claim that, if confirmed, would constitute a profound escalation of Russian involvement in the conflict. The U.S. State Department indicated it was assessing the reports but did not confirm or deny the underlying intelligence.</p>
+      <p>For European allies watching the conflict, Russia's active support for Iran — even if primarily diplomatic rather than materiel at this stage — reinforces the emerging alignment of what some analysts are calling the "axis of the aggrieved": Russia, China, Iran, and several other states that have distinct but overlapping grievances with the U.S.-led global order. The coherence of this alignment, and its practical implications for the conflict's trajectory, are being watched with great anxiety in NATO capitals from Brussels to Ottawa.</p>
+      <div class="src">Source: <a href="https://gulfnews.com/world/mena/usisrael-war-on-iran-day-10-mojtaba-khamenei-named-supreme-leader-gulf-states-face-new-attacks-1.500467987" target="_blank">Gulf News — March 9, 2026</a> / <a href="https://www.cnbc.com/2026/03/09/iran-war-updates-oil-brent-wti-crude-110-gulf-gcc-uae-iraq-saudi-arabia-kurds.html" target="_blank">CNBC — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Iran Blames European Nations for "Creating Conditions" for the War</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>Iran's foreign ministry spokesman Esmaeil Baqaei told reporters at a weekly press briefing Monday that European countries — citing France specifically — have "unfortunately helped create the conditions" for the U.S.-Israeli assault on Iran, adding a new and pointed dimension to the diplomatic fallout from a conflict that has already strained transatlantic relationships to a notable degree. The accusation appeared to reference European support for the reimposition of nuclear sanctions through the UN Security Council snapback mechanism in 2025, which Iran has blamed for triggering the escalatory cycle that led to the current hostilities.</p>
+      <p>European governments, which have been largely united in calling for a ceasefire and criticising both the legality and the strategic wisdom of the military campaign, found themselves placed in an uncomfortable position by Baqaei's remarks — simultaneously being blamed by Iran for having created the conditions for a war they publicly oppose. The French foreign ministry rejected the characterisation, calling it "without basis." However, the episode illustrates the fragmented and uncomfortable position European nations occupy in this conflict, having neither the leverage to stop the fighting nor the moral credibility to have fully restrained Iranian nuclear behaviour through the decades of diplomatic engagement that preceded the current crisis.</p>
+      <p>The broader diplomatic landscape on Day 10 is one of extraordinary fragmentation. The UN Security Council is deadlocked, with Russia and China vetoing ceasefire resolutions while the U.S. blocks counter-resolutions. Oman — traditionally the back-channel intermediary between the U.S. and Iran — is attempting to open communications between the parties, but with Iranian Foreign Minister Abbas Araghchi telling NBC News the country "must continue fighting," the prospects for an imminent diplomatic resolution appear extremely limited. Oman's Sultan Haitham congratulated Mojtaba Khamenei on his appointment, keeping Muscat's traditional neutrality intact as a potential future mediator.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/liveblog/2026/3/9/iran-war-live-mojtaba-khamenei-named-supreme-leader-israel-bombs-tehran" target="_blank">Al Jazeera — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- WORLD: ECONOMY -->
+  <span class="cat">Economy &amp; Business</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Iran War Could Make Affordability the Defining Issue of 2026 Elections</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>Political analysts across the United States and Canada were Monday reconsidering their electoral models in light of the Iran war's economic consequences, with a growing consensus that the conflict has created conditions for affordability — not foreign policy — to become the central issue of both the U.S. midterms in November and any Canadian federal election that occurs this spring or summer. The logic is familiar from previous energy shock periods: voters can tolerate foreign policy decisions in the abstract, but they punish governments when those decisions translate visibly into the price of filling a gas tank or purchasing groceries.</p>
+      <p>The CNBC analysis "Iran war could make affordability bigger issue in 2026 elections" captured the consensus view: the administration entered the conflict period having made significant political capital on a narrative of American strength and decisive action. That capital is being spent rapidly as oil surges, inflation expectations rise, and the "short term" consequences that Trump described as "a very small price to pay" begin to compound into a lived reality for middle-class American households that has a very specific electoral valence. The Democratic midterm strategy, already focused on healthcare, reproductive rights, and economic anxiety, now has a powerful new frame to deploy.</p>
+      <p>In Canada, the political dynamics are somewhat different: Carney enters any election period with strong approval ratings built partly on his credibility as an economic manager, and higher oil prices are a mixed economic signal in a country that produces oil. However, if consumer price inflation rises above the Bank of Canada's target while the government is perceived as being diplomatically inconsistent on a costly war, the political arithmetic could shift in ways that neither Carney nor his strategists have fully mapped. The spring window for a Canadian election call is narrowing, and the Iran crisis has complicated the calculus significantly.</p>
+      <div class="src">Source: <a href="https://www.cnbc.com/2026/03/09/iran-war-updates-oil-brent-wti-crude-110-gulf-gcc-uae-iraq-saudi-arabia-kurds.html" target="_blank">CNBC — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Bahrain Oil Refinery Struck; Gulf Desalination Plant Hit in Escalating Attacks</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>Bahrain's major oil refinery was struck by an Iranian drone on Sunday, sending thick smoke over the island nation and marking a significant escalation in Iran's targeting of Gulf energy infrastructure. Bahrain also accused Iran of striking one of the country's desalination plants — the critical infrastructure through which Gulf nations produce the drinking water their arid climates cannot generate naturally. The dual strikes on energy and water infrastructure raised the spectre of a humanitarian dimension to the conflict that goes beyond conventional military targeting, and prompted expressions of "horror" from international water security organisations.</p>
+      <p>Kuwait confirmed the deaths of two interior ministry officers. Saudi Arabia, which had reported two earlier civilian deaths from Iranian attacks, issued an official statement condemning what it described as Iran's "brutal and unprovoked" assault, even as the Kingdom itself maintains official diplomatic channels with Tehran. The UAE — which hosts significant U.S. military assets and is the commercial hub for much of the Gulf region — said it is acting in "self-defence" and has reinforced its air defence systems. The Fujairah fire, caused by debris from an intercepted Iranian projectile, was contained by emergency services over the weekend.</p>
+      <p>The targeting of Gulf civilian and economic infrastructure by Iran — whether intentional or the result of missile inaccuracies — is reshaping the Gulf states' calculations about their exposure in this conflict. Countries that had carefully avoided taking sides are increasingly finding themselves in the crossfire, creating pressure on Arab League members to engage diplomatically in ways that might constrain both Iran's escalatory ambitions and the scope of the U.S.-Israeli campaign. The Arab League emergency meeting scheduled for later this week will be the first formal multilateral Arab response to a conflict that is rapidly becoming everyone's problem.</p>
+      <div class="src">Source: <a href="https://www.pbs.org/newshour/world/the-war-in-iran-has-entered-a-second-week-heres-where-things-stand" target="_blank">PBS NewsHour — March 9, 2026</a></div>
+    </article>
+    <article class="s">
+      <h3>Seventh U.S. Service Member Killed; Trump Weighs Special Forces Deployment for Uranium Seizure</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>The U.S. military identified Sergeant Benjamin N. Pennington, 26, of Kentucky — the seventh American service member killed in the Iran conflict — on Monday, announcing he had died from injuries sustained in Saudi Arabia during Iranian retaliatory attacks on U.S. positions. The steady accumulation of American casualties — seven in ten days — is beginning to register politically in the United States, providing Democratic senators and anti-war Republicans with a human cost argument to place against the administration's strategic case for the military campaign. The Pentagon confirmed that casualties were occurring "as expected" in what it described as a challenging operational environment.</p>
+      <p>Bloomberg reported Monday that Trump is weighing the deployment of U.S. Special Forces on the ground in Iran to physically seize a stockpile of highly enriched uranium that intelligence agencies have identified as the centrepiece of Iran's near-bomb-grade nuclear material. The report, which the administration has neither confirmed nor denied, would represent a qualitative escalation of American ground engagement in Iran beyond the air and missile campaign conducted so far. The logistics and risks of such an operation — given Iran's active military posture and the unknown location of the material — are enormous, and several senior military officials have reportedly expressed strong reservations about the concept.</p>
+      <p>Netanyahu told a press conference Monday that the war "will take a long time" and promised "many surprises" in its next phase — statements that read, in the current context, as both a military communication to Iran's leadership and a signal to domestic Israeli constituencies that the prime minister intends to pursue the campaign's objectives regardless of international pressure. The Israeli military announced it has destroyed the headquarters of the Revolutionary Guard Air Force, along with ballistic missile launchers and production facilities — a claim whose verification is difficult from outside Iran's tightly controlled information environment.</p>
+      <div class="src">Source: <a href="https://www.npr.org/2026/03/09/nx-s1-5742327/us-israel-iran-war-new-supreme-leader" target="_blank">NPR — March 9, 2026</a> / <a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-09-26" target="_blank">CNN World Live — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- WORLD: SPORTS -->
+  <span class="cat">Sports</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>Lakshya Sen Wins All England Open — India's First Men's Singles Title</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>India's Lakshya Sen claimed the All England Open 2026 men's singles badminton championship in Birmingham on Sunday, defeating Lin Chun-Yi of Chinese Taipei in the final to become the first Indian player to win a men's singles title at the sport's oldest and most prestigious tournament. The victory, achieved before a wildly supportive crowd at the Utilita Arena that included hundreds of South Asian fans who had made the trip from across the United Kingdom, was greeted with enormous celebration in India — a country that has been building its badminton programme on the foundations laid by Saina Nehwal and P.V. Sindhu but has long awaited a male singles champion capable of challenging the sport's elite tier.</p>
+      <p>Sen's performance throughout the tournament was marked by a composure and technical precision that have come to define his game at his best. His movement, which had been questioned during his earlier career when injuries disrupted his development, was superb across the week. His ability to construct points through the midcourt and redirect at pace gave even the tournament's best players difficulties, and his final against Lin Chun-Yi was a display of the very best the sport has to offer at this level. India's national badminton federation celebrated the result as a watershed moment for the men's programme.</p>
+      <p>The Indian sports calendar is currently on something of a high — the T20 World Cup victory yesterday, Lakshya Sen's historic All England win today — that provides a welcome emotional counterpoint to the anxiety of the Iran conflict's economic and energy implications. Sport, as it has always done, offers its moments of pure uncomplicated joy against whatever backdrop the world happens to be providing. India's athletes are delivering those moments in considerable quantity in early March 2026.</p>
+      <div class="src">Source: All England Open 2026 Reports / Badminton World Federation</div>
+    </article>
+    <article class="s">
+      <h3>F1 2026 Australian GP: New Regulations Create Mayhem at Melbourne</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>The 2026 Formula One season is barely a race old and already the new technical regulations have delivered precisely the drama — and chaos — that their architects promised. The Australian Grand Prix at Albert Park produced a race of remarkable unpredictability, with multiple retirements, mid-race strategy reversals, and one of the most unusual safety car deployments in recent years combining to produce a result that bears little resemblance to the pre-season championship favourites list. The new cars — smaller, lighter, and with significantly reduced aerodynamic downforce under the 2026 regulations — are proving genuinely difficult to drive in wheel-to-wheel situations, as several drivers discovered to their considerable financial cost.</p>
+      <p>Max Verstappen, navigating his first season with a significantly changed technical landscape, was involved in an incident that resulted in a retirement, leaving him with zero points from the opening round. His Red Bull team — which had dominated the sport so completely under previous regulations that entire seasons became predictable mid-year — is plainly still adapting to the new formula, and the gap to McLaren and Ferrari appears real rather than illusory. Oscar Piastri, on home soil in front of an ecstatic Melbourne crowd, converted a strong qualifying position into the race's most composed performance and was ultimately rewarded.</p>
+      <p>The season-opening result has generated the most genuine uncertainty about the championship outcome that Formula One has seen in several years — exactly what the regulation change was designed to produce. Whether the Melbourne result is representative of a genuinely close season or simply a reset chaos that the established order will quickly reassert remains to be seen. The next races at Bahrain and Saudi Arabia are subject to logistical uncertainty given the Iran conflict's impact on Gulf security, with the F1 organisation reportedly in ongoing discussions with circuit operators about contingency arrangements.</p>
+      <div class="src">Source: Formula One.com / Motorsport Reports — March 2026</div>
+    </article>
+    <article class="s">
+      <h3>West Ham 1–2 Brentford: FA Cup Quarter-Final Upsets Continue</h3>
+      <div class="by">The Chronicler World Desk &bull; March 9, 2026</div>
+      <p>Brentford continued the tradition of FA Cup upsets by defeating West Ham United 2–1 at the London Stadium on Sunday, advancing to the semi-finals of English football's oldest cup competition in a match that confirmed the west London club's growing stature in the Premier League era. Brentford, built on analytical recruitment and a distinctive pressing style under manager Thomas Frank, have consistently punched above their weight in the Premier League and their Cup run reflects the same qualities — organisation, hunger, and a willingness to execute a game plan without deviation under pressure.</p>
+      <p>The result continues a frustrating season for West Ham, whose Premier League form has been inconsistent and whose cup exit will add to internal pressure on the club's management. The Hammers had been expected to reach the semi-finals based on their recent cup pedigree, and the manner of the defeat — largely outworked over 90 minutes by a side from a considerably smaller football market — will generate uncomfortable conversations at the London Stadium in the days ahead. West Ham's board have shown patience with their management structure in recent seasons but cup exits of this nature test that patience.</p>
+      <p>Elsewhere in the FA Cup's quarter-final weekend, Manchester City and Arsenal both advanced to the semi-finals, setting up a potential heavyweight final in London later this spring. English football's cup season traditionally provides a crucial narrative thread through the spring calendar, offering clubs without realistic league title chances a route to silverware and the European qualification that accompanies it. For Brentford, reaching the last four of the FA Cup would represent the club's deepest cup run in their modern Premier League era — a milestone that their fans, who have waited rather longer than most for moments of this kind, are relishing with great enthusiasm.</p>
+      <div class="src">Source: <a href="https://sundayguardianlive.com" target="_blank">Sunday Guardian Live / FA Cup Reports — March 9, 2026</a></div>
+    </article>
+  </div>
+  <hr class="sr">
+
+  <!-- WORLD: THIS WEEK IN HISTORY -->
+  <span class="cat">This Week in History — The World</span>
+  <div class="col-3">
+    <article class="s">
+      <h3>1933: Roosevelt's First 100 Days and the New Deal Begin</h3>
+      <div class="by">Historical Record</div>
+      <p>On March 9, 1933, U.S. President Franklin Delano Roosevelt signed the Emergency Banking Act — the first piece of legislation of what would become the New Deal — just five days after taking office and at the very moment the American banking system was teetering on the edge of total collapse. The act, drafted and passed by Congress in a single day, temporarily closed all U.S. banks for a national bank holiday, halted gold exports, and gave the Treasury Secretary authority to supervise the reopening of sound institutions. When Roosevelt delivered one of his famous Fireside Chats to explain the measure to Americans, the response was an outpouring of public trust that demonstrated what presidential communication could accomplish in a crisis moment.</p>
+      <p>Roosevelt's first hundred days in office — March through June 1933 — produced fifteen major pieces of legislation and established the modern framework of American government activism in response to economic emergency. The New Deal's legacy remains deeply contested, but its demonstration that democratic governments could intervene decisively in economic catastrophe without abandoning constitutional norms set a template that subsequent administrations have drawn on through every subsequent crisis, from the 2008 financial collapse to the COVID-19 pandemic. In 2026, as governments worldwide grapple with oil shocks, inflation, and geopolitical disruption, the history of 1933 is worth studying with particular care.</p>
+      <div class="src">Source: Franklin D. Roosevelt Presidential Library / Library of Congress</div>
+    </article>
+    <article class="s">
+      <h3>1945: Allied Firebombing of Tokyo — 100,000 Killed in One Night</h3>
+      <div class="by">Historical Record</div>
+      <p>On the night of March 9–10, 1945 — 81 years ago today — the United States Army Air Forces conducted Operation Meetinghouse, the single deadliest air raid in human history. Three hundred and thirty-four B-29 Superfortress bombers dropped approximately 1,665 tonnes of incendiary bombs on the densely populated civilian districts of central Tokyo, creating a firestorm that killed an estimated 80,000 to 100,000 people in a single night — more deaths than the atomic bombing of Hiroshima — and destroyed 16 square miles of the city. Over a million people were left homeless.</p>
+      <p>Operation Meetinghouse was designed specifically to destroy Japan's industrial capacity, which in 1945 was largely dispersed through residential districts in wooden-built urban areas. Its planners understood that the civilian death toll would be enormous. The operation remains one of the most morally complex events of the Second World War — militarily decisive in accelerating Japan's defeat, and simultaneously one of history's most devastating attacks on civilian populations. As the Iran war produces its own contested civilian strike, with reports of children killed in a school, the events of March 1945 remind us that the moral accounting of air war is never simple, and its full weight is always borne by those who did not choose it.</p>
+      <div class="src">Source: U.S. Army Air Forces Historical Division / Tokyo Metropolitan Government Archives</div>
+    </article>
+    <article class="s">
+      <h3>1954: Edward R. Murrow Takes On McCarthy — Journalism's Finest Hour</h3>
+      <div class="by">Historical Record</div>
+      <p>On March 9, 1954 — exactly 72 years ago today — CBS broadcast journalist Edward R. Murrow dedicated an entire episode of his documentary programme "See It Now" to a critical examination of Senator Joseph McCarthy's anti-communist crusade, using McCarthy's own speeches and footage to expose the tactics of fear, innuendo, and manipulation that the senator had used to destroy careers and terrorise public life in America for several years. Murrow's closing statement — "The fault, dear Brutus, is not in our stars but in ourselves" — has since become one of the most celebrated passages in the history of American journalism.</p>
+      <p>The broadcast did not end McCarthyism alone — the Army-McCarthy hearings and Joseph Welch's famous "Have you no sense of decency?" challenge later that year were equally decisive — but it demonstrated that journalism, at its best, could speak truth to the most powerful forms of political intimidation and survive. Murrow's courage in confronting McCarthy at the height of his power, accepting the personal and professional risk that came with it, remains the benchmark against which journalistic independence is measured. In an era when journalism's role in democratic society is again being contested and tested, March 9, 1954 stands as a foundational date in the history of press freedom.</p>
+      <div class="src">Source: CBS News Archives / Edward R. Murrow Papers, Tufts University</div>
+    </article>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     WEATHER
+============================================================= -->
+<div id="weather"></div>
+<div class="page" style="padding-top:0">
+  <div class="section-banner" style="margin-top:0">
+    <div class="flag">Weather Centre</div>
+    <h2>Today's Forecast — Monday, March 9, 2026</h2>
+  </div>
+  <p style="text-align:center;font-style:italic;color:var(--grey);font-size:12.5px;margin:8px 0 18px;">Conditions across our readers' cities. Temperatures in °C. Forecasts: Environment Canada &amp; IMD.</p>
+
+  <div class="w-grid">
+
+    <div class="w-card">
+      <div class="city">Whitby</div>
+      <div class="region">Ontario, Canada</div>
+      <span class="w-icon">☁️</span>
+      <div class="temp">7°C</div>
+      <div class="rng">↓ 0° tonight &nbsp;|&nbsp; ↑ 7° tomorrow</div>
+      <div class="cond">Cloudy, patchy fog clearing</div>
+      <div class="drow"><span>💧 Humidity: 95%</span><span>💨 NW 10 km/h</span></div>
+      <div class="drow"><span>👁 Vis: 4 km improving</span><span>🌡 Cool</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>☁️</span>7°</div>
+        <div class="dm">Tue<span>☀️</span>13°</div>
+        <div class="dm">Wed<span>🌦️</span>11°</div>
+        <div class="dm">Thu<span>🌧️</span>9°</div>
+        <div class="dm">Fri<span>❄️</span>2°</div>
+      </div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:7px;">Env. Canada / Oshawa Airport</div>
+    </div>
+
+    <div class="w-card">
+      <div class="city">Toronto</div>
+      <div class="region">Ontario, Canada</div>
+      <span class="w-icon">🌤️</span>
+      <div class="temp">11°C</div>
+      <div class="rng">↓ 2° tonight &nbsp;|&nbsp; ↑ 14° tomorrow</div>
+      <div class="cond">Partly cloudy, breezy</div>
+      <div class="drow"><span>💧 Humidity: 72%</span><span>💨 WSW 25 km/h</span></div>
+      <div class="drow"><span>👁 Vis: 24 km</span><span>📈 Pressure rising</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>🌤️</span>11°</div>
+        <div class="dm">Tue<span>☀️</span>14°</div>
+        <div class="dm">Wed<span>🌦️</span>11°</div>
+        <div class="dm">Thu<span>🌧️</span>9°</div>
+        <div class="dm">Fri<span>❄️</span>1°</div>
+      </div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:7px;">Env. Canada / Toronto Pearson</div>
+    </div>
+
+    <div class="w-card">
+      <div class="city">New Delhi</div>
+      <div class="region">Delhi, India</div>
+      <span class="w-icon">🔆</span>
+      <div class="temp">38°C</div>
+      <div class="rng">↓ 22° tonight &nbsp;|&nbsp; ↑ 39° tomorrow</div>
+      <div class="cond">Hot &amp; Hazy — Above Normal Temps</div>
+      <div class="drow"><span>💧 AQI: 268 (Poor)</span><span>💨 ~15 km/h</span></div>
+      <div class="drow"><span>🌡 5–8°C above normal</span><span>☀️ 8 hrs sun</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>🔆</span>38°</div>
+        <div class="dm">Tue<span>🔆</span>38°</div>
+        <div class="dm">Wed<span>🔆</span>38°</div>
+        <div class="dm">Thu<span>🌤️</span>36°</div>
+        <div class="dm">Fri<span>🌤️</span>35°</div>
+      </div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:7px;">IMD / LatestLY Weather — Mar 9, 2026</div>
+    </div>
+
+    <div class="w-card">
+      <div class="city">Pune</div>
+      <div class="region">Maharashtra, India</div>
+      <span class="w-icon">☀️</span>
+      <div class="temp">36°C</div>
+      <div class="rng">↓ 21° tonight &nbsp;|&nbsp; ↑ 37° tomorrow</div>
+      <div class="cond">Hot &amp; Dry — No rainfall expected</div>
+      <div class="drow"><span>💧 Humidity: Low-Moderate</span><span>💨 ~18 km/h</span></div>
+      <div class="drow"><span>☀️ Sunny &amp; warm</span><span>🌡 Warming trend</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>☀️</span>36°</div>
+        <div class="dm">Tue<span>☀️</span>37°</div>
+        <div class="dm">Wed<span>☀️</span>37°</div>
+        <div class="dm">Thu<span>☀️</span>37°</div>
+        <div class="dm">Fri<span>☀️</span>38°</div>
+      </div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:7px;">IMD / easeweather.com Pune</div>
+    </div>
+
+    <div class="w-card">
+      <div class="city">Hyderabad</div>
+      <div class="region">Telangana, India</div>
+      <span class="w-icon">☀️</span>
+      <div class="temp">36°C</div>
+      <div class="rng">↓ 21° tonight &nbsp;|&nbsp; ↑ 37° tomorrow</div>
+      <div class="cond">Hot &amp; Sunny — No rain</div>
+      <div class="drow"><span>💧 Humidity: Moderate</span><span>💨 ~7 km/h</span></div>
+      <div class="drow"><span>☀️ Sunny spells</span><span>🌡 Above normal</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>☀️</span>36°</div>
+        <div class="dm">Tue<span>☀️</span>37°</div>
+        <div class="dm">Wed<span>☀️</span>37°</div>
+        <div class="dm">Thu<span>☀️</span>38°</div>
+        <div class="dm">Fri<span>🌤️</span>38°</div>
+      </div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:7px;">IMD / Sunday Guardian Live — Mar 9, 2026</div>
+    </div>
+
+  </div>
+  <p style="text-align:center;font-size:10px;color:var(--grey);font-style:italic;margin-top:16px;">⚠️ Weather data current as of Monday morning local time. Check official meteorological sources before travel.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     COMICS
+============================================================= -->
+<div id="comics"></div>
+<div class="comic-wrap">
+  <div class="section-banner" style="margin-top:0">
+    <div class="flag">The Chronicler Comic Strip</div>
+    <h2>"Day 10: The Sequel Nobody Asked For"</h2>
+  </div>
+  <p style="text-align:center;font-family:'Libre Baskerville',serif;font-style:italic;font-size:12px;color:var(--grey);margin:8px 0 4px;">Pencil-sketch satire on the week that keeps on giving. All resemblance to actual events is entirely, unfortunately, intentional.</p>
+
+  <!-- ROW 1 -->
+  <div class="strip">
+
+    <!-- Panel 1 -->
+    <div class="panel">
+      <div class="plbl">Panel 1</div>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" fill="#f9f5e8"/>
+        <!-- Podium Iran -->
+        <rect x="70" y="110" width="60" height="80" rx="4" fill="none" stroke="#555" stroke-width="2"/>
+        <ellipse cx="100" cy="135" rx="14" ry="14" fill="none" stroke="#555" stroke-width="1.5"/>
+        <text x="91" y="139" font-family="Arial" font-size="8" fill="#555">IRAN</text>
+        <!-- New leader silhouette: turban figure -->
+        <circle cx="100" cy="68" r="16" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Turban -->
+        <path d="M82 60 Q84 45 100 48 Q116 45 118 60" fill="none" stroke="#333" stroke-width="2.5"/>
+        <ellipse cx="100" cy="62" rx="18" ry="7" fill="none" stroke="#333" stroke-width="1.5"/>
+        <!-- Eyes (narrow, determined) -->
+        <line x1="93" y1="65" x2="99" y2="66" stroke="#333" stroke-width="2"/>
+        <line x1="101" y1="66" x2="107" y2="65" stroke="#333" stroke-width="2"/>
+        <!-- Beard -->
+        <path d="M90 80 Q100 92 110 80" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Body (cleric robe) -->
+        <rect x="78" y="84" width="44" height="40" rx="4" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Fist raised -->
+        <path d="M110 80 L125 60 L130 65 L118 83 Z" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Mic -->
+        <circle cx="100" cy="108" r="4" fill="none" stroke="#333" stroke-width="1.5"/>
+        <line x1="100" y1="112" x2="100" y2="120" stroke="#333" stroke-width="1.5"/>
+        <!-- Trump speech bubble from off-panel (left) -->
+        <rect x="5" y="30" width="60" height="30" rx="5" fill="#fff" stroke="#c00" stroke-width="1.5"/>
+        <text x="8" y="44" font-family="Arial" font-size="7" fill="#c00">BIG MISTAKE!</text>
+        <text x="12" y="55" font-family="Arial" font-size="6.5" fill="#c00">&ndash; Trump</text>
+        <line x1="65" y1="53" x2="82" y2="68" stroke="#c00" stroke-width="1"/>
+      </svg>
+      <div class="bub">"At your service. Let's pick up where Dad left off."</div>
+      <div class="cap">Iran's new leader wastes no time.</div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="panel">
+      <div class="plbl">Panel 2</div>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" fill="#f9f5e8"/>
+        <!-- Oil barrel stack -->
+        <ellipse cx="80" cy="100" rx="20" ry="8" fill="none" stroke="#333" stroke-width="2"/>
+        <rect x="60" y="100" width="40" height="50" fill="none" stroke="#333" stroke-width="2"/>
+        <ellipse cx="80" cy="150" rx="20" ry="8" fill="none" stroke="#333" stroke-width="2"/>
+        <text x="68" y="130" font-family="Arial Black" font-size="11" fill="#333">OIL</text>
+        <!-- Big dollar sign floating up -->
+        <text x="108" y="80" font-family="Arial Black" font-size="28" fill="#b8860b">$</text>
+        <text x="108" y="110" font-family="Arial Black" font-size="20" fill="#b8860b">$</text>
+        <text x="115" y="135" font-family="Arial Black" font-size="14" fill="#b8860b">$</text>
+        <!-- Price tag hanging from barrel -->
+        <rect x="55" y="60" width="50" height="22" rx="3" fill="#fff" stroke="#c00" stroke-width="1.5"/>
+        <text x="59" y="70" font-family="Arial Black" font-size="8" fill="#c00">$107/bbl</text>
+        <text x="61" y="79" font-family="Arial" font-size="7" fill="#c00">↑ HOW?</text>
+        <line x1="80" y1="82" x2="80" y2="100" stroke="#c00" stroke-width="1"/>
+        <!-- Regular person fainting -->
+        <circle cx="155" cy="130" r="14" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- X eyes (fainted) -->
+        <line x1="148" y1="124" x2="153" y2="129" stroke="#333" stroke-width="2"/>
+        <line x1="153" y1="124" x2="148" y2="129" stroke="#333" stroke-width="2"/>
+        <line x1="158" y1="124" x2="163" y2="129" stroke="#333" stroke-width="2"/>
+        <line x1="163" y1="124" x2="158" y2="129" stroke="#333" stroke-width="2"/>
+        <!-- Body on floor -->
+        <path d="M140 144 Q155 155 170 144" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Receipt curl -->
+        <path d="M125 150 L130 120 L138 150 L143 120" fill="none" stroke="#333" stroke-width="1.5"/>
+        <text x="120" y="168" font-family="Arial" font-size="7" fill="#888">GAS RECEIPT</text>
+      </svg>
+      <div class="bub">One barrel of "short term consequences," please.</div>
+      <div class="cap">Markets Monday, 9:30 a.m. EST.</div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="panel">
+      <div class="plbl">Panel 3</div>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" fill="#f9f5e8"/>
+        <!-- Ottawa Parliament silhouette -->
+        <path d="M10 165 L40 165 L40 130 L55 110 L70 130 L70 165 L80 165 L80 125 L95 105 L110 125 L110 165 L120 165 L120 130 L135 110 L150 130 L150 165 L190 165" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <!-- PM figure — Carney: central banker energy, ever calm -->
+        <circle cx="100" cy="68" r="16" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Glasses -->
+        <circle cx="93" cy="65" r="4" fill="none" stroke="#333" stroke-width="1.5"/>
+        <circle cx="107" cy="65" r="4" fill="none" stroke="#333" stroke-width="1.5"/>
+        <line x1="97" y1="65" x2="103" y2="65" stroke="#333" stroke-width="1"/>
+        <!-- Neutral expression -->
+        <line x1="94" y1="75" x2="106" y2="75" stroke="#333" stroke-width="1.5"/>
+        <!-- Suit -->
+        <ellipse cx="100" cy="105" rx="20" ry="28" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Tie -->
+        <path d="M97 84 L95 120 L100 128 L105 120 L103 84 Z" fill="none" stroke="#333" stroke-width="1.5"/>
+        <!-- Thought bubble with competing speech bubbles -->
+        <ellipse cx="145" cy="40" rx="40" ry="28" fill="#fff" stroke="#555" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <!-- Two tiny conflicting signs inside thought bubble -->
+        <text x="115" y="33" font-family="Arial" font-size="7" fill="#007">PRO-WAR</text>
+        <text x="115" y="48" font-family="Arial" font-size="7" fill="#c00">ANTI-WAR</text>
+        <!-- Toggle arrow between them -->
+        <path d="M130 36 L130 45" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+        <!-- Dotted thought bubble trail -->
+        <circle cx="130" cy="72" r="3" fill="none" stroke="#555" stroke-width="1"/>
+        <circle cx="136" cy="65" r="4" fill="none" stroke="#555" stroke-width="1"/>
+        <circle cx="140" cy="55" r="5" fill="none" stroke="#555" stroke-width="1"/>
+      </svg>
+      <div class="bub">"Canada neither supports nor doesn't not-oppose participation. We stand with our allies, conditionally."</div>
+      <div class="cap">PM Carney: Masterclass in Strategic Ambiguity.</div>
+    </div>
+
+    <!-- Panel 4 -->
+    <div class="panel">
+      <div class="plbl">Panel 4</div>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" fill="#f9f5e8"/>
+        <!-- Cricket stadium background (simplified arc) -->
+        <path d="M10 180 Q100 80 190 180" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="4,2"/>
+        <!-- Trophy (big, gleaming) -->
+        <rect x="80" y="80" width="40" height="50" rx="4" fill="none" stroke="#b8860b" stroke-width="2.5"/>
+        <ellipse cx="100" cy="80" rx="22" ry="10" fill="none" stroke="#b8860b" stroke-width="2.5"/>
+        <ellipse cx="100" cy="130" rx="22" ry="8" fill="none" stroke="#b8860b" stroke-width="2"/>
+        <rect x="85" y="128" width="30" height="12" rx="2" fill="none" stroke="#b8860b" stroke-width="2"/>
+        <!-- Star on trophy -->
+        <text x="93" y="112" font-family="Arial" font-size="18" fill="#b8860b">★</text>
+        <!-- Pandya figure shrugging (iconic pose) -->
+        <circle cx="50" cy="85" r="15" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Shrug arms (up and out) -->
+        <line x1="35" y1="105" x2="20" y2="92" stroke="#333" stroke-width="2.5"/>
+        <line x1="65" y1="105" x2="78" y2="92" stroke="#333" stroke-width="2.5"/>
+        <!-- Body -->
+        <ellipse cx="50" cy="115" rx="18" ry="22" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Big grin -->
+        <path d="M41 91 Q50 100 59 91" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Eyes (smug) -->
+        <line x1="44" y1="82" x2="48" y2="83" stroke="#333" stroke-width="2"/>
+        <line x1="52" y1="83" x2="56" y2="82" stroke="#333" stroke-width="2"/>
+        <!-- "10 more" text floating up -->
+        <text x="130" y="55" font-family="Arial Black" font-size="10" fill="#333">10 MORE?!</text>
+        <!-- Fireworks sketch lines -->
+        <line x1="155" y1="30" x2="168" y2="20" stroke="#b8860b" stroke-width="1.5"/>
+        <line x1="158" y1="32" x2="172" y2="30" stroke="#b8860b" stroke-width="1.5"/>
+        <line x1="153" y1="28" x2="160" y2="15" stroke="#b8860b" stroke-width="1.5"/>
+        <line x1="150" y1="32" x2="140" y2="20" stroke="#b8860b" stroke-width="1.5"/>
+      </svg>
+      <div class="bub">"10 more years. 10 more titles. You're welcome, planet Earth."</div>
+      <div class="cap">Hardik Pandya, World Cup winner, aims modestly.</div>
+    </div>
+
+  </div><!-- /strip row 1 -->
+
+  <!-- ROW 2 -->
+  <div class="strip2">
+
+    <!-- Panel 5 -->
+    <div class="panel panel2t">
+      <div class="plbl">Panel 5</div>
+      <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="220" fill="#f9f5e8"/>
+        <!-- Ice rink lines -->
+        <ellipse cx="100" cy="180" rx="85" ry="25" fill="none" stroke="#aad" stroke-width="1" stroke-dasharray="4,2"/>
+        <!-- Curling stone -->
+        <ellipse cx="100" cy="160" rx="18" ry="10" fill="none" stroke="#555" stroke-width="2"/>
+        <text x="90" y="164" font-family="Arial" font-size="7" fill="#555">BRIER '26</text>
+        <!-- Dunstone celebrating: arms up, on knees -->
+        <!-- Kneeling body -->
+        <ellipse cx="100" cy="105" rx="18" ry="22" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Head -->
+        <circle cx="100" cy="80" r="15" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Huge smile of joy -->
+        <path d="M91 88 Q100 100 109 88" fill="none" stroke="#333" stroke-width="2.5"/>
+        <!-- Tears of joy -->
+        <line x1="90" y1="78" x2="88" y2="86" stroke="#aad" stroke-width="1.5" stroke-dasharray="2,1"/>
+        <line x1="110" y1="78" x2="112" y2="86" stroke="#aad" stroke-width="1.5" stroke-dasharray="2,1"/>
+        <!-- Arms raised -->
+        <line x1="83" y1="95" x2="65" y2="75" stroke="#333" stroke-width="2.5"/>
+        <line x1="117" y1="95" x2="135" y2="75" stroke="#333" stroke-width="2.5"/>
+        <!-- Knees on ice -->
+        <ellipse cx="88" cy="128" rx="8" ry="5" fill="none" stroke="#333" stroke-width="1.5"/>
+        <ellipse cx="112" cy="128" rx="8" ry="5" fill="none" stroke="#333" stroke-width="1.5"/>
+        <!-- "BRIER CHAMP" banner (rough) -->
+        <rect x="30" y="35" width="140" height="22" rx="3" fill="none" stroke="#b8860b" stroke-width="2"/>
+        <text x="36" y="51" font-family="Arial Black" font-size="10" fill="#b8860b">BRIER CHAMPION!</text>
+        <!-- confetti dots -->
+        <circle cx="50" cy="65" r="2" fill="#c00"/><circle cx="70" cy="58" r="2" fill="#007"/><circle cx="150" cy="60" r="2" fill="#c00"/><circle cx="130" cy="70" r="2" fill="#b8860b"/>
+      </svg>
+      <div class="bub">"Three finals. Two heartbreaks. One title. Worth every sad beer."</div>
+      <div class="cap">Matt Dunstone finally wins the Brier. The Sheriff rides home.</div>
+    </div>
+
+    <!-- Panel 6 -->
+    <div class="panel panel2t">
+      <div class="plbl">Panel 6</div>
+      <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="220" fill="#f9f5e8"/>
+        <!-- Basketball court arc -->
+        <path d="M20 200 Q100 120 180 200" fill="none" stroke="#b8860b" stroke-width="1.5"/>
+        <!-- Scoreboard -->
+        <rect x="55" y="20" width="90" height="40" rx="4" fill="none" stroke="#333" stroke-width="2"/>
+        <text x="63" y="38" font-family="Arial Black" font-size="9" fill="#333">TOR 122 DAL 92</text>
+        <text x="72" y="52" font-family="Arial" font-size="7.5" fill="#555">RJ BARRETT 31 pts</text>
+        <!-- Barrett figure dunking (tall, athletic) -->
+        <!-- Body -->
+        <ellipse cx="100" cy="120" rx="16" ry="25" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Head -->
+        <circle cx="100" cy="90" r="14" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Arm stretched up holding ball -->
+        <line x1="116" y1="105" x2="145" y2="80" stroke="#333" stroke-width="2.5"/>
+        <!-- Ball at top -->
+        <circle cx="148" cy="77" r="8" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- Hoop and net -->
+        <ellipse cx="160" cy="75" rx="11" ry="5" fill="none" stroke="#c00" stroke-width="2"/>
+        <line x1="149" y1="80" x2="149" y2="95" stroke="#c00" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <line x1="171" y1="80" x2="171" y2="95" stroke="#c00" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <!-- "8000" milestone badge -->
+        <ellipse cx="55" cy="115" rx="28" ry="18" fill="none" stroke="#b8860b" stroke-width="2"/>
+        <text x="33" y="112" font-family="Arial Black" font-size="9" fill="#b8860b">8,000 pts</text>
+        <text x="38" y="123" font-family="Arial" font-size="7" fill="#888">✓ Historic</text>
+      </svg>
+      <div class="bub">"I'm a very proud Canadian. Especially now that I've outscored every Canadian except SGA."</div>
+      <div class="cap">RJ Barrett, newly inducted into the 8,000-point club.</div>
+    </div>
+
+    <!-- Panel 7 -->
+    <div class="panel panel2t" style="border-right:none">
+      <div class="plbl">Panel 7</div>
+      <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="220" fill="#f9f5e8"/>
+        <!-- G7 finance ministers around table: stick figures in suits -->
+        <ellipse cx="100" cy="135" rx="75" ry="40" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <!-- 7 small figures around table -->
+        <!-- Top left -->
+        <circle cx="45" cy="105" r="9" fill="none" stroke="#333" stroke-width="1.5"/>
+        <line x1="45" y1="114" x2="45" y2="130" stroke="#333" stroke-width="1.5"/>
+        <!-- Top right -->
+        <circle cx="155" cy="105" r="9" fill="none" stroke="#333" stroke-width="1.5"/>
+        <line x1="155" y1="114" x2="155" y2="130" stroke="#333" stroke-width="1.5"/>
+        <!-- Left -->
+        <circle cx="30" cy="135" r="9" fill="none" stroke="#333" stroke-width="1.5"/>
+        <line x1="30" y1="144" x2="30" y2="160" stroke="#333" stroke-width="1.5"/>
+        <!-- Right -->
+        <circle cx="170" cy="135" r="9" fill="none" stroke="#333" stroke-width="1.5"/>
+        <line x1="170" y1="144" x2="170" y2="160" stroke="#333" stroke-width="1.5"/>
+        <!-- Bottom -->
+        <circle cx="100" cy="170" r="9" fill="none" stroke="#333" stroke-width="1.5"/>
+        <line x1="100" y1="179" x2="100" y2="195" stroke="#333" stroke-width="1.5"/>
+        <!-- "G7" label on table -->
+        <text x="86" y="140" font-family="Arial Black" font-size="12" fill="#888">G7</text>
+        <!-- Big banner with empty promise -->
+        <rect x="25" y="25" width="150" height="55" rx="6" fill="#fff" stroke="#555" stroke-width="2"/>
+        <text x="35" y="45" font-family="Arial Black" font-size="10" fill="#555">OFFICIAL STATEMENT:</text>
+        <text x="30" y="60" font-family="Arial" font-size="8.5" fill="#555">"We have the tools."</text>
+        <text x="30" y="74" font-family="Arial" font-size="8" fill="#888">"We're not using them yet."</text>
+      </svg>
+      <div class="bub">We stand ready to deploy any necessary tool. The tool is: a strongly-worded statement.</div>
+      <div class="cap">G7 Finance Ministers: Here to Help. Eventually.</div>
+    </div>
+
+  </div><!-- /strip row 2 -->
+
+  <p style="text-align:right;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-top:8px;font-style:italic;">"Day 10: The Sequel Nobody Asked For" — The Chronicler Editorial Cartoon Studio &bull; March 9, 2026</p>
+
+</div><!-- /comic-wrap -->
+
+<div class="footer">
+  <p>THE CHRONICLER — Vol. I, No. 2 — Monday, March 9, 2026</p>
+  <p style="margin-top:4px;">All articles are based on live and confirmed reporting from the sources cited within. Historical articles drawn from public record. All information current as of Monday morning, March 9, 2026. The Chronicler is an independent publication. The comic strip is satirical and falls proudly in the tradition of the free press. No cheetahs were harmed in the making of this edition.</p>
+  <p style="margin-top:6px;">🍁 Serving readers from Whitby to Hyderabad. &copy; 2026 The Chronicler. All rights reserved.</p>
+</div>
+
+</body>
+</html>
