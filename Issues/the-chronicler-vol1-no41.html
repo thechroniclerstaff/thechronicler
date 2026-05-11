@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler &mdash; Monday, May 11, 2026 &mdash; Vol. I, No. 41</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1;}
+.mkt-card .mc-chg{display:inline-flex;align-items:center;gap:3px;margin-top:3px;border-radius:3px;padding:2px 5px;align-self:flex-start;font-family:monospace;font-size:9.5px;font-weight:700;white-space:nowrap;}
+.mc-chg.down{background:#f8d7da;color:#8b2513;border:1px solid #f0c0c0;}
+.mc-chg.up{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.mc-chg.flat{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.mkt-card .mc-note{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);font-style:italic;margin-top:3px;border-top:1px solid var(--rule);padding-top:3px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-bottom:14px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.games-row{display:grid;grid-template-columns:1fr;gap:16px;margin-top:14px;}
+.puzzle-box{border:1px solid var(--rule);border-top:3px solid var(--ink);padding:14px;background:#f9f3e3;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-bottom:8px;line-height:1.5;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;}
+.ww-mini-tile{background:var(--cream);border:1.5px solid var(--ink);padding:8px 4px;text-align:center;font-family:'Playfair Display',serif;font-weight:700;font-size:11px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:10.5px;font-weight:600;color:var(--rust);cursor:pointer;background:none;border:none;padding:6px 0;margin-top:6px;border-top:1px dashed var(--rule);width:100%;text-align:left;}
+.answer-box{margin-top:6px;display:none;}
+.answer-cat{padding:6px 9px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;margin-bottom:4px;line-height:1.5;}
+.answer-cat.a{background:#d4edda;color:#1a6b3c;border:1px solid #b8dfc5;}
+.answer-cat.b{background:#fff3cd;color:#6b4f00;border:1px solid #ffeeba;}
+.crunch-nums{display:flex;gap:10px;margin:10px 0;align-items:center;flex-wrap:wrap;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;}
+.crunch-target{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--rust);}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);margin-top:8px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+.ticker-bar{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 16px;text-align:center;}
+@media(min-width:600px){
+  .page{padding:24px 28px 36px;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+  .games-row{grid-template-columns:1fr 1fr;}
+  article.s p{text-align:justify;hyphens:auto;}
+}
+@media(min-width:800px){
+  .page{padding:28px 38px 42px;}
+  .col-3{grid-template-columns:repeat(3,1fr);gap:20px;}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 17px 0 0;margin-bottom:0;}
+  article.s:last-child{border-right:none;padding-right:0;}
+  .mkt-grid{grid-template-columns:repeat(7,1fr);}
+}
+</style>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2c9f324e65f4bde97c20728d6349a04"}'></script>
+</head>
+<body id="top">
+
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="#top">Top</a>
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="#puzzles">Puzzles</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 41 &nbsp;&middot;&nbsp; Monday, May 11, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<div class="ticker-bar">Vijay Sworn In as Tamil Nadu CM &mdash; Trump Rejects Iran&rsquo;s Ceasefire Response &mdash; Toronto Condo Market Shows First Signs of Life &mdash; Barcelona Win La Liga with El Cl&aacute;sico Victory &mdash; OKC Thunder Take 3&ndash;0 Series Lead Over Lakers &mdash; Modi Urges Indians to Carpool and Work From Home</div>
+
+<!-- ==================== CANADA ==================== -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Toronto</div><div class="w-icon">☀️</div></div>
+      <div class="w-temp">9°C</div>
+      <div class="w-rng">H: 14° &nbsp; L: 2°</div>
+      <div class="w-cond">Sunny</div>
+      <div class="w-drow"><span>💨 NW 20 km/h</span><span>💧 55%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌤️</span>15°/6°</div>
+        <div class="dm">Wed<span>🌦️</span>16°/7°</div>
+        <div class="dm">Thu<span>🌧️</span>16°/8°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Montr&eacute;al</div><div class="w-icon">🌦️</div></div>
+      <div class="w-temp">9°C</div>
+      <div class="w-rng">H: 13° &nbsp; L: 5°</div>
+      <div class="w-cond">40% Chance of showers</div>
+      <div class="w-drow"><span>💨 SW 30 km/h</span><span>💧 65%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>☀️</span>16°/6°</div>
+        <div class="dm">Wed<span>🌧️</span>14°/10°</div>
+        <div class="dm">Thu<span>🌧️</span>15°/10°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Ottawa</div><div class="w-icon">🌦️</div></div>
+      <div class="w-temp">7°C</div>
+      <div class="w-rng">H: 14° &nbsp; L: &minus;1°</div>
+      <div class="w-cond">30% Chance of showers</div>
+      <div class="w-drow"><span>💨 W 15 km/h</span><span>💧 60%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>☀️</span>16°/5°</div>
+        <div class="dm">Wed<span>🌦️</span>15°/8°</div>
+        <div class="dm">Thu<span>🌦️</span>17°/9°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Edmonton</div><div class="w-icon">🌤️</div></div>
+      <div class="w-temp">11°C</div>
+      <div class="w-rng">H: 25° &nbsp; L: 10°</div>
+      <div class="w-cond">Mainly sunny</div>
+      <div class="w-drow"><span>💨 NW 15 km/h</span><span>💧 40%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>☀️</span>20°/8°</div>
+        <div class="dm">Wed<span>☀️</span>24°/11°</div>
+        <div class="dm">Thu<span>🌧️</span>23°/10°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Vancouver</div><div class="w-icon">☀️</div></div>
+      <div class="w-temp">12°C</div>
+      <div class="w-rng">H: 17° &nbsp; L: 11°</div>
+      <div class="w-cond">Sunny</div>
+      <div class="w-drow"><span>💨 W 10 km/h</span><span>💧 66%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌤️</span>18°/13°</div>
+        <div class="dm">Wed<span>☁️</span>17°/11°</div>
+        <div class="dm">Thu<span>🌧️</span>16°/9°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather data: Environment Canada. Updated approx. 6:30 AM ET, May 11, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Toronto&rsquo;s Battered Condo Market Shows First Signs of Life as April Sales Jump 14%</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>After four years of relentless decline, Toronto&rsquo;s condominium market is showing tentative signs of stabilisation &mdash; though analysts warn the floor may still not be in. The Toronto Regional Real Estate Board reported 1,054 condo units sold in the city last month, a 14.4 per cent increase year-over-year &mdash; a figure TRREB describes as evidence that the slump may be coming to an end. But the price picture remains sobering. Condo prices fell a further 6.4 per cent over the same period, averaging just over $665,000.</p>
+      <p>GTA condo prices peaked in 2022 and have since dropped by roughly 25 per cent. Realtor Thomas Delespierre says the market has shifted from units selling in under two weeks to condos sitting for four to six months, with buyers gaining substantial negotiating power. TRREB&rsquo;s chief information officer Jason Mercer points to lower borrowing costs as the key trigger pulling buyers off the sidelines &mdash; but cautioned that one month&rsquo;s data should not be over-read. First-time buyer Tyler Florian, 29, said the combination of the First Home Savings Account, the RRSP Home Buyers&rsquo; Plan, and lower interest rates made entry possible. &ldquo;It seems like a good time,&rdquo; he said, acknowledging the uncertainty remains.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/business/toronto-condo-market-bottom-9.7192760" target="_blank" rel="noopener">CBC News / TRREB</a> &middot; May 11, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Millennials Half as Likely to Own Detached Homes in Vancouver as Boomers Were, StatCan Finds</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>A landmark Statistics Canada report has put generational numbers to what many Canadians under 40 already feel in their bones: the path to homeownership has narrowed dramatically compared to what their parents faced. Thirty-six per cent of Metro Vancouver adults between 25 and 39 owned single detached houses in 1991. By 2021, that figure had fallen to 12 per cent. Nationally, after adjusting for those still living with parents, millennials recorded a homeownership rate of 49.9 per cent &mdash; below Gen-Xers at 56.2 per cent and baby boomers at 55.9 per cent when each cohort was at the same life stage.</p>
+      <p>The StatCan study also highlights a striking shift in family formation. Only 26.6 per cent of millennials aged 25 to 39 were married with children in 2021, compared with 46.6 per cent of baby boomers in 1991. UBC professor Paul Kershaw, founder of Generation Squeeze, described the data as reflecting a financial &ldquo;vice grip&rdquo; on younger generations and advocated redirecting some old-age security spending toward rent subsidies and child care. For one Vancouver renter paying over $2,000 a month for a one-bedroom, the dream of a modest house with two kids has given way to a simpler priority: having enough money to buy food.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/british-columbia/home-owning-30s-vancouver-9.7193218" target="_blank" rel="noopener">CBC News / Statistics Canada</a> &middot; May 11, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Five Years On, Ottawa Still Won&rsquo;t Commit to National Vaping Flavour Ban</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Five years after promising to restrict vaping flavours to tobacco, mint, and menthol nationwide, the federal government has yet to bring the regulations into force &mdash; and Canada&rsquo;s health minister is now refusing to say when, or even whether, it will happen. Canada has one of the highest youth vaping rates in the world. Approximately one in three Canadians under 25 vaped within the last 30 days, and 10 per cent of high school students now vape daily. Health Canada announced its flavour restriction plan in 2021, citing evidence that fruity and sweet flavours appeal to youth. Ottawa has had regulations ready to go for two years but has not brought them in, citing concerns that a ban could trigger an illicit market.</p>
+      <p>When CBC News asked Health Minister Marjorie Michel repeatedly whether the ban would proceed, Michel said only, &ldquo;I am willing to move in that direction,&rdquo; declining to provide a timeline beyond &ldquo;as soon as possible.&rdquo; The industry argues restrictions drive users toward an unregulated black market. Canada&rsquo;s chief public health officers, the Canadian Cancer Society, and Physicians for a Smoke Free Canada have all called on Ottawa to act. In 2024, one in five Canadians who quit smoking said they did so using vaping &mdash; while the majority of new vapers were under 25 and had never smoked cigarettes.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/vaping-flavour-ban-federal-government-marjorie-michel-may-2026-9.7190735" target="_blank" rel="noopener">CBC News</a> &middot; May 11, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">GTA Focus</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Toronto Launches Early Cleanup Blitz for FIFA &mdash; But Advocates Ask: Who Gets Swept Up?</h3>
+      <div class="by">The Chronicler GTA Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>With Toronto&rsquo;s first FIFA World Cup 2026 match now just over a month away, the city has launched its annual spring cleaning campaign two months ahead of schedule &mdash; and the effort is drawing scrutiny over who gets swept up along with the litter. The Keep Toronto Beautiful campaign is deploying up to 400 city staff in eight Saturday cleaning blitzes from May through October, targeting potholes, graffiti, trees, and laneways ahead of the international tournament. Mayor Olivia Chow said clean public spaces are &ldquo;about taking pride in our city, improving our neighbourhoods and making sure people feel comfortable and connected.&rdquo;</p>
+      <p>But advocates are pressing for answers about the campaign&rsquo;s scope. Community worker and city council candidate Diana Chan McNally said she is concerned the push to present Toronto to a global audience could lead to the displacement of unhoused residents, warning that displacement can push people away from support networks and increase overdose risks. City officials say the approach remains rights-based, with areas near FIFA venues prioritised for outreach rather than enforcement. On the sustainability front, the Toronto Environmental Alliance is pushing the city to introduce reusable cups at stadium events, as Vancouver&rsquo;s BC Place has already done.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/toronto-cleanup-fifa-9.7190959" target="_blank" rel="noopener">CBC News / City of Toronto</a> &middot; May 11, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">S&amp;P/TSX reflects Friday, May 8, 2026 close. WTI Crude and Gold reflect May 8, 2026 close. Currency rates sourced live from XE.com / exchange-rates.org, May 11, 2026.</div>
+  <div class="mkt-grid">
+
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">34,078</div>
+      <span class="mc-chg up">&#9650; 220.56 (0.65%)</span>
+      <div class="mc-note">May 8 close &middot; CAD</div>
+    </div>
+
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$95.42</div>
+      <span class="mc-chg up">&#9650; 0.61 (0.64%)</span>
+      <div class="mc-note">May 8 close</div>
+    </div>
+
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,715.85</div>
+      <span class="mc-chg up">&#9650; 29.85 (0.64%)</span>
+      <div class="mc-note">May 8 close</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7299</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 11, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">&#8377;69.08</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 11, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">&euro;0.6213</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 11, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">&pound;0.5374</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 11, 2026</div>
+    </div>
+
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; <a href="https://money.tmx.com" target="_blank" rel="noopener">TMX</a> (TSX) &middot; <a href="https://finance.yahoo.com" target="_blank" rel="noopener">Yahoo Finance</a> (WTI, Gold)</div>
+
+</div><!-- /page -->
+</div><!-- /canada -->
+
+<!-- ==================== INDIA ==================== -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">New Delhi</div><div class="w-icon">☀️</div></div>
+      <div class="w-temp">34°C</div>
+      <div class="w-rng">H: 38° &nbsp; L: 27°</div>
+      <div class="w-cond">Sunny, heatwave</div>
+      <span class="aqi-badge aqi-poor">AQI 128 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>💨 NW 14 km/h</span><span>💧 19%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>☀️</span>38°/26°</div>
+        <div class="dm">Wed<span>☀️</span>38°/25°</div>
+        <div class="dm">Thu<span>☀️</span>39°/26°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Hyderabad</div><div class="w-icon">☀️</div></div>
+      <div class="w-temp">35°C</div>
+      <div class="w-rng">H: 38° &nbsp; L: 26°</div>
+      <div class="w-cond">Hot, dry</div>
+      <span class="aqi-badge aqi-moderate">AQI 62 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 ESE 12 km/h</span><span>💧 28%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>☀️</span>38°/27°</div>
+        <div class="dm">Wed<span>🌤️</span>37°/26°</div>
+        <div class="dm">Thu<span>🌤️</span>36°/25°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Mumbai</div><div class="w-icon">🌫️</div></div>
+      <div class="w-temp">33°C</div>
+      <div class="w-rng">H: 34° &nbsp; L: 28°</div>
+      <div class="w-cond">Hot, humid</div>
+      <span class="aqi-badge aqi-moderate">AQI 93 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 WNW 20 km/h</span><span>💧 63%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌤️</span>34°/28°</div>
+        <div class="dm">Wed<span>🌤️</span>33°/28°</div>
+        <div class="dm">Thu<span>🌤️</span>33°/27°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Bengaluru</div><div class="w-icon">🌤️</div></div>
+      <div class="w-temp">28°C</div>
+      <div class="w-rng">H: 34° &nbsp; L: 22°</div>
+      <div class="w-cond">Partly cloudy, storms possible</div>
+      <span class="aqi-badge aqi-moderate">AQI 80 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 E 11 km/h</span><span>💧 43%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌦️</span>33°/22°</div>
+        <div class="dm">Wed<span>🌦️</span>32°/22°</div>
+        <div class="dm">Thu<span>🌤️</span>33°/22°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chennai</div><div class="w-icon">🌤️</div></div>
+      <div class="w-temp">31°C</div>
+      <div class="w-rng">H: 33° &nbsp; L: 26°</div>
+      <div class="w-cond">Partly cloudy, light rain possible</div>
+      <span class="aqi-badge aqi-good">AQI 45 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 SE 18 km/h</span><span>💧 75%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌦️</span>32°/26°</div>
+        <div class="dm">Wed<span>🌦️</span>32°/26°</div>
+        <div class="dm">Thu<span>🌤️</span>33°/26°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Pune</div><div class="w-icon">☀️</div></div>
+      <div class="w-temp">36°C</div>
+      <div class="w-rng">H: 38° &nbsp; L: 22°</div>
+      <div class="w-cond">Sunny, very hot</div>
+      <span class="aqi-badge aqi-moderate">AQI 98 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 ENE 10 km/h</span><span>💧 20%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>☀️</span>39°/23°</div>
+        <div class="dm">Wed<span>☀️</span>38°/23°</div>
+        <div class="dm">Thu<span>🌤️</span>37°/22°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather data: IMD / India Meteorological Department &middot; aqi.in. Updated approx. 6:30 AM ET, May 11, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Actor-Turned-CM Vijay Takes Oath in Tamil Nadu, Vows to Be the Sole Power Centre</h3>
+      <div class="by">The Chronicler India Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>In a moment that would have seemed improbable just three years ago, Tamil film superstar C. Joseph Vijay was sworn in as Chief Minister of Tamil Nadu on Sunday, following his party Tamilaga Vettri Kazhagam&rsquo;s victory in the April 23 state assembly elections &mdash; and he wasted no time drawing the boundaries of his authority. In his maiden speech as Chief Minister, Vijay assured there would be only one power centre in his government: himself. &ldquo;There is only one centre here, the centre under my leadership. A centre on this side, a power centre on that side, another power centre there &mdash; none of that exists, I&rsquo;m telling you right now,&rdquo; he said.</p>
+      <p>TVK won the April 23 polls and secured outside support to cross the 118-seat majority mark. Vijay appealed to voters as a commoner from humble origins, saying, &ldquo;I do not hail from any royal lineage &mdash; I am like you, like one among your family.&rdquo; He pledged not to make false promises and expressed confidence in achieving difficult tasks with the support of crores of people, adding that he would not permit misconduct by those around him either. The swearing-in marks the culmination of a political journey that began when Vijay transformed his fan movement into a full-fledged party in early 2024, campaigning on a platform of secular social justice, Ambedkarism, and federalism.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/top-headlines/thalapathy-vijay-dons-new-role-as-tn-boss-promises-only-one-power-centre/" target="_blank" rel="noopener">The Tribune / PTI</a> &middot; May 11, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>India&rsquo;s Supreme Court Orders Bar Council to Form Expert Panel on AI-Generated Fake Verdicts</h3>
+      <div class="by">The Chronicler India Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India&rsquo;s Supreme Court has directed the Bar Council of India to constitute a committee of independent experts to examine the growing problem of lawyers &mdash; and even judges &mdash; citing non-existent, AI-generated judgments in court proceedings, calling it a matter of &ldquo;considerable institutional concern.&rdquo; A bench of Justices P.S. Narasimha and Alok Aradhe told the Bar Council that the expert panel must submit a report to the Supreme Court, posting the matter for further consideration on May 26. The case stems from a property injunction suit in Andhra Pradesh, where a trial court in August 2025 cited four Supreme Court judgments that do not exist.</p>
+      <p>The Andhra Pradesh High Court acknowledged the citations were AI-generated but still dismissed the revision petition on merits, prompting the Supreme Court to take up the matter in February 2026. The bench was unequivocal: &ldquo;There must be accountability and integrity in judicial proceedings and the parties cannot just rely on AI-generated cases and apologise for it when caught.&rdquo; The court flagged accountability gaps on both sides &mdash; litigants submitting unverified AI citations, and judges using AI for research that surfaces hallucinated precedents. It called for a sovereign large language model and an India-specific legal database, while making clear it is not seeking to ban AI outright.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/india/form-panel-to-check-use-of-ai-verdicts-sc/" target="_blank" rel="noopener">The Tribune</a> &middot; May 11, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Modi Urges Indians to Carpool, Work from Home and Skip Foreign Travel as West Asia Crisis Squeezes Oil</h3>
+      <div class="by">The Chronicler India Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Prime Minister Narendra Modi made an extraordinary public appeal to Indian citizens on Sunday, calling for a return to COVID-era habits &mdash; including working from home, virtual meetings, and reduced private car use &mdash; to help the country weather the economic fallout of the ongoing West Asia conflict. Speaking at a public meeting in Hyderabad, the PM called for collective participation to help India face global economic disruptions, supply chain challenges, and rising prices caused by the war, asking citizens to use public transport, opt for carpools, avoid foreign travel, and revive Covid-time measures such as work from home and virtual meetings.</p>
+      <p>Modi also urged citizens not to buy gold for one year in order to reduce pressure on foreign exchange reserves, and called on farmers to cut chemical fertiliser usage by 50 per cent and move toward natural farming practices. The PM urged citizens to use petrol and diesel &ldquo;with great restraint,&rdquo; encouraging metro and public transport use in cities, wider adoption of electric vehicles, and greater use of railways for freight. The appeal reflected the acute pressure the West Asia war has placed on India&rsquo;s energy import bill, with Brent crude trading above $100 a barrel as of Monday morning.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/top-headlines/carpool-work-from-home-pm-calls-for-covid-like-curbs/" target="_blank" rel="noopener">The Tribune</a> &middot; May 11, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Also in India</span>
+  <div class="col-3" style="grid-template-columns:1fr;">
+    <article class="s" style="border-bottom:none;padding-bottom:0;margin-bottom:0;">
+      <h3>India&rsquo;s Army Deploys FM Radio to Counter Misinformation Along China Border</h3>
+      <div class="by">The Chronicler India Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>In a quiet but strategically significant initiative, the Indian Army has established a network of community FM radio stations along the Line of Actual Control with China &mdash; broadcasting in local dialects, countering misinformation, and keeping isolated border communities connected in regions where mobile signals remain unreliable. In the past 18 months, two such stations have come up in Kinnaur and Spiti in Himachal Pradesh, while three are operational in Uttarakhand &mdash; at Joshimath, Pithoragarh, and Harsil. Broadcasting 12 to 14 hours daily, the stations cover fruit crops, hyper-local weather, snowfall estimates, agriculture, tourism, education, and career guidance, and are used to counter misinformation and connect communities with the Army. The Army&rsquo;s Sadbhavana project is funding and managing the FM technology under the Vibrant Villages Programme, with four more stations planned in Uttarakhand &mdash; including at Gunji, near the tri-junction of India, Nepal, and Tibet. The stations also broadcast urgent warnings about landslides and heavy snowfall that frequently cut off border roads and pilgrimage routes, while folk songs and oral histories are aired regularly.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/top-headlines/army-backed-fm-stations-amplify-local-voices-counter-misinfo-long-lac/" target="_blank" rel="noopener">The Tribune</a> &middot; May 11, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">Sensex and Nifty 50 reflect May 11, 2026 close (BSE/NSE), confirmed live from publisher&rsquo;s screen at 3:30&ndash;3:31 PM IST. Gold rate sourced from Goodreturns, May 11, 2026. Currency rates sourced live from XE.com, May 11, 2026.</div>
+  <div class="mkt-grid">
+
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div>
+      <div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">76,015.28</div>
+      <span class="mc-chg down">&#9660; 1,312.91 (1.70%)</span>
+      <div class="mc-note">May 11 close &middot; INR</div>
+    </div>
+
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE Index</div>
+      <div class="mc-val">23,815.85</div>
+      <span class="mc-chg down">&#9660; 360.30 (1.49%)</span>
+      <div class="mc-note">May 11 close &middot; INR</div>
+    </div>
+
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">INR / 10g (24K)</div>
+      <div class="mc-val">&#8377;1,52,130</div>
+      <span class="mc-chg down">&#9660; 220 (0.14%)</span>
+      <div class="mc-note">Goodreturns &middot; May 11, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">$0.01196</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 11, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">$0.01447</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 11, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">&pound;0.00776</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 11, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">1 INR in EUR</div>
+      <div class="mc-val">&euro;0.00899</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 11, 2026</div>
+    </div>
+
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; <a href="https://www.bseindia.com" target="_blank" rel="noopener">BSE India</a> &middot; <a href="https://www.nseindia.com" target="_blank" rel="noopener">NSE India</a> &middot; <a href="https://www.goodreturns.in" target="_blank" rel="noopener">Goodreturns</a> (Gold INR)</div>
+
+</div><!-- /page -->
+</div><!-- /india -->
+
+<!-- ==================== WORLD ==================== -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Trump Rejects Iran&rsquo;s Ceasefire Response as &lsquo;Totally Unacceptable&rsquo; &mdash; Nuclear Deal Talks Falter</h3>
+      <div class="by">The Chronicler World Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The diplomatic effort to end the 2026 Iran war hit a sharp setback on Sunday as US President Donald Trump publicly rejected Iran&rsquo;s latest response to an American ceasefire proposal, calling it &ldquo;TOTALLY UNACCEPTABLE&rdquo; and accusing Tehran of &ldquo;playing games with the United States, and the rest of the World.&rdquo; Iran had delivered its response to Pakistani mediators, with state broadcaster saying the country&rsquo;s position &ldquo;remains in line with our previous positions, including readiness to continue the ceasefire in exchange for the reciprocal opening of the Strait of Hormuz.&rdquo;</p>
+      <p>The US had sent Iran a 14-point document requiring it to agree not to develop nuclear weapons, halt all uranium enrichment for at least 12 years, and hand over its estimated 440 kg stockpile of uranium enriched to 60 per cent. In return, Washington offered gradual sanctions relief, the release of billions in frozen assets, and withdrawal of its naval blockade of Iranian ports. Since Iran closed the Strait of Hormuz in retaliation for US-Israeli attacks that began February 28, the US has imposed its own naval blockade on Iranian ports, cutting off a key route for global oil shipments. Analysts say Iran may need to show flexibility on its nuclear programme to reach a deal, but Tehran has insisted it is not negotiating its nuclear programme at this stage.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/liveblog/2026/5/11/iran-war-live-trump-slams-tehrans-reply-israel-kills-2-medics-in-lebanon" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 11, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>552 Dead Since Lebanon &lsquo;Ceasefire&rsquo; Began &mdash; 51 Killed in 24 Hours Including Two Medics</h3>
+      <div class="by">The Chronicler World Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Israeli military attacks on Lebanon have killed 51 people in a single 24-hour period, including two medical workers directly targeted at health authority sites &mdash; bringing the death toll to 552 since a ceasefire notionally came into effect on April 16. The Lebanese Health Ministry reported that attacks in the past 24 hours killed 51 people, and condemned Israel for directly targeting two points of the Health Authority in Qalawiya and Tibnin in Bint Jbeil district. &ldquo;The Israeli enemy continues to violate international laws and humanitarian norms, adding more crimes against paramedics,&rdquo; the ministry said.</p>
+      <p>The ministry reported 2,846 people killed across Lebanon since March 2, when Israeli forces began a new military operation. The United Nations says at least 103 Lebanese medical workers have been killed and 230 injured in more than 130 Israeli strikes since then. Israeli attacks have displaced more than 1.2 million Lebanese people since March 2. Despite the ceasefire that went into effect on April 16, attacks have only increased. A second stage of negotiations between Israel and Lebanon is expected to be held in Washington on May 14 and 15.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/5/10/medics-among-51-killed-in-israeli-attacks-on-lebanon-in-past-24-hours" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 10, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Putin Declares Ukraine War &lsquo;Coming to an End&rsquo; as US-Brokered Three-Day Ceasefire Begins</h3>
+      <div class="by">The Chronicler World Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Russian President Vladimir Putin suggested on Saturday that his country&rsquo;s war in Ukraine may be drawing to a close, as a US-brokered three-day ceasefire came into effect &mdash; though both sides continued to trade accusations of violations within hours of its start. Putin made the comments to reporters after Russia&rsquo;s most scaled-back Victory Day parade in years, where he praised Russian troops as fighting a &ldquo;just cause.&rdquo; Speaking afterward, he declared: &ldquo;I think the matter is coming to an end.&rdquo; The remarks came as Russia and Ukraine began the three-day ceasefire and agreed to exchange 1,000 prisoners.</p>
+      <p>However, broader peace talks remain stalled. Ukrainian officials said Russian attacks left at least three people dead and that close to 150 combat engagements had occurred on the front lines in the previous 24 hours. Putin also said he was ready to meet Ukrainian President Volodymyr Zelenskyy in a third country &mdash; but only once all conditions for a potential peace agreement were settled. &ldquo;This should be the final point, not the negotiations themselves,&rdquo; he said. The Kremlin confirmed it has no plans to prolong the truce beyond its three-day window.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/5/10/putin-hints-at-ending-russias-war-in-ukraine-but-why-now" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 10, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Global Markets</span>
+  <div class="mkt-note">DJIA, NASDAQ, S&amp;P 500: May 8, 2026 close. FTSE 100: May 11 intraday as at 11:51 AM GMT+1 (confirmed live). Nikkei 225: May 11 close. Hang Seng: May 11 close. Sources: Yahoo Finance, Google Finance, Hang Seng Index.</div>
+  <div class="mkt-grid">
+
+    <div class="mkt-card world">
+      <div class="mc-name">DJIA</div>
+      <div class="mc-sub">Dow Jones Industrial</div>
+      <div class="mc-val">49,609.16</div>
+      <span class="mc-chg up">&#9650; 12.19 (0.02%)</span>
+      <div class="mc-note">May 8 close &middot; USD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">NASDAQ</div>
+      <div class="mc-sub">Composite Index</div>
+      <div class="mc-val">26,247.08</div>
+      <span class="mc-chg up">&#9650; 440.88 (1.71%)</span>
+      <div class="mc-note">May 8 close &middot; USD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US Broad Market</div>
+      <div class="mc-val">7,398.93</div>
+      <span class="mc-chg up">&#9650; 61.82 (0.84%)</span>
+      <div class="mc-note">May 8 close &middot; USD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">10,238.75</div>
+      <span class="mc-chg up">&#9650; 5.68 (0.056%)</span>
+      <div class="mc-note">May 11 intraday 11:51 AM GMT+1 &middot; GBP</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,815.85</div>
+      <span class="mc-chg down">&#9660; 360.30 (1.49%)</span>
+      <div class="mc-note">May 11 close &middot; INR</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">26,406.84</div>
+      <span class="mc-chg up">&#9650; 13.13 (0.050%)</span>
+      <div class="mc-note">May 11 close &middot; HKD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">62,417.88</div>
+      <span class="mc-chg down">&#9660; 295.77 (0.47%)</span>
+      <div class="mc-note">May 11 close &middot; JPY</div>
+    </div>
+
+  </div>
+  <div class="mkt-src">Sources: <a href="https://finance.yahoo.com" target="_blank" rel="noopener">Yahoo Finance</a> &middot; <a href="https://www.hsi.com.hk" target="_blank" rel="noopener">Hang Seng Index</a> &middot; Google Finance (FTSE, Nikkei) &middot; NASDAQ</div>
+
+</div><!-- /page -->
+</div><!-- /world -->
+
+<!-- ==================== SPORT ==================== -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Barcelona Win El Cl&aacute;sico 2&ndash;0 to Clinch Back-to-Back La Liga Titles &mdash; Real Madrid&rsquo;s Season Unravels</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Barcelona are La Liga champions for the second consecutive season after defeating bitter rivals Real Madrid 2&ndash;0 in a historic El Cl&aacute;sico at the partially rebuilt Camp Nou &mdash; rubbing salt into what has been a catastrophic year for Los Blancos. Goals from Marcus Rashford and Ferran Torres sealed the title in front of their home fans. The victory was the second La Liga title in a row under German manager Hansi Flick, who took charge in the summer of 2024, and the club&rsquo;s fourth major trophy under his tenure, also including the 2025 Copa del Rey and the Spanish Super Cup.</p>
+      <p>The result completed a season of staggering contrast between the two clubs. Real Madrid suffered a Champions League quarterfinal exit to Bayern Munich, lost to Albacete in the Copa del Rey, and entered Sunday&rsquo;s match mired in internal chaos &mdash; with Federico Valverde reportedly needing stitches after a training-ground altercation with Aurelien Tchouam&eacute;ni, one of a spate of such incidents. Manager Xabi Alonso was sacked midway through the campaign, with his successor &Aacute;lvaro Arbeloa unable to arrest the slide. Reports suggest Jos&eacute; Mourinho is being considered for a return to the Bernab&eacute;u in the summer.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/5/11/what-next-for-real-madrid-after-barcelonas-la-liga-and-clasico-triumph" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 11, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Jorge Mart&iacute;n Ends 588-Day Win Drought with Historic Aprilia 1&ndash;2&ndash;3 at French MotoGP</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>In one of the most emotionally charged MotoGP victories in recent memory, Jorge Mart&iacute;n charged from seventh on the grid to win the French Grand Prix at Le Mans &mdash; ending a 588-day wait for a premier-class victory and delivering Aprilia its first-ever podium sweep in the history of the championship. Mart&iacute;n overtook race leader and Aprilia teammate Marco Bezzecchi with three laps remaining to secure his first MotoGP win since taking the 2024 world title. He finished 0.477 seconds ahead of Bezzecchi, with Trackhouse Aprilia rookie Ai Ogura completing the all-Aprilia podium in third &mdash; the first MotoGP podium of his career.</p>
+      <p>The timing carried extra significance: it was exactly one year ago at Le Mans that Mart&iacute;n stunned the Aprilia management by indicating his intention to exit his contract. Aprilia boss Massimo Rivola fought to keep him and said afterward: &ldquo;I&rsquo;m still thinking about last year at Le Mans here, when Jorge wanted to leave and I said, &lsquo;I think you can win with us.&rsquo; So winning at Le Mans is quite special for me.&rdquo; Through his double victory &mdash; sprint on Saturday, grand prix on Sunday &mdash; Mart&iacute;n has closed to within one point of championship leader Bezzecchi: 128 to 127 after five of 22 rounds. Reigning world champion Marc M&aacute;rquez suffered a fractured metatarsal and will miss the Catalan Grand Prix.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/5/10/jorge-martin-wins-his-first-aprilia-grand-prix-at-french-motogp" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 10, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>OKC Thunder Crush Lakers 131&ndash;108 to Take 3&ndash;0 NBA Playoff Series Lead &mdash; Sweep Looms</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Monday, May 11, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Oklahoma City Thunder look virtually certain to advance to the Western Conference Finals after dismantling the Los Angeles Lakers for a third consecutive time &mdash; a 131&ndash;108 Game 3 victory that has left no team in NBA history successfully navigating back from a 3&ndash;0 deficit. Ajay Mitchell scored 18 of his 24 points in the second half as OKC dominated the final 24 minutes. Shai Gilgeous-Alexander had 23 points and nine assists, Chet Holmgren added 18 points and nine rebounds, and Cason Wallace contributed 16 off the bench. The Thunder can complete the sweep in Game 4 in Los Angeles.</p>
+      <p>&ldquo;Absolutely,&rdquo; Gilgeous-Alexander said when asked about finishing the series. &ldquo;You never want to waste an opportunity to win a basketball game.&rdquo; For the Lakers, Rui Hachimura led with 21 points and LeBron James added 19 points, eight assists, and six rebounds. &ldquo;They are pretty good from top to bottom, and they don&rsquo;t take their foot off the gas,&rdquo; James said. The loss dropped the Lakers to 0&ndash;7 this season against Oklahoma City, with an average losing margin of 25.1 points across those seven games. The defending champions have been dominant from wire to wire, not losing a single game in these playoffs.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/5/10/okc-thunder-bury-la-lakers-to-take-3-0-nba-playoff-series-lead" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 10, 2026</div>
+    </article>
+
+  </div>
+</div><!-- /page -->
+</div><!-- /sport -->
+
+<!-- ==================== PUZZLES ==================== -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Puzzles</h2><div class="flag">The Chronicler Daily Games</div></div>
+
+  <div class="games-row">
+
+    <!-- CRUNCH -->
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All intermediate steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">3</div>
+        <div class="crunch-tile">5</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">9</div>
+        <span style="font-size:20px;color:var(--grey);font-family:'Playfair Display',serif;">=</span>
+        <div class="crunch-target">72</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.textContent=this.textContent.includes('Show')?'&#9660; Hide solution':'&#9654; Show solution'">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat a">(9 &minus; 3) &times; (5 + 7) = 72</div>
+        <div class="answer-cat b">Step 1: 9 &minus; 3 = 6 &nbsp;&middot;&nbsp; Step 2: 5 + 7 = 12 &nbsp;&middot;&nbsp; Step 3: 6 &times; 12 = 72</div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="https://thechronicler.ca/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive &rarr;</a></div>
+    </div>
+
+    <!-- WORD WEB -->
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">VIJAY</div>
+        <div class="ww-mini-tile">CEASEFIRE</div>
+        <div class="ww-mini-tile">CONDO</div>
+        <div class="ww-mini-tile">BARMER</div>
+        <div class="ww-mini-tile">HORMUZ</div>
+        <div class="ww-mini-tile">CLEANUP</div>
+        <div class="ww-mini-tile">TORONTO</div>
+        <div class="ww-mini-tile">MARTIN</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.textContent=this.textContent.includes('Show')?'&#9660; Hide solution':'&#9654; Show solution'">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat a">&#127775; People or places making headlines today: VIJAY &middot; BARMER &middot; HORMUZ &middot; MARTIN<br><small>Tamil Nadu&rsquo;s new CM &middot; Rajasthan heatwave at 45.7&deg;C &middot; Strait at centre of Iran war &middot; Jorge Mart&iacute;n wins French MotoGP</small></div>
+        <div class="answer-cat b">&#9201; Things on the edge &mdash; bottoming, breaking, or being swept: CEASEFIRE &middot; CONDO &middot; CLEANUP &middot; TORONTO<br><small>Iran ceasefire rejected by Trump &middot; Toronto condo market at possible bottom &middot; FIFA cleanup blitz &middot; Toronto anchors both the condo and cleanup stories</small></div>
+        <div style="margin-top:6px;font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;">Decoy: TORONTO &mdash; could suggest a headline place, but belongs to Group B as the city at the centre of both the condo market story and the FIFA cleanup story.</div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /page -->
+</div><!-- /puzzles -->
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 41 &bull; Monday, May 11, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="rgba(244,237,214,.7)" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="rgba(244,237,214,.7)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="rgba(244,237,214,.7)"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+let currentUtterance = null;
+let currentBtn = null;
+function handleRead(btn) {
+  if (currentUtterance && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    if (currentBtn) { currentBtn.textContent = '\u{1F50A} Read aloud'; }
+    if (currentBtn === btn) { currentUtterance = null; currentBtn = null; return; }
+  }
+  const article = btn.closest('article');
+  const paras = Array.from(article.querySelectorAll('p')).map(p => p.textContent).join(' ');
+  const utter = new SpeechSynthesisUtterance(paras);
+  utter.onend = () => { btn.textContent = '\u{1F50A} Read aloud'; currentBtn = null; currentUtterance = null; };
+  utter.onerror = () => { btn.textContent = '\u{1F50A} Read aloud'; };
+  currentUtterance = utter;
+  currentBtn = btn;
+  btn.textContent = '\u23F9 Stop';
+  speechSynthesis.speak(utter);
+}
+</script>
+</body>
+</html>
