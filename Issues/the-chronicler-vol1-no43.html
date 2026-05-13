@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler &mdash; Wednesday, May 13, 2026 &mdash; Vol. I, No. 43</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.ticker-bar{background:var(--rust);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;text-align:center;line-height:1.6;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1.1;}
+.mc-chg{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;padding:2px 5px;border-radius:2px;display:inline-block;width:fit-content;}
+.mc-chg.up{background:#d4edda;color:#155724;}
+.mc-chg.down{background:#f8d7da;color:#721c24;}
+.mc-chg.flat{background:#fff3cd;color:#856404;}
+.mc-note{font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-top:1px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.games-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.puzzle-box{background:var(--aged);border:1px solid var(--rule);padding:14px 14px 12px;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--rust);margin-bottom:4px;}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-bottom:10px;line-height:1.55;}
+.crunch-nums{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.crunch-target{background:var(--rust);color:#fff;font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:54px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:9.5px;background:var(--ink);color:var(--aged);border:none;padding:5px 10px;cursor:pointer;margin-bottom:8px;letter-spacing:.08em;}
+.answer-box{display:none;background:var(--cream);border:1px solid var(--rule);padding:8px 10px;margin-bottom:8px;}
+.answer-cat{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--ink);padding:4px 0;line-height:1.6;}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;}
+.ww-mini-tile{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:8px 4px;text-align:center;border-radius:3px;cursor:default;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+@media(min-width:680px){
+  .col-3{grid-template-columns:repeat(3,1fr);}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 14px 0;}
+  article.s:last-child{border-right:none;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+}
+@media(max-width:480px){
+  .games-row{grid-template-columns:1fr;}
+  .ww-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body id="top">
+
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="#top">Top</a>
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="#puzzles">Puzzles</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 43 &nbsp;&middot;&nbsp; Wednesday, May 13, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<div class="ticker-bar">NEET-UG 2026 Cancelled Over Paper Leak &mdash; CBI Ordered to Investigate &mdash; Trump Puts Taiwan Arms on Beijing Agenda &mdash; Canadian Insolvencies Hit 17-Year High &mdash; India Rebukes China Over Operation Sindoor Support for Pakistan &mdash; GT Crush SRH by 82 Runs to Go Top of IPL Table</div>
+
+<!-- ==================== CANADA ==================== -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Toronto</div><div class="w-icon">☀️</div></div>
+      <div class="w-temp">13°C</div>
+      <div class="w-rng">H: 13° &nbsp; L: 6°</div>
+      <div class="w-cond">Sunny, increasing cloud</div>
+      <span class="aqi-badge aqi-good">AQI Good</span>
+      <div class="w-drow"><span>💨 SW 15 km/h</span><span>💧 45%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>🌧️</span>16°/7°</div>
+        <div class="dm">Fri<span>🌥️</span>15°/7°</div>
+        <div class="dm">Sat<span>⛅</span>21°/11°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Montr&eacute;al</div><div class="w-icon">☀️</div></div>
+      <div class="w-temp">14°C</div>
+      <div class="w-rng">H: 22° &nbsp; L: 8°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI Good</span>
+      <div class="w-drow"><span>💨 W 18 km/h</span><span>💧 40%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>⛅</span>23°/11°</div>
+        <div class="dm">Fri<span>⛅</span>25°/11°</div>
+        <div class="dm">Sat<span>🌧️</span>19°/13°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Ottawa</div><div class="w-icon">🌥️</div></div>
+      <div class="w-temp">9°C</div>
+      <div class="w-rng">H: 12° &nbsp; L: 5°</div>
+      <div class="w-cond">Mostly cloudy; periods of rain</div>
+      <span class="aqi-badge aqi-good">AQI Good</span>
+      <div class="w-drow"><span>💨 S 12 km/h</span><span>💧 44%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>🌧️</span>14°/10°</div>
+        <div class="dm">Fri<span>🌦️</span>20°/11°</div>
+        <div class="dm">Sat<span>⛅</span>21°/11°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Edmonton</div><div class="w-icon">🌤️</div></div>
+      <div class="w-temp">11°C</div>
+      <div class="w-rng">H: 23° &nbsp; L: 10°</div>
+      <div class="w-cond">Mainly cloudy; wind alert Thu</div>
+      <span class="aqi-badge aqi-good">AQI Good</span>
+      <div class="w-drow"><span>💨 SE 20 km/h</span><span>💧 30%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>🌧️</span>15°/7°</div>
+        <div class="dm">Fri<span>🌦️</span>11°/2°</div>
+        <div class="dm">Sat<span>🌧️</span>7°/2°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Vancouver</div><div class="w-icon">🌧️</div></div>
+      <div class="w-temp">15°C</div>
+      <div class="w-rng">H: 18° &nbsp; L: 11°</div>
+      <div class="w-cond">Cloudy; 40% chance showers</div>
+      <span class="aqi-badge aqi-good">AQI Good</span>
+      <div class="w-drow"><span>💨 SE 20 km/h</span><span>💧 92%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>🌧️</span>16°/9°</div>
+        <div class="dm">Fri<span>🌧️</span>14°/8°</div>
+        <div class="dm">Sat<span>🌧️</span>15°/8°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather data: Environment Canada. Updated approx. 6:50 AM ET, May 13, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Canadian Insolvencies Hit 17-Year High as Cost-of-Living Squeeze Pushes Q1 Filings to 37,121</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The number of Canadians filing for insolvency surged to 37,121 in the first quarter of 2026 &mdash; the highest quarterly volume since 2009, when the country was emerging from the global financial crisis &mdash; according to data released Monday by the Office of the Superintendent of Bankruptcy. The figure represents an 8.5 per cent increase year-over-year and a 6.5 per cent rise from the previous quarter, with the pace of acceleration drawing concern from insolvency professionals across the country. Consumer proposals made up roughly 80 per cent of filings, while bankruptcies accounted for the remaining 20 per cent &mdash; though Ontario and Alberta saw bankruptcies grow faster than proposals, a pattern experts describe as particularly worrying.</p>
+      <p>Licensed insolvency trustee Doug Hoyes of Hoyes, Michalos &amp; Associates described the trend as a canary-in-the-coal-mine indicator, warning that the monthly insolvency rate rose 17.5 per cent between January and March alone. Roughly half of Canadians carrying debt are living paycheque to paycheque, and polls suggest about one in five feels overwhelmed by what they owe. Ontario alone accounted for nearly 14,000 filings in the quarter &mdash; a 14.7 per cent annual increase. Analysts note that insolvency is a lagging indicator, reflecting pressure built up over months or years from rising housing costs, employment disruptions, and &mdash; increasingly &mdash; the economic drag of energy market volatility linked to the ongoing West Asia conflict.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/business/insolvency-filings-increasing-canada-9.7197230" target="_blank" rel="noopener">CBC News</a> &middot; May 12, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Centurion Project Leader Refuses to Co-operate as Alberta Voter List Investigation Deepens</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>David Parker, the political organizer at the centre of Alberta&rsquo;s voter list scandal, is refusing to co-operate with Elections Alberta&rsquo;s investigation, the province&rsquo;s chief electoral officer confirmed Tuesday. Gordon McClure stated that Parker has declined to sign a statutory declaration confirming he will comply with a cease-and-desist order related to the alleged misuse of a provincial voter list containing personal information of nearly three million Albertans. Parker leads the Centurion Project, a pro-separatist group that built a searchable online database from an electoral list legally issued to the Republican Party of Alberta &mdash; a list that, under provincial law, cannot be shared with third parties.</p>
+      <p>McClure, speaking publicly for the first time since the breach was revealed, said Elections Alberta &ldquo;understands and sympathizes&rdquo; with public concern and has called for stronger legislation to protect the list of electors. He indicated he would present recommendations to the legislature once the investigation concludes, but declined to specify a timeline. The chief electoral officer also said the list should not be shared with any political party until the legislature amends existing privacy law. Alberta Premier Danielle Smith, while calling for accountability, has maintained she does not want to prejudge the outcome of independent investigations now underway by Elections Alberta, the RCMP, and Alberta&rsquo;s privacy commissioner. The Republican Party of Alberta &mdash; unlike Parker &mdash; has said it is co-operating with investigators.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/edmonton/political-organizer-from-separatist-group-not-co-operating-with-voter-list-investigation-elections-alberta-9.7196927" target="_blank" rel="noopener">CBC News (Edmonton)</a> &middot; May 12, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Canadian Armed Forces to End 70-Year Avalanche Control Mission at Rogers Pass After One Final Winter</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Canadian Armed Forces has announced it will not renew its memorandum of understanding with Parks Canada governing Operation Palaci, the unique 70-year-old military mission in which artillery units fire howitzers into the mountains flanking the Trans-Canada Highway through Glacier National Park, B.C., to trigger controlled avalanches. The programme, which protects one of North America&rsquo;s highest avalanche-hazard corridors between Revelstoke and Golden, will run for one final winter before the agreement expires in August 2027. The decision was attributed to evolving defence modernization priorities and the divestment of legacy artillery systems &mdash; the 105-millimetre C3 howitzers used at Rogers Pass are no longer produced or used in combat operations, making repairs increasingly costly and time-consuming.</p>
+      <p>Each winter, the Armed Forces deploy 15 to 20 artillery members in two rotations to fire along 17 positions across a 43-kilometre stretch of highway carrying up to 4,000 vehicles and 40 trains daily. During a single prolonged storm in March, the programme fired 271 rounds, triggering 37 large avalanches and keeping the highway passable. Prime Minister Mark Carney has stated that rebuilding and rearming the forces is a government priority, a context the Department of National Defence cited in explaining the reallocation of resources. Parks Canada has not yet announced how it will replace the military programme, and backcountry ski permit operations that have depended on the artillery clearances since 1995 face an uncertain future.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/british-columbia/canadian-armed-forces-rogers-pass-glacier-national-park-9.7195967" target="_blank" rel="noopener">CBC News (British Columbia)</a> &middot; May 12, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">GTA Focus</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Durham Region Unveils $88-Million Plan for New Ajax Police Division, Targeting 2031 Opening</h3>
+      <div class="by">The Chronicler GTA Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Durham Regional Police have announced plans for an $88-million police station in Ajax, which would serve as the service&rsquo;s new west division once completed, projected for 2031. The proposed facility at 1401 Harwood Avenue North &mdash; north of Rossland Road &mdash; requires approval from Durham Regional Council and is dependent on regional funding decisions that could push residential property taxes in Durham up by between 9 and 10.5 per cent in 2027. Durham police Chief Peter Moreira said Ajax and Pickering are currently served by a 1992 facility built when the two towns&rsquo; combined population was approximately 127,000; since then, that number has more than doubled and calls for service have risen accordingly.</p>
+      <p>Ajax Mayor Shaun Collier, who also chairs the Durham Regional Police Services Board, said the station would improve emergency response times, enhance investigations into violent and property crime, and strengthen ties with Ajax&rsquo;s diverse communities. &ldquo;We know that there are folks that aren&rsquo;t trusting of the police,&rdquo; Collier noted. &ldquo;By bringing [policing] into their community, we believe we can build those relationships.&rdquo; The new division would house front-line patrol, community response units, criminal investigations, divisional command staff, and dedicated space for community engagement. The project is part of the police service&rsquo;s 10-year capital plan, which overall carries a cost that analysts say could lift Durham Region property taxes above 10 per cent next year if fully approved.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/durham-regional-police-service-plans-new-station-ajax-location-9.7197354" target="_blank" rel="noopener">CBC News (Toronto)</a> &middot; May 12, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Ontario Auditor General Finds Special Education System Failing Students with Growing Needs</h3>
+      <div class="by">The Chronicler GTA Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Ontario&rsquo;s auditor general, Shelley Spence, released a sweeping special report on Tuesday finding that the province&rsquo;s special education system is failing to consistently meet the needs of students, with shortages of educational assistants, long wait times for specialist assessments, and undocumented informal exclusions of children from schools. The audit focused on three boards &mdash; the Peel District School Board, the Toronto Catholic District School Board, and the Upper Canada District School Board &mdash; and found that one-third of students at the Peel and TCDSB boards had waited more than a year for a formal specialist assessment. The number of students with special education needs has grown by seven per cent over the past decade, outpacing overall enrolment, while educational assistant vacancies and absences went unfilled by a qualified substitute between 49 and 72 per cent of the time.</p>
+      <p>Spence found that individual education plans were frequently incomplete, lacked measurable goals, and did not consistently document input from parents. Students with high needs were sometimes sent home &mdash; or asked to stay home &mdash; without any formal exclusion being recorded, leaving families without recourse. Approximately 60 per cent of teachers surveyed said they had received no or minimal training in key special education areas including autism, learning disabilities, and behaviour management. The province increased special education funding by 15 per cent between 2019&ndash;20 and 2023&ndash;24, keeping pace with inflation, but Spence&rsquo;s report makes clear the money has not translated into consistent, reliable support at the classroom level.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/ontario-auditor-general-report-education-9.7196608" target="_blank" rel="noopener">CBC News (Toronto)</a> &middot; May 12, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">S&amp;P/TSX reflects May 12, 2026 close. WTI Crude and Gold (USD) reflect May 13, 2026 intraday. Currency rates sourced live from XE.com, May 13, 2026 at approx. 10:46&ndash;10:48 UTC.</div>
+  <div class="mkt-grid">
+
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">34,290.73</div>
+      <span class="mc-chg up">&#9650; 151.85 (0.44%)</span>
+      <div class="mc-note">May 12 close &middot; CAD</div>
+    </div>
+
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$102.21</div>
+      <span class="mc-chg up">&#9650; elevated</span>
+      <div class="mc-note">May 13 intraday &middot; Oilprice.com</div>
+    </div>
+
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,744</div>
+      <span class="mc-chg up">&#9650; intraday</span>
+      <div class="mc-note">May 13 intraday &middot; JM Bullion</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.73017</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 13, 10:46 UTC</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">&#8377;69.86</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 13, 10:46 UTC</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">&euro;0.62359</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 13, 10:44 UTC</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">&pound;0.54033</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 13, 10:44 UTC</div>
+    </div>
+
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; <a href="https://money.tmx.com" target="_blank" rel="noopener">TMX</a> (TSX) &middot; <a href="https://oilprice.com" target="_blank" rel="noopener">Oilprice.com</a> (WTI) &middot; <a href="https://www.jmbullion.com" target="_blank" rel="noopener">JM Bullion</a> (Gold)</div>
+
+</div><!-- /page -->
+</div><!-- /canada -->
+
+<!-- ==================== INDIA ==================== -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">New Delhi</div><div class="w-icon">☀️</div></div>
+      <div class="w-temp">37°C</div>
+      <div class="w-rng">H: 43° &nbsp; L: 27°</div>
+      <div class="w-cond">Heatwave; sunny</div>
+      <span class="aqi-badge aqi-moderate">AQI 95 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 NW 40 km/h</span><span>💧 20%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>☀️</span>38°/27°</div>
+        <div class="dm">Fri<span>☀️</span>40°/28°</div>
+        <div class="dm">Sat<span>☀️</span>40°/28°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Hyderabad</div><div class="w-icon">⛅</div></div>
+      <div class="w-temp">38°C</div>
+      <div class="w-rng">H: 40° &nbsp; L: 26°</div>
+      <div class="w-cond">Hot; eve. thunderstorm risk</div>
+      <span class="aqi-badge aqi-moderate">AQI 88 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SW 15 km/h</span><span>💧 38%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>🌩️</span>37°/25°</div>
+        <div class="dm">Fri<span>⛅</span>36°/24°</div>
+        <div class="dm">Sat<span>⛅</span>35°/23°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Mumbai</div><div class="w-icon">⛅</div></div>
+      <div class="w-temp">32°C</div>
+      <div class="w-rng">H: 34° &nbsp; L: 27°</div>
+      <div class="w-cond">Partly cloudy; humid</div>
+      <span class="aqi-badge aqi-moderate">AQI 88 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SW 18 km/h</span><span>💧 78%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>⛅</span>34°/27°</div>
+        <div class="dm">Fri<span>🌧️</span>33°/27°</div>
+        <div class="dm">Sat<span>🌧️</span>32°/26°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Bengaluru</div><div class="w-icon">🌤️</div></div>
+      <div class="w-temp">33°C</div>
+      <div class="w-rng">H: 35° &nbsp; L: 21°</div>
+      <div class="w-cond">Partly sunny, warm</div>
+      <span class="aqi-badge aqi-good">AQI 45 <span class="al">Good</span></span>
+      <div class="w-drow"><span>💨 N 7 mph</span><span>💧 33%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>🌦️</span>34°/21°</div>
+        <div class="dm">Fri<span>🌦️</span>33°/20°</div>
+        <div class="dm">Sat<span>⛅</span>32°/20°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chennai</div><div class="w-icon">🌤️</div></div>
+      <div class="w-temp">34°C</div>
+      <div class="w-rng">H: 36° &nbsp; L: 27°</div>
+      <div class="w-cond">Humid; eve. thunderstorm risk</div>
+      <span class="aqi-badge aqi-moderate">AQI 78 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 SE 12 km/h</span><span>💧 72%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>🌩️</span>35°/27°</div>
+        <div class="dm">Fri<span>🌧️</span>34°/27°</div>
+        <div class="dm">Sat<span>🌧️</span>33°/26°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Pune</div><div class="w-icon">☀️</div></div>
+      <div class="w-temp">35°C</div>
+      <div class="w-rng">H: 37° &nbsp; L: 22°</div>
+      <div class="w-cond">Hot and sunny</div>
+      <span class="aqi-badge aqi-moderate">AQI 72 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>💨 W 10 km/h</span><span>💧 35%</span></div>
+      <div class="wfc">
+        <div class="dm">Thu<span>⛅</span>36°/22°</div>
+        <div class="dm">Fri<span>🌦️</span>34°/21°</div>
+        <div class="dm">Sat<span>🌦️</span>33°/21°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather data: IMD / India Meteorological Department. Updated approx. 6:50 AM ET, May 13, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>NEET-UG 2026 Cancelled After Paper Leak; CBI Ordered to Investigate, 22 Lakh Students Face Re-Exam</h3>
+      <div class="by">The Chronicler India Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The National Testing Agency cancelled the NEET-UG 2026 medical entrance examination on Tuesday, just days after it was conducted on May 3 for more than 22 lakh students nationwide, following confirmation that the question paper had been leaked. The Central Bureau of Investigation has been ordered to conduct a comprehensive inquiry into the breach, which investigators believe originated at a printing facility in Jaipur and spread to at least six locations including Sikar, Jhunjhunu, Nagaur, Dehradun, and Kerala. A guess paper containing all 90 Biology questions and all 45 Chemistry questions from the actual exam reportedly circulated among students before the test began. Rajasthan&rsquo;s Special Operations Group has arrested two alleged masterminds &mdash; Manish Yadav and Rakesh Mandavriya &mdash; and approximately 15 individuals have been taken in for questioning.</p>
+      <p>The cancellation is a significant blow to more than 22 lakh aspirants who sat the exam and must now await fresh dates, which the NTA said it would announce in due course. The NTA stated the decision was taken &ldquo;in the interest of students and in recognition of the trust on which the national examination system rests,&rdquo; and pledged full co-operation with the CBI. Opposition parties attacked the government: the Congress party accused the BJP of concealing the breach for nearly two weeks and demanded accountability. The cancellation comes just two years after a similar leak scandal engulfed the NEET-UG 2024 examination, raising renewed questions about the NTA&rsquo;s examination security infrastructure.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/india/neet-ug-scrapped-over-paper-leak-cbi-steps-in-amid-nationwide-uproar/" target="_blank" rel="noopener">The Tribune India</a> &middot; May 12, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>India Rebukes China Over Reports of Support for Pakistan During Operation Sindoor</h3>
+      <div class="by">The Chronicler India Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India&rsquo;s Ministry of External Affairs delivered a pointed diplomatic rebuke to China on Tuesday over reports that Beijing provided on-site technical support to Pakistan during Operation Sindoor, the four-day military engagement in May 2025 that followed the Pahalgam terror attacks. MEA spokesperson Randhir Jaiswal, speaking at the ministry&rsquo;s weekly press briefing, said India had &ldquo;seen reports that corroborate what was known earlier,&rdquo; and added a sharply worded caution: &ldquo;It is for nations that consider themselves responsible to reflect on whether supporting attempts to protect terrorist infrastructure affects their reputation and standing.&rdquo; The statement was widely read as a formal diplomatic signal to Beijing, delivered publicly and on the record, that India regards Chinese conduct during Operation Sindoor as a reputational matter with lasting consequences for bilateral relations.</p>
+      <p>The trigger for the briefing was a South China Morning Post report citing Zhang Heng, an engineer at the Aviation Industry Corporation of China&rsquo;s Chengdu Aircraft Design and Research Institute, who described providing support to Pakistan during the conflict. China had last week, for the first time, confirmed through official state media that it had extended on-site technical assistance to Islamabad during the four days of fighting. India&rsquo;s military has previously alleged that China used the conflict as a &ldquo;live laboratory&rdquo; to test weapon systems alongside its all-weather ally, and that New Delhi was effectively confronting three adversaries &mdash; Pakistan, China, and Turkey &mdash; during the operation. Jaiswal reiterated India&rsquo;s framing of the strikes as &ldquo;precise, targeted, and calibrated&rdquo; actions against state-sponsored terrorist infrastructure.</p>
+      <div class="src">Source: <a href="https://timesofindia.indiatimes.com/india/we-knew-it-already-indias-strong-reputation-message-to-china-over-reports-it-supported-pakistan-during-operation-sindoor/articleshow/131037683.cms" target="_blank" rel="noopener">Times of India</a> &middot; May 12, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>India Has 60 Days of Crude and LNG Reserves, Puri Tells Industry; Oil Firms Losing &#8377;1,000 Crore Daily</h3>
+      <div class="by">The Chronicler India Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Union Petroleum and Natural Gas Minister Hardeep Singh Puri told delegates at the CII Annual Summit on Wednesday that India holds approximately 60 days of crude oil and LNG reserves and 45 days of LPG supply, and there is &ldquo;no problem&rdquo; on the energy supply front despite the ongoing West Asia crisis. The assurance came against a backdrop of acute financial stress in the downstream sector: Puri acknowledged that India&rsquo;s state-owned oil companies are losing &#8377;1,000 crore every day due to under-recoveries on regulated fuel prices, and that the total under-recovery is projected to reach &#8377;1,98,000 crore. The figure underscores the scale of the fiscal burden that the government is absorbing &mdash; through the oil companies&rsquo; balance sheets &mdash; to shield consumers from the full impact of elevated global energy costs driven by the disruption to Persian Gulf supply routes.</p>
+      <p>Puri&rsquo;s comments reflect a government walking a careful line: publicly reassuring markets and citizens about supply adequacy while privately managing a mounting subsidy bill that has implications for India&rsquo;s broader fiscal position. The minister did not indicate when or how under-recoveries would be addressed, nor whether a fuel price revision was under consideration. India&rsquo;s energy vulnerability has been sharpened by the West Asia conflict&rsquo;s effect on the Strait of Hormuz corridor, through which India had been routing roughly 60 per cent of its LNG imports before the disruption. The government has been sourcing alternative cargoes and rerouting shipments, but at materially higher cost, adding to the pressure on oil marketing companies already stretched by global price volatility.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/economy/news/india-has-60-days-of-crude-lng-45-days-of-lpg-no-problem-on-supply-puri-126051300048_1.html" target="_blank" rel="noopener">Business Standard</a> &middot; May 13, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>India Doubles Gold and Silver Import Duty to 15%, Raising Smuggling Concerns</h3>
+      <div class="by">The Chronicler India Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India has more than doubled the import duty on gold and silver, raising it to 15 per cent from 6 per cent through a combination of a 10 per cent basic customs duty and a 5 per cent Agriculture Infrastructure and Development Cess. The decision, announced Wednesday through government orders, is designed to reduce the country&rsquo;s dependence on overseas precious metal purchases and ease pressure on its foreign exchange reserves &mdash; a pressure that has intensified since the West Asia conflict disrupted energy import costs. The move follows Prime Minister Narendra Modi&rsquo;s rare public appeal last Sunday urging Indians to avoid buying gold for a year. India meets almost all of its gold consumption through imports, making bullion a significant driver of the current account deficit.</p>
+      <p>Industry reaction was split. Surendra Mehta of the India Bullion and Jewellers Association acknowledged the government&rsquo;s intent while warning of a demand hit at a time when gold prices are already elevated. More pointed concerns centred on smuggling: a Mumbai-based bullion dealer warned that grey markets would likely reactivate given the profit potential at current price levels. The risk is familiar &mdash; smuggling had eased significantly after India cut gold tariffs in mid-2024, and Wednesday&rsquo;s sharp reversal risks undoing that progress. The duty hike arrives at a moment when India has also recorded near 30-year lows in gold imports and seen record inflows into gold exchange-traded funds.</p>
+      <div class="src">Source: <a href="https://www.livemint.com/industry/india-raises-gold-silver-import-tariffs-to-15-revises-customs-duty-on-precious-metal-findings-11778633198091.html" target="_blank" rel="noopener">LiveMint</a> &middot; May 13, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>India Declines Sanctioned Russian LNG Despite Supply Shortfall; Talks Continue on Permitted Cargoes</h3>
+      <div class="by">The Chronicler India Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India has declined Russia&rsquo;s offer to sell it liquefied natural gas subject to United States sanctions, leaving a tanker bound for the Dahej LNG import terminal stranded near Singaporean waters, according to two sources with direct knowledge of the matter. The decision reflects the fine balance New Delhi is attempting to maintain between securing energy supplies &mdash; particularly acute since the West Asia crisis disrupted Strait of Hormuz flows &mdash; and avoiding sanctioned cargoes that carry heightened compliance risk. The specific cargo originated from Russia&rsquo;s Portovaya plant in the Baltic Sea, which was placed under US sanctions in early 2025. Documentation reportedly attempted to obscure the cargo&rsquo;s origin, but the vessel was tracked regardless.</p>
+      <p>India conveyed its decision to Russia&rsquo;s Deputy Energy Minister Pavel Sorokin during his April 30 visit to New Delhi, where he met Petroleum Minister Hardeep Singh Puri. It was their second meeting in as many months, and Sorokin is expected to return in June for continued discussions on permitted cargoes &mdash; unsanctioned Russian LNG that India says it is willing to buy, though most of those volumes are presently committed to European buyers. The episode illustrates the limits of Moscow&rsquo;s ability to redirect its LNG exports toward Asian markets, and underscores New Delhi&rsquo;s calculation that the legal and reputational risks of sanctioned energy purchases outweigh the benefits, even under supply pressure. China, by contrast, remains a major buyer of both sanctioned and unsanctioned Russian LNG.</p>
+      <div class="src">Source: <a href="https://english.kyodonews.net/articles/-/75787" target="_blank" rel="noopener">Kyodo News</a> &middot; May 12, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">Sensex and Nifty 50 reflect May 13, 2026 close (NSE/BSE close at 3:30 PM IST / 5:00 AM ET). Gold (INR) reflects May 13, 2026. Currency rates sourced live from XE.com, May 13, 2026 at approx. 10:48 UTC.</div>
+  <div class="mkt-grid">
+
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div>
+      <div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">74,608.98</div>
+      <span class="mc-chg up">&#9650; 49.74 (0.067%)</span>
+      <div class="mc-note">May 13 close &middot; INR</div>
+    </div>
+
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE Index</div>
+      <div class="mc-val">23,412.60</div>
+      <span class="mc-chg up">&#9650; 33.05 (0.14%)</span>
+      <div class="mc-note">May 13 close &middot; INR</div>
+    </div>
+
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">INR / 10g (24K)</div>
+      <div class="mc-val">&#8377;1,62,000</div>
+      <span class="mc-chg up">&#9650; 8,020 (5.21%)</span>
+      <div class="mc-note">May 13 &middot; Goodreturns</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">$0.01045</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 13, 10:48 UTC</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">$0.014312</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 13, 10:48 UTC</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">&pound;0.0077322</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 13, 10:48 UTC</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">1 INR in EUR</div>
+      <div class="mc-val">&euro;0.0089238</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">XE.com &middot; May 13, 10:48 UTC</div>
+    </div>
+
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.xe.com" target="_blank" rel="noopener">XE.com</a> (currency) &middot; <a href="https://www.bseindia.com" target="_blank" rel="noopener">BSE India</a> &middot; <a href="https://www.nseindia.com" target="_blank" rel="noopener">NSE India</a> &middot; <a href="https://www.goodreturns.in" target="_blank" rel="noopener">Goodreturns</a> (Gold)</div>
+
+</div><!-- /page -->
+</div><!-- /india -->
+
+<!-- ==================== WORLD ==================== -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Asian Markets Slip as Hot US Inflation Data and Fragile Iran Ceasefire Weigh on Sentiment</h3>
+      <div class="by">The Chronicler World Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Asian equity markets fell for a second consecutive session on Wednesday as investors processed hotter-than-expected United States inflation data and ongoing uncertainty around the durability of the Iran ceasefire, which has continued to rattle energy and risk markets. The MSCI index of Asia-Pacific shares outside Japan slipped 0.6 per cent, with South Korean shares falling as much as 3.2 per cent before partially recovering. The Nikkei also retreated as traders recalibrated Federal Reserve rate-cut expectations in light of the US inflation reading, which reduced the near-term case for monetary easing and pushed Treasury yields higher. US annual inflation accelerated to 3.8 per cent in April &mdash; the highest since May 2023, beating the 3.7 per cent forecast &mdash; with energy prices up 17.9 per cent and gasoline up 28.4 per cent, reflecting the sustained closure of Persian Gulf shipping routes. Markets are now pricing a 70 per cent-plus chance of a Fed rate hike by early 2027.</p>
+      <p>Oil markets remained volatile, with Brent crude holding above $107 per barrel amid persistent uncertainty over Gulf shipping routes despite the ceasefire framework. President Donald Trump, who described the ceasefire as on &ldquo;massive life support&rdquo; after dismissing Tehran&rsquo;s latest peace proposal, was preparing to depart for Beijing as trading sessions closed, where his summit with President Xi Jinping was scheduled to begin Thursday. The market moves came as Gold held near elevated levels as investors sought safe-haven exposure, and the dollar strengthened on the back of the inflation data, adding pressure to Asian currencies and complicating the monetary outlook for import-dependent economies across the region.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/markets/news/asian-markets-falter-as-hot-us-inflation-shaky-iran-ceasefire-weigh-126051300090_1.html" target="_blank" rel="noopener">Business Standard</a> &middot; May 13, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Trump Puts Taiwan Arms Sales on Beijing Agenda, Says He Will Raise Issue Directly with Xi</h3>
+      <div class="by">The Chronicler World Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>US President Donald Trump said Monday he would raise the issue of American arms sales to Taiwan directly with Chinese President Xi Jinping during his visit to Beijing this week &mdash; his first trip to China in nine years &mdash; acknowledging that Beijing has pressed his administration to scale back its security commitments to the island. &ldquo;I&rsquo;m going to have that discussion with President Xi,&rdquo; Trump told reporters at the White House. &ldquo;President Xi would like us not to, and I&rsquo;ll have that discussion. That&rsquo;s one of the many things I&rsquo;ll be talking about.&rdquo; Trump is scheduled to arrive in Beijing on Wednesday, with formal talks set for Thursday and Friday. The summit&rsquo;s agenda is sweeping &mdash; covering the Iran war, trade, rare earth export controls, and Taiwan &mdash; and is being accompanied by a high-profile business delegation including Tesla chief Elon Musk, Apple CEO Tim Cook, SoftBank&rsquo;s Masayoshi Son, and Boeing&rsquo;s Kelly Ortberg.</p>
+      <p>Beijing responded through foreign ministry spokesperson Guo Jiakun, who said China&rsquo;s position on US arms sales to Taiwan &ldquo;has been consistent and clear.&rdquo; Taiwan&rsquo;s foreign ministry said it would &ldquo;continue to enhance co-operation with the United States&rdquo; and build effective deterrence forces. A bipartisan group of US senators led by Jeanne Shaheen urged Trump ahead of the summit to immediately greenlight a $14 billion arms package to Taiwan that has not yet been formally delivered, warning that Washington&rsquo;s support for the island must remain &ldquo;inviolable.&rdquo; Trump expressed confidence that conflict over Taiwan would not materialise during his presidency: &ldquo;I think we&rsquo;ll be fine,&rdquo; he said. &ldquo;I have a very good relationship with President Xi.&rdquo;</p>
+      <div class="src">Source: <a href="https://english.kyodonews.net/articles/-/75741" target="_blank" rel="noopener">Kyodo News</a> &middot; May 11, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Sam Altman Takes the Stand in OpenAI Trial as Musk Lawyers Press Charity Theft Accusations</h3>
+      <div class="by">The Chronicler World Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>OpenAI chief executive Sam Altman testified Tuesday in the federal jury trial in Oakland, California, stemming from Elon Musk&rsquo;s lawsuit alleging that Altman and his co-founders &ldquo;stole a charity&rdquo; by converting the nonprofit AI research organisation into a for-profit company. Now in its third week, the trial pits two of the technology industry&rsquo;s most prominent figures against each other in a case that could reshape the governance and funding structure of one of the world&rsquo;s most influential AI companies. Altman&rsquo;s cross-examination by Musk&rsquo;s lawyer Steve Molo covered the company&rsquo;s fundraising history, including the revelation that Amazon, Nvidia, and SoftBank each invested more in OpenAI than Microsoft &mdash; a disclosure Altman acknowledged he had &ldquo;tripped up on&rdquo; in earlier testimony. In February, OpenAI announced $110 billion in new funding at a pre-money valuation of $730 billion.</p>
+      <p>The contrast between Altman&rsquo;s demeanour and Musk&rsquo;s earlier testimony was stark. Musk had been combative throughout his time on the stand, accusing OpenAI&rsquo;s lawyer of lying and raising his voice repeatedly. Altman appeared more composed under cross-examination, though visibly nervous at the outset. Musk first filed the lawsuit in 2024, arguing that OpenAI&rsquo;s pivot away from its founding nonprofit mission constituted fraud. OpenAI has consistently denied the allegations, characterising the suit as an attempt by a competitor to impede a rival. The case is being heard in the US District Court for the Northern District of California before Judge Yvonne Gonzalez Rogers, who had earlier denied Musk&rsquo;s request to halt the for-profit conversion through an injunction.</p>
+      <div class="src">Source: <a href="https://www.dw.com/en/sam-altman-trial-openai-elon-musk/a-77139248" target="_blank" rel="noopener">Deutsche Welle</a> &middot; May 12, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>EU Invites Taliban to Brussels for Technical Talks on Deporting Afghan Migrants</h3>
+      <div class="by">The Chronicler World Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The European Commission has invited representatives of the Taliban government to Brussels for technical discussions on the deportation of Afghan nationals whose asylum applications in the European Union have been refused, in a move that has drawn immediate criticism from human rights organisations. European Commission spokesman Markus Lammert described the planned Brussels meeting as a follow-up to a preliminary technical session held in Kabul in January 2026, stressing that the invitation &ldquo;does not by any means constitute a recognition&rdquo; of the Taliban as Afghanistan&rsquo;s legitimate government. The EU does not formally recognise the Taliban, which returned to power amid the NATO withdrawal in 2021, and a 2024 European Court of Justice ruling found that the Taliban&rsquo;s treatment of women constituted persecution under international law.</p>
+      <p>Around 20 EU member states have requested the consultations, reflecting growing political pressure across the bloc to tighten migration policy and establish mechanisms for returning failed asylum seekers to Afghanistan &mdash; a country where the UN estimates that close to half the population cannot meet basic food needs. The possible arrival of Taliban officials in Belgium has also raised practical legal complications, as it would require exemptions from existing sanctions and travel restrictions placed on Taliban figures. Human rights groups have warned that any returns to Afghanistan risk violating the international principle of non-refoulement, which prohibits sending people back to places where they face persecution. Germany has already resumed deportations of Afghan nationals convicted of crimes through charter flights facilitated via Qatar.</p>
+      <div class="src">Source: <a href="https://www.dw.com/en/eu-invites-taliban-members-to-discuss-afghan-migrant-returns/a-77134268" target="_blank" rel="noopener">Deutsche Welle</a> &middot; May 12, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Global Markets</span>
+  <div class="mkt-note">DJIA, NASDAQ, S&amp;P 500: May 12, 2026 close. FTSE 100: May 13 intraday at 11:41 AM GMT+1. Nikkei 225 and Hang Seng: May 13, 2026 close. Nifty 50: May 13, 2026 close. Sources: Yahoo Finance, Trading Economics, Google Finance.</div>
+  <div class="mkt-grid">
+
+    <div class="mkt-card world">
+      <div class="mc-name">DJIA</div>
+      <div class="mc-sub">Dow Jones Industrial</div>
+      <div class="mc-val">49,760.56</div>
+      <span class="mc-chg up">&#9650; 56.09 (0.11%)</span>
+      <div class="mc-note">May 12 close &middot; USD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">NASDAQ</div>
+      <div class="mc-sub">Composite Index</div>
+      <div class="mc-val">26,088.20</div>
+      <span class="mc-chg down">&#9660; 185.92 (0.71%)</span>
+      <div class="mc-note">May 12 close &middot; USD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US Broad Market</div>
+      <div class="mc-val">7,400.96</div>
+      <span class="mc-chg down">&#9660; 11.88 (0.16%)</span>
+      <div class="mc-note">May 12 close &middot; USD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">10,274.85</div>
+      <span class="mc-chg up">&#9650; 9.53 (0.093%)</span>
+      <div class="mc-note">May 13 intraday 11:41 AM GMT+1 &middot; GBP</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,412.60</div>
+      <span class="mc-chg up">&#9650; 33.05 (0.14%)</span>
+      <div class="mc-note">May 13 close &middot; INR</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">26,347</div>
+      <span class="mc-chg down">&#9660; 59 (0.22%)</span>
+      <div class="mc-note">May 13 close &middot; HKD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">63,272</div>
+      <span class="mc-chg up">&#9650; 529.54 (0.84%)</span>
+      <div class="mc-note">May 13 close &middot; JPY</div>
+    </div>
+
+  </div>
+  <div class="mkt-src">Sources: <a href="https://finance.yahoo.com" target="_blank" rel="noopener">Yahoo Finance</a> &middot; <a href="https://tradingeconomics.com" target="_blank" rel="noopener">Trading Economics</a> &middot; Google Finance (FTSE, Hang Seng, Nikkei)</div>
+
+</div><!-- /page -->
+</div><!-- /world -->
+
+<!-- ==================== SPORT ==================== -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Wembanyama Dominates Game 5 as Spurs Take 3&ndash;2 Series Lead Over Timberwolves</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Victor Wembanyama announced his return from injury with a dominant performance in Game 5 as the San Antonio Spurs defeated the Minnesota Timberwolves to take a 3&ndash;2 series lead in their NBA playoff second-round matchup. The French centre, who had missed time with an injury that cast doubt on San Antonio&rsquo;s postseason prospects, put his stamp on the game early and gave the Spurs the kind of two-way anchor presence that makes them a genuinely threatening contender. San Antonio is now one win away from the Western Conference Finals, a remarkable position for a franchise that had been expected to be years away from serious playoff contention before Wembanyama&rsquo;s emergence as one of the league&rsquo;s most transformative talents.</p>
+      <p>The Timberwolves, led by Anthony Edwards, face elimination in Game 6 in Minnesota, where they will have the crowd advantage but must solve a revitalised Spurs team riding the momentum of Wembanyama&rsquo;s return. Minnesota&rsquo;s Julius Randle and Jaden McDaniels will need to provide significant support for Edwards if the series is to return to a decisive seventh game. For San Antonio, the series lead represents a landmark moment for a franchise rebuilding around its generational talent &mdash; and a reminder that the Western Conference race, already crowded with the Oklahoma City Thunder as the presumed frontrunner, remains genuinely open.</p>
+      <div class="src">Source: <a href="https://sports.yahoo.com/nba/live/spurs-timberwolves-victor-wembanyama-returns-with-a-vengeance-to-lead-san-antonio-to-3-2-series-lead-223000913.html" target="_blank" rel="noopener">Yahoo Sports</a> &middot; May 12, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Benson&rsquo;s Birthday Power-Play Goal Lifts Sabres Past Canadiens to Level Eastern Conference Semi 2&ndash;2</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Zach Benson scored the go-ahead goal on a third-period power play on his 21st birthday as the Buffalo Sabres defeated the Montreal Canadiens 3&ndash;2 on Tuesday night to even the Eastern Conference semifinal series at two games apiece. The victory halted Montreal&rsquo;s momentum after the Canadiens had taken a 2&ndash;1 series lead, and restored the home-ice advantage dynamic heading into Game 5. Benson&rsquo;s winner proved to be the decisive moment in a tightly contested game that reflected the competitive balance of a series that has seen neither side manage to pull away convincingly.</p>
+      <p>The series now stands level at two games each, with the remaining games carrying heightened pressure for both franchises. For Buffalo, the win validated their road resilience and the offensive contribution of a young core that has taken significant strides this postseason. For Montreal, whose fans have invested heavily in the team&rsquo;s playoff run, the loss arrests what had looked like a commanding position in the series. Game 5 is scheduled to return to Buffalo, where the Sabres will look to reclaim the home-ice edge that a win would provide as the series enters its decisive phase.</p>
+      <div class="src">Source: <a href="https://www.tsn.ca/nhl/article/sabres-defeat-canadiens-in-game-4-to-even-second-round-series/" target="_blank" rel="noopener">TSN / The Canadian Press</a> &middot; May 13, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Gujarat Titans Crush Sunrisers Hyderabad by 82 Runs to Go Top of IPL 2026 Table</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Wednesday, May 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Gujarat Titans delivered a commanding all-round performance at the Narendra Modi Stadium in Ahmedabad on Tuesday, dismantling Sunrisers Hyderabad by 82 runs in Match 56 of IPL 2026 to move to the top of the points table with five consecutive wins. Batting first, GT recovered from a shaky start &mdash; reduced to 34 for 2 in the powerplay &mdash; through a composed 61 from Sai Sudharsan off 44 balls and a vital late flourish from Washington Sundar, who struck 50 off 33 deliveries to take the total to a competitive 168 for 5. The target proved far beyond SRH&rsquo;s reach. Kagiso Rabada and Mohammed Siraj produced a devastating opening burst with the new ball, reducing SRH to 34 for 4 inside the powerplay, before Jason Holder added 3 for 20 and Prasidh Krishna 2 for 23 as the Sunrisers were bowled out for 86 in just 14.5 overs &mdash; their lowest total of the campaign.</p>
+      <p>Rabada was named Player of the Match for a three-wicket powerplay spell that effectively ended the contest before the SRH middle order could settle. Pat Cummins, SRH&rsquo;s captain, top-scored for his side with a brisk 19 off 9 balls before holing out, but acknowledged his bowlers had little answer for the Ahmedabad surface conditions. Gujarat Titans, wearing special lavender jerseys to raise cancer awareness, now sit at the summit of the IPL 2026 standings with the playoffs approaching. SRH &mdash; despite the heavy loss &mdash; remain in contention given the tightly bunched nature of the table, where eight teams are still mathematically alive for postseason places.</p>
+      <div class="src">Source: <a href="https://www.espncricinfo.com" target="_blank" rel="noopener">ESPNcricinfo</a> &middot; May 12, 2026</div>
+    </article>
+
+  </div>
+</div><!-- /page -->
+</div><!-- /sport -->
+
+<!-- ==================== PUZZLES ==================== -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Puzzles</h2><div class="flag">The Chronicler Daily Games</div></div>
+
+  <div class="games-row">
+
+    <!-- CRUNCH -->
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All intermediate steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">2</div>
+        <div class="crunch-tile">4</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">9</div>
+        <span style="font-size:20px;color:var(--grey);font-family:'Playfair Display',serif;">=</span>
+        <div class="crunch-target">56</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.textContent=this.textContent.includes('Show')?'&#9660; Hide solution':'&#9654; Show solution'">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat a">( 7 + 9 &minus; 2 ) &times; 4 = 56</div>
+        <div class="answer-cat b">Step 1: 7 + 9 = 16 &nbsp;&middot;&nbsp; Step 2: 16 &minus; 2 = 14 &nbsp;&middot;&nbsp; Step 3: 14 &times; 4 = 56</div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="https://thechronicler.ca/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive &rarr;</a></div>
+    </div>
+
+    <!-- WORD WEB -->
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">MUSK</div>
+        <div class="ww-mini-tile">TAIWAN</div>
+        <div class="ww-mini-tile">COOK</div>
+        <div class="ww-mini-tile">IRAN</div>
+        <div class="ww-mini-tile">ORTBERG</div>
+        <div class="ww-mini-tile">TRADE</div>
+        <div class="ww-mini-tile">SON</div>
+        <div class="ww-mini-tile">TARIFFS</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.textContent=this.textContent.includes('Show')?'&#9660; Hide solution':'&#9654; Show solution'">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat a">&#127775; Executives accompanying Trump to Beijing: MUSK &middot; COOK &middot; ORTBERG &middot; SON<br><small>Elon Musk (Tesla) &middot; Tim Cook (Apple) &middot; Kelly Ortberg (Boeing) &middot; Masayoshi Son (SoftBank)</small></div>
+        <div class="answer-cat b">&#9201; Topics on the Trump&ndash;Xi summit agenda: TAIWAN &middot; IRAN &middot; TRADE &middot; TARIFFS<br><small>Arms sales to Taiwan &middot; Iran war &middot; Trade deal &middot; Tariff negotiations</small></div>
+        <div style="margin-top:6px;font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;">Decoy: MUSK &mdash; also prominent in today&rsquo;s OpenAI trial coverage, tempts a &ldquo;tech news&rdquo; grouping, but belongs firmly in Group A as part of the Beijing delegation.</div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /page -->
+</div><!-- /puzzles -->
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 43 &bull; Wednesday, May 13, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="rgba(244,237,214,.7)" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="rgba(244,237,214,.7)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="rgba(244,237,214,.7)"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+// Cloudflare Web Analytics
+(function(){var s=document.createElement('script');s.defer=true;s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "c2c9f324e65f4bde97c20728d6349a04"}');document.head.appendChild(s);})();
+
+// Read aloud
+var currentUtterance = null;
+function handleRead(btn) {
+  if (currentUtterance && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    if (btn.dataset.reading === '1') {
+      btn.textContent = '\uD83D\uDD0A Read aloud';
+      btn.dataset.reading = '0';
+      currentUtterance = null;
+      return;
+    }
+  }
+  document.querySelectorAll('.read-btn').forEach(function(b){ b.textContent = '\uD83D\uDD0A Read aloud'; b.dataset.reading = '0'; });
+  var art = btn.closest('article');
+  var text = Array.from(art.querySelectorAll('p')).map(function(p){ return p.textContent; }).join(' ');
+  var utter = new SpeechSynthesisUtterance(text);
+  utter.onend = function(){ btn.textContent = '\uD83D\uDD0A Read aloud'; btn.dataset.reading = '0'; currentUtterance = null; };
+  currentUtterance = utter;
+  btn.textContent = '\u23F9 Stop';
+  btn.dataset.reading = '1';
+  speechSynthesis.speak(utter);
+}
+</script>
+</body>
+</html>

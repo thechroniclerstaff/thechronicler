@@ -135,17 +135,19 @@
     <div class="filter-controls">
       <div class="filter-group">
         <label for="filter-from">From</label>
-        <input type="date" id="filter-from" min="2026-03-22" max="2026-04-29">
+        <input type="date" id="filter-from" min="2026-03-22" max="2026-05-13">
       </div>
       <div class="filter-group">
         <label for="filter-to">To</label>
-        <input type="date" id="filter-to" min="2026-03-22" max="2026-04-29">
+        <input type="date" id="filter-to" min="2026-03-22" max="2026-05-13">
       </div>
       <div class="filter-group">
         <label for="filter-week">Or jump to week</label>
         <select id="filter-week">
           <option value="">— All editions —</option>
-          <option value="2026-04-27|2026-04-29">Week of April 27, 2026</option>
+          <option value="2026-05-11|2026-05-13">Week of May 11, 2026</option>
+          <option value="2026-05-05|2026-05-09">Week of May 5, 2026</option>
+          <option value="2026-04-27|2026-05-03">Week of April 27, 2026</option>
           <option value="2026-04-13|2026-04-19">Week of April 13, 2026</option>
           <option value="2026-04-06|2026-04-10">Week of April 6, 2026</option>
           <option value="2026-03-29|2026-04-05">Week of March 29, 2026</option>
@@ -170,10 +172,116 @@
   <div class="section-hd">Latest Edition</div>
   <div class="puzzle-grid">
 
-    <!-- No. 39 — Current -->
-    <div class="puzzle-card current" data-date="2026-05-08" data-valid="valid">
+    <!-- No. 43 — Current -->
+    <div class="puzzle-card current" data-date="2026-05-13" data-valid="valid">
       <div class="card-meta">
-        <span class="card-edition current-tag">Vol. I, No. 39 &mdash; Today</span>
+        <span class="card-edition current-tag">Vol. I, No. 43 &mdash; Today</span>
+        <span class="card-date">Wed, May 13, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">2</div>
+        <div class="num-tile">4</div>
+        <div class="num-tile">7</div>
+        <div class="num-tile">9</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">56</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">( 7 + 9 &minus; 2 ) &times; 4 = <strong>56</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 16 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/Issues/the-chronicler-vol1-no43.html#crunch">Read edition &rarr;</a>
+    </div>
+
+  </div>
+
+  <!-- Archive -->
+  <div class="section-hd">Archive &mdash; Newest First</div>
+  <div class="puzzle-grid">
+
+    <!-- No. 42 -->
+    <div class="puzzle-card" data-date="2026-05-12" data-valid="valid">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 42</span>
+        <span class="card-date">Tue, May 12, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">4</div>
+        <div class="num-tile">5</div>
+        <div class="num-tile">8</div>
+        <div class="num-tile">9</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">52</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">( 8 &times; 9 ) &minus; ( 4 &times; 5 ) = <strong>52</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 4 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/Issues/the-chronicler-vol1-no42.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 41 -->
+    <div class="puzzle-card" data-date="2026-05-11" data-valid="valid">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 41</span>
+        <span class="card-date">Mon, May 11, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">3</div>
+        <div class="num-tile">5</div>
+        <div class="num-tile">7</div>
+        <div class="num-tile">9</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">72</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">( 9 &minus; 3 ) &times; ( 5 + 7 ) = <strong>72</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 8 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/Issues/the-chronicler-vol1-no41.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 40 -->
+    <div class="puzzle-card" data-date="2026-05-09" data-valid="valid">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 40</span>
+        <span class="card-date">Sat, May 9, 2026</span>
+      </div>
+      <div class="card-nums">
+        <div class="num-tile">3</div>
+        <div class="num-tile">7</div>
+        <div class="num-tile">8</div>
+        <div class="num-tile">9</div>
+        <div class="target-block">
+          <span class="target-label">Target</span>
+          <span class="target-val">72</span>
+        </div>
+      </div>
+      <div class="card-rule"></div>
+      <button class="solution-toggle" onclick="var b=this.nextElementSibling;b.style.display=b.style.display==='block'?'none':'block';this.textContent=b.style.display==='block'?'&#9650; Hide solution':'&#9660; Reveal solution'">&#9660; Reveal solution</button>
+      <div class="solution-box">
+        <div class="solution-expr">3 &times; ( 7 + 8 + 9 ) = <strong>72</strong> &#10003;</div>
+        <div class="solution-count">Python-verified &mdash; 24 distinct solutions. All four numbers used exactly once.</div>
+      </div>
+      <a class="card-link" href="https://thechronicler.ca/Issues/the-chronicler-vol1-no40.html#crunch">Read edition &rarr;</a>
+    </div>
+
+    <!-- No. 39 -->
+    <div class="puzzle-card" data-date="2026-05-08" data-valid="valid">
+      <div class="card-meta">
+        <span class="card-edition">Vol. I, No. 39</span>
         <span class="card-date">Fri, May 8, 2026</span>
       </div>
       <div class="card-nums">
@@ -194,12 +302,6 @@
       </div>
       <a class="card-link" href="https://thechronicler.ca/Issues/the-chronicler-vol1-no39.html#crunch">Read edition &rarr;</a>
     </div>
-
-  </div>
-
-  <!-- Archive -->
-  <div class="section-hd">Archive &mdash; Newest First</div>
-  <div class="puzzle-grid">
 
     <!-- No. 38 -->
     <div class="puzzle-card" data-date="2026-05-07" data-valid="valid">
