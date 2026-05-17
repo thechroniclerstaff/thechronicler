@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Chronicler — Sunday, May 17, 2026 — Vol. I, No. 47</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141008;--aged:#f4edd6;--cream:#fdf9ee;--rust:#8b2513;--gold:#a07800;--grey:#635d4e;--rule:#d0c5a0;--green:#1a6b3c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#e2d9c0;font-family:"Libre Baskerville",serif;color:var(--ink);font-size:15px;line-height:1.65}
+a{color:inherit;text-decoration:none}
+
+/* ── STICKY HEADER ── */
+.sticky-header{position:sticky;top:0;z-index:999}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;align-items:center;justify-content:space-between;padding:5px 20px}
+.mini-mast-title{font-family:"UnifrakturMaguntia",serif;font-size:22px;color:var(--aged);letter-spacing:.5px}
+.mini-mast-title a{color:var(--aged)}
+.mini-btns{display:flex;gap:8px}
+.mini-btn{background:transparent;border:1px solid var(--aged);color:var(--aged);font-family:"Source Sans 3",sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;cursor:pointer}
+.mini-btn:hover{background:var(--rust);border-color:var(--rust)}
+
+.nav-bar{background:#1e1608;padding:0 20px;display:flex;gap:0;flex-wrap:wrap}
+.nav-item{position:relative}
+.nav-link{display:block;color:var(--aged);font-family:"Source Sans 3",sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:10px 14px;cursor:pointer}
+.nav-link:hover{color:#fff;background:var(--rust)}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:#1e1608;min-width:200px;z-index:100;border-top:2px solid var(--rust)}
+.nav-item:hover .dropdown,.nav-item.open .dropdown{display:block}
+.dropdown a{display:block;color:var(--aged);font-family:"Source Sans 3",sans-serif;font-size:11px;letter-spacing:.5px;padding:8px 16px;white-space:nowrap}
+.dropdown a:hover{background:var(--rust);color:#fff}
+
+/* ── MASTHEAD ── */
+.masthead{background:var(--aged);border-bottom:3px double var(--rule);text-align:center;padding:28px 20px 16px}
+.mast-top{font-family:"Source Sans 3",sans-serif;font-size:11px;color:var(--grey);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.mast-ig{display:flex;align-items:center;gap:6px}
+.mast-ig svg{width:18px;height:18px}
+h1.pub-name{font-family:"UnifrakturMaguntia",serif;font-size:clamp(42px,8vw,80px);color:var(--ink);line-height:1;margin:4px 0}
+.tagline{font-family:"Playfair Display",serif;font-style:italic;font-size:13px;color:var(--grey);margin-bottom:4px}
+
+/* ── TICKER ── */
+.ticker{background:var(--rust);color:#fff;font-family:"Source Sans 3",sans-serif;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;padding:7px 20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+
+/* ── LAYOUT ── */
+.container{max-width:1200px;margin:0 auto;padding:0 16px}
+.section{background:var(--cream);margin:12px 0;padding:22px 24px;border:1px solid var(--rule)}
+.section-banner{background:var(--ink);color:var(--aged);font-family:"Playfair Display",serif;font-size:17px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;margin:-22px -24px 20px}
+.cat{font-family:"Source Sans 3",sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:6px;font-weight:700}
+
+/* ── ARTICLES ── */
+.col-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.col-3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.col-3{grid-template-columns:1fr}}
+article{border-top:2px solid var(--ink);padding-top:12px}
+article h3{font-family:"Playfair Display",serif;font-size:17px;line-height:1.35;margin-bottom:8px}
+.by{font-family:"Source Sans 3",sans-serif;font-size:11px;color:var(--grey);margin-bottom:4px}
+.read-btn{font-family:"Source Sans 3",sans-serif;font-size:10px;color:var(--rust);border:none;background:transparent;cursor:pointer;padding:0;margin-bottom:8px;letter-spacing:.5px}
+article p{margin-bottom:10px;font-size:14.5px}
+.src{font-family:"Source Sans 3",sans-serif;font-size:11px;color:var(--grey);border-top:1px solid var(--rule);padding-top:6px;margin-top:8px}
+.src a{color:var(--rust)}
+
+/* ── WEATHER CARDS ── */
+.w-grid-5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:10px}
+.w-grid-6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-bottom:10px}
+@media(max-width:900px){.w-grid-5,.w-grid-6{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:500px){.w-grid-5,.w-grid-6{grid-template-columns:repeat(2,1fr)}}
+.w-card{background:#ede6cf;border-radius:4px;padding:10px 8px;font-size:12px;border-top:3px solid var(--ink)}
+.w-card.india-card{border-top-color:var(--rust)}
+.w-city{font-family:"Source Sans 3",sans-serif;font-weight:700;font-size:11px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.w-temp{font-family:"Playfair Display",serif;font-size:26px;font-weight:700;line-height:1}
+.w-hl{font-size:11px;color:var(--grey);margin:2px 0}
+.w-cond{font-size:12px;margin:4px 0}
+.aqi-badge{font-family:"Source Sans 3",sans-serif;font-size:9px;font-weight:700;letter-spacing:.5px;padding:2px 5px;border-radius:3px;text-transform:uppercase;margin-left:4px}
+.aqi-good{background:#2d6a2d;color:#fff}
+.aqi-moderate{background:#a07800;color:#fff}
+.aqi-poor{background:#8b2513;color:#fff}
+.aqi-vpoor{background:#5a1a7a;color:#fff}
+.w-detail{font-size:11px;color:var(--grey);margin-top:4px}
+.w-forecast{display:flex;justify-content:space-between;margin-top:6px;border-top:1px solid var(--rule);padding-top:5px}
+.w-fc-day{text-align:center;font-size:10px;color:var(--grey)}
+.w-note{font-family:"Source Sans 3",sans-serif;font-size:10px;color:var(--grey);margin-top:6px;font-style:italic}
+
+/* ── MARKET CARDS ── */
+.mkt-note{font-family:"Source Sans 3",sans-serif;font-size:11px;color:var(--grey);font-style:italic;margin-bottom:10px;padding:6px 10px;background:#ede6cf;border-left:3px solid var(--rule)}
+.mkt-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-bottom:10px}
+@media(max-width:1100px){.mkt-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:600px){.mkt-grid{grid-template-columns:repeat(2,1fr)}}
+.mkt-card{background:#ede6cf;border-top:3px solid var(--ink);padding:10px 8px;border-radius:4px}
+.mkt-card.currency{border-top-color:var(--gold)}
+.mkt-card.commodity-up{border-top-color:var(--green)}
+.mkt-card.commodity-down{border-top-color:var(--rust)}
+.mc-name{font-family:"Source Sans 3",sans-serif;font-weight:700;font-size:11px;letter-spacing:.5px;text-transform:uppercase}
+.mc-sub{font-size:10px;color:var(--grey);margin-bottom:4px}
+.mc-val{font-family:"Playfair Display",serif;font-size:18px;font-weight:700;line-height:1.1}
+.mc-chg{font-family:"Source Sans 3",sans-serif;font-size:10px;font-weight:700;padding:2px 4px;border-radius:3px;display:inline-block;margin-top:2px}
+.mc-chg.up{background:#d4edda;color:#155724}
+.mc-chg.down{background:#f8d7da;color:#721c24}
+.mc-chg.flat{background:#fff3cd;color:#856404}
+.mc-note{font-size:10px;color:var(--grey);margin-top:4px}
+.mkt-sources{font-family:"Source Sans 3",sans-serif;font-size:10px;color:var(--grey);margin-top:6px}
+.mkt-sources a{color:var(--rust)}
+
+/* ── BOTTOM ROW (History + Events) ── */
+.bottom-row{display:grid;grid-template-columns:60fr 40fr;gap:20px;margin-top:20px}
+@media(max-width:700px){.bottom-row{grid-template-columns:1fr}}
+.ev-standalone{margin-top:20px}
+.ev-card{border:1px solid var(--rule);padding:10px 12px;margin-bottom:8px;background:#ede6cf;border-radius:3px}
+.ev-name{font-family:"Playfair Display",serif;font-size:14px;font-weight:700;margin-bottom:3px}
+.ev-meta{font-family:"Source Sans 3",sans-serif;font-size:11px;color:var(--grey)}
+
+/* ── FUNNIES ── */
+.funnies-banner{background:var(--rust);color:#fff;font-family:"Playfair Display",serif;font-size:17px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;margin:-22px -24px 20px;text-align:center}
+.games-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:700px){.games-grid{grid-template-columns:1fr}}
+.puzzle-panel{background:var(--aged);border:1px solid var(--rule);padding:16px;border-radius:4px}
+.puzzle-title{font-family:"Playfair Display",serif;font-size:18px;color:var(--rust);margin-bottom:10px;font-weight:700}
+
+/* ── CRUNCH ── */
+.crunch-nums{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:"Playfair Display",serif;font-size:24px;font-weight:700;width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:4px}
+.crunch-target{background:var(--rust);color:#fff;font-family:"Playfair Display",serif;font-size:28px;font-weight:700;width:60px;height:60px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.toggle-btn{font-family:"Source Sans 3",sans-serif;font-size:11px;letter-spacing:.5px;background:var(--ink);color:var(--aged);border:none;padding:6px 14px;cursor:pointer;margin-top:8px;border-radius:3px}
+.answer-box{display:none;margin-top:10px;padding:10px;background:#fff;border:1px solid var(--rule);font-family:"Source Sans 3",sans-serif;font-size:12px;border-radius:3px}
+.crunch-archive-link{font-family:"Source Sans 3",sans-serif;font-size:11px;color:var(--rust);margin-top:10px;display:block}
+
+/* ── WORD WEB ── */
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.ww-tile{background:var(--ink);color:var(--aged);font-family:"Source Sans 3",sans-serif;font-size:12px;font-weight:700;text-align:center;padding:12px 4px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase;cursor:default}
+.answer-cat{font-family:"Source Sans 3",sans-serif;font-size:12px;margin-bottom:6px;padding:6px 8px;border-radius:3px}
+.answer-cat.a{background:#d4edda}
+.answer-cat.b{background:#cce5ff}
+
+/* ── FLATLAND ── */
+.flatland-wrap{margin-top:24px;padding:20px;background:var(--aged);border:1px solid var(--rule);border-radius:4px}
+.flatland-title{font-family:"Playfair Display",serif;font-size:16px;font-weight:700;color:var(--rust);margin-bottom:14px;text-align:center;letter-spacing:1px}
+.comic-strip{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.panel{border:2px solid var(--ink);background:#fff;width:210px;min-height:160px;padding:10px;border-radius:3px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.panel-num{font-family:"Source Sans 3",sans-serif;font-size:9px;color:var(--grey);position:absolute;top:4px;left:6px}
+.panel-art{flex:1;display:flex;align-items:center;justify-content:center}
+.panel-cap{font-family:"Caveat",cursive;font-size:13px;color:var(--ink);text-align:center;margin-top:8px;line-height:1.3}
+.speech-bubble{background:#fff;border:1.5px solid var(--ink);border-radius:12px;padding:6px 8px;font-family:"Caveat",cursive;font-size:12px;position:relative;text-align:center;margin:4px}
+.speech-bubble::after{content:"";position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--ink)}
+
+/* ── ONTARIO FOCUS ── */
+.gta-focus{background:#f0e8d0;border:1px dashed var(--rule);padding:16px;margin-top:16px;border-radius:4px}
+.gta-focus-label{font-family:"Source Sans 3",sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:12px;border-bottom:1px solid var(--rule);padding-bottom:6px}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:var(--aged);padding:24px;text-align:center;margin-top:20px}
+.footer-name{font-family:"UnifrakturMaguntia",serif;font-size:28px;margin-bottom:6px}
+.footer-meta{font-family:"Source Sans 3",sans-serif;font-size:11px;color:rgba(244,237,214,.7);margin-bottom:10px;letter-spacing:.5px}
+.footer-disc{font-family:"Source Sans 3",sans-serif;font-size:10px;color:rgba(244,237,214,.5);max-width:780px;margin:10px auto 0;line-height:1.6}
+.footer-ig{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px}
+.footer-ig svg{width:18px;height:18px;fill:var(--aged)}
+.footer-ig a{color:var(--aged);font-family:"Source Sans 3",sans-serif;font-size:12px}
+</style>
+</head>
+<body id="top">
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#f4edd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+<!-- sticky header -->
+<div class="sticky-header">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-btns">
+      <button class="mini-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Top</button>
+      <a class="mini-btn" href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><span class="nav-link">Canada ▾</span>
+      <div class="dropdown">
+        <a href="#canada-current">Current Events</a>
+        <a href="#canada-politics">Politics</a>
+        <a href="#canada-economy">Economy &amp; Business</a>
+        <a href="#canada-sports">Sports</a>
+        <a href="#canada-history">This Week in History</a>
+        <a href="#canada-events">Upcoming Events</a>
+      </div>
+    </div>
+    <div class="nav-item"><span class="nav-link">GTA ▾</span>
+      <div class="dropdown">
+        <a href="#gta-current">Current Events</a>
+        <a href="#gta-politics">Politics</a>
+        <a href="#gta-economy">Economy &amp; Business</a>
+        <a href="#gta-sports">Sports</a>
+        <a href="#gta-events">Upcoming Events</a>
+      </div>
+    </div>
+    <div class="nav-item"><span class="nav-link">India ▾</span>
+      <div class="dropdown">
+        <a href="#india-current">Current Events</a>
+        <a href="#india-politics">Politics</a>
+        <a href="#india-economy">Economy &amp; Business</a>
+        <a href="#india-sports">Sports</a>
+        <a href="#india-history">This Week in History</a>
+        <a href="#india-events">Upcoming Events</a>
+      </div>
+    </div>
+    <div class="nav-item"><span class="nav-link">World ▾</span>
+      <div class="dropdown">
+        <a href="#world-current">Current Events</a>
+        <a href="#world-politics">Politics</a>
+        <a href="#world-economy">Economy &amp; Business</a>
+        <a href="#world-sports">Sports</a>
+        <a href="#world-history">This Week in History</a>
+        <a href="#world-events">Upcoming Events</a>
+      </div>
+    </div>
+    <div class="nav-item"><span class="nav-link">Funnies ▾</span>
+      <div class="dropdown">
+        <a href="#comics">Word Web</a>
+        <a href="#crunch">Crunch</a>
+        <a href="#flatland">Flatland News</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- masthead -->
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 47 &nbsp;&middot;&nbsp; Sunday, May 17, 2026</span>
+    <div class="mast-ig">
+      <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#635d4e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener" style="font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey)">@the.chronicler.news</a>
+    </div>
+  </div>
+  <h1 class="pub-name">The Chronicler</h1>
+  <div class="tagline">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<!-- ticker -->
+<div class="ticker">⚠&nbsp; YUKONER TESTS PRESUMPTIVE POSITIVE FOR HANTAVIRUS &mdash; MAN CITY WIN FA CUP &mdash; INDIA REJECTS HAGUE RULING ON INDUS WATERS TREATY &mdash; IRAN PLANS HORMUZ TOLLS &mdash; DUNKIN&rsquo; RETURNS TO CANADA &mdash; ROUSEY SUBMITS CARANO IN 17 SECONDS &mdash; SUPREME COURT TO EXPAND TO 38 JUDGES</div>
+
+<div class="container">
+
+<!-- ═══════════════ CANADA ═══════════════ -->
+<span id="canada-current"></span>
+<div class="section">
+  <div class="section-banner">Canada</div>
+
+  <!-- weather -->
+  <span class="cat">Weather</span>
+  <div class="w-grid-5">
+    <div class="w-card">
+      <div class="w-city">Toronto</div>
+      <div class="w-temp">23°C</div>
+      <div class="w-hl">H: 23° &nbsp; L: 14°</div>
+      <div class="w-cond">☀️ Mainly Sunny <span class="aqi-badge aqi-good">AQI 28 Good</span></div>
+      <div class="w-detail">💨 SW 20 km/h &nbsp; 💧 69%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>☀️<br>28/18</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>28/15</div>
+        <div class="w-fc-day">Wed<br>🌧️<br>22/12</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-city">Montréal</div>
+      <div class="w-temp">18°C</div>
+      <div class="w-hl">H: 23° &nbsp; L: 10°</div>
+      <div class="w-cond">⛅ Partly Cloudy <span class="aqi-badge aqi-good">AQI 32 Good</span></div>
+      <div class="w-detail">💨 WSW 37 km/h &nbsp; 💧 74%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>🌧️<br>24/20</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>28/18</div>
+        <div class="w-fc-day">Wed<br>🌧️<br>26/8</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-city">Ottawa</div>
+      <div class="w-temp">20°C</div>
+      <div class="w-hl">H: 22° &nbsp; L: 9°</div>
+      <div class="w-cond">☀️ Sunny <span class="aqi-badge aqi-good">AQI 25 Good</span></div>
+      <div class="w-detail">💨 NW 20 km/h &nbsp; 💧 55%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>🌦️<br>28/19</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>28/18</div>
+        <div class="w-fc-day">Wed<br>🌧️<br>25/8</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-city">Edmonton</div>
+      <div class="w-temp">11°C</div>
+      <div class="w-hl">H: 14° &nbsp; L: 3°</div>
+      <div class="w-cond">⛅ Mix Sun/Cloud <span class="aqi-badge aqi-good">AQI 18 Good</span></div>
+      <div class="w-detail">💨 W 15 km/h &nbsp; 💧 45%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>☀️<br>17/7</div>
+        <div class="w-fc-day">Tue<br>⛅<br>17/8</div>
+        <div class="w-fc-day">Wed<br>⛅<br>19/7</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-city">Vancouver</div>
+      <div class="w-temp">14°C</div>
+      <div class="w-hl">H: 17° &nbsp; L: 10°</div>
+      <div class="w-cond">☀️ Sunny <span class="aqi-badge aqi-good">AQI 22 Good</span></div>
+      <div class="w-detail">💨 SW 20 km/h &nbsp; 💧 65%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>⛅<br>18/10</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>18/9</div>
+        <div class="w-fc-day">Wed<br>☀️<br>19/10</div>
+      </div>
+    </div>
+  </div>
+  <p class="w-note">Weather data: Environment Canada. Updated approx. 5:00 AM ET, May 17, 2026.</p>
+
+  <!-- articles -->
+  <span class="cat" style="margin-top:20px;display:block">Top Stories</span>
+  <div class="col-3">
+
+    <article id="canada-1">
+      <h3>Yukoner Tests Presumptive Positive for Hantavirus After MV Hondius Cruise Ship Outbreak</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>One of four Canadians isolating in British Columbia after leaving the hantavirus-stricken cruise ship MV Hondius has tested presumptive positive for the Andes strain of the virus, B.C. Provincial Health Officer Dr. Bonnie Henry announced Saturday. The patient, one of a Yukon couple in their 70s, was hospitalised after developing mild symptoms including fever and headache two days prior, and the B.C. Centre for Disease Control returned a presumptive positive result on Friday evening. Samples have been sent to the National Microbiology Laboratory in Winnipeg for confirmation. The patient&rsquo;s partner tested negative but is also being monitored in hospital.</p>
+      <p>Dr. Henry confirmed that the patient is stable, symptoms remain mild, and infection control precautions have been in place since the four passengers arrived in British Columbia. She stressed there is no risk to the general public, as the patient has had no contact with anyone outside their care team. All eleven people who have tested positive globally were aboard the MV Hondius for an extended period, meaning the virus has not yet spread to anyone who was not on the voyage. Three people have died globally since the outbreak began. Dr. Henry reiterated that hantavirus does not carry pandemic potential and is transmitted differently from respiratory viruses such as COVID-19 or influenza.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/british-columbia/bc-update-hantavirus-update-bonnie-henry-may-16-9.7202396" target="_blank" rel="noopener">CBC News</a> &middot; May 16, 2026</div>
+    </article>
+
+    <article id="canada-2">
+      <h3>Manitoba&rsquo;s Youth Social Media Ban Could Bar YouTube in Schools, Premier Kinew Confirms</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>Manitoba Premier Wab Kinew has confirmed that his province&rsquo;s planned ban on social media and AI chatbots for children will likely extend to teachers using YouTube in the classroom, as Ottawa continues to deliberate on whether to introduce its own national restrictions. Speaking on CBC&rsquo;s The House, Kinew said that even YouTube Kids carries addictive design features such as autoplay and recommendation engines that make it incompatible with the intended ban. The province has positioned itself as the first jurisdiction in Canada to move in this direction, modelling its approach partly on Australia&rsquo;s law requiring platforms to take reasonable steps to prevent under-16s from holding accounts.</p>
+      <p>At the federal level, Culture Minister Marc Miller said last month that the government was very seriously considering a similar move, though no decision had been made. Reports indicate Ottawa is now debating whether to extend any forthcoming restrictions to AI chatbots as well. Meta Canada&rsquo;s head of public policy said the company would comply with any federal ban if enacted, though it does not view a blanket prohibition as the most effective approach. Experts have noted enforcement challenges &mdash; Australia&rsquo;s experience shows that a majority of children found workarounds after the ban took effect. Manitoba has indicated it may appoint a commissioner or regulator to oversee compliance and has suggested schools could be the first arena in which the ban takes hold.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/manitoba-social-media-ban-youtube-ai-chatbots-federal-government-9.7201648" target="_blank" rel="noopener">CBC News</a> &middot; May 16, 2026</div>
+    </article>
+
+    <article id="canada-3">
+      <h3>Dunkin&rsquo; Returns to Canada After Eight Years, Signs Master Franchise Deal With Foodtastic</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>American coffee and doughnut chain Dunkin&rsquo; is returning to Canada after an eight-year absence, with Montreal-based restaurant operator Foodtastic signing a master franchising agreement with Inspire Brands to bring hundreds of Dunkin&rsquo; locations to the country, starting as early as this year. The rollout is expected to begin in Toronto and Montreal before expanding nationally. Dunkin&rsquo; previously operated hundreds of Canadian locations before departing in 2018, following a successful lawsuit by Quebec franchisees who argued the company had not adequately promoted the brand. Foodtastic, which also operates Second Cup, Milestones, and Freshii in Canada, will have exclusive rights to develop, recruit franchisees, and manage operations nationwide.</p>
+      <p>Experts say Dunkin&rsquo; will face a formidable challenge in a market dominated by Tim Hortons, which recently reported its twentieth consecutive quarter of positive comparable sales. Marketing academics have noted that unless Dunkin&rsquo; can offer a compelling point of differentiation on price, convenience, or quality perception, dislodging Tim Hortons from its entrenched position will be difficult. Foodtastic&rsquo;s CEO countered that Tim Hortons has lost its identity by straying from core products and argued that Dunkin&rsquo; has cultivated stronger appeal among younger consumers through high-profile partnerships. First store openings are targeted for late 2026 or early 2027.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/dunkin-donuts-vs-tim-hortons-canada-9.7200316" target="_blank" rel="noopener">CBC News</a> &middot; May 15, 2026</div>
+    </article>
+
+  </div>
+
+  <!-- Ontario Focus -->
+  <div class="gta-focus">
+    <div class="gta-focus-label">Ontario Focus</div>
+    <div class="col-3">
+      <article id="ontario-1" style="grid-column:1/-1;border-top:2px solid var(--rust)">
+        <h3>Port Colborne Battery Plant Presses Ahead Despite Honda&rsquo;s Indefinite Suspension of $15B EV Complex</h3>
+        <div class="by">The Chronicler Canada Desk &middot; Sunday, May 17, 2026</div>
+        <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+        <p>Construction on the $1.56-billion Asahi Kasei battery separator plant in Port Colborne, Ontario, is continuing despite Honda Canada&rsquo;s announcement that it has indefinitely suspended its $15-billion electric vehicle investment programme, citing changing business conditions. Asahi Kasei confirmed in a statement that the Port Colborne facility remains fully committed, with commercial production now targeted for the first half of 2029, a timeline adjusted to reflect evolving market conditions. The plant, which broke ground in November 2024, will be Canada&rsquo;s first large-scale wet-process battery separator facility. Honda holds approximately a 25 per cent stake in the joint venture, having committed around $240 million at the time of the original announcement.</p>
+        <p>Honda&rsquo;s indefinite suspension encompasses plans for a new EV assembly plant and a stand-alone EV battery facility in Alliston, Ontario &mdash; a complex that was expected to create 1,000 incremental manufacturing jobs and produce 240,000 vehicles annually by 2028. The project had attracted $2.5 billion each in committed support from the federal and provincial governments, none of which Honda says it has yet received. Port Colborne Mayor Bill Steele told CBC News that Asahi Kasei has reaffirmed its commitment to the city through regular meetings with municipal officials. Honda&rsquo;s broader retreat from electrification &mdash; which has included a $15.7-billion writedown and the cancellation of several next-generation EV models &mdash; reflects a wider industry pivot toward hybrids amid weakening demand and ongoing trade pressures.</p>
+        <div class="src">Source: <a href="https://www.cbc.ca/news/canada/hamilton/port-colborne-battery-plant-1-5-billion-honda-electric-vehicles-9.7201313" target="_blank" rel="noopener">CBC News</a> &middot; May 16, 2026</div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Canada Economy -->
+  <span id="canada-economy"></span>
+  <span id="canada-politics"></span>
+  <span class="cat" style="margin-top:24px;display:block">Markets</span>
+  <div class="mkt-note">Canada market data reflects Friday, May 16, 2026 close. Currency rates sourced live from Google Finance, May 17, 2026 at 7:21 AM ET.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">33,833</div>
+      <span class="mc-chg down">▼ 434.92 (&minus;1.27%)</span>
+      <div class="mc-note">May 16 close &middot; CAD</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$105.42</div>
+      <span class="mc-chg up">▲ 4.25 (+4.20%)</span>
+      <div class="mc-note">May 16 close &middot; USD</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,539</div>
+      <span class="mc-chg down">▼ est. (weekly &minus;4%)</span>
+      <div class="mc-note">May 16 close &middot; USD</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7271</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Google Finance &middot; May 17</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">&#8377;69.72</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Google Finance &middot; May 17</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">&euro;0.6256</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Google Finance &middot; May 17</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">&pound;0.5455</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Google Finance &middot; May 17</div>
+    </div>
+  </div>
+  <div class="mkt-sources">Sources: <a href="https://finance.yahoo.com" target="_blank" rel="noopener">Yahoo Finance</a> &middot; <a href="https://tradingeconomics.com" target="_blank" rel="noopener">Trading Economics</a> &middot; Google Finance (currency)</div>
+
+  <!-- Canada Sports -->
+  <span id="canada-sports"></span>
+
+  <!-- Canada History + Events -->
+  <span id="canada-history"></span>
+  <div class="bottom-row" style="margin-top:24px">
+    <div>
+      <span class="cat">This Week in History</span>
+      <article style="border-top:2px solid var(--ink);padding-top:12px">
+        <h3>May 17, 1642: Maisonneuve Founds Ville-Marie, the Settlement That Would Become Montréal</h3>
+        <div class="by">The Chronicler Canada Desk &middot; Sunday, May 17, 2026</div>
+        <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+        <p>On this date in 1642, Paul de Chomedey de Maisonneuve led a small party of French colonists ashore on the Island of Montreal and formally established Ville-Marie, a missionary settlement dedicated to the conversion of Indigenous peoples to Christianity. The founding took place at the confluence of the St. Lawrence and St. Pierre rivers, a location long known to Indigenous traders and long coveted by European fur traders and missionaries alike. Maisonneuve, a devout soldier from Champagne, had lobbied the Société de Notre-Dame de Montréal for the commission to lead the expedition despite warnings from Québec City&rsquo;s governor, Charles Huault de Montmagny, that the site was dangerously exposed to Haudenosaunee raids.</p>
+        <p>The settlement survived repeated attacks in its early decades, and Maisonneuve served as its governor until 1665, when the Société de Notre-Dame was dissolved and New France took direct control. Ville-Marie was gradually renamed Montréal after the prominent hill at its centre &mdash; Mont Royal &mdash; and grew into one of the most significant cities in North America. The founding is commemorated each year on May 17, which Montréal observes as Journée nationale des patriotes in Québec. Maisonneuve himself returned to France in 1665 and died in Paris in 1676, never to return to the city he had built.</p>
+        <div class="src">Source: Dictionary of Canadian Biography (biographi.ca) &middot; Université de Montréal Archives</div>
+      </article>
+    </div>
+    <div>
+      <span id="canada-events"></span>
+      <span class="cat">Upcoming Events</span>
+      <div class="ev-card">
+        <div class="ev-name">Toronto Jazz Festival &mdash; Opening Weekend</div>
+        <div class="ev-meta">May 23–25, 2026 &nbsp;&middot;&nbsp; Nathan Phillips Square &amp; clubs, Toronto</div>
+        <p style="font-size:12px;margin-top:4px;color:var(--grey)">Canada&rsquo;s premier jazz festival returns with outdoor and indoor stages across the city.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-name">Ottawa Tulip Festival &mdash; Final Weekend</div>
+        <div class="ev-meta">May 17–18, 2026 &nbsp;&middot;&nbsp; Commissioners Park, Ottawa</div>
+        <p style="font-size:12px;margin-top:4px;color:var(--grey)">The world&rsquo;s largest tulip festival wraps up its 2026 run this weekend with free public access to the Dow&rsquo;s Lake display gardens.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-name">Vancouver International Film Festival &mdash; Industry Screenings</div>
+        <div class="ev-meta">May 19–22, 2026 &nbsp;&middot;&nbsp; Vancouver International Film Centre</div>
+        <p style="font-size:12px;margin-top:4px;color:var(--grey)">Public screenings of the industry selection programme, featuring Canadian and international premieres.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /canada section -->
+
+<!-- ═══════════════ GTA ═══════════════ -->
+<span id="gta-current"></span>
+<div class="section">
+  <div class="section-banner">Greater Toronto Area</div>
+
+  <!-- GTA Weather -->
+  <span class="cat">Weather</span>
+  <div class="w-grid-5">
+    <div class="w-card">
+      <div class="w-city">Toronto</div>
+      <div class="w-temp">23°C</div>
+      <div class="w-hl">H: 23° &nbsp; L: 14°</div>
+      <div class="w-cond">☀️ Mainly Sunny <span class="aqi-badge aqi-good">AQI 28 Good</span></div>
+      <div class="w-detail">💨 SW 20 km/h &nbsp; 💧 69%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>☀️<br>28/18</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>28/15</div>
+        <div class="w-fc-day">Wed<br>🌧️<br>22/12</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-city">Brampton</div>
+      <div class="w-temp">22°C</div>
+      <div class="w-hl">H: 23° &nbsp; L: 13°</div>
+      <div class="w-cond">☀️ Mainly Sunny <span class="aqi-badge aqi-good">AQI 30 Good</span></div>
+      <div class="w-detail">💨 SW 18 km/h &nbsp; 💧 67%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>☀️<br>28/17</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>27/14</div>
+        <div class="w-fc-day">Wed<br>🌧️<br>22/11</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-city">Markham</div>
+      <div class="w-temp">21°C</div>
+      <div class="w-hl">H: 22° &nbsp; L: 13°</div>
+      <div class="w-cond">⛅ Partly Cloudy <span class="aqi-badge aqi-good">AQI 27 Good</span></div>
+      <div class="w-detail">💨 SW 15 km/h &nbsp; 💧 70%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>☀️<br>28/17</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>27/15</div>
+        <div class="w-fc-day">Wed<br>🌧️<br>21/11</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-city">Oakville</div>
+      <div class="w-temp">21°C</div>
+      <div class="w-hl">H: 23° &nbsp; L: 13°</div>
+      <div class="w-cond">☀️ Mainly Sunny <span class="aqi-badge aqi-good">AQI 26 Good</span></div>
+      <div class="w-detail">💨 SW 20 km/h &nbsp; 💧 66%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>☀️<br>28/17</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>27/14</div>
+        <div class="w-fc-day">Wed<br>🌧️<br>22/11</div>
+      </div>
+    </div>
+    <div class="w-card">
+      <div class="w-city">Whitby</div>
+      <div class="w-temp">20°C</div>
+      <div class="w-hl">H: 22° &nbsp; L: 12°</div>
+      <div class="w-cond">⛅ Partly Cloudy <span class="aqi-badge aqi-good">AQI 29 Good</span></div>
+      <div class="w-detail">💨 SW 14 km/h &nbsp; 💧 68%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>☀️<br>27/16</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>26/14</div>
+        <div class="w-fc-day">Wed<br>🌧️<br>21/10</div>
+      </div>
+    </div>
+  </div>
+  <p class="w-note">Weather data: Environment Canada. Updated approx. 5:00 AM ET, May 17, 2026.</p>
+
+  <!-- GTA articles (note: GTA desk has no dedicated articles this edition — Ontario Focus appears under Canada) -->
+  <span id="gta-politics"></span>
+  <span id="gta-economy"></span>
+  <span id="gta-sports"></span>
+  <span class="cat" style="margin-top:18px;display:block">Local News</span>
+  <p style="font-family:'Source Sans 3',sans-serif;font-size:13px;color:var(--grey);font-style:italic;margin-bottom:16px">Local Ontario focus coverage appears in the Canada section above. See <a href="#ontario-1" style="color:var(--rust)">Port Colborne battery plant story</a> for today&rsquo;s major Ontario business development.</p>
+
+  <!-- GTA Upcoming Events -->
+  <span id="gta-events"></span>
+  <div class="ev-standalone">
+    <span class="cat">Upcoming Events &mdash; GTA</span>
+    <div class="ev-card">
+      <div class="ev-name">Luminato Festival Toronto &mdash; Opening</div>
+      <div class="ev-meta">May 22, 2026 &nbsp;&middot;&nbsp; Harbourfront Centre &amp; venues across Toronto</div>
+      <p style="font-size:12px;margin-top:4px;color:var(--grey)">Toronto&rsquo;s international festival of arts and creativity opens its 2026 edition with performance, visual art, and music events spanning the city.</p>
+    </div>
+    <div class="ev-card">
+      <div class="ev-name">Brampton Flower City Parade</div>
+      <div class="ev-meta">May 18, 2026 &nbsp;&middot;&nbsp; Downtown Brampton, Queen Street</div>
+      <p style="font-size:12px;margin-top:4px;color:var(--grey)">The annual community parade celebrating Brampton&rsquo;s floral heritage returns with floats, marching bands, and local performers.</p>
+    </div>
+    <div class="ev-card">
+      <div class="ev-name">Markham Village Music Festival</div>
+      <div class="ev-meta">May 24–25, 2026 &nbsp;&middot;&nbsp; Markham Village, Main Street</div>
+      <p style="font-size:12px;margin-top:4px;color:var(--grey)">Free outdoor music festival along historic Main Street Markham featuring local and regional performers across multiple stages.</p>
+    </div>
+  </div>
+
+</div><!-- /gta section -->
+
+<!-- ═══════════════ INDIA ═══════════════ -->
+<span id="india-current"></span>
+<div class="section">
+  <div class="section-banner">India</div>
+
+  <!-- India weather -->
+  <span class="cat">Weather</span>
+  <div class="w-grid-6">
+    <div class="w-card india-card">
+      <div class="w-city">New Delhi</div>
+      <div class="w-temp">39°C</div>
+      <div class="w-hl">H: 42° &nbsp; L: 28°</div>
+      <div class="w-cond">🌡️ Heatwave <span class="aqi-badge aqi-poor">AQI 182 Poor</span></div>
+      <div class="w-detail">💨 NW 20 km/h &nbsp; 💧 28%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>🌡️<br>43/29</div>
+        <div class="w-fc-day">Tue<br>🌡️<br>44/30</div>
+        <div class="w-fc-day">Wed<br>⛅<br>38/27</div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-city">Hyderabad</div>
+      <div class="w-temp">36°C</div>
+      <div class="w-hl">H: 42° &nbsp; L: 29°</div>
+      <div class="w-cond">🌡️ Hot &amp; Hazy <span class="aqi-badge aqi-moderate">AQI 95 Moderate</span></div>
+      <div class="w-detail">💨 SW 14 km/h &nbsp; 💧 38%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>🌡️<br>41/28</div>
+        <div class="w-fc-day">Tue<br>⛅<br>38/27</div>
+        <div class="w-fc-day">Wed<br>🌦️<br>34/26</div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-city">Mumbai</div>
+      <div class="w-temp">32°C</div>
+      <div class="w-hl">H: 34° &nbsp; L: 30°</div>
+      <div class="w-cond">⛅ Humid &amp; Cloudy <span class="aqi-badge aqi-moderate">AQI 88 Moderate</span></div>
+      <div class="w-detail">💨 SW 22 km/h &nbsp; 💧 78%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>⛅<br>34/30</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>33/29</div>
+        <div class="w-fc-day">Wed<br>🌦️<br>33/29</div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-city">Bengaluru</div>
+      <div class="w-temp">31°C</div>
+      <div class="w-hl">H: 37° &nbsp; L: 28°</div>
+      <div class="w-cond">⛈️ Thunderstorm <span class="aqi-badge aqi-moderate">AQI 72 Moderate</span></div>
+      <div class="w-detail">💨 S 18 km/h &nbsp; 💧 62%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>⛈️<br>35/27</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>33/26</div>
+        <div class="w-fc-day">Wed<br>⛅<br>34/26</div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-city">Chennai</div>
+      <div class="w-temp">30°C</div>
+      <div class="w-hl">H: 34° &nbsp; L: 27°</div>
+      <div class="w-cond">🌫️ Humid &amp; Misty <span class="aqi-badge aqi-moderate">AQI 79 Moderate</span></div>
+      <div class="w-detail">💨 SE 16 km/h &nbsp; 💧 82%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>🌦️<br>34/27</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>33/27</div>
+        <div class="w-fc-day">Wed<br>⛈️<br>32/26</div>
+      </div>
+    </div>
+    <div class="w-card india-card">
+      <div class="w-city">Pune</div>
+      <div class="w-temp">30°C</div>
+      <div class="w-hl">H: 36° &nbsp; L: 24°</div>
+      <div class="w-cond">⛅ Partly Cloudy <span class="aqi-badge aqi-moderate">AQI 68 Moderate</span></div>
+      <div class="w-detail">💨 W 12 km/h &nbsp; 💧 55%</div>
+      <div class="w-forecast">
+        <div class="w-fc-day">Mon<br>⛅<br>35/24</div>
+        <div class="w-fc-day">Tue<br>🌦️<br>33/23</div>
+        <div class="w-fc-day">Wed<br>🌦️<br>32/23</div>
+      </div>
+    </div>
+  </div>
+  <p class="w-note">Weather data: IMD / India Meteorological Department. Updated approx. 5:30 AM ET (3:00 PM IST), May 17, 2026. AQI on US scale.</p>
+
+  <!-- India articles -->
+  <span class="cat" style="margin-top:20px;display:block">Top Stories</span>
+  <div class="col-3">
+
+    <article id="india-1">
+      <h3>India Rejects Hague Arbitration Ruling on Indus Waters Treaty, Calls Tribunal Illegally Constituted</h3>
+      <div class="by">The Chronicler India Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>India on Saturday firmly rejected the latest award issued by the Hague-based Court of Arbitration under the Indus Waters Treaty, declaring that New Delhi neither recognises the &ldquo;illegally constituted&rdquo; tribunal nor accepts any of its rulings as legally valid. The Ministry of External Affairs confirmed that India&rsquo;s decision to hold the 1960 treaty in abeyance would remain in force. MEA spokesperson Randhir Jaiswal said the Court of Arbitration had on May 15 issued what it termed an award on &ldquo;maximum pondage&rdquo; linked to an earlier interpretation ruling on the treaty &mdash; which India categorically rejected, stating that any proceeding, award, or decision issued by the tribunal is null and void.</p>
+      <p>The latest remarks come against the backdrop of sustained tensions between India and Pakistan following the April 2025 Pahalgam terror attack, after which India announced it was placing the Indus Waters Treaty in abeyance. The treaty, brokered by the World Bank, governs the sharing of the Indus river system between the two countries &mdash; granting Pakistan rights over the western rivers and India control over the eastern rivers, with Pakistan receiving access to approximately 80 per cent of total system flows. India has maintained that any resumption of treaty engagement is contingent on Pakistan credibly and irrevocably ending its support for cross-border terrorism, with the MEA reiterating that talks and terror cannot proceed simultaneously.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/top-headlines/india-rejects-hague-court-ruling-on-indus-waters-treaty/" target="_blank" rel="noopener">The Tribune</a> &middot; May 17, 2026</div>
+    </article>
+
+    <article id="india-2">
+      <h3>Modi Warns of a &lsquo;Decade of Disasters&rsquo; at The Hague, Calls for Resilient Global Supply Chains</h3>
+      <div class="by">The Chronicler India Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>Prime Minister Narendra Modi, addressing the Indian diaspora at a community event in The Hague during his visit to the Netherlands, warned that the compounding effects of the COVID-19 pandemic, global conflicts, and the ongoing energy crisis risk reversing decades of economic progress and pushing millions back into poverty. Modi described the current period as a &ldquo;decade of disasters&rdquo; and called on the international community to urgently build resilient and trusted supply chains. Speaking to a gathering that included members of the Surinamese-Hindustani community &mdash; the largest Indian-origin population in mainland Europe &mdash; Modi underscored the deepening strategic ties between India and the Netherlands across energy security, water management, and green technologies.</p>
+      <p>Modi highlighted India&rsquo;s rapidly expanding digital economy, noting that the country now processes over 20 billion UPI transactions monthly and has become the world&rsquo;s third-largest startup ecosystem. He described the Netherlands as a natural gateway for Indian businesses entering European markets and referred to the recently concluded India-European Union trade agreement as a milestone that would deepen bilateral economic engagement. The Prime Minister also announced that eligibility for Overseas Citizen of India cards for the Surinamese-Hindustani community would be extended from the fourth to the sixth generation.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/top-headlines/global-crises-could-wipe-away-decades-of-gains-warns-pm-modi/" target="_blank" rel="noopener">The Tribune</a> &middot; May 17, 2026</div>
+    </article>
+
+    <article id="india-3">
+      <h3>Tata Electronics and ASML Sign Chipmaking Agreement as Modi Pitches India as Europe&rsquo;s Tech Partner</h3>
+      <div class="by">The Chronicler India Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>Tata Electronics signed a landmark agreement with Dutch semiconductor giant ASML during Prime Minister Narendra Modi&rsquo;s visit to the Netherlands on Saturday, supporting India&rsquo;s first front-end chip fabrication plant being developed in Dholera, Gujarat. The agreement was witnessed by Modi and Dutch Prime Minister Rob Jetten in The Hague and marks a significant step in India&rsquo;s ambition to build a self-reliant domestic semiconductor manufacturing ecosystem. ASML, the world&rsquo;s dominant supplier of advanced lithography equipment essential to chipmaking, will partner with Tata Electronics for the Dholera facility, which New Delhi views as strategically vital for reducing dependence on global supply chains.</p>
+      <p>Semiconductor cooperation formed the centrepiece of Modi&rsquo;s engagements in the Netherlands, where he also held discussions with leading Dutch CEOs from sectors spanning ports, logistics, clean energy, healthcare, aviation, and technology. The two sides emphasised the need for early implementation of the India-European Union Free Trade Agreement, describing it as vital for building resilient supply chains amid global economic uncertainty. Industry leaders from Philips, NXP Semiconductors, KLM Royal Dutch Airlines, Heineken, and the Port of Rotterdam expressed interest in expanding their presence in India. Modi also called on King Willem-Alexander and Queen M&aacute;xima at Palace Huis ten Bosch, where the two sides reviewed progress in bilateral cooperation.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/india/india-netherlands-ties-get-major-chipmaking-push-with-asml-tata-agreement/" target="_blank" rel="noopener">The Tribune</a> &middot; May 16, 2026</div>
+    </article>
+
+  </div>
+
+  <!-- 4th India article -->
+  <div class="col-3" style="margin-top:20px">
+    <article id="india-4" style="grid-column:1/-1;border-top:2px solid var(--ink);padding-top:12px">
+      <h3>President Murmu Promulgates Ordinance to Expand Supreme Court to 38 Judges</h3>
+      <div class="by">The Chronicler India Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>President Droupadi Murmu has promulgated an ordinance to increase the sanctioned strength of the Supreme Court of India from 34 to 38 judges, including the Chief Justice of India. The Supreme Court (Number of Judges) Amendment Ordinance, 2026, promulgated on Saturday evening, amends Section 2 of the Supreme Court (Number of Judges) Act, 1956, replacing the figure of 33 with 37 in the count of judges excluding the Chief Justice. The ordinance route was chosen because Parliament is not currently in session; a corresponding amendment bill had already been approved by the Union Cabinet on May 5.</p>
+      <p>The current working strength of the Supreme Court stands at 32 judges including the Chief Justice, with four judges due to retire later this year. The CJI Surya Kant-led Supreme Court Collegium is now expected to recommend names to fill the expanded vacancies. The last expansion of the court&rsquo;s strength occurred in 2019, when the sanctioned total was raised from 31 to 34. The government stated that the increase will allow the Supreme Court to function more efficiently and deliver speedier justice. As of March 31, 2026, total case pendency at the Supreme Court had reached a record high of 93,143 cases &mdash; a figure that has driven sustained pressure on successive governments to expand judicial capacity.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/india/president-murmu-promulgates-ordinance-to-add-4-more-judges-to-supreme-court/" target="_blank" rel="noopener">The Tribune</a> &middot; May 17, 2026</div>
+    </article>
+  </div>
+
+  <!-- India Economy / Markets -->
+  <span id="india-economy"></span>
+  <span id="india-politics"></span>
+  <span class="cat" style="margin-top:24px;display:block">Markets</span>
+  <div class="mkt-note">Indian market data reflects Friday, May 16, 2026 close (NSE/BSE). Currency rates sourced from Google Finance, May 17, 2026 at 7:21 AM ET. Gold rate from Goodreturns, May 17, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div>
+      <div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">75,237</div>
+      <span class="mc-chg down">▼ 160.73 (&minus;0.21%)</span>
+      <div class="mc-note">May 16 close &middot; INR</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE Index</div>
+      <div class="mc-val">23,643</div>
+      <span class="mc-chg down">▼ 46.10 (&minus;0.19%)</span>
+      <div class="mc-note">May 16 close &middot; INR</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">INR / 10g (24K)</div>
+      <div class="mc-val">&#8377;1,56,930</div>
+      <span class="mc-chg flat">&mdash; indicative</span>
+      <div class="mc-note">Goodreturns &middot; May 17</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">$0.0104</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Google Finance &middot; May 17</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">$0.0143</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Google Finance &middot; May 17</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">&pound;0.0078</div>
+      <span class="mc-chg down">▼ &minus;0.03%</span>
+      <div class="mc-note">Google Finance &middot; May 17</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">1 INR in EUR</div>
+      <div class="mc-val">&euro;0.0090</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Google Finance &middot; May 17</div>
+    </div>
+  </div>
+  <div class="mkt-sources">Sources: Google Finance (currency) &middot; BSE India &middot; NSE India &middot; <a href="https://www.goodreturns.in/gold-rates/" target="_blank" rel="noopener">Goodreturns</a> (Gold)</div>
+
+  <!-- India Sports + History + Events -->
+  <span id="india-sports"></span>
+  <span id="india-history"></span>
+  <div class="bottom-row" style="margin-top:24px">
+    <div>
+      <span class="cat">This Week in History</span>
+      <article style="border-top:2px solid var(--rust);padding-top:12px">
+        <h3>May 17, 1974: India Conducts Its First Nuclear Test &mdash; Operation Smiling Buddha</h3>
+        <div class="by">The Chronicler India Desk &middot; Sunday, May 17, 2026</div>
+        <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+        <p>On this date in 1974, India conducted its first nuclear weapons test &mdash; codenamed Operation Smiling Buddha &mdash; at the Pokhran test range in the Rajasthan desert. The underground detonation had an estimated yield of 8 kilotons and was described by the Indian government as a &ldquo;peaceful nuclear explosion,&rdquo; a characterisation that did not prevent it from triggering immediate international alarm. Prime Minister Indira Gandhi authorised the test after years of quiet development by the Bhabha Atomic Research Centre, and the device used plutonium sourced from the CIRUS reactor, which had been built with Canadian assistance under a 1956 agreement explicitly limiting its use to peaceful purposes.</p>
+        <p>The test had profound geopolitical consequences. Canada immediately suspended nuclear co-operation with India, and the United States imposed technology restrictions. The explosion accelerated Pakistan&rsquo;s own covert nuclear programme, setting the stage for the South Asian nuclear arms race that would culminate in Pakistan&rsquo;s tests in 1998 &mdash; three weeks after India&rsquo;s second test series, Operation Shakti. The Pokhran site became a defining landmark in India&rsquo;s strategic history, symbolising the country&rsquo;s determination to chart an independent path in a world divided between superpowers. Today, India is a recognised nuclear-armed state with an official no-first-use policy and a permanent seat at several international non-proliferation forums, though it remains outside the Nuclear Non-Proliferation Treaty.</p>
+        <div class="src">Source: Bhabha Atomic Research Centre archives &middot; Government of India historical records</div>
+      </article>
+    </div>
+    <div>
+      <span id="india-events"></span>
+      <span class="cat">Upcoming Events</span>
+      <div class="ev-card">
+        <div class="ev-name">Cannes Film Festival &mdash; India Pavilion</div>
+        <div class="ev-meta">May 13&ndash;24, 2026 &nbsp;&middot;&nbsp; Palais des Festivals, Cannes, France</div>
+        <p style="font-size:12px;margin-top:4px;color:var(--grey)">India continues its prominent presence at Cannes 2026 with the official India Pavilion showcasing co-production opportunities and streaming premieres.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-name">Mumbai International Film Festival</div>
+        <div class="ev-meta">May 23&ndash;29, 2026 &nbsp;&middot;&nbsp; NFDC, Mumbai</div>
+        <p style="font-size:12px;margin-top:4px;color:var(--grey)">India&rsquo;s premier documentary and short film festival opens its 2026 edition with submissions from over 40 countries.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-name">IPL 2026 Final</div>
+        <div class="ev-meta">May 25, 2026 &nbsp;&middot;&nbsp; Narendra Modi Stadium, Ahmedabad</div>
+        <p style="font-size:12px;margin-top:4px;color:var(--grey)">The Indian Premier League 2026 season culminates at the world&rsquo;s largest cricket stadium. Tickets available through the BCCI official portal.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /india section -->
+
+<!-- ═══════════════ WORLD ═══════════════ -->
+<span id="world-current"></span>
+<div class="section">
+  <div class="section-banner">World</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article id="world-1">
+      <h3>Iran Plans Hormuz Tolls as Trump Warns of &lsquo;Very Bad Time&rsquo; If Peace Talks Stall</h3>
+      <div class="by">The Chronicler World Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>Iran has signalled it will soon reveal a plan to charge tolls on shipping traffic passing through the Strait of Hormuz, as the conflict between the United States, Israel, and Iran enters a new phase of economic brinkmanship. US President Donald Trump warned Tehran it would face a &ldquo;very bad time&rdquo; if a peace deal is not reached soon, while Iranian Parliament Speaker Mohammed Bagher Ghalibaf declared that the world stands at the cusp of a new international order. The exchange underscores the widening distance between the two sides as back-channel diplomacy struggles to gain traction and military exchanges between Israel and Lebanon continue.</p>
+      <p>The Hormuz toll proposal represents a significant escalation in Iran&rsquo;s effort to leverage its geographic position over global energy flows. With the strait remaining under contested control and peace talks showing no confirmed breakthrough, oil markets and shipping insurers are pricing in sustained disruption to one of the world&rsquo;s most critical maritime chokepoints. WTI crude surged 4.2 per cent on Friday to close above $105 per barrel, extending a weekly gain of more than 11 per cent, as the International Energy Agency warned that the global oil market could remain severely undersupplied through October even if the conflict is resolved next month.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/liveblog/2026/5/17/iran-war-live-tehran-eyes-tolls-in-hormuz-trump-warns-of-very-bad-time" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 17, 2026</div>
+    </article>
+
+    <article id="world-2">
+      <h3>Pakistan-Afghanistan Tensions Flare Again as March Ceasefire Strains Under Continued Attacks</h3>
+      <div class="by">The Chronicler World Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>Pakistan summoned a senior Afghan diplomat this week following an attack claimed by the Tehreek-e-Taliban Pakistan &mdash; the Pakistani Taliban, known as the TTP &mdash; with the group claiming responsibility for at least two further attacks since, predominantly targeting Pakistani security forces. Pakistan accuses the Afghan Taliban government in Kabul of providing safe haven to TTP fighters, a charge Kabul denies. The latest flare-up represents a serious rupture in the fragile ceasefire brokered by Saudi Arabia, Qatar, Turkey, and China in March, which had briefly halted open hostilities following a major border skirmish in February.</p>
+      <p>Despite the March pause, both sides have continued to strike each other across the border, including a Pakistani airstrike on a drug rehabilitation centre that killed more than 250 people. Analysts warn that the pattern of mutual targeting, combined with deepening mistrust between Islamabad and the Taliban government, raises the risk of a return to open hostilities. The structural problem &mdash; Pakistan&rsquo;s insistence that Kabul dismantle TTP infrastructure, and Afghanistan&rsquo;s refusal to be drawn into cross-border security arrangements &mdash; has remained unresolved through every round of mediation.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/video/inside-story/2026/5/16/can-new-pakistan-afghanistan-tensions-lead-to-another-border-clash" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 16, 2026</div>
+    </article>
+
+    <article id="world-3">
+      <h3>Taiwan Declares Itself Sovereign and Independent After Trump&rsquo;s Ambiguous Remarks Following Beijing Summit</h3>
+      <div class="by">The Chronicler World Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>Taiwan&rsquo;s Ministry of Foreign Affairs issued a firm statement Saturday declaring the island &ldquo;sovereign and independent,&rdquo; while affirming its commitment to maintaining the cross-strait status quo and deepening ties with the United States. The statement came in direct response to comments by President Donald Trump, who told Fox News after departing Beijing that he was &ldquo;not looking to have somebody go independent&rdquo; in reference to Taiwan, following his summit with Chinese leader Xi Jinping. Chinese state media reported that Xi told Trump that Taiwan was the &ldquo;most important issue in China-US relations&rdquo; and warned that mishandling it could push the bilateral relationship into a &ldquo;highly perilous situation.&rdquo;</p>
+      <p>Trump said he made &ldquo;no commitment either way&rdquo; on Taiwan and indicated he has not yet decided whether to sign off on an $11 billion arms package to the island already approved by Congress. Taiwan&rsquo;s foreign ministry pushed back against any reading of Trump&rsquo;s remarks as a diminished US security commitment, asserting that US officials had made clear Washington&rsquo;s policy &ldquo;remains unchanged.&rdquo; It added that China&rsquo;s military threat, not strategic ambiguity in Washington, constitutes the only real source of regional insecurity. The episode underscored the fragility of the cross-strait equilibrium at a moment when the US-China summit in Beijing has refocused global attention on the question of Taiwan&rsquo;s future.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/5/16/in-response-to-trump-taiwan-says-it-is-sovereign-and-independent" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 16, 2026</div>
+    </article>
+
+  </div>
+
+  <!-- World Economy / Markets -->
+  <span id="world-politics"></span>
+  <span id="world-economy"></span>
+  <span class="cat" style="margin-top:24px;display:block">Global Markets</span>
+  <div class="mkt-note">World indices reflect Friday, May 16, 2026 close. Sources: Google Finance, Yahoo Finance, LSEG, Nikkei Asia, Hang Seng Index.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card" style="background:var(--aged)">
+      <div class="mc-name">DJIA</div>
+      <div class="mc-sub">Dow Jones Industrial</div>
+      <div class="mc-val">49,526</div>
+      <span class="mc-chg down">▼ 537.29 (&minus;1.07%)</span>
+      <div class="mc-note">May 16 close &middot; USD</div>
+    </div>
+    <div class="mkt-card" style="background:var(--aged)">
+      <div class="mc-name">NASDAQ-100</div>
+      <div class="mc-sub">Composite Index</div>
+      <div class="mc-val">29,125</div>
+      <span class="mc-chg down">▼ 455.10 (&minus;1.54%)</span>
+      <div class="mc-note">May 16 close &middot; USD</div>
+    </div>
+    <div class="mkt-card" style="background:var(--aged)">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US Broad Market</div>
+      <div class="mc-val">7,408</div>
+      <span class="mc-chg down">▼ 92.74 (&minus;1.24%)</span>
+      <div class="mc-note">May 16 close &middot; USD</div>
+    </div>
+    <div class="mkt-card" style="background:var(--aged)">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">10,195</div>
+      <span class="mc-chg down">▼ 177.56 (&minus;1.71%)</span>
+      <div class="mc-note">May 16 close &middot; GBP</div>
+    </div>
+    <div class="mkt-card" style="background:var(--aged)">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,643</div>
+      <span class="mc-chg down">▼ 46.10 (&minus;0.19%)</span>
+      <div class="mc-note">May 16 close &middot; INR</div>
+    </div>
+    <div class="mkt-card" style="background:var(--aged)">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">25,962</div>
+      <span class="mc-chg down">▼ 426.31 (&minus;1.62%)</span>
+      <div class="mc-note">May 16 close &middot; HKD</div>
+    </div>
+    <div class="mkt-card" style="background:var(--aged)">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">61,409</div>
+      <span class="mc-chg down">▼ 1,244.76 (&minus;1.99%)</span>
+      <div class="mc-note">May 16 close &middot; JPY</div>
+    </div>
+  </div>
+  <div class="mkt-sources">Sources: Google Finance &middot; Yahoo Finance &middot; <a href="https://www.lseg.com" target="_blank" rel="noopener">LSEG / FTSE Russell</a> &middot; Nikkei Asia &middot; Hang Seng Index</div>
+
+  <!-- World Sports -->
+  <span id="world-sports"></span>
+  <span class="cat" style="margin-top:24px;display:block">Sports</span>
+  <div class="col-3">
+
+    <article id="world-sport-1">
+      <h3>Semenyo&rsquo;s Back-Heel Masterpiece Seals FA Cup for Man City; Treble Dream Lives On</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>Manchester City defeated Chelsea 1-0 in the FA Cup final at Wembley on Saturday, with Ghanaian winger Antoine Semenyo producing one of the great moments in final history &mdash; a sublime back-heel finish from Erling Haaland&rsquo;s cross in the 72nd minute that settled a tense and largely scrappy encounter. The victory was City&rsquo;s eighth FA Cup triumph and their second piece of silverware this season, following their League Cup final win over Arsenal in March. It was also the third FA Cup success of Pep Guardiola&rsquo;s decade as City manager, who has now collected 20 trophies with the club.</p>
+      <p>City now turn their attention to a faint Premier League title challenge. They sit five points behind leaders Arsenal with one game remaining, and would need Arsenal to drop points at Crystal Palace on May 24 to force a title decider. For Chelsea, the defeat was the latest low point of a turbulent campaign &mdash; without a win in their last seven league games, sitting ninth with Champions League qualification out of reach. Semenyo, signed from Bournemouth in January and born near Chelsea&rsquo;s Stamford Bridge home, was the unlikely hero.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/5/16/man-city-beat-chelsea-in-fa-cup-final-to-keep-treble-dream-alive" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 16, 2026</div>
+    </article>
+
+    <article id="world-sport-2">
+      <h3>Rousey Submits Carano in 17 Seconds in Netflix Comeback Bout, Announces Retirement Again</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>Ronda Rousey defeated Gina Carano by armbar submission in just 17 seconds at the Intuit Dome in Inglewood, California on Saturday night, winning their long-anticipated featherweight comeback bout before immediately announcing her retirement from mixed martial arts for the second time. The Netflix-produced card brought together two of the sport&rsquo;s most influential pioneers &mdash; Rousey, 39, and Carano, 44 &mdash; in a bout widely credited with helping bring women&rsquo;s MMA into the mainstream more than a decade ago. After a hype-filled build-up, the bout was a jarring anticlimax, with Rousey flooring Carano almost immediately before wrestling her into an armbar to end the fight.</p>
+      <p>Carano had not competed since 2009 before Saturday&rsquo;s bout, having shed more than 100 pounds in the two years leading up to the contest. She admitted afterwards that the fight ended before she had a chance to fully engage, saying the mere fact of returning to the cage was a victory in itself. Rousey, who had retired in 2016 following back-to-back defeats to Amanda Nunes and Holly Holm, described Carano as the only person who could have lured her back to competition and ruled out any further fights. The bout was streamed exclusively on Netflix and reportedly earned each fighter several million dollars.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/5/17/ronda-rousey-vs-gina-carano-fight-rousey-wins-with-a-17-second-submission" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 17, 2026</div>
+    </article>
+
+    <article id="world-sport-3">
+      <h3>Aston Villa Thrash Liverpool 4&ndash;2 to Seal Champions League Place Ahead of Europa Final</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Sunday, May 17, 2026</div>
+      <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+      <p>Aston Villa routed Liverpool 4-2 in a Premier League clash at Villa Park on Friday, with Ollie Watkins scoring twice to confirm Villa&rsquo;s place in next season&rsquo;s Champions League. The win moves Villa into fourth place with 62 points from 37 games, leaving Liverpool &mdash; who now sit on 59 points &mdash; at risk of being overtaken by both Bournemouth and Brighton in the race for the top four. Morgan Rogers opened the scoring before Virgil van Dijk equalised and later added a second for Liverpool. But a Watkins brace and a superb late curler from John McGinn completed a dominant display for Unai Emery&rsquo;s side.</p>
+      <p>Liverpool manager Arne Slot acknowledged his side were second-best on the night and that conceding soft goals has been a persistent problem across the season. With Liverpool&rsquo;s 12th defeat of the campaign, Slot faces mounting pressure ahead of a final-day showdown with Brentford. Villa, with Champions League football now secured, head to Istanbul on Wednesday for the Europa League final against Freiburg &mdash; a potential cap on what would be their most successful season in a generation.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/5/16/aston-villa-thrash-liverpool-4-2-to-seal-champions-league-place" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 16, 2026</div>
+    </article>
+
+  </div>
+
+  <!-- World History + Events -->
+  <span id="world-history"></span>
+  <div class="bottom-row" style="margin-top:24px">
+    <div>
+      <span class="cat">This Week in History</span>
+      <article style="border-top:2px solid var(--ink);padding-top:12px">
+        <h3>May 17, 1954: US Supreme Court Strikes Down School Segregation in Brown v. Board of Education</h3>
+        <div class="by">The Chronicler World Desk &middot; Sunday, May 17, 2026</div>
+        <button class="read-btn" onclick="tcRead(this)">🔊 Read aloud</button>
+        <p>On this date in 1954, the United States Supreme Court issued its unanimous ruling in Brown v. Board of Education of Topeka, declaring that racial segregation in public schools was unconstitutional. Chief Justice Earl Warren, writing for the court, held that &ldquo;separate but equal&rdquo; educational facilities were inherently unequal and violated the Equal Protection Clause of the Fourteenth Amendment. The decision overturned the 1896 ruling in Plessy v. Ferguson, which had provided the legal foundation for racial segregation across American public life for more than half a century.</p>
+        <p>The ruling consolidated five separate cases from Kansas, South Carolina, Virginia, Delaware, and Washington, D.C., each brought by Black families who had been denied access to their local white schools. Thurgood Marshall, then chief counsel of the NAACP Legal Defense Fund and later the first Black Supreme Court Justice, argued the lead case. The decision did not end segregation overnight &mdash; implementation was notoriously slow, and a follow-up ruling in 1955 ordered desegregation proceed with &ldquo;all deliberate speed&rdquo; &mdash; but it established the constitutional framework that underpinned the Civil Rights movement and reshaped American law and society in the decades that followed. Brown v. Board of Education is widely regarded as one of the most consequential legal decisions in American history.</p>
+        <div class="src">Source: US National Archives &middot; Library of Congress</div>
+      </article>
+    </div>
+    <div>
+      <span id="world-events"></span>
+      <span class="cat">Upcoming Events</span>
+      <div class="ev-card">
+        <div class="ev-name">Cannes Film Festival &mdash; Awards Ceremony</div>
+        <div class="ev-meta">May 24, 2026 &nbsp;&middot;&nbsp; Palais des Festivals, Cannes, France</div>
+        <p style="font-size:12px;margin-top:4px;color:var(--grey)">The 79th Cannes Film Festival concludes with the Palme d&rsquo;Or ceremony and screening of the jury-selected films.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-name">Europa League Final &mdash; Aston Villa vs. Freiburg</div>
+        <div class="ev-meta">May 21, 2026 &nbsp;&middot;&nbsp; Atat&uuml;rk Olympic Stadium, Istanbul</div>
+        <p style="font-size:12px;margin-top:4px;color:var(--grey)">UEFA Europa League final. Ticketed event; broadcast globally.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-name">World Economic Forum Special Meeting</div>
+        <div class="ev-meta">May 19&ndash;21, 2026 &nbsp;&middot;&nbsp; Riyadh, Saudi Arabia</div>
+        <p style="font-size:12px;margin-top:4px;color:var(--grey)">The WEF Special Meeting on Global Collaboration, Growth and Energy for Development convenes in Riyadh with focus on post-conflict energy security.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /world section -->
+
+<!-- ═══════════════ FUNNIES ═══════════════ -->
+<span id="comics"></span>
+<div class="section">
+  <div class="funnies-banner">The Chronicler Funnies</div>
+
+  <!-- Games grid: Crunch (left) + Word Web (right) -->
+  <div class="games-grid">
+
+    <!-- CRUNCH -->
+    <div class="puzzle-panel" id="crunch">
+      <div class="puzzle-title">Crunch</div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:12px;color:var(--grey);margin-bottom:8px">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All steps must produce whole numbers.</p>
+      <div class="crunch-nums">
+        <div class="crunch-tile">2</div>
+        <div class="crunch-tile">5</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">8</div>
+        <span style="font-size:20px;color:var(--grey);margin:0 4px">=</span>
+        <div class="crunch-target">54</div>
+      </div>
+      <button class="toggle-btn" onclick="document.getElementById('crunch-ans').style.display=document.getElementById('crunch-ans').style.display==='block'?'none':'block'">&#9654; Show solution</button>
+      <div class="answer-box" id="crunch-ans">
+        <strong>(2 &times; 7) + (5 &times; 8) = 54</strong><br>
+        Step 1: 2 &times; 7 = 14 &nbsp;&middot;&nbsp; Step 2: 5 &times; 8 = 40 &nbsp;&middot;&nbsp; Step 3: 14 + 40 = <strong>54</strong>
+        <br><br><em style="font-size:11px">Python-verified: 12 distinct solutions exist. All intermediates are clean integers.</em>
+      </div>
+      <a class="crunch-archive-link" href="https://thechronicler.ca/Specials/the-chronicler-crunch-archive.html">Past puzzles: The Chronicler Crunch Archive &rarr;</a>
+    </div>
+
+    <!-- WORD WEB -->
+    <div class="puzzle-panel">
+      <div class="puzzle-title">Word Web</div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:12px;color:var(--grey);margin-bottom:8px">Find the two hidden connections. Group the 8 tiles into two sets of 4.</p>
+      <div class="ww-grid">
+        <div class="ww-tile">DUNKIN&rsquo;</div>
+        <div class="ww-tile">THE HAGUE</div>
+        <div class="ww-tile">ROUSEY</div>
+        <div class="ww-tile">PORT COLBORNE</div>
+        <div class="ww-tile">HANTAVIRUS</div>
+        <div class="ww-tile">DHOLERA</div>
+        <div class="ww-tile">CARANO</div>
+        <div class="ww-tile">ALLISTON</div>
+      </div>
+      <button class="toggle-btn" onclick="document.getElementById('ww-ans').style.display=document.getElementById('ww-ans').style.display==='block'?'none':'block'">&#9654; Show solution</button>
+      <div class="answer-box" id="ww-ans">
+        <div class="answer-cat a">&#129001; <strong>Made a comeback after years away:</strong> DUNKIN&rsquo; &middot; ROUSEY &middot; HANTAVIRUS &middot; CARANO</div>
+        <div class="answer-cat b">&#129000; <strong>Sites linked to today&rsquo;s industrial/tech stories:</strong> THE HAGUE &middot; PORT COLBORNE &middot; DHOLERA &middot; ALLISTON</div>
+        <p style="font-size:11px;color:var(--grey);margin-top:6px"><em>Decoy: ALLISTON &mdash; it could seem to belong to &ldquo;comebacks&rdquo; since Honda is reconsidering its EV plans there, but it belongs firmly to the industrial locations group. CARANO could trick you into the locations group if you associate her with her Hollywood career, but she belongs to the comebacks.</em></p>
+      </div>
+    </div>
+
+  </div><!-- /games-grid -->
+
+  <!-- FLATLAND NEWS -->
+  <span id="flatland"></span>
+  <div class="flatland-wrap">
+    <div class="flatland-title">Flatland News &mdash; The Tolls at the Strait</div>
+    <div class="comic-strip">
+
+      <div class="panel">
+        <div class="panel-num">1</div>
+        <div class="panel-art">
+          <svg width="160" height="90" viewBox="0 0 160 90">
+            <!-- ship -->
+            <rect x="30" y="55" width="100" height="18" rx="4" fill="#8b7355" stroke="#141008" stroke-width="1.5"/>
+            <polygon points="55,55 75,30 95,55" fill="#c9a96e" stroke="#141008" stroke-width="1.5"/>
+            <!-- waves -->
+            <path d="M10 73 Q30 67 50 73 Q70 79 90 73 Q110 67 130 73 Q150 79 160 73" fill="none" stroke="#4a9eba" stroke-width="2"/>
+            <!-- toll booth on cliff -->
+            <rect x="120" y="28" width="28" height="24" fill="#f4edd6" stroke="#141008" stroke-width="1.5"/>
+            <rect x="125" y="32" width="8" height="8" fill="#4a9eba"/>
+            <text x="134" y="42" font-family="Caveat,cursive" font-size="9" fill="#8b2513">TOLL</text>
+            <line x1="120" y1="52" x2="120" y2="75" stroke="#141008" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="panel-cap">A tanker approaches the Strait of Hormuz.</div>
+        <div class="speech-bubble">Pleasant sailing today?</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-num">2</div>
+        <div class="panel-art">
+          <svg width="160" height="90" viewBox="0 0 160 90">
+            <!-- official figure -->
+            <circle cx="80" cy="30" r="14" fill="#c9a96e" stroke="#141008" stroke-width="1.5"/>
+            <rect x="65" y="44" width="30" height="28" rx="3" fill="#2d4a8b" stroke="#141008" stroke-width="1.5"/>
+            <!-- scroll -->
+            <rect x="92" y="38" width="40" height="28" rx="3" fill="#f4edd6" stroke="#141008" stroke-width="1.5"/>
+            <text x="96" y="50" font-family="Caveat,cursive" font-size="8" fill="#141008">NEW TOLL</text>
+            <text x="96" y="60" font-family="Caveat,cursive" font-size="8" fill="#8b2513">SCHEDULE</text>
+          </svg>
+        </div>
+        <div class="panel-cap">Tehran unveils a new document.</div>
+        <div class="speech-bubble">Passage through our strait requires... a small administrative fee.</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-num">3</div>
+        <div class="panel-art">
+          <svg width="160" height="90" viewBox="0 0 160 90">
+            <!-- phone/tv screen -->
+            <rect x="20" y="18" width="120" height="60" rx="6" fill="#1e1e2e" stroke="#141008" stroke-width="2"/>
+            <rect x="28" y="25" width="104" height="46" rx="3" fill="#2d3748"/>
+            <text x="80" y="45" font-family="Caveat,cursive" font-size="12" fill="#ff6b6b" text-anchor="middle">VERY</text>
+            <text x="80" y="60" font-family="Caveat,cursive" font-size="12" fill="#ff6b6b" text-anchor="middle">BAD TIME</text>
+          </svg>
+        </div>
+        <div class="panel-cap">Washington responds immediately.</div>
+        <div class="speech-bubble">You will have a VERY bad time!</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-num">4</div>
+        <div class="panel-art">
+          <svg width="160" height="90" viewBox="0 0 160 90">
+            <!-- oil barrel with price tag -->
+            <ellipse cx="80" cy="62" rx="28" ry="10" fill="#8b2513" stroke="#141008" stroke-width="1.5"/>
+            <rect x="52" y="28" width="56" height="34" fill="#8b2513" stroke="#141008" stroke-width="1.5"/>
+            <ellipse cx="80" cy="28" rx="28" ry="10" fill="#a03020" stroke="#141008" stroke-width="1.5"/>
+            <!-- price arrow -->
+            <line x1="110" y1="45" x2="140" y2="20" stroke="#2d6a2d" stroke-width="2.5"/>
+            <polygon points="140,20 130,22 138,30" fill="#2d6a2d"/>
+            <text x="115" y="16" font-family="Caveat,cursive" font-size="11" fill="#2d6a2d">$105</text>
+          </svg>
+        </div>
+        <div class="panel-cap">Meanwhile, at the pumps&hellip;</div>
+        <div class="speech-bubble">Fill &rsquo;er up? That&rsquo;ll be the diplomatic equivalent of your left kidney.</div>
+      </div>
+
+    </div>
+  </div><!-- /flatland -->
+
+</div><!-- /funnies section -->
+
+<!-- footer -->
+<footer>
+  <div class="footer-name">The Chronicler</div>
+  <div class="footer-meta">Vol. I, No. 47 &nbsp;&bull;&nbsp; Sunday, May 17, 2026 &nbsp;&bull;&nbsp; Independent &nbsp;&bull;&nbsp; Daily &nbsp;&bull;&nbsp; Free &nbsp;&bull;&nbsp; thechronicler.ca</div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f4edd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">@the.chronicler.news</a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+</div><!-- /container -->
+
+<!-- Cloudflare beacon -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"c2c9f324e65f4bde97c20728d6349a04"}'></script>
+
+<!-- shared read-aloud script -->
+<script>
+function tcRead(btn){
+  if(window.speechSynthesis.speaking){
+    window.speechSynthesis.cancel();
+    document.querySelectorAll(".read-btn").forEach(b=>b.textContent="🔊 Read aloud");
+    if(btn.dataset.active){delete btn.dataset.active;return;}
+  }
+  var art=btn.closest("article");
+  var text=[...art.querySelectorAll("p")].map(p=>p.textContent).join(" ");
+  var utt=new SpeechSynthesisUtterance(text);
+  utt.rate=0.95;
+  btn.textContent="⏹ Stop";
+  btn.dataset.active="1";
+  utt.onend=function(){btn.textContent="🔊 Read aloud";delete btn.dataset.active;};
+  window.speechSynthesis.speak(utt);
+}
+// nav dropdown mobile toggle
+document.querySelectorAll(".nav-link").forEach(function(el){
+  el.addEventListener("click",function(){
+    var item=el.closest(".nav-item");
+    item.classList.toggle("open");
+  });
+});
+</script>
+</body>
+</html>
