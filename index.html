@@ -210,6 +210,15 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
       </div>
     </a>
 
+    <a class="archive-card" href="Issues/the-chronicler-vol1-no48.html">
+      <div class="archive-card-inner">
+        <div class="archive-no">Vol. I, No. 48</div>
+        <div class="archive-date">Tuesday, May 19, 2026</div>
+        <div class="archive-lede">Pentagon quits Canada-U.S. defence board &mdash; Iran demands reparations, Ebola toll hits 131 &mdash; Canadiens advance to East Final</div>
+        <div class="archive-read">Read Edition &rarr;</div>
+      </div>
+    </a>
+
     <a class="archive-card" href="Issues/the-chronicler-vol1-no47.html">
       <div class="archive-card-inner">
         <div class="archive-no">Vol. I, No. 47</div>
@@ -237,6 +246,8 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
       </div>
     </a>
 
+
+
     <a class="archive-card" href="Issues/the-chronicler-vol1-no44.html">
       <div class="archive-card-inner">
         <div class="archive-no">Vol. I, No. 44</div>
@@ -246,7 +257,6 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
       </div>
     </a>
 
-
     <div class="archive-card" style="cursor:default;border-top-color:var(--gold);">
       <div class="archive-card-inner" style="padding:0;">
         <div class="date-finder">
@@ -254,7 +264,7 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
           <div class="date-finder-title">Vol. I, Nos. 1&ndash;48</div>
           <div class="date-finder-sub">March 8 &ndash; May 20, 2026. Select any date to go directly to that edition.</div>
           <div class="date-finder-row">
-            <input type="date" id="backdate" min="2026-03-08" max="2026-05-20" value="2026-03-08">
+            <input type="date" id="backdate" min="2026-03-08" max="2026-05-20">
             <button class="date-finder-btn" onclick="findEdition()">Go to Edition &rarr;</button>
           </div>
           <div class="date-finder-result" id="finder-result"></div>
@@ -336,7 +346,18 @@ function findEdition() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('backdate').addEventListener('keydown', function(e) {
+  var today = new Date();
+  var yyyy = today.getFullYear();
+  var mm = String(today.getMonth()+1).padStart(2,'0');
+  var dd = String(today.getDate()).padStart(2,'0');
+  var todayStr = yyyy+'-'+mm+'-'+dd;
+  var input = document.getElementById('backdate');
+  if (todayStr >= input.min && todayStr <= input.max) {
+    input.value = todayStr;
+  } else {
+    input.value = input.max;
+  }
+  input.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') findEdition();
   });
 });
