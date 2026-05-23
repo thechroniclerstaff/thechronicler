@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler &mdash; Saturday, May 23, 2026 &mdash; Vol. I, No. 52</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.ticker-bar{background:var(--rust);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;text-align:center;line-height:1.6;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1.1;}
+.mc-chg{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;padding:2px 5px;border-radius:2px;display:inline-block;width:fit-content;}
+.mc-chg.up{background:#d4edda;color:#155724;}
+.mc-chg.down{background:#f8d7da;color:#721c24;}
+.mc-chg.flat{background:#fff3cd;color:#856404;}
+.mc-note{font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-top:1px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.gta-focus{background:#f0e8d0;border:1px dashed var(--rule);padding:16px;margin-top:16px;border-radius:4px;}
+.gta-focus-label{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:12px;border-bottom:1px solid var(--rule);padding-bottom:6px;}
+.games-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.puzzle-box{background:var(--aged);border:1px solid var(--rule);padding:14px 14px 12px;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--rust);margin-bottom:4px;}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-bottom:10px;line-height:1.55;}
+.crunch-nums{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.crunch-target{background:var(--rust);color:#fff;font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:54px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:9.5px;background:var(--ink);color:var(--aged);border:none;padding:5px 10px;cursor:pointer;margin-bottom:8px;letter-spacing:.08em;}
+.answer-box{display:none;background:var(--cream);border:1px solid var(--rule);padding:8px 10px;margin-bottom:8px;}
+.answer-cat{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--ink);padding:4px 0;line-height:1.6;}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;}
+.ww-mini-tile{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:8px 4px;text-align:center;border-radius:3px;cursor:default;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+@media(min-width:680px){
+  .col-3{grid-template-columns:repeat(3,1fr);}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 14px 0;}
+  article.s:last-child{border-right:none;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+}
+@media(max-width:480px){
+  .games-row{grid-template-columns:1fr;}
+  .ww-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body id="top">
+
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="#top">Top</a>
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="#puzzles">Puzzles</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 52 &nbsp;&middot;&nbsp; Saturday, May 23, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<div class="ticker-bar">Fourteen Liberal MPs Warned Carney on Alberta Pipeline Deal &mdash; Rubio Arrives in India as Venezuelan Oil Talks Begin &mdash; Iran-U.S. Talks Continue, Differences &ldquo;Deep and Significant&rdquo; &mdash; NEET-UG Paper Leak: 11th CBI Arrest &mdash; SRH Post 255 to Crush RCB &mdash; Russell Takes F1 Canada Sprint Pole</div>
+
+<!-- ==================== CANADA ==================== -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Toronto</div><div class="w-icon">&#9729;&#65039;</div></div>
+      <div class="w-temp">12°C</div>
+      <div class="w-rng">H: 12° &nbsp; L: 9°</div>
+      <div class="w-cond">Overcast</div>
+      <span class="aqi-badge aqi-good">AQI 27 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; E 16 km/h</span><span>&#128167; 71%</span></div>
+      <div class="wfc">
+        <div class="dm">Sun<span>&#127783;&#65039;</span>17°/9°</div>
+        <div class="dm">Mon<span>&#127783;&#65039;</span>24°/12°</div>
+        <div class="dm">Tue<span>&#127746;&#65039;</span>27°/14°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Montr&eacute;al</div><div class="w-icon">&#9729;&#65039;</div></div>
+      <div class="w-temp">12°C</div>
+      <div class="w-rng">H: 22° &nbsp; L: 8°</div>
+      <div class="w-cond">Overcast</div>
+      <span class="aqi-badge aqi-good">AQI 22 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; ENE 3 km/h</span><span>&#128167; 62%</span></div>
+      <div class="wfc">
+        <div class="dm">Sun<span>&#127783;&#65039;</span>14°/11°</div>
+        <div class="dm">Mon<span>&#127783;&#65039;</span>16°/9°</div>
+        <div class="dm">Tue<span>&#127746;&#65039;</span>24°/12°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Ottawa</div><div class="w-icon">&#9729;&#65039;</div></div>
+      <div class="w-temp">12°C</div>
+      <div class="w-rng">H: 22° &nbsp; L: 7°</div>
+      <div class="w-cond">Overcast</div>
+      <span class="aqi-badge aqi-good">AQI 22 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; ENE 14 km/h</span><span>&#128167; 66%</span></div>
+      <div class="wfc">
+        <div class="dm">Sun<span>&#127783;&#65039;</span>14°/10°</div>
+        <div class="dm">Mon<span>&#127783;&#65039;</span>21°/10°</div>
+        <div class="dm">Tue<span>&#127746;&#65039;</span>23°/13°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Edmonton</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">9°C</div>
+      <div class="w-rng">H: 24° &nbsp; L: 9°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 42 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; SSW 6 km/h</span><span>&#128167; 84%</span></div>
+      <div class="wfc">
+        <div class="dm">Sun<span>&#127746;&#65039;</span>19°/11°</div>
+        <div class="dm">Mon<span>&#127746;&#65039;</span>26°/11°</div>
+        <div class="dm">Tue<span>&#127783;&#65039;</span>26°/13°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Vancouver</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">12°C</div>
+      <div class="w-rng">H: 19° &nbsp; L: 12°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-moderate">AQI 65 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; W 4 km/h</span><span>&#128167; 91%</span></div>
+      <div class="wfc">
+        <div class="dm">Sun<span>&#9729;&#65039;</span>18°/11°</div>
+        <div class="dm">Mon<span>&#127783;&#65039;</span>16°/9°</div>
+        <div class="dm">Tue<span>&#9729;&#65039;</span>16°/9°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather data: Open-Meteo. Updated approx. 8:05 AM ET, May 23, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Fourteen Liberal MPs Warned Carney the Alberta Pipeline Deal Would Cost the Party</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Before Prime Minister Mark Carney signed his landmark energy agreement with Alberta Premier Danielle Smith, fourteen members of his own caucus sent him a private letter warning that the concessions would compromise the government&rsquo;s credibility. The letter, originally obtained by Radio-Canada, was sent in late April &mdash; weeks before Carney finalised the memorandum of understanding, which grants Alberta exemptions from federal clean electricity regulations and clears a path for a new bitumen pipeline to British Columbia&rsquo;s North Coast. None of the fourteen signatories agreed to be named, but they reportedly span Quebec and British Columbia. In the letter, they wrote that they remained deeply concerned and emphasised that climate change remains the greatest threat of our time.</p>
+      <p>Despite the private pressure, the caucus has largely held in public. Former environment minister Steven Guilbeault had earlier walked out of cabinet over a preliminary version of the agreement. The Bloc Qu&eacute;b&eacute;cois, led on this file by environment critic Patrick Bonin, says it will deploy every parliamentary tool available to amplify climate-concerned voices. Federal Conservatives have added their own complication, tabling a motion asking the House to formally endorse the government&rsquo;s MOU commitments &mdash; a move the Liberals are voting against, arguing the motion endorses only part of the deal. The episode illustrates how a signature policy achievement for Carney has become a pressure point from three directions at once.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/liberal-mp-react-alberta-deal-carney-9.7208157" target="_blank" rel="noopener">CBC News</a> &middot; May 22, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>First Formal CUSMA Talks to Focus on Content Rules and Economic Security &mdash; Canada Not at the Table</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The first formal negotiating round in the 2026 review of the Canada-United States-Mexico Agreement will take place the week of May 25 in Mexico City &mdash; and Canada will not be in the room. U.S. Trade Representative Jamieson Greer confirmed the initial talks will be held bilaterally between Washington and Mexico, with discussions centred on automotive rules of origin, economic security, and measures to prevent third-country goods from being routed through NAFTA partners to circumvent American tariffs. Greer acknowledged that U.S. carmakers want to preserve CUSMA&rsquo;s trilateral structure, but has made clear the United States will not rubber-stamp renewal without substantive changes.</p>
+      <p>Canada faces a distinctly awkward position: the country most integrated into the North American supply chain is watching its two largest trading partners define the agenda before negotiations formally include Ottawa. The July 1 mandatory review deadline gives all three governments limited time to resolve what the USTR has described as &ldquo;significant shortcomings.&rdquo; Canadian officials have formed an advisory council to assist with their negotiating position, but with Mexico City talks beginning without them, pressure to secure bilateral engagement with Washington is intensifying. For Canadian exporters in the auto, steel, and energy sectors, the outcome will be decisive.</p>
+      <div class="src">Source: <a href="https://www.reuters.com/business/autos-transportation/first-usmca-negotiations-focus-content-rules-economic-security-greer-says-2026-05-22/" target="_blank" rel="noopener">Reuters</a> &middot; May 22, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Alberta Finance Minister Nate Horner Quits Cabinet, Triggering Danielle Smith Shuffle</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Alberta Finance Minister Nate Horner and Hospital and Surgical Health Services Minister Matt Jones announced this week that they will leave Premier Danielle Smith&rsquo;s cabinet and will not seek re-election in the 2027 provincial general election. In a statement posted to social media, Horner said he had always intended his second term to be his last and that he and Smith had agreed the election year budget should be built by a minister who would be running again. Jones made a similar declaration, citing his desire to allow a successor time to grow into the role before the campaign period begins. Both will remain in the UCP caucus as backbench MLAs.</p>
+      <p>The departures prompted a cabinet shuffle Thursday, with Smith announcing new appointments to the finance and health portfolios. Opposition NDP Leader Naheed Nenshi speculated on social media that both resignations may be connected to internal disagreement over the possibility of an Alberta separation referendum &mdash; a claim that a spokesperson for Horner declined to address. University of Calgary political scientist Lisa Young said the timing was not surprising, as governments approaching an election naturally begin planning for renewal. With the next budget cycle now the defining task for Horner&rsquo;s successor, the choice of replacement will be closely watched.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/calgary/nate-horner-alberta-finance-minister-matt-jones-9.7206189" target="_blank" rel="noopener">CBC News</a> &middot; May 20, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Environment</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Six Nations and Two Governments Establish Vast Marine Reserve on B.C.&rsquo;s Central Coast</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Six coastal First Nations &mdash; the Wuikinuxv, Nuxalk, Kitasoo Xai&rsquo;xais, Heiltsuk, Gitxa&#x1e3;&#x142;a, and Gitga&rsquo;at &mdash; joined the federal and provincial governments on Friday to establish a national marine conservation area reserve on British Columbia&rsquo;s central coast spanning approximately 6,700 square kilometres, an area larger than Prince Edward Island. The protected area is named Mia-yaltwa Ha&rsquo;lidzogm hoon (pronounced Me-ah-yall-twa Ha-lee-joh-gom hOH-own), a hybrid name drawn from the languages of the six partner nations meaning &ldquo;Realm of the Salmon, Home of the Salmon.&rdquo; The reserve extends from Gil Island in the north to just south of Calvert Island in the south and encompasses glass sponge reefs, salmon runs, killer whales, and migrating humpbacks. An Indigenous Protected and Conserved Area was simultaneously declared by the Nations over the same footprint.</p>
+      <p>Parks Canada will operate the conservation area alongside the partner nations through a new collaborative management board. The zoning plan, to be developed in consultation over the coming phase, is expected to allow existing fishing and tourism activities to continue. Fisheries and Oceans Canada retains regulatory authority over fisheries within the reserve. The initiative is part of the broader Great Bear Sea Project Finance for Permanence program, supporting Indigenous-led stewardship along Canada&rsquo;s Pacific coast. Federal officials described Friday&rsquo;s signing as the beginning of a new chapter in the multigenerational work the Nations have carried out to protect the marine environment.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/british-columbia/mia-yaltwa-halidzogm-hoon-protection-area-central-coast-9.7209294" target="_blank" rel="noopener">CBC News</a> &middot; May 22, 2026</div>
+    </article>
+
+  </div>
+
+  <div class="gta-focus">
+    <div class="gta-focus-label">GTA Focus</div>
+    <div class="col-3">
+
+      <article class="s">
+        <h3>Toronto Hotel Industry Braces for World Cup Shortfall as Sky-High Prices Deter Fans</h3>
+        <div class="by">The Chronicler GTA Desk &middot; Saturday, May 23, 2026</div>
+        <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+        <p>With fewer than three weeks to go before Toronto hosts its first FIFA World Cup match on June 12, the city&rsquo;s hotel industry is confronting a reality that fell well short of projections: bookings have not surged the way the hospitality sector expected. Sara Anghel, president and CEO of the Greater Toronto Hotel Association, confirmed that FIFA&rsquo;s cancellation of thousands of hotel reservations across North America &mdash; an operational adjustment after the governing body overbooked accommodations for athletes, referees, and technical staff &mdash; left hoteliers with an unexpected gap rather than a windfall. Vancouver has reported June hotel bookings down 20 per cent compared with the same period in 2025. Industry and tourism groups in Toronto say they remain cautiously hopeful that occupancy will fill as kickoff approaches.</p>
+        <p>The underlying problem is price. Many fans who wanted to attend World Cup matches in Toronto and Vancouver have balked at the combination of expensive tickets, high accommodation rates, and U.S. visa wait times that have deterred a significant share of anticipated international visitors. Destination organisations say the tournament&rsquo;s economic legacy &mdash; cementing Toronto&rsquo;s reputation as a global events host &mdash; will outlast the occupancy shortfall. BMO Field is currently undergoing a $146 million renovation and will temporarily be known as Toronto Stadium under FIFA sponsorship rules. Toronto is scheduled to host six matches between June 12 and July 2.</p>
+        <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/toronto-hotels-world-cup-fifa-9.7208717" target="_blank" rel="noopener">CBC News</a> &middot; May 22, 2026</div>
+      </article>
+
+      <article class="s">
+        <h3>Rogers Stadium Concert Season Opens Tonight Amid Unresolved Noise and Traffic Complaints</h3>
+        <div class="by">The Chronicler GTA Desk &middot; Saturday, May 23, 2026</div>
+        <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+        <p>Rogers Stadium&rsquo;s 2026 concert season opens tonight with Bruno Mars performing at Downsview Park, and residents of surrounding north Toronto communities are again bracing for the congestion and noise that defined last summer&rsquo;s inaugural season. Neighbourhood associations have raised concerns with York Centre Councillor James Pasternak about sound levels that carried as far as Vaughan and Willowdale during 2025 shows, and about road closures that left some residents unable to leave their streets on concert nights. Pasternak acknowledged the Ancaster community in particular suffered severe traffic congestion and said the city is working on a new drop-off and road system. Live Nation Canada responded by replacing vinyl cladding on the grandstands to limit sound travel, committing to independent municipal noise monitors at every show, and offering free TTC rides home to ticket holders. All shows will end by 11 p.m.</p>
+        <p>With Bruno Mars scheduled for five nights this month &mdash; May 23, 24, 27, 28, and 30 &mdash; residents near Downsview are preparing for back-to-back street closures and crowd management challenges. The fundamental tension between Rogers Stadium&rsquo;s scale and its residential location remains unresolved: even improvements accepted by the city have not addressed the structural reality that 50,000 people converging on a site far from major transit hubs will strain the surrounding streets. The 2026 season will test whether the operational adjustments made since last summer are sufficient, or whether the complaints will once again outlast the encore.</p>
+        <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/residents-concerns-rogers-stadium-concert-season-9.7209642" target="_blank" rel="noopener">CBC News</a> &middot; May 23, 2026</div>
+      </article>
+
+    </div>
+  </div>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">Canada market data: S&amp;P/TSX, WTI Crude and Gold reflect May 23, 2026 close. Currency rates sourced from Google Finance, May 23, 2026, 8:01 AM ET.</div>
+  <div class="mkt-grid">
+
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">34,471</div>
+      <span class="mc-chg up">&#9650; 61.87 (+0.18%)</span>
+      <div class="mc-note">May 23 close &middot; CAD</div>
+    </div>
+
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$88.50</div>
+      <span class="mc-chg up">&#9650; 4.64 (+5.54%)</span>
+      <div class="mc-note">May 23 &middot; USD</div>
+    </div>
+
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,800.79</div>
+      <span class="mc-chg down">&#9660; 32.77 (&minus;0.68%)</span>
+      <div class="mc-note">May 23 &middot; USD</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7233</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">Google Finance &middot; May 23, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">&#8377;69.52</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">Google Finance &middot; May 23, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">&euro;0.6236</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">Google Finance &middot; May 23, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">&pound;0.5388</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">Google Finance &middot; May 23, 2026</div>
+    </div>
+
+  </div>
+  <div class="mkt-src">Sources: Google Finance (currency) &middot; <a href="https://ca.tmx.com" target="_blank" rel="noopener">TMX</a> (TSX) &middot; <a href="https://tradingeconomics.com/commodity/crude-oil" target="_blank" rel="noopener">Trading Economics</a> (WTI, Gold)</div>
+
+</div></div><!-- /canada -->
+
+<!-- ==================== INDIA ==================== -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">New Delhi</div><div class="w-icon">&#127774;</div></div>
+      <div class="w-temp">40°C</div>
+      <div class="w-rng">H: 41° &nbsp; L: 32°</div>
+      <div class="w-cond">Sunny, severe heatwave</div>
+      <span class="aqi-badge aqi-vpoor">AQI 388 <span class="al">V. Poor</span></span>
+      <div class="w-drow"><span>&#128168; NW 15 km/h</span><span>&#128167; 17%</span></div>
+      <div class="wfc">
+        <div class="dm">Sun<span>&#127774;</span>43°/30°</div>
+        <div class="dm">Mon<span>&#127746;</span>43°/33°</div>
+        <div class="dm">Tue<span>&#127774;</span>43°/31°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Hyderabad</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">37°C</div>
+      <div class="w-rng">H: 38° &nbsp; L: 26°</div>
+      <div class="w-cond">Partly cloudy, hot</div>
+      <span class="aqi-badge aqi-poor">AQI 106 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; NNW 12 km/h</span><span>&#128167; 27%</span></div>
+      <div class="wfc">
+        <div class="dm">Sun<span>&#9928;</span>38°/26°</div>
+        <div class="dm">Mon<span>&#127746;</span>39°/27°</div>
+        <div class="dm">Tue<span>&#9925;</span>39°/26°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Mumbai</div><div class="w-icon">&#9928;&#65039;</div></div>
+      <div class="w-temp">32°C</div>
+      <div class="w-rng">H: 34° &nbsp; L: 30°</div>
+      <div class="w-cond">Thunderstorm, humid</div>
+      <span class="aqi-badge aqi-good">AQI 47 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; WNW 8 km/h</span><span>&#128167; 69%</span></div>
+      <div class="wfc">
+        <div class="dm">Sun<span>&#9928;</span>32°/26°</div>
+        <div class="dm">Mon<span>&#9928;</span>33°/28°</div>
+        <div class="dm">Tue<span>&#9928;</span>34°/29°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Bengaluru</div><div class="w-icon">&#9729;&#65039;</div></div>
+      <div class="w-temp">26°C</div>
+      <div class="w-rng">H: 30° &nbsp; L: 22°</div>
+      <div class="w-cond">Overcast, showers likely</div>
+      <span class="aqi-badge aqi-good">AQI 45 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; W 12 km/h</span><span>&#128167; 71%</span></div>
+      <div class="wfc">
+        <div class="dm">Sun<span>&#127783;</span>30°/20°</div>
+        <div class="dm">Mon<span>&#9928;</span>30°/21°</div>
+        <div class="dm">Tue<span>&#127746;</span>30°/21°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chennai</div><div class="w-icon">&#127774;</div></div>
+      <div class="w-temp">37°C</div>
+      <div class="w-rng">H: 38° &nbsp; L: 31°</div>
+      <div class="w-cond">Mainly clear, hot</div>
+      <span class="aqi-badge aqi-poor">AQI 110 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; SW 10 km/h</span><span>&#128167; 38%</span></div>
+      <div class="wfc">
+        <div class="dm">Sun<span>&#9928;</span>38°/31°</div>
+        <div class="dm">Mon<span>&#9928;</span>38°/29°</div>
+        <div class="dm">Tue<span>&#9928;</span>39°/27°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Pune</div><div class="w-icon">&#9928;&#65039;</div></div>
+      <div class="w-temp">30°C</div>
+      <div class="w-rng">H: 33° &nbsp; L: 25°</div>
+      <div class="w-cond">Thunderstorm</div>
+      <span class="aqi-badge aqi-good">AQI 44 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; W 9 km/h</span><span>&#128167; 67%</span></div>
+      <div class="wfc">
+        <div class="dm">Sun<span>&#127746;</span>33°/24°</div>
+        <div class="dm">Mon<span>&#9928;</span>35°/24°</div>
+        <div class="dm">Tue<span>&#9928;</span>35°/24°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather data: Open-Meteo / IMD. AQI: Open-Meteo Air Quality API (US AQI scale). Updated approx. 8:05 AM ET, May 23, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Kuki-Naga Standoff Chokes Manipur&rsquo;s Main Highway as Hostage Crisis Drags Into Second Week</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>A compounding hostage crisis and a pair of parallel blockades have crippled movement along National Highway 2, one of Manipur&rsquo;s critical supply arteries, leaving more than 2,000 trucks stranded and essential supplies running short across the state&rsquo;s Naga-inhabited districts. The breakdown began with a May 13 ambush in the hill districts that triggered mutual allegations of abduction and detention between the Kuki and Naga communities. The United Naga Council announced an inter-district economic blockade after its May 14 ultimatum to the state government &mdash; demanding the release of twenty Naga civilians including two pastors &mdash; expired without full resolution. Fourteen of the twenty were released on May 15, but six remain unaccounted for. Simultaneously, Kuki Inpi Manipur extended its own shutdown through Kangpokpi district, alleging the government had failed to locate missing Kuki individuals detained in Senapati. Truck drivers stranded on the highway have reported dwindling food and drinking water.</p>
+      <p>The dual blockades represent the latest escalation in a conflict that has intermittently convulsed Manipur since 2023, rooted in deep disputes over territory, political representation, and Scheduled Tribe status. State authorities have made repeated appeals for the release of all remaining hostages and civil society groups have attempted to mediate between the communities. The Manipur government has not yet provided a timeline for when the highway is expected to reopen or when the remaining missing persons may be located.</p>
+      <div class="src">Source: <a href="https://www.indiatoday.in/india/story/manipur-kuki-naga-tensions-escalate-amid-hostage-crisis-nh-blockades-2915794-2026-05-23" target="_blank" rel="noopener">India Today</a> &middot; May 23, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>U.S. Secretary of State Rubio Arrives in Kolkata to Begin Four-Day India Visit</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>U.S. Secretary of State Marco Rubio touched down in Kolkata on Saturday, beginning a four-day India visit that will take him to Agra, Jaipur, and New Delhi before his departure on May 26. The trip &mdash; his first visit to India as Secretary of State and the first by an American Secretary of State to Kolkata since Hillary Clinton in 2012 &mdash; arrives at a moment of elevated strategic and economic urgency. Rubio is scheduled to hold talks with Prime Minister Narendra Modi and External Affairs Minister S. Jaishankar, and will participate in a QUAD foreign ministers&rsquo; meeting in New Delhi on May 26. On the energy front, Rubio has confirmed he will press India to deepen purchases of American crude and Venezuelan oil as alternatives to the Russian supplies Washington wants New Delhi to phase out &mdash; a priority sharpened by the Hormuz crisis that has cut off nearly half of India&rsquo;s Gulf oil supply.</p>
+      <p>Rubio also confirmed that Venezuelan Acting President Delcy Rodriguez is expected to travel to India next week to discuss expanded oil agreements &mdash; a parallel visit that underscores Washington&rsquo;s effort to redirect global energy flows away from Iranian and Russian crude. Trade and defence cooperation will also feature prominently in New Delhi. American officials have signalled that reducing the India-U.S. trade deficit and expanding Indian defence purchases from U.S. suppliers are among Washington&rsquo;s key objectives for the trip.</p>
+      <div class="src">Source: <a href="https://www.indiatoday.in/india/story/marco-rubios-four-day-india-visit-begins-saturday-with-kolkata-visit-2915790-2026-05-23" target="_blank" rel="noopener">India Today</a> &middot; May 23, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Bihar Police Encounters Spark Caste Row as Tejashwi Yadav Accuses Samrat Choudhary Government</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Bihar Chief Minister Samrat Choudhary&rsquo;s government, which took office in April 2026, is facing a sharp political challenge over the mounting number of police encounters conducted under its watch &mdash; and the caste identities of those shot. Opposition leader and RJD chief Tejashwi Yadav has alleged publicly that the Choudhary administration is directing the police to target criminals by caste. Yadav stated the encounters are being conducted on the basis of caste and called the practice wrong. The Choudhary government has defended the encounters as a necessary crackdown on organised crime, with Bihar police recording multiple incidents in districts including Siwan and Patna this month, with accused persons shot during what officials described as armed confrontations when suspects resisted arrest.</p>
+      <p>The controversy evokes comparisons to the so-called &ldquo;Yogi encounter model&rdquo; associated with Uttar Pradesh Chief Minister Yogi Adityanath. Critics say that model concentrated extrajudicial enforcement along caste and communal lines, normalising what human rights groups consider illegitimate state violence. The BJP-led Choudhary government, which has inherited deep caste polarisation from the Nitish Kumar era, faces pressure to demonstrate that its law enforcement approach is even-handed. With the RJD representing primarily OBC and Yadav voters, the dispute carries significant electoral stakes ahead of the next Bihar assembly election.</p>
+      <div class="src">Source: <a href="https://www.indiatoday.in/india/story/bihar-police-encounters-caste-debate-row-samrat-choudhary-tejashwi-yadav-bjp-rjd-operation-langda-2915769-2026-05-22" target="_blank" rel="noopener">India Today</a> &middot; May 22, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Economy &amp; Business</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>India Mulls Fresh Measures to Contain Current Account Deficit as Gold Imports and Rupee Strain Worsen</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India&rsquo;s government is actively considering a range of policy measures to prevent the country&rsquo;s current account deficit from widening further, as surging gold and silver imports and a weakening rupee put new pressure on the external balance. Commerce and Industry Minister Piyush Goyal acknowledged on May 21 that the government is examining options, with gold imports having already hit an all-time high of nearly $72 billion in the 2025-26 fiscal year &mdash; a 24 per cent rise over the previous year. The rupee has depreciated approximately seven per cent in 2026 so far, and April&rsquo;s trade deficit touched a three-month high of $28.38 billion after silver imports surged around 150 per cent in the last fiscal year. The government raised the effective import duty on gold and silver to 15 per cent in mid-May, a sharp increase from six per cent, after which gold prices in India jumped nearly six per cent.</p>
+      <p>The CAD stood at $13.2 billion, or 1.3 per cent of GDP, in the December 2025 quarter. While Finance Minister Nirmala Sitharaman has characterised precious metals imports as manageable and projects the CAD at roughly one per cent of GDP for the year, the acceleration in import values &mdash; inflated by global price spikes linked to the Iran War and strong domestic demand &mdash; is testing that reassurance. India&rsquo;s structural challenge remains: without crude oil and gold, the country would run a current account surplus, but both are demand-inelastic imports, limiting the speed of any policy response.</p>
+      <div class="src">Source: <a href="https://m.economictimes.com/news/economy/finance/india-considers-several-measures-to-stop-current-account-deficit-from-widening-further/articleshow/131242662.cms" target="_blank" rel="noopener">Economic Times</a> &middot; May 22, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>CBI Arrests Eleventh Accused in NEET-UG 2026 Paper Leak as Network of Insiders Widens</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Central Bureau of Investigation has arrested its eleventh accused in the NEET-UG 2026 paper leak case &mdash; a Pune-based physics teacher appointed by the National Testing Agency as a subject expert &mdash; marking what investigators described as a major breakthrough. The accused, identified as Manisha Sanjay Havaldar, allegedly shared Physics questions with another accused during April 2026; investigators say those questions matched the actual Physics paper sets used in the May 3 examination. The CBI registered the case on May 12 after the NTA cancelled the national medical entrance examination following confirmation that leaked guess papers significantly overlapped with actual question sets. A re-examination has been scheduled for June 21. Arrests have now been made from Delhi, Jaipur, Gurugram, Nashik, Pune, Latur, and Ahilyanagar.</p>
+      <p>The investigation has revealed an inner network of NTA-appointed subject experts, coaching institute operators, and middlemen who charged candidates and their families large sums in exchange for access to confidential questions through specially arranged coaching sessions. An earlier arrest targeted the owner of RCC Coaching Institute in Latur, Maharashtra, whose nine-branch institute was found to hold a question bank matching examination content. The Parliamentary Standing Committee on Education has summoned NTA Chairperson Pradeep Kumar Joshi. The NEET-UG 2026 case echoes the 2024 scandal that convulsed the country, raising persistent questions about systemic vulnerabilities in the NTA&rsquo;s examination security architecture.</p>
+      <div class="src">Source: <a href="https://www.indiatoday.in/india/story/neet-ug-paper-leak-cbi-traces-subject-experts-middlemen-coaching-network-2915745-2026-05-22" target="_blank" rel="noopener">India Today</a> &middot; May 22, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Security Forces Seize 67 Weapons and Anti-Drone Jammer from UNLF(P) Camp in Imphal West</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>A joint operation by Manipur Police, the Assam Rifles, and the Central Reserve Police Force resulted in the arrest of four cadres of the banned United National Liberation Front (Pambei faction) and the recovery of 67 weapons from an unauthorised insurgent camp at Lamdeng in Imphal West district. The operation was launched on May 20 following specific intelligence about attempts to sell looted weapons in the Lamshang area. During initial contact, associates of the arrested cadres opened fire, resulting in a brief exchange. A follow-up cordon-and-search operation the following morning uncovered an additional 38 weapons including AK-series and M-series rifles, a sniper rifle, carbines, shotguns, mortars, an RPG-7 launcher, an anti-drone jammer, and a large cache of grenades and explosives. Authorities suspect several weapons were looted from police armouries during earlier episodes of unrest.</p>
+      <p>The recovery of an anti-drone jammer is the detail security analysts will focus on. Its presence in an UNLF(P) camp indicates that valley-based insurgent groups are acquiring counter-drone technology &mdash; equipment designed to blind or disable the surveillance drones security forces have increasingly relied upon across Manipur&rsquo;s conflict zones. This mirrors a pattern documented along the India-Myanmar border, where both Meitei groups and Myanmar ethnic armed organisations have been upgrading their counter-surveillance capabilities as state drone operations intensify. The seizure comes amid an already fraught week for Manipur, with the Kuki-Naga hostage standoff paralysing NH-2.</p>
+      <div class="src">Source: <a href="https://www.indiatoday.in/india/story/manipur-arms-haul-drone-jammers-india-myanmar-border-security-northeast-2915726-2026-05-23" target="_blank" rel="noopener">India Today</a> &middot; May 23, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">Indian market data: Sensex and Nifty 50 reflect May 23, 2026 close (NSE/BSE, 5:30 PM IST / 8:00 AM ET). Gold (INR) from GoldPrice.org, May 23, 2026. Currency rates sourced from Google Finance, May 23, 2026, 8:01 AM ET.</div>
+  <div class="mkt-grid">
+
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div>
+      <div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">75,415</div>
+      <span class="mc-chg up">&#9650; 231.99 (+0.31%)</span>
+      <div class="mc-note">May 23 close &middot; INR</div>
+    </div>
+
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE Index</div>
+      <div class="mc-val">23,719</div>
+      <span class="mc-chg up">&#9650; 64.60 (+0.27%)</span>
+      <div class="mc-note">May 23 close &middot; INR</div>
+    </div>
+
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">INR / 10g (24K)</div>
+      <div class="mc-val">&#8377;1,59,490</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">GoldPrice.org &middot; May 23, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">$0.0104</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">Google Finance &middot; May 23, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">$0.0144</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">Google Finance &middot; May 23, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">&pound;0.0078</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">Google Finance &middot; May 23, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">1 INR in EUR</div>
+      <div class="mc-val">&euro;0.0090</div>
+      <span class="mc-chg flat">&mdash;</span>
+      <div class="mc-note">Google Finance &middot; May 23, 2026</div>
+    </div>
+
+  </div>
+  <div class="mkt-src">Sources: Google Finance (currency) &middot; <a href="https://www.bseindia.com" target="_blank" rel="noopener">BSE India</a> &middot; <a href="https://www.nseindia.com" target="_blank" rel="noopener">NSE India</a> &middot; <a href="https://www.goldprice.org" target="_blank" rel="noopener">GoldPrice.org</a></div>
+
+</div></div><!-- /india -->
+
+<!-- ==================== WORLD ==================== -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Iran-U.S. Talks Continue but Tehran Says Differences Remain Deep and Significant</h3>
+      <div class="by">The Chronicler World Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Diplomatic efforts to end the Iran War continued on Saturday with Pakistan&rsquo;s army chief, Field Marshal Asim Munir, in Tehran as part of an intensifying mediation push between Iran and the United States. Munir arrived in the Iranian capital on Friday, meeting Interior Minister Eskandar Momeni as part of Pakistan&rsquo;s expanding role as a back-channel facilitator. Despite the flurry of shuttle diplomacy, Iran&rsquo;s Foreign Ministry spokesman struck a cautious note, stating that differences in the mediated talks between Tehran and Washington are &ldquo;deep and significant.&rdquo; Israeli attacks on Lebanon have killed at least 3,111 people since March 2, according to the Lebanese Health Ministry, with 9,432 further casualties recorded. The civilian death toll from the broader conflict continues to mount even as negotiators work to identify the conditions under which a formal end to hostilities might be possible.</p>
+      <p>The diplomatic terrain remains extremely difficult. Iran has continued to claim sovereignty over the Strait of Hormuz, a position the United States regards as non-negotiable, and Tehran has made clear it will not unilaterally reopen the waterway without a comprehensive security arrangement. Washington has maintained its naval blockade of Iranian ports even through what it has described as a ceasefire period, deepening the sense among Iranian officials that any deal must bind the United States to hard commitments. The Hormuz closure has now persisted for months, generating cascading effects on global energy markets, inflation in Europe and Asia, and food supply chains dependent on Gulf shipping lanes.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/liveblog/2026/5/23/iran-war-live-tehran-says-diplomacy-continues-but-no-deal-yet-with-us" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 23, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Venezuela Emerges as India&rsquo;s Third-Largest Oil Supplier as Hormuz Crisis Reshapes Energy Flows</h3>
+      <div class="by">The Chronicler World Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Venezuela has become India&rsquo;s third-largest crude oil supplier this month, with shipments rising nearly 50 per cent above April levels to approximately 417,000 barrels per day, as the closure of the Strait of Hormuz forces India to scramble for alternatives to its disrupted Gulf supply chains. The surge has been driven by the geopolitical fallout from the U.S.-Israel war on Iran, which cut off Iranian imports, nearly halved Saudi Arabian deliveries to India, and stranded 13 Indian ships in Gulf waters. Venezuelan Acting President Delcy Rodriguez is expected to travel to India next week to discuss expanded oil sales &mdash; a visit confirmed by U.S. Secretary of State Marco Rubio, who arrived in India on Saturday. Washington controls Venezuelan oil revenues through Treasury Department licensing mechanisms since the removal of former President Nicol&aacute;s Maduro in January, and is now actively pushing India to deepen purchases of Venezuelan and American crude as an alternative to the Russian oil India has been relying on during the crisis.</p>
+      <p>Energy analysts describe India&rsquo;s options as constrained: sanctioned Russian crude whose waiver applies only to cargoes already loaded, or heavy Venezuelan crude that only a small number of Indian refineries &mdash; notably Reliance Industries&rsquo; giant complex in Jamnagar &mdash; can efficiently process. Venezuela holds an estimated 303 billion barrels of proven reserves, the largest in the world, but years of sanctions and government mismanagement had reduced output to less than one per cent of global supply before Washington&rsquo;s intervention. Rubio has described the parallel visits to New Delhi as an opportunity to cement a new energy supply relationship, one that reduces Iran&rsquo;s leverage in any peace talks while drawing Venezuela back into the orbit of American-aligned capital flows.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/5/22/can-venezuelan-oil-save-india-amid-the-hormuz-energy-crisis" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 22, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Gallup Poll Finds U.S. Economic Confidence at Lowest Level Since 2022 as Iran War Drives Inflation</h3>
+      <div class="by">The Chronicler World Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>A new Gallup Economic Confidence Index released Friday placed American consumer sentiment at &minus;45, the worst reading since 2022, as the cost of living continues to climb in the wake of the U.S.-Israel war on Iran. Only 16 per cent of Americans rated current economic conditions as good or excellent. Forty-nine per cent said conditions were poor, 34 per cent rated them fair, and 76 per cent said they believed the economy is getting worse. The index averages two measures: current economic conditions at &minus;33, and economic outlook at &minus;56. The last comparable collapse in confidence came in the post-pandemic inflation surge of 2022 following Russia&rsquo;s invasion of Ukraine. The average retail gasoline price in the United States has risen to $4.55 per gallon from under $3.00 before the war began in late February.</p>
+      <p>The findings deepen political pressure on President Donald Trump ahead of the November midterm elections, in which Republicans will defend their congressional majority. A New York Times/Siena poll released earlier this week found only 31 per cent of voters approve of Trump&rsquo;s handling of the war with Iran. The president has repeatedly argued that petrol prices will fall rapidly once the conflict ends, and has publicly stated that economic consequences for Americans do not factor into his decision-making on Iran. His administration&rsquo;s legal justification for joining the conflict, released last month, characterised U.S. involvement as collective self-defence on behalf of Israel.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/5/22/economic-confidence-plummets-in-us-amid-iran-war-poll-shows" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 22, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Politics &amp; Society</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Trump Administration Tells Temporary Visa Holders to Leave the U.S. to Apply for Green Cards</h3>
+      <div class="by">The Chronicler World Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Trump administration issued new immigration guidance on Friday directing foreign nationals who entered the United States on temporary visas to leave the country if they wish to apply for permanent residency, rather than pursuing adjustment of status from within the U.S. The Department of Homeland Security framed the policy as a measure to ensure the immigration system functions as the law intended and to close what it described as loopholes that allow temporary visitors to seek permanent status without leaving. U.S. Citizenship and Immigration Services stated that adjustment of status &mdash; obtaining a Green Card from inside the United States &mdash; is a discretionary benefit and not an automatic right. USCIS instructed immigration officers to weigh each application against factors including visa overstays, unauthorised employment, fraud, and compliance with admission conditions.</p>
+      <p>The policy carries significant implications for hundreds of thousands of people in the United States on H-1B, F-1, and other temporary visa categories, including many Indian-origin professionals who have waited years &mdash; in some cases, decades &mdash; for Green Card approval. Immigrant advocacy organisations, including refugee support nonprofit HIAS, warned that the guidance could force survivors of trafficking and abused children to return to dangerous conditions while awaiting approval. USCIS acknowledged limited exceptions for visa categories that permit dual intent, but cautioned that this does not guarantee approval. The guidance follows the State Department&rsquo;s revocation of more than 100,000 visas since Trump returned to office in January 2025.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/5/22/us-says-temporary-visa-holders-should-leave-to-apply-for-green-cards" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 22, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Armed Groups&rsquo; Drone Attacks in Colombia Rose 445 Per Cent in 2025, Threatening Civilians</h3>
+      <div class="by">The Chronicler World Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Colombia recorded 8,395 drone attacks by armed groups in 2025, a 445 per cent increase over 2024, according to the country&rsquo;s Ministry of Defence &mdash; with 333 strikes deemed effective in hitting their target, up from 61 the previous year. The surge reflects the rapid adoption of cheap commercial drone technology by the ELN, the Clan del Golfo, and FARC dissident factions as a lower-cost, lower-risk alternative to conventional ambushes. Armed groups are acquiring industrial-grade DJI models through online platforms, urban intermediaries, and cross-border smuggling, then modifying them with improvised explosive devices weighing up to three kilograms. Twenty people were killed and 297 injured by drones in 2025. Civilians in Catatumbo, on the Venezuelan border, have described learning to distinguish by sound whether approaching drones are surveillance craft or armed ones, and children as young as five have developed conditioned fear responses to the characteristic mechanical hum.</p>
+      <p>The Colombian government launched Latin America&rsquo;s first Unmanned Aircraft Battalion in October 2025 and announced a $1.68 billion anti-drone shield program in January 2026, but defence analysts say implementation is failing to keep pace with the speed at which armed groups are innovating. Groups have adapted to radio frequency jamming &mdash; the primary counter-drone technology deployed &mdash; by switching frequencies, and some are now acquiring fibre-optic drones that cannot be detected or jammed. Some Colombian groups, reportedly linked to FARC dissidents, have sent operatives to Ukraine to study cutting-edge drone tactics. With Colombia&rsquo;s presidential elections approaching at the end of May, analysts warn the threat has been largely absent from the political campaign.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/longform/2026/5/22/i-always-hear-them-before-i-see-them-drones-strike-fear-in-colombia" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 22, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Global Markets</span>
+  <div class="mkt-note">World indices reflect May 23, 2026 as at 8:01 AM ET. Sources: Google Finance, LSEG, Nikkei Asia, Hang Seng Index.</div>
+  <div class="mkt-grid">
+
+    <div class="mkt-card world">
+      <div class="mc-name">DJIA</div>
+      <div class="mc-sub">Dow Jones Industrial</div>
+      <div class="mc-val">50,579</div>
+      <span class="mc-chg up">&#9650; 294.04 (+0.58%)</span>
+      <div class="mc-note">May 23 &middot; USD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">NASDAQ-100</div>
+      <div class="mc-sub">NDX Composite</div>
+      <div class="mc-val">29,481</div>
+      <span class="mc-chg up">&#9650; 124.37 (+0.42%)</span>
+      <div class="mc-note">May 23 &middot; USD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US Broad Market</div>
+      <div class="mc-val">7,473</div>
+      <span class="mc-chg up">&#9650; 27.75 (+0.37%)</span>
+      <div class="mc-note">May 23 &middot; USD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">10,466</div>
+      <span class="mc-chg up">&#9650; 22.79 (+0.22%)</span>
+      <div class="mc-note">May 23 &middot; GBP</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,719</div>
+      <span class="mc-chg up">&#9650; 64.60 (+0.27%)</span>
+      <div class="mc-note">May 23 close &middot; INR</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">25,606</div>
+      <span class="mc-chg up">&#9650; 219.51 (+0.86%)</span>
+      <div class="mc-note">May 23 &middot; HKD</div>
+    </div>
+
+    <div class="mkt-card world">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">63,339</div>
+      <span class="mc-chg up">&#9650; 1,654.93 (+2.68%)</span>
+      <div class="mc-note">May 23 close &middot; JPY</div>
+    </div>
+
+  </div>
+  <div class="mkt-src">Sources: Google Finance &middot; LSEG / FTSE Russell &middot; <a href="https://www.hsi.com.hk" target="_blank" rel="noopener">Hang Seng Index</a> &middot; Nikkei Asia &middot; NSE India</div>
+
+</div></div><!-- /world -->
+
+<!-- ==================== SPORT ==================== -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+
+  <div class="col-3">
+
+    <article class="s">
+      <h3>SRH Post 255 to Crush RCB, but Bengaluru Seal Top Spot as League Stage Ends</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Sunrisers Hyderabad closed the IPL 2026 league stage with a dominant 55-run victory over Royal Challengers Bengaluru at the Rajiv Gandhi International Stadium in Hyderabad on Friday, posting 255 for 4 and restricting the visitors to 200 for 4. Ishan Kishan was named Player of the Match for his 79 off 46 balls &mdash; his fourth consecutive half-century against RCB this season and his sixth fifty-plus score in IPL 2026. Abhishek Sharma contributed 56 and Heinrich Klaasen added 51 as SRH&rsquo;s top order plundered 73 runs in overs 11 to 15. In reply, Rajat Patidar made 56 for RCB but the asking rate proved beyond them, with Lasith Malinga taking 2 for 33.</p>
+      <p>The result had a peculiar character: SRH won, but needed RCB bowled out for 166 or less to overhaul them on net run rate and claim a top-two finish. That did not happen. RCB end the league phase as table-toppers and will face Gujarat Titans in Qualifier 1, while SRH &mdash; third despite the big win &mdash; must begin their playoff campaign via the Eliminator.</p>
+      <div class="src">Source: <a href="https://www.espncricinfo.com/series/ipl-2026-1510719/sunrisers-hyderabad-vs-royal-challengers-bengaluru-67th-match-1529310/full-scorecard" target="_blank" rel="noopener">ESPNcricinfo</a> &middot; May 22, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Knicks Lead Cavaliers 2&ndash;0; Thunder and Spurs Locked at 1&ndash;1 After Game 3</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The 2026 NBA Conference Finals are producing the drama the bracket promised. In the East, the New York Knicks lead the Cleveland Cavaliers 2&ndash;0 after taking Game 1 in overtime &mdash; erasing a 22-point fourth-quarter deficit, the largest comeback in Knicks playoff history &mdash; and then controlling Game 2 from the third quarter on. Jalen Brunson has been the catalyst, scoring 38 in Game 1 including 17 in the fourth quarter and overtime. In Game 2, Josh Hart finished with a team-high 26 points and a playoff career-high seven assists as New York held Cleveland below 40 per cent shooting. Game 3 is Saturday night in Cleveland.</p>
+      <p>In the West, defending champions Oklahoma City Thunder and the San Antonio Spurs are level at 1&ndash;1 after three games. The Spurs won Game 1 in double overtime; OKC levelled in Game 2; and Game 3 in San Antonio on Friday saw the Thunder win despite a 15&ndash;0 Spurs opening run. Jalen Williams missed Game 3 with hamstring tightness and is day-to-day &mdash; his potential return for Game 4 on Sunday could prove decisive in a series that has been played at its highest level.</p>
+      <div class="src">Source: <a href="https://www.espn.com/nba/story/_/id/48771425/2026-nba-playoffs-conference-finals-takeaways-thunder-spurs-knicks-cavaliers" target="_blank" rel="noopener">ESPN</a> &middot; May 22, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Sabalenka, Sinner and Gauff Stage 15-Minute Media Protest at Roland Garros Over Prize Money</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Approximately 20 of the world&rsquo;s top tennis players &mdash; led by world number one Aryna Sabalenka, men&rsquo;s world number one Jannik Sinner, and American star Coco Gauff &mdash; staged a coordinated media protest at Roland Garros on Friday, limiting their press conference appearances to 15 minutes in a pointed demand that Grand Slam tournaments raise the share of revenue distributed as prize money. The 15-minute cap is symbolic: players currently receive approximately 15 per cent of total tournament revenue in prize money, and are demanding an increase to 22 per cent. Sabalenka proactively closed her English-language press conference after answering 13 questions. &ldquo;It&rsquo;s not about me,&rdquo; she said. &ldquo;It&rsquo;s about the players who are lower in the ranking, who are suffering. But as the world number one, I feel like I have to stand up and fight for those players.&rdquo;</p>
+      <p>Roland Garros organisers had already announced a &euro;5.3 million increase in the total prize pot for 2026 to &euro;61.7 million, with singles champions each taking home &euro;2.8 million. They expressed regret at the protest and confirmed a meeting with player representatives was scheduled for Friday. Sinner echoed Sabalenka&rsquo;s frustration: &ldquo;Without us, events are not possible to play. It&rsquo;s about respect. We have to wait over a year for just a small response.&rdquo; The French Open begins Monday.</p>
+      <div class="src">Source: <a href="https://www.bbc.com/sport/tennis/articles/ce3pg95djdeo" target="_blank" rel="noopener">BBC Sport</a> &middot; May 22, 2026</div>
+    </article>
+
+  </div>
+
+  <div class="col-3" style="margin-top:18px;">
+
+    <article class="s">
+      <h3>Russell Takes Sprint Pole in Montreal, Closing Gap on Championship Leader Antonelli</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>George Russell delivered a timely response to his Mercedes team-mate and championship leader Kimi Antonelli on Friday, claiming sprint pole position for the Canadian Grand Prix at Circuit Gilles Villeneuve. Russell, who has won at Montreal in each of the last two seasons, edged Antonelli by 0.068 seconds in a tense SQ3 shoot-out, going fastest on both of his final runs to post a 1 minute 12.965 seconds on Pirelli softs. Antonelli &mdash; the 19-year-old Italian who has won three of the four grands prix so far in 2026 and leads the championship by 20 points &mdash; described his session as &ldquo;messy,&rdquo; having started his final lap with tyres under temperature. Lando Norris was third and Oscar Piastri fourth as McLaren, despite bringing their second upgrade package in as many races, conceded around three tenths to the dominant Mercedes W17.</p>
+      <p>Mercedes brought a significant upgrade to Montreal and Russell was emphatic about its effect. &ldquo;It&rsquo;s definitely feeling great,&rdquo; he said. &ldquo;The team have done a great job. I always knew what I could do.&rdquo; Lewis Hamilton and Charles Leclerc completed the Ferrari row, with Max Verstappen seventh. The sprint race takes place Saturday afternoon at Circuit Gilles Villeneuve, with full qualifying for Sunday&rsquo;s grand prix following in the evening.</p>
+      <div class="src">Source: <a href="https://www.bbc.com/sport/formula1/articles/ckgplmj1rg9o" target="_blank" rel="noopener">BBC Sport</a> &middot; May 22, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Tuchel&rsquo;s &lsquo;Unselfish Over Ego&rsquo; Doctrine Defines a Leaked and Controversial England World Cup Squad</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Saturday, May 23, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Thomas Tuchel announced England&rsquo;s 26-man World Cup squad on Friday morning, but by the time he stood at the podium the names were already public. The entire selection &mdash; including the headline omissions of Phil Foden, Cole Palmer, Harry Maguire, and Trent Alexander-Arnold &mdash; had been steadily leaked to journalists throughout Thursday evening, at the same time players were receiving their calls. Tuchel expressed measured displeasure: &ldquo;Players are disappointed and they talk, and then too many people know.&rdquo; Maguire complicated matters further by posting publicly on social media that he was &ldquo;shocked and gutted&rdquo; &mdash; a reaction Tuchel said &ldquo;was not necessary to make public,&rdquo; while maintaining respect for the defender.</p>
+      <p>Tuchel&rsquo;s squad choices, and the language he used to defend them, revealed a coaching philosophy built on collective submission over individual brilliance. The first three omissions to leak &mdash; Maguire, Foden, and Palmer, all favourites under former manager Gareth Southgate &mdash; pointed to a deliberate break with a previous culture. Those included skew toward physical energy, work rate, and tactical discipline. &ldquo;My job is not necessarily to select the 26 most talented players,&rdquo; Tuchel said plainly. England&rsquo;s World Cup campaign begins in the United States when the tournament opens June 11.</p>
+      <div class="src">Source: <a href="https://www.bbc.com/sport/football/articles/cg4pgve33kyo" target="_blank" rel="noopener">BBC Sport</a> &middot; May 22, 2026</div>
+    </article>
+
+  </div>
+
+</div></div><!-- /sport -->
+
+<!-- ==================== PUZZLES ==================== -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>The Chronicler Funnies</h2><div class="flag">Puzzles &amp; Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">3</div>
+        <div class="crunch-tile">5</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">8</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">72</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat"><strong>(3 + 8) &times; 7 &minus; 5 = 72</strong></div>
+        <div class="answer-cat">Step 1: 3 + 8 = 11 &nbsp;&middot;&nbsp; Step 2: 11 &times; 7 = 77 &nbsp;&middot;&nbsp; Step 3: 77 &minus; 5 = 72</div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="https://thechronicler.ca/Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive &rarr;</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">HORMUZ</div>
+        <div class="ww-mini-tile">FODEN</div>
+        <div class="ww-mini-tile">NH-2</div>
+        <div class="ww-mini-tile">WEMBANYAMA</div>
+        <div class="ww-mini-tile">ANTONELLI</div>
+        <div class="ww-mini-tile">PALMER</div>
+        <div class="ww-mini-tile">CUSMA</div>
+        <div class="ww-mini-tile">MAGUIRE</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat">&#129001; <strong>Blocked, closed or shut out this week:</strong> HORMUZ &middot; NH-2 &middot; CUSMA &middot; ANTONELLI</div>
+        <div class="answer-cat">&#129000; <strong>Dropped from their World Cup squad:</strong> FODEN &middot; MAGUIRE &middot; PALMER &middot; WEMBANYAMA</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">Decoy: ANTONELLI &mdash; sounds like a footballer&rsquo;s surname but is Kimi Antonelli, the F1 driver who was pipped to sprint pole in Montreal this week. CUSMA is the secondary decoy &mdash; the agreement Canada was locked out of this week.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div></div><!-- /puzzles -->
+
+<div class="divider"></div>
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 52 &bull; Saturday, May 23, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+(function(){var s=document.createElement('script');s.defer=true;s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "c2c9f324e65f4bde97c20728d6349a04"}');document.head.appendChild(s);})();
+
+function handleRead(btn) {
+  if (window._ttsUtterance) {
+    window.speechSynthesis.cancel();
+    if (window._ttsBtn) { window._ttsBtn.textContent = '\uD83D\uDD0A Read aloud'; }
+    if (window._ttsBtn === btn) { window._ttsUtterance = null; window._ttsBtn = null; return; }
+  }
+  const article = btn.closest('article');
+  const text = Array.from(article.querySelectorAll('p')).map(p => p.textContent).join(' ');
+  const u = new SpeechSynthesisUtterance(text);
+  u.onend = function() { btn.textContent = '\uD83D\uDD0A Read aloud'; window._ttsUtterance = null; window._ttsBtn = null; };
+  window._ttsUtterance = u;
+  window._ttsBtn = btn;
+  btn.textContent = '\u23F9 Stop';
+  window.speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>
