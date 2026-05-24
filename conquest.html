@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>CONQUEST</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+  :root {
+    --bg: #0a0c0f;
+    --parchment: #c8a96e;
+    --blood: #8b1a1a;
+    --steel: #4a6fa5;
+    --green: #2d5a27;
+    --gold: #d4a843;
+    --silver: #8a9bb0;
+    --text: #e8dcc8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; touch-action: manipulation; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Text', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(139,26,26,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(74,111,165,0.08) 0%, transparent 60%);
+  }
+
+  /* ── TITLE SCREEN ── */
+  #screen-title {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; min-height: 100vh; padding: 2rem; text-align: center;
+  }
+
+  .title-crest {
+    font-size: 4rem; margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px rgba(212,168,67,0.6));
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { transform:scale(1); filter:drop-shadow(0 0 20px rgba(212,168,67,0.6)); }
+    50%      { transform:scale(1.05); filter:drop-shadow(0 0 30px rgba(212,168,67,0.9)); }
+  }
+
+  h1.game-title {
+    font-family:'Cinzel',serif; font-size:clamp(2.5rem,10vw,4rem); font-weight:900;
+    letter-spacing:0.2em; color:var(--gold);
+    text-shadow:0 0 40px rgba(212,168,67,0.4),2px 2px 0 rgba(0,0,0,0.8);
+    margin-bottom:0.5rem;
+  }
+  .subtitle {
+    font-family:'Crimson Text',serif; font-style:italic; color:var(--silver);
+    font-size:1.1rem; letter-spacing:0.1em; margin-bottom:2rem;
+  }
+  .divider {
+    width:120px; height:1px;
+    background:linear-gradient(to right,transparent,var(--gold),transparent);
+    margin:1rem auto;
+  }
+
+  /* Colour picker */
+  .colour-section {
+    margin: 1.2rem 0 1.5rem;
+  }
+  .colour-label {
+    font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.15em;
+    color:var(--silver); margin-bottom:0.75rem;
+  }
+  .colour-swatches {
+    display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;
+  }
+  .swatch {
+    width:38px; height:38px; border-radius:50%; border:3px solid transparent;
+    cursor:pointer; transition:all 0.2s; position:relative;
+  }
+  .swatch.chosen {
+    border-color:#fff;
+    box-shadow:0 0 0 2px var(--gold), 0 0 12px rgba(212,168,67,0.6);
+  }
+  .swatch-label {
+    font-family:'Cinzel',serif; font-size:0.55rem; color:var(--silver);
+    text-align:center; margin-top:0.25rem; letter-spacing:0.05em;
+  }
+  .swatch-wrap { display:flex; flex-direction:column; align-items:center; }
+
+  /* ── BUTTONS ── */
+  .btn {
+    font-family:'Cinzel',serif; font-size:1rem; letter-spacing:0.15em;
+    padding:0.9rem 2.5rem; border:1px solid var(--gold);
+    background:transparent; color:var(--gold); cursor:pointer;
+    transition:all 0.2s; text-transform:uppercase;
+    position:relative; overflow:hidden;
+  }
+  .btn::before {
+    content:''; position:absolute; inset:0; background:var(--gold);
+    transform:scaleX(0); transform-origin:left; transition:transform 0.2s; z-index:-1;
+  }
+  .btn:active::before { transform:scaleX(1); }
+  .btn:active { color:var(--bg); }
+  .btn-primary {
+    background:var(--blood); border-color:var(--blood); color:var(--text);
+    font-size:1.1rem; padding:1rem 3rem;
+  }
+  .btn-primary::before { background:#a52020; }
+  .btn-primary:active { color:var(--text); }
+  .btn-sm { font-size:0.7rem; padding:0.5rem 1rem; }
+
+  /* ── GAME SCREEN ── */
+  #screen-game { display:none; flex-direction:column; min-height:100vh; }
+
+  .game-header {
+    background:linear-gradient(to bottom,#0f1318,transparent);
+    padding:0.6rem 1rem;
+    display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid rgba(212,168,67,0.2); gap:0.5rem;
+  }
+  .header-title { font-family:'Cinzel',serif; font-size:0.9rem; color:var(--gold); letter-spacing:0.2em; }
+  .header-right { display:flex; align-items:center; gap:0.5rem; }
+  .phase-badge {
+    font-size:0.65rem; padding:0.2rem 0.6rem;
+    border:1px solid var(--silver); color:var(--silver);
+    font-family:'Cinzel',serif; letter-spacing:0.1em;
+  }
+  .round-badge {
+    font-size:0.65rem; padding:0.2rem 0.6rem;
+    border:1px solid rgba(212,168,67,0.5); color:var(--gold);
+    font-family:'Cinzel',serif; letter-spacing:0.1em;
+  }
+
+  /* Players */
+  .players-panel {
+    display:flex; gap:0.5rem; padding:0.6rem 1rem;
+    overflow-x:auto; background:rgba(0,0,0,0.3);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .player-card {
+    flex-shrink:0; display:flex; align-items:center; gap:0.5rem;
+    padding:0.35rem 0.65rem; border:1px solid rgba(255,255,255,0.1);
+    border-radius:2px; font-size:0.8rem; transition:all 0.2s;
+  }
+  .player-card.active-player { border-color:var(--gold); background:rgba(212,168,67,0.1); }
+  .player-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  .player-name { font-family:'Cinzel',serif; font-size:0.7rem; }
+  .player-territories { color:var(--parchment); font-size:0.7rem; }
+
+  /* Map */
+  .map-container {
+    flex:1; padding:0.75rem;
+    display:grid; grid-template-columns:repeat(4,1fr);
+    gap:0.5rem; align-content:start;
+  }
+  .territory {
+    aspect-ratio:1; display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    border:2px solid rgba(255,255,255,0.15); cursor:pointer;
+    transition:all 0.15s; padding:0.3rem; text-align:center;
+    border-radius:3px; user-select:none;
+  }
+  .territory.selectable {
+    box-shadow:0 0 0 2px var(--gold),0 0 12px rgba(212,168,67,0.4);
+    animation:selectable-pulse 1s ease-in-out infinite;
+  }
+  @keyframes selectable-pulse {
+    0%,100% { box-shadow:0 0 0 2px var(--gold),0 0 12px rgba(212,168,67,0.4); }
+    50%      { box-shadow:0 0 0 2px var(--gold),0 0 20px rgba(212,168,67,0.7); }
+  }
+  .territory.selected { box-shadow:0 0 0 3px white,0 0 20px rgba(255,255,255,0.5); }
+  .territory.attackable {
+    box-shadow:0 0 0 2px var(--blood),0 0 12px rgba(139,26,26,0.6);
+    animation:attack-pulse 0.8s ease-in-out infinite;
+  }
+  @keyframes attack-pulse {
+    0%,100% { box-shadow:0 0 0 2px var(--blood),0 0 12px rgba(139,26,26,0.6); }
+    50%      { box-shadow:0 0 0 3px var(--blood),0 0 24px rgba(139,26,26,0.9); }
+  }
+  .t-name { font-family:'Cinzel',serif; font-size:clamp(0.5rem,2.2vw,0.65rem); color:rgba(255,255,255,0.9); line-height:1.2; font-weight:700; }
+  .t-troops { font-size:clamp(1rem,4vw,1.4rem); font-weight:700; color:white; text-shadow:1px 1px 3px black; line-height:1; margin:0.1rem 0; }
+  .t-icon { font-size:0.8rem; opacity:0.7; }
+
+  /* Troops available */
+  .troops-available {
+    text-align:center; padding:0.35rem;
+    font-family:'Cinzel',serif; font-size:0.8rem; color:var(--gold);
+    background:rgba(212,168,67,0.05); border-bottom:1px solid rgba(212,168,67,0.15);
+  }
+
+  /* Info bar */
+  .info-bar {
+    background:rgba(0,0,0,0.6); border-top:1px solid rgba(212,168,67,0.2);
+    padding:0.6rem 1rem; font-size:0.85rem; color:var(--silver);
+    font-style:italic; min-height:2.8rem; display:flex; align-items:center;
+  }
+
+  /* Reinforce controls */
+  .reinforce-controls {
+    display:none; align-items:center; gap:0.5rem;
+    padding:0.5rem 1rem; background:rgba(0,0,0,0.4);
+    border-top:1px solid rgba(255,255,255,0.05);
+  }
+  .reinforce-controls.visible { display:flex; }
+  .reinforce-label { font-family:'Cinzel',serif; font-size:0.7rem; color:var(--silver); }
+  .troop-count { font-size:1.2rem; font-weight:bold; color:var(--gold); min-width:2rem; text-align:center; }
+  .btn-circle {
+    width:36px; height:36px; border-radius:50%;
+    border:1px solid var(--gold); background:transparent; color:var(--gold);
+    font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .btn-circle:active { background:var(--gold); color:var(--bg); }
+
+  /* Action bar */
+  .action-bar {
+    padding:0.6rem 0.75rem; display:flex; gap:0.4rem;
+    background:rgba(0,0,0,0.5); border-top:1px solid rgba(255,255,255,0.05);
+    flex-wrap:wrap;
+  }
+  .action-bar .btn { flex:1; font-size:0.68rem; padding:0.55rem 0.4rem; min-width:60px; }
+
+  /* Battle log */
+  .battle-log {
+    max-height:100px; overflow-y:auto; padding:0.4rem 1rem;
+    background:rgba(0,0,0,0.4); border-top:1px solid rgba(255,255,255,0.05);
+    font-size:0.72rem; color:var(--silver);
+  }
+  .log-entry { padding:0.12rem 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+  .log-victory { color:#6aaa5f; }
+  .log-defeat  { color:#c06060; }
+  .log-ai      { color:#888; font-style:italic; }
+
+  /* Modal */
+  .modal-overlay {
+    display:none; position:fixed; inset:0;
+    background:rgba(0,0,0,0.88); z-index:100;
+    align-items:center; justify-content:center; padding:1.5rem;
+  }
+  .modal-overlay.open { display:flex; }
+  .modal-box {
+    background:#0f1318; border:1px solid var(--gold);
+    padding:1.75rem; max-width:360px; width:100%; text-align:center;
+  }
+  .modal-title { font-family:'Cinzel',serif; font-size:1.2rem; color:var(--gold); margin-bottom:0.5rem; }
+  .modal-body  { color:var(--silver); font-size:0.9rem; margin-bottom:1.25rem; line-height:1.6; }
+  .modal-actions { display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
+
+  /* Score table in end-game modal */
+  .score-table { width:100%; border-collapse:collapse; margin:0.75rem 0; font-size:0.85rem; }
+  .score-table th { font-family:'Cinzel',serif; font-size:0.7rem; color:var(--gold); padding:0.3rem; border-bottom:1px solid rgba(212,168,67,0.3); }
+  .score-table td { padding:0.3rem 0.5rem; color:var(--text); }
+  .score-table tr.winner-row td { color:var(--gold); font-weight:700; }
+
+  /* Save toast */
+  .toast {
+    position:fixed; bottom:5rem; left:50%; transform:translateX(-50%);
+    background:rgba(15,19,24,0.95); border:1px solid var(--gold);
+    color:var(--gold); font-family:'Cinzel',serif; font-size:0.75rem;
+    padding:0.5rem 1.25rem; letter-spacing:0.1em; z-index:200;
+    opacity:0; transition:opacity 0.3s; pointer-events:none;
+  }
+  .toast.show { opacity:1; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ TITLE SCREEN ══════════════ -->
+<div id="screen-title">
+  <div class="title-crest">⚔️</div>
+  <h1 class="game-title">CONQUEST</h1>
+  <div class="subtitle">A game of territory and empire</div>
+  <div class="divider"></div>
+
+  <div class="colour-section">
+    <div class="colour-label">CHOOSE YOUR COLOUR</div>
+    <div class="colour-swatches" id="colour-swatches"></div>
+  </div>
+
+  <button class="btn btn-primary" onclick="startGame()">BEGIN CAMPAIGN</button>
+  <br><br>
+  <button class="btn btn-sm" id="btn-load-title" onclick="loadGame()" style="display:none;">⬆ RESUME SAVED GAME</button>
+  <br><br>
+  <div style="color:var(--silver);font-size:0.8rem;max-width:280px;line-height:1.6;">
+    Seize territories. Reinforce your armies. Crush your enemies.<br>
+    Game ends after <strong style="color:var(--gold)">10 attack rounds</strong>. Most territories wins.
+  </div>
+</div>
+
+<!-- ══════════════ GAME SCREEN ══════════════ -->
+<div id="screen-game">
+  <div class="game-header">
+    <span class="header-title">CONQUEST</span>
+    <div class="header-right">
+      <span class="round-badge" id="round-label">RND 1/10</span>
+      <span class="phase-badge" id="phase-label">REINFORCE</span>
+    </div>
+  </div>
+
+  <div class="players-panel" id="players-panel"></div>
+  <div class="troops-available" id="troops-available" style="display:none;"></div>
+  <div class="map-container" id="map-container"></div>
+
+  <div class="reinforce-controls" id="reinforce-controls">
+    <span class="reinforce-label">TROOPS:</span>
+    <button class="btn-circle" onclick="changeReinforce(-1)">−</button>
+    <span class="troop-count" id="reinforce-count">1</span>
+    <button class="btn-circle" onclick="changeReinforce(1)">+</button>
+    <button class="btn" onclick="confirmReinforce()" style="flex:1;font-size:0.7rem;">PLACE</button>
+  </div>
+
+  <div class="info-bar" id="info-bar">Select a territory to begin your turn.</div>
+
+  <div class="action-bar">
+    <button class="btn" onclick="endPhase()" id="btn-end-phase">END PHASE →</button>
+    <button class="btn" onclick="saveGame()">💾 SAVE</button>
+    <button class="btn" onclick="showRules()">?</button>
+  </div>
+
+  <div class="battle-log" id="battle-log"></div>
+</div>
+
+<!-- ══════════════ MODAL ══════════════ -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-body"  id="modal-body"></div>
+    <div class="modal-actions" id="modal-actions"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════
+// STATIC DATA
+// ══════════════════════════════════════
+
+const TERRITORIES = [
+  {id:0,  name:"Ironhold",  icon:"🏰"},
+  {id:1,  name:"Ashenfeld", icon:"🌾"},
+  {id:2,  name:"Stormgate", icon:"⛩"},
+  {id:3,  name:"Duskwood",  icon:"🌲"},
+  {id:4,  name:"Embervale", icon:"🔥"},
+  {id:5,  name:"Coldmere",  icon:"❄️"},
+  {id:6,  name:"Thornwall", icon:"🗡"},
+  {id:7,  name:"Saltreach", icon:"⚓"},
+  {id:8,  name:"Greyspire", icon:"🗻"},
+  {id:9,  name:"Sunford",   icon:"☀️"},
+  {id:10, name:"Mistfen",   icon:"🌫"},
+  {id:11, name:"Ravenmoor", icon:"🦅"},
+];
+
+const ADJACENT = {
+  0:[1,4], 1:[0,2,5], 2:[1,3,6], 3:[2,7],
+  4:[0,5,8], 5:[1,4,6,9], 6:[2,5,7,10], 7:[3,6,11],
+  8:[4,9], 9:[5,8,10], 10:[6,9,11], 11:[7,10],
+};
+
+const MAX_ROUNDS = 10;
+const SAVE_KEY   = 'conquest_save_v1';
+
+// Colour options for player 0
+const COLOUR_OPTIONS = [
+  { name:"Steel",   color:"#2a4f8a", dot:"#6a9fd8" },
+  { name:"Crimson", color:"#6b1212", dot:"#d04040" },
+  { name:"Jade",    color:"#1a4d2a", dot:"#50c060" },
+  { name:"Amber",   color:"#7a4d00", dot:"#e0a030" },
+  { name:"Violet",  color:"#3d1a6b", dot:"#9a60e0" },
+  { name:"Teal",    color:"#0f4a4a", dot:"#40c0b0" },
+];
+
+let chosenColourIdx = 0;
+
+// AI opponents (colours assigned after player picks)
+const AI_DEFS = [
+  { name:"Mordak",   color:"#8b1a1a", dot:"#c04040" },
+  { name:"Seraphel", color:"#2d5a27", dot:"#50a046" },
+];
+
+// ══════════════════════════════════════
+// STATE
+// ══════════════════════════════════════
+
+let state = {};
+
+function buildPlayers() {
+  const pc = COLOUR_OPTIONS[chosenColourIdx];
+  // Pick 2 AI colours that don't clash
+  const aiPool = AI_DEFS.filter(a => a.dot !== pc.dot);
+  return [
+    { id:0, name:"You",      color:pc.color, dot:pc.dot,    isHuman:true,  alive:true },
+    { id:1, name:aiPool[0].name, color:aiPool[0].color, dot:aiPool[0].dot, isHuman:false, alive:true },
+    { id:2, name:aiPool[1].name, color:aiPool[1].color, dot:aiPool[1].dot, isHuman:false, alive:true },
+  ];
+}
+
+function initState() {
+  const players = buildPlayers();
+  const territories = {};
+  TERRITORIES.forEach((t,i) => {
+    territories[t.id] = { owner: i % players.length, troops: 2 };
+  });
+  state = {
+    territories,
+    players,
+    currentPlayer: 0,
+    phase: 'reinforce',
+    bonusTroops: 3,
+    selectedTerr: null,
+    reinforceAmount: 1,
+    attackRound: 1,       // 1–10 attack rounds
+    attackPhaseCount: 0,  // how many attack phases have completed
+    log: [],
+    gameOver: false,
+  };
+}
+
+// ══════════════════════════════════════
+// SAVE / LOAD
+// ══════════════════════════════════════
+
+function saveGame() {
+  try {
+    localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+    showToast('Game saved ✓');
+  } catch(e) {
+    showToast('Save failed — storage unavailable');
+  }
+}
+
+function loadGame() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) { showToast('No saved game found'); return; }
+    state = JSON.parse(raw);
+    document.getElementById('screen-title').style.display = 'none';
+    document.getElementById('screen-game').style.display  = 'flex';
+    render();
+    setInfo('Game restored. Continue your campaign.');
+    showToast('Save loaded ✓');
+  } catch(e) {
+    showToast('Could not load save');
+  }
+}
+
+function checkSaveExists() {
+  const el = document.getElementById('btn-load-title');
+  el.style.display = localStorage.getItem(SAVE_KEY) ? 'inline-block' : 'none';
+}
+
+// ══════════════════════════════════════
+// COLOUR PICKER
+// ══════════════════════════════════════
+
+function buildColourPicker() {
+  const container = document.getElementById('colour-swatches');
+  container.innerHTML = '';
+  COLOUR_OPTIONS.forEach((c, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'swatch-wrap';
+    const sw = document.createElement('div');
+    sw.className = 'swatch' + (i === chosenColourIdx ? ' chosen' : '');
+    sw.style.background = c.dot;
+    sw.onclick = () => { chosenColourIdx = i; buildColourPicker(); };
+    const lbl = document.createElement('div');
+    lbl.className = 'swatch-label';
+    lbl.textContent = c.name;
+    wrap.appendChild(sw);
+    wrap.appendChild(lbl);
+    container.appendChild(wrap);
+  });
+}
+
+// ══════════════════════════════════════
+// RENDER
+// ══════════════════════════════════════
+
+function render() {
+  renderPlayers();
+  renderMap();
+  renderPhase();
+  renderRound();
+  renderTroopsAvailable();
+}
+
+function renderPlayers() {
+  const panel = document.getElementById('players-panel');
+  panel.innerHTML = '';
+  state.players.forEach(p => {
+    if (!p.alive) return;
+    const terrCount = Object.values(state.territories).filter(t => t.owner === p.id).length;
+    const div = document.createElement('div');
+    div.className = 'player-card' + (state.currentPlayer === p.id ? ' active-player' : '');
+    div.innerHTML = `
+      <div class="player-dot" style="background:${p.dot}"></div>
+      <div>
+        <div class="player-name">${p.name}</div>
+        <div class="player-territories">${terrCount} territories</div>
+      </div>`;
+    panel.appendChild(div);
+  });
+}
+
+function renderRound() {
+  document.getElementById('round-label').textContent = `RND ${Math.min(state.attackPhaseCount+1,MAX_ROUNDS)}/${MAX_ROUNDS}`;
+}
+
+function renderTroopsAvailable() {
+  const el = document.getElementById('troops-available');
+  if (state.phase === 'reinforce' && state.players[state.currentPlayer].isHuman && state.bonusTroops > 0) {
+    el.textContent = `⚔ ${state.bonusTroops} troops to place`;
+    el.style.display = 'block';
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+function renderMap() {
+  const container = document.getElementById('map-container');
+  container.innerHTML = '';
+  TERRITORIES.forEach(t => {
+    const ts = state.territories[t.id];
+    const owner = state.players[ts.owner];
+    const div = document.createElement('div');
+    div.className = 'territory';
+    div.style.background   = hexToRgba(owner.color, 0.35);
+    div.style.borderColor  = owner.dot;
+
+    if (state.selectedTerr !== null) {
+      if (t.id === state.selectedTerr) {
+        div.classList.add('selected');
+      } else if (state.phase === 'reinforce' && ts.owner === state.currentPlayer) {
+        div.classList.add('selectable');
+      } else if (state.phase === 'attack') {
+        if (ts.owner === state.currentPlayer && t.id !== state.selectedTerr) div.classList.add('selectable');
+        else if (ts.owner !== state.currentPlayer && ADJACENT[state.selectedTerr]?.includes(t.id)) div.classList.add('attackable');
+      }
+    } else {
+      if (state.phase === 'reinforce' && ts.owner === state.currentPlayer && state.bonusTroops > 0) {
+        div.classList.add('selectable');
+      } else if (state.phase === 'attack' && ts.owner === state.currentPlayer) {
+        const canAtk = ADJACENT[t.id].some(adj => state.territories[adj].owner !== state.currentPlayer);
+        if (canAtk && ts.troops >= 2) div.classList.add('selectable');
+      }
+    }
+
+    div.innerHTML = `<div class="t-icon">${t.icon}</div><div class="t-troops">${ts.troops}</div><div class="t-name">${t.name}</div>`;
+    div.addEventListener('click', () => onTerritoryClick(t.id));
+    container.appendChild(div);
+  });
+}
+
+function renderPhase() {
+  const labels = { reinforce:'REINFORCE', attack:'ATTACK' };
+  document.getElementById('phase-label').textContent = labels[state.phase] || state.phase.toUpperCase();
+}
+
+function hexToRgba(hex, alpha) {
+  const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+// ══════════════════════════════════════
+// INTERACTIONS
+// ══════════════════════════════════════
+
+function onTerritoryClick(id) {
+  if (state.gameOver) return;
+  if (!state.players[state.currentPlayer].isHuman) return;
+  const ts = state.territories[id];
+
+  if (state.phase === 'reinforce') {
+    if (ts.owner !== state.currentPlayer) { setInfo("You can only reinforce your own territories."); return; }
+    if (state.bonusTroops <= 0) { setInfo("No troops left. End phase to attack."); return; }
+    state.selectedTerr = id;
+    state.reinforceAmount = 1;
+    document.getElementById('reinforce-count').textContent = 1;
+    document.getElementById('reinforce-controls').classList.add('visible');
+    setInfo(`Reinforcing ${TERRITORIES[id].name} — how many troops?`);
+    render(); return;
+  }
+
+  if (state.phase === 'attack') {
+    if (state.selectedTerr === null) {
+      if (ts.owner !== state.currentPlayer) { setInfo("Select one of your territories to attack from."); return; }
+      const canAtk = ADJACENT[id].some(adj => state.territories[adj].owner !== state.currentPlayer);
+      if (!canAtk) { setInfo(`${TERRITORIES[id].name} has no enemy neighbours.`); return; }
+      if (ts.troops < 2) { setInfo("Need at least 2 troops to attack."); return; }
+      state.selectedTerr = id;
+      setInfo(`Attacking from ${TERRITORIES[id].name}. Tap an enemy territory to invade.`);
+    } else {
+      if (id === state.selectedTerr) { state.selectedTerr = null; setInfo("Selection cleared."); render(); return; }
+      if (ts.owner !== state.currentPlayer && ADJACENT[state.selectedTerr].includes(id)) {
+        resolveBattle(state.selectedTerr, id); return;
+      }
+      if (ts.owner === state.currentPlayer) {
+        const canAtk = ADJACENT[id].some(adj => state.territories[adj].owner !== state.currentPlayer);
+        if (canAtk && ts.troops >= 2) { state.selectedTerr = id; setInfo(`Attacking from ${TERRITORIES[id].name}. Tap an enemy to invade.`); render(); }
+        return;
+      }
+      setInfo("That territory isn't adjacent. Choose a neighbouring enemy.");
+    }
+    render();
+  }
+}
+
+function changeReinforce(delta) {
+  state.reinforceAmount = Math.max(1, Math.min(state.bonusTroops, state.reinforceAmount + delta));
+  document.getElementById('reinforce-count').textContent = state.reinforceAmount;
+}
+
+function confirmReinforce() {
+  if (state.selectedTerr === null) return;
+  const amount = state.reinforceAmount;
+  if (amount > state.bonusTroops) return;
+  state.territories[state.selectedTerr].troops += amount;
+  state.bonusTroops -= amount;
+  addLog(`You placed ${amount} troop${amount>1?'s':''} in ${TERRITORIES[state.selectedTerr].name}.`);
+  state.selectedTerr = null;
+  document.getElementById('reinforce-controls').classList.remove('visible');
+  setInfo(state.bonusTroops > 0 ? `${state.bonusTroops} troops remaining.` : "All troops placed. Advance to attack.");
+  render();
+}
+
+// ══════════════════════════════════════
+// BATTLE
+// ══════════════════════════════════════
+
+function rollDice(n) {
+  return Array.from({length:n}, () => Math.ceil(Math.random()*6)).sort((a,b)=>b-a);
+}
+
+function resolveBattle(fromId, toId) {
+  const atk = state.territories[fromId], def = state.territories[toId];
+  const atkRolls = rollDice(Math.min(atk.troops-1,3));
+  const defRolls = rollDice(Math.min(def.troops,2));
+  let atkLoss=0, defLoss=0;
+  for (let i=0; i<Math.min(atkRolls.length,defRolls.length); i++) {
+    if (atkRolls[i] > defRolls[i]) defLoss++; else atkLoss++;
+  }
+  atk.troops -= atkLoss; def.troops -= defLoss;
+  let msg = `⚔ ${TERRITORIES[fromId].name}→${TERRITORIES[toId].name}: [${atkRolls}] vs [${defRolls}] → `;
+  if (def.troops <= 0) {
+    const move = atk.troops - 1;
+    def.owner = atk.owner; def.troops = move; atk.troops = 1;
+    msg += `CONQUERED! ${move} troops march in.`;
+    addLog(msg,'victory');
+    checkEliminations();
+    state.selectedTerr = null;
+    if (checkAndHandleWin()) return;
+    setInfo(`${TERRITORIES[toId].name} is yours! Keep attacking or end phase.`);
+  } else {
+    msg += `Atk lost ${atkLoss}, Def lost ${defLoss}.`;
+    addLog(msg, atkLoss > 0 ? 'defeat' : 'victory');
+    if (atk.troops < 2) { state.selectedTerr = null; setInfo(`${TERRITORIES[fromId].name} too weak. Select another.`); }
+    else setInfo(`Battle continues. ${TERRITORIES[fromId].name}: ${atk.troops}, ${TERRITORIES[toId].name}: ${def.troops}.`);
+  }
+  render();
+}
+
+function checkEliminations() {
+  state.players.forEach(p => {
+    if (!p.alive) return;
+    if (!Object.values(state.territories).some(t => t.owner === p.id)) {
+      p.alive = false;
+      addLog(`${p.name} has been eliminated!`, 'defeat');
+    }
+  });
+}
+
+// Returns true if game ended
+function checkAndHandleWin() {
+  const alive = state.players.filter(p => p.alive);
+  if (alive.length === 1) { endGame(alive[0].id, 'elimination'); return true; }
+  return false;
+}
+
+// ══════════════════════════════════════
+// ROUND LIMIT
+// ══════════════════════════════════════
+
+function endGame(winnerIdOrNull, reason) {
+  state.gameOver = true;
+  // Build scores
+  const scores = state.players.map(p => ({
+    ...p,
+    terrCount: Object.values(state.territories).filter(t => t.owner === p.id).length
+  })).sort((a,b) => b.terrCount - a.terrCount);
+
+  const winner = scores[0];
+  let title = winner.isHuman ? '⚔ VICTORY!' : '💀 DEFEAT';
+  let bodyHtml = '';
+
+  if (reason === 'elimination') {
+    bodyHtml = winner.isHuman
+      ? `All factions have fallen. The realm is yours, Commander.`
+      : `${winner.name} has conquered all. Your armies are broken.`;
+  } else {
+    bodyHtml = `10 attack rounds complete. The realm counts its banners...`;
+  }
+
+  bodyHtml += `<br><br><table class="score-table"><tr><th>Faction</th><th>Territories</th></tr>`;
+  scores.forEach((s,i) => {
+    bodyHtml += `<tr class="${i===0?'winner-row':''}"><td>${i===0?'👑 ':''} ${s.name}</td><td>${s.terrCount}</td></tr>`;
+  });
+  bodyHtml += `</table>`;
+
+  // Clear save on game end
+  try { localStorage.removeItem(SAVE_KEY); } catch(e){}
+
+  showModal(title, bodyHtml, [
+    { label:'Play Again', fn:() => { closeModal(); goToTitle(); } }
+  ]);
+}
+
+// ══════════════════════════════════════
+// PHASE MANAGEMENT
+// ══════════════════════════════════════
+
+function endPhase() {
+  if (state.gameOver) return;
+  if (!state.players[state.currentPlayer].isHuman) return;
+
+  if (state.phase === 'reinforce') {
+    // Auto-place remaining bonus troops
+    if (state.bonusTroops > 0) {
+      const myTerrs = Object.entries(state.territories).filter(([,t]) => t.owner === state.currentPlayer);
+      if (myTerrs.length) { myTerrs[0][1].troops += state.bonusTroops; state.bonusTroops = 0; }
+    }
+    document.getElementById('reinforce-controls').classList.remove('visible');
+    state.selectedTerr = null;
+    state.phase = 'attack';
+    setInfo("Attack phase. Select your territory then tap an enemy to invade.");
+    render();
+  } else if (state.phase === 'attack') {
+    state.selectedTerr = null;
+    // Count an attack phase for the human player
+    state.attackPhaseCount++;
+    if (state.attackPhaseCount >= MAX_ROUNDS * state.players.filter(p=>p.alive).length) {
+      // Each alive player has had MAX_ROUNDS attack phases
+      endGame(null, 'rounds');
+      return;
+    }
+    nextTurn();
+  }
+}
+
+function nextTurn() {
+  let next = (state.currentPlayer + 1) % state.players.length;
+  let tries = 0;
+  while (!state.players[next].alive && tries < state.players.length) {
+    next = (next+1) % state.players.length; tries++;
+  }
+  state.currentPlayer = next;
+  state.phase = 'reinforce';
+  state.selectedTerr = null;
+  const owned = Object.values(state.territories).filter(t => t.owner === next).length;
+  state.bonusTroops = Math.max(3, Math.floor(owned/3));
+  render();
+
+  if (!state.players[next].isHuman) {
+    setInfo(`${state.players[next].name} is taking their turn...`);
+    setTimeout(aiTurn, 800);
+  } else {
+    // Check round display: each full cycle = 1 round
+    const roundsUsed = Math.floor(state.attackPhaseCount / Math.max(1, state.players.filter(p=>p.alive).length));
+    const remaining = MAX_ROUNDS - roundsUsed;
+    setInfo(`Your turn — Round ${roundsUsed+1}/${MAX_ROUNDS}. ${state.bonusTroops} bonus troops.`);
+    if (remaining <= 3 && remaining > 0) {
+      setInfo(`⚠ ${remaining} round${remaining>1?'s':''} remaining! ${state.bonusTroops} bonus troops to place.`);
+    }
+  }
+}
+
+// ══════════════════════════════════════
+// AI
+// ══════════════════════════════════════
+
+function aiTurn() {
+  const pid = state.currentPlayer;
+  if (!state.players[pid] || state.players[pid].isHuman) return;
+
+  // Reinforce
+  let myTerrs = Object.entries(state.territories)
+    .filter(([,t]) => t.owner === pid)
+    .map(([id,t]) => ({id:parseInt(id),...t}))
+    .sort((a,b) => {
+      const ae = ADJACENT[a.id].filter(adj => state.territories[adj].owner !== pid).length;
+      const be = ADJACENT[b.id].filter(adj => state.territories[adj].owner !== pid).length;
+      return be - ae;
+    });
+
+  if (myTerrs.length && state.bonusTroops > 0) {
+    state.territories[myTerrs[0].id].troops += state.bonusTroops;
+    addLog(`${state.players[pid].name} reinforces ${TERRITORIES[myTerrs[0].id].name} with ${state.bonusTroops}.`, 'ai');
+    state.bonusTroops = 0;
+  }
+
+  // Attack up to 4 times
+  for (let atk=0; atk<4; atk++) {
+    let best=null, bestScore=-1;
+    Object.entries(state.territories).forEach(([id,t]) => {
+      if (t.owner !== pid || t.troops < 2) return;
+      ADJACENT[parseInt(id)].forEach(adjId => {
+        const adj = state.territories[adjId];
+        if (adj.owner === pid) return;
+        const score = t.troops - adj.troops;
+        if (score > bestScore) { bestScore=score; best={from:parseInt(id),to:adjId}; }
+      });
+    });
+    if (!best || bestScore < 0) break;
+    resolveBattle(best.from, best.to);
+    if (state.gameOver) return;
+  }
+
+  // Count AI attack phase
+  state.attackPhaseCount++;
+  render();
+
+  // Check round limit after all players in this cycle
+  const alivePlayers = state.players.filter(p=>p.alive).length;
+  if (state.attackPhaseCount >= MAX_ROUNDS * alivePlayers) {
+    setTimeout(() => endGame(null,'rounds'), 600);
+    return;
+  }
+  setTimeout(nextTurn, 1000);
+}
+
+// ══════════════════════════════════════
+// UI HELPERS
+// ══════════════════════════════════════
+
+function setInfo(msg) { document.getElementById('info-bar').textContent = msg; }
+
+function addLog(msg, type='') {
+  state.log.unshift({msg,type});
+  if (state.log.length > 25) state.log.pop();
+  renderLog();
+}
+
+function renderLog() {
+  document.getElementById('battle-log').innerHTML = state.log.map(l =>
+    `<div class="log-entry ${l.type==='victory'?'log-victory':l.type==='defeat'?'log-defeat':l.type==='ai'?'log-ai':''}">${l.msg}</div>`
+  ).join('');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+function showModal(title, bodyHtml, actions) {
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-body').innerHTML = bodyHtml;
+  const actDiv = document.getElementById('modal-actions');
+  actDiv.innerHTML = '';
+  actions.forEach(a => {
+    const b = document.createElement('button');
+    b.className = 'btn btn-primary';
+    b.textContent = a.label;
+    b.onclick = a.fn;
+    actDiv.appendChild(b);
+  });
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+
+function showRules() {
+  showModal('⚔ How to Play',
+    `<strong style="color:var(--gold)">REINFORCE</strong><br>Tap your territory to place troops.<br><br>` +
+    `<strong style="color:var(--gold)">ATTACK</strong><br>Tap your territory, then tap an adjacent enemy to battle. Dice resolve combat — ties favour defenders.<br><br>` +
+    `<strong style="color:var(--gold)">ROUND LIMIT</strong><br>Game ends after 10 attack rounds. Most territories wins.<br><br>` +
+    `<strong style="color:var(--gold)">SAVE</strong><br>Tap 💾 SAVE at any time to resume later.<br><br>` +
+    `<em>Tip: Don't spread thin. Concentrate force on weak flanks.</em>`,
+    [{label:'Got it', fn:closeModal}]
+  );
+}
+
+function goToTitle() {
+  document.getElementById('screen-game').style.display  = 'none';
+  document.getElementById('screen-title').style.display = 'flex';
+  checkSaveExists();
+}
+
+// ══════════════════════════════════════
+// START
+// ══════════════════════════════════════
+
+function startGame() {
+  document.getElementById('screen-title').style.display = 'none';
+  document.getElementById('screen-game').style.display  = 'flex';
+  initState();
+  render();
+  setInfo(`Your turn — Round 1/${MAX_ROUNDS}. Place your bonus troops.`);
+}
+
+// Init title screen
+buildColourPicker();
+checkSaveExists();
+</script>
+</body>
+</html>
