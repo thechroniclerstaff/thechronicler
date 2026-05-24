@@ -94,7 +94,7 @@
     flex:1; display:flex; flex-direction:column;
     align-items:center; justify-content:center;
     padding:2rem 1.5rem; text-align:center;
-    background:var(--cream);
+    background:var(--ink);
   }
   .title-rule {
     width:80px; height:1px;
@@ -114,13 +114,13 @@
     font-size:clamp(2rem,9vw,3.2rem);
     font-weight:900;
     letter-spacing:0.18em;
-    color:var(--ink);
+    color:var(--aged);
     margin-bottom:0.2rem;
   }
   .game-subtitle {
     font-family:'Libre Baskerville',serif;
     font-style:italic;
-    color:var(--grey);
+    color:var(--rule);
     font-size:0.95rem;
     margin-bottom:1.5rem;
   }
@@ -130,7 +130,7 @@
   .colour-label {
     font-family:'Source Sans 3',sans-serif;
     font-size:0.68rem; letter-spacing:0.18em;
-    color:var(--grey); margin-bottom:0.75rem; text-transform:uppercase;
+    color:var(--rule); margin-bottom:0.75rem; text-transform:uppercase;
   }
   .colour-swatches { display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
   .swatch {
@@ -151,8 +151,8 @@
   .btn {
     font-family:'Source Sans 3',sans-serif;
     font-size:0.75rem; letter-spacing:0.18em; text-transform:uppercase;
-    padding:0.75rem 2rem; border:1px solid var(--ink);
-    background:transparent; color:var(--ink); cursor:pointer;
+    padding:0.75rem 2rem; border:1px solid var(--rule);
+    background:transparent; color:var(--aged); cursor:pointer;
     transition:all 0.2s; position:relative; overflow:hidden;
   }
   .btn::before {
@@ -176,7 +176,7 @@
   .btn-sm { font-size:0.65rem; padding:0.45rem 1rem; }
 
   /* ── GAME SCREEN ── */
-  #screen-game { flex:1; display:none; flex-direction:column; background:var(--cream); }
+  #screen-game { flex:1; display:none; flex-direction:column; background:var(--ink); }
 
   /* game header bar */
   .game-header {
@@ -207,13 +207,13 @@
   .player-card {
     flex-shrink:0; display:flex; align-items:center; gap:0.4rem;
     padding:0.3rem 0.6rem; border:1px solid var(--rule);
-    font-size:0.75rem; transition:all 0.2s; background:var(--aged);
+    font-size:0.75rem; transition:all 0.2s; background:rgba(255,248,232,0.07);
   }
   .player-card.active-player {
     border-color:var(--rust); background:rgba(139,37,19,0.06);
   }
   .player-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
-  .player-name { font-family:'Source Sans 3',sans-serif; font-size:0.65rem; letter-spacing:0.05em; color:var(--ink); text-transform:uppercase; }
+  .player-name { font-family:'Source Sans 3',sans-serif; font-size:0.65rem; letter-spacing:0.05em; color:var(--aged); text-transform:uppercase; }
   .player-territories { font-family:'Source Sans 3',sans-serif; color:var(--grey); font-size:0.65rem; }
 
   /* troops bar */
@@ -229,7 +229,7 @@
     flex:1; padding:0.65rem;
     display:grid; grid-template-columns:repeat(4,1fr);
     gap:0.45rem; align-content:start;
-    background:var(--cream);
+    background:var(--ink);
   }
 
   .territory {
@@ -238,7 +238,7 @@
     border:1px solid var(--rule); cursor:pointer;
     transition:all 0.15s; padding:0.25rem;
     text-align:center; user-select:none;
-    background:var(--aged);
+    background:rgba(244,237,214,0.88);
   }
   .territory.selectable {
     border-color:var(--gold);
@@ -291,7 +291,7 @@
   /* reinforce controls */
   .reinforce-controls {
     display:none; align-items:center; gap:0.5rem;
-    padding:0.45rem 0.75rem; background:var(--aged);
+    padding:0.45rem 0.75rem; background:rgba(255,248,232,0.06);
     border-top:1px solid var(--rule);
   }
   .reinforce-controls.visible { display:flex; }
@@ -301,18 +301,18 @@
   }
   .troop-count {
     font-family:'Playfair Display',serif;
-    font-size:1.1rem; font-weight:700; color:var(--ink); min-width:2rem; text-align:center;
+    font-size:1.1rem; font-weight:700; color:var(--aged); min-width:2rem; text-align:center;
   }
   .btn-circle {
     width:32px; height:32px; border-radius:50%;
-    border:1px solid var(--ink); background:transparent; color:var(--ink);
+    border:1px solid var(--rule); background:transparent; color:var(--aged);
     font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
-  .btn-circle:active { background:var(--ink); color:var(--aged); }
+  .btn-circle:active { background:var(--aged); color:var(--ink); }
 
   /* info bar */
   .info-bar {
-    background:var(--aged); border-top:1px solid var(--rule);
+    background:rgba(255,248,232,0.06); border-top:1px solid var(--rule);
     padding:0.5rem 0.75rem; font-size:0.8rem; color:var(--grey);
     font-style:italic; min-height:2.6rem; display:flex; align-items:center;
     font-family:'Libre Baskerville',serif;
@@ -322,7 +322,7 @@
   /* action bar */
   .action-bar {
     padding:0.5rem 0.65rem; display:flex; gap:0.35rem;
-    background:var(--cream); border-top:1px solid var(--rule); flex-wrap:wrap;
+    background:rgba(255,248,232,0.04); border-top:1px solid var(--rule); flex-wrap:wrap;
   }
   .action-bar .btn { flex:1; font-size:0.62rem; padding:0.5rem 0.35rem; min-width:55px; }
 
