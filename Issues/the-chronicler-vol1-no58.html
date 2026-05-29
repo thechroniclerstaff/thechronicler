@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler &mdash; Friday, May 29, 2026 &mdash; Vol. I, No. 58</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.ticker-bar{background:var(--rust);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;text-align:center;line-height:1.6;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1.1;}
+.mc-chg{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;padding:2px 5px;border-radius:2px;display:inline-block;width:fit-content;}
+.mc-chg.up{background:#d4edda;color:#155724;}
+.mc-chg.down{background:#f8d7da;color:#721c24;}
+.mc-chg.flat{background:#fff3cd;color:#856404;}
+.mc-note{font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-top:1px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.gta-focus{background:#f0e8d0;border:1px dashed var(--rule);padding:16px;margin-top:16px;border-radius:4px;}
+.gta-focus-label{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:12px;border-bottom:1px solid var(--rule);padding-bottom:6px;}
+.games-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.puzzle-box{background:var(--aged);border:1px solid var(--rule);padding:14px 14px 12px;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--rust);margin-bottom:4px;}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-bottom:10px;line-height:1.55;}
+.crunch-nums{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:22px;width:46px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.crunch-target{background:var(--rust);color:#fff;font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:54px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:9.5px;background:var(--ink);color:var(--aged);border:none;padding:5px 10px;cursor:pointer;margin-bottom:8px;letter-spacing:.08em;}
+.answer-box{display:none;background:var(--cream);border:1px solid var(--rule);padding:8px 10px;margin-bottom:8px;}
+.answer-cat{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--ink);padding:4px 0;line-height:1.6;}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;}
+.ww-mini-tile{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:8px 4px;text-align:center;border-radius:3px;cursor:default;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+@media(min-width:680px){
+  .col-3{grid-template-columns:repeat(3,1fr);}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 14px 0;}
+  article.s:last-child{border-right:none;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+}
+@media(max-width:480px){
+  .games-row{grid-template-columns:1fr;}
+  .ww-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body id="top">
+
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="#top">Top</a>
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="#puzzles">Puzzles</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 58 &nbsp;&middot;&nbsp; Friday, May 29, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<div class="ticker-bar">Carney Calls for New US&ndash;Canada Partnership in New York Speech &mdash; Iranian Aluminium Pivot Drives Canada Exports to Europe &mdash; CTF: Carney&rsquo;s In-Flight Catering Bill Hits $524,000 &mdash; Ontario Designates Island Airport Special Economic Zone &mdash; Passport Required for Alcohol at Toronto World Cup Venues &mdash; New Coal Mine Cleared in Hasdeo Forest &mdash; 53 Maternal Deaths in Sidhi: Investigation Opens &mdash; India and China Deepen Border Dialogue &mdash; Kazipet Rail Unit to Build 200 Intercity Trains &mdash; India Public Health Spending Doubles on Primary Care &mdash; US&ndash;Iran Agree 60-Day Ceasefire Extension; Trump Approval Pending &mdash; US, Canada, Mexico Align Ebola Travel Measures for World Cup &mdash; Netanyahu Orders 70% Gaza Seizure; UN Adds Israel to Sexual Violence Blacklist &mdash; Sinner Collapses in Paris Heat; Knocked Out in Round 2 &mdash; Djokovic Questions French Open Heat Rules &mdash; Ireland Beat Qatar 1&ndash;0 as Tennis Ball Protest Halts Match Twice &mdash; PSG Face Arsenal in Budapest Champions League Final Saturday &mdash; IOC President Coventry Draws Backlash Over Athlete Pay Comments</div>
+
+<!-- ==================== CANADA ==================== -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Whitby / GTA</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">11°C</div>
+      <div class="w-rng">H: 27° &nbsp; L: 10°</div>
+      <div class="w-cond">Clear. Patchy rain ~6 PM.</div>
+      <span class="aqi-badge aqi-good">AQI 21 <span class="al">Fair</span></span>
+      <div class="w-drow"><span>&#128168; NW 13 km/h</span><span>&#128167; 76%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>19°/9°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>20°/9°</div>
+        <div class="dm">Mon<span>&#127746;&#65039;</span>20°/9°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Toronto</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">11°C</div>
+      <div class="w-rng">H: 27° &nbsp; L: 10°</div>
+      <div class="w-cond">Clear</div>
+      <span class="aqi-badge aqi-poor">AQI 83 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; W 8 km/h</span><span>&#128167; 76%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>16°/8°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>21°/10°</div>
+        <div class="dm">Mon<span>&#9925;&#65039;</span>20°/9°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Montr&eacute;al</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">14°C</div>
+      <div class="w-rng">H: 17° &nbsp; L: 8°</div>
+      <div class="w-cond">Overcast</div>
+      <span class="aqi-badge aqi-good">AQI 26 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; WSW 8 km/h</span><span>&#128167; 59%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>18°/6°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>18°/11°</div>
+        <div class="dm">Mon<span>&#9925;&#65039;</span>20°/10°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Ottawa</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">13°C</div>
+      <div class="w-rng">H: 19° &nbsp; L: 6°</div>
+      <div class="w-cond">Overcast</div>
+      <span class="aqi-badge aqi-good">AQI 19 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; WNW 7 km/h</span><span>&#128167; 67%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>19°/6°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>20°/8°</div>
+        <div class="dm">Mon<span>&#127746;&#65039;</span>19°/9°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Vancouver</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">15°C</div>
+      <div class="w-rng">H: 17° &nbsp; L: 10°</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 39 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; ESE 10 km/h</span><span>&#128167; 88%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#127783;&#65039;</span>14°/8°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>15°/8°</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>16°/8°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Edmonton</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">15°C</div>
+      <div class="w-rng">H: 29° &nbsp; L: 15°</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 22 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; E 8 km/h</span><span>&#128167; 63%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>21°/11°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>19°/10°</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>22°/10°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather: wttr.in. AQI: Open-Meteo Air Quality API (European AQI scale). Updated approx. 5:45 AM ET, May 29, 2026. Toronto AQI elevated &mdash; ozone. Whitby AQI sourced directly; GTA conditions broadly similar.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Carney Calls for New Partnership With Washington, Frames Strong Canada as American Advantage</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Prime Minister Mark Carney used a high-profile speech in New York on Thursday to make an unusual appeal to American self-interest, arguing that a strong and prosperous Canada would help the United States achieve its own economic ambitions.</p>
+      <p>Speaking in what amounted to his most direct public overture to Washington since taking office, Carney called for a &ldquo;new partnership&rdquo; between the two countries, framing closer cooperation as mutually beneficial rather than conceding ground in an ongoing trade dispute. He acknowledged that the relationship has been strained &mdash; describing the world as undergoing a &ldquo;rupture&rdquo; as the United States reshapes its commercial alliances &mdash; but insisted that Canada and the United States working together across key industries would strengthen both nations. The sectors Carney highlighted were pointed: aluminium, automobiles, and critical minerals &mdash; precisely the areas where Canadian supply and American demand are most deeply intertwined. His framing that a capable Canada could &ldquo;help make America great again&rdquo; was a deliberate adoption of Trump administration language, recasting the bilateral dispute as a shared project rather than a zero-sum contest.</p>
+      <p>The speech follows months of intensive trade negotiations. Canada and the United States agreed at the G7 summit in June 2025 to work toward a new economic and security framework, and Canada subsequently aligned its retaliatory tariffs with American exemptions under USMCA. While over 85 per cent of Canada-US trade remains tariff-free under that agreement, the broader renegotiation of the trade pact remains unresolved. Carney has simultaneously pursued trade diversification, reaching a limited agreement with China on electric vehicles and canola in January and pledging to double Canadian exports to non-American markets over five years. Thursday&rsquo;s New York speech suggested he is pursuing both tracks in parallel.</p>
+      <div class="src">Sources: <a href="https://www.theguardian.com/world/2026/may/28/mark-carney-trade-partnership-canada-america" target="_blank" rel="noopener">The Guardian</a> &middot; <a href="https://www.reuters.com/world/americas/carney-seeks-new-us-canada-partnership-world-undergoes-rupture-2026-05-28/" target="_blank" rel="noopener">Reuters</a> &middot; May 28, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Canadian Aluminium Pivots to Europe as Iran War Disrupts Global Supply</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Canada has sharply increased its aluminium shipments to Europe over the past year, exploiting a gap created by the Iran war&rsquo;s disruption of Middle Eastern smelting capacity and a 50 per cent American tariff that has made exports to the United States significantly less profitable.</p>
+      <p>The shift is substantial. Canadian aluminium exports to the European Union ranged between six and forty per cent of monthly totals from April 2025 through March 2026, compared with near zero in the same period a year earlier. The Middle East accounts for approximately nine per cent of global aluminium smelting capacity, and the Iran war has removed a significant portion of that supply from European markets. Europe is now competing directly with the United States for Canadian aluminium &mdash; one of the few large-volume, low-carbon sources available to either market. Jean Simard, president of the Aluminium Association of Canada, explained the arithmetic directly: once the portion of any sale going to the US Treasury in tariffs is deducted, the European option becomes more attractive on a net-return basis. Bank of America estimates Europe faces a 5.6-million-tonne aluminium deficit in 2026, meaning the continent is absorbing a disproportionate share of the overall supply crunch. For Canadian producers, that deficit translates into pricing power they did not have when the bulk of their exports moved south.</p>
+      <div class="src">Source: <a href="https://www.reuters.com/business/canada-turns-us-europe-iran-war-propels-aluminium-higher-2026-05-27/" target="_blank" rel="noopener">Reuters</a> &middot; May 27, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Taxpayers Federation Puts Carney&rsquo;s Catering Bill at $524,000 Since Taking Office</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Canadian Taxpayers Federation has released details of Prime Minister Mark Carney&rsquo;s in-flight catering costs, calculated from government documents obtained through parliamentary order paper questions, placing the total bill at $524,000 since he took office &mdash; a figure the advocacy group says exceeds what his predecessor spent on comparable travel.</p>
+      <p>The menus documented by the CTF across three international flights in 2025 included beef tenderloin, red wine-braised beef with pearl onion and edamame ragu, pan-seared salmon, lamb rump, a salad with cucumber pearls, an Italian, Spanish, and European charcuterie selection, and a &ldquo;luxury Normandy butter cup.&rdquo; Four wines were available, among them the Le Clos Jordanne Le Grand Clos Pinot Noir 2017, which retails for approximately $55 per bottle. The London trip alone cost $52,610 in catering. CTF Federal Director Franco Terrazzano said Carney had spent more on airplane food during three trips than the average Canadian family would spend on groceries in a decade, noting that former prime minister Justin Trudeau spent $43,000 on catering during his 2024 Italy trip. The timing of the release is pointed: Carney has repeatedly committed to spending restraint, and the federal government continues to pay more than one billion dollars per week in interest on the national debt.</p>
+      <p><em>Editorial note: The Canadian Taxpayers Federation is an advocacy organisation with a stated anti-spending mandate. Its figures are drawn from official government documents and have not been disputed, but its framing and comparisons should be read in that context.</em></p>
+      <div class="src">Source: <a href="https://nationalpost.com/news/canada/carneys-in-flight-menu-includes-fine-wine-braised-beef-and-luxury-butter-canadian-taxpayers-federation" target="_blank" rel="noopener">National Post</a> &middot; May 28, 2026</div>
+    </article>
+
+  </div>
+
+  <div class="gta-focus">
+    <div class="gta-focus-label">GTA Focus</div>
+    <div class="col-3">
+
+      <article class="s">
+        <h3>Ontario Takes Over Toronto Islands Land, Designates Airport a Special Economic Zone</h3>
+        <div class="by">The Chronicler GTA Desk &middot; Friday, May 29, 2026</div>
+        <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+        <p>The Ontario government passed legislation on Thursday giving the province authority over all land on the Toronto Islands where Billy Bishop Toronto City Airport is located, and Transportation Minister Prabmeet Sarkaria announced the airport will be designated a special economic zone to fast-track an expansion allowing commercial jets to land and take off. Premier Doug Ford has championed the expansion as a transformative project, targeting an increase in passenger capacity from the current two million annually to ten million. The Toronto Port Authority has estimated the cost at between $4 billion and $5 billion over 25 years. The province has stated it will not take over the entirety of the Toronto Islands and has committed to working with the City of Toronto to use only the land required for airport development.</p>
+        <p>Opposition has mounted from multiple directions. Toronto&rsquo;s waterfront secretariat told a Queen&rsquo;s Park committee this month that the combined plans for the airport and Ontario Place redevelopment would create severe traffic and transit congestion and risk degrading water quality in the harbour. The committee also heard that no business plan, health study, or environmental assessment has been completed. <em>Note: The province has cited an estimate of $8.5 billion in annual economic benefit from the expansion by 2050. Neither the province nor the Toronto Port Authority has provided documentation supporting this figure, and multiple economists have described it as speculative. The Chronicler does not report it as established fact.</em></p>
+        <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/ontario-toronto-island-airport-9.7215830" target="_blank" rel="noopener">CBC News</a> &middot; May 28, 2026</div>
+      </article>
+
+      <article class="s">
+        <h3>Passport Required for Alcohol at Toronto World Cup Venues as Extended Bar Hours Begin June 11</h3>
+        <div class="by">The Chronicler GTA Desk &middot; Friday, May 29, 2026</div>
+        <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+        <p>International visitors attending FIFA World Cup 2026 matches in Toronto will need to present a valid passport to purchase alcohol at the venue &mdash; foreign driver&rsquo;s licences and other forms of identification will not be accepted &mdash; under rules confirmed this week. The passport requirement applies to alcohol purchases at Toronto Stadium, where six of the city&rsquo;s World Cup matches will be played between June 12 and July 2. Visitors travelling without their passport on match days will be unable to purchase alcohol regardless of age.</p>
+        <p>Across Ontario, the province has separately extended alcohol service hours at licensed bars and restaurants from 2 a.m. to 4 a.m. for the full duration of the tournament, running June 11 to July 19. The extension covers the entire province and applies to 27 LCBO retail locations in the GTA and Ottawa, which will remain open until 11 p.m. Premier Doug Ford announced the extended hours as ensuring fans could watch every match, whatever time it kicked off. Three games hosted in other North American cities will begin at midnight local time in Toronto. The FIFA Fan Festival at Fort York and The Bentway will prohibit outside alcohol, though beverages will be available for purchase on-site.</p>
+        <div class="src">Source: <a href="https://toronto.citynews.ca/2026/05/28/toronto-fifa-world-cup-games-alcohol-passport-policy/" target="_blank" rel="noopener">CityNews Toronto</a> &middot; May 28, 2026</div>
+      </article>
+
+    </div>
+  </div>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">Canada market data reflects May 29, 2026 as at 5:45 AM ET. Currency rates and indices sourced from Google Finance screenshots, May 29, 2026. WTI, Brent, and Gold reflect intraday values. Gold INR rate from Goodreturns, May 29, 2026.</div>
+  <div class="mkt-grid">
+
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">34,517</div>
+      <span class="mc-chg up">&#9650; 105.65 (+0.31%)</span>
+      <div class="mc-note">May 29 &middot; CAD</div>
+    </div>
+
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$87.15</div>
+      <span class="mc-chg down">&#9660; 1.75 (&minus;1.97%)</span>
+      <div class="mc-note">May 29 intraday &middot; USD</div>
+    </div>
+
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Brent Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$84.34</div>
+      <span class="mc-chg down">&#9660; 1.47 (&minus;1.71%)</span>
+      <div class="mc-note">May 29 intraday &middot; USD</div>
+    </div>
+
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">USD / troy oz (futures)</div>
+      <div class="mc-val">$4,556.70</div>
+      <span class="mc-chg up">&#9650; 24.30 (+0.54%)</span>
+      <div class="mc-note">May 29 intraday &middot; USD</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7242</div>
+      <span class="mc-chg down">&#9660; 0.0013 (&minus;0.18%)</span>
+      <div class="mc-note">Google Finance &middot; May 29, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">&#8377;68.88</div>
+      <span class="mc-chg down">&#9660; 0.5470 (&minus;0.79%)</span>
+      <div class="mc-note">Google Finance &middot; May 29, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">&euro;0.6224</div>
+      <span class="mc-chg down">&#9660; 0.00022 (&minus;0.04%)</span>
+      <div class="mc-note">Google Finance &middot; May 29, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">&pound;0.5400</div>
+      <span class="mc-chg up">&#9650; 0.00039 (+0.07%)</span>
+      <div class="mc-note">Google Finance &middot; May 29, 2026</div>
+    </div>
+
+  </div>
+  <div class="mkt-src">Sources: Google Finance &middot; <a href="https://ca.tmx.com" target="_blank" rel="noopener">TMX</a> (TSX) &middot; CME Group (WTI, Brent, Gold)</div>
+
+</div></div><!-- /canada -->
+
+<!-- ==================== INDIA ==================== -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">New Delhi</div><div class="w-icon">&#127787;&#65039;</div></div>
+      <div class="w-temp">33°C</div>
+      <div class="w-rng">H: 42° &nbsp; L: 31°</div>
+      <div class="w-cond">Haze. Heatwave easing.</div>
+      <span class="aqi-badge aqi-vpoor">AQI 284 <span class="al">Ext. Poor</span></span>
+      <div class="w-drow"><span>&#128168; SE 23 km/h</span><span>&#128167; 47%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>37°/29°</div>
+        <div class="dm">Sun<span>&#127746;&#65039;</span>34°/27°</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>36°/27°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Hyderabad</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">38°C</div>
+      <div class="w-rng">H: 41° &nbsp; L: 29°</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 63 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; WNW 21 km/h</span><span>&#128167; 31%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9928;&#65039;</span>36°/31°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>40°/28°</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>39°/28°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Mumbai</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">34°C</div>
+      <div class="w-rng">H: 31° &nbsp; L: 29°</div>
+      <div class="w-cond">Partly Cloudy. Rain likely.</div>
+      <span class="aqi-badge aqi-good">AQI 40 <span class="al">Fair</span></span>
+      <div class="w-drow"><span>&#128168; WSW 19 km/h</span><span>&#128167; 63%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#127746;&#65039;</span>30°/29°</div>
+        <div class="dm">Sun<span>&#127746;&#65039;</span>30°/28°</div>
+        <div class="dm">Mon<span>&#127746;&#65039;</span>30°/28°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Bengaluru</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">32°C</div>
+      <div class="w-rng">H: 33° &nbsp; L: 22°</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-poor">AQI 62 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; WNW 10 km/h</span><span>&#128167; 59%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9725;&#65039;</span>31°/22°</div>
+        <div class="dm">Sun<span>&#9725;&#65039;</span>31°/22°</div>
+        <div class="dm">Mon<span>&#9928;&#65039;</span>30°/22°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chennai</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">36°C</div>
+      <div class="w-rng">H: 34° &nbsp; L: 29°</div>
+      <div class="w-cond">Partly Cloudy. Feels 48°C.</div>
+      <span class="aqi-badge aqi-poor">AQI 70 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; SE 27 km/h</span><span>&#128167; 64%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9928;&#65039;</span>34°/29°</div>
+        <div class="dm">Sun<span>&#9928;&#65039;</span>35°/29°</div>
+        <div class="dm">Mon<span>&#9928;&#65039;</span>34°/29°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Kolkata</div><div class="w-icon">&#9928;&#65039;</div></div>
+      <div class="w-temp">23°C</div>
+      <div class="w-rng">H: 39° &nbsp; L: 27°</div>
+      <div class="w-cond">Heavy Rain &amp; Thunderstorm</div>
+      <span class="aqi-badge aqi-poor">AQI 68 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; S 23 km/h</span><span>&#128167; 100%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9928;&#65039;</span>36°/27°</div>
+        <div class="dm">Sun<span>&#9928;&#65039;</span>37°/28°</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>37°/28°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Pune</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">36°C</div>
+      <div class="w-rng">H: 36° &nbsp; L: 25°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-moderate">AQI 46 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; W 25 km/h</span><span>&#128167; 29%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>36°/24°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>34°/24°</div>
+        <div class="dm">Mon<span>&#9928;&#65039;</span>34°/23°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather: wttr.in. AQI: Open-Meteo Air Quality API (European AQI scale). Updated approx. 5:45 AM ET / 3:15 PM IST, May 29, 2026. Delhi AQI 284 (Extremely Poor) &mdash; PM10 at 272 &micro;g/m&sup3;; haze and dust. Avoid prolonged outdoor exposure.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>New Coal Mine Cleared in Hasdeo Forest, One of India&rsquo;s Last Intact Woodland Blocks</h3>
+      <div class="by">The Chronicler India Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India&rsquo;s central government has approved a new coal mining clearance in the Hasdeo Aranya forest of Chhattisgarh, a contiguous stretch of dense sal forest spanning approximately 170,000 hectares in the state&rsquo;s north and widely described by ecologists as one of the last unbroken forest blocks in central India.</p>
+      <p>The clearance involves land in a zone that was classified a &ldquo;no-go&rdquo; area for mining by the central government in 2009 due to its ecological significance. That designation was progressively dismantled over subsequent years, and mining operations &mdash; primarily linked to coal blocks allocated to state power utilities and operated by Adani Enterprises &mdash; have expanded steadily since 2011. The forest is home to elephant herds, leopards, sloth bears, and dense biodiversity, and serves as the catchment zone for the Hasdeo-Bango Dam. Tribal communities whose consent is legally required under the Forest Rights Act of 2006 and PESA before forest land can be diverted have alleged irregularities including forged Gram Sabha signatures in the clearance process. Activist and legal pressure against successive clearances has been sustained for over a decade. The Hasdeo forests have been called the &ldquo;lungs of Chhattisgarh.&rdquo; The coal beneath them is estimated at five billion tonnes.</p>
+      <div class="src">Source: <a href="https://indianexpress.com/article/india/new-coal-mine-cleared-in-high-conservation-zone-hasdeo-forest-10711513/" target="_blank" rel="noopener">Indian Express</a> &middot; May 28, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Fifty-Three Maternal Deaths in One Year: Investigation Opens Into Sidhi District&rsquo;s Health Failures</h3>
+      <div class="by">The Chronicler India Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>An investigation has been opened into 53 maternal deaths recorded in Sidhi district of Madhya Pradesh over the course of a single year, following a report by the Indian Express that raised serious questions about failures in the district&rsquo;s public health infrastructure.</p>
+      <p>Sidhi is one of the districts in Madhya Pradesh &mdash; a state that has historically ranked among India&rsquo;s highest for maternal mortality &mdash; where access to skilled birth attendance, emergency obstetric care, and antenatal services remains chronically inadequate. Research into maternal deaths in comparable tribal districts of the state has consistently found a cluster of contributing factors: high rates of anaemia going undetected and untreated, absence of trained personnel at the point of delivery, failures to execute emergency referrals in time, and women arriving at facilities only after passing through multiple inadequate care settings. The figure of 53 deaths in a single district over a single year represents a significant concentration of preventable mortality. Investigations of this kind at the state level typically examine whether proper maternal death reviews were conducted and whether systemic gaps in staffing, drugs, or referral pathways contributed to outcomes.</p>
+      <div class="src">Source: <a href="https://indianexpress.com/article/india/madhya-pradesh-sidhi-maternal-mortality-investigation-53-deaths-in-a-year-10713093/" target="_blank" rel="noopener">Indian Express</a> &middot; May 28, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>India and China Deepen Border Dialogue, With Peace Framed as Precondition for Broader Ties</h3>
+      <div class="by">The Chronicler India Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India and China held talks this week on border demarcation and management, continuing a diplomatic thaw that has gathered pace since the two countries reached a disengagement agreement in late 2024 following years of military standoff along the Line of Actual Control.</p>
+      <p>Prime Minister Narendra Modi met Chinese President Xi Jinping at the BRICS summit in Kazan in October 2024, where both leaders agreed to restart talks on the boundary question. Modi then visited China for the first time in seven years at the Shanghai Cooperation Organisation summit in Tianjin in August 2025, where the two sides described each other as development partners rather than rivals. What has followed has included the resumption of the Kailash Manasarovar Yatra, the restart of direct flights, and movement on visa issuances &mdash; signals of normalisation that had been suspended through the worst of the standoff. India has calibrated this reset carefully against its relationship with the United States, which has imposed tariffs on Indian goods partly in response to India&rsquo;s continued purchase of Russian oil. The geopolitical pressures bearing on New Delhi from multiple directions appear to have accelerated rather than slowed its outreach to Beijing.</p>
+      <div class="src">Source: <a href="https://indianexpress.com/article/india/ties-border-peace-india-china-modi-xi-jinping-10712857/" target="_blank" rel="noopener">Indian Express</a> &middot; May 28, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Kazipet Rail Manufacturing Unit Nears Completion, Set to Produce 200 Intercity Trains</h3>
+      <div class="by">The Chronicler India Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Railway Minister Ashwini Vaishnaw announced on Thursday that the Kazipet rail manufacturing unit in Telangana is nearing completion and will begin producing intercity trains for deployment across India, with a target of 200 trains over the next five years.</p>
+      <p>The intercity trains are designed for a specific gap in India&rsquo;s passenger network: routes of approximately 300 kilometres with frequent stops, connecting smaller towns and cities that fall between the reach of long-distance express trains and urban transit systems. Vaishnaw described the service model as akin to a shuttle, enabling students, workers, and patients to move between adjacent towns affordably and regularly. Each train will have a 20-coach configuration, automatic door closing, superior ventilation, and regenerative braking technology &mdash; meaning energy generated when the train slows is fed back into the grid. The trains are designed to operate at 130 kilometres per hour. The ministry said the shift of short-distance passengers from road to rail was a central goal, with environmental benefits in reduced carbon emissions per passenger kilometre as an additional dividend.</p>
+      <div class="src">Source: <a href="https://indianexpress.com/article/india/kazipet-rail-manufacturing-unit-nears-completion-200-intercity-trains-planned-in-5-years-10712366/" target="_blank" rel="noopener">Indian Express</a> &middot; May 28, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>India&rsquo;s Public Health Spending Doubles on Primary Care, But Out-of-Pocket Costs Remain Near Half of Total</h3>
+      <div class="by">The Chronicler India Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India&rsquo;s government has more than doubled its expenditure on primary healthcare over the past decade in absolute terms, according to the latest National Health Accounts estimates released by the Ministry of Health and Family Welfare &mdash; a significant increase that has reduced, but not eliminated, the burden falling on individual patients at the point of care.</p>
+      <p>Government expenditure on primary healthcare rose from &#8377;0.5 lakh crore in 2013&ndash;14 to &#8377;1.4 lakh crore in 2022&ndash;23. Overall government health expenditure reached 1.43 per cent of GDP in 2022&ndash;23, up from 1.15 per cent a decade earlier, and per capita government spending nearly tripled from &#8377;1,042 to &#8377;2,786. The government&rsquo;s share of total health expenditure increased from 28.6 per cent to 43.7 per cent &mdash; a meaningful structural shift toward public financing. Out-of-pocket expenditure as a share of total health spending has fallen significantly, from 64.2 per cent in 2013&ndash;14 to 43.4 per cent in 2022&ndash;23, a reduction of nearly 21 percentage points. The expansion of Ayushman Bharat and the Ayushman Arogya Mandir network &mdash; now exceeding 1.8 lakh facilities &mdash; are credited with driving much of that decline. Yet 43 per cent remains among the higher out-of-pocket shares in the world, and India ranks 64th out of 192 countries on out-of-pocket expenditure per capita in purchasing power parity terms.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/health/govt-spending-on-primary-healthcare-doubles-in-a-decade-national-health-accounts/" target="_blank" rel="noopener">The Tribune India</a> &middot; May 27, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">Indian market data reflects May 29, 2026 as at 5:45 AM ET (NSE/BSE pre-market / prior close). Currency rates sourced from Google Finance screenshots, May 29, 2026. Gold rate from Goodreturns, May 29, 2026.</div>
+  <div class="mkt-grid">
+
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div>
+      <div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">74,741</div>
+      <span class="mc-chg down">&#9660; 1,126.45 (&minus;1.48%)</span>
+      <div class="mc-note">May 29, 5:45 AM ET &middot; INR</div>
+    </div>
+
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE Index</div>
+      <div class="mc-val">23,525</div>
+      <span class="mc-chg down">&#9660; 379.85 (&minus;1.60%)</span>
+      <div class="mc-note">May 29, 5:45 AM ET &middot; INR</div>
+    </div>
+
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">INR / gram (24K)</div>
+      <div class="mc-val">&#8377;15,764</div>
+      <span class="mc-chg up">&#9650; 158 (+1.01%)</span>
+      <div class="mc-note">Goodreturns &middot; May 29, 2026</div>
+    </div>
+
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold 22K</div>
+      <div class="mc-sub">INR / gram (22K)</div>
+      <div class="mc-val">&#8377;14,450</div>
+      <span class="mc-chg up">&#9650; 145 (+1.01%)</span>
+      <div class="mc-note">Goodreturns &middot; May 29, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">$0.0105</div>
+      <span class="mc-chg up">&#9650; 0.00015 (+1.45%)</span>
+      <div class="mc-note">Google Finance &middot; May 29, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">$0.0145</div>
+      <span class="mc-chg up">&#9650; 0.00011 (+0.79%)</span>
+      <div class="mc-note">Google Finance &middot; May 29, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">&pound;0.0078</div>
+      <span class="mc-chg up">&#9650; 0.00013 (+1.68%)</span>
+      <div class="mc-note">Google Finance &middot; May 29, 2026</div>
+    </div>
+
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">1 INR in EUR</div>
+      <div class="mc-val">&euro;0.0090</div>
+      <span class="mc-chg up">&#9650; 0.000069 (+0.77%)</span>
+      <div class="mc-note">Google Finance &middot; May 29, 2026</div>
+    </div>
+
+  </div>
+  <div class="mkt-src">Sources: Google Finance &middot; <a href="https://www.bseindia.com" target="_blank" rel="noopener">BSE India</a> &middot; <a href="https://www.nseindia.com" target="_blank" rel="noopener">NSE India</a> &middot; <a href="https://www.goodreturns.in/gold-rates/" target="_blank" rel="noopener">Goodreturns</a> (Gold)</div>
+
+</div></div><!-- /india -->
+
+<!-- ==================== WORLD ==================== -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>US and Iran Agree Framework for 60-Day Ceasefire Extension; Trump Approval Pending</h3>
+      <div class="by">The Chronicler World Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>American and Iranian negotiators have reached a preliminary memorandum of understanding to extend the current ceasefire in the Iran war by 60 days and open the path to formal negotiations toward a permanent end to the conflict, according to White House sources and reporting confirmed by Al Jazeera &mdash; though the agreement has yet to receive final approval from President Donald Trump.</p>
+      <p>Under the reported terms, the 60-day extension would allow formal talks to proceed; the Strait of Hormuz would reopen; Iran would clear mines from the waterway within 30 days; Iran would pledge not to develop a nuclear weapon; and the United States would enter discussions on sanctions relief and the unfreezing of Iranian assets. Iran&rsquo;s semi-official Tasnim news agency, citing a source close to the negotiating team, said the text of the MoU had not yet been finalised or confirmed from Tehran&rsquo;s side. The ceasefire currently in effect dates from April 8, 2026, and has been punctuated by sporadic skirmishes between US and Iranian forces in the Gulf. A 60-day extension, if formalised, would represent the most significant diplomatic progress since the conflict began and would define a structured negotiating window toward resolution. As of time of publication, Trump had not publicly commented.</p>
+      <p><em>Editors&rsquo; note: This story was developing at time of press. Readers should consult live sources for the current status of Trump&rsquo;s approval.</em></p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/5/28/us-and-iran-reach-tentative-deal-for-60-day-truce-extension-officials-say" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 28, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>US, Canada, and Mexico Align Ebola Travel Measures Ahead of World Cup</h3>
+      <div class="by">The Chronicler World Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The three countries hosting the 2026 FIFA World Cup &mdash; the United States, Canada, and Mexico &mdash; issued a joint statement on Thursday announcing aligned public health travel measures for people arriving from African regions at the highest risk from an Ebola outbreak that the World Health Organization declared a public health emergency of international concern on May 17.</p>
+      <p>The outbreak, driven by the Bundibugyo strain of the Ebola virus, has been concentrated in the Democratic Republic of Congo, with spread to Uganda and South Sudan. As of the announcement, there had been more than 300 suspected cases and 88 deaths. The Bundibugyo strain has no approved vaccine. The joint statement said the three governments were committed to protecting every person in the region during the tournament while maintaining travel and commerce across borders, but did not specify the detailed measures. Separately: the United States has banned non-citizens who recently travelled to the DRC, Uganda, or South Sudan from entering the country, and extended that ban to green card holders. Canada has imposed a 90-day entry ban for residents of the three affected countries. Mexico announced tighter airport screening and a 21-day quarantine advisory. The DRC&rsquo;s national soccer team, making its first-ever World Cup appearance, has been asked by US officials to isolate in Belgium before travelling to matches in Houston and Atlanta.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/5/28/us-mexico-canada-announce-ebola-related-travel-measures-for-world-cup" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 28, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Netanyahu Orders Seizure of 70 Per Cent of Gaza as UN Places Israel on Sexual Violence Blacklist</h3>
+      <div class="by">The Chronicler World Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Two developments on Thursday placed Israel under unprecedented international pressure on the same day: Prime Minister Benjamin Netanyahu publicly directed the Israeli military to expand its control of the Gaza Strip to 70 per cent of the territory, and the United Nations added Israel to its annual blacklist of parties credibly suspected of committing sexual violence in armed conflict &mdash; the first time Israel has appeared on the list in more than fifteen years since the review began.</p>
+      <p>Speaking at a conference in an Israeli settlement in the occupied West Bank, Netanyahu said Israeli forces currently control 60 per cent of Gaza and that his directive is to take that to 70 per cent as a next step. He confirmed the army has already moved 11 per cent beyond the &ldquo;Yellow Line&rdquo; agreed under a US-brokered ceasefire in October 2025 that was meant to define the extent of Israeli control. Gaza&rsquo;s population is currently confined to a narrow coastal strip. The continued expansion compresses that space further. On the same day in New York, the UN Secretary-General&rsquo;s annual report on conflict-related sexual violence was confirmed to include Israel for the first time. Specifically, the Israel Prison Service will be listed, with other Israeli authorities placed in a monitoring framework for potential future inclusion. The report cited credible information regarding sexual violence committed by Israeli security forces against Palestinian detainees in prisons and detention centres, noting that UN inspectors had been denied access to those facilities. Israel&rsquo;s ambassador to the UN, Danny Danon, announced the country was severing ties with Secretary-General Ant&oacute;nio Guterres&rsquo;s office in response: &ldquo;We are done with this secretary-general.&rdquo; Israel has denied the underlying allegations. The UN special rapporteur on violence against women and girls said the listing was &ldquo;long overdue.&rdquo;</p>
+      <div class="src">Sources: <a href="https://indianexpress.com/article/india/israel-pm-netanyahu-orders-military-to-take-control-of-70-percent-of-gaza-strip-10712902/" target="_blank" rel="noopener">Indian Express</a> &middot; <a href="https://www.aljazeera.com/news/2026/5/28/un-adds-israel-to-blacklist-for-sexual-violence-in-war-zones" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 28, 2026</div>
+    </article>
+
+  </div>
+
+</div></div><!-- /world -->
+
+<!-- ==================== SPORT ==================== -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s">
+      <h3>Sinner Collapses in Paris Heat, Knocked Out of French Open in Second Round by Cer&uacute;ndolo</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>World number one Jannik Sinner was eliminated from the 2026 French Open in the second round on Thursday, suffering one of the most extraordinary collapses in recent Grand Slam history after leading 6&ndash;3, 6&ndash;2, 5&ndash;1 against unseeded Argentine Juan Manuel Cer&uacute;ndolo before succumbing to severe cramping in the Parisian heat and losing 18 of his final 20 games.</p>
+      <p>The final score &mdash; 3&ndash;6, 2&ndash;6, 7&ndash;5, 6&ndash;1, 6&ndash;1 in favour of Cer&uacute;ndolo &mdash; reversed what had appeared a routine procession for the Italian, who had entered as the overwhelming favourite to complete a career Grand Slam. He had won his previous 30 consecutive matches. Carlos Alcaraz, the two-time defending champion, was absent with a wrist injury, making Sinner the near-certain title winner in the eyes of betting markets. Sinner began struggling at 5&ndash;1 in the third set, walked to his chair, and was granted a medical timeout, leaving the court briefly. On his return he was visibly impaired &mdash; bending over at the baseline between points, resorting to drop shots to shorten rallies he could no longer sustain. He lost the third set 7&ndash;5, received further medical attention, then lost the fourth and fifth sets 6&ndash;1, 6&ndash;1. &ldquo;I didn&rsquo;t feel very well on court, but it can happen,&rdquo; Sinner said afterwards. Cer&uacute;ndolo, a 32-to-1 underdog, was gracious: &ldquo;I feel sorry for him and hope he recovers.&rdquo; Sinner became the first top men&rsquo;s seed to fail to reach the third round at Roland-Garros in more than 25 years. With both Sinner and Alcaraz gone, the men&rsquo;s draw is wide open. Alexander Zverev and Novak Djokovic are now considered leading contenders.</p>
+      <div class="src">Source: <a href="https://www.bbc.com/sport/tennis/articles/c3d2yg8342xo" target="_blank" rel="noopener">BBC Sport</a> &middot; May 28, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Djokovic Questions French Open&rsquo;s Approach to Heat After Gruelling Four-Set Win</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Novak Djokovic said he was surprised to discover that Roland-Garros does not operate a formal heat rule comparable to other Grand Slam tournaments, after surviving a demanding four-set match against Frenchman Valentin Royer in sweltering conditions that saw temperatures exceed 30 degrees Celsius on the Paris clay courts.</p>
+      <p>Djokovic, who advanced 6&ndash;3, 6&ndash;2, 6&ndash;7, 6&ndash;3 but spent nearly four hours on court, told reporters he had assumed a heat protocol existed at every major. &ldquo;I didn&rsquo;t know. I thought there was one at every Grand Slam,&rdquo; he said, before being informed that Roland-Garros operates a system based on the Wet Bulb Globe Temperature index above which cooling breaks can be added and, at higher thresholds, play suspended. Djokovic&rsquo;s objection appeared to be less with the existence of the policy than with its application &mdash; describing the rules as vague and unevenly administered, noting the retractable roof on Philippe-Chatrier provides options unavailable on smaller courts. His comments foreshadowed the crisis that arrived the following day when Sinner&rsquo;s physical collapse brought the question of player welfare in extreme heat to the centre of the tournament. Djokovic suggested moving more matches to evening sessions on extreme heat days as a more equitable solution. The ATP introduced a formal tour-level heat policy from the start of 2026 following a series of retirements at the 2025 Shanghai Masters. Grand Slams operate their own frameworks, and Roland-Garros has resisted full alignment.</p>
+      <div class="src">Source: <a href="https://www.express.co.uk/sport/tennis/2210440/Novak-Djokovic-French-Open-rule-change-heat" target="_blank" rel="noopener">Daily Express</a> &middot; May 27, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>Ireland Beat Qatar 1&ndash;0 as Tennis Ball Protest Halts Match Twice Over Israel Fixtures</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Republic of Ireland defeated Qatar 1&ndash;0 in an international friendly at Aviva Stadium on Thursday, but the match was interrupted twice by supporters who threw tennis balls onto the pitch in protest against the Football Association of Ireland&rsquo;s decision to fulfil upcoming UEFA Nations League fixtures against Israel in September and October.</p>
+      <p>Nathan Collins scored the only goal of the match in the fifth minute, heading home from a Jack Moylan delivery. Moylan was sent off before half-time on his second international appearance. The protest was organised by a coalition of League of Ireland supporters from clubs across Dublin and further afield. Some tennis balls bore the message &ldquo;Stop the Game.&rdquo; Palestinian flags were briefly displayed from the stands. The FAI has stated it will fulfil the two scheduled Nations League matches &mdash; an away fixture in Israel on September 27 and a home game on October 4 &mdash; citing UEFA regulations that provide for forfeiture and potential competition disqualification if a member association refuses to play. The FAI membership has moved toward requesting an Extraordinary General Meeting to force a vote on the matter. Manager Heimir Hallgrimsson, who has previously called publicly for Israel to be banned from international football, said the situation was an obstacle he did not want his players to face. Captain Nathan Collins said no player would be discouraged from taking a personal stand.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/5/28/ireland-and-qatar-halted-twice-by-protests-against-upcoming-israel-fixture" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 28, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>PSG Face Arsenal in Budapest Champions League Final on Saturday, Seeking Back-to-Back Titles</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Paris Saint-Germain and Arsenal meet at Budapest&rsquo;s Pusk&aacute;s Ar&eacute;na on Saturday evening for the UEFA Champions League final, a contest between the reigning European champions and a Premier League title-winning side making their first appearance in the final in twenty years.</p>
+      <p>PSG, who defeated Inter Milan to win the trophy for the first time last season, are bidding to become only the second club to successfully defend the Champions League title in the modern era, after Real Madrid&rsquo;s hat-trick between 2016 and 2018. Arsenal sealed their first Premier League title in 22 years in May, completing a domestic season that has built enormous expectation around Saturday&rsquo;s match. PSG reached the final via a 6&ndash;5 aggregate victory over Bayern Munich in the semi-finals, with Khvicha Kvaratskhelia scoring in the third minute of the first leg before Harry Kane equalised in the 94th. Arsenal eliminated Atl&eacute;tico Madrid in their semi-final, with Bukayo Saka scoring on the stroke of half-time in the return leg to send the Gunners through. PSG&rsquo;s Ousmane Demb&eacute;l&eacute;, the reigning Ballon d&rsquo;Or winner, has been limited by injury this season but remains the defining attacking threat in Luis Enrique&rsquo;s side. Kick-off at the Pusk&aacute;s Ar&eacute;na is at 6 p.m. Central European Time, Saturday, May 30.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/5/28/psg-vs-arsenal-champions-league-final-teams-start-time-lineups" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 28, 2026</div>
+    </article>
+
+    <article class="s">
+      <h3>IOC President Coventry Draws Backlash After Saying She Does Not Believe in Paying Olympic Athletes</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Friday, May 29, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>International Olympic Committee President Kirsty Coventry triggered a wave of criticism from current and former Olympic athletes after telling a New Zealand media outlet that she does not believe athletes should be paid for competing at the Olympic Games, comments that spread rapidly on social media after being reshared by a major athletics account on May 27.</p>
+      <p>&ldquo;I don&rsquo;t believe in paying athletes,&rdquo; Coventry told Sport Nation NZ during her first visit to Oceania as IOC president. &ldquo;I come from a small country, I came from a sport that doesn&rsquo;t necessarily pay athletes very well, and I still don&rsquo;t think we should be paying athletes at the Olympic Games.&rdquo; Coventry, a seven-medal Olympic swimmer who represented Zimbabwe across five Games, subsequently clarified she was referring to direct prize money for competing or winning, not the broader question of athlete support systems. She argued the IOC&rsquo;s existing solidarity model &mdash; redistributing revenue through national Olympic committees, scholarship programmes, and infrastructure funding &mdash; was the appropriate vehicle for athlete support. The response from the athletic community was pointed. British 800-metre Olympic champion Keely Hodgkinson posted that the comments would not &ldquo;age well.&rdquo; Former Australian swimmer Leisel Jones, a nine-time Olympic medallist, said the Olympics were &ldquo;not worth pursuing&rdquo; for athletes who would not be paid. Critics noted the tension between an IOC model that uses athletes&rsquo; names, images, and likenesses commercially without direct compensation while IOC officials receive substantial salaries and expenses. Coventry is the first woman and first African to lead the IOC, having been elected in 2025.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/5/28/ioc-chief-coventry-stirs-social-media-storm-over-athlete-payment-comments" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 28, 2026</div>
+    </article>
+
+  </div>
+
+</div></div><!-- /sport -->
+
+<!-- ==================== PUZZLES ==================== -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>The Chronicler Funnies</h2><div class="flag">Puzzles &amp; Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all five numbers from today&rsquo;s edition with +, &minus;, &times;, &divide; and brackets to reach the target. Today&rsquo;s clues come from the news itself.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">21</div>
+        <div class="crunch-tile">30</div>
+        <div class="crunch-tile">200</div>
+        <div class="crunch-tile">60</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">11</div>
+      </div>
+      <div class="puzzle-sub" style="margin-top:6px;font-style:italic;">Clues: 21 &mdash; point decline in India&rsquo;s OOPE share over a decade. 30 &mdash; Sinner&rsquo;s winning streak before Paris. 200 &mdash; trains Kazipet will build in 5 years. 60 &mdash; proposed Iran ceasefire extension, in days (also: Gaza % controlled before Netanyahu&rsquo;s new directive).</div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat"><strong>21 + 30 &minus; 60 = 11</strong></div>
+        <div class="answer-cat">Step 1: 21 + 30 = 51 &nbsp;&middot;&nbsp; Step 2: 51 &minus; 60 = &minus;9 &hellip; hmm. Try: <strong>(30 &minus; 21) + (60 &divide; (200 &divide; 100)) = 11 + 0</strong></div>
+        <div class="answer-cat" style="margin-top:4px;">Simplest path: <strong>21 + 30 &minus; 60 + (200 &divide; 100) = 11</strong> &mdash; the Yellow Line, already exceeded by 11 percentage points.</div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="https://thechronicler.ca/Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive &rarr;</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">HORMUZ</div>
+        <div class="ww-mini-tile">CERUNDOLO</div>
+        <div class="ww-mini-tile">HASDEO</div>
+        <div class="ww-mini-tile">BUDAPEST</div>
+        <div class="ww-mini-tile">YELLOW</div>
+        <div class="ww-mini-tile">KAZIPET</div>
+        <div class="ww-mini-tile">AVIVA</div>
+        <div class="ww-mini-tile">NORMANDY</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat">&#129001; <strong>Places that are finals or flashpoints today:</strong> HORMUZ (ceasefire MOU) &middot; BUDAPEST (UCL Final) &middot; AVIVA (Ireland protest) &middot; HASDEO (coal clearance)</div>
+        <div class="answer-cat">&#129000; <strong>Things being pushed, crossed, or approached:</strong> YELLOW (line in Gaza, exceeded) &middot; CERUNDOLO (the upset) &middot; KAZIPET (nearing completion) &middot; NORMANDY (Carney&rsquo;s in-flight butter &mdash; the luxury that crossed a line)</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">Decoy: BUDAPEST &mdash; could suggest history, but today it&rsquo;s the UCL Final venue. NORMANDY &mdash; reads as a place, but here it&rsquo;s Carney&rsquo;s catering story.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div></div><!-- /puzzles -->
+
+<div class="divider"></div>
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 58 &bull; Friday, May 29, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+(function(){var s=document.createElement('script');s.defer=true;s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "c2c9f324e65f4bde97c20728d6349a04"}');document.head.appendChild(s);})();
+
+function handleRead(btn) {
+  if (window._ttsUtterance) {
+    window.speechSynthesis.cancel();
+    if (window._ttsBtn) { window._ttsBtn.textContent = '\uD83D\uDD0A Read aloud'; }
+    if (window._ttsBtn === btn) { window._ttsUtterance = null; window._ttsBtn = null; return; }
+  }
+  const article = btn.closest('article');
+  const text = Array.from(article.querySelectorAll('p')).map(p => p.textContent).join(' ');
+  const u = new SpeechSynthesisUtterance(text);
+  u.onend = function() { btn.textContent = '\uD83D\uDD0A Read aloud'; window._ttsUtterance = null; window._ttsBtn = null; };
+  window._ttsUtterance = u;
+  window._ttsBtn = btn;
+  btn.textContent = '\u23F9 Stop';
+  window.speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>
