@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler &mdash; Sunday, May 31, 2026 &mdash; Vol. I, No. 60</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.ticker-bar{background:var(--rust);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;text-align:center;line-height:1.6;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1.1;}
+.mc-chg{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;padding:2px 5px;border-radius:2px;display:inline-block;width:fit-content;}
+.mc-chg.up{background:#d4edda;color:#155724;}
+.mc-chg.down{background:#f8d7da;color:#721c24;}
+.mc-chg.flat{background:#fff3cd;color:#856404;}
+.mc-note{font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-top:1px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.gta-focus{background:#f0e8d0;border:1px dashed var(--rule);padding:16px;margin-top:16px;border-radius:4px;}
+.gta-focus-label{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:12px;border-bottom:1px solid var(--rule);padding-bottom:6px;}
+.games-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.puzzle-box{background:var(--aged);border:1px solid var(--rule);padding:14px 14px 12px;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--rust);margin-bottom:4px;}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-bottom:10px;line-height:1.55;}
+.crunch-nums{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:22px;width:46px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.crunch-target{background:var(--rust);color:#fff;font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:54px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:9.5px;background:var(--ink);color:var(--aged);border:none;padding:5px 10px;cursor:pointer;margin-bottom:8px;letter-spacing:.08em;}
+.answer-box{display:none;background:var(--cream);border:1px solid var(--rule);padding:8px 10px;margin-bottom:8px;}
+.answer-cat{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--ink);padding:4px 0;line-height:1.6;}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;}
+.ww-mini-tile{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:8px 4px;text-align:center;border-radius:3px;cursor:default;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+@media(min-width:680px){
+  .col-3{grid-template-columns:repeat(3,1fr);}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 14px 0;}
+  article.s:last-child{border-right:none;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+}
+@media(max-width:480px){
+  .games-row{grid-template-columns:1fr;}
+  .ww-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body id="top">
+
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="#top">Top</a>
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="#puzzles">Puzzles</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 60 &nbsp;&middot;&nbsp; Sunday, May 31, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<div class="ticker-bar">Israel Captures Beaufort Castle &mdash; Deepest Lebanon Incursion in 26 Years &mdash; Trump In No Hurry on Iran Deal &mdash; Congress Advances US-Israel Military Integration Bill &mdash; Germany &amp; Norway Pitch Canada 24-Boat Submarine Alliance &mdash; Guilbeault Quits Parliament &mdash; Canada Deploys 800 to RIMPAC 2026 &mdash; Ukraine Drones Strike Russian Oil Infrastructure &mdash; Japan Rejects China&rsquo;s &lsquo;New Militarism&rsquo; Label &mdash; Rwanda Signs Nuclear Deal With Russia &mdash; Finance Ministry: Strait of Hormuz Is India&rsquo;s Gravest Economic Risk &mdash; India Weighs Tax Cuts to Attract Foreign Capital &mdash; SIR Meets Constitutional Mandate: CEC &mdash; PSG Retain Champions League on Penalties &mdash; Gauff Eliminated at French Open &mdash; Auger-Aliassime Into Round of 16</div>
+
+<!-- ==================== CANADA ==================== -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Toronto</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">14°C</div>
+      <div class="w-rng">H: 23° &nbsp; L: 11°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 32 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; SW 12 km/h</span><span>&#128167; 52%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#9925;&#65039;</span>23°/11°</div>
+        <div class="dm">Tue<span>&#9925;&#65039;</span>24°/12°</div>
+        <div class="dm">Wed<span>&#127746;&#65039;</span>22°/13°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Montr&eacute;al</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">17°C</div>
+      <div class="w-rng">H: 22° &nbsp; L: 10°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 41 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; W 14 km/h</span><span>&#128167; 60%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#127746;&#65039;</span>18°/8°</div>
+        <div class="dm">Tue<span>&#9925;&#65039;</span>22°/10°</div>
+        <div class="dm">Wed<span>&#9925;&#65039;</span>24°/12°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Ottawa</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">20°C</div>
+      <div class="w-rng">H: 24° &nbsp; L: 11°</div>
+      <div class="w-cond">Clear</div>
+      <span class="aqi-badge aqi-good">AQI 28 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; SW 10 km/h</span><span>&#128167; 48%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#9925;&#65039;</span>19°/8°</div>
+        <div class="dm">Tue<span>&#9925;&#65039;</span>23°/10°</div>
+        <div class="dm">Wed<span>&#127746;&#65039;</span>21°/11°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Edmonton</div><div class="w-icon">&#127747;&#65039;</div></div>
+      <div class="w-temp">11°C</div>
+      <div class="w-rng">H: 14° &nbsp; L: 9°</div>
+      <div class="w-cond">Showers</div>
+      <span class="aqi-badge aqi-good">AQI 27 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; NW 18 km/h</span><span>&#128167; 82%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#127747;&#65039;</span>10°/9°</div>
+        <div class="dm">Tue<span>&#127747;&#65039;</span>10°/7°</div>
+        <div class="dm">Wed<span>&#9928;&#65039;</span>13°/8°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Vancouver</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">18°C</div>
+      <div class="w-rng">H: 21° &nbsp; L: 9°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 22 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; W 9 km/h</span><span>&#128167; 44%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#9925;&#65039;</span>21°/11°</div>
+        <div class="dm">Tue<span>&#9925;&#65039;</span>22°/14°</div>
+        <div class="dm">Wed<span>&#9925;&#65039;</span>23°/13°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Whitby</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">13°C</div>
+      <div class="w-rng">H: 22° &nbsp; L: 10°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 35 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; SW 13 km/h</span><span>&#128167; 54%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#9925;&#65039;</span>23°/10°</div>
+        <div class="dm">Tue<span>&#9925;&#65039;</span>24°/11°</div>
+        <div class="dm">Wed<span>&#127746;&#65039;</span>21°/12°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather: Open-Meteo Forecast API. AQI: Open-Meteo Air Quality API. Updated approx. 8:00 AM ET, May 31, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="canada-1">
+      <h3>Germany and Norway Pitch Canada a Shared 24-Boat NATO Submarine Fleet in CAD $60 Billion Bid</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Germany and Norway have sharpened their joint pitch for Canada to select the Type 212CD as the Royal Canadian Navy&rsquo;s next submarine, invoking an all-for-one approach to a potential three-nation naval alliance that would constitute the largest defence procurement in Canadian history. With a final decision expected before the end of June 2026, German Defence Minister Boris Pistorius personally guaranteed at the CANSEC defence expo in Ottawa that ThyssenKrupp Marine Systems can deliver four Type 212CD submarines to the Royal Canadian Navy by 2036 &mdash; one year behind South Korea&rsquo;s Hanwha Ocean, which has promised four KSS-III Batch II vessels by 2035. Under the joint arrangement, Berlin and Oslo are prepared to temporarily reallocate submarines from their own production schedules, allowing Canada to enter an active line rather than waiting for new construction slots.</p>
+      <p>Norway&rsquo;s deputy defence minister Marte Gerhardsen told CBC News that her country views the enterprise as a common fleet, not three separate national fleets. The combined Canadian, German and Norwegian order would form a 24-boat NATO Type 212CD community. Berlin projects the arrangement would generate CAD $86 billion in Canadian GDP impact and over 650,000 job-years &mdash; a figure squarely aimed at Prime Minister Carney, who has signalled industrial benefits will weigh heavily in the final call. The geopolitical subtext is significant: Canada is hedging away from a Washington that has suspended the Permanent Joint Board on Defense, making the European partnership an improvised but credible alternative security axis with a 40-to-50-year co-design, co-build and crew-sharing horizon.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/submarines-defence-navy-germany-canada-norway-9.7217410" target="_blank" rel="noopener">CBC News</a> &middot; May 30, 2026</div>
+    </article>
+
+    <article class="s" id="canada-2">
+      <h3>End of an Era: Trudeau&rsquo;s Climate Architects Gather at the Rideau Club as Carney Charts a Different Course</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Former Prime Minister Justin Trudeau and his former climate change cabinet ministers &mdash; Catherine McKenna, Jonathan Wilkinson and Steven Guilbeault &mdash; gathered on Wednesday evening at the Rideau Club in Ottawa, marking the end of what observers called a decade-long Liberal climate project. The occasion was officially a farewell for Wilkinson, who is departing for Brussels as Canada&rsquo;s new ambassador to the European Union. Guilbeault announced his exit from Parliament less than two weeks after Prime Minister Carney and Alberta Premier Danielle Smith signed an energy pact pledging federal support for a new West Coast pipeline and slowing industrial carbon pricing &mdash; the most visible signal yet of Carney&rsquo;s governing direction.</p>
+      <p>Under Carney, the Liberal government has dismantled Trudeau-era environmental architecture: the consumer carbon tax, the oil and gas emissions cap, and the electric-vehicle mandate have all been unwound. McKenna, attending in support of Guilbeault on his final day, called climate &ldquo;the most important issue we face&rdquo; and said Liberals who believe in unapologetically championing the environment need to speak up. Carney has reframed his reorientation not as retreat but as pragmatism &mdash; &ldquo;there is no credible plan to net zero without a relentless focus on affordability&rdquo; &mdash; and new Environment Minister Julie Dabrusin is now charged with defending a substantially different policy architecture from the one her predecessors built.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-climate-trudeau-mckenna-guilbeault-wilkinson-9.7217187" target="_blank" rel="noopener">CBC News</a> &middot; May 30, 2026</div>
+    </article>
+
+    <article class="s" id="canada-3">
+      <h3>Canada Deploys Warships, Aircraft and 800 Personnel to RIMPAC 2026, Commands Allied Air Forces</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Canada is finalising preparations to send a robust contingent to Exercise Rim of the Pacific 2026 &mdash; the 30th edition of the planet&rsquo;s largest multinational maritime drill, running June 24 to July 31 in and around the Hawaiian Islands with 31 nations, more than 25,000 personnel, approximately 40 surface ships, five submarines, and 140 aircraft. A Canadian officer will command the air forces component of the entire multinational task force &mdash; a significant leadership role within the exercise structure. The Canadian Armed Forces will deploy HMCS Regina, HMCS Ottawa, the replenishment ship MV Asterix, one CP-140 Aurora long-range patrol aircraft, and two CH-148 Cyclone helicopters.</p>
+      <p>The more than 800 deployed Canadian Armed Forces personnel will include clearance divers, a fleet cyber protection group, and medical emergency response teams. HMCS Regina will conduct a live firing of the Evolved Sea Sparrow Block II missile, while HMCS Ottawa will demonstrate its new towed low-frequency sonar array for deep-range submarine detection. The deployment serves a dual purpose: deepening Canada&rsquo;s Indo-Pacific security commitments while signalling reliability to both competing submarine bidders &mdash; Germany-Norway and South Korea&rsquo;s Hanwha Ocean &mdash; ahead of the June procurement decision worth up to CAD $60 billion.</p>
+      <div class="src">Source: <a href="https://www.ctvnews.ca/vancouver/article/canadian-military-to-send-warships-aircraft-and-800-personnel-to-us-rimpac-exercise/" target="_blank" rel="noopener">CTV News</a> &middot; May 30, 2026</div>
+    </article>
+
+  </div>
+
+  <!-- GTA FOCUS -->
+  <div class="gta-focus">
+    <div class="gta-focus-label">GTA Focus &mdash; At Issue: Canada&rsquo;s Political Week in Review</div>
+    <article class="s" id="gta-1" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
+      <h3>Three Crises Frame a Pivotal Week: Guilbeault&rsquo;s Exit, Carney&rsquo;s American Gambit, and Alberta&rsquo;s Separatist Ultimatum</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>CBC&rsquo;s At Issue panel on May 30 assessed a week defined by three intersecting pressures on Prime Minister Mark Carney: his pitch to U.S. investors that a strong Canada &ldquo;will help make America great again,&rdquo; climate frustrations driving Steven Guilbeault to quit Parliament, and Alberta&rsquo;s separatist moves being described as a threat to national unity. Hosted by CBC chief political correspondent Rosemary Barton and featuring Chantal H&eacute;bert, Andrew Coyne, Althia Raj and Elamin Abdelmahmoud, the panel reflected on the arithmetic facing a Prime Minister simultaneously courting American capital, appeasing western energy interests, and holding together a Liberal caucus fractured on environmental priorities.</p>
+      <p>Carney&rsquo;s New York appearance before the Economic Club drew particular attention: having campaigned against the consumer carbon tax, the Prime Minister used the language of American self-interest to reframe Canada&rsquo;s value proposition &mdash; a calculated pivot that delighted Bay Street and unsettled progressive Liberals. Alberta Premier Danielle Smith&rsquo;s separation referendum question has meanwhile injected constitutional uncertainty into an already fragile national moment. Carney has declined to have Parliament weigh in &mdash; a studied neutrality reflecting the tightrope he is walking between accommodation and confrontation on the question of national unity.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/player/play/video/9.7217761" target="_blank" rel="noopener">CBC At Issue</a> &middot; May 30, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">Canada market data reflects Friday, May 29, 2026 close (S&amp;P/TSX). Commodity and currency data as at Friday May 29 close &mdash; markets closed Sunday. Currency rates sourced from Google Finance, May 31, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">34,769</div>
+      <span class="mc-chg up">&#9650; +251.44 (+0.73%)</span>
+      <div class="mc-note">Fri May 29 close &middot; CAD</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$87.76</div>
+      <span class="mc-chg down">&#9660; &minus;1.14 (&minus;1.28%)</span>
+      <div class="mc-note">Fri May 29 close &middot; USD</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Brent Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$84.41</div>
+      <span class="mc-chg down">&#9660; &minus;1.40 (&minus;1.63%)</span>
+      <div class="mc-note">Fri May 29 close &middot; USD</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,569.90</div>
+      <span class="mc-chg up">&#9650; +37.50 (+0.83%)</span>
+      <div class="mc-note">Fri May 29 close &middot; USD</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7246</div>
+      <span class="mc-chg flat">&mdash; Wknd close</span>
+      <div class="mc-note">Google Finance &middot; May 31, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">&#8377;69.02</div>
+      <span class="mc-chg flat">&mdash; Wknd close</span>
+      <div class="mc-note">Google Finance &middot; May 31, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">&euro;0.6217</div>
+      <span class="mc-chg flat">&mdash; Wknd close</span>
+      <div class="mc-note">Google Finance &middot; May 31, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">&pound;0.5384</div>
+      <span class="mc-chg flat">&mdash; Wknd close</span>
+      <div class="mc-note">Google Finance &middot; May 31, 2026</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; <a href="https://www.xe.com" target="_blank" rel="noopener">XE.com</a>. All commodity &amp; currency figures Friday May 29, 2026 close; markets closed Sunday.</div>
+
+</div></div><!-- /canada -->
+
+<!-- ==================== INDIA ==================== -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">New Delhi</div><div class="w-icon">&#9928;&#65039;</div></div>
+      <div class="w-temp">34°C</div>
+      <div class="w-rng">H: 37° &nbsp; L: 25°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-vpoor">AQI 398 <span class="al">V.Poor</span></span>
+      <div class="w-drow"><span>&#128168; SE 4 km/h</span><span>&#128167; 45%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#127774;&#65039;</span>38°/26°</div>
+        <div class="dm">Tue<span>&#127774;&#65039;</span>39°/27°</div>
+        <div class="dm">Wed<span>&#9925;&#65039;</span>37°/26°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Hyderabad</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">36°C</div>
+      <div class="w-rng">H: 38° &nbsp; L: 27°</div>
+      <div class="w-cond">Clear</div>
+      <span class="aqi-badge aqi-moderate">AQI 55 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; W 12 km/h</span><span>&#128167; 28%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#127746;&#65039;</span>37°/27°</div>
+        <div class="dm">Tue<span>&#127746;&#65039;</span>36°/26°</div>
+        <div class="dm">Wed<span>&#9928;&#65039;</span>35°/25°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Mumbai</div><div class="w-icon">&#9928;&#65039;</div></div>
+      <div class="w-temp">33°C</div>
+      <div class="w-rng">H: 34° &nbsp; L: 29°</div>
+      <div class="w-cond">Thunderstorm</div>
+      <span class="aqi-badge aqi-moderate">AQI 72 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; W 16 km/h</span><span>&#128167; 65%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#9928;&#65039;</span>33°/29°</div>
+        <div class="dm">Tue<span>&#9928;&#65039;</span>33°/30°</div>
+        <div class="dm">Wed<span>&#9928;&#65039;</span>32°/29°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Bengaluru</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">29°C</div>
+      <div class="w-rng">H: 31° &nbsp; L: 21°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 52 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; SW 6 km/h</span><span>&#128167; 55%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#9928;&#65039;</span>31°/21°</div>
+        <div class="dm">Tue<span>&#127746;&#65039;</span>30°/22°</div>
+        <div class="dm">Wed<span>&#9928;&#65039;</span>29°/21°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chennai</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">36°C</div>
+      <div class="w-rng">H: 37° &nbsp; L: 29°</div>
+      <div class="w-cond">Overcast</div>
+      <span class="aqi-badge aqi-moderate">AQI 79 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; SE 12 km/h</span><span>&#128167; 52%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#9928;&#65039;</span>38°/29°</div>
+        <div class="dm">Tue<span>&#9928;&#65039;</span>37°/28°</div>
+        <div class="dm">Wed<span>&#9928;&#65039;</span>36°/27°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Pune</div><div class="w-icon">&#127774;&#65039;</div></div>
+      <div class="w-temp">34°C</div>
+      <div class="w-rng">H: 35° &nbsp; L: 24°</div>
+      <div class="w-cond">Mainly clear</div>
+      <span class="aqi-badge aqi-good">AQI 44 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; W 18 km/h</span><span>&#128167; 40%</span></div>
+      <div class="wfc">
+        <div class="dm">Mon<span>&#127746;&#65039;</span>35°/24°</div>
+        <div class="dm">Tue<span>&#127746;&#65039;</span>36°/24°</div>
+        <div class="dm">Wed<span>&#127746;&#65039;</span>35°/23°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather: Open-Meteo Forecast API. AQI: Open-Meteo Air Quality API. Updated approx. 8:00 AM ET, May 31, 2026. New Delhi AQI Very Poor &mdash; elevated particulate matter ahead of monsoon onset.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="india-1">
+      <h3>SIR Successfully Met Its Legal and Constitutional Mandate, Says Chief Election Commissioner Gyanesh Kumar</h3>
+      <div class="by">The Chronicler India Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Chief Election Commissioner Gyanesh Kumar declared on Saturday that the Election Commission of India&rsquo;s Special Intensive Revision of electoral rolls has not only withstood the scrutiny of the highest court in India but has been immensely successful in meeting its constitutional and legal mandate. Speaking at a conference, Kumar lauded election officials for carrying out the revision with full transparency &ldquo;despite adverse pressures day and night.&rdquo; He said the revision is being conducted by more than eleven lakh booth-level officers under the close watch of more than fifteen lakh booth-level agents representing district and state presidents of all national and state political parties &mdash; all state government employees on deputation to the Election Commission.</p>
+      <p>The CEC&rsquo;s remarks follow a ruling by the Supreme Court affirming that the Election Commission has the authority to conduct the SIR. A bench comprising Chief Justice Surya Kant and Justice Joymalya Bagchi held that the poll body had not violated any statutory or constitutional provisions and observed that the SIR bears a direct nexus to ensuring free and fair elections. Kumar described the exercise as producing one of the most accurate electoral rolls in the world, with eligible citizens aggressively included and ineligible persons &mdash; the deceased, duplicates, those who have relocated, and foreigners &mdash; systematically removed. The Supreme Court endorsement arrives as several state assembly elections approach on the 2026 calendar.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/india/sir-successfully-met-both-legal-constitutional-mandate-cec/" target="_blank" rel="noopener">Tribune India</a> &middot; May 31, 2026</div>
+    </article>
+
+    <article class="s" id="india-2">
+      <h3>India&rsquo;s Demographic Dividend at a Crossroads: Delayed Census, Delimitation Fears and a Closing Window</h3>
+      <div class="by">The Chronicler India Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India has long positioned its vast young population as its defining economic advantage &mdash; a demographic dividend that could power decades of growth. But as the country approaches the peak of that window, a six-year census delay, deepening North-South political tensions over parliamentary delimitation, and a structural skill mismatch are raising urgent questions about whether the dividend will be claimed or quietly squandered. The working-age population is set to peak around 2041, giving India roughly 15 years to convert its demographic advantage into durable economic growth &mdash; an exercise that requires data, skilling, and political will that are all currently in contention.</p>
+      <p>The long-delayed Indian census, which will be completed in 2027, carries greater political significance than usual. For the first time in independent India, caste will be enumerated, and the census is likely to form the basis for the proposed delimitation of constituencies &mdash; two intensely contested issues with far-reaching implications. The 2027 delimitation exercise could see northern states gain over 40 parliamentary seats while southern states, which controlled their fertility rates earlier, risk losing representation precisely for having done so. Tamil Nadu Chief Minister M K Stalin has described the census delay as a &ldquo;sinister design&rdquo; by the Centre. Without accurate data, the planning architecture for skilling programmes, welfare allocations, and industrial investment is operating on numbers that are 15 years out of date.</p>
+      <div class="src">Source: <a href="https://frontline.thehindu.com/the-nation/india-demographic-dividend-waiting-crisis-electoral-delays-development-gap/article71036242.ece" target="_blank" rel="noopener">Frontline / The Hindu</a> &middot; May 31, 2026</div>
+    </article>
+
+    <article class="s" id="india-3">
+      <h3>India Weighs Tax Cuts on Foreign Bond Investors as PMO Coordinates Measures to Stem Capital Outflows</h3>
+      <div class="by">The Chronicler India Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India is weighing tax cuts on foreign bond investors to attract inflows, support the rupee and align regulations with global market standards, as the Prime Minister&rsquo;s Office actively coordinates with various ministries to identify new opportunities for increasing foreign investments and exports. The Indian rupee has weakened by over 6 per cent against the US dollar in 2026 &mdash; a further 4.9 per cent decline since the onset of the West Asia conflict in late February &mdash; with the RBI having sold over $30 billion in spot market intervention through March alone. India witnessed net FDI outflows for six consecutive months through early 2026, reflecting weakening investor sentiment compounded by elevated energy costs and currency volatility.</p>
+      <p>Recent policy momentum has included raising the FDI ceiling in the insurance sector from 74 per cent to 100 per cent and space sector liberalisation. Gross FDI inflows touched a record $94.5 billion in FY26, reflecting underlying structural confidence, but net flows have deteriorated sharply as repatriation and capital flight outpace new commitments. The government&rsquo;s May 2026 Monthly Economic Review cited adequate foreign exchange reserves and strong services exports as buffers, while cautioning that investor sentiment will remain fragile as long as the Hormuz disruption and monsoon uncertainty persist. The proposed bond market tax relief is designed to broaden India&rsquo;s appeal to global fixed-income investors and reduce pressure on the currency without requiring direct foreign exchange intervention.</p>
+      <div class="src">Source: <a href="https://www.bloomberg.com/news/articles/2026-05-29/india-may-unveil-measures-to-boost-foreign-inflows-fe-reports" target="_blank" rel="noopener">Bloomberg</a> &middot; May 29, 2026</div>
+    </article>
+
+  </div>
+
+  <article class="s" id="india-4" style="border-top:1px solid var(--rule);padding-top:18px;margin-top:4px;">
+    <h3>Strait of Hormuz Named India&rsquo;s Single Greatest Economic Risk as Finance Ministry Warns of Stagflation Threat</h3>
+    <div class="by">The Chronicler India Desk &middot; Sunday, May 31, 2026</div>
+    <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+    <p>The Finance Ministry has cautioned that the escalating conflict in West Asia, rising energy prices and the prospect of a below-normal monsoon could pose significant challenges to India&rsquo;s economic outlook, even as the country continues to display resilience amid global uncertainty. In its latest Monthly Economic Review, the Department of Economic Affairs identified disruption in the Strait of Hormuz as the single most consequential variable for India&rsquo;s external and price outlook &mdash; a stark assessment for a nation that imports over 80 per cent of its crude oil requirements and where rupee depreciation has compounded the inflationary impact of elevated global energy prices.</p>
+    <p>Retail inflation remained relatively benign at 3.48 per cent in April, below the RBI&rsquo;s target. However, wholesale inflation surged to 8.3 per cent, driven by rising energy prices, rupee depreciation and base effects &mdash; a widening gap that signals upstream cost pressures are building and could be passed on to consumers in coming months. The India Meteorological Department has projected monsoon rainfall at around 92 per cent of the long-period average, and the ministry cautioned that a significant rainfall deficit combined with elevated energy prices could fuel food inflation and dampen rural demand. On the positive side, gross FDI inflows touched a record $94.5 billion in FY26, and manufacturing PMIs remained in expansion territory, with government-led investment in semiconductors, electronics, automobiles and defence manufacturing continuing to provide a resilient underpinning.</p>
+    <div class="src">Source: <a href="https://www.tribuneindia.com/news/india/west-asia-conflict-weak-monsoon-may-cloud-economic-outlook-govt/" target="_blank" rel="noopener">Tribune India</a> &middot; May 31, 2026</div>
+  </article>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">Indian market data reflects Friday, May 29, 2026 close (NSE/BSE). Gold sourced from Goodreturns.in, May 31, 2026. Currency rates from Google Finance, May 31, 2026. All data weekend close &mdash; markets closed Sunday.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div>
+      <div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">74,775</div>
+      <span class="mc-chg down">&#9660; &minus;1,092.05 (&minus;1.44%)</span>
+      <div class="mc-note">Fri May 29 close &middot; INR</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE Index</div>
+      <div class="mc-val">23,547</div>
+      <span class="mc-chg down">&#9660; &minus;359.40 (&minus;1.50%)</span>
+      <div class="mc-note">Fri May 29 close &middot; INR</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold (24K)</div>
+      <div class="mc-sub">INR / gram</div>
+      <div class="mc-val">&#8377;15,704</div>
+      <span class="mc-chg flat">&mdash; Wknd close</span>
+      <div class="mc-note">Goodreturns &middot; May 31, 2026</div>
+    </div>
+    <div class="mkt-card commodity-flat" style="border-top-color:var(--grey);">
+      <div class="mc-name">Silver</div>
+      <div class="mc-sub">INR / kg</div>
+      <div class="mc-val">&#8377;2,80,000</div>
+      <span class="mc-chg flat">&mdash; Wknd close</span>
+      <div class="mc-note">Goodreturns &middot; May 31, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">$0.0105</div>
+      <span class="mc-chg flat">&mdash; Wknd close</span>
+      <div class="mc-note">Google Finance &middot; May 31, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">$0.0145</div>
+      <span class="mc-chg flat">&mdash; Wknd close</span>
+      <div class="mc-note">Google Finance &middot; May 31, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">&pound;0.0078</div>
+      <span class="mc-chg down">&#9660; &minus;0.02%</span>
+      <div class="mc-note">Google Finance &middot; May 31, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">1 INR in EUR</div>
+      <div class="mc-val">&euro;0.0090</div>
+      <span class="mc-chg flat">&mdash; Wknd close</span>
+      <div class="mc-note">Google Finance &middot; May 31, 2026</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; <a href="https://www.goodreturns.in/gold-rates/" target="_blank" rel="noopener">Goodreturns.in</a> (Gold &amp; Silver INR) &middot; <a href="https://www.bseindia.com" target="_blank" rel="noopener">BSE India</a> &middot; <a href="https://www.nseindia.com" target="_blank" rel="noopener">NSE India</a>. All figures Friday May 29, 2026 close; markets closed Sunday.</div>
+
+</div></div><!-- /india -->
+
+<!-- ==================== WORLD ==================== -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="world-1">
+      <h3>Day 93: Trump Stalls on Iran Deal, Israel Captures Beaufort Castle, and Congress Moves to Bind the Two Militaries Permanently</h3>
+      <div class="by">The Chronicler World Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>On February 28, 2026, the United States and Israel attacked Iran, killing Supreme Leader Ali Khamenei and triggering five weeks of war that closed the Strait of Hormuz, upended global energy markets, and drew in Hezbollah, Gulf states and NATO&rsquo;s eastern flank. A fragile ceasefire took effect on April 8. Ninety-three days in, the conflict&rsquo;s three major threads converged on Sunday: US President Donald Trump told Fox News he is in &ldquo;no hurry&rdquo; for a deal with Iran and is getting what he wants &ldquo;slowly but surely,&rdquo; even as US media reported he toughened the terms of a preliminary framework during a White House Situation Room meeting on Friday &mdash; demanding amendments that would make any agreement harder to finalise. Iranian state media reported the draft framework included release of $12 billion in frozen assets, a claim the White House dismissed as a fabrication.</p>
+      <p>On the ground, Israeli forces seized Beaufort Castle &mdash; the 900-year-old Crusader fortress known locally as Qalaat al-Shaqif overlooking the Litani River &mdash; in what the Israeli military described as the deepest incursion into Lebanon in 26 years. The operation gave Israeli troops an elevated overlook across southern Lebanon and northern Israel, from which Hezbollah has launched hundreds of projectiles since entering the conflict on March 2. Netanyahu called the capture &ldquo;a dramatic change in the policy we are leading&rdquo; and said Israel is establishing security belts beyond its borders across Syria, Gaza and Lebanon simultaneously. Lebanese Prime Minister Nawaf Salam accused Israel of a &ldquo;scorched-earth policy,&rdquo; Egyptian Foreign Minister Badr Abdelatty called for Israel&rsquo;s complete withdrawal from Lebanese territory, and the Israeli military simultaneously issued evacuation warnings for all residents south of the Zahrani River while conducting air raids on Arnoun, Kfar Tebnit and Kfar Remman. A 21-year-old Israeli soldier was killed in the fighting; four others were wounded.</p>
+      <div class="src">Sources: <a href="https://www.aljazeera.com/news/2026/5/31/iran-war-day-93-trump-wont-rush-deal-israel-expands-lebanon-invasion" target="_blank" rel="noopener">Al Jazeera</a> &middot; <a href="https://www.aljazeera.com/news/liveblog/2026/5/31/iran-war-live-lebanon-accuses-israel-of-scorched-earth-policy" target="_blank" rel="noopener">Al Jazeera Live</a> &middot; May 31, 2026</div>
+    </article>
+
+    <article class="s" id="world-2">
+      <h3>Congress Advances US-Israel Military Integration Bill That Would Permanently Intertwine Their Defence Industries</h3>
+      <div class="by">The Chronicler World Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>A provision quietly embedded in the House Armed Services Committee&rsquo;s draft of the fiscal year 2027 National Defence Authorisation Act could bind the American and Israeli militaries more tightly than the inflation-adjusted $200 billion in military assistance the US has provided Israel since 1948. Titled the &ldquo;United States-Israel Defence Technology Cooperation Initiative&rdquo; and appearing as Section 224 of the draft NDAA, the measure lays the groundwork for bilateral research and development, co-production of weapons, joint ventures, licensing agreements, and cooperation across virtually every domain of modern defence &mdash; including artificial intelligence, quantum computing, autonomous systems, directed energy, cyber operations and biotechnology. The measure is at an early stage and must still clear the full House and the Senate.</p>
+      <p>The bill would represent a structural shift in the relationship: from a partnership built primarily on American aid to one where the two countries&rsquo; defence industries are permanently intertwined. Critics argue that embedding US-based jobs in Israeli co-production facilities would entrench congressional support for Israeli military operations regardless of their consequences &mdash; effectively institutionalising a foreign policy constraint no future administration could easily reverse. Democratic Senator Chris Van Hollen told The New York Times that the Democratic Party has provided &ldquo;reflexive and unconditional support to Israeli governments, even as their actions have increasingly undermined American interests and values.&rdquo; The bill&rsquo;s advancement arrives as Israel simultaneously deepens its Lebanon invasion, continues to expand its Gaza presence, and faces genocide allegations at the International Court of Justice.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/5/30/us-congress-advances-american-israeli-military-integration-plan" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 30, 2026</div>
+    </article>
+
+    <article class="s" id="world-3">
+      <h3>Ukraine Drones Strike Russian Oil Infrastructure Across Four Regions; Zelenskyy Warns of Incoming Large-Scale Assault</h3>
+      <div class="by">The Chronicler World Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Ukraine launched coordinated drone attacks on Russian energy infrastructure across multiple regions overnight on Friday, with the most significant strike hitting Taganrog in Rostov Oblast, where a major port fire broke out after drones struck a tanker, a fuel tank and an administrative building. Two civilians were injured when a separate drone hit a private home in the city. Additional attacks struck an oil facility in Armavir, Krasnodar Krai, and Russia&rsquo;s Volgograd oil refinery was forced to shut down following drone impacts, while giant fuel tanks burned near Yaroslavl. Russian air defences said they destroyed multiple drones overnight across four districts of the Rostov region.</p>
+      <p>Russia responded by launching 90 drones and two Iskander-M ballistic missiles at Ukraine overnight. In Zaporizhzhia, approximately 13,000 residents were left without electricity after strikes damaged energy infrastructure. Ukrainian President Volodymyr Zelenskyy warned on Friday that Russia is organising a new large-scale assault: &ldquo;We possess intelligence indicating that Russia is organising a new large-scale assault. Our services are reacting swiftly and are ready,&rdquo; he said, urging allies to accelerate Patriot missile system deliveries. The escalating exchange follows Russia&rsquo;s warning to foreigners to leave Kyiv ahead of planned &ldquo;systematic strikes&rdquo; on defence infrastructure, and a Russian drone crash into a Romanian apartment building that has drawn a formal NATO rebuke.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/5/30/ukraine-drones-strike-russian-oil-facility-as-kyiv-and-moscow-trade-blows" target="_blank" rel="noopener">Al Jazeera / Reuters</a> &middot; May 30, 2026</div>
+    </article>
+
+  </div>
+
+  <article class="s" id="world-4" style="border-top:1px solid var(--rule);padding-top:18px;margin-top:4px;">
+    <h3>Japan Rejects China&rsquo;s &lsquo;New Militarism&rsquo; Charge at Shangri-La, Points to Beijing&rsquo;s &lsquo;Huge Arsenal&rsquo; of Nuclear Weapons</h3>
+    <div class="by">The Chronicler World Desk &middot; Sunday, May 31, 2026</div>
+    <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+    <p>Japan&rsquo;s Defence Minister Shinjiro Koizumi delivered one of Tokyo&rsquo;s sharpest rebukes of Beijing to date at the Shangri-La Dialogue in Singapore on Sunday, directly challenging China&rsquo;s charge that Japan is embracing &ldquo;new militarism&rdquo; by pointing to China&rsquo;s own military expansion. &ldquo;Isn&rsquo;t it strange that China, who has a huge arsenal of nuclear weapons and strategic bombers, calls out Japan, who has neither of such weapons, for so-called &lsquo;new militarism&rsquo;?&rdquo; Koizumi said. The remarks came a week after China&rsquo;s national defence ministry had warned that &ldquo;the grey rhino of a remilitarised Japan is gathering speed&rdquo; and called on the international community to contain Japan&rsquo;s neo-militarism &mdash; language that reflects the sustained deterioration in the bilateral relationship under Prime Minister Sanae Takaichi.</p>
+    <p>Koizumi also stated that Tokyo opposed &ldquo;unilateral changes to the status quo by force or coercion&rdquo; &mdash; a pointed reference to China&rsquo;s maritime activities and the Taiwan question. Takaichi&rsquo;s administration has set spending records for 12 consecutive years, with the latest approved defence budget exceeding 9 trillion yen, approximately $57 billion, moving Japan closer to its target of spending 2 per cent of GDP on the military. Tokyo has also been pushing to revise its security policy framework to allow a more proactive military posture, a shift Beijing condemns as a revival of the militaristic ideology that drove Japanese aggression during the Second World War.</p>
+    <div class="src">Source: <a href="https://www.bbc.com/news/articles/cp8p4ejy8ppo" target="_blank" rel="noopener">BBC News / Reuters</a> &middot; May 31, 2026</div>
+  </article>
+
+  <article class="s" id="world-5" style="border-top:1px solid var(--rule);padding-top:18px;margin-top:4px;">
+    <h3>Rwanda&rsquo;s Nuclear Deal With Russia Signals Africa&rsquo;s Shifting Alliances as Western Consistency Is Questioned</h3>
+    <div class="by">The Chronicler World Desk &middot; Sunday, May 31, 2026</div>
+    <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+    <p>Rwanda&rsquo;s new nuclear cooperation agreement with Russia, signed on May 19 at the Nuclear Energy Innovation Summit in Kigali, signals a deeper shift in Africa&rsquo;s geopolitical balance. The Memorandum of Understanding covers nuclear medicine and cooperation in health and nuclear science, including potential research reactor projects and training programmes in which Rwandan students will study nuclear engineering in Russia. Rwandan government spokesperson Yolande Makolo told Al Jazeera that feasibility studies are under way for a small modular reactor facility and a Centre for Nuclear Science and Technology. Importantly, alongside Rosatom, Rwanda also signed civil nuclear cooperation agreements with the US government and firms from South Africa and Austria &mdash; a deliberate multi-alignment strategy.</p>
+    <p>The deal reflects a broader shift across the continent: Russia is benefitting from weakening perceptions of Western consistency, offering investment and technical training without political conditionality. Professor Macharia Munene, a specialist in diplomacy and international relations, told Al Jazeera that Moscow&rsquo;s approach is seen by African leaders as more predictable than the West&rsquo;s. Beverly Ochieng of Control Risks noted that Rwanda is &ldquo;compartmentalising partnerships to serve its priorities&rdquo; &mdash; maintaining ties with the US, China, Europe, the Gulf and Russia without over-dependence on any single power. Most of Russia&rsquo;s African nuclear agreements remain in early stages, with Rosatom retaining technical dominance; operational facilities may take a decade to materialise. But the political signal is clear: Africa is no longer a passive object of great-power competition &mdash; it is actively arbitrating between them.</p>
+    <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/5/30/rwanda-russia-nuclear-deal-underscores-africas-shifting-power-balance" target="_blank" rel="noopener">Al Jazeera</a> &middot; May 30, 2026</div>
+  </article>
+
+  <span class="cat">Global Markets</span>
+  <div class="mkt-note">World indices reflect Friday, May 29, 2026 close. All figures weekend close &mdash; markets closed Sunday. Sources: Google Finance, May 31, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card world">
+      <div class="mc-name">DJIA</div>
+      <div class="mc-sub">Dow Jones Industrial</div>
+      <div class="mc-val">51,032</div>
+      <span class="mc-chg up">&#9650; +363.49 (+0.72%)</span>
+      <div class="mc-note">Fri May 29 close &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">NASDAQ-100</div>
+      <div class="mc-sub">Nasdaq Composite</div>
+      <div class="mc-val">30,333</div>
+      <span class="mc-chg up">&#9650; +109.29 (+0.36%)</span>
+      <div class="mc-note">Fri May 29 close &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US Broad Market</div>
+      <div class="mc-val">7,580</div>
+      <span class="mc-chg up">&#9650; +16.43 (+0.22%)</span>
+      <div class="mc-note">Fri May 29 close &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">10,409</div>
+      <span class="mc-chg down">&#9660; &minus;16.68 (&minus;0.16%)</span>
+      <div class="mc-note">Fri May 29 close &middot; GBP</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,547</div>
+      <span class="mc-chg down">&#9660; &minus;359.40 (&minus;1.50%)</span>
+      <div class="mc-note">Fri May 29 close &middot; INR</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">25,182</div>
+      <span class="mc-chg up">&#9650; +176.23 (+0.70%)</span>
+      <div class="mc-note">Fri May 29 close &middot; HKD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">66,329</div>
+      <span class="mc-chg up">&#9650; +1,636.38 (+2.53%)</span>
+      <div class="mc-note">Fri May 29 close &middot; JPY</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; <a href="https://www.nseindia.com" target="_blank" rel="noopener">NSE India</a> &middot; <a href="https://www.hsi.com.hk" target="_blank" rel="noopener">Hang Seng Index</a> &middot; <a href="https://asia.nikkei.com" target="_blank" rel="noopener">Nikkei Asia</a>. All figures Friday May 29, 2026 close.</div>
+
+</div></div><!-- /world -->
+
+<!-- ==================== SPORT ==================== -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="sport-1">
+      <h3>PSG Retain the Champions League in Budapest Shootout; Gabriel&rsquo;s Missed Penalty Seals Arsenal&rsquo;s Heartbreak</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Paris Saint-Germain retained the UEFA Champions League title on Saturday, defeating Arsenal 4&ndash;3 on penalties after a 1&ndash;1 draw through 120 minutes of gripping football at Budapest&rsquo;s Pusk&aacute;s Arena. Arsenal defender Gabriel Magalh&atilde;es smashed the decisive penalty over the crossbar to hand PSG their second consecutive European crown. The Premier League champions had struck first when Kai Havertz found the net in the opening stages, but Ousmane Demb&eacute;l&eacute; converted from the spot in the 65th minute to level &mdash; and neither side could find a winner despite a tense, grinding 30 minutes of extra time that saw Raya save from Nuno Mendes to keep Arsenal alive before the shootout unravelled.</p>
+      <p>PSG joins Real Madrid &mdash; which won three successive titles between 2016 and 2018 &mdash; as the only club to successfully defend the Champions League since the competition was rebranded in 1992, and is only the 10th team in European Cup history to win back-to-back titles. &ldquo;From the very first day of this season, the coach said it&rsquo;s hard to win, and winning twice is even more difficult,&rdquo; said captain Marquinhos. For Arsenal, who ended their 22-year domestic drought by winning the Premier League this season, the wait for a first European crown extends. The final went to penalties for the first time since Real Madrid beat Atl&eacute;tico Madrid a decade ago, and despite recording just 26 per cent possession &mdash; the lowest in a Champions League final since records began in 2004 &mdash; Arsenal pushed the holders all the way.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/5/30/psg-beat-arsenal-to-win-back-to-back-champions-league-titles-after-shootout" target="_blank" rel="noopener">Al Jazeera / ESPN</a> &middot; May 30, 2026</div>
+    </article>
+
+    <article class="s" id="sport-2">
+      <h3>Gauff Eliminated in Third Round at Roland-Garros; Auger-Aliassime Marches Into Last 16</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Defending French Open champion Coco Gauff suffered one of the biggest shocks of the 2026 Roland-Garros fortnight, beaten 4&ndash;6, 7&ndash;6 (1), 6&ndash;4 by world No. 30 Anastasia Potapova on Court Philippe-Chatrier on Saturday &mdash; her earliest exit from the tournament since her main draw debut in 2020. Potapova called it one of the top three wins of her career. The loss arrived at a moment when the draw had already produced extraordinary carnage: entering the fourth round, just three of the top-ten men and four of the top-ten women remain. Medvedev, Fritz, Pegula, and world No. 1 Jannik Sinner have all been eliminated, meaning the 2026 French Open is guaranteed to produce a first-time Grand Slam champion in the men&rsquo;s draw.</p>
+      <p>Canada&rsquo;s F&eacute;lix Auger-Aliassime advanced to the fourth round after a marathon 5&ndash;7, 6&ndash;1, 7&ndash;6 (4), 7&ndash;6 (1) victory over No. 31 seed Brandon Nakashima in a match that ended well past midnight at Roland-Garros and lasted three hours and 48 minutes. The fourth-seeded Montr&eacute;aler is now the highest-seeded player remaining in the top half of the draw and seeks to advance past the fourth round at the clay-court Grand Slam for the first time in his career. His next opponent is unseeded Chilean Alejandro Tabilo, who was born in Toronto. Victoria Mboko, 19, from Burlington, Ontario, bowed out in three sets to 19th-seeded American Madison Keys, fighting back from 4&ndash;2 down in the third set to reach 5&ndash;5 before being broken while serving for a tiebreaker.</p>
+      <div class="src">Sources: <a href="https://www.bbc.com/sport/tennis/articles/c1j24pxyy66o" target="_blank" rel="noopener">BBC Sport</a> &middot; <a href="https://www.cbc.ca/sports/tennis/french-open-roundup-may-30-9.7218049" target="_blank" rel="noopener">CBC Sports</a> &middot; May 30, 2026</div>
+    </article>
+
+    <article class="s" id="sport-3">
+      <h3>Victoire Celebrate Walter Cup Win With Fans in Downtown Montr&eacute;al as Stanley Cup Final Awaits</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Sunday, May 31, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Montr&eacute;al Victoire players celebrated their Walter Cup championship with thousands of fans in downtown Montr&eacute;al on Saturday, one day after securing the PWHL title in a season that has elevated the profile of professional women&rsquo;s hockey in Canada. The celebration marks a significant milestone for the franchise and for the Premier Women&rsquo;s Hockey League in its young existence, with the Victoire&rsquo;s championship run generating record attendance and television audiences across the country. Fans packed the streets of Montr&eacute;al to welcome the champions home in a celebration that club officials described as among the largest sporting gatherings in the city in recent years.</p>
+      <p>The championship comes as the attention of the hockey world begins to shift toward the Stanley Cup Final, with the Carolina Hurricanes &mdash; who eliminated the Montr&eacute;al Canadiens in five games in the Eastern Conference Final last week &mdash; awaiting their opponent. The Hurricanes, heading to the Cup Final for the first time since their 2006 championship, will face the Vegas Golden Knights, with the series expected to begin in the coming days. The Victoire&rsquo;s title celebration adds to what has been a banner month for Montr&eacute;al sport, even as the men&rsquo;s hockey club fell short of the Conference Final stage.</p>
+      <div class="src">Source: <a href="https://gem.cbc.ca/live/16" target="_blank" rel="noopener">CBC Sports / CBC Gem</a> &middot; May 31, 2026</div>
+    </article>
+
+  </div>
+
+</div></div><!-- /sport -->
+
+<!-- ==================== PUZZLES ==================== -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>The Chronicler Funnies</h2><div class="flag">Puzzles &amp; Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All intermediate steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">2</div>
+        <div class="crunch-tile">6</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">9</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">93</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat"><strong>(7 + 6) &times; (9 &minus; 2) + 2 = 93</strong></div>
+        <div class="answer-cat">Step 1: 7 + 6 = 13 &nbsp;&middot;&nbsp; Step 2: 9 &minus; 2 = 7 &nbsp;&middot;&nbsp; Step 3: 13 &times; 7 = 91 &nbsp;&middot;&nbsp; Step 4: 91 + 2 = 93</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:2px;">Target 93 &mdash; Day 93 of the Iran war today.</div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="https://thechronicler.ca/Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive &rarr;</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">BEAUFORT</div>
+        <div class="ww-mini-tile">RIMPAC</div>
+        <div class="ww-mini-tile">HORMUZ</div>
+        <div class="ww-mini-tile">SENSEX</div>
+        <div class="ww-mini-tile">NABATIEH</div>
+        <div class="ww-mini-tile">PUSKÁS</div>
+        <div class="ww-mini-tile">LITANI</div>
+        <div class="ww-mini-tile">ESQUIMALT</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat">&#129001; <strong>Places in today&rsquo;s Lebanon/Iran war coverage:</strong> BEAUFORT &middot; NABATIEH &middot; HORMUZ &middot; LITANI</div>
+        <div class="answer-cat">&#129000; <strong>Places in today&rsquo;s other stories (sport &amp; naval):</strong> RIMPAC &middot; PUSK&Aacute;S &middot; SENSEX &middot; ESQUIMALT</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">Decoy: RIMPAC &mdash; sounds military like the war stories, but belongs to Canada&rsquo;s naval exercise deployment. SENSEX &mdash; in the India markets section, not the war zone.</div>
+      </div>
+    </div>
+
+  </div>
+</div></div><!-- /puzzles -->
+
+<div class="divider"></div>
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 60 &bull; Sunday, May 31, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+function handleRead(btn) {
+  if (window._ttsUtterance) {
+    window.speechSynthesis.cancel();
+    if (window._ttsBtn) { window._ttsBtn.textContent = '\uD83D\uDD0A Read aloud'; }
+    if (window._ttsBtn === btn) { window._ttsUtterance = null; window._ttsBtn = null; return; }
+  }
+  const article = btn.closest('article');
+  const text = Array.from(article.querySelectorAll('p')).map(p => p.textContent).join(' ');
+  const u = new SpeechSynthesisUtterance(text);
+  u.onend = function() { btn.textContent = '\uD83D\uDD0A Read aloud'; window._ttsUtterance = null; window._ttsBtn = null; };
+  window._ttsUtterance = u;
+  window._ttsBtn = btn;
+  btn.textContent = '\u23F9 Stop';
+  window.speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>
