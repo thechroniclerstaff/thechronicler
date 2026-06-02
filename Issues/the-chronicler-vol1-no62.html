@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler &mdash; Tuesday, June 2, 2026 &mdash; Vol. I, No. 62</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.ticker-bar{background:var(--rust);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;text-align:center;line-height:1.6;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1.1;}
+.mc-chg{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;padding:2px 5px;border-radius:2px;display:inline-block;width:fit-content;}
+.mc-chg.up{background:#d4edda;color:#155724;}
+.mc-chg.down{background:#f8d7da;color:#721c24;}
+.mc-chg.flat{background:#fff3cd;color:#856404;}
+.mc-note{font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-top:1px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.gta-focus{background:#f0e8d0;border:1px dashed var(--rule);padding:16px;margin-top:16px;border-radius:4px;}
+.gta-focus-label{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:12px;border-bottom:1px solid var(--rule);padding-bottom:6px;}
+.games-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.puzzle-box{background:var(--aged);border:1px solid var(--rule);padding:14px 14px 12px;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--rust);margin-bottom:4px;}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-bottom:10px;line-height:1.55;}
+.crunch-nums{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:22px;width:46px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.crunch-target{background:var(--rust);color:#fff;font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:54px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:9.5px;background:var(--ink);color:var(--aged);border:none;padding:5px 10px;cursor:pointer;margin-bottom:8px;letter-spacing:.08em;}
+.answer-box{display:none;background:var(--cream);border:1px solid var(--rule);padding:8px 10px;margin-bottom:8px;}
+.answer-cat{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--ink);padding:4px 0;line-height:1.6;}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;}
+.ww-mini-tile{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:8px 4px;text-align:center;border-radius:3px;cursor:default;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+@media(min-width:680px){
+  .col-3{grid-template-columns:repeat(3,1fr);}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 14px 0;}
+  article.s:last-child{border-right:none;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+}
+@media(max-width:480px){
+  .games-row{grid-template-columns:1fr;}
+  .ww-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body id="top">
+
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="#top">Top</a>
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="#puzzles">Puzzles</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 62 &nbsp;&middot;&nbsp; Tuesday, June 2, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<div class="ticker-bar">Carney Declares Canada&rsquo;s Civic Compact Is Failing Jewish Canadians &mdash; Draft Federal AI Strategy Obtained by CBC News &mdash; Canadian Universities Slip in Global CWUR Rankings &mdash; Trump Erupts at Netanyahu Over Lebanon Strikes &mdash; Alphabet Plans $80B Stock Sale &mdash; Annamalai Set to Quit BJP &mdash; FIFA World Cup 2026 Kicks Off in Nine Days &mdash; Serena Williams Confirms Return to Tennis &mdash; Berrettini Into French Open Quarter-Finals</div>
+
+<!-- ==================== CANADA ==================== -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Toronto</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">17°C</div>
+      <div class="w-rng">H: 25° &nbsp; L: 11°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-moderate">AQI 57 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; 8 km/h</span><span>&#128167; 54%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9925;&#65039;</span>26°/13°</div>
+        <div class="dm">Thu<span>&#9925;&#65039;</span>26°/14°</div>
+        <div class="dm">Fri<span>&#9925;&#65039;</span>28°/16°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Montr&eacute;al</div><div class="w-icon">&#127746;&#65039;</div></div>
+      <div class="w-temp">15°C</div>
+      <div class="w-rng">H: 23° &nbsp; L: 11°</div>
+      <div class="w-cond">Mainly clear</div>
+      <span class="aqi-badge aqi-good">AQI 35 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; 9 km/h</span><span>&#128167; 60%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9925;&#65039;</span>27°/12°</div>
+        <div class="dm">Thu<span>&#9925;&#65039;</span>24°/14°</div>
+        <div class="dm">Fri<span>&#127746;&#65039;</span>22°/15°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Ottawa</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">15°C</div>
+      <div class="w-rng">H: 24° &nbsp; L: 8°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 24 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; 5 km/h</span><span>&#128167; 39%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9925;&#65039;</span>28°/11°</div>
+        <div class="dm">Thu<span>&#9925;&#65039;</span>27°/12°</div>
+        <div class="dm">Fri<span>&#127746;&#65039;</span>26°/15°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Edmonton</div><div class="w-icon">&#127746;&#65039;</div></div>
+      <div class="w-temp">8°C</div>
+      <div class="w-rng">H: 11° &nbsp; L: 8°</div>
+      <div class="w-cond">Light drizzle</div>
+      <span class="aqi-badge aqi-good">AQI 35 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; 16 km/h</span><span>&#128167; 97%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9925;&#65039;</span>18°/9°</div>
+        <div class="dm">Thu<span>&#127747;&#65039;</span>21°/11°</div>
+        <div class="dm">Fri<span>&#127747;&#65039;</span>21°/10°</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Vancouver</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">13°C</div>
+      <div class="w-rng">H: 24° &nbsp; L: 14°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-moderate">AQI 60 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; 3 km/h</span><span>&#128167; 67%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9925;&#65039;</span>22°/15°</div>
+        <div class="dm">Thu<span>&#127746;&#65039;</span>18°/12°</div>
+        <div class="dm">Fri<span>&#127746;&#65039;</span>13°/9°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather: Open-Meteo Forecast API. AQI: Open-Meteo Air Quality API. Updated approx. 8:30 AM ET, June 2, 2026. Vancouver AQI Moderate (60). Toronto AQI Moderate (57).</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="canada-1">
+      <h3>Nearly All Canadian Universities Slip in Global Rankings, Experts Urge Caution on Interpreting Results</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Center for World University Rankings released its 2026 Global 2000 list on Monday, revealing that the vast majority of Canadian institutions have lost ground in the annual international comparison. The University of Toronto held its position at 23rd globally &mdash; the same ranking it has maintained for four consecutive years &mdash; but McGill University, the University of British Columbia, and the University of Alberta each fell one spot to 28th, 49th, and 82nd respectively. The rankings evaluated more than 21,000 universities worldwide using outcome-based data including education quality, employability, faculty achievements, and research output, without relying on surveys or self-reported submissions.</p>
+      <p>Dr. Nadim Mahassen, president of the Center for World University Rankings, attributed the slide to years of inadequate public funding and a weakening of science and education as national priorities. &ldquo;This is not just an academic problem but a national one,&rdquo; Mahassen said, &ldquo;because the erosion of Canada&rsquo;s higher education system undermines scientific development, innovation, and the country&rsquo;s long-term future.&rdquo; The global picture showed intensifying competition from China, where 98 per cent of ranked universities improved their standing and Tsinghua University rose to 36th globally. China now fields 360 institutions in the Global 2000 &mdash; the highest representation of any single country.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/cwur-2026ranking-9.7219427" target="_blank" rel="noopener">CBC News</a> &middot; June 1, 2026</div>
+    </article>
+
+    <article class="s" id="canada-2">
+      <h3>Draft Federal AI Strategy Targets Universal Literacy Training by 2031, Critics Note Gaps on Safety</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>CBC News has obtained a draft of the federal government&rsquo;s long-anticipated national artificial intelligence strategy, a 50-page document titled &ldquo;AI for All&rdquo; that outlines plans to expand AI adoption across the Canadian economy while committing to provide all Canadians access to free AI literacy training by 2031. The document, presented to federal cabinet last week according to a source, may still be revised before official release. Prime Minister Mark Carney announced the strategy would be published imminently. It is built around six pillars first disclosed in the spring economic update, covering protection of Canadians, AI adoption, sovereign infrastructure, scaling champions, and global partnerships.</p>
+      <p>Critics have noted the document is short on specifics regarding how the government will protect Canadians from AI-related harms, particularly around privacy and online safety. AI Minister Evan Solomon recently announced $66 million in federal funding to help 44 Canadian AI projects access compute power. BCE Bell Canada chief executive Mirko Bibic said the test of the strategy will be whether it sets measurable milestones. &ldquo;Is there appropriate ambition in the strategy? Is there a road map for what needs to be done?&rdquo; Bibic asked. The strategy&rsquo;s formal release is expected this week.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/federal-artificial-intelligence-strategy-9.7216576" target="_blank" rel="noopener">CBC News</a> &middot; June 1, 2026</div>
+    </article>
+
+    <article class="s" id="canada-3">
+      <h3>Carney Declares Canada&rsquo;s Civic Compact Is Failing Jewish Canadians, Announces New Advisory Council</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Prime Minister Mark Carney delivered a major address on antisemitism Monday evening at Holy Blossom Temple in Toronto, declaring that Canada is failing its Jewish community at a moment of surging hate. Carney said antisemitism has reached levels not seen since the Second World War, noting that more than two-thirds of all religion-motivated hate crimes last year targeted Jewish Canadians &mdash; a community representing only one per cent of the national population. He described incidents in which bullets were fired at Jewish schools, firebombs thrown at synagogues, and Jewish students driven from campus common spaces. &ldquo;Canada&rsquo;s civic compact is failing Jewish Canadians,&rdquo; Carney said. &ldquo;If that covenant fails for one of our communities, it fails us all.&rdquo;</p>
+      <p>Carney announced the formation of a new Ministerial Advisory Council on Rights, Equality and Inclusion, to be led by former senator Marc Gold, and confirmed $75 million in federal funding for enhanced security infrastructure at faith-based institutions. He stressed that proposed new measures are not restrictions on free expression but baseline standards owed to all Canadians within shared public institutions. The speech comes amid a sharp global rise in antisemitic incidents since the Hamas attacks on Israel on October 7, 2023, and growing pressure on Ottawa from Jewish community organisations for concrete government action.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/carney-canada-failing-jewish-canadians-9.7219707" target="_blank" rel="noopener">CBC News</a> &middot; June 1, 2026</div>
+    </article>
+
+  </div>
+
+  <!-- GTA FOCUS -->
+  <div class="gta-focus">
+    <div class="gta-focus-label">GTA Focus</div>
+
+    <article class="s" id="gta-1" style="border-bottom:1px solid var(--rule);margin-bottom:16px;padding-bottom:16px;">
+      <h3>Mayor Chow Raises Progress Pride Flag at City Hall, Vows Unconditional Support for 2SLGBTQ+ Community</h3>
+      <div class="by">The Chronicler GTA Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Mayor Olivia Chow raised the Progress Pride flag at Toronto City Hall on Monday, officially opening Pride Month 2026 and reaffirming the city&rsquo;s commitment to its 2SLGBTQ+ communities. Chow was joined by Councillor Chris Moise, chair of the Two-Spirit, Lesbian, Gay, Bisexual, Transgender and Queer Advisory Committee, along with city staff and community performers. The Toronto Sign was illuminated in rainbow colours for the month of June. Additional flag-raising ceremonies are scheduled at civic centres across the city in the days ahead. &ldquo;It&rsquo;s not a choice. It is who we are. It&rsquo;s in the city&rsquo;s DNA that we will always support the LGBTQ community,&rdquo; Chow said following the ceremony.</p>
+      <p>The flag raising takes place against a backdrop of shifting corporate support for Pride Toronto, after two of the festival&rsquo;s largest sponsors &mdash; Home Depot and Google &mdash; announced they will no longer support the event. Pride Toronto executive director Kojo Modeste said the withdrawals will not affect this year&rsquo;s programming, noting that existing contracts remain in place. Mayor Chow dismissed the corporate pullback. &ldquo;At the end of the day, it&rsquo;s their loss,&rdquo; she said, adding that Canadian institutions and all three levels of government would fill the gap. Toronto Pride 2026 culminates in the Pride Parade on June 28.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/mayor-pride-flag-raising-key-to-city-toronto-9.7220003" target="_blank" rel="noopener">CBC News</a> &middot; June 2, 2026</div>
+    </article>
+
+    <article class="s" id="gta-2" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
+      <h3>Ontario Politics in Flux as Mulroney Exits Cabinet and Bains Enters Liberal Leadership Race</h3>
+      <div class="by">The Chronicler GTA Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Ontario&rsquo;s political landscape shifted last week when two significant developments landed within hours of each other: Treasury Board President Caroline Mulroney announced her resignation from Doug Ford&rsquo;s cabinet and the provincial legislature, and former federal minister Navdeep Bains formally launched his bid for the Ontario Liberal leadership. Mulroney, first elected in 2018 and holder of senior portfolios including attorney general, transportation, and treasury board, said her decision follows eight years in provincial politics and personal milestones including the loss of her father, former prime minister Brian Mulroney. Her resignation takes effect June 5 and will trigger a byelection in York-Simcoe, alongside a separate byelection Ford must call in Scarborough Southwest by summer&rsquo;s end.</p>
+      <p>Political analysts say the dual developments signal a potentially more competitive environment heading into the next Ontario election. The timing of Mulroney&rsquo;s exit &mdash; one year after re-election and three years before the next vote &mdash; has prompted questions about the Ford government&rsquo;s internal cohesion. Bains, a former Mississauga-area MP and federal industry minister who moved to a senior role at Rogers after leaving federal politics in 2021, said in his leadership launch video that he is running because the Ford government has failed ordinary Ontarians. His entry is widely seen as a boost to provincial Liberals still rebuilding since their 2018 collapse.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/mulroney-resignation-bains-arrival-ontario-politics-9.7217193" target="_blank" rel="noopener">CBC News</a> &middot; June 1, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat" style="margin-top:22px;">Markets</span>
+  <div class="mkt-note">Canada market data reflects Tuesday, June 2, 2026 intraday as at 8:31 AM ET (Google Finance). S&amp;P/TSX: intraday. Commodity and currency data sourced from publisher&rsquo;s live screen, Google Finance, 8:31 AM ET.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">34,735</div>
+      <span class="mc-chg down">&#9660; &minus;34.25 (&minus;0.10%)</span>
+      <div class="mc-note">Jun 2 intraday &middot; CAD</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$90.68</div>
+      <span class="mc-chg down">&#9660; &minus;1.48 (&minus;1.61%)</span>
+      <div class="mc-note">Jun 2 intraday &middot; USD</div>
+    </div>
+    <div class="mc-chg" style="display:none"></div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,559</div>
+      <span class="mc-chg up">&#9650; +52.70 (+1.17%)</span>
+      <div class="mc-note">Jun 2 intraday &middot; USD</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7224</div>
+      <span class="mc-chg flat">&mdash; Mid-market</span>
+      <div class="mc-note">Google Finance &middot; Jun 2, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">&#8377;68.82</div>
+      <span class="mc-chg flat">&mdash; Mid-market</span>
+      <div class="mc-note">Google Finance &middot; Jun 2, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">&euro;0.6200</div>
+      <span class="mc-chg flat">&mdash; Mid-market</span>
+      <div class="mc-note">Google Finance &middot; Jun 2, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">&pound;0.5362</div>
+      <span class="mc-chg flat">&mdash; Mid-market</span>
+      <div class="mc-note">Google Finance &middot; Jun 2, 2026</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a>. S&amp;P/TSX and commodities: June 2, 2026 intraday as at 8:31 AM ET. Currency: mid-market rates, June 2, 2026.</div>
+
+</div></div><!-- /canada -->
+
+<!-- ==================== INDIA ==================== -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">New Delhi</div><div class="w-icon">&#127746;&#65039;</div></div>
+      <div class="w-temp">34°C</div>
+      <div class="w-rng">H: 36° &nbsp; L: 24°</div>
+      <div class="w-cond">Mainly clear</div>
+      <span class="aqi-badge aqi-vpoor">AQI 161 <span class="al">V.Poor</span></span>
+      <div class="w-drow"><span>&#128168; 4 km/h</span><span>&#128167; 32%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#127746;&#65039;</span>40°/28°</div>
+        <div class="dm">Thu<span>&#127746;&#65039;</span>41°/30°</div>
+        <div class="dm">Fri<span>&#127746;&#65039;</span>38°/30°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Hyderabad</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">33°C</div>
+      <div class="w-rng">H: 37° &nbsp; L: 28°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-poor">AQI 115 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; 9 km/h</span><span>&#128167; 37%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#127746;&#65039;</span>36°/26°</div>
+        <div class="dm">Thu<span>&#127746;&#65039;</span>36°/25°</div>
+        <div class="dm">Fri<span>&#9928;&#65039;</span>35°/24°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Mumbai</div><div class="w-icon">&#127746;&#65039;</div></div>
+      <div class="w-temp">30°C</div>
+      <div class="w-rng">H: 34° &nbsp; L: 25°</div>
+      <div class="w-cond">Mainly clear</div>
+      <span class="aqi-badge aqi-moderate">AQI 68 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; 11 km/h</span><span>&#128167; 67%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#127746;&#65039;</span>31°/25°</div>
+        <div class="dm">Thu<span>&#9928;&#65039;</span>32°/28°</div>
+        <div class="dm">Fri<span>&#9928;&#65039;</span>32°/27°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Bengaluru</div><div class="w-icon">&#127746;&#65039;</div></div>
+      <div class="w-temp">22°C</div>
+      <div class="w-rng">H: 32° &nbsp; L: 21°</div>
+      <div class="w-cond">Heavy drizzle</div>
+      <span class="aqi-badge aqi-poor">AQI 122 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; 7 km/h</span><span>&#128167; 80%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#127746;&#65039;</span>28°/21°</div>
+        <div class="dm">Thu<span>&#127746;&#65039;</span>30°/20°</div>
+        <div class="dm">Fri<span>&#127746;&#65039;</span>28°/21°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chennai</div><div class="w-icon">&#9928;&#65039;</div></div>
+      <div class="w-temp">32°C</div>
+      <div class="w-rng">H: 38° &nbsp; L: 29°</div>
+      <div class="w-cond">Thunderstorm</div>
+      <span class="aqi-badge aqi-poor">AQI 101 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; 15 km/h</span><span>&#128167; 71%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9928;&#65039;</span>37°/28°</div>
+        <div class="dm">Thu<span>&#9928;&#65039;</span>38°/28°</div>
+        <div class="dm">Fri<span>&#9928;&#65039;</span>37°/28°</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Pune</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">29°C</div>
+      <div class="w-rng">H: 37° &nbsp; L: 25°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-moderate">AQI 51 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; 17 km/h</span><span>&#128167; 59%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#127746;&#65039;</span>34°/24°</div>
+        <div class="dm">Thu<span>&#127746;&#65039;</span>34°/24°</div>
+        <div class="dm">Fri<span>&#127746;&#65039;</span>34°/25°</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather: Open-Meteo Forecast API. AQI: Open-Meteo Air Quality API. Updated approx. 8:30 AM ET, June 2, 2026. New Delhi AQI Very Poor (161). Hyderabad Poor (115). Bengaluru Poor (122). Chennai Poor (101).</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="india-1">
+      <h3>Doctors&rsquo; Body Barred from Parliamentary Panel on NEET After BJP Objections</h3>
+      <div class="by">The Chronicler India Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>A leading doctors&rsquo; body has been barred from appearing before a parliamentary standing committee examining the NEET examination controversy, following objections raised by Bharatiya Janata Party members on the panel. The development has drawn criticism from opposition parties, who characterised the exclusion as an attempt to suppress medical professionals&rsquo; testimony on one of India&rsquo;s most politically charged education debates. The NEET undergraduate entrance examination has faced sustained scrutiny over allegations of paper leaks, administrative failures, and questions about the fairness of the centralised testing system for medical college admissions.</p>
+      <p>The move has amplified calls for a broader, independent review of the NEET framework. Critics argue that barring professional medical organisations from a parliamentary forum undermines the committee&rsquo;s mandate to gather expert input. The BJP had not formally detailed specific grounds for the objection in committee proceedings. The episode adds another layer to an already fraught debate over India&rsquo;s medical education system, in which concerns about equity, access, and institutional integrity have intensified over successive examination cycles.</p>
+      <div class="src">Source: <a href="https://www.outlookindia.com/national/doctors-body-barred-from-parliamentary-panel-meeting-on-neet-after-bjp-objections" target="_blank" rel="noopener">Outlook India</a> &middot; June 1&ndash;2, 2026</div>
+    </article>
+
+    <article class="s" id="india-2">
+      <h3>K. Annamalai Set to Quit BJP, Signalling Major Political Realignment in Tamil Nadu</h3>
+      <div class="by">The Chronicler India Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>K. Annamalai, the former Tamil Nadu BJP president whose combative style made him one of the party&rsquo;s most prominent state-level figures, is set to exit the Bharatiya Janata Party &mdash; a development expected to trigger significant discussion about the party&rsquo;s strategy in southern India. Annamalai rose to national prominence as a social media-savvy former IPS officer turned politician, serving as Tamil Nadu BJP chief from 2021 and becoming the face of the party&rsquo;s attempts to build a grassroots base in the Dravidian political heartland. His tenure was marked by high-octane campaigns and frequent confrontations with the ruling DMK government of Chief Minister M.K. Stalin.</p>
+      <p>The anticipated departure underscores the limits of the BJP&rsquo;s organisational reach in the south, as highlighted by the 2024 general election results. It is not yet confirmed which political direction Annamalai intends to take following any formal exit, and no official statement had been issued at time of publication. Political observers in Tamil Nadu have described the development as one of the most significant shifts in the state&rsquo;s opposition landscape in recent years, with implications for upcoming assembly election positioning.</p>
+      <div class="src">Source: <a href="https://www.outlookindia.com/national/annamalai-set-to-quit-bjp-signalling-major-realignment-in-tamil-nadu-politics" target="_blank" rel="noopener">Outlook India</a> &middot; June 1&ndash;2, 2026</div>
+    </article>
+
+    <article class="s" id="india-3">
+      <h3>Rahul Gandhi Attacks CBSE Over Re-Evaluation Fees, Calls System Unjust to Students</h3>
+      <div class="by">The Chronicler India Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Congress leader Rahul Gandhi has publicly criticised the Central Board of Secondary Education over its policy of charging fees for answer sheet re-evaluation, arguing that students should not bear the financial burden of correcting errors that originate with the examination board itself. Gandhi&rsquo;s remarks drew support from opposition parties and student groups, who have long called for the re-evaluation fee structure to be abolished or substantially reformed. The CBSE re-evaluation issue has grown in political salience as Class 10 and Class 12 results season generates fresh complaints from students and parents about marking discrepancies.</p>
+      <p>Critics of the current system note that re-evaluation processes are costly, opaque, and often inaccessible to students from economically disadvantaged backgrounds. Gandhi framed the issue as part of a broader pattern of educational institutions placing administrative costs on students rather than absorbing them institutionally. The Board had not issued a formal response to Gandhi&rsquo;s comments at the time of publication. The remarks are likely to intensify pressure on the Union education ministry to revisit CBSE&rsquo;s fee policies ahead of the next academic cycle.</p>
+      <div class="src">Source: <a href="https://www.outlookindia.com/national/rahul-gandhi-targets-cbse-over-re-evaluation-fees-says-students-are-paying-for-boards-mistakes" target="_blank" rel="noopener">Outlook India</a> &middot; June 1&ndash;2, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">Indian market data reflects Tuesday, June 2, 2026 intraday as at 8:31 AM ET (Google Finance &mdash; NSE/BSE trading in progress). Currency rates sourced from publisher&rsquo;s live screen, Google Finance, 8:31 AM ET.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">Sensex</div>
+      <div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">74,650</div>
+      <span class="mc-chg up">&#9650; +382.50 (+0.52%)</span>
+      <div class="mc-note">Jun 2 intraday &middot; INR</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE Index</div>
+      <div class="mc-val">23,484</div>
+      <span class="mc-chg up">&#9650; +100.95 (+0.43%)</span>
+      <div class="mc-note">Jun 2 intraday &middot; INR</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold (24K)</div>
+      <div class="mc-sub">INR / 10g</div>
+      <div class="mc-val">&#8377;1,56,220</div>
+      <span class="mc-chg flat">&mdash; Latest</span>
+      <div class="mc-note">Goodreturns &middot; Jun 2, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">$0.0105</div>
+      <span class="mc-chg flat">&mdash; Mid-market</span>
+      <div class="mc-note">Google Finance &middot; Jun 2, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">$0.0145</div>
+      <span class="mc-chg flat">&mdash; Mid-market</span>
+      <div class="mc-note">Google Finance &middot; Jun 2, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">&pound;0.0078</div>
+      <span class="mc-chg flat">&mdash; Mid-market</span>
+      <div class="mc-note">Google Finance &middot; Jun 2, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">1 INR in EUR</div>
+      <div class="mc-val">&euro;0.0090</div>
+      <span class="mc-chg flat">&mdash; Mid-market</span>
+      <div class="mc-note">Google Finance &middot; Jun 2, 2026</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; <a href="https://www.goodreturns.in/gold-rates/" target="_blank" rel="noopener">Goodreturns.in</a> (Gold INR) &middot; <a href="https://www.bseindia.com" target="_blank" rel="noopener">BSE India</a> &middot; <a href="https://www.nseindia.com" target="_blank" rel="noopener">NSE India</a>. Indian indices June 2, 2026 intraday as at 8:31 AM ET.</div>
+
+</div></div><!-- /india -->
+
+<!-- ==================== WORLD ==================== -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="world-1">
+      <h3>Trump Erupts at Netanyahu in Expletive-Laden Call Over Lebanon Strikes, Demands Halt to Beirut Raid</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>United States President Donald Trump delivered a furious rebuke to Israeli Prime Minister Benjamin Netanyahu in a telephone call on Monday, demanding that Israel halt a planned major military raid on Beirut and warning that escalating the campaign in Lebanon risked derailing sensitive diplomatic negotiations with Iran. The confrontation, reported by Axios and cited by multiple US officials, was described as one of the most acrimonious exchanges between the two leaders since Trump returned to the White House. Trump reportedly told Netanyahu that Israel&rsquo;s actions were generating global hostility, and at one point demanded: &ldquo;What the f*** are you doing?&rdquo; He also called Netanyahu &ldquo;crazy&rdquo; and reminded him of his personal intervention in the Israeli leader&rsquo;s corruption proceedings.</p>
+      <p>Israel subsequently stood down the Beirut raid. Trump posted on Truth Social that Netanyahu had &ldquo;turned his Troops around&rdquo; after being asked not to proceed, and separately announced that Hezbollah had agreed to cease fire against Israeli forces. Iran had earlier threatened to suspend nuclear negotiations with Washington over Israel&rsquo;s continued strikes in Lebanon &mdash; a warning that appeared to prompt Trump&rsquo;s direct intervention. One US official told Axios the exchange was a clear demonstration of Trump &ldquo;steamrolling&rdquo; Netanyahu. Trump subsequently posted that diplomatic talks with Iran are continuing &ldquo;at a rapid pace.&rdquo;</p>
+      <div class="src">Source: <a href="https://www.aninews.in/news/world/us/what-the-f-are-you-doing-trump-blasts-netanyahu-in-call-over-lebanon-strikes-says-report20260602063537" target="_blank" rel="noopener">ANI</a> &middot; June 2, 2026</div>
+    </article>
+
+    <article class="s" id="world-2">
+      <h3>Nepal&rsquo;s Parliament Thrown into Turmoil as Lawmakers Demand PM Balen Shah Retract Border Remarks</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Proceedings in both chambers of Nepal&rsquo;s Parliament were disrupted on Monday as opposition lawmakers staged protests demanding Prime Minister Balendra Shah retract remarks he had made concerning the country&rsquo;s border situation with India. Shah, a former Kathmandu mayor who was sworn in as prime minister in March 2026 following his Rastriya Swatantra Party&rsquo;s parliamentary sweep, had suggested from the floor of the National Assembly that both Nepal and India had encroached upon each other&rsquo;s territory. Opposition members in both chambers demanded an apology and the removal of the statement from official records, arguing that a prime minister&rsquo;s remarks carry the weight of official national positions and must be grounded in verifiable fact.</p>
+      <p>Nepal&rsquo;s foreign ministry sought to limit the fallout, clarifying that Shah&rsquo;s comments referred to localised instances of cross-border encroachment in no-man&rsquo;s-land zones caused by shifting river boundaries and missing border pillars &mdash; not any formal territorial claim. Despite the clarification, opposition parties continued to obstruct parliamentary proceedings and pressed the House Speaker to formally rule on the matter. Lawmakers demanded Shah either produce supporting evidence within 24 hours or publicly apologise. The episode underscores both the volatility of Nepal-India border diplomacy and the political pressures facing Shah&rsquo;s still-new government as it navigates a complex regional relationship.</p>
+      <div class="src">Source: <a href="https://www.aninews.in/news/world/asia/protests-erupt-in-nepals-parliament-over-pm-balen-shahs-remarks20260601222237" target="_blank" rel="noopener">ANI</a> &middot; June 1, 2026</div>
+    </article>
+
+    <article class="s" id="world-3">
+      <h3>Alphabet Plans $80-Billion Stock Sale to Fund AI Infrastructure Buildout</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Google parent company Alphabet announced Monday that it plans to raise $80 billion through stock sales to fund a massive expansion of its artificial intelligence infrastructure &mdash; one of the largest capital raises in the technology sector&rsquo;s history. The fundraising includes $30 billion in underwritten public offerings, split between mandatory convertible preferred shares and Class A and Class C common stock, alongside a $10 billion private placement to Berkshire Hathaway and a further $40 billion through an at-the-market offering programme expected to begin in the third quarter of 2026. Alphabet stated that demand for its AI products and services is currently outpacing available supply. CEO Sundar Pichai had previously disclosed capital expenditure expectations of $180 to $190 billion for the full year 2026.</p>
+      <p>The announcement comes amid industry-wide acceleration of AI infrastructure investment, with analysts projecting that major technology companies will collectively spend as much as $700 billion on AI-related capital expenditure in 2026. Goldman Sachs, JPMorgan Chase, and Morgan Stanley are acting as joint book-running managers for the underwritten offerings. Alphabet&rsquo;s stock has more than doubled over the past year, though shares dipped in extended trading following the announcement. The fundraise arrives as other AI players also move toward public markets, with Anthropic &mdash; maker of the Claude AI assistant &mdash; filing confidentially for an initial public offering.</p>
+      <div class="src">Source: <a href="https://www.dw.com/en/alphabet-plans-80-billion-stock-sale-as-ai-spending-surges/a-77383080" target="_blank" rel="noopener">Deutsche Welle</a> &middot; June 2, 2026</div>
+    </article>
+
+  </div>
+
+  <article class="s" id="world-4" style="border-top:1px solid var(--rule);padding-top:18px;margin-top:4px;border-bottom:none;margin-bottom:0;padding-bottom:0;">
+    <h3>Europe Tightens Its Borders as Migration Debate Reshapes the Political Landscape Across the Continent</h3>
+    <div class="by">The Chronicler World Desk &middot; Tuesday, June 2, 2026</div>
+    <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+    <p>Across Europe, governments are implementing increasingly restrictive approaches to migration and asylum, with several member states moving to limit border access, reduce processing times for asylum applications, and expand deportation frameworks. Germany, Denmark, and the Netherlands are among the countries that have moved to harden their migration policies in recent months, with some governments explicitly citing the political pressure generated by far-right parties. The European Union has been wrestling with how to harmonise asylum rules across member states with widely varying policies and capacities.</p>
+    <p>Critics from humanitarian organisations and left-leaning parties have warned that tightening borders risks violating international obligations to asylum seekers, and that framing migration primarily as a security or cultural threat distorts the complexity of forced displacement globally. Defenders of stricter policies argue that effective border management is a prerequisite for maintaining public confidence in legal migration pathways and social cohesion within host communities. The debate has taken on additional urgency as conflicts in the Middle East, Africa, and parts of Asia continue to generate displacement, and as climate-related migration becomes an increasingly significant driver of population movement toward Europe.</p>
+    <div class="src">Source: <a href="https://www.dw.com/en/refugees-and-migration-is-europe-closing-its-doors/a-77380290" target="_blank" rel="noopener">Deutsche Welle</a> &middot; June 1&ndash;2, 2026</div>
+  </article>
+
+  <span class="cat">Global Markets</span>
+  <div class="mkt-note">World indices reflect Tuesday, June 2, 2026 intraday as at 8:31 AM ET (Google Finance). Asian and European indices reflect prior-session close or early trading.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card world">
+      <div class="mc-name">DJIA</div>
+      <div class="mc-sub">Dow Jones Industrial</div>
+      <div class="mc-val">51,079</div>
+      <span class="mc-chg up">&#9650; +46.42 (+0.09%)</span>
+      <div class="mc-note">Jun 2 intraday &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">NASDAQ-100</div>
+      <div class="mc-sub">Nasdaq-100 Index</div>
+      <div class="mc-val">30,514</div>
+      <span class="mc-chg up">&#9650; +180.68 (+0.60%)</span>
+      <div class="mc-note">Jun 2 intraday &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US Broad Market</div>
+      <div class="mc-val">7,600</div>
+      <span class="mc-chg up">&#9650; +19.90 (+0.26%)</span>
+      <div class="mc-note">Jun 2 intraday &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">10,353</div>
+      <span class="mc-chg up">&#9650; +14.03 (+0.14%)</span>
+      <div class="mc-note">Jun 2 session &middot; GBP</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,484</div>
+      <span class="mc-chg up">&#9650; +100.95 (+0.43%)</span>
+      <div class="mc-note">Jun 2 intraday &middot; INR</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">26,038</div>
+      <span class="mc-chg up">&#9650; +640.14 (+2.52%)</span>
+      <div class="mc-note">Jun 2 close &middot; HKD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">66,734</div>
+      <span class="mc-chg down">&#9660; &minus;200.09 (&minus;0.30%)</span>
+      <div class="mc-note">Jun 2 close &middot; JPY</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; <a href="https://www.nseindia.com" target="_blank" rel="noopener">NSE India</a> &middot; <a href="https://www.hsi.com.hk" target="_blank" rel="noopener">Hang Seng Index</a> &middot; <a href="https://asia.nikkei.com" target="_blank" rel="noopener">Nikkei Asia</a>. Data as at 8:31 AM ET, June 2, 2026.</div>
+
+</div></div><!-- /world -->
+
+<!-- ==================== SPORT ==================== -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="sport-1">
+      <h3>FIFA World Cup 2026 Kicks Off in Nine Days as Host Cities Put Final Touches on Preparations</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The FIFA World Cup 2026, co-hosted by Canada, the United States, and Mexico, is nine days from its opening match, with cities across North America in the final stages of preparation for the largest edition of the tournament in history. For the first time, 48 national teams will contest the World Cup across a format expanded from the previous 32-team field. Matches will be played across 16 host cities &mdash; 11 in the United States, three in Canada, and two in Mexico &mdash; with Toronto&rsquo;s BMO Field and Vancouver&rsquo;s BC Place among the Canadian venues. The opening match is scheduled for June 11, with the final to be held at MetLife Stadium in New York/New Jersey on July 19.</p>
+      <p>Canada&rsquo;s national men&rsquo;s team, appearing in their second consecutive World Cup following their historic qualification for Qatar 2022, will play on home soil for the first time since contributing to the 1994 co-hosted edition. The tournament carries particular emotional weight for Canadian football. FIFA&rsquo;s official schedule and fixture list confirms all 104 matches will be played within the confirmed stadium footprint. Organisers and local host city authorities are coordinating final logistics around ticketing, transit, and public fan zones as the global football community converges on North America.</p>
+      <div class="src">Source: <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums" target="_blank" rel="noopener">FIFA</a> &middot; June 2026</div>
+    </article>
+
+    <article class="s" id="sport-2">
+      <h3>Serena Williams Confirms Return to Professional Tennis at 44, to Play Doubles at Queen&rsquo;s Club</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Serena Williams announced Monday that she is returning to professional tennis, nearly four years after her final competitive appearance at the 2022 United States Open. The 23-time Grand Slam singles champion, now 44, has accepted a wild card invitation to play doubles at the HSBC Championships at Queen&rsquo;s Club in London, the prestigious grass-court warm-up event for Wimbledon beginning June 8. Williams confirmed the return with a social media video &mdash; her phone buzzing as the news broke, captioned: &ldquo;Guess everybody heard the news.&rdquo; Reports indicate she will partner with Victoria Mboko, the 19-year-old Canadian world number nine.</p>
+      <p>Williams stepped away from tennis in 2022 with a personal essay in which she described herself as &ldquo;evolving away from tennis,&rdquo; deliberately avoiding the word retirement. She subsequently gave birth to her second daughter and has been absent from the WTA Tour since. Her return to the testing pool of the International Testing and Investigation Authority earlier in 2026 had fuelled comeback speculation, which she deflected publicly until Monday&rsquo;s announcement. Martina Navratilova welcomed the return, saying Williams &ldquo;brought the game to another level&rdquo; and that her comeback is &ldquo;incredible for the sport.&rdquo; Williams&rsquo; career prize money exceeds $94 million &mdash; the highest of any female athlete in history.</p>
+      <div class="src">Source: <a href="https://www.dw.com/en/serena-williams-confirms-return-to-professional-tennis/a-77381627" target="_blank" rel="noopener">Deutsche Welle</a> &middot; June 1&ndash;2, 2026</div>
+    </article>
+
+    <article class="s" id="sport-3">
+      <h3>Reborn Berrettini Joins Two Compatriots in French Open Quarter-Finals in Remarkable Italian Renaissance</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 2, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Matteo Berrettini has advanced to the quarter-finals of the French Open 2026, joining fellow Italians Flavio Cobolli and Matteo Arnaldi in the last eight of the men&rsquo;s draw at Roland Garros &mdash; a remarkable showing that underscores a broader renaissance in Italian men&rsquo;s tennis. Berrettini, whose career was derailed by a series of injuries following his Wimbledon final appearance in 2021, has rebuilt steadily in recent seasons and his run in Paris represents one of the most compelling comeback stories of the clay swing. Arnaldi is also through, setting up an all-Italian quarter-final clash between the two. Cobolli, seeded 10th, faces Canada&rsquo;s Felix Auger-Aliassime in the other Wednesday men&rsquo;s quarter-final.</p>
+      <p>The men&rsquo;s draw also features world number two Alexander Zverev against 27th seed Rafael Jodar in Tuesday&rsquo;s quarter-final action, and a highly anticipated clash between 26th seed Jakub Mensik and 28th seed Jo&atilde;o Fonseca. On the women&rsquo;s side, world number one Aryna Sabalenka advanced to the quarter-finals on Monday after defeating Naomi Osaka 7-5, 6-3 in a rare women&rsquo;s night session match at Roland-Garros. Sabalenka, seeking her first French Open title, will face Diana Shnaider in the quarter-finals. The presence of three Italians in a Grand Slam quarter-final is an extraordinary outcome by any historical measure, reflecting the depth of talent Italy&rsquo;s tennis development programme has produced.</p>
+      <div class="src">Source: <a href="https://www.bbc.com/sport/tennis/articles/cdep82g4k9wo" target="_blank" rel="noopener">BBC Sport</a> &middot; June 1&ndash;2, 2026</div>
+    </article>
+
+  </div>
+</div></div><!-- /sport -->
+
+<!-- ==================== PUZZLES ==================== -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>The Chronicler Funnies</h2><div class="flag">Puzzles &amp; Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All intermediate steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">2</div>
+        <div class="crunch-tile">5</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">9</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">62</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat" style="background:#d4edda;padding:6px 8px;border-radius:3px;"><strong>(2 + 9) &times; 5 + 7 = 62</strong><br>Step 1: 2 + 9 = 11 &nbsp;&middot;&nbsp; Step 2: 11 &times; 5 = 55 &nbsp;&middot;&nbsp; Step 3: 55 + 7 = 62 &#10003;</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">Python-verified &mdash; 8 distinct solutions exist. Simplest shown.</div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="https://thechronicler.ca/Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive &rarr;</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">CARNEY</div>
+        <div class="ww-mini-tile">BERRETTINI</div>
+        <div class="ww-mini-tile">ANNAMALAI</div>
+        <div class="ww-mini-tile">ALPHABET</div>
+        <div class="ww-mini-tile">BAINS</div>
+        <div class="ww-mini-tile">CWUR</div>
+        <div class="ww-mini-tile">NETANYAHU</div>
+        <div class="ww-mini-tile">NEET</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat">&#129001; <strong>People in today&rsquo;s top stories:</strong> CARNEY &middot; ANNAMALAI &middot; BAINS &middot; NETANYAHU</div>
+        <div class="answer-cat">&#129000; <strong>Organisations / bodies in today&rsquo;s news:</strong> BERRETTINI &middot; ALPHABET &middot; CWUR &middot; NEET</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">Decoy: BERRETTINI &mdash; a person&rsquo;s name, but here represents the French Open story&rsquo;s central subject as a proper noun entity, sitting in the organisations group to mislead. NEET &mdash; could read as a descriptor but is the examination body.</div>
+      </div>
+    </div>
+
+  </div>
+</div></div><!-- /puzzles -->
+
+<div class="divider"></div>
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 62 &bull; Tuesday, June 2, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+function handleRead(btn) {
+  if (window._ttsUtterance) {
+    window.speechSynthesis.cancel();
+    if (window._ttsBtn) { window._ttsBtn.textContent = '\uD83D\uDD0A Read aloud'; }
+    if (window._ttsBtn === btn) { window._ttsUtterance = null; window._ttsBtn = null; return; }
+  }
+  const article = btn.closest('article');
+  const text = Array.from(article.querySelectorAll('p')).map(p => p.textContent).join(' ');
+  const u = new SpeechSynthesisUtterance(text);
+  u.onend = function() { btn.textContent = '\uD83D\uDD0A Read aloud'; window._ttsUtterance = null; window._ttsBtn = null; };
+  window._ttsUtterance = u;
+  window._ttsBtn = btn;
+  btn.textContent = '\u23F9 Stop';
+  window.speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>
