@@ -24,7 +24,7 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
 .section-rule{display:flex;align-items:center;gap:14px;width:100%;margin-bottom:28px;}
 .section-rule hr{flex:1;border:none;border-top:1px solid var(--rule);}
 .section-rule span{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--rust);white-space:nowrap;}
-.hero-card{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);border-top:5px solid var(--ink);background:#f9f3e3;margin-bottom:48px;text-decoration:none;color:inherit;transition:box-shadow .2s;}
+.hero-card{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);border-top:5px solid var(--ink);background:#f9f3e3;margin-bottom:0;text-decoration:none;color:inherit;transition:box-shadow .2s;}
 .hero-card:hover{box-shadow:4px 4px 0 rgba(0,0,0,.12);}
 .hero-left{padding:32px 36px;border-right:1px solid var(--rule);}
 .hero-eyebrow{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--rust);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
@@ -41,6 +41,12 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
 .hero-story:last-child{border-bottom:none;}
 .hero-story-flag{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rust);white-space:nowrap;padding-top:2px;min-width:46px;}
 .hero-story-hed{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;line-height:1.3;color:var(--ink);}
+/* Flatland strip below hero */
+.flatland-strip{border:2px solid var(--ink);border-top:none;background:var(--cream);margin-bottom:48px;}
+.flatland-strip-label{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);padding:5px 14px 4px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;}
+.flatland-strip-label a{color:var(--rust);text-decoration:none;font-size:9px;letter-spacing:.08em;}
+.flatland-strip-label a:hover{text-decoration:underline;}
+.flatland-strip img{width:100%;display:block;border:none;line-height:0;}
 .archive-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px;}
 .archive-card{border:1px solid var(--rule);border-top:3px solid var(--grey);background:#f9f3e3;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:border-top-color .15s,box-shadow .15s;}
 .archive-card:hover{border-top-color:var(--rust);box-shadow:3px 3px 0 rgba(0,0,0,.09);}
@@ -126,29 +132,39 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
 
 <div class="page">
 
-  <div class="section-rule"><hr><span>Today&rsquo;s Edition &mdash; Wednesday, June 3, 2026</span><hr></div>
+  <div class="section-rule"><hr><span>Today&rsquo;s Edition &mdash; Thursday, June 4, 2026</span><hr></div>
 
-  <!-- HERO — Edition 63 -->
-  <a class="hero-card" href="Issues/the-chronicler-vol1-no63.html">
+  <!-- HERO — Edition 64 -->
+  <a class="hero-card" href="Issues/the-chronicler-vol1-no64.html">
     <div class="hero-left">
-      <div class="hero-eyebrow"><span class="live-dot"></span> Latest Edition &mdash; Wednesday, June 3, 2026</div>
-      <div class="hero-headline">U.S. Strikes Iran&rsquo;s Qeshm Island; Carney Shrugs Off 51st State Taunt; Canada Confirms $2.6B HIMARS Purchase</div>
-      <div class="hero-deck">American forces struck military targets on Iran&rsquo;s Qeshm Island overnight as Tehran fired missiles at Kuwait and Bahrain, shaking global energy markets and pushing Brent crude above $88. In Ottawa, Prime Minister Carney dismissed Trump&rsquo;s renewed annexation rhetoric as social media noise, even as Canada confirmed a sole-source $2.6-billion purchase of U.S. rocket systems &mdash; contradicting his own election pledge to buy Canadian.</div>
+      <div class="hero-eyebrow"><span class="live-dot"></span> Latest Edition &mdash; Thursday, June 4, 2026</div>
+      <div class="hero-headline">GST Top-Up Lands Tomorrow; Modi Axes FPI Capital Gains Tax via Ordinance; US House Passes Iran War Powers Rebuke</div>
+      <div class="hero-deck">Over $3.1 billion in GST top-up payments begin depositing into 12 million Canadian accounts on Friday as the Liberals transition to the new Groceries and Essentials Benefit. In India, the Modi Cabinet used the ordinance route to scrap capital gains tax on foreign investors in government bonds &mdash; a direct response to record FPI outflows and a weakening rupee. In Washington, four Republicans broke ranks to pass the first-ever House war powers resolution against the Iran conflict, 215&ndash;208.</div>
       <div class="hero-meta">
-        <span class="pill">Vol. I, No. 63</span>
+        <span class="pill">Vol. I, No. 64</span>
         <span>Canada &bull; India &bull; World &bull; Sport</span>
         <span class="hero-cta">Read the Edition &rarr;</span>
       </div>
     </div>
     <div class="hero-right">
       <div class="hero-digest-label">Also in today&rsquo;s edition</div>
-      <div class="hero-story"><span class="hero-story-flag">Canada</span><div class="hero-story-hed">CUSMA review triggers July 1; LeBlanc in Washington seeking renewal</div></div>
-      <div class="hero-story"><span class="hero-story-flag">Canada</span><div class="hero-story-hed">Bill C-22 surveillance bill: Liberals accused of rushing back-door law</div></div>
-      <div class="hero-story"><span class="hero-story-flag">India</span><div class="hero-story-hed">India-U.S. trade deal in final push as negotiators meet in New Delhi</div></div>
-      <div class="hero-story"><span class="hero-story-flag">India</span><div class="hero-story-hed">TMC split deepens as 50 legislators back expelled rival Ritabrata Banerjee</div></div>
-      <div class="hero-story"><span class="hero-story-flag">Sport</span><div class="hero-story-hed">NBA Finals begin tonight: Spurs vs. Knicks, Game 1, 8:30 PM ET</div></div>
+      <div class="hero-story"><span class="hero-story-flag">Canada</span><div class="hero-story-hed">Canada&rsquo;s AI land rush: Alberta at the epicentre of a $70-billion data centre bet</div></div>
+      <div class="hero-story"><span class="hero-story-flag">Canada</span><div class="hero-story-hed">Forestry crisis is homegrown, not Trump&rsquo;s fault, blunt federal report concludes</div></div>
+      <div class="hero-story"><span class="hero-story-flag">India</span><div class="hero-story-hed">India&rsquo;s IPO boom is a profit-exit machine for foreign multinationals, Reuters finds</div></div>
+      <div class="hero-story"><span class="hero-story-flag">World</span><div class="hero-story-hed">Lebanon ceasefire #3 agreed &mdash; already fragile as Iran talks remain frozen</div></div>
+      <div class="hero-story"><span class="hero-story-flag">Sport</span><div class="hero-story-hed">Brunson&rsquo;s late surge gives Knicks stunning Game 1 steal in San Antonio, 105&ndash;95</div></div>
     </div>
   </a>
+
+  <!-- FLATLAND NEWS — below hero, above specials -->
+  <div class="flatland-strip">
+    <div class="flatland-strip-label">
+      <span>&#9998; Flatland News &mdash; Vol. I, No. 64 &nbsp;&middot;&nbsp; Thursday, June 4, 2026</span>
+      <a href="Issues/the-chronicler-vol1-no64.html#puzzles">View in Edition &rarr;</a>
+    </div>
+    <img src="Issues/Images/flatlandnews-04062026-vol1-no64.png"
+         alt="Flatland News Vol. I No. 64: Four satirical panels — The Homegrown Fire, The People's IPO, The War Powers Gesture, The Third Ceasefire">
+  </div>
 
   <!-- SPECIALS — DO NOT CHANGE -->
   <div class="section-rule"><hr><span>Special Reports &amp; Features</span><hr></div>
@@ -198,9 +214,18 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
     </a>
   </div>
 
-  <!-- ARCHIVE — No. 63 added as slot 1; No. 62 moves to slot 2; No. 57 drops off (6-card rule) -->
+  <!-- ARCHIVE — No. 64 in slot 1; 63→58 cascade; No. 58 drops off (6-card rule) -->
   <div class="section-rule"><hr><span>Edition Archive &mdash; Vol. I</span><hr></div>
   <div class="archive-grid">
+
+    <a class="archive-card" href="Issues/the-chronicler-vol1-no64.html">
+      <div class="archive-card-inner">
+        <div class="archive-no">Vol. I, No. 64</div>
+        <div class="archive-date">Thursday, June 4, 2026</div>
+        <div class="archive-lede">GST top-up $3.1B arriving Friday &mdash; Modi ordinance axes FPI capital gains tax on G-Secs &mdash; US House passes Iran war powers rebuke 215&ndash;208 &mdash; Knicks steal NBA Finals Game 1</div>
+        <div class="archive-read">Read Edition &rarr;</div>
+      </div>
+    </a>
 
     <a class="archive-card" href="Issues/the-chronicler-vol1-no63.html">
       <div class="archive-card-inner">
@@ -247,23 +272,14 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
       </div>
     </a>
 
-    <a class="archive-card" href="Issues/the-chronicler-vol1-no58.html">
-      <div class="archive-card-inner">
-        <div class="archive-no">Vol. I, No. 58</div>
-        <div class="archive-date">Friday, May 29, 2026</div>
-        <div class="archive-lede">US&ndash;Iran 60-day truce deal pending Trump approval &mdash; Netanyahu orders 70% Gaza seizure; UN blacklists Israel &mdash; PSG vs Arsenal UCL Final Saturday</div>
-        <div class="archive-read">Read Edition &rarr;</div>
-      </div>
-    </a>
-
     <div class="archive-card" style="cursor:default;border-top-color:var(--gold);">
       <div class="archive-card-inner" style="padding:0;">
         <div class="date-finder">
           <span class="date-finder-label">&#128337; All Editions</span>
-          <div class="date-finder-title">Vol. I, Nos. 1&ndash;63</div>
-          <div class="date-finder-sub">March 8 &ndash; June 3, 2026. Select any date to go directly to that edition.</div>
+          <div class="date-finder-title">Vol. I, Nos. 1&ndash;64</div>
+          <div class="date-finder-sub">March 8 &ndash; June 4, 2026. Select any date to go directly to that edition.</div>
           <div class="date-finder-row">
-            <input type="date" id="backdate" min="2026-03-08" max="2026-06-03">
+            <input type="date" id="backdate" min="2026-03-08" max="2026-06-04">
             <button class="date-finder-btn" onclick="findEdition()">Go to Edition &rarr;</button>
           </div>
           <div class="date-finder-result" id="finder-result"></div>
@@ -321,7 +337,8 @@ const editionMap = {
   '2026-05-23': {no:52}, '2026-05-24': {no:53}, '2026-05-25': {no:54},
   '2026-05-26': {no:55}, '2026-05-27': {no:56}, '2026-05-28': {no:57},
   '2026-05-29': {no:58}, '2026-05-30': {no:59}, '2026-05-31': {no:60},
-  '2026-06-01': {no:61}, '2026-06-02': {no:62}, '2026-06-03': {no:63}
+  '2026-06-01': {no:61}, '2026-06-02': {no:62}, '2026-06-03': {no:63},
+  '2026-06-04': {no:64}
 };
 
 function formatDate(d) {

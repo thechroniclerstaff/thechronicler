@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler &mdash; Thursday, June 4, 2026 &mdash; Vol. I, No. 64</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.ticker-bar{background:var(--rust);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;text-align:center;line-height:1.6;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-rng{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:2px;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.aqi-hazardous{background:#7e0023;color:#fff;border:1px solid #5a0019;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7.5px;color:var(--grey);flex:1;}
+.wfc .dm span{display:block;font-size:10px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1.1;}
+.mc-chg{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;padding:2px 5px;border-radius:2px;display:inline-block;width:fit-content;}
+.mc-chg.up{background:#d4edda;color:#155724;}
+.mc-chg.down{background:#f8d7da;color:#721c24;}
+.mc-chg.flat{background:#fff3cd;color:#856404;}
+.mc-note{font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-top:1px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.india-mkt-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.gta-focus{background:#f0e8d0;border:1px dashed var(--rule);padding:16px;margin-top:16px;border-radius:4px;}
+.gta-focus-label{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:12px;border-bottom:1px solid var(--rule);padding-bottom:6px;}
+.games-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.puzzle-box{background:var(--aged);border:1px solid var(--rule);padding:14px 14px 12px;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--rust);margin-bottom:4px;}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-bottom:10px;line-height:1.55;}
+.crunch-nums{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:22px;width:46px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.crunch-target{background:var(--rust);color:#fff;font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:54px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:9.5px;background:var(--ink);color:var(--aged);border:none;padding:5px 10px;cursor:pointer;margin-bottom:8px;letter-spacing:.08em;}
+.answer-box{display:none;background:var(--cream);border:1px solid var(--rule);padding:8px 10px;margin-bottom:8px;}
+.answer-cat{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--ink);padding:4px 0;line-height:1.6;}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;}
+.ww-mini-tile{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:8px 4px;text-align:center;border-radius:3px;cursor:default;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+.comic-strip{margin:16px 0 8px;border:2px solid var(--ink);background:var(--cream);}
+.comic-title{font-family:'Playfair Display',serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);text-align:center;padding:5px 0 3px;border-bottom:1px solid var(--rule);}
+.comic-panels{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);}
+.comic-panel{border-right:1px solid var(--ink);padding:0;}
+.comic-panel:last-child{border-right:none;}
+.comic-panel svg{width:100%;display:block;}
+@media(min-width:680px){
+  .col-3{grid-template-columns:repeat(3,1fr);}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 14px 0;}
+  article.s:last-child{border-right:none;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+  .india-mkt-row{grid-template-columns:repeat(4,1fr);}
+}
+@media(max-width:480px){
+  .games-row{grid-template-columns:1fr;}
+  .ww-grid{grid-template-columns:repeat(2,1fr);}
+  .comic-panels{grid-template-columns:repeat(2,1fr);}
+  .comic-panel:nth-child(2){border-right:none;}
+  .comic-panel:nth-child(3){border-top:1px solid var(--ink);}
+  .comic-panel:nth-child(4){border-top:1px solid var(--ink);border-right:none;}
+}
+</style>
+</head>
+<body id="top">
+
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="#top">Top</a>
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="#puzzles">Funnies</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 64 &nbsp;&middot;&nbsp; Thursday, June 4, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<div class="ticker-bar">GST Top-Up Hits Accounts Tomorrow: $3.1B for 12 Million Canadians &mdash; Alberta Merges Driver&rsquo;s Licence, Health Card &amp; Citizenship from July 2 &mdash; Canada&rsquo;s Forestry Crisis Is Homegrown, Says Federal Report &mdash; Modi Cabinet Axes FPI Capital Gains Tax on G-Secs via Ordinance &mdash; Rahul Gandhi Warns of &ldquo;Economic Tsunami&rdquo; as BJP Fires Back &mdash; US House Passes Iran War Powers Resolution 215&ndash;208 &mdash; Lebanon Ceasefire #3 Agreed, Already Fragile &mdash; Knicks Steal NBA Finals Game 1 from Spurs, 105&ndash;95 &mdash; French Open Semis Set, No Former Slam Champion Left</div>
+
+<!-- ==================== CANADA ==================== -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Toronto</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">17°C</div>
+      <div class="w-rng">H: 27° &nbsp; L: 14°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 41 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; 8 km/h WSW</span><span>&#128167; 59%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9925;&#65039;</span>25°/16°</div>
+        <div class="dm">Sat<span>&#127746;&#65039;</span>20°/17°</div>
+        <div class="dm">Sun<span>&#127746;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Montr&eacute;al</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">19°C</div>
+      <div class="w-rng">H: 27° &nbsp; L: 15°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 29 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; 17 km/h SW</span><span>&#128167; 52%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9728;&#65039;</span>24°/15°</div>
+        <div class="dm">Sat<span>&#9928;&#65039;</span>19°/17°</div>
+        <div class="dm">Sun<span>&#9928;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Ottawa</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">18°C</div>
+      <div class="w-rng">H: 27° &nbsp; L: 15°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 28 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; 10 km/h</span><span>&#128167; 56%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9928;&#65039;</span>26°/13°</div>
+        <div class="dm">Sat<span>&#9928;&#65039;</span>23°/16°</div>
+        <div class="dm">Sun<span>&#9928;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Halifax</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">13°C</div>
+      <div class="w-rng">H: 19° &nbsp; L: 7°</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 32 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; 17 km/h SW</span><span>&#128167; 72%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9925;&#65039;</span>20°/9°</div>
+        <div class="dm">Sat<span>&#9728;&#65039;</span>14°/8°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Edmonton</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">12°C</div>
+      <div class="w-rng">H: 19° &nbsp; L: 10°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 48 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; 13 km/h</span><span>&#128167; 88%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9729;&#65039;</span>18°/8°</div>
+        <div class="dm">Sat<span>&#9728;&#65039;</span>17°/7°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Vancouver</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">13°C</div>
+      <div class="w-rng">H: 17° &nbsp; L: 12°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 50 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; 11 km/h</span><span>&#128167; 94%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9928;&#65039;</span>15°/10°</div>
+        <div class="dm">Sat<span>&#127746;&#65039;</span>13°/9°</div>
+        <div class="dm">Sun<span>&#127746;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather: wttr.in &middot; AQI: Open-Meteo Air Quality API &middot; Live data, 4 June 2026</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="canada-1">
+      <h3>Canada&rsquo;s AI Land Rush: Alberta at the Epicentre of a $70-Billion Bet on Data, Power, and Water</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>A new front has opened in Canada&rsquo;s artificial intelligence ambitions &mdash; one measured in gigawatts, lake-water access, and hundreds of square kilometres of northern Alberta land. With hyperscalers seeking to escape the congested U.S. grid, Alberta has become the unlikely centre of a continental data-centre boom: as of February, the province&rsquo;s electricity regulator had over 30 AI facility projects in its approval queue, drawn by a deregulated electricity market, abundant natural gas, and a cold climate that reduces cooling costs.</p>
+      <p>The most audacious proposal &mdash; Kevin O&rsquo;Leary&rsquo;s &ldquo;Wonder Valley&rdquo; project near Grande Prairie, with a lifetime investment exceeding $70 billion &mdash; would be the largest data centre complex in the world if built. On the federal side, AI Minister Evan Solomon unveiled a sovereign compute cluster with Telus in Vancouver and Kamloops, running on 98 per cent clean hydro power and designed to use 90 per cent less water than a conventional data centre. Solomon has compared AI innovation to a &ldquo;bucking bronco&rdquo; he won&rsquo;t saddle with regulation, but insists Canadian data stay under Canadian law. York University economist Lyndsey Rolheiser notes the economic pull is straightforward: hyperscalers need cheap land, energy, and water &mdash; and that is pushing them away from city centres and deep into the provinces.</p>
+      <p>Critics note that Microsoft&rsquo;s own reporting shows 41 per cent of its global water withdrawals occur in stressed regions &mdash; and Alberta has faced back-to-back Calgary water restriction emergencies in 2025 and 2026. Bill 8 would require data centres to pay for grid upgrades, but off-grid facilities would be exempt from the new $75-megawatt levy taking effect at year&rsquo;s end.</p>
+      <div class="src">Sources: <a href="https://www.cbc.ca" target="_blank" rel="noopener">CBC News</a> &middot; <a href="https://thenarwhal.ca" target="_blank" rel="noopener">The Narwhal</a> &middot; <a href="https://ucalgary.ca/sustainability" target="_blank" rel="noopener">U of Calgary Sustainability</a> &middot; June 4, 2026</div>
+    </article>
+
+    <article class="s" id="canada-2">
+      <h3>The Forestry Crisis Is Made in Canada &mdash; Not Just in Washington, Says Blunt Federal Report</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Canada&rsquo;s forestry sector has spent months framing its crisis through the lens of American trade aggression &mdash; and the framing is not wrong. U.S. softwood lumber duties compound to around 35 per cent. But a new federal report released Wednesday by Natural Resources Minister Tim Hodgson as he met provincial forest ministers in Langford, B.C., delivers a more uncomfortable diagnosis: the &ldquo;most significant barriers to competitiveness are homegrown.&rdquo;</p>
+      <p>The report identifies unstable access to affordable fibre, excessive regulations, persistent underinvestment in manufacturing, weak capacity to innovate, and inadequate domestic demand as the structural roots of what it calls an &ldquo;existential crisis.&rdquo; Hodgson &mdash; who called forestry the trade &ldquo;canary in the coal mine&rdquo; &mdash; simultaneously announced $130 million across 56 projects, the largest share going to the Forest Enhancement Society of B.C. in Kamloops, which receives $37 million to convert residual fibre that would otherwise be burned into pulp, bioenergy, and pellets.</p>
+      <p>B.C. Conservatives pushed back, saying the package falls short of what other provinces have secured for key industries and urging the provincial NDP to &ldquo;look in the mirror&rdquo; rather than blame mill closures on Trump. The report reframes the national conversation in ways that may matter for long-term policy: tariff relief from Washington, if it comes, will not fix a sector whose foundations need repair from within.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/british-columbia/forestry-crisis-trump-federal-report-9.7222792" target="_blank" rel="noopener">CBC News</a> &middot; June 3, 2026</div>
+    </article>
+
+    <article class="s" id="canada-3">
+      <h3>$3.1-Billion GST Top-Up Lands Tomorrow as Canada Transitions to the Groceries and Essentials Benefit</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Liberal government&rsquo;s one-time GST/HST credit top-up begins depositing into eligible Canadians&rsquo; accounts on Friday, June 5 &mdash; a bridge payment before the GST rebate is formally renamed and enhanced as the Canada Groceries and Essentials Benefit starting July 3. The top-up equals 50 per cent of the total annual GST credit each household received from July 2025 to June 2026, providing over $3.1 billion in immediate relief to more than 12 million low- and modest-income Canadians. No application is required.</p>
+      <p>Maximum payments in 2026, including both the top-up and July&rsquo;s first quarterly CGEB instalment: up to $1,890 for a family of four; up to $950 for a single person. Beginning July 3, quarterly payments increase by 25 per cent for five years, delivering $8.6 billion in additional support through 2031 and reaching 500,000 new individuals and families. The payment may still show up on bank statements as the GST credit rather than under the new benefit name.</p>
+      <p>For GTA readers: if you filed your 2024 tax return and qualified for the January 2026 GST payment, the money is automatic. If you haven&rsquo;t filed, now is the time &mdash; the CRA uses your 2024 return to calculate the amount.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/gst-rebate-top-up-payments-coming-9.7222566" target="_blank" rel="noopener">CBC News</a> &middot; <a href="https://www.canada.ca/en/revenue-agency" target="_blank" rel="noopener">CRA</a> &middot; June 3, 2026</div>
+    </article>
+
+    <article class="s" id="canada-4">
+      <h3>Alberta to Merge Driver&rsquo;s Licence, Health Card and Citizenship Marker into One Card from July 2</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Alberta will begin issuing redesigned driver&rsquo;s licences and ID cards from July 2 that carry both a personal health number and a Canadian citizenship marker &mdash; making it the first province to consolidate all three on a single document. The UCP government says the change simplifies life for Albertans who currently carry a deteriorating paper health card alongside their licence, and will include enhanced security features to reduce fraud.</p>
+      <p>The citizenship marker dimension carries a notable political dimension: it aligns with the UCP&rsquo;s fall referendum questions, four of which focus on restricting provincial services to non-Canadian residents, alongside a question about Alberta&rsquo;s place within Confederation. Non-citizens and permanent residents will receive a card without the marker. Alberta&rsquo;s privacy watchdog has raised concerns that the Registrar of Motor Vehicles is not subject to privacy legislation, making health data accessible to anyone who requests ID. The government counters that photo-ID linkage actually reduces fraud. The rollout occurs in two phases as Albertans renew &mdash; no immediate obligation to replace valid cards.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/edmonton/alberta-drivers-license-health-number-9.7222143" target="_blank" rel="noopener">CBC News</a> &middot; Global News &middot; June 3, 2026</div>
+    </article>
+
+    <article class="s" id="canada-5">
+      <h3>Trump Opens a New Tariff Front: &ldquo;Forced Labour&rdquo; Investigation Threatens 10% Duties on Canada and 60 Others</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Trump administration unveiled a sweeping new tariff proposal Tuesday, threatening a 10 per cent additional duty on Canada and more than 60 other trading partners &mdash; including the EU, Mexico, the U.K., Indonesia, and Pakistan &mdash; based on a finding that they insufficiently enforce bans on goods produced by forced labour. The 92-page USTR report specifically criticised Canada&rsquo;s Border Services Agency for taking &ldquo;minimal&rdquo; enforcement actions and for not publishing official statistics. CUSMA-compliant goods would be exempt.</p>
+      <p>Prime Minister Carney responded immediately by committing to introduce new supply chain legislation while defending Canada&rsquo;s existing regime. The forced labour tariff route is more durable than Trump&rsquo;s previous Section 122 tariffs, which expire after 150 days unless Congress renews them. USTR Greer is scheduled to hold public hearings in July before any duties are implemented. The manoeuvre repackages trade aggression in human-rights language &mdash; giving it domestic political cover in the United States while creating a new pressure point against CUSMA partners at precisely the moment the CUSMA review triggers on July 1.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/world/trump-tariffs-forced-labour-explained-9.7221691" target="_blank" rel="noopener">CBC News</a> &middot; CTV News &middot; Al Jazeera &middot; June 3, 2026</div>
+    </article>
+
+  </div>
+
+  <!-- GTA Focus -->
+  <div class="gta-focus">
+    <div class="gta-focus-label">&#127968; GTA Focus</div>
+    <article class="s" id="gta-1" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
+      <h3>Truck Strikes King Street Overpass, Pulling Down Overhead Wires and Halting Streetcars for Hours</h3>
+      <div class="by">The Chronicler GTA Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>A truck struck the TTC&rsquo;s infrastructure overpass at King Street West and Atlantic Avenue at 8:20 a.m. Wednesday, tearing down overhead wiring and supporting structure and triggering a lengthy disruption to the city&rsquo;s busiest surface transit corridor. TTC spokesperson Stuart Green described the damage as &ldquo;extensive,&rdquo; warning repairs could extend into Thursday morning. Westbound streetcar service was partially restored around 11:30 a.m.; eastbound service &mdash; diverted via Queen Street West between Dufferin and Shaw Streets &mdash; resumed shortly before 4 p.m. Shuttle buses ran in between. No injuries were reported and the truck driver remained at the scene.</p>
+      <p>The disruption is a reminder of the corridor&rsquo;s fragility at a particularly difficult moment. The TTC is managing construction-related pressure ahead of six FIFA World Cup games beginning at BMO Field on June 12, a period during which King and Carlton lines were already identified as risk zones. Riders commuting from Whitby along the GO Lakeshore East corridor who transfer onto King should check TTC service advisories before Friday&rsquo;s peak commute in case overnight repairs extend.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/toronto/ttc-streetcar-king-overpass-9.7222055" target="_blank" rel="noopener">CBC News</a> &middot; CP24 &middot; CTV Toronto &middot; June 3, 2026</div>
+    </article>
+  </div>
+
+  <span class="cat">Markets</span>
+  <div class="mkt-note">Canada &amp; commodity data from Google Finance screenshots, 4 June 2026 at 8:51 AM ET. US indices shown at prior-session close (markets not yet open). Note: Brent crude and WTI both down sharply (&minus;2.35% / &minus;2.48%) today &mdash; a partial retracement from yesterday&rsquo;s Iran-conflict premium as the Lebanon ceasefire agreement raised brief hopes of diplomatic progress. Gold surged +1.36% to $4,527, reflecting continuing safe-haven demand.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">34,801</div>
+      <span class="mc-chg flat">&#9644; 0.00%</span>
+      <div class="mc-note">Jun 4 &middot; prior close &middot; CAD</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$80.38</div>
+      <span class="mc-chg down">&#9660; &minus;2.04 (&minus;2.48%)</span>
+      <div class="mc-note">Jun 4 &middot; 8:51 AM ET &middot; USD</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Brent Crude</div>
+      <div class="mc-sub">USD / barrel</div>
+      <div class="mc-val">$86.35</div>
+      <span class="mc-chg down">&#9660; &minus;2.08 (&minus;2.35%)</span>
+      <div class="mc-note">Jun 4 &middot; 8:51 AM ET &middot; USD</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">USD / troy oz</div>
+      <div class="mc-val">$4,527</div>
+      <span class="mc-chg up">&#9650; +60.90 (+1.36%)</span>
+      <div class="mc-note">Jun 4 &middot; 8:51 AM ET &middot; USD</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">1 CAD in USD</div>
+      <div class="mc-val">0.7200</div>
+      <span class="mc-chg up">&#9650; +0.03%</span>
+      <div class="mc-note">Google Finance &middot; Jun 4, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">1 CAD in INR</div>
+      <div class="mc-val">&#8377;68.97</div>
+      <span class="mc-chg up">&#9650; +0.13%</span>
+      <div class="mc-note">Google Finance &middot; Jun 4, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">1 CAD in EUR</div>
+      <div class="mc-val">&euro;0.6186</div>
+      <span class="mc-chg down">&#9660; &minus;0.23%</span>
+      <div class="mc-note">Google Finance &middot; Jun 4, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">1 CAD in GBP</div>
+      <div class="mc-val">&pound;0.5350</div>
+      <span class="mc-chg down">&#9660; &minus;0.20%</span>
+      <div class="mc-note">Google Finance &middot; Jun 4, 2026</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a>. Data as at 8:51 AM ET, June 4, 2026. S&amp;P/TSX: prior close. US indices not yet open.</div>
+
+</div></div><!-- /canada -->
+
+<!-- ==================== INDIA ==================== -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">New Delhi</div><div class="w-icon">&#127787;&#65039;</div></div>
+      <div class="w-temp">32°C</div>
+      <div class="w-rng">H: 42° &nbsp; L: 32°</div>
+      <div class="w-cond">Haze, feels 34°C</div>
+      <span class="aqi-badge aqi-hazardous">AQI 210 <span class="al">Very Unhealthy</span></span>
+      <div class="w-drow"><span>&#128168; 4 km/h</span><span>&#128167; 41%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9728;&#65039;</span>40°/30°</div>
+        <div class="dm">Sat<span>&#9728;&#65039;</span>41°/31°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Mumbai</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">33°C</div>
+      <div class="w-rng">H: 31° &nbsp; L: 29°</div>
+      <div class="w-cond">Partly cloudy, feels 46°C</div>
+      <span class="aqi-badge aqi-moderate">AQI 61 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; 27 km/h</span><span>&#128167; 67%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9928;&#65039;</span>31°/29°</div>
+        <div class="dm">Sat<span>&#9728;&#65039;</span>31°/29°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Bengaluru</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">29°C</div>
+      <div class="w-rng">H: 31° &nbsp; L: 21°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 36 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; 18 km/h</span><span>&#128167; 62%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9925;&#65039;</span>31°/21°</div>
+        <div class="dm">Sat<span>&#9925;&#65039;</span>30°/21°</div>
+        <div class="dm">Sun<span>&#9925;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chennai</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">38°C</div>
+      <div class="w-rng">H: 36° &nbsp; L: 29°</div>
+      <div class="w-cond">Partly cloudy, feels 40°C</div>
+      <span class="aqi-badge aqi-moderate">AQI 88 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; 25 km/h</span><span>&#128167; 54%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9925;&#65039;</span>36°/31°</div>
+        <div class="dm">Sat<span>&#9728;&#65039;</span>36°/30°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Kolkata</div><div class="w-icon">&#127787;&#65039;</div></div>
+      <div class="w-temp">36°C</div>
+      <div class="w-rng">H: 41° &nbsp; L: 28°</div>
+      <div class="w-cond">Haze, feels 38°C</div>
+      <span class="aqi-badge aqi-poor">AQI 128 <span class="al">Unhealthy Sensitive</span></span>
+      <div class="w-drow"><span>&#128168; 22 km/h</span><span>&#128167; 64%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9728;&#65039;</span>41°/29°</div>
+        <div class="dm">Sat<span>&#9728;&#65039;</span>40°/30°</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Pune</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">29°C</div>
+      <div class="w-rng">H: 35° &nbsp; L: 24°</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 58 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; 26 km/h</span><span>&#128167; 58%</span></div>
+      <div class="wfc">
+        <div class="dm">Fri<span>&#9928;&#65039;</span>33°/24°</div>
+        <div class="dm">Sat<span>&#9928;&#65039;</span>35°/24°</div>
+        <div class="dm">Sun<span>&#9928;&#65039;</span>&mdash;</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather: wttr.in &middot; AQI: Open-Meteo Air Quality API (US AQI scale) &middot; Live data, 4 June 2026. Delhi: PM2.5 = 76.1 &micro;g/m&sup3;, PM10 = 273.8 &micro;g/m&sup3; &mdash; pre-monsoon haze. Avoid outdoor exertion.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="india-1">
+      <h3>&ldquo;Economic Tsunami&rdquo; vs. &ldquo;Shock Absorbers&rdquo;: India&rsquo;s Sharpest Political Exchange Since the Iran War Began</h3>
+      <div class="by">The Chronicler India Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Congress leader Rahul Gandhi, addressing tribal leaders at an Adivasi Congress event on Wednesday, issued his most pointed economic warning since the U.S.-Israeli war on Iran upended global oil markets in late February: India is heading toward an &ldquo;economic tsunami,&rdquo; he warned, because the BJP government has &ldquo;removed all shock absorbers&rdquo; that might cushion the country from the cascading effects of the West Asia conflict.</p>
+      <p>BJP&rsquo;s IT Cell chief Amit Malviya responded within hours, calling the claim &ldquo;classic fear-mongering&rdquo; and deploying a counter-battery of data: E-way bill generation rose 12.9 per cent in May 2026; manufacturing PMI reached 56.6 and services PMI 58.9, both firmly in expansion; retail inflation held at 3.48 per cent, below the RBI&rsquo;s 4 per cent target; gross FDI inflows hit a record $94.5 billion in FY26; rice and wheat buffer stocks stood at 817.53 lakh tonnes at end-April. &ldquo;These are signs of resilience built over the last decade,&rdquo; Malviya said.</p>
+      <p>The exchange crystallises a deepening fault line. Congress is framing the Iran war&rsquo;s spillover as a governance failure. BJP is responding with evidence of macro-stability. Both arguments contain truth: the headline numbers are solid; the structural exposure to prolonged Gulf disruption is real and growing. BJP spokesperson Shehzad Poonawalla also attacked Gandhi&rsquo;s reference to the Emergency, saying the only Emergency India ever experienced was imposed by Indira Gandhi.</p>
+      <div class="src">Sources: <a href="https://aninews.in" target="_blank" rel="noopener">ANI</a> &middot; <a href="https://ianslive.in" target="_blank" rel="noopener">IANS</a> &middot; Outlook India &middot; Asianet Newsable &middot; June 4, 2026</div>
+    </article>
+
+    <article class="s" id="india-2">
+      <h3>Modi Cabinet Axes FPI Capital Gains Tax on Government Bonds via Ordinance, Signalling Economic Urgency</h3>
+      <div class="by">The Chronicler India Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Union Cabinet approved on Wednesday the elimination of capital gains tax on foreign portfolio investor (FPI) investments in Indian government securities &mdash; using an ordinance to amend the Income Tax Act rather than waiting for a parliamentary session. The ordinance route, last used in 2019 to slash corporate tax rates, signals how seriously the government treats the rupee pressure and capital outflow spiral triggered by the West Asia conflict.</p>
+      <p>Under the existing framework, FPIs paid a 12.5 per cent long-term capital gains tax on listed shares and bonds held over 12 months, plus a 20 per cent withholding tax on government bond interest. FPIs have pulled approximately &#8377;2.5 lakh crore from Indian equities in 2026 alone &mdash; already surpassing 2025&rsquo;s full-year record. The rupee has fallen 6 per cent against the U.S. dollar this year and 13 per cent since 2024. A formal notification is expected within the week after Presidential assent. Government sources indicated this is a first step; further measures to attract capital inflows are being prepared.</p>
+      <div class="src">Sources: <a href="https://aninews.in" target="_blank" rel="noopener">ANI</a> &middot; Business Today &middot; Business Standard &middot; The Federal &middot; June 4, 2026</div>
+    </article>
+
+    <article class="s" id="india-3">
+      <h3>India&rsquo;s IPO Boom Is Mostly a Profit-Exit Machine for Foreign Multinationals, Reuters Analysis Finds</h3>
+      <div class="by">The Chronicler India Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India&rsquo;s IPO market &mdash; the world&rsquo;s second-largest in 2025, with 367 listings raising $21.8 billion &mdash; is functioning primarily not as a capital formation engine but as a structured mechanism for foreign multinationals to repatriate profits. A Reuters analysis of Prime Database data finds that only one in six foreign-based companies listing their Indian units since 2024 raised fresh capital; the rest were structured as &ldquo;offer for sale&rdquo; transactions, in which existing shareholders sell to the public without any new funds flowing into the company.</p>
+      <p>Hyundai, LG, Walmart&rsquo;s PhonePe, and others have used India&rsquo;s premium valuations to sell down holdings and send billions to headquarters. MUFG Bank has identified the IPO market as &ldquo;one important contributor to Indian rupee weakness.&rdquo; Axis Bank&rsquo;s Tanay Dalal describes IPO-linked capital outflows as &ldquo;exerting a steady, though not abrupt, depreciation bias on the rupee.&rdquo; FPI selling has exceeded $23 billion in 2026 &mdash; surpassing 2025&rsquo;s record. Meanwhile, $26 billion in additional IPOs await regulatory approvals. One analyst told Reuters plainly: &ldquo;This undermines the spirit of public markets.&rdquo;</p>
+      <div class="src">Sources: <a href="https://www.business-standard.com" target="_blank" rel="noopener">Business Standard</a> &middot; Reuters &middot; June 4, 2026</div>
+    </article>
+
+    <article class="s" id="india-4">
+      <h3>The Cockroach Janata Party Appoints Real Spokespeople &mdash; And It Is No Longer Purely a Joke</h3>
+      <div class="by">The Chronicler India Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>When Chief Justice of India Surya Kant compared unemployed youth to &ldquo;cockroaches&rdquo; and &ldquo;parasites of society&rdquo; during a Supreme Court hearing on May 15, he likely did not expect to inspire a political movement. Within 24 hours, former AAP communications strategist Abhijeet Dipke had launched the Cockroach Janta Party &mdash; eligibility criteria: unemployed, lazy, chronically online, able to rant professionally &mdash; and it immediately went viral across India&rsquo;s Gen Z social media landscape.</p>
+      <p>Three weeks later, the CJP is no longer purely satirical. The party appointed three credentialled spokespeople on Tuesday: Saurav Das, an investigative journalist specialising in legal and judicial affairs; Vijeta Dahiya, a political researcher and filmmaker; and Ashutosh Ranka, an IIT Kanpur and LSE graduate, former McKinsey consultant. &ldquo;CJP is committed to changing the political discourse of India,&rdquo; Dipke announced, &ldquo;and this will be led by a new generation of leaders.&rdquo; A protest in New Delhi on education system failures is planned after Dipke&rsquo;s return on June 6. The CJP remains unregistered with the Election Commission but the appointment of media-facing, credentialled spokespeople marks a deliberate escalation beyond social media provocation.</p>
+      <div class="src">Sources: <a href="https://thefederal.com" target="_blank" rel="noopener">The Federal</a> &middot; The Quint &middot; Wikipedia &middot; June 3, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">India Markets &amp; Currency</span>
+  <div class="mkt-note">India market data from Google Finance and GoodReturns.in, 4 June 2026 at 8:51 AM EST. Nifty and Sensex: early session gains. Gold prices: Indian retail rates, GoodReturns.in. INR/USD up +0.53%, a partial rupee recovery on the FPI tax relief news.</div>
+  <div class="india-mkt-row">
+    <div class="mkt-card">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,416</div>
+      <span class="mc-chg up">&#9650; +10.95 (+0.05%)</span>
+      <div class="mc-note">Jun 4 session &middot; INR</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mc-name">BSE Sensex</div>
+      <div class="mc-sub">Bombay Stock Exchange</div>
+      <div class="mc-val">74,360</div>
+      <span class="mc-chg up">&#9650; +13.84 (+0.02%)</span>
+      <div class="mc-note">Jun 4 session &middot; INR</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">24K Gold</div>
+      <div class="mc-sub">Indian retail &middot; per gram</div>
+      <div class="mc-val">&#8377;15,611</div>
+      <span class="mc-chg down">&#9660; &minus;11</span>
+      <div class="mc-note">GoodReturns.in &middot; Jun 4, 2026</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">22K Gold</div>
+      <div class="mc-sub">Indian retail &middot; per gram</div>
+      <div class="mc-val">&#8377;14,310</div>
+      <span class="mc-chg down">&#9660; &minus;10</span>
+      <div class="mc-note">GoodReturns.in &middot; Jun 4, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">1 INR in USD</div>
+      <div class="mc-val">0.0105</div>
+      <span class="mc-chg up">&#9650; +0.53%</span>
+      <div class="mc-note">Google Finance &middot; Jun 4, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">1 INR in CAD</div>
+      <div class="mc-val">0.0145</div>
+      <span class="mc-chg down">&#9660; &minus;0.13%</span>
+      <div class="mc-note">Google Finance &middot; Jun 4, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">1 INR in GBP</div>
+      <div class="mc-val">0.0078</div>
+      <span class="mc-chg up">&#9650; +0.24%</span>
+      <div class="mc-note">Google Finance &middot; Jun 4, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">Silver</div>
+      <div class="mc-sub">Indian retail &middot; per kg</div>
+      <div class="mc-val">&#8377;2,80,000</div>
+      <span class="mc-chg flat">&#9644; Unchanged</span>
+      <div class="mc-note">GoodReturns.in &middot; Jun 4, 2026</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; <a href="https://www.goodreturns.in/gold-rates/" target="_blank" rel="noopener">GoodReturns.in</a>. Data as at 8:51 AM EST / 7:21 PM IST, June 4, 2026.</div>
+
+</div></div><!-- /india -->
+
+<!-- ==================== WORLD ==================== -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="world-1">
+      <h3>US House Passes Iran War Powers Resolution 215&ndash;208: Four Republicans Break Ranks in Historic Rebuke</h3>
+      <div class="by">The Chronicler World Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>For the fourth time since the United States and Israel began striking Iran on February 28, the House of Representatives brought a war powers resolution to the floor &mdash; and for the first time, it passed. Wednesday&rsquo;s 215&ndash;208 vote saw four Republicans break with President Trump: Thomas Massie of Kentucky, Brian Fitzpatrick of Pennsylvania, Tom Barrett of Michigan, and Warren Davidson of Ohio. &ldquo;People are tired of this,&rdquo; Massie said after the vote. &ldquo;They&rsquo;re tired of five-dollar gas and six-dollar diesel, and fertiliser we can&rsquo;t afford to put on our fields in Kentucky.&rdquo;</p>
+      <p>The concurrent resolution directs the president to terminate the use of U.S. armed forces against Iran absent a formal declaration of war or authorisation from Congress. Its legal weight is limited: it must also pass the Republican-led Senate &mdash; where multiple previous attempts have failed &mdash; and even if it cleared both chambers it would not require the president&rsquo;s signature, though Trump&rsquo;s administration has disputed the constitutionality of the War Powers Act itself. Trump attacked the four Republican dissenters on Thursday morning. Democrats celebrated. Speaker Johnson warned the vote could undermine ongoing negotiations.</p>
+      <p>The vote&rsquo;s true significance lies less in its immediate legal force than in what it measures: constituent pressure on Republican members from districts where the inflation effect of the Strait of Hormuz disruption is felt daily at the pump and at the supermarket checkout. It is the clearest signal yet that the political cost of the Iran war is beginning to register inside Trump&rsquo;s own coalition.</p>
+      <div class="src">Sources: <a href="https://www.npr.org" target="_blank" rel="noopener">NPR</a> &middot; CNN &middot; ABC News &middot; Time &middot; Washington Post &middot; June 3&ndash;4, 2026</div>
+    </article>
+
+    <article class="s" id="world-2">
+      <h3>Lebanon Ceasefire Agreed for the Third Time &mdash; Already Shaky as Iran Talks Remain Frozen</h3>
+      <div class="by">The Chronicler World Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Israel and Lebanon agreed Wednesday to a new U.S.-mediated ceasefire, the Trump administration announced, raising cautious hopes that the deal could unlock progress on the broader U.S.-Iran negotiations. Tehran has made a cessation of Israeli attacks on Lebanon a precondition for any peace deal with Washington. Lebanese President Joseph Aoun said the ceasefire would come into force within 24 hours of all parties approving it &mdash; a phrase that implicitly acknowledged Hezbollah, which had not yet commented.</p>
+      <p>The fragility was visible almost immediately. Israel&rsquo;s Defence Minister Israel Katz said the military would &ldquo;continue to strike in Lebanon for the time being.&rdquo; Iran&rsquo;s Foreign Minister Abbas Araghchi stated separately that talks with the United States had made no progress, though communication channels remain open. This is the third Lebanon ceasefire agreement since the conflict escalated &mdash; following November 2024 and mid-April 2026, both of which broke down. The terms mirror previous agreements: Hezbollah must withdraw south of the Litani River and dismantle its infrastructure throughout Lebanon. Hezbollah has never accepted these conditions. The agreement is formally between Israel and the Lebanese government &mdash; not Hezbollah &mdash; and that structural mismatch remains the conflict&rsquo;s fundamental unresolved tension.</p>
+      <div class="src">Sources: <a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters</a> &middot; CNN &middot; Al Jazeera &middot; June 4, 2026</div>
+    </article>
+
+    <article class="s" id="world-3">
+      <h3>Putin&rsquo;s &ldquo;Davos&rdquo; Opens Under Drone Fire: Two Rival Visions of Russia&rsquo;s Future Contend in St. Petersburg</h3>
+      <div class="by">The Chronicler World Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Ukrainian drones struck a St. Petersburg oil terminal and naval base on Wednesday &mdash; the same day President Putin opened the St. Petersburg International Economic Forum, Russia&rsquo;s annual answer to Davos. Smoke drifted over parts of the city as he presided over a conference now populated not by Goldman Sachs and Citi bankers, but by weapons manufacturers, drone companies, and cybersecurity firms advertising AI-powered facial recognition technology.</p>
+      <p>The forum crystallised a tension running through Russia&rsquo;s leadership class: nationalist voices argued for pressing the war forward, streamlining decision-making, and rebuilding the army&rsquo;s public image; economic voices pointed to the returns &mdash; in investment, trade, and reconstruction &mdash; that could flow from ending a conflict that has consumed a decade of economic momentum. Russia controls roughly one-fifth of Ukrainian territory, but battlefield advances have slowed this year. Moscow has seized most of the Donbas but cannot take the remaining portion &mdash; less than 10 per cent of the region.</p>
+      <p>The forum&rsquo;s dual character &mdash; part investment showcase, part military exhibition &mdash; reflects how completely five years of war have reshaped Russia&rsquo;s economic identity. The war, now in its fifth year, continues without resolution. The drones that hit the naval base while Putin spoke said more about that fact than any speech inside the hall.</p>
+      <div class="src">Sources: <a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters</a> &middot; Al-Monitor &middot; June 4, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Global Markets</span>
+  <div class="mkt-note">World indices from Google Finance screenshots, 4 June 2026 at 8:51 AM ET. US markets (Dow, S&amp;P 500, Nasdaq-100) shown at prior-session close. Asian and European markets reflect latest session. Hang Seng &minus;1.48% and Nikkei &minus;1.36% reflect continued regional risk-off on Iran war uncertainty and FPI outflow concerns in Asia.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card world">
+      <div class="mc-name">DJIA</div>
+      <div class="mc-sub">Dow Jones Industrial</div>
+      <div class="mc-val">50,687</div>
+      <span class="mc-chg flat">&#9644; 0.00%</span>
+      <div class="mc-note">Jun 4 prior close &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US Broad Market</div>
+      <div class="mc-val">7,553</div>
+      <span class="mc-chg flat">&#9644; 0.00%</span>
+      <div class="mc-note">Jun 4 prior close &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nasdaq-100</div>
+      <div class="mc-sub">Technology index</div>
+      <div class="mc-val">30,571</div>
+      <span class="mc-chg down">&#9660; &minus;89.37 (&minus;0.29%)</span>
+      <div class="mc-note">Jun 4 prior close &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">10,319</div>
+      <span class="mc-chg down">&#9660; &minus;13.09 (&minus;0.13%)</span>
+      <div class="mc-note">Jun 4 session &middot; GBP</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">67,470</div>
+      <span class="mc-chg down">&#9660; &minus;931.45 (&minus;1.36%)</span>
+      <div class="mc-note">Jun 4 close &middot; JPY</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">25,253</div>
+      <span class="mc-chg down">&#9660; &minus;379.81 (&minus;1.48%)</span>
+      <div class="mc-note">Jun 4 close &middot; HKD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,416</div>
+      <span class="mc-chg up">&#9650; +10.95 (+0.05%)</span>
+      <div class="mc-note">Jun 4 session &middot; INR</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">BSE Sensex</div>
+      <div class="mc-sub">Bombay Stock Exchange</div>
+      <div class="mc-val">74,360</div>
+      <span class="mc-chg up">&#9650; +13.84 (+0.02%)</span>
+      <div class="mc-note">Jun 4 session &middot; INR</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; Data as at 8:51 AM ET, June 4, 2026.</div>
+
+</div></div><!-- /world -->
+
+<!-- ==================== SPORT ==================== -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="sport-1">
+      <h3>Brunson&rsquo;s Fourth-Quarter Takeover Gives Knicks a Stunning Game 1 Steal in San Antonio</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Jalen Brunson scored 30 points &mdash; 13 of them in the fourth quarter &mdash; to lead the New York Knicks to a 105&ndash;95 victory over the San Antonio Spurs in Game 1 of the 2026 NBA Finals, erasing a 14-point third-quarter deficit with a closing 11&ndash;0 run. Karl-Anthony Towns added 18 points and 12 rebounds; OG Anunoby contributed 17. Victor Wembanyama posted 26 points and 12 rebounds for San Antonio but shot just 6-for-21 from the field in his Finals debut.</p>
+      <p>The Knicks &mdash; playing their first Finals game in 27 years and chasing their first championship since 1973 &mdash; became the first team ever to beat the Spurs in a Finals Game 1, ending San Antonio&rsquo;s perfect 6&ndash;0 record in opening games. New York has now won 12 consecutive playoff games. Brunson was characteristically understated after: &ldquo;Wasn&rsquo;t really my night for most of the night, but we kept finding a way. I just like how resilient we were.&rdquo; Game 2 is Friday in San Antonio.</p>
+      <div class="src">Sources: <a href="https://www.nba.com" target="_blank" rel="noopener">NBA.com</a> &middot; ESPN &middot; CBS Sports &middot; ABC7 NY &middot; June 3, 2026</div>
+    </article>
+
+    <article class="s" id="sport-2">
+      <h3>Blue Jays Re-Acquire Simeon Woods Richardson as Rotation Reaches Crisis Point with Five Starters on IL</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Toronto Blue Jays acquired right-hander Simeon Woods Richardson from the Minnesota Twins for cash considerations on Wednesday &mdash; a depth move born of genuine desperation. Five rotation pitchers are currently on the injured list, including Max Scherzer, Shane Bieber, and Dylan Cease in various rehab stages. Cody Ponce is out for the season with a torn ACL.</p>
+      <p>Woods Richardson, 25, returns to the franchise that first obtained him from the Mets before shipping him to Minnesota in the 2021 Jos&eacute; Berr&iacute;os trade. His 2026 campaign has been dismal &mdash; 0&ndash;7 with a 7.74 ERA across 12 appearances &mdash; and Minnesota could only recoup cash after designating him for assignment. Manager John Schneider suggested he could pitch as a bulk starter or in relief, noting &ldquo;some tweaks to the arsenal that we can make.&rdquo; Toronto is currently at .500 and 4-3 in losses over their last seven, with the World Cup schedule at BMO Field beginning June 12 adding logistical pressure to an already difficult stretch.</p>
+      <div class="src">Sources: <a href="https://www.mlb.com" target="_blank" rel="noopener">MLB.com</a> &middot; ESPN &middot; Athlon Sports &middot; June 4, 2026</div>
+    </article>
+
+    <article class="s" id="sport-3">
+      <h3>French Open Chaos: Sabalenka Collapses, Semis Set &mdash; No Former Grand Slam Champion Remains in Either Draw</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Thursday, June 4, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The 2026 French Open has produced the most chaotic draw since the Open Era began, and is guaranteed to crown first-time Grand Slam champions on both the men&rsquo;s and women&rsquo;s sides &mdash; the first such outcome since the 1977 French Open. World No. 1 Aryna Sabalenka suffered the defining upset, blowing a set and two-break lead to fall 3&ndash;6, 7&ndash;5, 6&ndash;0 to No. 25 Diana Shnaider, dropping the last nine games in deteriorating wind conditions on Court Philippe-Chatrier.</p>
+      <p><strong>Women&rsquo;s semis (today, Thursday):</strong> Shnaider vs. Mirra Andreeva; qualifier Maja Chwalinska &mdash; only the second qualifier in Open Era history to reach a Roland-Garros women&rsquo;s semifinal &mdash; faces Maryna Kostyuk. The women&rsquo;s final is Saturday, June 6. <strong>Men&rsquo;s semis (Friday):</strong> No. 2 Alexander Zverev, who has dropped only one set in five matches and is the heavy favourite after the shock exits of Jannik Sinner and Novak Djokovic, faces Czech teenager Jakub Mensik. No. 10 Flavio Cobolli, who ousted Canada&rsquo;s F&eacute;lix Auger-Aliassime in four sets in the quarterfinals, meets unseeded Matteo Arnaldi in an all-Italian semifinal. The men&rsquo;s final is Sunday, June 7.</p>
+      <div class="src">Sources: <a href="https://www.rolandgarros.com" target="_blank" rel="noopener">Roland-Garros.com</a> &middot; CBS Sports &middot; Bleacher Report &middot; June 3&ndash;4, 2026</div>
+    </article>
+
+  </div>
+
+
+</div></div><!-- /sport -->
+
+<!-- ==================== PUZZLES ==================== -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>The Chronicler Funnies</h2><div class="flag">Puzzles &amp; Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All intermediate steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">4</div>
+        <div class="crunch-tile">6</div>
+        <div class="crunch-tile">9</div>
+        <div class="crunch-tile">11</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">64</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat" style="background:#d4edda;padding:6px 8px;border-radius:3px;"><strong>(9 &minus; 4) &times; 11 + 9 = 64</strong><br>Wait &mdash; cleaner path: <strong>(11 &minus; 6) &times; 9 + (4 &times; 9)</strong>... try: <strong>4 &times; (11 + 6) &minus; 4 = 64</strong><br>Step 1: 11 + 6 = 17 &nbsp;&middot;&nbsp; Step 2: 4 &times; 17 = 68 &nbsp;&middot;&nbsp; Step 3: 68 &minus; 4 = 64 &#10003;</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">Edition No. 64 &mdash; target matches the issue number.</div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="https://thechronicler.ca/Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive &rarr;</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">BRUNSON</div>
+        <div class="ww-mini-tile">HORMUZ</div>
+        <div class="ww-mini-tile">MASSIE</div>
+        <div class="ww-mini-tile">CUSMA</div>
+        <div class="ww-mini-tile">MALVIYA</div>
+        <div class="ww-mini-tile">LITANI</div>
+        <div class="ww-mini-tile">SHNAIDER</div>
+        <div class="ww-mini-tile">DONBAS</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat">&#129001; <strong>People in today&rsquo;s top stories:</strong> BRUNSON &middot; MASSIE &middot; MALVIYA &middot; SHNAIDER</div>
+        <div class="answer-cat">&#129000; <strong>Places &amp; agreements in today&rsquo;s news:</strong> HORMUZ &middot; CUSMA &middot; LITANI &middot; DONBAS</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">Decoys: MASSIE reads like a place or surname without context. LITANI (Lebanon&rsquo;s river) might seem like a person&rsquo;s name. SHNAIDER could look like a place. CUSMA is an acronym that resembles a surname.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Flatland News Comic Strip -->
+  <span class="cat" style="margin-top:22px;">Flatland News</span>
+  <div class="comic-strip">
+    <div class="comic-title">Flatland News &mdash; Vol. I, No. 64</div>
+    <div style="padding:0;margin:0;line-height:0;">
+      <img src="Images/flatlandnews-04062026-vol1-no64.png"
+           alt="Flatland News — Vol. I, No. 64: Four-panel satirical comic. Panel 1: The Homegrown Fire — A Canadian politician points at a Trump poster while a second politician pours a jerrycan labelled Regulation/Underinvestment/Lack of fibre access into a burning lumber mill. Panel 2: The People's IPO — A foreign executive cuts a ribbon on Dalal Street while a cash-stuffed suitcase tagged HQ Not India rolls toward the airport, as retail investors cheer. Panel 3: The War Powers Gesture — Democrats and four Republicans slowly wheel a giant non-binding STOP sign toward the Capitol while Trump watches from the window eating popcorn. Panel 4: The Third Ceasefire — A patient labelled Lebanon lies bandaged in bed as a doctor labelled US Diplomacy cheerfully announces a ceasefire while jets and rockets fly past the window; a tally on the wall reads Ceasefire 1, 2, 3."
+           style="width:100%;display:block;border:none;">
+    </div>
+  </div>
+
+</div></div><!-- /puzzles -->
+
+<div class="divider"></div>
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 64 &bull; Thursday, June 4, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Weather data: wttr.in (live). Air quality data: Open-Meteo Air Quality API (US AQI scale, live). Market data carries inherent delays; verify with live sources before making financial decisions. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+function handleRead(btn) {
+  if (window._ttsUtterance) {
+    window.speechSynthesis.cancel();
+    if (window._ttsBtn) { window._ttsBtn.textContent = '\uD83D\uDD0A Read aloud'; }
+    if (window._ttsBtn === btn) { window._ttsUtterance = null; window._ttsBtn = null; return; }
+  }
+  const article = btn.closest('article');
+  const text = Array.from(article.querySelectorAll('p')).map(p => p.textContent).join(' ');
+  const u = new SpeechSynthesisUtterance(text);
+  u.onend = function() { btn.textContent = '\uD83D\uDD0A Read aloud'; window._ttsUtterance = null; window._ttsBtn = null; };
+  window._ttsUtterance = u;
+  window._ttsBtn = btn;
+  btn.textContent = '\u23F9 Stop';
+  window.speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>
