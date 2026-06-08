@@ -71,6 +71,9 @@ article.s .src a{color:var(--rust);text-decoration:none;}
 .aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
 .aqi-hazardous{background:#7e0023;color:#fff;border:1px solid #5a0019;}
 .w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7px;color:var(--grey);flex:1;line-height:1.3;}
+.wfc .dm span{display:block;font-size:8px;margin:1px 0;}
 .w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
 /* Markets */
 .mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
@@ -207,6 +210,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Partly cloudy</div>
       <span class="aqi-badge aqi-good">AQI 35 <span class="al">Good</span></span>
       <div class="w-drow"><span>&#128168; &rarr; 11 mph</span><span>&#128167; 94%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>☁️</span>20&deg;/5&deg;</div>
+        <div class="dm">Wed<span>🌧️</span>26&deg;/12&deg;</div>
+        <div class="dm">Thu<span>🌧️</span>18&deg;/12&deg;</div>
+      </div>
     </div>
 
     <div class="w-card">
@@ -215,6 +223,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Sunny</div>
       <span class="aqi-badge aqi-moderate">AQI 50 <span class="al">Good</span></span>
       <div class="w-drow"><span>&#128168; &#8599; 2 mph</span><span>&#128167; 100%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>☁️</span>26&deg;/13&deg;</div>
+        <div class="dm">Wed<span>🌧️</span>22&deg;/17&deg;</div>
+        <div class="dm">Thu<span>🌧️</span>24&deg;/18&deg;</div>
+      </div>
     </div>
 
     <div class="w-card">
@@ -223,6 +236,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Patches of fog</div>
       <span class="aqi-badge aqi-good">AQI 40 <span class="al">Good</span></span>
       <div class="w-drow"><span>&#128168; &#8600; 2 mph</span><span>&#128167; 100%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>☁️</span>27&deg;/12&deg;</div>
+        <div class="dm">Wed<span>🌧️</span>20&deg;/18&deg;</div>
+        <div class="dm">Thu<span>🌧️</span>27&deg;/19&deg;</div>
+      </div>
     </div>
 
     <div class="w-card">
@@ -231,6 +249,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Sunny</div>
       <span class="aqi-badge aqi-good">AQI 49 <span class="al">Good</span></span>
       <div class="w-drow"><span>&#128168; &#8601; 5 mph</span><span>&#128167; 88%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌧️</span>28&deg;/14&deg;</div>
+        <div class="dm">Wed<span>🌧️</span>26&deg;/18&deg;</div>
+        <div class="dm">Thu<span>🌧️</span>29&deg;/20&deg;</div>
+      </div>
     </div>
 
     <div class="w-card">
@@ -239,6 +262,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Clear</div>
       <span class="aqi-badge aqi-good">AQI 38 <span class="al">Good</span></span>
       <div class="w-drow"><span>&#128168; &uarr; 15 mph</span><span>&#128167; 73%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>⛈️</span>31&deg;/14&deg;</div>
+        <div class="dm">Wed<span>🌧️</span>26&deg;/16&deg;</div>
+        <div class="dm">Thu<span>🌧️</span>16&deg;/11&deg;</div>
+      </div>
     </div>
 
     <div class="w-card">
@@ -247,6 +275,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Cloudy</div>
       <span class="aqi-badge aqi-good">AQI 21 <span class="al">Good</span></span>
       <div class="w-drow"><span>&#128168; &rarr; 13 mph</span><span>&#128167; 91%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌧️</span>20&deg;/8&deg;</div>
+        <div class="dm">Wed<span>🌧️</span>18&deg;/12&deg;</div>
+        <div class="dm">Thu<span>🌧️</span>19&deg;/10&deg;</div>
+      </div>
     </div>
 
     <div class="w-card">
@@ -255,10 +288,15 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Overcast</div>
       <span class="aqi-badge aqi-good">AQI 33 <span class="al">Good</span></span>
       <div class="w-drow"><span>&#128168; &larr; 4 mph</span><span>&#128167; 77%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌧️</span>14&deg;/12&deg;</div>
+        <div class="dm">Wed<span>🌧️</span>16&deg;/11&deg;</div>
+        <div class="dm">Thu<span>☁️</span>18&deg;/11&deg;</div>
+      </div>
     </div>
 
   </div></div>
-  <div class="w-note">Weather: wttr.in / Environment Canada &middot; AQI: Open-Meteo Air Quality API (US AQI scale) &middot; All Canadian cities Good air quality today (AQI 21&ndash;50) &middot; Data: 8 June 2026.</div>
+  <div class="w-note">Current conditions: wttr.in / Environment Canada &middot; 3-day forecast &amp; AQI: Open-Meteo API (US AQI scale) &middot; All Canadian cities Good air quality today (AQI 21&ndash;50) &middot; Data: 8 June 2026.</div>
 
   <span class="cat">Top Stories</span>
   <div class="col-3">
@@ -315,7 +353,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="mc-sub">Toronto Stock Exchange</div>
       <div class="mc-val">34,413</div>
       <span class="mc-chg down">&#9660; &minus;803.61 (&minus;2.28%)</span>
-      <div class="mc-note">Jun 8, 2026 &middot; CAD</div>
+      <div class="mc-note">Jun 8 &middot; CAD</div>
     </div>
     <div class="mkt-card currency">
       <div class="mc-name">CAD / USD</div>
@@ -331,12 +369,40 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <span class="mc-chg up">&#9650; +0.1002 (+0.15%)</span>
       <div class="mc-note">Jun 8, 2026</div>
     </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">0.6220</div>
+      <span class="mc-chg down">&#9660; &minus;0.00035 (&minus;0.06%)</span>
+      <div class="mc-note">Jun 8, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">0.5370</div>
+      <span class="mc-chg down">&#9660; &minus;0.00073 (&minus;0.14%)</span>
+      <div class="mc-note">Jun 8, 2026</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Brent Crude</div>
+      <div class="mc-sub">ICE Front Month</div>
+      <div class="mc-val">$86.57</div>
+      <span class="mc-chg up">&#9650; +1.21 (+1.42%)</span>
+      <div class="mc-note">Jun 8 &middot; USD/bbl</div>
+    </div>
     <div class="mkt-card commodity-up">
       <div class="mc-name">Crude Oil (WTI)</div>
       <div class="mc-sub">NYMEX Front Month</div>
       <div class="mc-val">$80.81</div>
       <span class="mc-chg up">&#9650; +1.35 (+1.70%)</span>
       <div class="mc-note">Jun 8 &middot; USD/bbl</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">COMEX Front Month</div>
+      <div class="mc-val">$4,352.50</div>
+      <span class="mc-chg down">&#9660; &minus;12.80 (&minus;0.29%)</span>
+      <div class="mc-note">Jun 8 &middot; USD/oz</div>
     </div>
   </div>
   <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; Data as at June 8, 2026. Market data carries inherent delays.</div>
@@ -358,6 +424,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Partly cloudy</div>
       <span class="aqi-badge aqi-hazardous">AQI 245 <span class="al">Very Unhealthy</span></span>
       <div class="w-drow"><span>&#128168; &rarr; 12 mph</span><span>&#128167; 23%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌧️</span>43&deg;/31&deg;</div>
+        <div class="dm">Wed<span>⛅</span>42&deg;/32&deg;</div>
+        <div class="dm">Thu<span>⛈️</span>40&deg;/27&deg;</div>
+      </div>
     </div>
 
     <div class="w-card india-card">
@@ -366,6 +437,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Partly cloudy</div>
       <span class="aqi-badge aqi-poor">AQI 184 <span class="al">Unhealthy</span></span>
       <div class="w-drow"><span>&#128168; &#8600; 14 mph</span><span>&#128167; 9%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>☀️</span>39&deg;/23&deg;</div>
+        <div class="dm">Wed<span>☀️</span>40&deg;/25&deg;</div>
+        <div class="dm">Thu<span>🌧️</span>37&deg;/27&deg;</div>
+      </div>
     </div>
 
     <div class="w-card india-card">
@@ -374,6 +450,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Haze</div>
       <span class="aqi-badge aqi-poor">AQI 134 <span class="al">Unhealthy Sensitive</span></span>
       <div class="w-drow"><span>&#128168; &uarr; 15 mph</span><span>&#128167; 67%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>⛈️</span>37&deg;/29&deg;</div>
+        <div class="dm">Wed<span>⛈️</span>38&deg;/27&deg;</div>
+        <div class="dm">Thu<span>⛈️</span>35&deg;/27&deg;</div>
+      </div>
     </div>
 
     <div class="w-card india-card">
@@ -382,6 +463,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Haze</div>
       <span class="aqi-badge aqi-moderate">AQI 82 <span class="al">Moderate</span></span>
       <div class="w-drow"><span>&#128168; &rarr; 13 mph</span><span>&#128167; 67%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌧️</span>32&deg;/28&deg;</div>
+        <div class="dm">Wed<span>⛈️</span>33&deg;/28&deg;</div>
+        <div class="dm">Thu<span>🌧️</span>33&deg;/30&deg;</div>
+      </div>
     </div>
 
     <div class="w-card india-card">
@@ -390,6 +476,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Partly cloudy</div>
       <span class="aqi-badge aqi-moderate">AQI 76 <span class="al">Moderate</span></span>
       <div class="w-drow"><span>&#128168; &rarr; 12 mph</span><span>&#128167; 52%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>⛈️</span>36&deg;/26&deg;</div>
+        <div class="dm">Wed<span>⛈️</span>36&deg;/25&deg;</div>
+        <div class="dm">Thu<span>🌧️</span>36&deg;/24&deg;</div>
+      </div>
     </div>
 
     <div class="w-card india-card">
@@ -398,6 +489,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Partly cloudy</div>
       <span class="aqi-badge aqi-good">AQI 36 <span class="al">Good</span></span>
       <div class="w-drow"><span>&#128168; &rarr; 17 mph</span><span>&#128167; 55%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌧️</span>29&deg;/21&deg;</div>
+        <div class="dm">Wed<span>🌧️</span>26&deg;/21&deg;</div>
+        <div class="dm">Thu<span>🌧️</span>28&deg;/20&deg;</div>
+      </div>
     </div>
 
     <div class="w-card india-card">
@@ -406,10 +502,15 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="w-cond">Partly cloudy</div>
       <span class="aqi-badge aqi-moderate">AQI 53 <span class="al">Moderate</span></span>
       <div class="w-drow"><span>&#128168; &#8599; 6 mph</span><span>&#128167; 45%</span></div>
+      <div class="wfc">
+        <div class="dm">Tue<span>🌧️</span>38&deg;/29&deg;</div>
+        <div class="dm">Wed<span>🌧️</span>35&deg;/28&deg;</div>
+        <div class="dm">Thu<span>🌧️</span>35&deg;/26&deg;</div>
+      </div>
     </div>
 
   </div></div>
-  <div class="w-note">Weather: wttr.in / IMD &middot; AQI: Open-Meteo Air Quality API (US AQI scale) &middot; Delhi AQI 245 (Very Unhealthy) &mdash; mask strongly advised; avoid outdoor exertion. Chandigarh 44&deg;C / AQI 184 (Unhealthy) &mdash; extreme pre-monsoon heat across North India. Kolkata AQI 134 (Unhealthy for Sensitive Groups). Bengaluru remains clean-air outlier at AQI 36. Data: 8 June 2026.</div>
+  <div class="w-note">Current conditions: wttr.in / IMD &middot; 3-day forecast &amp; AQI: Open-Meteo API (US AQI scale) &middot; Delhi AQI 245 (Very Unhealthy) &mdash; mask strongly advised; avoid outdoor exertion. Chandigarh 44&deg;C / AQI 184 (Unhealthy) &mdash; extreme pre-monsoon heat across North India. Kolkata AQI 134 (Unhealthy for Sensitive Groups). Bengaluru remains clean-air outlier at AQI 36. Data: 8 June 2026.</div>
 
   <span class="cat">Top Stories</span>
   <div class="col-3">
@@ -482,16 +583,30 @@ footer.footer a{color:var(--rust);text-decoration:none;}
       <div class="mc-note">Jun 8, 2026 &middot; INR</div>
     </div>
     <div class="mkt-card currency">
-      <div class="mc-name">INR / USD</div>
-      <div class="mc-sub">1 INR in USD</div>
-      <div class="mc-val">0.0105</div>
-      <span class="mc-chg down">&#9660; &minus;0.54%</span>
+      <div class="mc-name">USD / INR</div>
+      <div class="mc-sub">Rupee &mdash; per US Dollar</div>
+      <div class="mc-val">&#8377;95.24</div>
+      <span class="mc-chg down">&#9660; Rupee weaker</span>
       <div class="mc-note">Jun 8, 2026</div>
     </div>
     <div class="mkt-card currency">
-      <div class="mc-name">INR / EUR</div>
-      <div class="mc-sub">1 INR in EUR</div>
-      <div class="mc-val">0.0091</div>
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">Rupee &mdash; per Canadian Dollar</div>
+      <div class="mc-val">&#8377;68.68</div>
+      <span class="mc-chg up">&#9650; +0.15%</span>
+      <div class="mc-note">Jun 8, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">GBP / INR</div>
+      <div class="mc-sub">Rupee &mdash; per Pound Sterling</div>
+      <div class="mc-val">&#8377;128.21</div>
+      <span class="mc-chg down">&#9660; &minus;0.32%</span>
+      <div class="mc-note">Jun 8, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">EUR / INR</div>
+      <div class="mc-sub">Rupee &mdash; per Euro</div>
+      <div class="mc-val">&#8377;109.89</div>
       <span class="mc-chg down">&#9660; &minus;0.24%</span>
       <div class="mc-note">Jun 8, 2026</div>
     </div>
@@ -501,28 +616,16 @@ footer.footer a{color:var(--rust);text-decoration:none;}
   <div class="india-mkt-row">
     <div class="mkt-card">
       <div class="mc-name">Fine Gold 999</div>
-      <div class="mc-sub">INR / gram</div>
+      <div class="mc-sub">24 KT &mdash; INR / gram</div>
       <div class="mc-val">&#8377;15,149</div>
-      <div class="mc-note">Jun 8 &middot; IBJA AM</div>
+      <div class="mc-note">Jun 8 &middot; IBJA AM &middot; ex-GST</div>
     </div>
-    <div class="mkt-card">
-      <div class="mc-name">22 KT Gold</div>
-      <div class="mc-sub">INR / gram</div>
-      <div class="mc-val">&#8377;14,785</div>
-      <div class="mc-note">Jun 8 &middot; IBJA AM</div>
-    </div>
-    <div class="mkt-card">
-      <div class="mc-name">18 KT Gold</div>
-      <div class="mc-sub">INR / gram</div>
-      <div class="mc-val">&#8377;12,271</div>
-      <div class="mc-note">Jun 8 &middot; IBJA AM</div>
-    </div>
-    <div class="mkt-card commodity-up">
+    <div class="mkt-card commodity-down">
       <div class="mc-name">Gold (Global)</div>
-      <div class="mc-sub">USD / troy oz</div>
+      <div class="mc-sub">COMEX Front Month</div>
       <div class="mc-val">$4,352.50</div>
       <span class="mc-chg down">&#9660; &minus;12.80 (&minus;0.29%)</span>
-      <div class="mc-note">Jun 8 &middot; USD</div>
+      <div class="mc-note">Jun 8 &middot; USD/oz</div>
     </div>
   </div>
   <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; <a href="https://ibja.co" target="_blank" rel="noopener">IBJA</a> &middot; June 8, 2026. Market data carries inherent delays.</div>
