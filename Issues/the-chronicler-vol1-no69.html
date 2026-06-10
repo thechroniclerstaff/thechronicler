@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler &mdash; Wednesday, June 10, 2026 &mdash; Vol. I, No. 69</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.ticker-bar{background:var(--rust);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;text-align:center;line-height:1.6;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.aqi-unhealthy{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-hazardous{background:#7e0023;color:#fff;border:1px solid #5a0019;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7px;color:var(--grey);flex:1;line-height:1.3;}
+.wfc .dm span{display:block;font-size:8px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1.1;}
+.mc-chg{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;padding:2px 5px;border-radius:2px;display:inline-block;width:fit-content;}
+.mc-chg.up{background:#d4edda;color:#155724;}
+.mc-chg.down{background:#f8d7da;color:#721c24;}
+.mc-chg.flat{background:#fff3cd;color:#856404;}
+.mc-note{font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-top:1px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.india-mkt-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.gta-focus{background:#f0e8d0;border:1px dashed var(--rule);padding:16px;margin-top:16px;border-radius:4px;}
+.gta-focus-label{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:12px;border-bottom:1px solid var(--rule);padding-bottom:6px;}
+.sport-flag{display:inline-flex;align-items:center;gap:5px;font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-bottom:6px;}
+.sport-flag .fi{font-size:14px;line-height:1;}
+.games-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.puzzle-box{background:var(--aged);border:1px solid var(--rule);padding:14px 14px 12px;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--rust);margin-bottom:4px;}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-bottom:10px;line-height:1.55;}
+.crunch-nums{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:22px;width:46px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.crunch-target{background:var(--rust);color:#fff;font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:54px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:9.5px;background:var(--ink);color:var(--aged);border:none;padding:5px 10px;cursor:pointer;margin-bottom:8px;letter-spacing:.08em;}
+.answer-box{display:none;background:var(--cream);border:1px solid var(--rule);padding:8px 10px;margin-bottom:8px;}
+.answer-cat{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--ink);padding:4px 0;line-height:1.6;}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;}
+.ww-mini-tile{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:8px 4px;text-align:center;border-radius:3px;cursor:default;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+.featured-article{border:none;border-top:4px solid var(--rust);border-bottom:2px solid var(--rule);padding:18px 0 22px;margin-bottom:24px;grid-column:1/-1;}
+.featured-article h3{font-size:22px;line-height:1.22;margin-bottom:8px;}
+.featured-article .feat-lede{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--grey);margin-bottom:10px;line-height:1.65;}
+.feat-tag{display:inline-block;font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:var(--rust);padding:3px 8px;margin-bottom:10px;}
+.wc-banner{background:linear-gradient(135deg,#0a1628 0%,#1a2e50 50%,#0a1628 100%);border-top:5px solid var(--gold);padding:20px 16px;margin:20px 0 14px;text-align:center;}
+.wc-banner h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--aged);letter-spacing:.1em;text-transform:uppercase;}
+.wc-banner .wc-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:4px;opacity:.85;}
+.wc-link-block{background:#f2ead5;border:1px solid var(--rule);border-left:5px solid var(--gold);padding:16px 20px;margin:14px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.wc-link-block-text{font-family:'Libre Baskerville',serif;font-style:italic;font-size:13px;color:var(--grey);line-height:1.6;}
+.wc-link-block a{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;white-space:nowrap;}
+@media(min-width:680px){
+  .col-3{grid-template-columns:repeat(3,1fr);}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 14px 0;}
+  article.s:last-child{border-right:none;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+  .india-mkt-row{grid-template-columns:repeat(4,1fr);}
+  .featured-article{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;}
+  .featured-article .feat-left{border-right:1px solid var(--rule);padding-right:28px;}
+}
+@media(max-width:480px){
+  .games-row{grid-template-columns:1fr;}
+  .ww-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body id="top">
+
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="#top">Top</a>
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="https://thechronicler.ca/Specials/world-cup-2026.html">World Cup</a></div>
+    <div class="nav-item"><a href="#puzzles">Funnies</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 69 &nbsp;&middot;&nbsp; Wednesday, June 10, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<div class="ticker-bar">Gordie Howe Bridge Opens Sunday &mdash; Tornado Warnings Strike Southern Manitoba &mdash; Pakistan Airstrikes Kill 11 Children in Afghanistan &mdash; Modi Becomes India&rsquo;s Longest Continuously Elected PM &mdash; 20 TMC MPs Write to Speaker Seeking NDA Alignment &mdash; Hurricanes Level Stanley Cup Final 2&ndash;2 &mdash; Trump Booed at MSG as Spurs Win NBA Finals Game 3 &mdash; Firearms Amnesty Extended to Post&ndash;SC Ruling &mdash; Canada Joins Six&ndash;Nation West Bank Sanctions Coalition</div>
+
+
+<!-- ==================== CANADA ==================== -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Halifax</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">18&deg;C</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 40 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; SE 4 km/h</span><span>&#128167; 68%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9728;&#65039;</span>24/11&deg;</div>
+        <div class="dm">Thu<span>&#9729;&#65039;</span>21/11&deg;</div>
+        <div class="dm">Fri<span>&#9729;&#65039;</span>14/9&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Montr&eacute;al</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">16&deg;C</div>
+      <div class="w-cond">Clear</div>
+      <span class="aqi-badge aqi-good">AQI 49 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; SSE 6 km/h</span><span>&#128167; 94%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9728;&#65039;</span>31/17&deg;</div>
+        <div class="dm">Thu<span>&#127746;&#65039;</span>26/19&deg;</div>
+        <div class="dm">Fri<span>&#127746;&#65039;</span>30/20&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Ottawa</div><div class="w-icon">&#127746;&#65039;</div></div>
+      <div class="w-temp">19&deg;C</div>
+      <div class="w-cond">Light Rain</div>
+      <span class="aqi-badge aqi-good">AQI 31 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; SE 5 km/h</span><span>&#128167; 88%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#127746;&#65039;</span>24/19&deg;</div>
+        <div class="dm">Thu<span>&#127746;&#65039;</span>27/18&deg;</div>
+        <div class="dm">Fri<span>&#9925;&#65039;</span>29/18&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Toronto</div><div class="w-icon">&#9928;&#65039;</div></div>
+      <div class="w-temp">18&deg;C</div>
+      <div class="w-cond">Rain &amp; Thunder</div>
+      <span class="aqi-badge aqi-moderate">AQI 53 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; S 8 km/h</span><span>&#128167; 100%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#127787;&#65039;</span>27/19&deg;</div>
+        <div class="dm">Thu<span>&#127746;&#65039;</span>27/19&deg;</div>
+        <div class="dm">Fri<span>&#127746;&#65039;</span>25/19&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Winnipeg</div><div class="w-icon">&#127746;&#65039;</div></div>
+      <div class="w-temp">17&deg;C</div>
+      <div class="w-cond">Patchy Rain</div>
+      <span class="aqi-badge aqi-good">AQI 39 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; S 22 km/h</span><span>&#128167; 95%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#127746;&#65039;</span>27/15&deg;</div>
+        <div class="dm">Thu<span>&#127746;&#65039;</span>16/11&deg;</div>
+        <div class="dm">Fri<span>&#127746;&#65039;</span>14/9&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Edmonton</div><div class="w-icon">&#9928;&#65039;</div></div>
+      <div class="w-temp">13&deg;C</div>
+      <div class="w-cond">Thundery Nearby</div>
+      <span class="aqi-badge aqi-good">AQI 43 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; NNW 10 km/h</span><span>&#128167; 78%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9729;&#65039;</span>16/9&deg;</div>
+        <div class="dm">Thu<span>&#127746;&#65039;</span>15/7&deg;</div>
+        <div class="dm">Fri<span>&#127746;&#65039;</span>12/7&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Vancouver</div><div class="w-icon">&#127746;&#65039;</div></div>
+      <div class="w-temp">12&deg;C</div>
+      <div class="w-cond">Light Rain</div>
+      <span class="aqi-badge aqi-good">AQI 24 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; W 17 km/h</span><span>&#128167; 94%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9728;&#65039;</span>19/10&deg;</div>
+        <div class="dm">Thu<span>&#9728;&#65039;</span>17/10&deg;</div>
+        <div class="dm">Fri<span>&#9728;&#65039;</span>19/11&deg;</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Current conditions: wttr.in / Environment Canada &middot; 3-day forecast &amp; AQI: Open-Meteo API (US AQI scale) &middot; All Canadian cities Good air quality today (AQI 24&ndash;49) except Toronto and Winnipeg Moderate &middot; Severe storm activity across Southern Manitoba tonight &middot; Data: 10 June 2026, approx. 5:45 AM ET.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="canada-1">
+      <h3>Gordie Howe Bridge to Open This Week, Carney Confirms After Years of Delay and Trade Standoff</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>After more than eight years of construction, diplomatic wrangling, and a months-long standoff with the Trump administration, Prime Minister Mark Carney confirmed Tuesday that the Gordie Howe International Bridge connecting Windsor, Ontario to Detroit, Michigan will open to traffic by the end of the week. A ribbon-cutting ceremony is expected Friday, with the bridge officially welcoming vehicles on June 15. &ldquo;The bridge will be open at the end of the week,&rdquo; Carney told reporters in Ottawa ahead of a cabinet meeting. &ldquo;A symbol, but also a fact, of co-operation between our countries. Great for Canadians going across the border, Americans coming across the border, and for commerce.&rdquo;</p>
+      <p>The C$6.4-billion crossing spans the Detroit River and provides a second publicly owned land border crossing between Canada and the United States, complementing the privately operated Ambassador Bridge, which carries a significant share of bilateral automotive and manufacturing trade. Construction broke ground in 2018 but was battered by COVID-19-related delays and, more recently, by political interference from Washington. As recently as February, President Trump threatened to block the bridge&rsquo;s opening unless Canada compensated the United States for what he called unfair treatment &mdash; a claim rejected by Canadian officials. The opening, widely seen as a signal of stabilising Canada&ndash;U.S. relations amid ongoing trade tensions, ends one of the more drawn-out infrastructure sagas in recent Canadian history.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/gordie-howe-bridge-open-9.7228238" target="_blank" rel="noopener">CBC News</a> &middot; June 9, 2026</div>
+    </article>
+
+    <article class="s" id="canada-2">
+      <h3>Tornado Warnings Strike Southern Manitoba Including Winnipeg as Violent Storm System Sweeps Province</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Several tornado warnings struck parts of southern Manitoba &mdash; including Winnipeg, Brandon, Portage la Prairie, Steinbach, Morden, and Winkler &mdash; Tuesday afternoon and evening as a powerful frontal system drove severe thunderstorms rapidly eastward across the province. Environment and Climate Change Canada issued an orange-level tornado watch for most of the province&rsquo;s southwestern corner in the early afternoon before upgrading portions to full tornado warnings by evening. A red-level tornado warning was issued and later ended for communities east of Winnipeg, including Lorette, Ste-Genevi&egrave;ve, and Landmark. Forecasters warned that all modes of severe weather were possible, with tornadoes and large hail the primary threats during discrete storm development, transitioning to widespread damaging winds as a linear thunderstorm complex organised and pushed eastward.</p>
+      <p>Environment Canada said a developing frontal system ushered an unstable airmass into the region, with discrete thunderstorms expected to initiate between 4 and 5 PM local time before merging into a large, fast-moving complex. Hailstones up to 7 centimetres in diameter, wind gusts up to 110 kilometres per hour, and locally heavy rainfall of over 50 millimetres were all possible. The agency warned that significant damage or destruction to infrastructure, homes, and the natural environment was possible with any strong tornadic cells. Residents were urged to shelter immediately at the first sign of a rotating funnel or debris cloud, and to avoid seeking shelter under highway overpasses.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/manitoba/southwestern-tornado-watch-9.7229033" target="_blank" rel="noopener">CBC News</a> &middot; June 9, 2026</div>
+    </article>
+
+    <article class="s" id="canada-3">
+      <h3>Ottawa Extends Assault-Style Firearms Amnesty Indefinitely, Pending Supreme Court Ruling</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The federal government announced Tuesday that it is extending the amnesty period for owners of prohibited assault-style firearms until 90 days after the Supreme Court of Canada renders its decision on the legality of the ban &mdash; a ruling not expected until sometime in 2027. The deadline had previously been set for October 30, following a series of extensions since Ottawa first prohibited more than 2,500 makes and models of firearms in May 2020 in the wake of the Nova Scotia mass shooting. The Supreme Court agreed in March to hear an appeal challenging that initial prohibition, prompting the government to tie the amnesty&rsquo;s duration directly to the court&rsquo;s timeline. Public Safety Minister Gary Anandasangaree said the extension was made &ldquo;out of respect for the court, out of respect for firearms owners,&rdquo; while reaffirming the government&rsquo;s confidence in the ban&rsquo;s legality.</p>
+      <p>The move does not affect the Assault-Style Firearms Compensation Program, which Ottawa says remains on track to conclude by October 2026. More than 142,000 firearms have been declared, collected, or destroyed under the program across its individual and business phases. The Canadian Coalition for Firearm Rights, which launched the Supreme Court challenge, welcomed the extension, describing it as a tacit acknowledgement that collecting guns ahead of a potential adverse ruling would be untenable. Gun control advocates took the opposite view, with at least one group warning that prohibiting highly lethal weapons while simultaneously extending the window for owners to retain them undermines the stated rationale for the ban.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/firearms-ban-amnesty-period-extension-9.7229187" target="_blank" rel="noopener">CBC News</a> &middot; June 9, 2026</div>
+    </article>
+
+  </div>
+
+  <article class="s" id="canada-4" style="border-top:2px solid var(--rule);padding-top:18px;margin-top:4px;grid-column:1/-1;border-right:none;">
+    <h3>Ex-Net-Zero Advisers Tell Parliament the Alberta Pipeline Deal Is Incompatible with Canada&rsquo;s Climate Targets</h3>
+    <div class="by">The Chronicler Canada Desk &middot; Wednesday, June 10, 2026</div>
+    <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+    <p>The co-founders of Canada&rsquo;s federal Net-Zero Advisory Body appeared before the House of Commons environment committee on Tuesday, delivering pointed testimony that Prime Minister Mark Carney&rsquo;s climate record has fallen short of expectations &mdash; and that the energy deal his government signed with Alberta is flatly incompatible with Canada&rsquo;s net-zero commitment. Simon Donner, the body&rsquo;s former co-chair and a climate scientist at the University of British Columbia, was unequivocal: &ldquo;You can&rsquo;t be saying these deals are still compatible with net-zero by 2050. They&rsquo;re not. The deal is not compatible with it.&rdquo; Fellow co-founder Catherine Abreu told the committee that many in the climate field had held &ldquo;much higher expectations&rdquo; for Carney, a former Bank of Canada and Bank of England governor who had built a reputation as a climate-minded economist before entering politics.</p>
+    <p>Both Donner and Abreu resigned from the advisory body in December, accusing the Carney government of failing to consult the group on major policy decisions, including the Alberta deal and the government&rsquo;s fast-track major projects legislation. The body, established in 2021 under the Canadian Net-Zero Emissions Accountability Act, was created to provide independent expert advice on reaching net-zero emissions by 2050. It has lost the bulk of its membership since Carney took office, with the government signalling in April that it would refocus the body&rsquo;s mandate around investment and economic growth in a low-carbon economy rather than emissions-reduction pathways. Canada&rsquo;s 2030 emissions target is widely considered out of reach.</p>
+    <div class="src">Source: <a href="https://www.cbc.ca/news/politics/net-zero-advisory-body-9.7229357" target="_blank" rel="noopener">CBC News</a> &middot; June 9, 2026</div>
+  </article>
+
+  <div class="gta-focus">
+    <div class="gta-focus-label">GTA Focus</div>
+    <div class="col-3">
+      <article class="s" id="gta-1" style="grid-column:1/-1;border-right:none;border-bottom:none;padding:0;">
+        <h3>Canada Joins Five-Nation Coalition Sanctioning Israeli Settlers and West Bank Settlement Entities</h3>
+        <div class="by">The Chronicler GTA Desk &middot; Wednesday, June 10, 2026</div>
+        <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+        <p>Canada joined Australia, the United Kingdom, France, Norway, and New Zealand on Tuesday in announcing co-ordinated new sanctions against Israeli settlers and settlement organisations operating in the occupied West Bank, escalating international pressure on Israel over a sustained wave of settler violence against Palestinians. The six countries released a joint statement declaring that &ldquo;extremist violent settlers, with the backing of their supporters, continue to attack Palestinians and abuse their human rights.&rdquo; The measures include asset freezes and travel bans targeting settlement entities and at least one hard-line Israeli cabinet minister already sanctioned by other Western countries. The co-ordinated action follows a separate round of European Union sanctions against both Hamas leaders and Israeli settler organisations, agreed upon after months of political deadlock in Brussels.</p>
+        <p>More than 700,000 Israelis live in the occupied West Bank and east Jerusalem, territories captured by Israel in the 1967 war and considered illegally occupied under international law, a position Israel rejects. Settler violence against Palestinian communities has surged over the past three years, with perpetrators rarely facing legal consequences. For Canada&rsquo;s diaspora communities with ties to the region &mdash; including the GTA&rsquo;s significant Jewish and Arab populations &mdash; the sanctions mark a notable shift in Ottawa&rsquo;s tone, coming months after the Carney government was criticised for what some advocates described as insufficient pressure on Israel during the Gaza and Lebanon conflicts. The Israeli government did not immediately respond to the new measures.</p>
+        <div class="src">Source: <a href="https://apnews.com/article/europe-sanctions-israel-west-bank-settlements-3e4cd923ba66bde475fd0fae168590b0" target="_blank" rel="noopener">Associated Press</a> &middot; June 9, 2026</div>
+      </article>
+    </div>
+  </div>
+
+  <span class="cat">Canada Markets</span>
+  <div class="mkt-note">Canada market data reflects Wednesday, June 10, 2026 intraday (Google Finance, 8:18 AM ET). Currency rates sourced from Google Finance (publisher-verified screenshot), June 10, 2026.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">34,411.69</div>
+      <span class="mc-chg down">&#9660; &minus;67.05 (&minus;0.19%)</span>
+      <div class="mc-note">Jun 10, 2026 &middot; CAD</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Crude Oil (WTI)</div>
+      <div class="mc-sub">NYMEX Front Month</div>
+      <div class="mc-val">$80.99</div>
+      <span class="mc-chg up">&#9650; +0.93 (+1.16%)</span>
+      <div class="mc-note">Jun 10 &middot; USD/bbl</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Brent Crude</div>
+      <div class="mc-sub">ICE Front Month</div>
+      <div class="mc-val">$86.56</div>
+      <span class="mc-chg up">&#9650; +0.91 (+1.06%)</span>
+      <div class="mc-note">Jun 10 &middot; USD/bbl</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">COMEX Front Month</div>
+      <div class="mc-val">$4,169.10</div>
+      <span class="mc-chg down">&#9660; &minus;117.30 (&minus;2.74%)</span>
+      <div class="mc-note">Jun 10 &middot; USD/oz</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">0.7177</div>
+      <span class="mc-chg up">&#9650; +0.0010 (+0.14%)</span>
+      <div class="mc-note">Jun 10, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">&#8377;68.3717</div>
+      <span class="mc-chg up">&#9650; +0.0320 (+0.05%)</span>
+      <div class="mc-note">Jun 10, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">&#8364;0.6218</div>
+      <span class="mc-chg up">&#9650; +0.00054 (+0.09%)</span>
+      <div class="mc-note">Jun 10, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">&#163;0.5362</div>
+      <span class="mc-chg up">&#9650; +0.00027 (+0.05%)</span>
+      <div class="mc-note">Jun 10, 2026</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; Publisher-verified screenshot &middot; June 10, 2026. Market data carries inherent delays.</div>
+
+</div></div><!-- /canada -->
+
+<!-- ==================== INDIA ==================== -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">New Delhi</div><div class="w-icon">&#127755;&#65039;</div></div>
+      <div class="w-temp">41&deg;C</div>
+      <div class="w-cond">Severe Sandstorm</div>
+      <span class="aqi-badge aqi-hazardous">AQI 407 <span class="al">Hazardous</span></span>
+      <div class="w-drow"><span>&#128168; WSW 18 km/h</span><span>&#128167; 30%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#127755;</span>45/35&deg;</div>
+        <div class="dm">Thu<span>&#127755;</span>44/29&deg;</div>
+        <div class="dm">Fri<span>&#127755;</span>43/30&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chandigarh</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">46&deg;C</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-unhealthy">AQI 180 <span class="al">Unhealthy</span></span>
+      <div class="w-drow"><span>&#128168; NW 15 km/h</span><span>&#128167; 8%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9728;&#65039;</span>46/30&deg;</div>
+        <div class="dm">Thu<span>&#127755;</span>44/24&deg;</div>
+        <div class="dm">Fri<span>&#9925;&#65039;</span>38/25&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Kolkata</div><div class="w-icon">&#9928;&#65039;</div></div>
+      <div class="w-temp">24&deg;C</div>
+      <div class="w-cond">Heavy Rain &amp; Thunder</div>
+      <span class="aqi-badge aqi-poor">AQI 124 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; S 28 km/h</span><span>&#128167; 100%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9728;&#65039;</span>39/30&deg;</div>
+        <div class="dm">Thu<span>&#9928;&#65039;</span>39/29&deg;</div>
+        <div class="dm">Fri<span>&#9928;&#65039;</span>39/26&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Mumbai</div><div class="w-icon">&#127787;&#65039;</div></div>
+      <div class="w-temp">34&deg;C</div>
+      <div class="w-cond">Haze</div>
+      <span class="aqi-badge aqi-moderate">AQI 81 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; WSW 23 km/h</span><span>&#128167; 63%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9728;&#65039;</span>31/30&deg;</div>
+        <div class="dm">Thu<span>&#9728;&#65039;</span>31/30&deg;</div>
+        <div class="dm">Fri<span>&#9728;&#65039;</span>32/30&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Hyderabad</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">36&deg;C</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 71 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; WNW 19 km/h</span><span>&#128167; 42%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9728;&#65039;</span>37/26&deg;</div>
+        <div class="dm">Thu<span>&#9728;&#65039;</span>38/27&deg;</div>
+        <div class="dm">Fri<span>&#9925;&#65039;</span>37/27&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Bengaluru</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">30&deg;C</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 28 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; W 26 km/h</span><span>&#128167; 59%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9925;&#65039;</span>26/21&deg;</div>
+        <div class="dm">Thu<span>&#127746;&#65039;</span>28/21&deg;</div>
+        <div class="dm">Fri<span>&#9925;&#65039;</span>29/21&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chennai</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">38&deg;C</div>
+      <div class="w-cond">Partly cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 53 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; WNW 18 km/h</span><span>&#128167; 48%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9925;&#65039;</span>36/30&deg;</div>
+        <div class="dm">Thu<span>&#9925;&#65039;</span>33/30&deg;</div>
+        <div class="dm">Fri<span>&#9925;&#65039;</span>35/29&deg;</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Current conditions: wttr.in / IMD &middot; 3-day forecast &amp; AQI: Open-Meteo API (US AQI scale) &middot; Delhi AQI 407 (Hazardous) &mdash; severe sandstorm persisting through Friday; avoid all outdoor activity, N95 essential &middot; Chandigarh 46&deg;C / AQI 180 (Unhealthy) &mdash; dust storm forecast Thursday &middot; Kolkata AQI 124 (Poor) with active thunderstorm &middot; Bengaluru remains clean-air outlier at AQI 28 &middot; Data: 10 June 2026, approx. 5:45 AM ET.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="india-1">
+      <h3>Modi Condemns Attacks on Kuwait, Thanks Amir for Protecting Over One Million Indians in Country</h3>
+      <div class="by">The Chronicler India Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Prime Minister Narendra Modi held a telephone conversation with the Amir of Kuwait, Sheikh Meshal Al-Ahmad Al-Jaber Al Sabah, on Tuesday, in which he expressed deep concern over the escalating regional conflict and reaffirmed India&rsquo;s strong condemnation of attacks on Kuwait&rsquo;s sovereignty and territorial integrity. Modi called for de-escalation, dialogue, and diplomacy as the earliest route to restoring peace and stability in West Asia, and thanked the Amir for his personal attention to the safety and well-being of India&rsquo;s large expatriate community in Kuwait. The call came days after an Indian national was killed in an Iranian drone strike on Kuwait International Airport on June 3 &mdash; the second Indian casualty in Iranian strikes on Kuwaiti infrastructure in the current conflict, following a March 30 attack on a power and water desalination plant.</p>
+      <p>There are over 1.03 million Indians living and working in Kuwait, making them the country&rsquo;s largest expatriate community at roughly 20 per cent of its population. Separately, India&rsquo;s Ministry of External Affairs on Tuesday thanked Oman for rescuing 24 Indian crew members from a Palau-flagged tanker that caught fire after being attacked by the United States Navy off the Omani coast on Monday. The string of diplomatic calls underscores India&rsquo;s acute vulnerability to the ongoing conflict: with large diaspora populations spread across every Gulf Cooperation Council state, New Delhi has calibrated a careful line &mdash; condemning violations of sovereignty without formally aligning with any belligerent.</p>
+      <div class="src">Source: <a href="https://timesofindia.indiatimes.com/india/pm-modi-in-call-with-amir-slams-attack-on-kuwait/articleshow/131622212.cms" target="_blank" rel="noopener">Times of India</a> &middot; June 9, 2026</div>
+    </article>
+
+    <article class="s" id="india-2">
+      <h3>Modi Becomes India&rsquo;s Longest-Serving Elected Prime Minister, Surpassing Nehru&rsquo;s Record of 4,398 Days</h3>
+      <div class="by">The Chronicler India Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Prime Minister Narendra Modi today completed 4,399 consecutive days in office, becoming India&rsquo;s longest-serving continuously elected Prime Minister and surpassing the record held by Jawaharlal Nehru, who served 4,398 days following India&rsquo;s first general election in 1952. The milestone coincides with the completion of twelve years in power for the BJP-led government, which first came to office on May 26, 2014. Modi subsequently won re-election with stronger mandates in 2019 and 2024, becoming only the second Prime Minister after Nehru to win three consecutive terms. Congratulatory messages poured in from NDA leaders, foreign dignitaries, and Union Ministers, with Union Minister Piyush Goyal writing that the occasion marks &ldquo;transformative reforms that have reshaped India&rsquo;s growth journey.&rdquo;</p>
+      <p>The distinction at the heart of today&rsquo;s milestone is an important one: Nehru remains India&rsquo;s longest-serving Prime Minister by total tenure, having governed for approximately 16 years and 286 days from independence in 1947 until his death in 1964. However, his first five years were served under an interim government, before the first general election was held in 1952. Modi&rsquo;s entire tenure &mdash; spanning three full elected terms &mdash; rests on successive democratic mandates, making him the longest continuously elected Prime Minister in the country&rsquo;s history. The occasion is being marked with an NDA conclave at Bharat Mandapam in New Delhi, where Modi is chairing a meeting of Chief Ministers, Deputy Chief Ministers, and senior party figures.</p>
+      <div class="src">Source: <a href="https://timesofindia.indiatimes.com/india/modi-surpasses-nehru-as-longest-serving-elected-pm-tracing-the-road-to-4399-days-in-12-charts/articleshow/131627183.cms" target="_blank" rel="noopener">Times of India</a> &middot; June 10, 2026</div>
+    </article>
+
+    <article class="s" id="india-3">
+      <h3>Power Sector Veteran Urges Centre to Overhaul Electrical Safety Rules, Warns of Systemic Neglect</h3>
+      <div class="by">The Chronicler India Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Former power sector regulator D. Radhakrishna has written to NITI Aayog member Prof. Abhay Karandikar urging the central government to introduce sweeping electrical safety reforms, arguing that stronger oversight is essential to protect consumers and prevent avoidable tragedies. In a letter dated June 9, Radhakrishna described electrical safety as one of the most neglected yet critical areas of India&rsquo;s power sector, drawing on personal experience &mdash; including a 1984 circuit-breaker blast at a power generation facility that reportedly claimed nearly 20 lives, including colleagues &mdash; to underscore the human cost of weak safety systems. He warned that for ordinary consumers, the problem extends well beyond industrial settings: transformer blasts, short-circuit fires, and electrocution incidents continue to affect homes, residential complexes, and public spaces, risks compounded by rapid urbanisation, high-rise development, and rising electricity consumption.</p>
+      <p>Among the specific measures Radhakrishna has proposed are independent electrical safety certification, mandatory periodic safety audits for residential complexes, hospitals, schools, shopping malls, and high-rise buildings, stricter enforcement of existing safety regulations, and the creation of a national authority dedicated to electrical safety oversight and accident investigation. The call comes against a backdrop of recurring high-profile electrical accidents across India in 2026, including a blast at a Chhattisgarh power plant in April that killed 14 people and injured 40. Critics have long argued that India&rsquo;s regulatory framework for electrical safety is fragmented across multiple agencies with inadequate enforcement powers at the state and central levels.</p>
+      <div class="src">Source: <a href="https://timesofindia.indiatimes.com/india/power-sector-veteran-flags-electrical-safety-lapses-seeks-reforms-to-curb-accidents/articleshow/131627211.cms" target="_blank" rel="noopener">Times of India</a> &middot; June 10, 2026</div>
+    </article>
+
+  </div>
+
+  <article class="s" id="india-4" style="border-top:2px solid var(--rule);padding-top:18px;margin-top:4px;border-right:none;">
+    <h3>Twenty TMC MPs Formally Write to Lok Sabha Speaker Seeking NDA Alignment, Dealing Blow to Mamata</h3>
+    <div class="by">The Chronicler India Desk &middot; Wednesday, June 10, 2026</div>
+    <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+    <p>Twenty Trinamool Congress Lok Sabha MPs, led by Chief Whip Kakoli Ghosh Dastidar, have written formally to Speaker Om Birla declaring their intention to align with the BJP-led National Democratic Alliance, triggering the most serious parliamentary rupture in the party&rsquo;s history and leaving TMC supremo Mamata Banerjee isolated at the national level. The move came on a day of striking political theatre: while the rebel MPs assembled separately at the residence of a senior BJP leader in New Delhi, Banerjee was attending an INDIA bloc conclave intended to map out a pan-national opposition strategy against the BJP. Dastidar, who claims she remains the party&rsquo;s valid Chief Whip despite the leadership&rsquo;s attempt to replace her, told reporters: &ldquo;We have accepted the poll verdict in Bengal. We believe our future political course should be aligned with the NDA.&rdquo; The TMC has 28 seats in the Lok Sabha; the defection of 20 would cross the two-thirds threshold required under the anti-defection law, potentially allowing the group to avoid disqualification by merging with an existing parliamentary party.</p>
+    <p>The rebellion is the parliamentary spillover of an ongoing TMC implosion following the party&rsquo;s setback in the West Bengal Assembly elections. In the lower house, 58 of the TMC&rsquo;s 80 MLAs had already defied Banerjee&rsquo;s decision on the Leader of the Opposition post, backing an expelled MLA instead. In the Rajya Sabha, senior MP Sukhendu Sekhar Roy resigned from both the party and his seat, citing dissatisfaction with the leadership&rsquo;s direction. If the Speaker accepts the rebel group&rsquo;s claim, the NDA&rsquo;s combined strength in the 543-seat Lok Sabha would rise to 313.</p>
+    <div class="src">Source: <a href="https://timesofindia.indiatimes.com/india/tmc-turmoil-deepens-20-mps-send-letter-to-lok-sabha-speaker-wanting-to-ally-with-nda/articleshow/131585708.cms" target="_blank" rel="noopener">Times of India</a> &middot; June 8, 2026</div>
+  </article>
+
+  <article class="s" id="india-5" style="border-top:2px solid var(--rule);padding-top:18px;margin-top:4px;border-right:none;">
+    <h3>BJP Set to Unveil Nabin&rsquo;s New National Team, Reshaping Party Hierarchy Ahead of State Polls</h3>
+    <div class="by">The Chronicler India Desk &middot; Wednesday, June 10, 2026</div>
+    <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+    <p>The Bharatiya Janata Party is expected to announce its new national organisational team shortly, with party rules requiring BJP National President Nitin Nabin to unveil the reshuffle in June. Nabin, who succeeded JP Nadda as national president in January 2026 and is the youngest person to hold the post, chaired a major meeting of the party&rsquo;s senior office-bearers on June 1 &mdash; widely seen as a final gathering in the current formation before the new team is named. The restructuring will encompass appointments to national general secretaryships, vice presidencies, and state-level leadership posts. Earlier in May, the party announced four new state presidents; the full new team is now expected imminently. Party sources say the reshuffle coincides with an intensification of ground-level preparations for assembly elections in multiple states.</p>
+    <p>Nabin has spent his first months in the post travelling extensively &mdash; from Gujarat and West Bengal to Karnataka and Uttarakhand &mdash; stressing stronger booth-level mobilisation, grassroots outreach, and organisational discipline. His elevation was seen as a deliberate generational signal from PM Modi, who described Nabin at the January installation ceremony as a leader who embodies &ldquo;youthful energy and extensive organisational experience.&rdquo; The June team announcement will be Nabin&rsquo;s first major structural imprint on the party&rsquo;s national machinery, and is being watched closely as an indicator of which factions and regional voices gain prominence in the run-up to the 2029 Lok Sabha cycle.</p>
+    <div class="src">Source: <a href="https://timesofindia.indiatimes.com/india/bjps-nabin-team-to-take-charge-of-party-organisation-soon/articleshow/131622259.cms" target="_blank" rel="noopener">Times of India</a> &middot; June 10, 2026</div>
+  </article>
+
+  <span class="cat">India Markets</span>
+  <div class="mkt-note">Indian market data reflects Wednesday, June 10, 2026 intraday (Google Finance, 8:18 AM ET). Currency rates sourced from Google Finance (publisher-verified screenshot), June 10, 2026.</div>
+  <div class="india-mkt-row">
+    <div class="mkt-card world">
+      <div class="mc-name">BSE Sensex</div>
+      <div class="mc-sub">Bombay Stock Exchange</div>
+      <div class="mc-val">73,983.18</div>
+      <span class="mc-chg up">&#9650; +64.42 (+0.09%)</span>
+      <div class="mc-note">Jun 10, 2026 &middot; INR</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,214.95</div>
+      <span class="mc-chg down">&#9660; &minus;27.15 (&minus;0.12%)</span>
+      <div class="mc-note">Jun 10, 2026 &middot; INR</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">Rupee per US Dollar</div>
+      <div class="mc-val">0.0105</div>
+      <span class="mc-chg down">&#9660; &minus;0.05%</span>
+      <div class="mc-note">Jun 10, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">Rupee per Canadian Dollar</div>
+      <div class="mc-val">0.0146</div>
+      <span class="mc-chg down">&#9660; &minus;0.05%</span>
+      <div class="mc-note">Jun 10, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">Rupee per Pound Sterling</div>
+      <div class="mc-val">0.0078</div>
+      <span class="mc-chg up">&#9650; +0.12%</span>
+      <div class="mc-note">Jun 10, 2026</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">Rupee per Euro</div>
+      <div class="mc-val">0.0091</div>
+      <span class="mc-chg up">&#9650; +0.04%</span>
+      <div class="mc-note">Jun 10, 2026</div>
+    </div>
+  </div>
+
+  <span class="cat">India Gold &mdash; June 10, 2026 (IBJA PM rates, per gram, ex-GST)</span>
+  <div class="india-mkt-row">
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Fine Gold 999</div>
+      <div class="mc-sub">24 KT &mdash; INR / gram</div>
+      <div class="mc-val">&#8377;14,715</div>
+      <span class="mc-chg down">&#9660; &minus;537 (&minus;3.52%)</span>
+      <div class="mc-note">Jun 10 &middot; IBJA PM &middot; ex-GST</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Gold (Global)</div>
+      <div class="mc-sub">COMEX Front Month</div>
+      <div class="mc-val">$4,169.10</div>
+      <span class="mc-chg down">&#9660; &minus;117.30 (&minus;2.74%)</span>
+      <div class="mc-note">Jun 10 &middot; USD/oz</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; <a href="https://ibja.co" target="_blank" rel="noopener">IBJA</a> &middot; June 10, 2026. Market data carries inherent delays.</div>
+
+</div></div><!-- /india -->
+
+<!-- ==================== WORLD ==================== -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+
+  <article class="s featured-article" id="world-1">
+    <div class="feat-left">
+      <span class="feat-tag">&#127758; Lead Story &mdash; Iran War, Day 103</span>
+      <h3>Fragile Ceasefire Holds After Israel and Iran Trade Strikes, but Hezbollah&rsquo;s Rejection Clouds Peace Talks</h3>
+      <div class="feat-lede">A tenuous calm prevailed across the Israel-Iran front as both sides stepped back from the brink, but the regional ceasefire architecture remained fractured &mdash; with Hezbollah&rsquo;s formal rejection of Lebanon&rsquo;s provisional deal threatening to unravel what little has been built.</div>
+      <div class="by">The Chronicler World Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+    </div>
+    <div>
+      <p>A tenuous calm prevailed across the Israel-Iran front on Tuesday as both sides appeared to hold back following the most intense exchange of strikes in months over the weekend, but the regional ceasefire architecture remained deeply fractured. Prime Minister Benjamin Netanyahu stated that Israel had halted attacks on Iran &mdash; stopping short of formally acknowledging a ceasefire &mdash; while Iran announced a suspension of its military operations against Israel but warned it would resume them if Israeli strikes in Lebanon continued. Iran&rsquo;s airspace returned to normal operations and Israel lifted restrictions on schools and workplaces. A top Iranian official told CNN that Tehran has &ldquo;no problem&rdquo; advancing peace talks with the United States, provided it is confident that Washington is negotiating in good faith.</p>
+      <p>The central fault line remains Lebanon. Hezbollah formally rejected a ceasefire deal that Lebanon and Israel had provisionally agreed upon, with the group insisting it would not stand down while Israeli forces continued to strike Lebanese territory. Iran has made clear it will not agree to any comprehensive settlement that excludes Lebanon from ceasefire protection. The April 16 Israel-Lebanon ceasefire brokered by the United States had been extended multiple times, but has been serially undermined by Israeli strikes on Hezbollah positions in the south and Hezbollah rocket fire into northern Israel. With the ceasefire between Israel and Iran itself resting on fragile mutual restraint rather than any signed agreement, diplomats from Europe and the Gulf warned that a single miscalculation could reignite full-scale hostilities.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/iran-us-ceasefire-hezbollah-israel-10-june-2026-b7ec462890f3c2afa12bd5c0672f2b6b" target="_blank" rel="noopener">Associated Press</a> &middot; June 10, 2026</div>
+    </div>
+  </article>
+
+  <div class="col-3">
+
+    <article class="s" id="world-2">
+      <h3>Pakistan Strikes Kill Eleven Children in Afghanistan as Taliban Vows Retaliation</h3>
+      <div class="by">The Chronicler World Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Afghanistan accused Pakistan of launching fresh airstrikes on Wednesday that killed at least 13 people &mdash; including 11 children, one woman, and one elderly man &mdash; and wounded 14 others across the provinces of Khost, Kunar, and Paktika. Taliban chief spokesperson Zabihullah Mujahid said the victims were civilians and condemned the strikes as a &ldquo;humanitarian crime and act of aggression.&rdquo; Pakistan offered no immediate acknowledgment of the attacks. The strikes are the deadliest in weeks and follow a period of relative calm along the border since intense fighting in the spring. The day before, suspected Pakistani Taliban militants attacked a security post in Khyber Pakhtunkhwa province, killing six members of the Federal Constabulary &mdash; the pattern of cross-border provocation and retaliatory airstrike that has defined this conflict through 2026.</p>
+      <p>Pakistan has framed its strikes in Afghanistan as targeted operations against Tehreek-e-Taliban Pakistan fighters and affiliated militants who it says use Afghan territory to plan and launch attacks inside Pakistan. The Afghan Taliban, which took power in 2021, has consistently denied harbouring anti-Pakistan groups and condemned the strikes as violations of its sovereignty and international humanitarian law. The United Nations reported in May that cross-border fighting had killed at least 372 Afghan civilians and wounded 397 more in the first three months of 2026 alone. The killing of children in Tuesday&rsquo;s strikes is likely to draw renewed calls at the UN Security Council for a ceasefire and accountability, though formal action has so far been blocked.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/afghanistan-pakistan-airstrikes-children-killed-addc32b921147ed5bc1ee7b7b2cd5384" target="_blank" rel="noopener">Associated Press</a> &middot; June 10, 2026</div>
+    </article>
+
+    <article class="s" id="world-3">
+      <h3>Inside the Demolition Campaign: How Israel Is Reshaping East Jerusalem Through Eviction and Erasure</h3>
+      <div class="by">The Chronicler World Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>An Associated Press investigation published Wednesday documents a sharp escalation in Israel&rsquo;s demolition of Palestinian homes and forced evictions in annexed east Jerusalem, with researchers describing the pace and scope of destruction as unprecedented. More than 260 homes and structures were demolished in 2025 &mdash; a 70 per cent increase from three years earlier &mdash; and at least 116 demolitions have already occurred in 2026, according to Ir Amim, an Israeli anti-settlement group that closely tracks planning and demolition orders. &ldquo;Israel can decide, yes, this neighbourhood, we want to erase it. No one is going to stop us,&rdquo; said Aviv Tatarsky, a researcher with the group. In the Silwan neighbourhood alone, some 1,500 Palestinians face active demolition orders at any given time, unable to obtain building permits under Israeli planning laws that activists describe as systematically discriminatory.</p>
+      <p>Activists say the campaign has intensified precisely because Israel is no longer constrained by American pressure, and because global attention has shifted to Gaza, Lebanon, and the Iran conflict. Settlers have exploited archaeological claims and discriminatory zoning policies to evict Palestinian families in areas immediately surrounding the Old City &mdash; neighbourhoods that would form the heart of any future Palestinian state in a two-state solution. Israel considers all of Jerusalem its unified and eternal capital, and says residents are treated equally under the law. The international community, the United Nations, and the International Court of Justice consider east Jerusalem to be occupied territory and Israeli settlement construction there to be a violation of international law. The AP report comes one day after six Western countries, including Canada, announced new sanctions targeting Israeli settlers and settlement entities in the West Bank.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/israel-palestinians-conflict-jerusalem-demolition-eviction-8dba6f3dd163fe5e5e3606587fd5b340" target="_blank" rel="noopener">Associated Press</a> &middot; June 10, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Global Markets</span>
+  <div class="mkt-note">World indices reflect Wednesday, June 10, 2026 intraday (Google Finance, 8:18 AM ET). Sources: Google Finance, LSEG, Nikkei Asia, Hang Seng Index.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card world">
+      <div class="mc-name">DJIA</div>
+      <div class="mc-sub">Dow Jones Industrial</div>
+      <div class="mc-val">50,872.11</div>
+      <span class="mc-chg up">&#9650; +86.10 (+0.17%)</span>
+      <div class="mc-note">Jun 10 &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nasdaq-100</div>
+      <div class="mc-sub">NDX Composite</div>
+      <div class="mc-val">29,084.50</div>
+      <span class="mc-chg down">&#9660; &minus;329.76 (&minus;1.12%)</span>
+      <div class="mc-note">Jun 10 &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US Broad Market</div>
+      <div class="mc-val">7,386.65</div>
+      <span class="mc-chg down">&#9660; &minus;19.08 (&minus;0.26%)</span>
+      <div class="mc-note">Jun 10 &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">10,186.81</div>
+      <span class="mc-chg down">&#9660; &minus;40.52 (&minus;0.40%)</span>
+      <div class="mc-note">Jun 10 &middot; GBP</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,214.95</div>
+      <span class="mc-chg down">&#9660; &minus;27.15 (&minus;0.12%)</span>
+      <div class="mc-note">Jun 10 &middot; INR</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">24,407.96</div>
+      <span class="mc-chg down">&#9660; &minus;157.94 (&minus;0.64%)</span>
+      <div class="mc-note">Jun 10 &middot; HKD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">64,179.27</div>
+      <span class="mc-chg down">&#9660; &minus;1,237.36 (&minus;1.89%)</span>
+      <div class="mc-note">Jun 10 &middot; JPY</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; Publisher-verified screenshot &middot; June 10, 2026. Market data carries inherent delays.</div>
+
+</div></div><!-- /world -->
+
+<!-- ==================== SPORT ==================== -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="sport-1">
+      <div class="sport-flag"><span class="fi">&#127944;</span> Hockey &middot; NHL Stanley Cup Final</div>
+      <h3>&#127464;&#127462; Hurricanes Even Stanley Cup Final at 2&ndash;2 With 5&ndash;3 Win Over Golden Knights</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Carolina Hurricanes defeated the Vegas Golden Knights 5&ndash;3 in Game 4 of the Stanley Cup Final on Tuesday night at T-Mobile Arena, levelling the best-of-seven series at two games apiece and setting up what is now a genuine, open contest for the championship. Carolina, the Eastern Conference&rsquo;s top seed, had fallen behind 2&ndash;1 in the series after Vegas &mdash; a fourth seed who swept the Colorado Avalanche in the Conference Finals &mdash; won Game 3 on Saturday. The Hurricanes&rsquo; response was decisive: Game 4 was controlled from the front, giving Carolina the momentum heading into Game 5 on Thursday night at PNC Arena in Raleigh, where the Hurricanes hold home ice. Carolina enter Game 5 as slight favourites, with projections giving them a 57.9 per cent chance of winning.</p>
+      <p>The broader narrative of this Final has been the improbable rise of the Golden Knights. Vegas eliminated the top-seeded Avalanche in a four-game sweep in the Western Conference Finals after knocking out the Anaheim Ducks in the second round &mdash; a run that few predicted after they finished the regular season as a fourth seed. Carolina, meanwhile, advanced through the East by eliminating the Montr&eacute;al Canadiens in five games in the Conference Finals after Montr&eacute;al had upset the Buffalo Sabres in a dramatic seven-game semifinal. Game 5 is Thursday at 8 PM ET; should Carolina win, they would take a 3&ndash;2 series lead heading back to Vegas.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/hurricanes-golden-knights-score-stanley-cup-f67cff193af67fef7d4547fade5e803e" target="_blank" rel="noopener">Associated Press</a> &middot; June 9, 2026</div>
+    </article>
+
+    <article class="s" id="sport-2">
+      <div class="sport-flag"><span class="fi">&#127936;</span> Basketball &middot; NBA Finals</div>
+      <h3>&#127482;&#127480; Spurs Spoil Trump&rsquo;s Garden Party as San Antonio Steals Game 3 to Pull Within 2&ndash;1</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The San Antonio Spurs defeated the New York Knicks 115&ndash;111 in Game 3 of the NBA Finals at Madison Square Garden on Monday night, cutting the series deficit to 2&ndash;1 and ending New York&rsquo;s extraordinary 13-game postseason winning streak. The game was played against an unusually charged backdrop: President Donald Trump, invited by Knicks owner James Dolan, became the first sitting president to attend an NBA Finals game. When shown on the Madison Square Garden jumbotron during the national anthem, Trump was greeted with sustained booing from the sellout New York crowd. He smiled and saluted as the jeers washed over him. The Spurs were led by Victor Wembanyama&rsquo;s 32 points, 8 rebounds, and 6 assists, while De&rsquo;Aaron Fox delivered the late dagger &mdash; pulling up at the free throw line to bury a two-pointer that sealed the win after Jalen Brunson had clawed the Knicks back to within a possession.</p>
+      <p>The Knicks had opened the Finals with a dominant run, winning Games 1 and 2 in San Antonio before the series shifted to New York. Game 4 is at Madison Square Garden tonight at 8:30 PM ET, with the Knicks projected as narrow favourites at 54.5 per cent. No team in NBA Finals history has ever recovered from a 3&ndash;0 deficit, meaning a Spurs win tonight would dramatically alter the complexion of the series. The Knicks are seeking their first championship since 1973 &mdash; the year Trump, then 26, was building his early real estate career.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/nba-finals-trump-knicks-new-york-7b43bea56ff57b48f72d365efd1b7ddb" target="_blank" rel="noopener">Associated Press</a> &middot; June 9, 2026</div>
+    </article>
+
+    <article class="s" id="sport-3">
+      <div class="sport-flag"><span class="fi">&#9918;&#65039;</span> Baseball &middot; MLB</div>
+      <h3>&#127464;&#127470; Reds End Five-Game Losing Streak With 5&ndash;3 Win Over Padres as Stewart Homers at Petco</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Wednesday, June 10, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Cincinnati Reds ended a five-game losing streak on Tuesday night, defeating the San Diego Padres 5&ndash;3 at Petco Park in the middle game of their three-game series to level the set at one game apiece. Sal Stewart, Cincinnati&rsquo;s third baseman and one of the team&rsquo;s more consistent offensive contributors this season, hit a home run in the victory &mdash; a bright spot for a Reds lineup that has generated limited offensive production over a difficult recent stretch. Chase Burns, Cincinnati&rsquo;s ace right-hander carrying a 7&ndash;1 record and a 2.05 ERA entering the week, is expected to start Wednesday&rsquo;s series finale. The Padres, sitting at 34&ndash;31, have struggled for consistent run support over much of the past two weeks despite positioning themselves in the NL West race.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/padres-reds-score-stewart-ced2768495d7b41f4b5efac1d5f5e274" target="_blank" rel="noopener">Associated Press</a> &middot; June 9, 2026</div>
+    </article>
+
+  </div>
+
+</div></div><!-- /sport -->
+
+<!-- ==================== WORLD CUP LINK ==================== -->
+<div id="worldcup">
+<div class="divider"></div>
+<div class="page">
+
+  <div class="wc-banner">
+    <h2>&#9917; The World Cup 2026</h2>
+    <div class="wc-sub">USA &middot; Canada &middot; Mexico &nbsp;&middot;&nbsp; 11 June &ndash; 19 July 2026 &nbsp;&middot;&nbsp; 48 Teams &nbsp;&middot;&nbsp; 104 Matches</div>
+  </div>
+
+  <div class="wc-link-block">
+    <div class="wc-link-block-text">The tournament opens <strong>tomorrow, Thursday June 11</strong>, at Estadio Azteca in Mexico City. Canada play their first-ever home World Cup match on <strong>Friday June 12 at BMO Field, Toronto</strong> against Bosnia and Herzegovina (3 PM ET). Follow full standings, fixtures, results, and golden boot standings on The Chronicler&rsquo;s dedicated World Cup tracker.</div>
+    <a href="https://thechronicler.ca/Specials/world-cup-2026.html">World Cup Tracker &rarr;</a>
+  </div>
+
+</div></div><!-- /worldcup -->
+
+<!-- ==================== PUZZLES ==================== -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>The Chronicler Funnies</h2><div class="flag">Puzzles &amp; Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All intermediate steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">3</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">8</div>
+        <div class="crunch-tile">9</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">48</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat" style="background:#d4edda;padding:6px 8px;border-radius:3px;"><strong>(3 &times; 8) &times; (9 &minus; 7) = 48</strong> &nbsp;&#10003;<br>Step 1: 3 &times; 8 = 24 &nbsp;&middot;&nbsp; Step 2: 9 &minus; 7 = 2 &nbsp;&middot;&nbsp; Step 3: 24 &times; 2 = 48 &#10003;</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">12 solutions found &middot; Python-verified &middot; Edition No. 69.</div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="https://thechronicler.ca/Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive &rarr;</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">RECORD</div>
+        <div class="ww-mini-tile">BORDER</div>
+        <div class="ww-mini-tile">BRIDGE</div>
+        <div class="ww-mini-tile">STREAK</div>
+        <div class="ww-mini-tile">CEASEFIRE</div>
+        <div class="ww-mini-tile">TALKS</div>
+        <div class="ww-mini-tile">AMNESTY</div>
+        <div class="ww-mini-tile">HOMES</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat">&#129001; <strong>Broken in today&rsquo;s edition:</strong> RECORD &middot; STREAK &middot; CEASEFIRE &middot; HOMES</div>
+        <div class="answer-cat">&#129000; <strong>Opened or crossed in today&rsquo;s edition:</strong> BRIDGE &middot; BORDER &middot; TALKS &middot; AMNESTY</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">Decoys: BORDER could fit &ldquo;broken&rdquo; (Pakistan broke Afghanistan&rsquo;s); AMNESTY sounds like a pardon or ceasefire, pulling toward the first group.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div></div><!-- /puzzles -->
+
+<div class="divider"></div>
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 69 &bull; Wednesday, June 10, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Weather data: wttr.in / Environment Canada / IMD. Air quality: Open-Meteo Air Quality API (US AQI scale). Market data carries inherent delays; verify with live sources before making financial decisions. India gold rates: IBJA (ibja.co), PM rates per gram ex-GST &amp; Making Charges. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+function handleRead(btn) {
+  if (window._ttsUtterance) {
+    window.speechSynthesis.cancel();
+    if (window._ttsBtn) { window._ttsBtn.textContent = String.fromCodePoint(0x1F50A) + ' Read aloud'; }
+    if (window._ttsBtn === btn) { window._ttsUtterance = null; window._ttsBtn = null; return; }
+  }
+  const article = btn.closest('article');
+  const text = Array.from(article.querySelectorAll('p')).map(p => p.textContent).join(' ');
+  const u = new SpeechSynthesisUtterance(text);
+  u.onend = function() { btn.textContent = String.fromCodePoint(0x1F50A) + ' Read aloud'; window._ttsUtterance = null; window._ttsBtn = null; };
+  window._ttsUtterance = u;
+  window._ttsBtn = btn;
+  btn.textContent = String.fromCodePoint(0x23F9) + ' Stop';
+  window.speechSynthesis.speak(u);
+}
+</script>
+
+</body>
+</html>

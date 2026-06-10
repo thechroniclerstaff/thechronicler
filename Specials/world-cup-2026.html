@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler — FIFA World Cup 2026 — Special Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+  --wc-navy: #0a1628;
+  --wc-blue: #1a2e50;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+
+/* ── STICKY HEADER ── */
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.nav-bar::-webkit-scrollbar{display:none;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+
+/* ── MASTHEAD ── */
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+
+/* ── PAGE WRAPPER ── */
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+
+/* ── TOURNAMENT HERO BANNER ── */
+.wc-hero{background:linear-gradient(135deg,var(--wc-navy) 0%,var(--wc-blue) 50%,var(--wc-navy) 100%);border-top:5px solid var(--gold);border-bottom:5px solid var(--gold);padding:32px 16px 28px;text-align:center;position:relative;overflow:hidden;}
+.wc-hero::before{content:'⚽';position:absolute;font-size:200px;opacity:.04;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+.wc-hero-eyebrow{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.wc-hero h2{font-family:'Playfair Display',serif;font-size:clamp(28px,7vw,56px);font-weight:900;color:var(--aged);letter-spacing:.05em;line-height:1.1;text-shadow:2px 2px 8px rgba(0,0,0,.4);}
+.wc-hero-sub{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:10px;opacity:.9;}
+.wc-hero-stats{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid rgba(160,120,0,.3);}
+.wc-stat{text-align:center;}
+.wc-stat-num{font-family:'Playfair Display',serif;font-weight:900;font-size:28px;color:var(--gold);line-height:1;}
+.wc-stat-label{font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,237,214,.6);margin-top:2px;}
+
+/* ── INTRO ARTICLE ── */
+.intro-article{border-top:4px solid var(--rust);padding:20px 0 24px;margin-bottom:4px;}
+.intro-article h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;line-height:1.25;margin-bottom:8px;}
+.intro-article .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:10px;}
+.intro-article p{font-size:13.5px;line-height:1.8;margin-bottom:10px;}
+.intro-article .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+.intro-article .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+
+/* ── TWO-COL LAYOUT ── */
+.two-col{display:grid;grid-template-columns:1fr;gap:16px;margin:14px 0;}
+@media(min-width:680px){.two-col{grid-template-columns:1fr 1fr;}}
+
+/* ── THIS WEEK FIXTURES ── */
+.fixtures-widget{background:#f2ead5;border:1px solid var(--rule);border-top:4px solid var(--gold);padding:14px 16px;}
+.fw-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.fw-title{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:var(--ink);}
+.fw-week{font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--grey);}
+.fw-note{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);font-style:italic;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--rule);}
+.fw-day{margin-bottom:10px;}
+.fw-day-label{font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--rule);padding:3px 7px;margin-bottom:5px;display:inline-block;}
+.fw-match{display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px dotted var(--rule);font-family:'Source Sans 3',sans-serif;font-size:10.5px;color:var(--ink);}
+.fw-match:last-child{border-bottom:none;}
+.fw-time{font-size:9px;color:var(--grey);width:48px;flex-shrink:0;}
+.fw-teams{flex:1;display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+.fw-score{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--rust);min-width:36px;text-align:center;}
+.fw-venue{font-size:8px;color:var(--grey);text-align:right;max-width:100px;line-height:1.3;flex-shrink:0;}
+.fw-vs{font-size:9px;color:var(--grey);margin:0 2px;}
+.fw-canada{background:rgba(139,37,19,.06);border-radius:2px;padding:1px 3px;}
+
+/* ── GOLDEN BOOT ── */
+.golden-boot{background:#f2ead5;border:1px solid var(--rule);border-top:4px solid var(--gold);padding:14px 16px;}
+.gb-title{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.gb-table{width:100%;border-collapse:collapse;font-family:'Source Sans 3',sans-serif;font-size:11px;}
+.gb-table th{background:var(--ink);color:var(--aged);padding:5px 7px;text-align:left;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;}
+.gb-table td{padding:6px 7px;border-bottom:1px solid var(--rule);vertical-align:middle;}
+.gb-table tr:last-child td{border-bottom:none;}
+.gb-table tr:hover td{background:rgba(208,197,160,.2);}
+.gb-rank{font-weight:700;color:var(--grey);width:24px;}
+.gb-goals{font-family:'Playfair Display',serif;font-weight:900;font-size:16px;color:var(--rust);width:32px;text-align:center;}
+.gb-empty{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);font-style:italic;padding:20px 0;}
+
+/* ── GROUP TABLES ── */
+.groups-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0;}
+@media(min-width:680px){.groups-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:960px){.groups-grid{grid-template-columns:repeat(4,1fr);}}
+.group-card{background:#f2ead5;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 12px;}
+.group-label{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:8px;}
+.group-table{width:100%;border-collapse:collapse;font-family:'Source Sans 3',sans-serif;font-size:9.5px;}
+.group-table th{color:var(--grey);padding:2px 3px;text-align:center;font-size:8px;letter-spacing:.08em;font-weight:600;}
+.group-table th:first-child{text-align:left;}
+.group-table td{padding:3px 3px;border-bottom:1px dotted var(--rule);text-align:center;vertical-align:middle;}
+.group-table td:first-child{text-align:left;display:flex;align-items:center;gap:4px;}
+.group-table tr:last-child td{border-bottom:none;}
+.group-table .q{background:rgba(26,107,60,.12);}
+.group-table .h{font-weight:700;color:var(--rust);}
+.gt-pts{font-weight:700;color:var(--ink);}
+
+/* ── FULL FIXTURES ── */
+.fixtures-full{margin:12px 0;}
+.fix-phase{margin-bottom:20px;}
+.fix-phase-label{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--ink);border-bottom:2px solid var(--rule);padding-bottom:6px;margin-bottom:10px;}
+.fix-day{margin-bottom:12px;}
+.fix-day-label{font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--rule);padding:3px 8px;margin-bottom:5px;display:inline-block;}
+.fix-row{display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px dotted var(--rule);font-family:'Source Sans 3',sans-serif;font-size:10.5px;}
+.fix-row:last-child{border-bottom:none;}
+.fix-time{font-size:9px;color:var(--grey);width:52px;flex-shrink:0;}
+.fix-teams{flex:1;display:flex;align-items:center;gap:4px;}
+.fix-score{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--rust);min-width:40px;text-align:center;}
+.fix-venue{font-size:8px;color:var(--grey);text-align:right;max-width:120px;line-height:1.3;flex-shrink:0;}
+.fix-group{font-size:8px;color:var(--grey);width:52px;flex-shrink:0;}
+.fix-canada{background:rgba(139,37,19,.06);border-radius:2px;}
+
+/* ── TEAM CAROUSEL ── */
+.alpha-filter{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;}
+.alpha-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;padding:4px 8px;border:1px solid var(--rule);background:var(--aged);color:var(--ink);cursor:pointer;transition:all .15s;letter-spacing:.05em;}
+.alpha-btn:hover,.alpha-btn.active{background:var(--rust);color:#fff;border-color:var(--rust);}
+.alpha-btn.all{border-color:var(--ink);}
+.teams-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0;}
+@media(min-width:680px){.teams-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:960px){.teams-grid{grid-template-columns:repeat(4,1fr);}}
+.team-card{background:#f2ead5;border:1px solid var(--rule);border-left:4px solid var(--ink);padding:12px 14px;transition:border-left-color .2s;}
+.team-card:hover{border-left-color:var(--rust);}
+.team-flag{font-size:24px;line-height:1;margin-bottom:4px;}
+.team-name{font-family:'Playfair Display',serif;font-weight:900;font-size:14px;color:var(--ink);margin-bottom:2px;}
+.team-group{font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--rust);margin-bottom:6px;}
+.team-body{font-family:'Libre Baskerville',serif;font-size:11px;line-height:1.65;color:var(--grey);}
+.team-card.hidden{display:none;}
+
+/* ── PLAYER PROFILES ── */
+.players-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0;}
+@media(min-width:680px){.players-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:960px){.players-grid{grid-template-columns:repeat(4,1fr);}}
+.player-card{background:#f2ead5;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:12px 13px;}
+.player-country{font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--grey);margin-bottom:4px;}
+.player-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;}
+.player-body{font-family:'Libre Baskerville',serif;font-size:11px;line-height:1.65;color:var(--grey);}
+
+/* ── ARTICLES STREAM ── */
+.articles-stream{margin:12px 0;}
+article.stream-item{border-top:3px solid var(--rule);padding:20px 0 18px;margin-bottom:0;}
+article.stream-item:first-child{border-top:3px solid var(--rust);}
+article.stream-item h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.stream-item .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.stream-item p{font-size:13.5px;line-height:1.78;margin-bottom:8px;}
+article.stream-item .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.stream-item .src a{color:var(--rust);text-decoration:none;}
+.stream-date-pill{display:inline-block;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--ink);color:var(--aged);padding:3px 8px;margin-bottom:8px;}
+
+/* ── CORNER GAME ── */
+.corner-section{background:var(--wc-navy);border:1px solid var(--rule);border-top:4px solid var(--gold);padding:20px 16px;margin:14px 0;text-align:center;}
+.corner-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--aged);margin-bottom:4px;}
+.corner-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;opacity:.85;}
+.corner-link{display:inline-block;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--rust);color:#fff;padding:10px 24px;text-decoration:none;transition:background .2s;}
+.corner-link:hover{background:var(--gold);}
+
+/* ── FOOTER ── */
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+
+/* ── NATION CARDS ── */
+.nation-card{background:#f2ead5;border:1px solid var(--rule);border-left:5px solid var(--ink);margin-bottom:16px;transition:border-left-color .2s;}
+.nation-card:hover{border-left-color:var(--rust);}
+.nation-card.hidden{display:none;}
+.nc-header{display:flex;align-items:center;gap:12px;padding:12px 16px 10px;border-bottom:1px solid var(--rule);background:rgba(208,197,160,.15);}
+.nc-flag{font-size:32px;line-height:1;flex-shrink:0;}
+.nc-name{font-family:'Playfair Display',serif;font-weight:900;font-size:17px;color:var(--ink);line-height:1.2;}
+.nc-group{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--rust);margin-top:3px;}
+.nc-body{display:grid;grid-template-columns:1fr;gap:0;}
+@media(min-width:640px){.nc-body{grid-template-columns:2fr 1.5fr 1.8fr;}}
+.nc-history,.nc-squad,.nc-keyplayer{padding:13px 15px;border-right:1px solid var(--rule);}
+.nc-squad{border-right:1px solid var(--rule);}
+.nc-keyplayer{border-right:none;}
+@media(max-width:639px){.nc-history,.nc-squad{border-right:none;border-bottom:1px solid var(--rule);}  .nc-keyplayer{border-right:none;}}
+.nc-col-label{font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:7px;padding-bottom:5px;border-bottom:1px dotted var(--rule);}
+.nc-history p{font-family:'Libre Baskerville',serif;font-size:11.5px;line-height:1.72;color:var(--grey);}
+.nc-squad-note{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;}
+.nc-pos-group{display:flex;gap:6px;margin-bottom:5px;font-family:'Source Sans 3',sans-serif;font-size:10px;line-height:1.5;align-items:flex-start;}
+.nc-pos{font-weight:700;color:var(--rust);width:28px;flex-shrink:0;font-size:9px;padding-top:1px;letter-spacing:.05em;}
+.nc-keyplayer{background:rgba(139,37,19,.03);}
+.nc-player-name{font-family:'Playfair Display',serif;font-weight:700;font-size:14px;color:var(--ink);margin-bottom:2px;}
+.nc-player-pos{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:7px;font-style:italic;}
+.nc-keyplayer p{font-family:'Libre Baskerville',serif;font-size:11px;line-height:1.7;color:var(--grey);}
+
+</style>
+</head>
+<body id="top">
+
+<!-- ══════════════════════════════════════════════════════
+     LIVE DATA BLOCK — UPDATE THIS SECTION EACH SESSION
+     Replace values below; page re-renders automatically
+     ══════════════════════════════════════════════════════ -->
+<script>
+// ── WEEK LABEL (update each Saturday) ──────────────────
+const WC_WEEK = "Opening Week — June 11–15, 2026";
+
+// ── THIS WEEK\'S FIXTURES ───────────────────────────────
+// score: null = upcoming | "2-1" = final | "1-0 HT" = live
+const WC_FIXTURES_WEEK = [
+  { day:"Thursday, June 11", matches:[
+    { time:"3:00 PM ET", home:"🇲🇽 Mexico",        away:"🇿🇦 South Africa",      venue:"Estadio Azteca, Mexico City",       group:"A", score:null },
+    { time:"10:00 PM ET",home:"🇰🇷 South Korea",   away:"🇨🇿 Czechia",           venue:"Estadio Akron, Guadalajara",        group:"A", score:null }
+  ]},
+  { day:"Friday, June 12 🇨🇦 Canada\'s Home Opener", matches:[
+    { time:"3:00 PM ET", home:"🇨🇦 Canada",         away:"🇧🇦 Bosnia & Herz.",    venue:"BMO Field, Toronto",                group:"B", score:null, canada:true },
+    { time:"9:00 PM ET", home:"🇺🇸 USA",            away:"🇵🇾 Paraguay",          venue:"SoFi Stadium, Inglewood CA",        group:"D", score:null }
+  ]},
+  { day:"Saturday, June 13", matches:[
+    { time:"3:00 PM ET", home:"🇶🇦 Qatar",          away:"🇨🇭 Switzerland",       venue:"Levi\'s Stadium, San Francisco",    group:"B", score:null },
+    { time:"6:00 PM ET", home:"🇧🇷 Brazil",         away:"🇲🇦 Morocco",           venue:"MetLife Stadium, New Jersey",       group:"C", score:null },
+    { time:"9:00 PM ET", home:"🇭🇹 Haiti",          away:"🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland",         venue:"Gillette Stadium, Foxborough",      group:"C", score:null },
+    { time:"12:00 AM†",  home:"🇦🇺 Australia",      away:"🇹🇷 Türkiye",           venue:"BC Place, Vancouver",              group:"D", score:null }
+  ]},
+  { day:"Sunday, June 14", matches:[
+    { time:"1:00 PM ET", home:"🇩🇪 Germany",        away:"🇨🇼 Curaçao",           venue:"NRG Stadium, Houston",             group:"E", score:null },
+    { time:"4:00 PM ET", home:"🇳🇱 Netherlands",    away:"🇯🇵 Japan",             venue:"TBD",                              group:"F", score:null },
+    { time:"7:00 PM ET", home:"🇨🇮 Ivory Coast",    away:"🇪🇨 Ecuador",           venue:"TBD",                              group:"E", score:null },
+    { time:"10:00 PM ET",home:"🇸🇪 Sweden",         away:"🇹🇳 Tunisia",           venue:"TBD",                              group:"F", score:null }
+  ]},
+  { day:"Monday, June 15", matches:[
+    { time:"12:00 PM ET",home:"🇪🇸 Spain",          away:"🇨🇻 Cape Verde",        venue:"Mercedes-Benz Stadium, Atlanta",   group:"H", score:null },
+    { time:"3:00 PM ET", home:"🇧🇪 Belgium",        away:"🇪🇬 Egypt",             venue:"Lumen Field, Seattle",             group:"G", score:null },
+    { time:"6:00 PM ET", home:"🇸🇦 Saudi Arabia",   away:"🇺🇾 Uruguay",           venue:"Hard Rock Stadium, Miami",         group:"H", score:null },
+    { time:"9:00 PM ET", home:"🇮🇷 Iran",           away:"🇳🇿 New Zealand",       venue:"SoFi Stadium, Inglewood CA",       group:"G", score:null }
+  ]}
+];
+
+// ── GOLDEN BOOT TABLE ──────────────────────────────────
+// Add entries as goals are scored. Empty = tournament not started.
+const WC_GOLDEN_BOOT = [
+  // { rank:1, player:"Kylian Mbappé", country:"🇫🇷 France", goals:0, assists:0 }
+];
+
+// ── GROUP STANDINGS ────────────────────────────────────
+// P W D L GF GA — update after each match day
+const WC_GROUPS = {
+  A:{ teams:[
+    { name:"🇲🇽 Mexico",       host:true,  P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇿🇦 S. Africa",    host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇰🇷 Korea Rep.",   host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇨🇿 Czechia",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]},
+  B:{ teams:[
+    { name:"🇨🇦 Canada",       host:true,  P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇧🇦 Bosnia",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇶🇦 Qatar",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇨🇭 Switzerland",  host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]},
+  C:{ teams:[
+    { name:"🇧🇷 Brazil",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇲🇦 Morocco",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇭🇹 Haiti",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland",     host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]},
+  D:{ teams:[
+    { name:"🇺🇸 United States",host:true,  P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇵🇾 Paraguay",     host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇦🇺 Australia",    host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇹🇷 Türkiye",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]},
+  E:{ teams:[
+    { name:"🇩🇪 Germany",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇨🇼 Curaçao",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇨🇮 Ivory Coast",  host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇪🇨 Ecuador",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]},
+  F:{ teams:[
+    { name:"🇳🇱 Netherlands",  host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇯🇵 Japan",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇸🇪 Sweden",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇹🇳 Tunisia",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]},
+  G:{ teams:[
+    { name:"🇧🇪 Belgium",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇪🇬 Egypt",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇮🇷 Iran",         host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇳🇿 New Zealand",  host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]},
+  H:{ teams:[
+    { name:"🇪🇸 Spain",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇨🇻 Cape Verde",   host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇸🇦 Saudi Arabia", host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇺🇾 Uruguay",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]},
+  I:{ teams:[
+    { name:"🇫🇷 France",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇸🇳 Senegal",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇮🇶 Iraq",         host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇳🇴 Norway",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]},
+  J:{ teams:[
+    { name:"🇦🇷 Argentina",    host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇩🇿 Algeria",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇦🇹 Austria",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇯🇴 Jordan",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]},
+  K:{ teams:[
+    { name:"🇵🇹 Portugal",     host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇨🇩 DR Congo",     host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇺🇿 Uzbekistan",   host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇨🇴 Colombia",     host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]},
+  L:{ teams:[
+    { name:"🇬🇧 England",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇭🇷 Croatia",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇬🇭 Ghana",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
+    { name:"🇵🇦 Panama",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
+  ]}
+};
+</script>
+
+<!-- ══════════════════════════ STICKY HEADER ══════════════════════════ -->
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a href="#top">Top</a>
+      <a href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#intro">Overview</a></div>
+    <div class="nav-item"><a href="#fixtures-week">This Week</a></div>
+    <div class="nav-item"><a href="#groups">Groups</a></div>
+    <div class="nav-item"><a href="#all-fixtures">All Fixtures</a></div>
+    <div class="nav-item"><a href="#teams">Teams</a></div>
+        <div class="nav-item"><a href="#articles">Articles</a></div>
+    <div class="nav-item"><a href="https://thechronicler.ca/Specials/corner.html">⚽ Corner</a></div>
+  </nav>
+</div>
+
+<!-- ══════════════════════════ MASTHEAD ══════════════════════════ -->
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I &nbsp;&middot;&nbsp; Special Edition &nbsp;&middot;&nbsp; thechronicler.ca</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<!-- ══════════════════════════ TOURNAMENT HERO ══════════════════════════ -->
+<div class="wc-hero" id="top">
+  <div class="wc-hero-eyebrow">Special Edition &mdash; Live Coverage</div>
+  <h2>&#9917; FIFA World Cup 2026</h2>
+  <div class="wc-hero-sub">USA &nbsp;&middot;&nbsp; Canada &nbsp;&middot;&nbsp; Mexico &nbsp;&middot;&nbsp; 11 June &ndash; 19 July 2026</div>
+  <div class="wc-hero-stats">
+    <div class="wc-stat"><div class="wc-stat-num">48</div><div class="wc-stat-label">Teams</div></div>
+    <div class="wc-stat"><div class="wc-stat-num">104</div><div class="wc-stat-label">Matches</div></div>
+    <div class="wc-stat"><div class="wc-stat-num">16</div><div class="wc-stat-label">Stadiums</div></div>
+    <div class="wc-stat"><div class="wc-stat-num">3</div><div class="wc-stat-label">Host Nations</div></div>
+    <div class="wc-stat"><div class="wc-stat-num">39</div><div class="wc-stat-label">Days</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECTION 1 — INTRO ══════════════════════════ -->
+<div id="intro">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>The Tournament</h2><div class="flag">Overview &amp; Context</div></div>
+
+  <div class="intro-article">
+    <h3>Bigger, Bolder, North American: The World Cup That Rewrites the Rules</h3>
+    <div class="by">The Chronicler Sport Desk &middot; Compiled from editions No. 67 &amp; 68 &middot; June 8&ndash;9, 2026</div>
+    <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+    <p>The wait ends Thursday. The 2026 FIFA World Cup kicks off on June 11 at Estadio Azteca in Mexico City and concludes July 19 at MetLife Stadium in East Rutherford, New Jersey &mdash; spanning 39 days, 48 teams, 104 matches, and 16 stadiums across three countries. This is the first edition in history to feature 48 national teams, up from 32 in Qatar 2022, competing across 72 group-stage games in twelve groups of four, labelled A through L. The top two from each group advance automatically, and the eight best third-placed teams also progress &mdash; 32 nations entering a brand-new Round of 32 that has never before existed in World Cup history.</p>
+    <p>The expansion from 32 to 48 teams required a structural reinvention of the tournament itself. A path to the final that previously required six wins now requires seven. For smaller nations, the new format delivers a meaningful extra game at the world&rsquo;s highest level. For title contenders, it adds fatigue and risk in equal measure. The tri-nation hosting arrangement &mdash; shared across the United States, Canada, and Mexico &mdash; is itself unprecedented. No World Cup has ever been co-hosted by three nations, and the logistical and commercial ambition behind it reflects FIFA&rsquo;s deliberate pivot toward maximising reach, revenue, and spectacle simultaneously.</p>
+    <p>FIFA implemented a seeding and bracketing system separating the top four-ranked nations &mdash; Spain (1st), Argentina (2nd), France (3rd), and England (4th) &mdash; into distinct halves of the draw, ensuring they can only meet in the semi-finals or final. The system is a concession to commercial logic: those are the games broadcasters and sponsors most want. But it has drawn criticism from those who argue it undermines the draw&rsquo;s integrity. The seven traditional heavyweights are spread across the draw: holders Argentina in Group J, France in Group I, Spain in Group H, England in Group L, Brazil in Group C, Germany in Group E, and Portugal in Group K. Canada opens at home at BMO Field in Toronto on Friday, June 12 &mdash; the first World Cup match ever played on Canadian soil, and the most-watched domestic sporting moment in the country&rsquo;s history. And for the first time in the tournament&rsquo;s 96-year history, the final will feature a live halftime show, with Shakira, Madonna and BTS confirmed as co-headliners at MetLife Stadium on July 19.</p>
+    <div class="src">Sources: <a href="https://www.espn.com/soccer/story/_/id/48939282/2026-fifa-world-cup-fixtures-results-match-schedule-group-stage-knockout-rounds-bracket-dates" target="_blank" rel="noopener">ESPN</a> &middot; <a href="https://www.aljazeera.com/sports/2026/5/7/whats-the-full-match-schedule-groups-and-format-for-world-cup-2026" target="_blank" rel="noopener">Al Jazeera</a> &middot; <a href="https://www.cbssports.com/soccer/news/world-cup-2026-schedule-times-dates/" target="_blank" rel="noopener">CBS Sports</a> &middot; FIFA &middot; June 2026</div>
+  </div>
+
+</div></div><!-- /intro -->
+
+<!-- ══════════════════════════ SECTION 2 — THIS WEEK + GOLDEN BOOT ══════════════════════════ -->
+<div id="fixtures-week">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Live Tracker</h2><div class="flag">This Week &amp; Golden Boot</div></div>
+
+  <div class="two-col">
+
+    <!-- THIS WEEK FIXTURES -->
+    <div class="fixtures-widget">
+      <div class="fw-header">
+        <div class="fw-title">&#128197; This Week&rsquo;s Fixtures</div>
+        <div class="fw-week" id="fw-week-label"></div>
+      </div>
+      <div class="fw-note">All times ET. 🇨🇦 Canada matches highlighted. Updated weekly on Saturdays.</div>
+      <div id="fw-matches-container"></div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:8px;font-style:italic;">† Sunday after midnight ET &nbsp;&middot;&nbsp; Sources: FIFA / ESPN / CBS Sports</div>
+    </div>
+
+    <!-- GOLDEN BOOT -->
+    <div class="golden-boot">
+      <div class="gb-title">&#127941; Golden Boot</div>
+      <div id="gb-container"></div>
+    </div>
+
+  </div>
+
+</div></div><!-- /fixtures-week -->
+
+<!-- ══════════════════════════ SECTION 3 — GROUP STANDINGS ══════════════════════════ -->
+<div id="groups">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Group Standings</h2><div class="flag">All 12 Groups &mdash; Updated After Each Match Day</div></div>
+  <div id="groups-container" class="groups-grid"></div>
+  <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:8px;font-style:italic;">&#9632; Green shading = qualified for Round of 32. Host nations in bold red. P=Played W=Won D=Drew L=Lost GF=Goals For GA=Goals Against GD=Goal Difference Pts=Points</div>
+</div></div><!-- /groups -->
+
+<!-- ══════════════════════════ SECTION 4 — COMPLETE FIXTURE LIST ══════════════════════════ -->
+<div id="all-fixtures">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>All Fixtures</h2><div class="flag">Complete Schedule &mdash; 104 Matches &mdash; All Times ET</div></div>
+
+  <div class="fixtures-full">
+
+    <div class="fix-phase">
+      <div class="fix-phase-label">Group Stage &mdash; June 11&ndash;July 2, 2026</div>
+
+      <div class="fix-day"><div class="fix-day-label">Thursday, June 11</div>
+        <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇲🇽 Mexico <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇿🇦 South Africa</div><div class="fix-score" id="s-mex-rsa">—</div><div class="fix-venue">Azteca, Mexico City</div></div>
+        <div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇰🇷 South Korea <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇿 Czechia</div><div class="fix-score" id="s-kor-cze">—</div><div class="fix-venue">Akron, Guadalajara</div></div>
+      </div>
+
+      <div class="fix-day"><div class="fix-day-label">Friday, June 12 🇨🇦</div>
+        <div class="fix-row fix-canada"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp B</div><div class="fix-teams"><strong>🇨🇦 Canada</strong> <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇧🇦 Bosnia &amp; Herz.</div><div class="fix-score" id="s-can-bih">—</div><div class="fix-venue">BMO Field, Toronto</div></div>
+        <div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp D</div><div class="fix-teams">🇺🇸 USA <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇵🇾 Paraguay</div><div class="fix-score" id="s-usa-par">—</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
+      </div>
+
+      <div class="fix-day"><div class="fix-day-label">Saturday, June 13</div>
+        <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp B</div><div class="fix-teams">🇶🇦 Qatar <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇭 Switzerland</div><div class="fix-score" id="s-qat-sui">—</div><div class="fix-venue">Levi's, San Francisco</div></div>
+        <div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp C</div><div class="fix-teams">🇧🇷 Brazil <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇲🇦 Morocco</div><div class="fix-score" id="s-bra-mar">—</div><div class="fix-venue">MetLife, New Jersey</div></div>
+        <div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp C</div><div class="fix-teams">🇭🇹 Haiti <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</div><div class="fix-score" id="s-hai-sco">—</div><div class="fix-venue">Gillette, Foxborough</div></div>
+        <div class="fix-row"><div class="fix-time">12:00 AM†</div><div class="fix-group">Grp D</div><div class="fix-teams">🇦🇺 Australia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇹🇷 Türkiye</div><div class="fix-score" id="s-aus-tur">—</div><div class="fix-venue">BC Place, Vancouver</div></div>
+      </div>
+
+      <div class="fix-day"><div class="fix-day-label">Sunday, June 14</div>
+        <div class="fix-row"><div class="fix-time">1:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇩🇪 Germany <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇼 Curaçao</div><div class="fix-score" id="s-ger-cur">—</div><div class="fix-venue">NRG, Houston</div></div>
+        <div class="fix-row"><div class="fix-time">4:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇳🇱 Netherlands <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇯🇵 Japan</div><div class="fix-score" id="s-ned-jpn">—</div><div class="fix-venue">TBD</div></div>
+        <div class="fix-row"><div class="fix-time">7:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇨🇮 Ivory Coast <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇨 Ecuador</div><div class="fix-score" id="s-civ-ecu">—</div><div class="fix-venue">TBD</div></div>
+        <div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇸🇪 Sweden <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇹🇳 Tunisia</div><div class="fix-score" id="s-swe-tun">—</div><div class="fix-venue">TBD</div></div>
+      </div>
+
+      <div class="fix-day"><div class="fix-day-label">Monday, June 15</div>
+        <div class="fix-row"><div class="fix-time">12:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇪🇸 Spain <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇻 Cape Verde</div><div class="fix-score" id="s-esp-cpv">—</div><div class="fix-venue">Benz, Atlanta</div></div>
+        <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇧🇪 Belgium <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇬 Egypt</div><div class="fix-score" id="s-bel-egy">—</div><div class="fix-venue">Lumen, Seattle</div></div>
+        <div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇸🇦 Saudi Arabia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇺🇾 Uruguay</div><div class="fix-score" id="s-ksa-uru">—</div><div class="fix-venue">Hard Rock, Miami</div></div>
+        <div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇮🇷 Iran <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇳🇿 New Zealand</div><div class="fix-score" id="s-irn-nzl">—</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
+      </div>
+
+      <div class="fix-day"><div class="fix-day-label">Tuesday, June 16</div>
+        <div class="fix-row"><div class="fix-time">12:00 PM</div><div class="fix-group">Grp I</div><div class="fix-teams">🇫🇷 France <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇸🇳 Senegal</div><div class="fix-score" id="s-fra-sen">—</div><div class="fix-venue">MetLife, New Jersey</div></div>
+        <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp J</div><div class="fix-teams">🇦🇷 Argentina <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇩🇿 Algeria</div><div class="fix-score" id="s-arg-alg">—</div><div class="fix-venue">AT&amp;T, Dallas</div></div>
+        <div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp I</div><div class="fix-teams">🇮🇶 Iraq <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇳🇴 Norway</div><div class="fix-score" id="s-irq-nor">—</div><div class="fix-venue">TBD</div></div>
+        <div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp J</div><div class="fix-teams">🇦🇹 Austria <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇯🇴 Jordan</div><div class="fix-score" id="s-aut-jor">—</div><div class="fix-venue">TBD</div></div>
+      </div>
+
+      <div class="fix-day"><div class="fix-day-label">Wednesday, June 17</div>
+        <div class="fix-row"><div class="fix-time">12:00 PM</div><div class="fix-group">Grp K</div><div class="fix-teams">🇵🇹 Portugal <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇩 DR Congo</div><div class="fix-score" id="s-por-cod">—</div><div class="fix-venue">TBD</div></div>
+        <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp L</div><div class="fix-teams">🇬🇧 England <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇭🇷 Croatia</div><div class="fix-score" id="s-eng-cro">—</div><div class="fix-venue">TBD</div></div>
+        <div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp K</div><div class="fix-teams">🇺🇿 Uzbekistan <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇴 Colombia</div><div class="fix-score" id="s-uzb-col">—</div><div class="fix-venue">TBD</div></div>
+        <div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp L</div><div class="fix-teams">🇬🇭 Ghana <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇵🇦 Panama</div><div class="fix-score" id="s-gha-pan">—</div><div class="fix-venue">TBD</div></div>
+      </div>
+
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;padding:10px 0 4px;">Matchdays 2 &amp; 3 (June 18&ndash;July 2) and knockout rounds to be added as schedule is confirmed. 🇨🇦 Canada fixtures highlighted.</div>
+    </div>
+
+    <div class="fix-phase">
+      <div class="fix-phase-label">Knockout Rounds &mdash; From July 1, 2026</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);font-style:italic;padding:8px 0;">Round of 32 · Round of 16 · Quarter-finals · Semi-finals · Third Place Play-off · Final (July 19, MetLife Stadium). Bracket to be populated as group stage concludes.</div>
+    </div>
+
+  </div>
+
+</div></div><!-- /all-fixtures -->
+
+<!-- ══════════════════════════ SECTION 5 — TEAM CAROUSEL ══════════════════════════ -->
+
+<!-- ══════════════════════════ SECTION 5+6 — TEAMS & SQUADS ══════════════════════════ -->
+<div id="teams">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>All 48 Nations</h2><div class="flag">History &middot; Squad &middot; Key Player &mdash; Filter by Letter</div></div>
+
+  <div class="alpha-filter">
+    <button class="alpha-btn all active" onclick="filterTeams('all')">All</button>
+    <button class="alpha-btn" onclick="filterTeams('A')">A</button>
+    <button class="alpha-btn" onclick="filterTeams('B')">B</button>
+    <button class="alpha-btn" onclick="filterTeams('C')">C</button>
+    <button class="alpha-btn" onclick="filterTeams('D')">D</button>
+    <button class="alpha-btn" onclick="filterTeams('E')">E</button>
+    <button class="alpha-btn" onclick="filterTeams('F')">F</button>
+    <button class="alpha-btn" onclick="filterTeams('G')">G</button>
+    <button class="alpha-btn" onclick="filterTeams('H')">H</button>
+    <button class="alpha-btn" onclick="filterTeams('I')">I</button>
+    <button class="alpha-btn" onclick="filterTeams('J')">J</button>
+    <button class="alpha-btn" onclick="filterTeams('K')">K</button>
+    <button class="alpha-btn" onclick="filterTeams('M')">M</button>
+    <button class="alpha-btn" onclick="filterTeams('N')">N</button>
+    <button class="alpha-btn" onclick="filterTeams('P')">P</button>
+    <button class="alpha-btn" onclick="filterTeams('Q')">Q</button>
+    <button class="alpha-btn" onclick="filterTeams('S')">S</button>
+    <button class="alpha-btn" onclick="filterTeams('T')">T</button>
+    <button class="alpha-btn" onclick="filterTeams('U')">U</button>
+  </div>
+
+  <div id="nations-list">
+
+<!-- ALGERIA -->
+<div class="nation-card" data-letter="A">
+  <div class="nc-header"><span class="nc-flag">🇩🇿</span><div><div class="nc-name">Algeria</div><div class="nc-group">Group J</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>First World Cup since 2014, when they memorably reached the Round of 16 before falling to Germany in extra time. A nation with deep football culture built on a rich diaspora talent pipeline. Best result: Round of 16 (2014). Face Argentina, Austria, and Jordan in Group J.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Riyad Mahrez</div><div class="nc-player-pos">Winger</div><p>The veteran Al-Ahli winger and Algeria's greatest modern export. At 35, this is likely his final World Cup. His ability to unlock defences and deliver in big moments remains Algeria's greatest individual weapon.</p></div>
+  </div>
+</div>
+
+<!-- ARGENTINA -->
+<div class="nation-card" data-letter="A">
+  <div class="nc-header"><span class="nc-flag">🇦🇷</span><div><div class="nc-name">Argentina</div><div class="nc-group">Group J — Defending Champions</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Three-time world champions (1978, 1986, 2022). Reigning holders after their emotional triumph in Qatar. No team has won back-to-back since Brazil in 1958 and 1962. Scaloni's side opens against Algeria in Kansas City on June 16.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>E. Martínez, G. Rulli, W. Agustín</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>N. Otamendi, C. Romero, L. Martínez, N. Tagliafico, G. Montiel, M. Acuña</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>R. De Paul, E. Fernández, A. Mac Allister, L. Paredes, G. Lo Celso</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>L. Messi, J. Álvarez, L. Martínez, P. Dybala, N. González</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Lionel Messi</div><div class="nc-player-pos">Forward · Inter Miami</div><p>The greatest player of all time, at 38, in almost certainly his final World Cup. Became a champion in Qatar. He will not go quietly.</p></div>
+  </div>
+</div>
+
+<!-- AUSTRALIA -->
+<div class="nation-card" data-letter="A">
+  <div class="nc-header"><span class="nc-flag">🇦🇺</span><div><div class="nc-name">Australia</div><div class="nc-group">Group D</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Reached the quarter-finals in Qatar 2022 — their best-ever result — stunning Denmark along the way. Open against Türkiye at BC Place in Vancouver. Best result: Quarter-final (2022).</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>M. Ryan, J. Redmayne, D. Vukovic</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>M. Atkinson, K. Rowles, H. Souttar, A. Behich, N. D'Agostino</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>A. Mooy, J. Irvine, C. Gould, R. McGree, K. Dougall</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>M. Leckie, M. Duke, D. Nisbet, B. Tilio, J. Irvine</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Mathew Ryan</div><div class="nc-player-pos">Goalkeeper · Real Sociedad</div><p>The veteran goalkeeper whose penalty saves against France in Qatar 2022 will live in Socceroos history. Australia's last line of defence and their most reliable performer.</p></div>
+  </div>
+</div>
+
+<!-- AUSTRIA -->
+<div class="nation-card" data-letter="A">
+  <div class="nc-header"><span class="nc-flag">🇦🇹</span><div><div class="nc-name">Austria</div><div class="nc-group">Group J</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Returning to the World Cup for the first time since 1998. Austria's golden generation finally delivered qualification. Best result: Third place (1954). Drawn into Group J alongside Argentina, Algeria, and Jordan.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>P. Pentz, D. Lakowitsch, A. Schlager</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>D. Alaba, K. Lienhart, P. Danso, P. Mwene, S. Posch</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>M. Sabitzer, K. Laimer, F. Grillitsch, N. Seiwald, P. Weiß</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>M. Arnautovic, P. Wimmer, M. Gregoritsch, C. Baumgartner</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Marcel Sabitzer</div><div class="nc-player-pos">Midfielder · Borussia Dortmund</div><p>Austria's creative engine — combative, technically gifted, and capable of arriving late to score crucial goals. His Champions League experience gives Austria a mentality that belies their World Cup inexperience.</p></div>
+  </div>
+</div>
+
+<!-- BELGIUM -->
+<div class="nation-card" data-letter="B">
+  <div class="nc-header"><span class="nc-flag">🇧🇪</span><div><div class="nc-name">Belgium</div><div class="nc-group">Group G</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>The golden generation reached the semi-finals in 2018. Best result: Third place (1986). A new cycle blending De Bruyne's experience with emerging talent. Group G: Egypt, Iran, New Zealand.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>K. Casteels, T. Mignolet, M. Debast</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>T. Alderweireld, J. Vertonghen, A. Theate, T. Castagne, B. Meunier</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>K. De Bruyne, Y. Tielemans, A. Onana, O. Mangala, H. Vanaken</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>R. Lukaku, L. Trossard, J. Doku, B. Saelemaekers, C. De Ketelaere</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Kevin De Bruyne</div><div class="nc-player-pos">Midfielder · Manchester City</div><p>One of the finest midfielders of his generation. At 35, playing for legacy. His passing range and reading of the game remain elite even as pace has slightly dimmed.</p></div>
+  </div>
+</div>
+
+<!-- BOSNIA -->
+<div class="nation-card" data-letter="B">
+  <div class="nc-header"><span class="nc-flag">🇧🇦</span><div><div class="nc-name">Bosnia &amp; Herzegovina</div><div class="nc-group">Group B</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Second World Cup appearance after their debut in Brazil 2014. Their opener against host Canada at BMO Field will be the most-watched match in Canadian football history. Best result: Group stage (2014).</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Edin Džeko</div><div class="nc-player-pos">Forward</div><p>Bosnia's all-time leading scorer in what is likely his final international tournament. A physical presence whose experience and hold-up play create space for teammates. Against Canada, he is the danger man.</p></div>
+  </div>
+</div>
+
+<!-- BRAZIL -->
+<div class="nation-card" data-letter="B">
+  <div class="nc-header"><span class="nc-flag">🇧🇷</span><div><div class="nc-name">Brazil</div><div class="nc-group">Group C</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Five-time champions — the most decorated nation in the tournament's history (1958, 1962, 1970, 1994, 2002). Semi-final exits in 2018 and 2022 have fuelled hunger for redemption. Open against Morocco.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>Alisson, Ederson, Bento</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>Danilo, E. Militão, G. Magalhães, M. Renan, Wendell, Arana</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>Casemiro, B. Guimarães, Lucas Paquetá, A. Neves, Gerson</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>Vinícius Júnior, Rodrygo, Raphinha, Endrick, Savinho, G. Martinelli</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Vinícius Júnior</div><div class="nc-player-pos">Forward · Real Madrid</div><p>One of the most electrifying players in world football. Developed into a more clinical and complete attacker. When he is on song, he is unplayable. Brazil's bid for their sixth title runs through him.</p></div>
+  </div>
+</div>
+
+<!-- CANADA -->
+<div class="nation-card" data-letter="C">
+  <div class="nc-header"><span class="nc-flag">🇨🇦</span><div><div class="nc-name">Canada</div><div class="nc-group">Group B — Host Nation</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Second-ever World Cup appearance and first as hosts. Canada's golden generation qualified in historic fashion in 2022. Now they open on home soil at BMO Field in Toronto on June 12 — the most-watched domestic sporting moment in the country's history.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>M. Crepeau, J. St. Clair, A. Smylie</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>A. Davies, K. Miller, S. Johnston, D. Cornelius, A. Johnston, N. Adekugbe</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>S. Eustáquio, I. Kone, M. Henry, A. Ahmed, M. Piette</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>J. David, C. Larin, T. Buchanan, L. Godinho, J. Ugbo</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Alphonso Davies</div><div class="nc-player-pos">Left Back · Bayern Munich</div><p>A refugee who became one of the best full-backs in world football. His pace, crossing, and ability to carry the ball make him Canada's most dangerous attacking outlet. Playing at home, the stage is his.</p></div>
+  </div>
+</div>
+
+<!-- CAPE VERDE -->
+<div class="nation-card" data-letter="C">
+  <div class="nc-header"><span class="nc-flag">🇨🇻</span><div><div class="nc-name">Cape Verde</div><div class="nc-group">Group H</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>First-ever World Cup appearance for the Blue Sharks. A remarkable achievement for a nation of 600,000 people. Their qualification through the AFCON play-off route was heroic. Face Spain in the opener in Atlanta.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Jovane Cabral</div><div class="nc-player-pos">Winger · Sporting CP</div><p>Cape Verde's most technically gifted player — quick, direct, and capable of real moments of quality. Against Spain, he is the man the Blue Sharks will look to for inspiration.</p></div>
+  </div>
+</div>
+
+<!-- COLOMBIA -->
+<div class="nation-card" data-letter="C">
+  <div class="nc-header"><span class="nc-flag">🇨🇴</span><div><div class="nc-name">Colombia</div><div class="nc-group">Group K</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Reached the quarter-finals in 2014, their best-ever result. Copa América runners-up in 2024. A talented squad built around James Rodríguez returns to the World Cup stage after missing 2022. Group K: Portugal, DR Congo, Uzbekistan.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>D. Ospina, C. Vargas, E. Mondragón</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>D. Sánchez, Y. Mina, O. Mórelo, J. Mojica, S. Arias</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>J. Rodríguez, M. Ríos, J. Lerma, R. Arias, W. Barrios</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>L. Díaz, R. Falcao, R. Uribe, J. Córdoba, D. Copete</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Luis Díaz</div><div class="nc-player-pos">Forward · Liverpool</div><p>Liverpool's electric winger brings pace, directness, and an eye for goal that makes Colombia dangerous on the counter. One of the most exciting attackers in European football, Díaz gives Colombia a genuine match-winner at the highest level.</p></div>
+  </div>
+</div>
+
+<!-- CROATIA -->
+<div class="nation-card" data-letter="C">
+  <div class="nc-header"><span class="nc-flag">🇭🇷</span><div><div class="nc-name">Croatia</div><div class="nc-group">Group L</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Finalists in 2018 and third-place in 2022. One of the great overachievers in the tournament's history. Best result: Runners-up (2018). Grouped with England, Ghana, and Panama — Croatia have defied tougher odds before.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>D. Livaković, I. Grbić, N. Labrović</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>J. Šutalo, D. Vida, B. Gvardiol, J. Stanisic, B. Sosa</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>L. Modrić, M. Brozović, M. Kovačić, L. Ivanušec, K. Guthrie</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>I. Perišić, A. Kramarić, B. Budimir, M. Pjaca, A. Baturina</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Luka Modrić</div><div class="nc-player-pos">Midfielder · Real Madrid</div><p>At 40, writing the final chapter of an extraordinary career. His ability to control tempo and pick passes in tight spaces remains undiminished. This is his farewell to the world stage.</p></div>
+  </div>
+</div>
+
+<!-- CURACAO -->
+<div class="nation-card" data-letter="C">
+  <div class="nc-header"><span class="nc-flag">🇨🇼</span><div><div class="nc-name">Curaçao</div><div class="nc-group">Group E</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>First ever World Cup appearance. The smallest nation at this tournament by population. Face Germany in Houston in the opening round. A historic debut regardless of result — a proud moment for the Dutch Caribbean island.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Leandro Bacuna</div><div class="nc-player-pos">Midfielder</div><p>The experienced heartbeat of Curaçao's rise through CONCACAF qualification. A leader on and off the pitch who represents the spirit of a small island making the biggest stage of all.</p></div>
+  </div>
+</div>
+
+<!-- CZECHIA -->
+<div class="nation-card" data-letter="C">
+  <div class="nc-header"><span class="nc-flag">🇨🇿</span><div><div class="nc-name">Czechia</div><div class="nc-group">Group A</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Competing as Czech Republic/Czechoslovakia, best result was runners-up in 1934 and 1962. Solid European qualifiers with a strong defensive backbone. Group A: Mexico, South Africa, South Korea.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>J. Staněk, T. Vaclík, M. Mandous</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>T. Holes, J. Brabec, L. Kadeřábek, P. Souček, T. Vlček</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>T. Souček, A. Barák, L. Provod, M. Sadílek, J. Červ</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>P. Schick, A. Hlozek, D. Jurásek, M. Čvančara, J. Lingr</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Patrik Schick</div><div class="nc-player-pos">Forward · Bayer Leverkusen</div><p>One of Europe's most complete centre-forwards — powerful, technically gifted, capable of scoring from distance. His long-range goal against Scotland at Euro 2020 remains one of the finest strikes in recent tournament memory.</p></div>
+  </div>
+</div>
+
+<!-- DR CONGO -->
+<div class="nation-card" data-letter="D">
+  <div class="nc-header"><span class="nc-flag">🇨🇩</span><div><div class="nc-name">DR Congo</div><div class="nc-group">Group K</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Returning for the first time since 1974, when they competed as Zaire. Africa's most populous nation. Best result: Group stage (1974). Grouped with Portugal, Uzbekistan, and Colombia in a competitive Group K.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Chancel Mbemba</div><div class="nc-player-pos">Defender · Marseille</div><p>DR Congo's defensive cornerstone — aggressive, commanding in the air, and experienced at the highest level of European club football. His leadership determines how far the Leopards go.</p></div>
+  </div>
+</div>
+
+<!-- ECUADOR -->
+<div class="nation-card" data-letter="E">
+  <div class="nc-header"><span class="nc-flag">🇪🇨</span><div><div class="nc-name">Ecuador</div><div class="nc-group">Group E</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Back-to-back qualifiers. Ecuador opened the 2022 tournament in Qatar. Best result: Round of 16 (2006). Group E alongside Germany, Ivory Coast, and Curaçao is a genuine test of their development.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>H. Galíndez, A. Domínguez, M. Ortiz</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>P. Hincapié, J. Arboleda, R. Estupiñán, A. Preciado, D. Pacho</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>M. Caicedo, C. Gruezo, A. Méndez, J. Cifuentes, K. Rodriguez</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>E. Valencia, G. Almada, J. Plata, M. Estrada, J. Minda</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Moisés Caicedo</div><div class="nc-player-pos">Midfielder · Chelsea</div><p>The £115m Chelsea midfielder has rapidly become one of Europe's finest defensive midfielders. His energy, range of passing and ability to win the ball back make Ecuador harder to beat than their ranking suggests.</p></div>
+  </div>
+</div>
+
+<!-- EGYPT -->
+<div class="nation-card" data-letter="E">
+  <div class="nc-header"><span class="nc-flag">🇪🇬</span><div><div class="nc-name">Egypt</div><div class="nc-group">Group G</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Mohamed Salah's second and likely final World Cup. Best result: Group stage (2018). The Pharaohs qualified through AFCON competition. Group G with Belgium, Iran, and New Zealand is genuinely open.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>M. El-Shennawy, K. El-Ahmad, I. El Sawy</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>A. Hegazi, O. Kamal, A. Fatouh, A. El-Sayed, A. Ashraf</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>T. Mohamed, M. El Neny, O. Gaber, A. Elneny, W. Ali</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>M. Salah, M. Mostafa, O. Marmoush, A. El Shahat, Z. El-Araby</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Mohamed Salah</div><div class="nc-player-pos">Forward · Liverpool</div><p>At his absolute peak and hungry for the World Cup stage. Egypt's entire campaign is built around him. One performance of his best can change the tournament's narrative entirely.</p></div>
+  </div>
+</div>
+
+<!-- ENGLAND -->
+<div class="nation-card" data-letter="E">
+  <div class="nc-header"><span class="nc-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><div><div class="nc-name">England</div><div class="nc-group">Group L</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Winners in 1966 — their only title. Semi-finalists in 2018 and 2022. Runners-up at Euro 2024. Enter as genuine contenders. Best result: Winners (1966). Group L: Croatia, Ghana, Panama.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>J. Pickford, A. Ramsdale, D. Henderson</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>K. Walker, J. Stones, H. Maguire, L. Shaw, T. Alexander-Arnold, M. Guehi</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>J. Bellingham, D. Rice, K. Phillips, C. Gallagher, J. Ward-Prowse</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>H. Kane, M. Rashford, B. Saka, P. Foden, O. Watkins, J. Lingard</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Jude Bellingham</div><div class="nc-player-pos">Midfielder · Real Madrid</div><p>At 22, the most complete midfielder in the world. Led England to Euro 2024 final. His ability to arrive in the box, his defensive work, his leadership — this is his tournament to define his legacy.</p></div>
+  </div>
+</div>
+
+<!-- FRANCE -->
+<div class="nation-card" data-letter="F">
+  <div class="nc-header"><span class="nc-flag">🇫🇷</span><div><div class="nc-name">France</div><div class="nc-group">Group I — Contenders</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>World champions in 1998 and 2018. Runners-up in 2022. Best result: Winners (1998, 2018). Mbappé at peak powers, deepest squad in the tournament. Group I: Senegal, Iraq, Norway.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>M. Maignan, A. Lloris, B. Samba</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>T. Hernández, D. Upamecano, I. Konaté, J. Kounde, B. Pavard, W. Saliba</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>A. Tchouaméni, E. Camavinga, A. Rabiot, Y. Fofana, A. Griezmann</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>K. Mbappé, O. Giroud, M. Thuram, O. Dembélé, R. Leão, K. Coman</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Kylian Mbappé</div><div class="nc-player-pos">Forward · Real Madrid</div><p>Reigning Ballon d'Or favourite. 12 goals in 14 World Cup appearances. When fit and motivated, no defender in the world can stop him. The overwhelming favourite for the Golden Ball if France go deep.</p></div>
+  </div>
+</div>
+
+<!-- GERMANY -->
+<div class="nation-card" data-letter="G">
+  <div class="nc-header"><span class="nc-flag">🇩🇪</span><div><div class="nc-name">Germany</div><div class="nc-group">Group E — Dark Horse</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Four-time champions (1954, 1974, 1990, 2014). Exited in the group stage in both 2018 and 2022. Enter without pressure but with enormous talent. Group E: Curaçao, Ivory Coast, Ecuador. Open the entire tournament June 11 in Mexico City.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>M. Neuer, M. Flekken, O. Baumann</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>A. Rüdiger, J. Tah, D. Raum, K. Schlotterbeck, T. Müller, B. Henrichs</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>J. Kimmich, L. Goretzka, T. Kroos, R. Andrich, P. Groß</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>J. Musiala, F. Wirtz, K. Havertz, L. Nmecha, S. Gnabry, N. Füllkrug</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Jamal Musiala</div><div class="nc-player-pos">Midfielder · Bayern Munich</div><p>Germany's most exciting player in a generation. The 22-year-old's dribbling, goals, and ability to play in multiple positions make him a dark-horse Golden Ball candidate. He could be the name everyone remembers.</p></div>
+  </div>
+</div>
+
+<!-- GHANA -->
+<div class="nation-card" data-letter="G">
+  <div class="nc-header"><span class="nc-flag">🇬🇭</span><div><div class="nc-name">Ghana</div><div class="nc-group">Group L</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Came agonisingly close to the semi-finals in 2010 — Suárez's handball remains one of the most controversial moments in history. Best result: Quarter-final (2010). Group L: England, Croatia, Panama.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Mohammed Kudus</div><div class="nc-player-pos">Midfielder · West Ham United</div><p>Ghana's most dynamic player — explosive off the dribble, capable of playing centrally or wide, and a scorer of spectacular goals. On his best days, Kudus is unplayable at any level.</p></div>
+  </div>
+</div>
+
+<!-- HAITI -->
+<div class="nation-card" data-letter="H">
+  <div class="nc-header"><span class="nc-flag">🇭🇹</span><div><div class="nc-name">Haiti</div><div class="nc-group">Group C</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Second World Cup appearance after 1974. A nation that has endured extraordinary hardship — their qualification was a genuine moment of national joy. Best result: Group stage (1974). Face Brazil and Morocco in Group C.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Frantzdy Pierrot</div><div class="nc-player-pos">Forward</div><p>Haiti's captain and most experienced player — the striker who led their CONCACAF qualification with goals and leadership through a difficult political period back home. Against Brazil and Morocco, he needs the game of his life.</p></div>
+  </div>
+</div>
+
+<!-- IRAN -->
+<div class="nation-card" data-letter="I">
+  <div class="nc-header"><span class="nc-flag">🇮🇷</span><div><div class="nc-name">Iran</div><div class="nc-group">Group G</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Four consecutive qualifications. Best result: Group stage. Iran's presence carries enormous geopolitical weight. Group G: Belgium, Egypt, New Zealand — a genuinely contested four-way group.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Mehdi Taremi</div><div class="nc-player-pos">Forward · Inter Milan</div><p>One of the most technically accomplished players Iran has ever produced. His bicycle kick against England in Qatar 2022 is still replayed daily. At 32, in his prime, Taremi is a genuine threat against any defence.</p></div>
+  </div>
+</div>
+
+<!-- IRAQ -->
+<div class="nation-card" data-letter="I">
+  <div class="nc-header"><span class="nc-flag">🇮🇶</span><div><div class="nc-name">Iraq</div><div class="nc-group">Group I</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>First World Cup since 1986. One of the great underdog qualification stories. Best result: Group stage (1986). Face France, Senegal, and Norway in Group I — their debut at this stage is the story in itself.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Aymen Hussein</div><div class="nc-player-pos">Forward</div><p>Iraq's most prolific scorer in the historic qualification campaign. The striker who wrote his name into national football history. Face France in the opener — the biggest match of his career.</p></div>
+  </div>
+</div>
+
+<!-- IVORY COAST -->
+<div class="nation-card" data-letter="I">
+  <div class="nc-header"><span class="nc-flag">🇨🇮</span><div><div class="nc-name">Ivory Coast</div><div class="nc-group">Group E</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>African champions in 2023. Best World Cup result: Group stage. Arrive with genuine continental pedigree and Premier League quality throughout the squad. Group E: Germany, Ecuador, Curaçao.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Sébastien Haller</div><div class="nc-player-pos">Forward · Borussia Dortmund</div><p>Overcame testicular cancer in 2022 to return to elite football. Now one of the most powerful centre-forwards in the Bundesliga. Physical presence and clinical finishing make him a handful for any defence.</p></div>
+  </div>
+</div>
+
+<!-- JAPAN -->
+<div class="nation-card" data-letter="J">
+  <div class="nc-header"><span class="nc-flag">🇯🇵</span><div><div class="nc-name">Japan</div><div class="nc-group">Group F</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Stunned Germany and Spain in Qatar 2022 before a penalty shoot-out exit to Croatia. Best result: Round of 16. The finest generation Japan has ever fielded. Group F: Netherlands, Sweden, Tunisia.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>S. Gonda, D. Schmidt, K. Kawashima</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>H. Sakai, K. Itakura, S. Tomiyasu, Y. Nagatomo, S. Ito, M. Yamane</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>W. Endo, H. Morita, A. Tanaka, R. Doan, J. Ito</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>T. Kubo, K. Mitoma, D. Kamada, A. Ueda, H. Furuhashi</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Takefusa Kubo</div><div class="nc-player-pos">Winger · Real Sociedad</div><p>Japan's most technically gifted attacker — a dribbler of real quality who spent time in Real Madrid's academy. Japan's stunning performance in Qatar showed what this generation can do. Kubo can be the star turn.</p></div>
+  </div>
+</div>
+
+<!-- JORDAN -->
+<div class="nation-card" data-letter="J">
+  <div class="nc-header"><span class="nc-flag">🇯🇴</span><div><div class="nc-name">Jordan</div><div class="nc-group">Group J</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>First World Cup appearance. Reached the 2023 Asian Cup final — a remarkable achievement that announced Jordan as a genuine regional force. Group J: Argentina, Algeria, Austria.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Yazan Al-Naimat</div><div class="nc-player-pos">Forward</div><p>Jordan's most prolific scorer in Asian qualification. Fast, direct, with a goal threat that surprised every opponent in the Asian Cup run. Against Argentina and Austria, Jordan need him at his very best.</p></div>
+  </div>
+</div>
+
+<!-- KOREA REPUBLIC -->
+<div class="nation-card" data-letter="K">
+  <div class="nc-header"><span class="nc-flag">🇰🇷</span><div><div class="nc-name">Korea Republic</div><div class="nc-group">Group A</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Co-hosts in 2002, reaching the semi-finals in their finest hour. Best result: Semi-final (2002). Son Heung-min's final tournament. Group A: Mexico, South Africa, Czechia.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>S. Kim, B. Jo, H. Lee</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>M. Kim, Y. Kim, C. Kim, J. Lee, T. Hwang</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>I. Lee, K. Lee, J. Hwang, S. Paik, J. Son</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>H. Son, K. Lee, C. Cho, K. Oh, J. Hwang</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Son Heung-min</div><div class="nc-player-pos">Forward · Tottenham Hotspur</div><p>South Korea's greatest player at his final World Cup. His intelligence, movement, and finishing remain elite. South Korea's entire offensive structure is designed to serve him.</p></div>
+  </div>
+</div>
+
+<!-- MEXICO -->
+<div class="nation-card" data-letter="M">
+  <div class="nc-header"><span class="nc-flag">🇲🇽</span><div><div class="nc-name">Mexico</div><div class="nc-group">Group A — Host Nation</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>One of the most passionate football nations on earth. Open the tournament at the iconic Estadio Azteca — which hosted the 1970 and 1986 finals. Best result: Quarter-final (1970, 1986). The Round of 16 curse — seven consecutive exits — looms large.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>G. Ochoa, R. Cota, L. Malagón</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>H. Moreno, C. Montes, N. Sánchez, G. Arteaga, J. Gallardo, E. Álvarez</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>A. Guardado, E. Herrera, O. Pineda, L. Romo, C. Rodríguez</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>H. Lozano, R. Jiménez, A. Vega, U. Antuna, S. Giménez</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Hirving Lozano</div><div class="nc-player-pos">Winger · PSV Eindhoven</div><p>Mexico's most dangerous wide attacker — quick, technically sharp, capable of decisive moments against elite defenders. Playing at the Azteca in the opening match, the stage could not be bigger.</p></div>
+  </div>
+</div>
+
+<!-- MOROCCO -->
+<div class="nation-card" data-letter="M">
+  <div class="nc-header"><span class="nc-flag">🇲🇦</span><div><div class="nc-name">Morocco</div><div class="nc-group">Group C</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>The story of Qatar 2022 — first African nation to reach a World Cup semi-final, defeating Belgium, Spain, and Portugal. Best result: Semi-final (2022). Face Brazil in the opener. A repeat semi-final run is the ambition.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>Y. Bono, M. Tagnaouti, A. Erradi</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>A. Hakimi, N. Aguerd, R. Saïss, N. Mazraoui, Y. Attiat-Allah, B. Bounou</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>S. Amrabat, A. Ounahi, I. Ziyech, A. Sabiri, B. Bounou</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>Y. En-Nesyri, H. Ziyech, S. Boufal, A. Harit, A. Benali</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Achraf Hakimi</div><div class="nc-player-pos">Right Back · PSG</div><p>One of the best full-backs in world football. Morocco's standout in Qatar 2022. His overlapping runs and crossing create chances from seemingly impossible positions. Morocco's engine on the right side.</p></div>
+  </div>
+</div>
+
+<!-- NETHERLANDS -->
+<div class="nation-card" data-letter="N">
+  <div class="nc-header"><span class="nc-flag">🇳🇱</span><div><div class="nc-name">Netherlands</div><div class="nc-group">Group F</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Three-time finalists (1974, 1978, 2010). Still one of Europe's most formidable sides. Best result: Runners-up (1974, 1978, 2010). Group F: Japan, Sweden, Tunisia — a genuine four-way contest.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>R. Flekken, J. Bijlow, B. Verbruggen</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>V. van Dijk, M. de Ligt, D. Dumfries, N. Timber, J. Aké, T. Reijnders</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>F. de Jong, T. Reijnders, X. Simons, J. Schouten, R. de Jong</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>C. Gakpo, M. Depay, B. Zirkzee, D. Malen, W. Weghorst</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Virgil van Dijk</div><div class="nc-player-pos">Defender · Liverpool</div><p>Arguably the best centre-back in the world and the cornerstone of everything Netherlands do. At 34, dominant in the air, commanding on the ground. With Van Dijk fit, the Dutch are among the tournament's most organised defences.</p></div>
+  </div>
+</div>
+
+<!-- NEW ZEALAND -->
+<div class="nation-card" data-letter="N">
+  <div class="nc-header"><span class="nc-flag">🇳🇿</span><div><div class="nc-name">New Zealand</div><div class="nc-group">Group G</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>The All Whites' second World Cup. In 2010 they went unbeaten — three draws including against Italy. Best result: Group stage (2010). Group G: Belgium, Egypt, Iran — nothing guaranteed.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Chris Wood</div><div class="nc-player-pos">Forward · Nottingham Forest</div><p>New Zealand's all-time leading scorer and the focal point of their attack. Physical, dangerous in the air, and experienced across a decade of top-flight English football. Wood gives New Zealand a genuine goalscoring threat.</p></div>
+  </div>
+</div>
+
+<!-- NORWAY -->
+<div class="nation-card" data-letter="N">
+  <div class="nc-header"><span class="nc-flag">🇳🇴</span><div><div class="nc-name">Norway</div><div class="nc-group">Group I</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>First World Cup since 1998, dragged back to the international stage by Erling Haaland. Best result: Round of 16 (1998). Group I: France, Senegal, Iraq — Norway target second place.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>Ø. Nyland, R. Ørjan Nyland, J. Ørjan Nyland</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>L. Ajer, S. Strandberg, A. Tørset Kjæver, B. Kristiansen, J. Ryerson</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>M. Ødegaard, S. Berge, F. Aursnes, P. Berg, M. Elyounoussi</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>E. Haaland, A. Sørloth, O. Thorstvedt, J. Strand Larsen, M. Elyounoussi</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Erling Haaland</div><div class="nc-player-pos">Forward · Manchester City</div><p>Fastest to 100 Premier League goals in history. Finally gets the world stage he was born for. Against France and Senegal, Haaland faces the toughest defensive tests of his career. Norway's entire attack runs through him.</p></div>
+  </div>
+</div>
+
+<!-- PANAMA -->
+<div class="nation-card" data-letter="P">
+  <div class="nc-header"><span class="nc-flag">🇵🇦</span><div><div class="nc-name">Panama</div><div class="nc-group">Group L</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Second World Cup after Russia 2018 debut. Central America's most improved footballing nation. Best result: Group stage (2018). Group L: England, Croatia, Ghana — compact defensive organisation their weapon.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Rolando Blackburn</div><div class="nc-player-pos">Forward</div><p>The striker who led Panama's qualification with crucial goals. Compact, mobile, always a threat on the counter. Panama's strength is collective but Blackburn provides the individual spark that can unlock tight defences.</p></div>
+  </div>
+</div>
+
+<!-- PARAGUAY -->
+<div class="nation-card" data-letter="P">
+  <div class="nc-header"><span class="nc-flag">🇵🇾</span><div><div class="nc-name">Paraguay</div><div class="nc-group">Group D</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>First World Cup since 2010, when they reached the quarter-finals. Best result: Quarter-final (2010). Qualification through CONMEBOL was hard-fought. Group D: USA, Australia, Türkiye — every point fiercely contested.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Miguel Almirón</div><div class="nc-player-pos">Midfielder · Newcastle United</div><p>One of the Premier League's most energetic and effective midfielders. His tireless pressing and late runs into the box are invaluable. For Paraguay, Almirón bridges the gap between defensive structure and attack.</p></div>
+  </div>
+</div>
+
+<!-- PORTUGAL -->
+<div class="nation-card" data-letter="P">
+  <div class="nc-header"><span class="nc-flag">🇵🇹</span><div><div class="nc-name">Portugal</div><div class="nc-group">Group K</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Winners of Euro 2016. Best World Cup result: Third place (1966). A squad of genuine depth beyond Ronaldo — Fernandes, Dias, Leão. Open June 17. Group K: DR Congo, Uzbekistan, Colombia.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>D. Costa, R. Patrício, J. Sá</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>R. Dias, P. Magalhães, N. Semedo, J. Cancelo, D. Dalot, C. Queirós</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>B. Fernandes, V. Horta, J. Palhinha, R. Neves, M. Ugarte</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>C. Ronaldo, R. Leão, G. Ramos, P. Neto, D. Jota</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Cristiano Ronaldo</div><div class="nc-player-pos">Forward · Al Nassr</div><p>At 41, his farewell tournament. 130 international goals. The Messi-Ronaldo era bookends this edition. Neither will exit without a fight — and Ronaldo has never in his life accepted a quiet exit.</p></div>
+  </div>
+</div>
+
+<!-- QATAR -->
+<div class="nation-card" data-letter="Q">
+  <div class="nc-header"><span class="nc-flag">🇶🇦</span><div><div class="nc-name">Qatar</div><div class="nc-group">Group B</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Hosts of Qatar 2022 who became the first host nation to exit the group stage without winning a match. Back as qualifiers through the Asian pathway. Best result: Group stage (2022). Group B: Canada, Bosnia, Switzerland.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Akram Afif</div><div class="nc-player-pos">Winger · Sporting CP</div><p>Asian Player of the Year and the man who led Qatar's qualification. Their most technically accomplished player. Qatar need him to perform to have any chance of progressing from Group B.</p></div>
+  </div>
+</div>
+
+<!-- SAUDI ARABIA -->
+<div class="nation-card" data-letter="S">
+  <div class="nc-header"><span class="nc-flag">🇸🇦</span><div><div class="nc-name">Saudi Arabia</div><div class="nc-group">Group H</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Defined their Qatar 2022 campaign with a stunning 2-1 win over Argentina — one of the greatest upsets in World Cup history. Best result: Round of 16 (1994). Group H: Spain, Cape Verde, Uruguay.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Salem Al-Dawsari</div><div class="nc-player-pos">Winger · Al-Hilal</div><p>Scored one of the greatest goals in World Cup history — the curling left-foot strike that sealed the win over Argentina in Qatar 2022. Remains their most creative and dangerous player.</p></div>
+  </div>
+</div>
+
+<!-- SCOTLAND -->
+<div class="nation-card" data-letter="S">
+  <div class="nc-header"><span class="nc-flag">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><div><div class="nc-name">Scotland</div><div class="nc-group">Group C</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>First World Cup since 1998 — a 28-year wait for one of the game's original nations. Best result: Group stage. Steve Clarke's side qualified with grit. Face Brazil and Morocco in Group C. The objective is to be competitive; the hope is to surprise.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>A. Gunn, C. Gordon, Z. Marshall</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>A. Robertson, G. Hanley, J. Hendry, A. Ralston, L. Taylor, K. Tierney</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>S. McTominay, C. McGregor, B. Gilmour, J. McGinn, R. Jack</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>L. Ferguson, K. Nisbet, C. Adams, R. Christie, J. Shankland</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Scott McTominay</div><div class="nc-player-pos">Midfielder · Napoli</div><p>Scotland's most important player — a box-to-box engine who scores crucial goals and covers every blade of grass. His form at Napoli has been outstanding. Face Brazil and Morocco — McTominay needs the performance of his career.</p></div>
+  </div>
+</div>
+
+<!-- SENEGAL -->
+<div class="nation-card" data-letter="S">
+  <div class="nc-header"><span class="nc-flag">🇸🇳</span><div><div class="nc-name">Senegal</div><div class="nc-group">Group I</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>African champions in 2021 and quarter-finalists in Qatar 2022. Best result: Quarter-final (2002, 2022). One of Africa's most organised teams. Open against France — the nation of Mané's club roots.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Sadio Mané</div><div class="nc-player-pos">Forward · Al-Nassr</div><p>African champions in 2021 and one of the finest attackers of his generation. A fit Mané is unplayable on his day. Opening against France carries enormous emotional weight — the nation where he forged his career.</p></div>
+  </div>
+</div>
+
+<!-- SOUTH AFRICA -->
+<div class="nation-card" data-letter="S">
+  <div class="nc-header"><span class="nc-flag">🇿🇦</span><div><div class="nc-name">South Africa</div><div class="nc-group">Group A</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>First World Cup since 2010, when they hosted — the first African nation to do so. Best result: Group stage (2010). Face Mexico, South Korea, and Czechia in Group A — a balanced and competitive draw.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Percy Tau</div><div class="nc-player-pos">Winger · Al-Ahly</div><p>South Africa's most technically gifted attacking player — quick, direct, and experienced across European and African club football. Individual quality that can change a match in a single moment.</p></div>
+  </div>
+</div>
+
+<!-- SPAIN -->
+<div class="nation-card" data-letter="S">
+  <div class="nc-header"><span class="nc-flag">🇪🇸</span><div><div class="nc-name">Spain</div><div class="nc-group">Group H — Favourites</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Winners in 2010. Reigning European champions and the tournament's top-ranked side. Youngest and most technically gifted squad in the tournament. Best result: Winners (2010). Open vs Cape Verde, June 15, Atlanta.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>U. Simón, D. Raya, A. Remiro</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>D. Carvajal, R. Le Normand, A. Laporte, M. Cucurella, N. Williams, A. Grimaldo</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>Pedri, F. Ruiz, M. Oyarzabal, D. Olmo, M. Merino, A. García</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>L. Yamal, F. Torres, A. Morata, M. Oyarzabal, N. Williams, A. Baena</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Lamine Yamal</div><div class="nc-player-pos">Winger · FC Barcelona</div><p>At 18, already carrying Spain's hopes for a generation. The most exciting teenage talent in a generation. His dribbling, vision, and composure in big moments are extraordinary for someone of his age.</p></div>
+  </div>
+</div>
+
+<!-- SWEDEN -->
+<div class="nation-card" data-letter="S">
+  <div class="nc-header"><span class="nc-flag">🇸🇪</span><div><div class="nc-name">Sweden</div><div class="nc-group">Group F</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Third-place finishers in 2018. Best result: Runners-up (1958). Rebuilt since the Zlatan era with a collective, hard-working style. Group F: Netherlands, Japan, Tunisia — competitive from the opening whistle.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>R. Olsen, K. Johnsson, L. Nordfeldt</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>V. Lindelöf, M. Lustig, L. Augustinsson, E. Krafth, J. Helgesson</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>D. Kulusevski, E. Forsberg, A. Ekdal, O. Svensson, K. Olsson</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>A. Isak, V. Gyökeres, R. Quaison, M. Antonsson, J. Elanga</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Alexander Isak</div><div class="nc-player-pos">Forward · Newcastle United</div><p>One of the most complete centre-forwards in European football — tall, technically gifted, quick, and clinical. Sweden are more dangerous than their ranking suggests, and Isak is the player who makes them genuinely threatening.</p></div>
+  </div>
+</div>
+
+<!-- SWITZERLAND -->
+<div class="nation-card" data-letter="S">
+  <div class="nc-header"><span class="nc-flag">🇨🇭</span><div><div class="nc-name">Switzerland</div><div class="nc-group">Group B</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Quarter-finalists in each of the last two tournaments. Consistent overachievers. Best result: Quarter-final (2022). Group B: Canada, Bosnia, Qatar — Switzerland will expect to reach the knockouts.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>Y. Sommer, D. Mvogo, P. Kobel</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>M. Akanji, F. Schär, N. Elvedi, S. Widmer, R. Rodríguez, K. Mbabu</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>G. Xhaka, X. Shaqiri, R. Vargas, S. Zuber, M. Freuler</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>B. Embolo, N. Okafor, G. Rüegg, Z. Amdouni, A. Sierro</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Granit Xhaka</div><div class="nc-player-pos">Midfielder · Bayer Leverkusen</div><p>Transformed from a lightning rod for criticism at Arsenal into a Champions League winner. One of the most complete defensive midfielders in European football. Switzerland's experience in big knockout matches makes them dangerous opponents.</p></div>
+  </div>
+</div>
+
+<!-- TUNISIA -->
+<div class="nation-card" data-letter="T">
+  <div class="nc-header"><span class="nc-flag">🇹🇳</span><div><div class="nc-name">Tunisia</div><div class="nc-group">Group F</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Africa's most reliable qualifier — ninth World Cup appearance. Best result: Group stage. Face Netherlands, Japan, and Sweden in Group F. Qualifying from this group would be among the continent's great achievements.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Wahbi Khazri</div><div class="nc-player-pos">Attacking Midfielder</div><p>The veteran creative heartbeat of Tunisia across multiple campaigns. At 33, his final World Cup. His ability to receive in tight spaces and play forward quickly makes Tunisia more dangerous than their seeding suggests.</p></div>
+  </div>
+</div>
+
+<!-- TURKIYE -->
+<div class="nation-card" data-letter="T">
+  <div class="nc-header"><span class="nc-flag">🇹🇷</span><div><div class="nc-name">Türkiye</div><div class="nc-group">Group D</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Third-place finishers in 2002 — their finest hour. Best result: Third place (2002). A nation with enormous passion and increasing club-level quality. Group D: USA, Paraguay, Australia — a genuinely open four-way contest.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>U. Çakır, A. Bayındır, G. Günok</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>M. Demiral, K. Ayhan, Z. Çelik, F. Kadioglu, U. Kabak</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>H. Çalhanoğlu, O. Tufan, D. Yüksek, Y. Yazıcı, A. Güler</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>B. Yılmaz, K. Aktürkoğlu, I. Yılmaz, A. Ünal, Y. Yazıcı</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Hakan Çalhanoğlu</div><div class="nc-player-pos">Midfielder · Inter Milan</div><p>One of Serie A's finest midfielders — controls tempo, scores from free kicks, and provides the defensive cover that gives Türkiye freedom to attack. At 31, in his prime, he is Türkiye's technical heartbeat.</p></div>
+  </div>
+</div>
+
+<!-- UNITED STATES -->
+<div class="nation-card" data-letter="U">
+  <div class="nc-header"><span class="nc-flag">🇺🇸</span><div><div class="nc-name">United States</div><div class="nc-group">Group D — Host Nation</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Co-hosts playing in their own backyard with enormous expectations. Best result: Semi-final (1930). Christian Pulisic leads a generation that grew up watching the sport grow in America. Never won a World Cup — home advantage, squad depth, and a nation's belief.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>M. Turner, Z. Steffen, E. Horvath</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>S. Dest, C. Richards, M. Ream, A. Robinson, T. Zimmermann, J. Scally</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>Y. Musah, T. Adams, W. McKennie, B. Aaronson, L. Acosta</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>C. Pulisic, R. Weah, J. Ferreira, F. Balogun, G. Reyna, J. Sargent</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Christian Pulisic</div><div class="nc-player-pos">Forward · AC Milan</div><p>The face of American football's coming of age. At 27, the most complete player the USA have ever produced. Playing at home, in front of a nation that has finally fallen in love with the game he has spent his career promoting.</p></div>
+  </div>
+</div>
+
+<!-- URUGUAY -->
+<div class="nation-card" data-letter="U">
+  <div class="nc-header"><span class="nc-flag">🇺🇾</span><div><div class="nc-name">Uruguay</div><div class="nc-group">Group H</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>Two-time champions (1930, 1950). Remain South America's most defensively organised side. Best result: Winners (1930, 1950). Group H: Spain, Saudi Arabia, Cape Verde — defensive organisation could make them the surprise.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div>
+      <div class="nc-pos-group"><div class="nc-pos">GK</div><div>S. Rochet, F. Muslera, M. Cáceres</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">DEF</div><div>R. Araújo, J. Giménez, M. Olivera, G. Varela, N. Nández, S. Coates</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">MID</div><div>F. Valverde, M. Ugarte, R. Bentancur, T. Vecino, L. Torreira</div></div>
+      <div class="nc-pos-group"><div class="nc-pos">FWD</div><div>D. Núñez, E. Cavani, L. Suárez, F. Torres, B. Arévalo</div></div>
+    </div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Darwin Núñez</div><div class="nc-player-pos">Forward · Liverpool</div><p>Physically imposing — pace, power, aerial threat, and an improving clinical edge. Group H with Spain will test him against the world's best defensive units. On his day, Núñez is a handful for anyone.</p></div>
+  </div>
+</div>
+
+<!-- UZBEKISTAN -->
+<div class="nation-card" data-letter="U">
+  <div class="nc-header"><span class="nc-flag">🇺🇿</span><div><div class="nc-name">Uzbekistan</div><div class="nc-group">Group K</div></div></div>
+  <div class="nc-body">
+    <div class="nc-history"><div class="nc-col-label">World Cup History</div><p>First World Cup appearance. Uzbekistan's qualification through the AFC pathway was a landmark for Central Asian football. Best result: Debut. Face Portugal, DR Congo, and Colombia in Group K.</p></div>
+    <div class="nc-squad"><div class="nc-col-label">Squad</div><div class="nc-squad-note">Squad to be finalised</div></div>
+    <div class="nc-keyplayer"><div class="nc-col-label">Key Player</div><div class="nc-player-name">Eldor Shomurodov</div><div class="nc-player-pos">Forward · Roma</div><p>Uzbekistan's most experienced player at European club level and their most dangerous attacking weapon. His pace and movement in behind defensive lines is the platform around which the White Wolves build their attacks.</p></div>
+  </div>
+</div>
+
+  </div><!-- /nations-list -->
+  <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);font-style:italic;margin-top:10px;">Squad lists are indicative based on recent selections. Official 26-man squads confirmed closer to the tournament. Sources: FIFA · ESPN · BBC Sport · June 2026</div>
+</div></div><!-- /teams -->
+
+
+
+<!-- ══════════════════════════ SECTION 7 — ARTICLES STREAM ══════════════════════════ -->
+<div id="articles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Articles</h2><div class="flag">Coverage As It Happens &mdash; Newest First</div></div>
+
+  <div class="articles-stream">
+
+    <!-- ARTICLE 2 — No.68 intro -->
+    <article class="stream-item">
+      <div class="stream-date-pill">June 9, 2026 &mdash; No. 68</div>
+      <h3>Five Teams That Could Win It: Spain, Argentina, France, Brazil, Germany</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 9, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Reigning European champions Spain arrive as the tournament&rsquo;s top-ranked side, and their 3&ndash;1 dismantling of Peru on Monday &mdash; without Yamal or Williams &mdash; only reinforced the point. Pedri, Oyarzabal, and Ferran Torres are in form. De la Fuente has depth no other manager can match. Defending champions Argentina enter without the expectation of 2022 but with Messi at 38 still the linchpin &mdash; and a favourable group J draw against Algeria, Austria, and Jordan. France have Mbapp&eacute; at his peak, the deepest bench in the tournament, and a midfield of Tcha&uml;m&eacute;ni and Camavinga that balances steel and technique in equal measure.</p>
+      <p>Brazil, after semi-final exits in 2018 and 2022, enter a new cycle under Dorival J&uacute;nior with Vin&iacute;cius J&uacute;nior and Rodrygo anchoring the attack. Whether the defensive structure can hold in the knockouts &mdash; Brazil&rsquo;s persistent question &mdash; remains to be answered. And Germany, entering without pressure after two group-stage humiliations in 2018 and 2022, may be this tournament&rsquo;s most dangerous dark horse. Jamal Musiala and Florian Wirtz are two of the most exciting midfielders in world football, and Group E &mdash; Cura&ccedil;ao, Ivory Coast, Ecuador &mdash; is the most navigable draw any top-ranked side received. Germany open the entire tournament on June 11 in Mexico City.</p>
+      <div class="src">Sources: <a href="https://www.espn.com/soccer/story/_/id/48939282/2026-fifa-world-cup-fixtures-results-match-schedule-group-stage-knockout-rounds-bracket-dates" target="_blank" rel="noopener">ESPN</a> &middot; <a href="https://www.aljazeera.com/sports/2026/5/7/whats-the-full-match-schedule-groups-and-format-for-world-cup-2026" target="_blank" rel="noopener">Al Jazeera</a> &middot; FIFA &middot; June 2026</div>
+    </article>
+
+  </div>
+
+  <div style="font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;border-top:1px solid var(--rule);padding-top:10px;margin-top:4px;">New articles added with each edition from June 11 onwards. Newest articles appear at the top.</div>
+
+</div></div><!-- /articles -->
+
+<!-- ══════════════════════════ CORNER GAME ══════════════════════════ -->
+<div class="divider"></div>
+<div class="page">
+  <div class="corner-section">
+    <div class="corner-title">&#9917; Corner</div>
+    <div class="corner-sub">Set piece. Six seconds. Everything.</div>
+    <p style="font-family:'Libre Baskerville',serif;font-size:12px;color:rgba(244,237,214,.65);max-width:480px;margin:0 auto 16px;line-height:1.7;">Attack a corner, then defend one. First to five goals wins. A World Cup special from The Chronicler Games.</p>
+    <a class="corner-link" href="https://thechronicler.ca/Specials/corner.html">Play Corner &rarr;</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<div class="divider"></div>
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I &bull; FIFA World Cup 2026 Special &bull; Independent &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<!-- ══════════════════════════ JAVASCRIPT ══════════════════════════ -->
+<script>
+
+// ── RENDER THIS WEEK\'S FIXTURES ────────────────────────
+document.getElementById('fw-week-label').textContent = WC_WEEK;
+const fwContainer = document.getElementById('fw-matches-container');
+WC_FIXTURES_WEEK.forEach(day => {
+  const dayDiv = document.createElement('div');
+  dayDiv.className = 'fw-day';
+  dayDiv.innerHTML = '<div class="fw-day-label">' + day.day + '</div>';
+  day.matches.forEach(m => {
+    const row = document.createElement('div');
+    row.className = 'fw-match' + (m.canada ? ' fw-canada' : '');
+    const scoreHtml = m.score
+      ? '<div class="fw-score">' + m.score + '</div>'
+      : '<div class="fw-score" style="font-size:9px;color:var(--grey);">vs</div>';
+    row.innerHTML =
+      '<div class="fw-time">' + m.time + '</div>' +
+      '<div class="fw-teams">' + m.home + ' ' + scoreHtml + ' ' + m.away + '</div>' +
+      '<div class="fw-venue">' + m.venue + '</div>';
+    dayDiv.appendChild(row);
+  });
+  fwContainer.appendChild(dayDiv);
+});
+
+// ── RENDER GOLDEN BOOT ──────────────────────────────────
+const gbContainer = document.getElementById('gb-container');
+if (WC_GOLDEN_BOOT.length === 0) {
+  gbContainer.innerHTML = '<div class="gb-empty">&#127941; Golden Boot table opens June 11 when the tournament begins.</div>';
+} else {
+  let tableHtml = '<table class="gb-table"><thead><tr><th>#</th><th>Player</th><th>Country</th><th style="text-align:center;">Goals</th><th style="text-align:center;">Ast</th></tr></thead><tbody>';
+  WC_GOLDEN_BOOT.forEach(p => {
+    tableHtml += '<tr><td class="gb-rank">' + p.rank + '</td><td>' + p.player + '</td><td>' + p.country + '</td><td class="gb-goals">' + p.goals + '</td><td style="text-align:center;font-family:\'Source Sans 3\',sans-serif;font-size:11px;">' + p.assists + '</td></tr>';
+  });
+  tableHtml += '</tbody></table>';
+  gbContainer.innerHTML = tableHtml;
+}
+
+// ── RENDER GROUP STANDINGS ──────────────────────────────
+const groupsContainer = document.getElementById('groups-container');
+Object.entries(WC_GROUPS).forEach(([groupLetter, group]) => {
+  const sorted = [...group.teams].sort((a,b) => {
+    const ptsA = a.W*3 + a.D, ptsB = b.W*3 + b.D;
+    if (ptsB !== ptsA) return ptsB - ptsA;
+    const gdA = a.GF - a.GA, gdB = b.GF - b.GA;
+    if (gdB !== gdA) return gdB - gdA;
+    return b.GF - a.GF;
+  });
+  const card = document.createElement('div');
+  card.className = 'group-card';
+  let tableHtml = '<div class="group-label">Group ' + groupLetter + '</div>';
+  tableHtml += '<table class="group-table"><thead><tr><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>';
+  sorted.forEach((t, i) => {
+    const gd = t.GF - t.GA;
+    const pts = t.W*3 + t.D;
+    const qualClass = i < 2 ? ' class="q"' : '';
+    const hostMark = t.host ? ' class="h"' : '';
+    tableHtml += '<tr' + qualClass + '><td><span' + hostMark + '>' + t.name + '</span></td><td>' + t.P + '</td><td>' + t.W + '</td><td>' + t.D + '</td><td>' + t.L + '</td><td>' + (gd >= 0 ? '+' : '') + gd + '</td><td class="gt-pts">' + pts + '</td></tr>';
+  });
+  tableHtml += '</tbody></table>';
+  card.innerHTML = tableHtml;
+  groupsContainer.appendChild(card);
+});
+
+// ── ALPHA FILTER FOR TEAMS ──────────────────────────────
+function filterTeams(letter) {
+  document.querySelectorAll('.alpha-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.nation-card').forEach(card => {
+    if (letter === 'all') {
+      card.classList.remove('hidden');
+    } else {
+      const cardLetter = card.dataset.letter;
+      card.classList.toggle('hidden', cardLetter !== letter);
+    }
+  });
+}
+
+// ── READ ALOUD ──────────────────────────────────────────
+function handleRead(btn) {
+  if (window._ttsUtterance) {
+    window.speechSynthesis.cancel();
+    if (window._ttsBtn) { window._ttsBtn.textContent = '\uD83D\uDD0A Read aloud'; }
+    if (window._ttsBtn === btn) { window._ttsUtterance = null; window._ttsBtn = null; return; }
+  }
+  const article = btn.closest('article');
+  const text = Array.from(article.querySelectorAll('p')).map(p => p.textContent).join(' ');
+  const u = new SpeechSynthesisUtterance(text);
+  u.onend = function() { btn.textContent = '\uD83D\uDD0A Read aloud'; window._ttsUtterance = null; window._ttsBtn = null; };
+  window._ttsUtterance = u;
+  window._ttsBtn = btn;
+  btn.textContent = '\u23F9 Stop';
+  window.speechSynthesis.speak(u);
+}
+
+</script>
+</body>
+</html>
