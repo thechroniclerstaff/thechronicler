@@ -210,6 +210,42 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 .nc-player-pos{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-bottom:7px;font-style:italic;}
 .nc-keyplayer p{font-family:'Libre Baskerville',serif;font-size:11px;line-height:1.7;color:var(--grey);}
 
+
+/* ── LIVE DATA STYLES ── */
+.wc-live-badge{background:#c43a3a;color:#fff;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:2px 6px;border-radius:2px;animation:pulse 1.2s infinite;}
+.wc-done-badge{background:var(--grey);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:2px 6px;border-radius:2px;}
+.wc-sched-time{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);}
+.wc-vs{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin:0 4px;}
+.wc-score-live{font-family:'Playfair Display',serif;font-weight:900;font-size:15px;color:#c43a3a;margin:0 4px;}
+.wc-score-ft{font-family:'Playfair Display',serif;font-weight:900;font-size:15px;color:var(--rust);margin:0 4px;}
+.wc-team{font-family:'Source Sans 3',sans-serif;font-size:10.5px;color:var(--ink);}
+.wc-match{display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px dotted var(--rule);}
+.wc-match:last-child{border-bottom:none;}
+.wc-match-status{width:52px;flex-shrink:0;text-align:center;}
+.wc-match-teams{flex:1;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.wc-match-canada{background:rgba(139,37,19,.06);border-radius:2px;padding:2px 4px;}
+.wc-day{margin-bottom:10px;}
+.wc-day-label{font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--rule);padding:3px 8px;margin-bottom:5px;display:inline-block;}
+.wc-day-today{background:var(--rust);color:#fff;}
+.wc-qual td{background:rgba(26,107,60,.1);}
+.wc-empty{font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);font-style:italic;padding:16px 0;text-align:center;}
+.wc-gb-rank{font-weight:700;color:var(--grey);width:24px;}
+.wc-gb-goals{font-family:'Playfair Display',serif;font-weight:900;font-size:16px;color:var(--rust);text-align:center;}
+.wc-gb-table{width:100%;border-collapse:collapse;font-family:'Source Sans 3',sans-serif;font-size:11px;}
+.wc-gb-table th{background:var(--ink);color:var(--aged);padding:5px 7px;text-align:left;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;}
+.wc-gb-table td{padding:6px 7px;border-bottom:1px solid var(--rule);}
+.wc-gb-table tr:last-child td{border-bottom:none;}
+.wc-group-card{background:#f2ead5;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 12px;}
+.wc-group-label{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:8px;}
+.wc-group-table{width:100%;border-collapse:collapse;font-family:'Source Sans 3',sans-serif;font-size:9.5px;}
+.wc-group-table th{color:var(--grey);padding:2px 3px;text-align:center;font-size:8px;letter-spacing:.08em;font-weight:600;}
+.wc-group-table th:nth-child(2){text-align:left;}
+.wc-group-table td{padding:3px 3px;border-bottom:1px dotted var(--rule);text-align:center;}
+.wc-group-table td:nth-child(2){text-align:left;}
+.wc-group-table tr:last-child td{border-bottom:none;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.55;}}
+#wc-live-ts{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);font-style:italic;}
+
 </style>
 </head>
 <body id="top">
@@ -219,122 +255,232 @@ footer.footer a{color:var(--rust);text-decoration:none;}
      Replace values below; page re-renders automatically
      ══════════════════════════════════════════════════════ -->
 <script>
-// ── WEEK LABEL (update each Saturday) ──────────────────
-const WC_WEEK = "Opening Week — June 11–15, 2026";
+/**
+ * The Chronicler — World Cup Live Client
+ * Drop this block into any page that needs live WC data.
+ * Replace WORKER_URL with your deployed Worker URL.
+ */
+(function() {
+  const WORKER_URL = 'https://chronicler-wc-live.thechronicler.workers.dev/wc/all';
+  const REFRESH_MS = 45000; // refresh every 45 seconds
 
-// ── THIS WEEK\'S FIXTURES ───────────────────────────────
-// score: null = upcoming | "2-1" = final | "1-0 HT" = live
-const WC_FIXTURES_WEEK = [
-  { day:"Thursday, June 11", matches:[
-    { time:"3:00 PM ET", home:"🇲🇽 Mexico",        away:"🇿🇦 South Africa",      venue:"Estadio Azteca, Mexico City",       group:"A", score:null },
-    { time:"10:00 PM ET",home:"🇰🇷 South Korea",   away:"🇨🇿 Czechia",           venue:"Estadio Akron, Guadalajara",        group:"A", score:null }
-  ]},
-  { day:"Friday, June 12 🇨🇦 Canada\'s Home Opener", matches:[
-    { time:"3:00 PM ET", home:"🇨🇦 Canada",         away:"🇧🇦 Bosnia & Herz.",    venue:"BMO Field, Toronto",                group:"B", score:null, canada:true },
-    { time:"9:00 PM ET", home:"🇺🇸 USA",            away:"🇵🇾 Paraguay",          venue:"SoFi Stadium, Inglewood CA",        group:"D", score:null }
-  ]},
-  { day:"Saturday, June 13", matches:[
-    { time:"3:00 PM ET", home:"🇶🇦 Qatar",          away:"🇨🇭 Switzerland",       venue:"Levi\'s Stadium, San Francisco",    group:"B", score:null },
-    { time:"6:00 PM ET", home:"🇧🇷 Brazil",         away:"🇲🇦 Morocco",           venue:"MetLife Stadium, New Jersey",       group:"C", score:null },
-    { time:"9:00 PM ET", home:"🇭🇹 Haiti",          away:"🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland",         venue:"Gillette Stadium, Foxborough",      group:"C", score:null },
-    { time:"12:00 AM†",  home:"🇦🇺 Australia",      away:"🇹🇷 Türkiye",           venue:"BC Place, Vancouver",              group:"D", score:null }
-  ]},
-  { day:"Sunday, June 14", matches:[
-    { time:"1:00 PM ET", home:"🇩🇪 Germany",        away:"🇨🇼 Curaçao",           venue:"NRG Stadium, Houston",             group:"E", score:null },
-    { time:"4:00 PM ET", home:"🇳🇱 Netherlands",    away:"🇯🇵 Japan",             venue:"TBD",                              group:"F", score:null },
-    { time:"7:00 PM ET", home:"🇨🇮 Ivory Coast",    away:"🇪🇨 Ecuador",           venue:"TBD",                              group:"E", score:null },
-    { time:"10:00 PM ET",home:"🇸🇪 Sweden",         away:"🇹🇳 Tunisia",           venue:"TBD",                              group:"F", score:null }
-  ]},
-  { day:"Monday, June 15", matches:[
-    { time:"12:00 PM ET",home:"🇪🇸 Spain",          away:"🇨🇻 Cape Verde",        venue:"Mercedes-Benz Stadium, Atlanta",   group:"H", score:null },
-    { time:"3:00 PM ET", home:"🇧🇪 Belgium",        away:"🇪🇬 Egypt",             venue:"Lumen Field, Seattle",             group:"G", score:null },
-    { time:"6:00 PM ET", home:"🇸🇦 Saudi Arabia",   away:"🇺🇾 Uruguay",           venue:"Hard Rock Stadium, Miami",         group:"H", score:null },
-    { time:"9:00 PM ET", home:"🇮🇷 Iran",           away:"🇳🇿 New Zealand",       venue:"SoFi Stadium, Inglewood CA",       group:"G", score:null }
-  ]}
-];
+  // ── FLAG MAP (tla → emoji) ────────────────────────────────────────────────
+  const FLAGS = {
+    ALG:'🇩🇿',ARG:'🇦🇷',AUS:'🇦🇺',AUT:'🇦🇹',BEL:'🇧🇪',BIH:'🇧🇦',BRA:'🇧🇷',
+    CAN:'🇨🇦',CPV:'🇨🇻',COL:'🇨🇴',CRO:'🇭🇷',CUW:'🇨🇼',CZE:'🇨🇿',COD:'🇨🇩',
+    ECU:'🇪🇨',EGY:'🇪🇬',ENG:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',FRA:'🇫🇷',GER:'🇩🇪',GHA:'🇬🇭',HAI:'🇭🇹',
+    IRN:'🇮🇷',IRQ:'🇮🇶',CIV:'🇨🇮',JPN:'🇯🇵',JOR:'🇯🇴',MEX:'🇲🇽',MAR:'🇲🇦',
+    NED:'🇳🇱',NZL:'🇳🇿',NOR:'🇳🇴',PAN:'🇵🇦',PAR:'🇵🇾',POR:'🇵🇹',QAT:'🇶🇦',
+    KSA:'🇸🇦',SCO:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',SEN:'🇸🇳',RSA:'🇿🇦',KOR:'🇰🇷',ESP:'🇪🇸',SWE:'🇸🇪',
+    SUI:'🇨🇭',TUN:'🇹🇳',TUR:'🇹🇷',USA:'🇺🇸',URU:'🇺🇾',UZB:'🇺🇿',
+  };
 
-// ── GOLDEN BOOT TABLE ──────────────────────────────────
-// Add entries as goals are scored. Empty = tournament not started.
-const WC_GOLDEN_BOOT = [
-  // { rank:1, player:"Kylian Mbappé", country:"🇫🇷 France", goals:0, assists:0 }
-];
+  function flag(tla) { return FLAGS[tla] || '🏳️'; }
 
-// ── GROUP STANDINGS ────────────────────────────────────
-// P W D L GF GA — update after each match day
-const WC_GROUPS = {
-  A:{ teams:[
-    { name:"🇲🇽 Mexico",       host:true,  P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇿🇦 S. Africa",    host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇰🇷 Korea Rep.",   host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇨🇿 Czechia",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]},
-  B:{ teams:[
-    { name:"🇨🇦 Canada",       host:true,  P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇧🇦 Bosnia",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇶🇦 Qatar",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇨🇭 Switzerland",  host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]},
-  C:{ teams:[
-    { name:"🇧🇷 Brazil",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇲🇦 Morocco",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇭🇹 Haiti",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland",     host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]},
-  D:{ teams:[
-    { name:"🇺🇸 United States",host:true,  P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇵🇾 Paraguay",     host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇦🇺 Australia",    host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇹🇷 Türkiye",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]},
-  E:{ teams:[
-    { name:"🇩🇪 Germany",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇨🇼 Curaçao",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇨🇮 Ivory Coast",  host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇪🇨 Ecuador",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]},
-  F:{ teams:[
-    { name:"🇳🇱 Netherlands",  host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇯🇵 Japan",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇸🇪 Sweden",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇹🇳 Tunisia",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]},
-  G:{ teams:[
-    { name:"🇧🇪 Belgium",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇪🇬 Egypt",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇮🇷 Iran",         host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇳🇿 New Zealand",  host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]},
-  H:{ teams:[
-    { name:"🇪🇸 Spain",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇨🇻 Cape Verde",   host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇸🇦 Saudi Arabia", host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇺🇾 Uruguay",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]},
-  I:{ teams:[
-    { name:"🇫🇷 France",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇸🇳 Senegal",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇮🇶 Iraq",         host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇳🇴 Norway",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]},
-  J:{ teams:[
-    { name:"🇦🇷 Argentina",    host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇩🇿 Algeria",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇦🇹 Austria",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇯🇴 Jordan",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]},
-  K:{ teams:[
-    { name:"🇵🇹 Portugal",     host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇨🇩 DR Congo",     host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇺🇿 Uzbekistan",   host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇨🇴 Colombia",     host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]},
-  L:{ teams:[
-    { name:"🇬🇧 England",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇭🇷 Croatia",      host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇬🇭 Ghana",        host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 },
-    { name:"🇵🇦 Panama",       host:false, P:0,W:0,D:0,L:0,GF:0,GA:0 }
-  ]}
-};
+  function fmtTime(utcDate) {
+    const d = new Date(utcDate);
+    return d.toLocaleTimeString('en-CA', {
+      hour:'2-digit', minute:'2-digit',
+      timeZone:'America/Toronto', hour12:false
+    }) + ' ET';
+  }
+
+  function statusBadge(m) {
+    if (m.status === 'IN_PLAY') return `<span class="wc-live-badge">● LIVE ${m.minute ? m.minute+"'" : ''}</span>`;
+    if (m.status === 'PAUSED')  return `<span class="wc-live-badge">HT</span>`;
+    if (m.status === 'FINISHED') return `<span class="wc-done-badge">FT</span>`;
+    return `<span class="wc-sched-time">${fmtTime(m.utcDate)}</span>`;
+  }
+
+  function scoreStr(m) {
+    if (m.status === 'SCHEDULED') return '<span class="wc-vs">vs</span>';
+    const h = m.home.score ?? '–';
+    const a = m.away.score ?? '–';
+    const cls = m.status === 'IN_PLAY' ? 'wc-score-live' : 'wc-score-ft';
+    return `<span class="${cls}">${h} – ${a}</span>`;
+  }
+
+  // ── RENDER MATCH CARD ─────────────────────────────────────────────────────
+  function renderMatch(m) {
+    const isCanada = m.home.tla === 'CAN' || m.away.tla === 'CAN';
+    return `<div class="wc-match${isCanada ? ' wc-match-canada' : ''}">
+      <div class="wc-match-status">${statusBadge(m)}</div>
+      <div class="wc-match-teams">
+        <span class="wc-team">${flag(m.home.tla)} ${m.home.name}</span>
+        ${scoreStr(m)}
+        <span class="wc-team">${flag(m.away.tla)} ${m.away.name}</span>
+      </div>
+    </div>`;
+  }
+
+  // ── RENDER STANDINGS TABLE ────────────────────────────────────────────────
+  function renderGroup(group) {
+    const letter = group.group.replace('GROUP_','');
+    const rows = group.table.map((r,i) => {
+      const q = i < 2 ? ' class="wc-qual"' : '';
+      return `<tr${q}>
+        <td>${r.position}</td>
+        <td>${flag(r.team.tla)} ${r.team.name}</td>
+        <td>${r.playedGames}</td>
+        <td>${r.won}</td>
+        <td>${r.draw}</td>
+        <td>${r.lost}</td>
+        <td>${r.goalDifference >= 0 ? '+' : ''}${r.goalDifference}</td>
+        <td><strong>${r.points}</strong></td>
+      </tr>`;
+    }).join('');
+    return `<div class="wc-group-card">
+      <div class="wc-group-label">Group ${letter}</div>
+      <table class="wc-group-table">
+        <thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+  }
+
+  // ── RENDER GOLDEN BOOT ────────────────────────────────────────────────────
+  function renderScorers(scorers) {
+    if (!scorers || scorers.length === 0) {
+      return '<div class="wc-empty">Golden Boot table opens when the tournament begins.</div>';
+    }
+    const rows = scorers.slice(0,10).map(s =>
+      `<tr>
+        <td class="wc-gb-rank">${s.rank}</td>
+        <td>${s.player}</td>
+        <td>${flag(s.teamTla)} ${s.team}</td>
+        <td class="wc-gb-goals">${s.goals}</td>
+        <td>${s.assists}</td>
+      </tr>`
+    ).join('');
+    return `<table class="wc-gb-table">
+      <thead><tr><th>#</th><th>Player</th><th>Nation</th><th>⚽</th><th>🅰️</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+  }
+
+  // ── RENDER INDEX WIDGET ───────────────────────────────────────────────────
+  function renderIndexWidget(data) {
+    const el = document.getElementById('wc-index-widget');
+    if (!el) return;
+
+    // Group matches by day
+    const byDay = {};
+    (data.matches || []).forEach(m => {
+      const day = m.utcDate.split('T')[0];
+      if (!byDay[day]) byDay[day] = [];
+      byDay[day].push(m);
+    });
+
+    const dayHtml = Object.entries(byDay).map(([day, matches]) => {
+      const label = new Date(day + 'T12:00:00Z').toLocaleDateString('en-CA', {
+        weekday:'short', month:'short', day:'numeric', timeZone:'UTC'
+      });
+      const isToday = day === new Date().toISOString().split('T')[0];
+      return `<div class="wc-day">
+        <div class="wc-day-label${isToday ? ' wc-day-today' : ''}">${label}${isToday ? ' · Today' : ''}</div>
+        ${matches.map(renderMatch).join('')}
+      </div>`;
+    }).join('');
+
+    el.innerHTML = dayHtml ||
+      '<div class="wc-empty">No matches in the current window.</div>';
+
+    const ts = document.getElementById('wc-widget-ts');
+    if (ts) ts.textContent = 'Updated ' + new Date().toLocaleTimeString('en-CA',
+      {hour:'2-digit',minute:'2-digit',timeZone:'America/Toronto',hour12:false}) + ' ET';
+  }
+
+  // ── RENDER SPECIAL PAGE ───────────────────────────────────────────────────
+  function renderSpecialPage(data) {
+    // Matches widget
+    const fw = document.getElementById('fw-matches-container');
+    const wl = document.getElementById('fw-week-label');
+    if (fw && data.matches) {
+      const byDay = {};
+      data.matches.forEach(m => {
+        const day = m.utcDate.split('T')[0];
+        if (!byDay[day]) byDay[day] = [];
+        byDay[day].push(m);
+      });
+      if (wl) {
+        const days = Object.keys(byDay).sort();
+        if (days.length) {
+          const first = new Date(days[0]+'T12:00:00Z');
+          const last  = new Date(days[days.length-1]+'T12:00:00Z');
+          const fmt = d => d.toLocaleDateString('en-CA',{month:'short',day:'numeric',timeZone:'UTC'});
+          wl.textContent = `${fmt(first)} – ${fmt(last)}, 2026`;
+        }
+      }
+      fw.innerHTML = Object.entries(byDay).map(([day,matches]) => {
+        const label = new Date(day+'T12:00:00Z').toLocaleDateString('en-CA',
+          {weekday:'long',month:'long',day:'numeric',timeZone:'UTC'});
+        return `<div class="fw-day">
+          <div class="fw-day-label">${label}</div>
+          ${matches.map(m => {
+            const isCanada = m.home.tla==='CAN'||m.away.tla==='CAN';
+            return `<div class="fw-match${isCanada?' fw-canada':''}">
+              <div class="fw-time">${m.status==='SCHEDULED'?fmtTime(m.utcDate):(m.status==='IN_PLAY'?'● '+( m.minute?m.minute+"'":''  ):'FT')}</div>
+              <div class="fw-teams">${flag(m.home.tla)} ${m.home.name} ${scoreStr(m)} ${flag(m.away.tla)} ${m.away.name}</div>
+              <div class="fw-venue">${m.group||''}</div>
+            </div>`;
+          }).join('')}
+        </div>`;
+      }).join('');
+    }
+
+    // Group standings
+    const gc = document.getElementById('groups-container');
+    if (gc && data.standings && data.standings.length) {
+      gc.innerHTML = data.standings.map(renderGroup).join('');
+    }
+
+    // Golden Boot
+    const gbc = document.getElementById('gb-container');
+    if (gbc) {
+      gbc.innerHTML = renderScorers(data.scorers);
+    }
+
+    // Score placeholders in full fixture list
+    if (data.matches) {
+      data.matches.forEach(m => {
+        const el = document.querySelector('[data-match-id="' + m.id + '"]');
+        if (el) {
+          if (m.status === 'FINISHED' || m.status === 'IN_PLAY' || m.status === 'PAUSED') {
+            el.textContent = (m.home.score ?? '–') + '–' + (m.away.score ?? '–');
+            el.style.color = m.status === 'IN_PLAY' ? '#c43a3a' : 'var(--rust)';
+          }
+        }
+      });
+    }
+
+    // Timestamp
+    const ts = document.getElementById('wc-live-ts');
+    if (ts) ts.textContent = new Date().toLocaleTimeString('en-CA',
+      {hour:'2-digit',minute:'2-digit',timeZone:'America/Toronto',hour12:false}) + ' ET';
+  }
+
+  // ── MAIN FETCH & DISPATCH ─────────────────────────────────────────────────
+  async function fetchAndRender() {
+    try {
+      const resp = await fetch(WORKER_URL);
+      if (!resp.ok) throw new Error('Worker returned ' + resp.status);
+      const data = await resp.json();
+
+      // Render whichever elements exist on this page
+      renderIndexWidget(data);
+      renderSpecialPage(data);
+
+    } catch(e) {
+      console.warn('WC live data unavailable:', e.message);
+    }
+  }
+
+  // Initial load + polling
+  fetchAndRender();
+  setInterval(fetchAndRender, REFRESH_MS);
+
+})();
+
 </script>
 
 <!-- ══════════════════════════ STICKY HEADER ══════════════════════════ -->
@@ -414,7 +560,7 @@ const WC_GROUPS = {
     <div class="fixtures-widget">
       <div class="fw-header">
         <div class="fw-title">&#128197; This Week&rsquo;s Fixtures</div>
-        <div class="fw-week" id="fw-week-label"></div>
+        <div class="fw-week"><span id="fw-week-label"></span> <span id="wc-live-ts"></span></div>
       </div>
       <div class="fw-note">All times ET. 🇨🇦 Canada matches highlighted. Updated weekly on Saturdays.</div>
       <div id="fw-matches-container"></div>
