@@ -80,6 +80,13 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
 .special-card.wc .special-deck{font-family:'Libre Baskerville',serif;font-style:italic;font-size:12px;color:#c9c0a0;line-height:1.7;margin-bottom:14px;}
 .special-card.wc .special-meta{font-family:'Source Sans 3',sans-serif;font-size:10px;color:#7a7060;border-top:1px solid #2a3a58;padding-top:10px;display:flex;justify-content:space-between;align-items:center;}
 .special-card.wc .special-cta{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;}
+.special-card.game{border-top:5px solid #4a7fa5;background:#e8f0f6;}
+.special-card.game .special-inner{padding:24px 26px;}
+.special-card.game .special-eyebrow{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#2d5f80;margin-bottom:10px;}
+.special-card.game .special-headline{font-family:'Playfair Display',serif;font-size:clamp(18px,2vw,22px);font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:10px;}
+.special-card.game .special-deck{font-family:'Libre Baskerville',serif;font-style:italic;font-size:12px;color:var(--grey);line-height:1.7;margin-bottom:14px;}
+.special-card.game .special-meta{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid #b8cfe0;padding-top:10px;display:flex;justify-content:space-between;align-items:center;}
+.special-card.game .special-cta{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;color:#2d5f80;letter-spacing:.1em;text-transform:uppercase;}
 .ig-cta-block{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:48px;padding:28px;border:1px solid var(--rule);border-top:3px solid var(--gold);background:#f9f3e3;}
 .ig-cta-label{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);}
 .ig-cta-link{display:flex;align-items:center;gap:7px;color:var(--rust);text-decoration:none;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;}
@@ -220,32 +227,45 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
   <!-- SPECIALS — DO NOT CHANGE -->
   <div class="section-rule" style="margin-top:36px;"><hr><span>Special Reports &amp; Features</span><hr></div>
 
-  <a class="special-card wc" href="Specials/world-cup-2026.html" style="margin-bottom:20px;display:block;text-decoration:none;">
-    <div class="special-inner">
-      <div class="special-eyebrow">&#9917; Live Tracker &mdash; Updated Daily</div>
-      <div class="special-headline">FIFA World Cup 2026</div>
-      <div class="special-deck">Full standings, fixtures, results, golden boot table, and match reports across all 48 teams and 104 matches. USA &middot; Canada &middot; Mexico &mdash; June 11 to July 19, 2026.</div>
-      <div class="special-meta"><span>The Chronicler Sport Desk</span><span class="special-cta">Open Tracker &rarr;</span></div>
-    </div>
-  </a>
+  <!-- Row 1: World Cup Tracker + Crossbar -->
+  <div class="specials-grid" style="margin-bottom:20px;">
+    <a class="special-card wc" href="Specials/world-cup-2026.html">
+      <div class="special-inner">
+        <div class="special-eyebrow">&#9917; Live Tracker &mdash; Updated Daily</div>
+        <div class="special-headline">FIFA World Cup 2026</div>
+        <div class="special-deck">Full standings, fixtures, results, golden boot table, and match reports across all 48 teams and 104 matches. USA &middot; Canada &middot; Mexico &mdash; June 11 to July 19, 2026.</div>
+        <div class="special-meta"><span>The Chronicler Sport Desk</span><span class="special-cta">Open Tracker &rarr;</span></div>
+      </div>
+    </a>
+    <a class="special-card game" href="Specials/crossbar.html">
+      <div class="special-inner">
+        <div class="special-eyebrow">&#9917; Penalty Shootout &mdash; Play Anytime</div>
+        <div class="special-headline">Crossbar</div>
+        <div class="special-deck">Step up to the spot. Five kicks each, sudden death if it&rsquo;s level. Attack to score, defend to save &mdash; first to five wins the shootout.</div>
+        <div class="special-meta"><span>The Chronicler Games</span><span class="special-cta">Play Now &rarr;</span></div>
+      </div>
+    </a>
+  </div>
 
-  <a class="special-card map" href="Specials/the-chronicler-crunch-archive.html" style="margin-bottom:20px;display:block;text-decoration:none;">
-    <div class="special-inner">
-      <div class="special-eyebrow">&#128190; Daily Puzzle &mdash; Ongoing Archive</div>
-      <div class="special-headline">The Chronicler Crunch</div>
-      <div class="special-deck">The complete archive of every Crunch number puzzle published in The Chronicler. Use all four numbers with + &minus; &times; &divide; and brackets to reach the target. Solutions revealed &mdash; can you solve them first?</div>
-      <div class="special-meta"><span>All Editions &bull; Vol. I</span><span class="special-cta">Browse Puzzles &rarr;</span></div>
-    </div>
-  </a>
-
-  <a class="special-card map" href="Specials/conquest.html" style="margin-bottom:20px;display:block;text-decoration:none;">
-    <div class="special-inner">
-      <div class="special-eyebrow">&#9876; Strategy Game &mdash; Play Anytime</div>
-      <div class="special-headline">Conquest</div>
-      <div class="special-deck">The Chronicler&rsquo;s strategy game. Territory, decisions, consequence &mdash; play as many times as you like.</div>
-      <div class="special-meta"><span>The Chronicler Games</span><span class="special-cta">Play Now &rarr;</span></div>
-    </div>
-  </a>
+  <!-- Row 2: Crunch + Conquest -->
+  <div class="specials-grid" style="margin-bottom:20px;">
+    <a class="special-card map" href="Specials/the-chronicler-crunch-archive.html">
+      <div class="special-inner">
+        <div class="special-eyebrow">&#128190; Daily Puzzle &mdash; Ongoing Archive</div>
+        <div class="special-headline">The Chronicler Crunch</div>
+        <div class="special-deck">The complete archive of every Crunch number puzzle published in The Chronicler. Use all four numbers with + &minus; &times; &divide; and brackets to reach the target. Solutions revealed &mdash; can you solve them first?</div>
+        <div class="special-meta"><span>All Editions &bull; Vol. I</span><span class="special-cta">Browse Puzzles &rarr;</span></div>
+      </div>
+    </a>
+    <a class="special-card map" href="Specials/conquest.html">
+      <div class="special-inner">
+        <div class="special-eyebrow">&#9876; Strategy Game &mdash; Play Anytime</div>
+        <div class="special-headline">Conquest</div>
+        <div class="special-deck">The Chronicler&rsquo;s strategy game. Territory, decisions, consequence &mdash; play as many times as you like.</div>
+        <div class="special-meta"><span>The Chronicler Games</span><span class="special-cta">Play Now &rarr;</span></div>
+      </div>
+    </a>
+  </div>
 
   <div class="specials-grid">
     <a class="special-card iran" href="Specials/the-chronicler-iran-war-special.html">
