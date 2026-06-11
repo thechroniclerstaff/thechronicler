@@ -233,6 +233,14 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
     })+' ET';
   }
  
+  function toETDate(utcStr){
+    // Convert UTC datetime to ET date string (YYYY-MM-DD)
+    return new Date(utcStr).toLocaleDateString('en-CA',{
+      timeZone:'America/Toronto',
+      year:'numeric',month:'2-digit',day:'2-digit'
+    });
+  }
+ 
   function render(matches){
     var el=document.getElementById('wc-index-widget');
     var ts=document.getElementById('wci-ts');
@@ -240,12 +248,12 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
  
     var byDay={};
     matches.forEach(function(m){
-      var d=m.utcDate.split('T')[0];
+      var d=toETDate(m.utcDate);
       if(!byDay[d]) byDay[d]=[];
       byDay[d].push(m);
     });
  
-    var today=new Date().toISOString().split('T')[0];
+    var today=toETDate(new Date().toISOString());
     var keys=Object.keys(byDay).sort();
     if(!keys.length){
       el.innerHTML='<div class="wci-empty">No matches in this window.</div>';
@@ -253,8 +261,8 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
     }
  
     el.innerHTML=keys.map(function(day){
-      var label=new Date(day+'T12:00:00Z').toLocaleDateString('en-CA',{
-        weekday:'short',month:'short',day:'numeric',timeZone:'UTC'
+      var label=new Date(day+'T12:00:00').toLocaleDateString('en-CA',{
+        weekday:'short',month:'short',day:'numeric'
       });
       var isToday=day===today;
       var mHtml=byDay[day].map(function(m){

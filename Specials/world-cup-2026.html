@@ -271,6 +271,14 @@ footer.footer a{color:var(--rust);text-decoration:none;}
   const REFRESH_MS = 45000; // refresh every 45 seconds
 
   // ── FLAG MAP (tla → emoji) ────────────────────────────────────────────────
+  // ET date helper — groups matches by Toronto local date, not UTC
+  function toETDate(utcStr){
+    return new Date(utcStr).toLocaleDateString('en-CA',{
+      timeZone:'America/Toronto',
+      year:'numeric',month:'2-digit',day:'2-digit'
+    });
+  }
+
   const FLAGS = {
     ALG:'🇩🇿',ARG:'🇦🇷',AUS:'🇦🇺',AUT:'🇦🇹',BEL:'🇧🇪',BIH:'🇧🇦',BRA:'🇧🇷',
     CAN:'🇨🇦',CPV:'🇨🇻',COL:'🇨🇴',CRO:'🇭🇷',CUW:'🇨🇼',CZE:'🇨🇿',COD:'🇨🇩',
@@ -372,16 +380,16 @@ footer.footer a{color:var(--rust);text-decoration:none;}
     // Group matches by day
     const byDay = {};
     (data.matches || []).forEach(m => {
-      const day = m.utcDate.split('T')[0];
+      const day = toETDate(m.utcDate);
       if (!byDay[day]) byDay[day] = [];
       byDay[day].push(m);
     });
 
     const dayHtml = Object.entries(byDay).map(([day, matches]) => {
-      const label = new Date(day + 'T12:00:00Z').toLocaleDateString('en-CA', {
-        weekday:'short', month:'short', day:'numeric', timeZone:'UTC'
+      const label = new Date(day + 'T12:00:00').toLocaleDateString('en-CA', {
+        weekday:'short', month:'short', day:'numeric'
       });
-      const isToday = day === new Date().toISOString().split('T')[0];
+      const isToday = day === toETDate(new Date().toISOString());
       return `<div class="wc-day">
         <div class="wc-day-label${isToday ? ' wc-day-today' : ''}">${label}${isToday ? ' · Today' : ''}</div>
         ${matches.map(renderMatch).join('')}
@@ -404,7 +412,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
     if (fw && data.matches) {
       const byDay = {};
       data.matches.forEach(m => {
-        const day = m.utcDate.split('T')[0];
+        const day = toETDate(m.utcDate);
         if (!byDay[day]) byDay[day] = [];
         byDay[day].push(m);
       });
