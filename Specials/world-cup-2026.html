@@ -314,7 +314,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
   }
 
   function scoreStr(m) {
-    if (m.status === 'SCHEDULED') return '<span class="wc-vs">vs</span>';
+    if (m.status === 'SCHEDULED' || m.status === 'TIMED') return '<span class="wc-vs">vs</span>';
     const h = m.home.score ?? '–';
     const a = m.away.score ?? '–';
     const cls = m.status === 'IN_PLAY' ? 'wc-score-live' : 'wc-score-ft';
@@ -440,7 +440,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
           ${matches.map(m => {
             const isCanada = m.home.tla==='CAN'||m.away.tla==='CAN';
             return `<div class="fw-match${isCanada?' fw-canada':''}">
-              <div class="fw-time">${m.status==='SCHEDULED'?fmtTime(m.utcDate):(m.status==='IN_PLAY'?'● '+( m.minute?m.minute+"'":''  ):'FT')}</div>
+              <div class="fw-time">${(m.status==='SCHEDULED'||m.status==='TIMED')?fmtTime(m.utcDate):(m.status==='IN_PLAY'?'● '+( m.minute?m.minute+"'":''  ):'FT')}</div>
               <div class="fw-teams">${flag(m.home.tla)} ${m.home.name} ${scoreStr(m)} ${flag(m.away.tla)} ${m.away.name}</div>
               <div class="fw-venue">${m.group||''}</div>
             </div>`;
