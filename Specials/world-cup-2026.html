@@ -246,6 +246,12 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.55;}}
 #wc-live-ts{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);font-style:italic;}
 
+
+/* ── COLLAPSIBLE INTRO ── */
+.intro-collapsed .intro-body{max-height:4.2em;overflow:hidden;position:relative;}
+.intro-collapsed .intro-body::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2em;background:linear-gradient(transparent,var(--cream));}
+.intro-toggle{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rust);background:transparent;border:1px solid var(--rule);padding:5px 14px;cursor:pointer;margin-top:8px;transition:all .2s;display:inline-block;}
+.intro-toggle:hover{background:var(--rust);color:#fff;border-color:var(--rust);}
 </style>
 </head>
 <body id="top">
@@ -493,9 +499,9 @@ footer.footer a{color:var(--rust);text-decoration:none;}
     </div>
   </div>
   <nav class="nav-bar">
-    <div class="nav-item"><a href="#intro">Overview</a></div>
     <div class="nav-item"><a href="#fixtures-week">This Week</a></div>
     <div class="nav-item"><a href="#groups">Groups</a></div>
+    <div class="nav-item"><a href="#intro">Overview</a></div>
     <div class="nav-item"><a href="#all-fixtures">All Fixtures</a></div>
     <div class="nav-item"><a href="#teams">Teams</a></div>
         <div class="nav-item"><a href="#articles">Articles</a></div>
@@ -531,22 +537,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 </div>
 
 <!-- ══════════════════════════ SECTION 1 — INTRO ══════════════════════════ -->
-<div id="intro">
-<div class="divider"></div>
-<div class="page">
-  <div class="section-banner"><h2>The Tournament</h2><div class="flag">Overview &amp; Context</div></div>
 
-  <div class="intro-article">
-    <h3>Bigger, Bolder, North American: The World Cup That Rewrites the Rules</h3>
-    <div class="by">The Chronicler Sport Desk &middot; Compiled from editions No. 67 &amp; 68 &middot; June 8&ndash;9, 2026</div>
-    <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
-    <p>The wait ends Thursday. The 2026 FIFA World Cup kicks off on June 11 at Estadio Azteca in Mexico City and concludes July 19 at MetLife Stadium in East Rutherford, New Jersey &mdash; spanning 39 days, 48 teams, 104 matches, and 16 stadiums across three countries. This is the first edition in history to feature 48 national teams, up from 32 in Qatar 2022, competing across 72 group-stage games in twelve groups of four, labelled A through L. The top two from each group advance automatically, and the eight best third-placed teams also progress &mdash; 32 nations entering a brand-new Round of 32 that has never before existed in World Cup history.</p>
-    <p>The expansion from 32 to 48 teams required a structural reinvention of the tournament itself. A path to the final that previously required six wins now requires seven. For smaller nations, the new format delivers a meaningful extra game at the world&rsquo;s highest level. For title contenders, it adds fatigue and risk in equal measure. The tri-nation hosting arrangement &mdash; shared across the United States, Canada, and Mexico &mdash; is itself unprecedented. No World Cup has ever been co-hosted by three nations, and the logistical and commercial ambition behind it reflects FIFA&rsquo;s deliberate pivot toward maximising reach, revenue, and spectacle simultaneously.</p>
-    <p>FIFA implemented a seeding and bracketing system separating the top four-ranked nations &mdash; Spain (1st), Argentina (2nd), France (3rd), and England (4th) &mdash; into distinct halves of the draw, ensuring they can only meet in the semi-finals or final. The system is a concession to commercial logic: those are the games broadcasters and sponsors most want. But it has drawn criticism from those who argue it undermines the draw&rsquo;s integrity. The seven traditional heavyweights are spread across the draw: holders Argentina in Group J, France in Group I, Spain in Group H, England in Group L, Brazil in Group C, Germany in Group E, and Portugal in Group K. Canada opens at home at BMO Field in Toronto on Friday, June 12 &mdash; the first World Cup match ever played on Canadian soil, and the most-watched domestic sporting moment in the country&rsquo;s history. And for the first time in the tournament&rsquo;s 96-year history, the final will feature a live halftime show, with Shakira, Madonna and BTS confirmed as co-headliners at MetLife Stadium on July 19.</p>
-    <div class="src">Sources: <a href="https://www.espn.com/soccer/story/_/id/48939282/2026-fifa-world-cup-fixtures-results-match-schedule-group-stage-knockout-rounds-bracket-dates" target="_blank" rel="noopener">ESPN</a> &middot; <a href="https://www.aljazeera.com/sports/2026/5/7/whats-the-full-match-schedule-groups-and-format-for-world-cup-2026" target="_blank" rel="noopener">Al Jazeera</a> &middot; <a href="https://www.cbssports.com/soccer/news/world-cup-2026-schedule-times-dates/" target="_blank" rel="noopener">CBS Sports</a> &middot; FIFA &middot; June 2026</div>
-  </div>
-
-</div></div><!-- /intro -->
 
 <!-- ══════════════════════════ SECTION 2 — THIS WEEK + GOLDEN BOOT ══════════════════════════ -->
 <div id="fixtures-week">
@@ -582,9 +573,105 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 <div class="divider"></div>
 <div class="page">
   <div class="section-banner"><h2>Group Standings</h2><div class="flag">All 12 Groups &mdash; Updated After Each Match Day</div></div>
-  <div id="groups-container" class="groups-grid"></div>
+  <div id="groups-container" class="groups-grid">
+<!-- Static seed — overwritten by live data once matches begin -->
+<div class="wc-group-card"><div class="wc-group-label">Group A</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🇲🇽 Mexico</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇿🇦 South Africa</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇰🇷 Korea Republic</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🇨🇿 Czechia</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+<div class="wc-group-card"><div class="wc-group-label">Group B</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🇨🇦 Canada</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇧🇦 Bosnia &amp; Herz.</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇶🇦 Qatar</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🇨🇭 Switzerland</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+<div class="wc-group-card"><div class="wc-group-label">Group C</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🇧🇷 Brazil</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇲🇦 Morocco</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇭🇹 Haiti</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+<div class="wc-group-card"><div class="wc-group-label">Group D</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🇺🇸 United States</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇵🇾 Paraguay</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇦🇺 Australia</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🇹🇷 Türkiye</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+<div class="wc-group-card"><div class="wc-group-label">Group E</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🇩🇪 Germany</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇨🇼 Curaçao</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇨🇮 Ivory Coast</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🇪🇨 Ecuador</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+<div class="wc-group-card"><div class="wc-group-label">Group F</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🇳🇱 Netherlands</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇯🇵 Japan</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇸🇪 Sweden</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🇹🇳 Tunisia</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+<div class="wc-group-card"><div class="wc-group-label">Group G</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🇧🇪 Belgium</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇪🇬 Egypt</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇮🇷 Iran</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🇳🇿 New Zealand</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+<div class="wc-group-card"><div class="wc-group-label">Group H</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🇪🇸 Spain</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇨🇻 Cape Verde</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇸🇦 Saudi Arabia</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🇺🇾 Uruguay</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+<div class="wc-group-card"><div class="wc-group-label">Group I</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🇫🇷 France</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇸🇳 Senegal</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇮🇶 Iraq</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🇳🇴 Norway</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+<div class="wc-group-card"><div class="wc-group-label">Group J</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🇦🇷 Argentina</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇩🇿 Algeria</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇦🇹 Austria</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🇯🇴 Jordan</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+<div class="wc-group-card"><div class="wc-group-label">Group K</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🇵🇹 Portugal</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇨🇩 DR Congo</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇺🇿 Uzbekistan</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🇨🇴 Colombia</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+<div class="wc-group-card"><div class="wc-group-label">Group L</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1</td><td>🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td>🇭🇷 Croatia</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>3</td><td>🇬🇭 Ghana</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>4</td><td>🇵🇦 Panama</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+</tbody></table></div>
+</div>
   <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:8px;font-style:italic;">&#9632; Green shading = qualified for Round of 32. Host nations in bold red. P=Played W=Won D=Drew L=Lost GF=Goals For GA=Goals Against GD=Goal Difference Pts=Points</div>
 </div></div><!-- /groups -->
+
+<!-- ══════════════════════════ TOURNAMENT INTRO — COLLAPSIBLE ══════════════════════════ -->
+<div id="intro">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>The Tournament</h2><div class="flag">Overview &amp; Context</div></div>
+
+  <div class="intro-article intro-collapsed" id="introArticle">
+    <h3>Bigger, Bolder, North American: The World Cup That Rewrites the Rules</h3>
+    <div class="by">The Chronicler Sport Desk &middot; Compiled from editions No. 67 &amp; 68 &middot; June 8&ndash;9, 2026</div>
+    <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+    <div class="intro-body" id="introBody">
+    <p>The wait ends Thursday. The 2026 FIFA World Cup kicks off on June 11 at Estadio Azteca in Mexico City and concludes July 19 at MetLife Stadium in East Rutherford, New Jersey &mdash; spanning 39 days, 48 teams, 104 matches, and 16 stadiums across three countries. This is the first edition in history to feature 48 national teams, up from 32 in Qatar 2022, competing across 72 group-stage games in twelve groups of four, labelled A through L. The top two from each group advance automatically, and the eight best third-placed teams also progress &mdash; 32 nations entering a brand-new Round of 32 that has never before existed in World Cup history.</p>
+    <p>The expansion from 32 to 48 teams required a structural reinvention of the tournament itself. A path to the final that previously required six wins now requires seven. For smaller nations, the new format delivers a meaningful extra game at the world&rsquo;s highest level. For title contenders, it adds fatigue and risk in equal measure. The tri-nation hosting arrangement &mdash; shared across the United States, Canada, and Mexico &mdash; is itself unprecedented. No World Cup has ever been co-hosted by three nations, and the logistical and commercial ambition behind it reflects FIFA&rsquo;s deliberate pivot toward maximising reach, revenue, and spectacle simultaneously.</p>
+    <p>FIFA implemented a seeding and bracketing system separating the top four-ranked nations &mdash; Spain (1st), Argentina (2nd), France (3rd), and England (4th) &mdash; into distinct halves of the draw, ensuring they can only meet in the semi-finals or final. The system is a concession to commercial logic: those are the games broadcasters and sponsors most want. But it has drawn criticism from those who argue it undermines the draw&rsquo;s integrity. The seven traditional heavyweights are spread across the draw: holders Argentina in Group J, France in Group I, Spain in Group H, England in Group L, Brazil in Group C, Germany in Group E, and Portugal in Group K. Canada opens at home at BMO Field in Toronto on Friday, June 12 &mdash; the first World Cup match ever played on Canadian soil, and the most-watched domestic sporting moment in the country&rsquo;s history. And for the first time in the tournament&rsquo;s 96-year history, the final will feature a live halftime show, with Shakira, Madonna and BTS confirmed as co-headliners at MetLife Stadium on July 19.</p>
+    <div class="src">Sources: <a href="https://www.espn.com/soccer/story/_/id/48939282/2026-fifa-world-cup-fixtures-results-match-schedule-group-stage-knockout-rounds-bracket-dates" target="_blank" rel="noopener">ESPN</a> &middot; <a href="https://www.aljazeera.com/sports/2026/5/7/whats-the-full-match-schedule-groups-and-format-for-world-cup-2026" target="_blank" rel="noopener">Al Jazeera</a> &middot; <a href="https://www.cbssports.com/soccer/news/world-cup-2026-schedule-times-dates/" target="_blank" rel="noopener">CBS Sports</a> &middot; FIFA &middot; June 2026</div>
+    </div><!-- /intro-body -->
+    <button class="intro-toggle" id="introToggle" onclick="toggleIntro()">Read More ↓</button>
+  </div>
+
+</div></div><!-- /intro -->
+
 
 <!-- ══════════════════════════ SECTION 4 — COMPLETE FIXTURE LIST ══════════════════════════ -->
 <div id="all-fixtures">
@@ -1441,6 +1528,22 @@ function filterTeams(letter) {
       card.classList.toggle('hidden', cardLetter !== letter);
     }
   });
+}
+
+// ── INTRO TOGGLE ─────────────────────────────────────────
+function toggleIntro(){
+  const article=document.getElementById('introArticle');
+  const btn=document.getElementById('introToggle');
+  if(!article||!btn) return;
+  if(article.classList.contains('intro-collapsed')){
+    article.classList.remove('intro-collapsed');
+    btn.textContent='Read Less ↑';
+  } else {
+    article.classList.add('intro-collapsed');
+    btn.textContent='Read More ↓';
+    // Scroll back to intro smoothly
+    article.scrollIntoView({behavior:'smooth',block:'start'});
+  }
 }
 
 // ── READ ALOUD ──────────────────────────────────────────
