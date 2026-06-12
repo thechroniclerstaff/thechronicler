@@ -264,13 +264,13 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 <body id="top">
 
 <!-- ══════════════════════════════════════════════════════
-     LIVE DATA BLOCK — UPDATE THIS SECTION EACH SESSION
+     DATA BLOCK — UPDATE THIS SECTION EACH SESSION
      Replace values below; page re-renders automatically
      ══════════════════════════════════════════════════════ -->
 <script>
 /**
- * The Chronicler — World Cup Live Client
- * Drop this block into any page that needs live WC data.
+ * The Chronicler — World Cup Data Client
+ * Drop this block into any page that needs WC data.
  * Replace WORKER_URL with your deployed Worker URL.
  */
 (function() {
@@ -307,7 +307,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
   }
 
   function statusBadge(m) {
-    if (m.status === 'IN_PLAY') return `<span class="wc-live-badge">● LIVE ${m.minute ? m.minute+"'" : ''}</span>`;
+    if (m.status === 'IN_PLAY') return `<span class="wc-done-badge">In Progress</span>`;
     if (m.status === 'PAUSED')  return `<span class="wc-live-badge">HT</span>`;
     if (m.status === 'FINISHED') return `<span class="wc-done-badge">FT</span>`;
     return `<span class="wc-sched-time">${fmtTime(m.utcDate)}</span>`;
@@ -440,7 +440,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
           ${matches.map(m => {
             const isCanada = m.home.tla==='CAN'||m.away.tla==='CAN';
             return `<div class="fw-match${isCanada?' fw-canada':''}">
-              <div class="fw-time">${(m.status==='SCHEDULED'||m.status==='TIMED')?fmtTime(m.utcDate):(m.status==='IN_PLAY'?'● '+( m.minute?m.minute+"'":''  ):'FT')}</div>
+              <div class="fw-time">${(m.status==='SCHEDULED'||m.status==='TIMED')?fmtTime(m.utcDate):(m.status==='IN_PLAY'?'In Progress':'FT')}</div>
               <div class="fw-teams">${flag(m.home.tla)} ${m.home.name} ${scoreStr(m)} ${flag(m.away.tla)} ${m.away.name}</div>
               <div class="fw-venue">${m.group||''}</div>
             </div>`;
@@ -539,7 +539,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 
 <!-- ══════════════════════════ TOURNAMENT HERO ══════════════════════════ -->
 <div class="wc-hero" id="top">
-  <div class="wc-hero-eyebrow">Special Edition &mdash; Live Coverage</div>
+  <div class="wc-hero-eyebrow">Special Edition &mdash; Tournament Coverage</div>
   <h2>&#9917; FIFA World Cup 2026</h2>
   <div class="wc-hero-sub">USA &nbsp;&middot;&nbsp; Canada &nbsp;&middot;&nbsp; Mexico &nbsp;&middot;&nbsp; 11 June &ndash; 19 July 2026</div>
   <div class="wc-hero-stats">
@@ -558,7 +558,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 <div id="fixtures-week">
 <div class="divider"></div>
 <div class="page">
-  <div class="section-banner"><h2>Live Tracker</h2><div class="flag">This Week &amp; Golden Boot</div></div>
+  <div class="section-banner"><h2>Tournament Tracker</h2><div class="flag">This Week &amp; Golden Boot</div></div>
 
   <div class="two-col">
 
@@ -566,7 +566,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
     <div class="fixtures-widget">
       <div class="fw-header">
         <div class="fw-title">&#128197; This Week&rsquo;s Fixtures</div>
-        <div class="fw-week"><span id="fw-week-label"></span> <span id="wc-live-ts"></span></div>
+        <div class="fw-week"><span id="fw-week-label"></span> <span id="wc-live-ts">Results Compiled Daily</span></div>
       </div>
       <div class="fw-note">All times ET. 🇨🇦 Canada matches highlighted. Updated weekly on Saturdays.</div>
       <div id="fw-matches-container"></div>
@@ -589,7 +589,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 <div class="page">
   <div class="section-banner"><h2>Group Standings</h2><div class="flag">All 12 Groups &mdash; Updated After Each Match Day</div></div>
   <div id="groups-container" class="groups-grid">
-<!-- Static seed — overwritten by live data once matches begin -->
+<!-- Static seed — overwritten by fresh data on page load-->
 <div class="wc-group-card"><div class="wc-group-label">Group A</div><table class="wc-group-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
 <tr><td>1</td><td>🇲🇽 Mexico</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
 <tr><td>2</td><td>🇿🇦 South Africa</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>

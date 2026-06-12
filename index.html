@@ -174,7 +174,7 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
      THE CHRONICLER — WORLD CUP LIVE WIDGET
      Paste this block ONCE into index.html, inside the hero section
      (after the existing World Cup fixtures div).
-     Never needs to be changed — data loads live from the Worker.
+     Never needs to be changed — data loads from the Worker on page load.
      ═══════════════════════════════════════════════════════════════════ -->
  
 <style>
@@ -205,7 +205,7 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
  
 <div class="wci-wrap">
   <div class="wci-header">
-    <div class="wci-title">&#9917; World Cup 2026 — Live</div>
+    <div class="wci-title">&#9917; World Cup 2026 — Match Bulletin</div>
     <div class="wci-ts" id="wci-ts">Loading…</div>
   </div>
   <div id="wc-index-widget"><div class="wci-empty">Loading match data…</div></div>
@@ -275,7 +275,7 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
       var mHtml=byDay[day].map(function(m){
         var isCA=m.home.tla==='CAN'||m.away.tla==='CAN';
         var status='';
-        if(m.status==='IN_PLAY')  status='<span class="wci-live-badge">&#9679; '+(m.minute?m.minute+"'":'LIVE')+'</span>';
+        if(m.status==='IN_PLAY')  status='<span class="wci-done-badge">In Progress</span> ';
         else if(m.status==='PAUSED')   status='<span class="wci-live-badge">HT</span>';
         else if(m.status==='FINISHED') status='<span class="wci-ft-badge">FT</span>';
         else status='<span class="wci-sched">'+fmtET(m.utcDate)+'</span>';
@@ -323,7 +323,7 @@ body{background:var(--bg);font-family:'Libre Baskerville',Georgia,serif;color:va
   <div class="specials-grid" style="margin-bottom:20px;">
     <a class="special-card wc" href="Specials/world-cup-2026.html">
       <div class="special-inner">
-        <div class="special-eyebrow">&#9917; Live Tracker &mdash; Updated Daily</div>
+        <div class="special-eyebrow">&#9917; Tournament Tracker &mdash; Results &amp; Standings</div>
         <div class="special-headline">FIFA World Cup 2026</div>
         <div class="special-deck">Full standings, fixtures, results, golden boot table, and match reports across all 48 teams and 104 matches. USA &middot; Canada &middot; Mexico &mdash; June 11 to July 19, 2026.</div>
         <div class="special-meta"><span>The Chronicler Sport Desk</span><span class="special-cta">Open Tracker &rarr;</span></div>
