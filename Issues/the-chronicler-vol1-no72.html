@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler &mdash; Saturday, June 13, 2026 &mdash; Vol. I, No. 72</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+.col-2{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.ticker-bar{background:var(--rust);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;text-align:center;line-height:1.6;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.aqi-unhealthy{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-hazardous{background:#7e0023;color:#fff;border:1px solid #5a0019;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7px;color:var(--grey);flex:1;line-height:1.3;}
+.wfc .dm span{display:block;font-size:8px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1.1;}
+.mc-chg{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;padding:2px 5px;border-radius:2px;display:inline-block;width:fit-content;}
+.mc-chg.up{background:#d4edda;color:#155724;}
+.mc-chg.down{background:#f8d7da;color:#721c24;}
+.mc-chg.flat{background:#fff3cd;color:#856404;}
+.mc-note{font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-top:1px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.india-mkt-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.gta-focus{background:#f0e8d0;border:1px dashed var(--rule);padding:16px;margin-top:16px;border-radius:4px;}
+.gta-focus-label{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:12px;border-bottom:1px solid var(--rule);padding-bottom:6px;}
+.sport-flag{display:inline-flex;align-items:center;gap:5px;font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-bottom:6px;}
+.sport-flag .fi{font-size:14px;line-height:1;}
+.games-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.puzzle-box{background:var(--aged);border:1px solid var(--rule);padding:14px 14px 12px;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--rust);margin-bottom:4px;}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-bottom:10px;line-height:1.55;}
+.crunch-nums{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:22px;width:46px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.crunch-target{background:var(--rust);color:#fff;font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:54px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:9.5px;background:var(--ink);color:var(--aged);border:none;padding:5px 10px;cursor:pointer;margin-bottom:8px;letter-spacing:.08em;}
+.answer-box{display:none;background:var(--cream);border:1px solid var(--rule);padding:8px 10px;margin-bottom:8px;}
+.answer-cat{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--ink);padding:4px 0;line-height:1.6;}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;}
+.ww-mini-tile{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:8px 4px;text-align:center;border-radius:3px;cursor:default;}
+.comic-strip{margin:16px 0 8px;border:2px solid var(--ink);background:var(--cream);}
+.comic-title{font-family:'Playfair Display',serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);text-align:center;padding:5px 0 3px;border-bottom:1px solid var(--rule);}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+@media(min-width:680px){
+  .col-3{grid-template-columns:repeat(3,1fr);}
+  .col-2{grid-template-columns:repeat(2,1fr);}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 14px 0;}
+  article.s:last-child{border-right:none;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+  .india-mkt-row{grid-template-columns:repeat(4,1fr);}
+}
+@media(max-width:480px){
+  .games-row{grid-template-columns:1fr;}
+  .ww-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BS6DKVDMVD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BS6DKVDMVD');
+</script>
+</head>
+<body id="top">
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="#top">Top</a>
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="https://thechronicler.ca/Specials/world-cup-2026.html">World Cup</a></div>
+    <div class="nav-item"><a href="#puzzles">Funnies</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, No. 72 &nbsp;&middot;&nbsp; Saturday, June 13, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<div class="ticker-bar">Montreal Police Suspend Officers Over Racist &lsquo;Trophy&rsquo; Allegations &mdash; Alberta Commissions $1.5M Separation Cost Study &mdash; Canada Tables Forced Labour Import Bill &mdash; Canada Earns First World Cup Point in 1&ndash;1 Draw With Bosnia &mdash; Pakistan Says US&ndash;Iran Peace Deal Text Agreed &mdash; US to Slash NATO Air and Naval Assets in Europe &mdash; DRDO Tests Multi-Layered Ballistic Missile Defence &mdash; Norris Tops Barcelona Practice &mdash; Mickelson Loses Club Membership</div>
+
+
+<!-- ==================== CANADA ==================== -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Halifax</div><div class="w-icon">&#127787;&#65039;</div></div>
+      <div class="w-temp">9&deg;C</div>
+      <div class="w-cond">Mist</div>
+      <span class="aqi-badge aqi-good">AQI 28 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; E 14 km/h</span><span>&#128167; 99%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#127746;&#65039;</span>12/10&deg;</div>
+        <div class="dm">Sun<span>&#9729;&#65039;</span>17/10&deg;</div>
+        <div class="dm">Mon<span>&#9729;&#65039;</span>14/11&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Montr&eacute;al</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">19&deg;C</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 40 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; WSW 17 km/h</span><span>&#128167; 73%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>28/17&deg;</div>
+        <div class="dm">Sun<span>&#127746;&#65039;</span>19/16&deg;</div>
+        <div class="dm">Mon<span>&#9925;&#65039;</span>19/12&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Ottawa</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">17&deg;C</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 29 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; W 9 km/h</span><span>&#128167; 83%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>31/16&deg;</div>
+        <div class="dm">Sun<span>&#127746;&#65039;</span>20/11&deg;</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>20/7&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Toronto</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">17&deg;C</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-good">AQI 23 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; W 14 km/h</span><span>&#128167; 83%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>32/16&deg;</div>
+        <div class="dm">Sun<span>&#127783;&#65039;</span>19/13&deg;</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>21/9&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Winnipeg</div><div class="w-icon">&#127746;&#65039;</div></div>
+      <div class="w-temp">10&deg;C</div>
+      <div class="w-cond">Patchy Rain</div>
+      <span class="aqi-badge aqi-good">AQI 26 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; WNW 23 km/h</span><span>&#128167; 87%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9729;&#65039;</span>14/9&deg;</div>
+        <div class="dm">Sun<span>&#9729;&#65039;</span>17/6&deg;</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>21/10&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Edmonton</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">8&deg;C</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 26 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; WNW 8 km/h</span><span>&#128167; 72%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>18/6&deg;</div>
+        <div class="dm">Sun<span>&#9925;&#65039;</span>23/8&deg;</div>
+        <div class="dm">Mon<span>&#127746;&#65039;</span>20/13&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Vancouver</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">12&deg;C</div>
+      <div class="w-cond">Clear</div>
+      <span class="aqi-badge aqi-moderate">AQI 56 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; E 5 km/h</span><span>&#128167; 94%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>28/13&deg;</div>
+        <div class="dm">Sun<span>&#9925;&#65039;</span>24/16&deg;</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>21/16&deg;</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Current conditions: wttr.in / Environment Canada &middot; AQI: Open-Meteo (US AQI scale) &middot; Vancouver AQI 56 (Moderate) &mdash; sensitive groups limit outdoor exposure &middot; New Delhi dust storm; Bengaluru heavy rain &middot; Data: 14 June 2026, approx. 6:00 AM ET.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="canada-1">
+      <h3>Montreal Police Chief Suspends Two Officers, Reassigns 14 More in Unprecedented Response to Racist Acts at Station 39</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Two Montreal police officers have been suspended and 14 others reassigned after allegations of repeated discriminatory and racist behaviour toward people they stopped while on duty &mdash; including claims that some officers collected locks of hair cut from racialized citizens as trophies during interventions. Police Chief Fady Dagher held an unprecedented late-night news conference on Friday at 10:30 PM to announce the disciplinary measures, confirming the officers under investigation are all stationed at Station 39 in the borough of Montr&eacute;al-Nord. The two suspended officers are under active investigation by the prosecutor&rsquo;s office for possible violations of the Criminal Code. Dagher said the remaining 14 officers have been reassigned to duties that involve no contact with the citizens implicated in the investigation, and stated the force will not tolerate such behaviour.</p>
+      <p>The disclosures, first reported by La Presse and Radio-Canada earlier Friday, describe a pattern of alleged conduct at the station in which tickets were issued to citizens solely on the basis of their ethnic background and officers allegedly retained hair cut from Black and Arab individuals during police stops. Montreal Mayor Soraya Martinez Ferrada responded by calling on the provincial government to accelerate the implementation of body cameras for police officers, calling any form of racial profiling or violence unacceptable. The revelations land against the backdrop of a years-long legal and public accountability struggle over systemic racism in the SPVM &mdash; including a class-action ruling last year finding the force had a systemic racial profiling problem, which the city is currently appealing at the Quebec Court of Appeal.</p>
+      <div class="src">Source: <a href="https://www.ctvnews.ca/montreal/article/montreal-police-officers-suspended-amid-probe-into-racist-acts-during-interventions/" target="_blank" rel="noopener">CTV News Montreal / The Canadian Press</a> &middot; June 12&ndash;13, 2026</div>
+    </article>
+
+    <article class="s" id="canada-2">
+      <h3>Alberta Government Commissions $1.5-Million Economic Analysis of Separation Costs From University of Calgary</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Alberta&rsquo;s provincial government announced Friday it has selected the University of Calgary to conduct a $1.5-million economic analysis of what separation from Canada would cost the province, ahead of the October 19 referendum in which Albertans will vote on whether to begin the legal process toward a binding secession vote. The study will assume separation is legally possible and calculate the costs of Alberta assuming responsibility for all services the federal government currently provides &mdash; from passports and aviation regulation to national parks, the RCMP, and tax collection. The project&rsquo;s academic lead, Sarah Hall Findlay, said the report will be completed in time for public engagement ahead of the fall vote. The university will not examine the legal feasibility of secession; that question falls outside the study&rsquo;s scope.</p>
+      <p>Premier Danielle Smith told reporters earlier this month that separation could cost Alberta nearly $400 billion in transitional costs &mdash; including the province&rsquo;s share of the national debt, NATO obligations, and the cost of standing up a military &mdash; plus up to $50 billion in annual ongoing costs. Separatist leaders have contested those figures sharply, putting startup costs at no more than $5.7 billion. Edmonton Mayor Andrew Knack said the separatist agenda was creating severe economic uncertainty and dampening investment, while First Nations groups have mounted court challenges that have placed the parallel petition-based referendum path in legal limbo.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/canada/edmonton/referendum-separatism-economic-analysis-alberta-9.7234204" target="_blank" rel="noopener">CBC News</a> &middot; June 13, 2026</div>
+    </article>
+
+    <article class="s" id="canada-3">
+      <h3>Ottawa Tables Forced Labour Import Bill as Trump Administration Threatens Tariffs Over Supply Chain Failures</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The federal government tabled legislation on Friday to overhaul Canada&rsquo;s regime for blocking imports of goods made with forced labour, responding directly to a threat from the Trump administration to impose additional 10 per cent tariffs on Canada over what Washington describes as inadequate enforcement. Liberal MP Rob Oliphant, parliamentary secretary to Foreign Affairs Minister Anita Anand, introduced the bill on Parliament Hill while Anand and Prime Minister Mark Carney were in Paris. The bill would create a public list of products linked to forced labour and place the onus on Canadian companies to demonstrate their goods are not produced with coerced labour &mdash; a significant shift from the current framework, under which the government must prove a violation before blocking imports.</p>
+      <p>The Trump administration&rsquo;s threat stems from a US Trade Representative report claiming that between 2020 and 2026, Canadian authorities intercepted only 50 shipments on suspicion of forced labour, with just two ultimately prohibited &mdash; compared with more than 6,300 US Customs shipments blocked in 2024 alone under the Uyghur Forced Labor Prevention Act. Trade Minister Dominic LeBlanc had previously committed to new rules during meetings with USTR Jamieson Greer. The bill represents the government&rsquo;s follow-through on that commitment ahead of the mandatory summer review of the CUSMA trade agreement, where perceived failures on forced labour enforcement could become leverage against Canadian exporters.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/news/politics/forced-labour-bill-canada-9.7233750" target="_blank" rel="noopener">CBC News / The Canadian Press</a> &middot; June 12, 2026</div>
+    </article>
+
+  </div>
+
+  <div class="gta-focus">
+    <div class="gta-focus-label">GTA Focus</div>
+    <div class="col-3">
+
+      <article class="s" id="gta-1">
+        <h3>Larin&rsquo;s Late Equaliser Earns Canada Historic First World Cup Point at BMO Field</h3>
+        <div class="by">The Chronicler GTA Desk &middot; Saturday, June 13, 2026</div>
+        <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+        <p>Substitute Cyle Larin scored in the 78th minute to earn Canada a 1&ndash;1 draw against Bosnia and Herzegovina at BMO Field in Toronto on Friday, securing the co-hosts&rsquo; first point in men&rsquo;s World Cup history after they fell behind to an early goal. Jovo Lukic headed Bosnia in front from a corner in the 21st minute, and Canada pressed relentlessly thereafter without finding the net &mdash; most painfully when Richie Laryea&rsquo;s shot in the 54th minute deflected off Kolasinac&rsquo;s foot onto the crossbar with the goal gaping. Larin settled the nerves just 121 seconds after entering as a substitute, converting a pass from Promise David to spark delirium among an at-capacity crowd that included hockey star Connor McDavid and actor Ryan Reynolds. It was only the second World Cup goal in Canadian men&rsquo;s history.</p>
+        <p>The result gives Canada one point from their opening Group B match and avoids the ignominy of losing a home opener. Playing without injured captain Alphonso Davies, Canada dominated possession and led 13 to 8 in shots but paid for their lack of clinical finishing. Head coach Jesse Marsch&rsquo;s substitutions were credited with turning the tide. Canada&rsquo;s campaign now moves to Vancouver, where they face Qatar on June 18 and Switzerland on June 24. Bosnia and Herzegovina head west to face Switzerland in Los Angeles and Qatar in Seattle on the same dates.</p>
+        <div class="src">Source: <a href="https://www.cbc.ca/sports/livestory/fifa-world-cup-2026-canada-vs-bosnia-and-herzegovina-june-12-live-updates-9.7222390" target="_blank" rel="noopener">CBC Sports</a> &middot; June 12, 2026</div>
+      </article>
+
+    </div>
+  </div>
+
+  <span class="cat">Canada Markets</span>
+  <div class="mkt-note">Global equity markets rallied sharply on Friday &mdash; TSX up 266 points, Gold up over $125 &mdash; driven by Iran peace deal optimism. Canada market data reflects Friday, June 12, 2026 close (Google Finance, publisher-verified screenshot). Currency rates sourced from Google Finance (publisher-verified screenshot), June 12, 2026. Markets closed Saturday; values shown are Friday close.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">34,937.85</div>
+      <span class="mc-chg up">&#9650; +266.39 (+0.77%)</span>
+      <div class="mc-note">Jun 12, 2026 close &middot; CAD</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">Crude Oil (WTI)</div>
+      <div class="mc-sub">NYMEX Front Month</div>
+      <div class="mc-val">$77.14</div>
+      <span class="mc-chg down">&#9660; &minus;3.17 (&minus;3.95%)</span>
+      <div class="mc-note">Jun 12, 2026 close &middot; USD/bbl</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">COMEX Front Month</div>
+      <div class="mc-val">$4,239.90</div>
+      <span class="mc-chg up">&#9650; +125.90 (+3.06%)</span>
+      <div class="mc-note">Jun 12, 2026 close &middot; USD/oz</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">0.7145</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 12, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">&#8377;68.0115</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 12, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">&#8364;0.6181</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 12, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">&#163;0.5337</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 12, 2026 &middot; Google Finance</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; Publisher-verified screenshot &middot; June 12, 2026. Market data carries inherent delays.</div>
+
+</div></div><!-- /canada -->
+
+<!-- ==================== INDIA ==================== -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">New Delhi</div><div class="w-icon">&#127787;&#65039;</div></div>
+      <div class="w-temp">35&deg;C</div>
+      <div class="w-cond">Dust Storm</div>
+      <span class="aqi-badge aqi-hazardous">AQI 305 <span class="al">Hazardous</span></span>
+      <div class="w-drow"><span>&#128168; WNW 7 km/h</span><span>&#128167; 37%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#127787;&#65039;</span>42/30&deg;</div>
+        <div class="dm">Sun<span>&#127787;&#65039;</span>43/31&deg;</div>
+        <div class="dm">Mon<span>&#127787;&#65039;</span>43/32&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chandigarh</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">38&deg;C</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-poor">AQI 136 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; NNW 9 km/h</span><span>&#128167; 24%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>38/27&deg;</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>41/27&deg;</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>42/28&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Kolkata</div><div class="w-icon">&#127755;&#65039;</div></div>
+      <div class="w-temp">30&deg;C</div>
+      <div class="w-cond">Haze</div>
+      <span class="aqi-badge aqi-unhealthy">AQI 121 <span class="al">Unhealthy</span></span>
+      <div class="w-drow"><span>&#128168; SSE 23 km/h</span><span>&#128167; 84%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#127746;&#65039;</span>35/29&deg;</div>
+        <div class="dm">Sun<span>&#127746;&#65039;</span>38/29&deg;</div>
+        <div class="dm">Mon<span>&#9925;&#65039;</span>38/29&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Mumbai</div><div class="w-icon">&#127755;&#65039;</div></div>
+      <div class="w-temp">33&deg;C</div>
+      <div class="w-cond">Haze</div>
+      <span class="aqi-badge aqi-moderate">AQI 76 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; WSW 24 km/h</span><span>&#128167; 67%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9728;&#65039;</span>31/30&deg;</div>
+        <div class="dm">Sun<span>&#127746;&#65039;</span>31/30&deg;</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>31/30&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Hyderabad</div><div class="w-icon">&#127746;&#65039;</div></div>
+      <div class="w-temp">29&deg;C</div>
+      <div class="w-cond">Rain in Vicinity</div>
+      <span class="aqi-badge aqi-moderate">AQI 85 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; W 15 km/h</span><span>&#128167; 62%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9729;&#65039;</span>33/26&deg;</div>
+        <div class="dm">Sun<span>&#9728;&#65039;</span>37/28&deg;</div>
+        <div class="dm">Mon<span>&#9728;&#65039;</span>38/28&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Bengaluru</div><div class="w-icon">&#127783;&#65039;</div></div>
+      <div class="w-temp">25&deg;C</div>
+      <div class="w-cond">Heavy Rain</div>
+      <span class="aqi-badge aqi-good">AQI 44 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; WNW 17 km/h</span><span>&#128167; 79%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#127746;&#65039;</span>27/21&deg;</div>
+        <div class="dm">Sun<span>&#9729;&#65039;</span>25/21&deg;</div>
+        <div class="dm">Mon<span>&#9925;&#65039;</span>30/21&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chennai</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">34&deg;C</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 75 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; S 14 km/h</span><span>&#128167; 67%</span></div>
+      <div class="wfc">
+        <div class="dm">Sat<span>&#9729;&#65039;</span>33/29&deg;</div>
+        <div class="dm">Sun<span>&#9925;&#65039;</span>32/28&deg;</div>
+        <div class="dm">Mon<span>&#9925;&#65039;</span>33/28&deg;</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Current conditions: wttr.in / IMD &middot; AQI: Open-Meteo (US AQI scale) &middot; Data: 13 June 2026, approx. 6:00 AM ET.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="india-1">
+      <h3>DRDO Tests Validate Multi-Layered Ballistic Missile Defence Capable of Countering ICBM-Class Threats</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India&rsquo;s Defence Research and Development Organisation successfully conducted three consecutive flight tests of a multi-layered Ballistic Missile Defence system on June 10 and 11, validating a defence architecture designed to intercept and neutralise ballistic missiles up to and including intercontinental ballistic missile-class threats &mdash; placing India among a select group of nations with demonstrated operational BMD capability that currently includes only the United States, Russia, and Israel. During the trials, interceptors successfully engaged their targets at multiple layers, validating critical technologies associated with India&rsquo;s evolving national missile shield. DRDO Chairman Rajesh Kumar Singh, who monitored the tests closely, praised the coordinated efforts of the organisation and its industry partners. Alongside the BMD trials, India also successfully conducted the maiden flight test of the Naval Anti-Ship Missile-Medium Range, marking a significant advance in India&rsquo;s maritime strike and defensive capability against surface vessels at extended ranges.</p>
+      <p>The tests come at a moment of heightened attention to India&rsquo;s air defence posture following the May skirmish with Pakistan, in which India&rsquo;s existing layered air defence performed creditably. Analysts note that the timing of the BMD demonstrations sends a deliberate signal regarding India&rsquo;s capacity to intercept longer-range and potentially nuclear-capable missile systems. Pakistan has been reported to be pursuing missile systems capable of carrying multiple warheads, which can overwhelm single-layer defences. India&rsquo;s Phase-II BMD programme is designed to provide protection against such next-generation threats at both endo-atmospheric and exo-atmospheric altitudes.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/india/india-successfully-tests-multi-layered-air-defence-against-ballistic-missiles/" target="_blank" rel="noopener">The Tribune India / ANI</a> &middot; June 13, 2026</div>
+    </article>
+
+    <article class="s" id="india-2">
+      <h3>India Summons US Envoy for Second Time in Three Days Over Deaths of Indian Sailors in Gulf of Oman Attacks</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India&rsquo;s Ministry of External Affairs summoned US Charg&eacute; d&rsquo;Affaires Jason Meeks on Friday for the second time in three days and lodged a strong protest over what it called continuing attacks by American naval forces on commercial vessels carrying Indian mariners in the Gulf of Oman &mdash; attacks that have now claimed the lives of three Indian sailors. Friday&rsquo;s d&eacute;marche followed a third such incident on Thursday, when US forces fired Hellfire missiles to disable the Guinea-Bissau-flagged oil tanker MT Jalveer, which was carrying 20 Indian crew members. All crew were evacuated, but the MEA said the attacks have already resulted in the &ldquo;tragic and avoidable loss of three Indian lives&rdquo; &mdash; the sailors killed when US forces struck the Palau-flagged tanker MT Settebello on Wednesday, with Omani authorities rescuing the remaining crew. A first vessel, MT Marivex, carrying 24 Indian seafarers, was disabled by US forces on June 8; all crew were safely recovered.</p>
+      <p>The MEA expressed &ldquo;deep concern over the use of lethal and deadly force against civilian shipping,&rdquo; calling such actions &ldquo;unacceptable&rdquo; as they undermine &ldquo;the safety, security and stability of international maritime commerce in a sensitive region at a difficult time.&rdquo; The US military has publicly acknowledged striking MT Jalveer after the vessel allegedly attempted to transport Iranian oil in violation of sanctions. The incident has placed India in a diplomatically acute position: as a major buyer of sanctioned Iranian oil and a country with tens of thousands of seafarers working in the Gulf region, New Delhi is under pressure from both its economic interests and its citizens&rsquo; safety to confront Washington directly.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/top-headlines/mea-again-summons-us-envoy-for-attacks-on-ships-with-indian-crew/" target="_blank" rel="noopener">The Tribune India / Business Standard</a> &middot; June 12&ndash;13, 2026</div>
+    </article>
+
+    <article class="s" id="india-3">
+      <h3>Cabinet Secretary Warns of Full Legal Force Against Any Attempt to Disrupt NEET Re-Examination Scheduled for June 21</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Union Cabinet Secretary T.V. Somanathan issued a direct warning on Friday that the full weight of the law would fall on any person who attempts to disrupt, tamper with, or undermine the integrity of the NEET-UG 2026 re-examination, scheduled for June 21, as authorities ramp up security and coordination ahead of the high-stakes medical entrance test. Somanathan met with NTA Director General Abhishek Singh to review preparedness and stressed the need for close coordination among central government agencies, state governments, and district authorities. Security arrangements for the transport of examination papers include support from the Indian Air Force, CRPF, and CISF. The NTA also announced the examination window has been extended to 195 minutes &mdash; from 2 PM to 5:15 PM &mdash; and candidates will receive additional space for rough work in their answer booklets.</p>
+      <p>The NEET-UG was originally conducted on May 3, 2026, but was cancelled on May 12 amid allegations of a paper leak, triggering national controversy and a Central Bureau of Investigation investigation. The re-examination covers approximately 22 lakh candidates seeking admission to undergraduate medical programmes. The NTA separately dismissed as &ldquo;false and fraudulent&rdquo; social media messages claiming the re-examination paper had already been leaked, warning of legal action against &ldquo;organised cheating rackets&rdquo; attempting to exploit candidate anxiety.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/india/neet-window-widened-as-govt-warns-disruptors/" target="_blank" rel="noopener">The Tribune India</a> &middot; June 12&ndash;13, 2026</div>
+    </article>
+
+  </div>
+
+  <div class="col-3">
+
+    <article class="s" id="india-4">
+      <h3>19 Rebel TMC MPs Move to Seek Speaker&rsquo;s Recognition as Separate Group; Party Calls Letter Fake</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>A letter purportedly signed by 19 of the Trinamool Congress&rsquo;s 20 Lok Sabha MPs &mdash; including former cricketer Yusuf Pathan, actors-turned-politicians Saayoni Ghosh and Deepak Adhikari, and senior figures Kakoli Ghosh Dastidar and Satabdi Roy &mdash; was made public on Friday, triggering a fresh crisis in the already fractured party. The letter, dated May 18, was reportedly sent to Lok Sabha Speaker Om Birla and seeks formal recognition for the rebel group as a separate parliamentary bloc. Dissident MP Jagadish Barma Basunia confirmed the letter was authentic and said the group would meet the Speaker on Monday to press its case. The letter lists Kakoli Ghosh Dastidar as &ldquo;chief whip&rdquo; of the rebel formation &mdash; a direct challenge to Mamata Banerjee, who had already replaced Dastidar with Kalyan Banerjee as the party&rsquo;s Lok Sabha chief whip.</p>
+      <p>The TMC leadership moved immediately to contain the damage. Sources from Mamata Banerjee&rsquo;s office dismissed the letter as &ldquo;fake&rdquo; and accused the BJP of fabricating it. TMC MP Mahua Moitra cited the Constitutional 91st Amendment of 2003, which removed provisions for a parliamentary split or separate bloc, arguing all 19 rebels would have to resign and contest on a BJP ticket for their move to have any constitutional standing. Three TMC Rajya Sabha members had already resigned from the Upper House in the broader fallout. The rebellion follows the TMC&rsquo;s significant defeat in the 2026 West Bengal Assembly elections, where the BJP secured a majority, sharply intensifying internal recriminations over the party&rsquo;s direction.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/india/tmc-rebels-set-to-meet-speaker-for-recognition-yusuf-among-signatories/" target="_blank" rel="noopener">The Tribune India / ANI</a> &middot; June 12&ndash;13, 2026</div>
+    </article>
+
+    <article class="s" id="india-5">
+      <h3>India May Redraw the Meaning of &ldquo;Urban&rdquo; in Upcoming Census as Peri-Urban Growth Outpaces Old Categories</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>As India has already begun the process for Census 2027, the government is actively discussing whether to change the official definition of urban settlements &mdash; a shift that would reshape planning priorities, fiscal allocations, and infrastructure investment across hundreds of rapidly changing localities that currently fall between the rural and urban classifications. A senior Union Urban Ministry official said the country&rsquo;s changed demography and the pace of urbanisation mean &ldquo;there are chances that the government would want to change the definition of what is urban because the time has changed and demography has changed.&rdquo; The discussion centres on peri-urban settlements on the outskirts of major cities, along industrial corridors, and around emerging economic hubs &mdash; areas whose residents work in manufacturing, services, and logistics, commute daily to nearby cities, and depend on urban-grade transport, housing, sanitation, and digital connectivity, yet continue to be governed as rural areas.</p>
+      <p>India&rsquo;s Census currently classifies urban areas as either statutory towns governed by urban local bodies, or census towns meeting defined thresholds of population density and non-agricultural employment. A growing view among urban planners holds that these categories no longer capture the pace or nature of contemporary urbanisation in a country where economic activity and mobility increasingly connect villages, towns, and cities into larger regional networks. The stakes extend beyond nomenclature: whether a settlement is classified as rural or urban directly determines its access to planning powers, fiscal transfers, and institutional resources, making reclassification a critical lever for how rapidly growing areas are governed.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/india/govt-likely-to-redefine-urban-in-new-census/" target="_blank" rel="noopener">The Tribune India</a> &middot; June 13, 2026</div>
+    </article>
+
+    <article class="s" id="india-6">
+      <h3>Unanswered Questions Loom Over AI171 Anniversary as Investigators Confirm Probe Ongoing, Key Cause Still Undetermined</h3>
+      <div class="by">The Chronicler India Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>One year after Air India Flight AI171 crashed seconds after takeoff from Ahmedabad on June 12, 2025, killing 260 people, the Aircraft Accident Investigation Bureau issued an interim statement Friday confirming the probe has made &ldquo;significant progress&rdquo; but declining to disclose any new findings or indicate when the final report would be released. The AAIB said investigators had carried out an extensive and rigorous examination of all technical, operational, organisational, and human factors linked to the accident, with evidence and results &ldquo;currently being analysed in a comprehensive and integrated manner.&rdquo; The central question &mdash; why both engine fuel control switches moved from the RUN to CUTOFF position within one second of each other shortly after takeoff, cutting thrust to both engines &mdash; remains publicly unanswered a year on. The preliminary report of July 12, 2025 disclosed the switch movement and recorded a cockpit exchange in which one pilot asked why the switches had been moved while the other denied doing so, but offered no determination of cause.</p>
+      <p>The anniversary was marked by grief and mounting frustration. Families held prayer meetings at the crash site and renewed demands for a permanent memorial, opposing plans to demolish the damaged BJ Medical College hostel buildings. British High Commissioner Lindy Cameron visited Ahmedabad; Air India employees observed a two-minute silence. The Federation of Indian Pilots sharpened its criticism, with FIP president CS Randhawa alleging investigators had not given adequate weight to the testimony of sole survivor Vishwas Kumar Ramesh &mdash; who reported seeing cabin lights flickering after takeoff, which the FIP argues corroborates an electrical failure hypothesis &mdash; and questioning whether the five-member AAIB investigation team met ICAO qualification requirements for a crash of this magnitude. Civil Aviation Minister K Ram Mohan Naidu expressed condolences and said the probe continues with diligence.</p>
+      <div class="src">Source: <a href="https://www.tribuneindia.com/news/india/one-year-after-ahmedabad-plane-crash-probe-nears-key-findings-analysis-in-final-stages/" target="_blank" rel="noopener">The Tribune India</a> &middot; June 13, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">India Markets</span>
+  <div class="mkt-note">Indian equity markets surged on Friday &mdash; Sensex up 1,695 points (+2.30%), Nifty up 461 (+1.99%) &mdash; tracking global risk-on sentiment on Iran peace deal hopes. Indian market data reflects Friday, June 12, 2026 close (Google Finance, publisher-verified screenshot). Currency rates sourced from Google Finance (publisher-verified screenshot), June 12, 2026. Markets closed Saturday; values shown are Friday close.</div>
+  <div class="india-mkt-row">
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">BSE Sensex</div>
+      <div class="mc-sub">Bombay Stock Exchange</div>
+      <div class="mc-val">75,527.95</div>
+      <span class="mc-chg up">&#9650; +1,695.41 (+2.30%)</span>
+      <div class="mc-note">Jun 12, 2026 close &middot; INR</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,622.90</div>
+      <span class="mc-chg up">&#9650; +461.30 (+1.99%)</span>
+      <div class="mc-note">Jun 12, 2026 close &middot; INR</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">Indian Rupee</div>
+      <div class="mc-val">$0.0105</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 12, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">Indian Rupee</div>
+      <div class="mc-val">$0.0147</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 12, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">Indian Rupee</div>
+      <div class="mc-val">&#163;0.0078</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 12, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">Indian Rupee</div>
+      <div class="mc-val">&#8364;0.0091</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 12, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold (India)</div>
+      <div class="mc-sub">24K / 10g &mdash; IBJA PM Rate</div>
+      <div class="mc-val">&#8377;14,780</div>
+      <span class="mc-chg up">&#9650; IBJA PM rates</span>
+      <div class="mc-note">Jun 12 &middot; IBJA PM &middot; ex-GST &amp; Making Charges</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold (Global)</div>
+      <div class="mc-sub">COMEX Front Month</div>
+      <div class="mc-val">$4,239.90</div>
+      <span class="mc-chg up">&#9650; +125.90 (+3.06%)</span>
+      <div class="mc-note">Jun 12 &middot; USD/oz</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; <a href="https://ibja.co" target="_blank" rel="noopener">IBJA</a> (publisher-verified screenshot) &middot; June 12, 2026. Market data carries inherent delays.</div>
+
+</div></div><!-- /india -->
+
+<!-- ==================== WORLD ==================== -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="world-1">
+      <h3>Pakistan Says Final Agreed Text of Iran War Peace Deal Has Been Reached; Signing Remains Pending</h3>
+      <div class="by">The Chronicler World Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Pakistan Prime Minister Shehbaz Sharif announced on Friday that the United States and Iran have agreed on a final, agreed-upon text of a framework to end their 106-day war, though both sides are still working through next steps before any signing. &ldquo;Peace has never been this close as it is now,&rdquo; Sharif wrote on social media after a day of frenetic diplomacy. Iranian Foreign Minister Abbas Araghchi told state television that both sides were working toward an initial agreement declaring an end to the war &ldquo;on all fronts, including Lebanon,&rdquo; where Israel has been fighting Iranian-allied Hezbollah since early March. The apparent breakthrough followed three consecutive days of direct US-Iranian military exchanges this week, including US strikes on three commercial vessels carrying Indian crew, which had raised fears the April ceasefire was about to collapse entirely. Under the terms of a reported draft, a 60-day ceasefire period beginning from the signing of a memorandum of understanding would be used to negotiate the future of Iran&rsquo;s nuclear programme.</p>
+      <p>The announcement produced immediate market reaction: oil prices fell more than three per cent and US equity futures rose sharply as investors recalibrated Iran war risk. Key sticking points remain unresolved, including sanctions relief and frozen Iranian assets, and the future of Israeli military activity in Lebanon &mdash; which Tehran insists must end as part of any comprehensive settlement. Iran is not a direct party to US-Israeli negotiations, and Araghchi&rsquo;s public comments cautiously avoided claiming the deal is final. Pakistani mediators, who have led the diplomatic process since brokering the April 8 ceasefire, are now working with both sides on the mechanics of formalisation.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/6/12/pakistan-says-final-agreed-upon-text-of-iran-war-ceasefire-deal-reached" target="_blank" rel="noopener">Al Jazeera / AP</a> &middot; June 12&ndash;13, 2026</div>
+    </article>
+
+    <article class="s" id="world-2">
+      <h3>US Plans Sharp Cuts to Fighter Jets, Warships, and Surveillance Aircraft Assigned to NATO Operations in Europe</h3>
+      <div class="by">The Chronicler World Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Trump administration has informed NATO allies that it plans to sharply reduce the air and naval assets the United States has designated for alliance operations in Europe &mdash; a move that European officials confirmed on Friday and that multiple outlets attributed to a written document circulated to allies in early June. The proposed cuts include reducing NATO-assigned F-16 and F-15E fighter jets from approximately 150 to 100, scaling back maritime reconnaissance aircraft from 26 to 15, withdrawing all eight aerial refuelling tankers previously available to Europe, and removing a submarine, aircraft carrier, and several warships from assignment to European operations. All long-range deep-strike assets &mdash; including B-2 and B-52 bombers &mdash; would also be withdrawn and redirected to other theatres. US European Command said it was seeking to &ldquo;rightsize&rdquo; its contributions to the NATO Force Model, citing an &ldquo;unhealthy co-dependence&rdquo; on US forces.</p>
+      <p>The announcement lands days before a NATO summit and at a moment of acute European anxiety about the continent&rsquo;s capacity to defend itself without American backing. The cuts are being driven by Undersecretary for Policy Elbridge Colby, who has argued that European nations and Canada must take primary responsibility for conventional defence on the continent. European officials acknowledged they cannot currently replace the withdrawn deep-strike and surveillance capabilities from their own inventories. France and Germany separately announced this week the abandonment of their joint sixth-generation fighter jet development project, further complicating Europe&rsquo;s defence industrial outlook.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/6/12/us-to-cut-air-and-naval-assets-deployed-for-nato-operations-in-europe" target="_blank" rel="noopener">Al Jazeera / Reuters / AFP</a> &middot; June 12, 2026</div>
+    </article>
+
+    <article class="s" id="world-3">
+      <h3>Putin Acknowledges for First Time That Ukraine&rsquo;s Attacks Are Inflicting Real Damage on Russian Economy and Society</h3>
+      <div class="by">The Chronicler World Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Russian President Vladimir Putin acknowledged publicly for the first time on Friday that Ukraine&rsquo;s strikes on Russian territory are causing genuine damage to the Russian economy and society &mdash; a significant departure from the Kremlin&rsquo;s consistent narrative that Ukrainian drone and missile attacks amount to militarily insignificant provocations. Putin&rsquo;s remarks, broadcast by Russian state media, come as Ukraine and Russia continued to trade fire, with President Zelensky&rsquo;s international allies pressing for direct talks even as Kyiv resists a ceasefire framework it regards as freezing Russian territorial gains. Western analysts and Ukrainian officials have argued for months that the cumulative economic cost of the war, combined with strikes on energy export infrastructure and the redirection of industrial capacity toward military production, was beginning to register in Russian public life.</p>
+      <p>The EU is planning to expand its sanctions package targeting Moscow, and Baltic defence ministers have held discussions on NATO stockpile obligations. Putin&rsquo;s comments are being read by analysts as a possible signal that Moscow&rsquo;s calculus is shifting, though no change in Russian negotiating posture has been confirmed and the Kremlin has issued no statement suggesting readiness to alter its territorial demands. The acknowledgement arrives as European nations are already reckoning with the announced US drawdown of NATO-assigned military assets, adding urgency to the question of European conventional deterrence capacity.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/6/12/putin-admits-ukraine-attacks-hitting-russian-economy-society" target="_blank" rel="noopener">Al Jazeera</a> &middot; June 12, 2026</div>
+    </article>
+
+  </div>
+
+  <div class="col-2">
+
+    <article class="s" id="world-4">
+      <h3>UK Court Jails Palestinian Action Activists on Terrorism Charges in Landmark Case</h3>
+      <div class="by">The Chronicler World Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>A British court sentenced members of the Palestinian Action activist group to prison terms on terrorism charges on Friday, in what civil liberties organisations are calling a landmark and deeply troubling prosecution of direct-action political protest under counterterrorism law. The group has conducted a series of sabotage actions against UK factories linked to Israeli weapons manufacturing &mdash; including direct action at drone and aerospace component plants &mdash; which prosecutors successfully argued met the threshold for terrorism under UK legislation. The case has ignited fierce debate about the appropriate scope of terrorism statutes and whether the law is being stretched to criminalise political protest that, while criminal in its method, does not constitute terrorism in any conventional sense. Supporters of the defendants drew sharp distinctions between the group&rsquo;s industrial sabotage and any form of violence against people.</p>
+      <p>Human rights advocates and several opposition MPs condemned the sentences, arguing the prosecution sets a dangerous precedent for the criminalisation of activism directed at government-contracted manufacturers. The Home Office defended the application of terrorism law, citing the deliberate targeting of infrastructure. The convictions come amid continued UK domestic controversy over British arms exports to Israel and government policy on the Gaza conflict. Palestinian Action has said it will continue its campaign regardless of the legal consequences faced by individual members.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/news/2026/6/12/uk-court-jails-palestinian-action-activists-on-terrorism-charges" target="_blank" rel="noopener">Al Jazeera</a> &middot; June 12, 2026</div>
+    </article>
+
+    <article class="s" id="world-5">
+      <h3>World Cup 2026 Opens With Katy Perry and Future Headlining Los Angeles Ceremony; Tournament Underway Across Three Nations</h3>
+      <div class="by">The Chronicler World Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The 2026 FIFA World Cup officially opened on Thursday evening at SoFi Stadium in Los Angeles with a lavish ceremony featuring headline performances by Katy Perry and rapper Future, marking the start of the largest men&rsquo;s World Cup in history &mdash; expanded to 48 nations and spread across the United States, Canada, and Mexico. The opening ceremony featured elaborate choreography, light displays, and a celebration of the three co-host nations before the United States faced their tournament opener. The event marked the culmination of years of preparation for a tournament expected to generate record revenues and attendance across 16 host cities. On Friday, Canada played their own tournament opener at BMO Field in Toronto &mdash; the first men&rsquo;s World Cup match on Canadian soil &mdash; drawing 1&ndash;1 with Bosnia and Herzegovina to secure the co-hosts&rsquo; first point in World Cup history.</p>
+      <p>Substitute Cyle Larin scored in the 78th minute to rescue the draw for Canada after Jovo Lukic had headed Bosnia in front. Canada were without injured captain Alphonso Davies but pressed relentlessly in the second half. The draw leaves Canada competitive in Group B alongside Bosnia, Qatar, and Switzerland, with their next match against Qatar in Vancouver on June 18. The 48-team group phase is now fully underway across all three host nations, with matches scheduled daily through the group stage.</p>
+      <div class="src">Source: <a href="https://www.aljazeera.com/sports/2026/6/13/world-cup-kicks-off-in-us-as-katy-perry-future-headline-opening-ceremony" target="_blank" rel="noopener">Al Jazeera / CBC Sports</a> &middot; June 12&ndash;13, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Global Markets</span>
+  <div class="mkt-note">World indices reflect Friday, June 12, 2026 close (Google Finance, publisher-verified screenshot). Markets closed Saturday; values shown are Friday close.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card world">
+      <div class="mc-name">DJIA</div>
+      <div class="mc-sub">Dow Jones Industrial</div>
+      <div class="mc-val">51,202.26</div>
+      <span class="mc-chg up">&#9650; +353.51 (+0.70%)</span>
+      <div class="mc-note">Jun 12 close &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nasdaq</div>
+      <div class="mc-sub">Composite Index</div>
+      <div class="mc-val">29,635.95</div>
+      <span class="mc-chg up">&#9650; +189.77 (+0.64%)</span>
+      <div class="mc-note">Jun 12 close &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US Broad Market</div>
+      <div class="mc-val">7,431.46</div>
+      <span class="mc-chg up">&#9650; +37.16 (+0.50%)</span>
+      <div class="mc-note">Jun 12 close &middot; USD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">10,471.72</div>
+      <span class="mc-chg up">&#9650; +167.84 (+1.63%)</span>
+      <div class="mc-note">Jun 12 close &middot; GBP</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,622.90</div>
+      <span class="mc-chg up">&#9650; +461.30 (+1.99%)</span>
+      <div class="mc-note">Jun 12 close &middot; INR</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">24,718.10</div>
+      <span class="mc-chg up">&#9650; +468.81 (+1.93%)</span>
+      <div class="mc-note">Jun 12 close &middot; HKD</div>
+    </div>
+    <div class="mkt-card world">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">66,020.04</div>
+      <span class="mc-chg up">&#9650; +1,802.77 (+2.81%)</span>
+      <div class="mc-note">Jun 12 close &middot; JPY</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://www.google.com/finance" target="_blank" rel="noopener">Google Finance</a> &middot; Publisher-verified screenshot &middot; June 12, 2026. Market data carries inherent delays.</div>
+
+</div></div><!-- /world -->
+
+<!-- ==================== SPORT ==================== -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="sport-1">
+      <div class="sport-flag"><span class="fi">&#9917;&#65039;</span> Football &middot; FIFA World Cup 2026 &middot; Group B</div>
+      <h3>&#127381; Canada Earns Historic First World Cup Point With 1&ndash;1 Draw Against Bosnia and Herzegovina at BMO Field</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Substitute Cyle Larin scored in the 78th minute to earn Canada a 1&ndash;1 draw against Bosnia and Herzegovina at BMO Field in Toronto on Friday &mdash; the first men&rsquo;s World Cup match ever played on Canadian soil &mdash; securing the co-hosts&rsquo; first point in men&rsquo;s World Cup history and sending an at-capacity stadium into euphoria. Jovo Lukic had headed Bosnia in front from a corner in the 21st minute, and Canada pressed relentlessly thereafter. Their most painful miss came in the 54th minute when Richie Laryea&rsquo;s shot deflected off Sead Kolasinac&rsquo;s foot onto the crossbar with the goal gaping. Larin arrived off the bench to convert Promise David&rsquo;s pass just 121 seconds after entering, setting off scenes that prompted post-match commentary from hockey star Connor McDavid and actor Ryan Reynolds, both in attendance. It was only Canada&rsquo;s second World Cup goal in history, after Alphonso Davies&rsquo;s strike at Qatar 2022.</p>
+      <p>Canada played without Davies, whose hamstring injury kept him out of a second consecutive World Cup opener. Head coach Jesse Marsch&rsquo;s substitutions were widely credited with changing the game. Canada led 13 to 8 in shots and 310 to 170 in accurate passes but could not convert their dominance until Larin&rsquo;s intervention. The draw leaves Canada in a competitive position in Group B alongside Bosnia, Qatar, and Switzerland. Their campaign moves to Vancouver, where they face Qatar on June 18 and Switzerland on June 24. The result extends Canada&rsquo;s unbeaten record in World Cup home openers &mdash; and ends their six-game World Cup losing streak stretching back to 1986.</p>
+      <div class="src">Source: <a href="https://www.cbc.ca/sports/livestory/fifa-world-cup-2026-canada-vs-bosnia-and-herzegovina-june-12-live-updates-9.7222390" target="_blank" rel="noopener">CBC Sports / ESPN</a> &middot; June 12, 2026</div>
+    </article>
+
+    <article class="s" id="sport-2">
+      <div class="sport-flag"><span class="fi">&#127950;</span> Formula 1 &middot; Spanish Grand Prix &middot; Practice</div>
+      <h3>Norris and McLaren Signal Return to Form as Defending Champion Tops Barcelona Practice</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Lando Norris gave McLaren a much-needed confidence boost ahead of the Barcelona-Catalunya Grand Prix on Friday, topping the times in second practice with a lap of 1:15.426 &mdash; just 0.009 seconds clear of Mercedes&rsquo; George Russell, with McLaren team-mate Oscar Piastri a further 0.048 behind in third. The session offered the clearest indication so far this season that McLaren can genuinely challenge Mercedes at a high-speed circuit, after enduring a run of mechanical retirements and poor qualifying performances at Monaco and Montreal. Championship leader Kimi Antonelli, the winner of five of the first six races and 66 points clear in the standings, could only manage fifth &mdash; almost 0.6 seconds behind Norris &mdash; after sitting out FP1. Russell had topped the opening session before Norris took command in the afternoon.</p>
+      <p>The defending world champion Norris has been dealt a punishing season by reliability issues, including three retirements from six races, leaving him 98 points behind Antonelli and in an increasingly precarious position to mount a title defence. McLaren introduced a minor aerodynamic update for Barcelona and the pace advantage over Ferrari and Red Bull in both sessions suggests it is working. Charles Leclerc was fourth for Ferrari, Max Verstappen struggled for grip in his Red Bull throughout the day, and Lewis Hamilton finished ninth in FP2 &mdash; 1.2 seconds off the pace &mdash; despite Ferrari running eight upgrade components this weekend. Qualifying is Saturday.</p>
+      <div class="src">Source: <a href="https://www.bbc.com/sport/formula1/articles/c8r2j40x707o" target="_blank" rel="noopener">BBC Sport / Formula 1</a> &middot; June 12, 2026</div>
+    </article>
+
+    <article class="s" id="sport-3">
+      <div class="sport-flag"><span class="fi">&#9971;&#65039;</span> Golf &middot; LIV Golf</div>
+      <h3>Mickelson Loses Membership at Longtime San Diego Club After Female Employee Files Misconduct Allegation</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Saturday, June 13, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Six-time major champion Phil Mickelson has had his membership at The Farms Golf Club in Rancho Santa Fe, California, revoked following an allegation by a female club employee of non-consensual and inappropriate physical contact, Golf Digest reported on Thursday. The club issued a statement confirming it had conducted a thorough independent investigation following a staff member&rsquo;s complaint and had taken &ldquo;decisive action,&rdquo; removing the individual in question from membership &mdash; though the club did not name Mickelson directly. According to Golf Digest, the alleged incident occurred in the clubhouse earlier this spring before a round of golf. Mickelson was confronted about the matter on the course, left without completing his round, and has not returned. A display of his accomplishments in the clubhouse has since been removed.</p>
+      <p>Mickelson&rsquo;s legal representatives dispute the allegation. Attorney Tom Clare said the claims could be &ldquo;squarely contradicted by objective, video evidence,&rdquo; while a spokesperson said &ldquo;any misunderstanding has been cleared up.&rdquo; The Farms stated there are no cameras in the relevant area of the clubhouse. Mickelson, 55, has been largely absent from professional golf since February, citing an ongoing family health matter, and has played only one LIV Golf event this season. He missed the Masters, the PGA Championship, and did not attempt to qualify for next week&rsquo;s US Open, though he remains in the field for the Open Championship at Royal Birkdale in July as a past champion. His status for that event is now uncertain.</p>
+      <div class="src">Source: <a href="https://www.bbc.com/sport/golf/articles/cjrg2we25zxo" target="_blank" rel="noopener">BBC Sport / Golf Digest</a> &middot; June 12, 2026</div>
+    </article>
+
+  </div>
+
+</div></div><!-- /sport -->
+
+<!-- ==================== PUZZLES ==================== -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>The Chronicler Funnies</h2><div class="flag">Puzzles &amp; Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All intermediate steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">3</div>
+        <div class="crunch-tile">6</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">9</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">72</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat" style="background:#d4edda;padding:6px 8px;border-radius:3px;"><strong>(3 + 6) &times; 7 + 9 = 72</strong> &nbsp;&#10003;<br>Step 1: 3 + 6 = 9 &nbsp;&middot;&nbsp; Step 2: 9 &times; 7 = 63 &nbsp;&middot;&nbsp; Step 3: 63 + 9 = 72 &#10003;</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">36 solutions found &middot; Python-verified &middot; Edition No. 72.</div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="https://thechronicler.ca/Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive &rarr;</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">DAGHER</div>
+        <div class="ww-mini-tile">LARIN</div>
+        <div class="ww-mini-tile">STATION 39</div>
+        <div class="ww-mini-tile">DAVIES</div>
+        <div class="ww-mini-tile">BMO FIELD</div>
+        <div class="ww-mini-tile">TROPHY</div>
+        <div class="ww-mini-tile">MARSCH</div>
+        <div class="ww-mini-tile">SPVM</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat">&#129001; <strong>Named in today&rsquo;s Montreal police racism story:</strong> DAGHER &middot; STATION 39 &middot; TROPHY &middot; SPVM</div>
+        <div class="answer-cat">&#129000; <strong>Named in today&rsquo;s Canada World Cup story:</strong> LARIN &middot; DAVIES &middot; BMO FIELD &middot; MARSCH</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">Decoys: TROPHY could suggest sport; DAVIES could suggest a person at Station 39. Both words plausibly fit either group.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Flatland News Comic Strip -->
+  <span class="cat" style="margin-top:22px;">Flatland News</span>
+  <div class="comic-strip">
+    <div class="comic-title">Flatland News &mdash; Vol. I, No. 72 &nbsp;&middot;&nbsp; Station 39</div>
+    <div style="padding:0;margin:0;line-height:0;">
+      <img src="Images/flatlandnews-14062026-vol1-no72.png"
+           alt="Flatland News &mdash; Vol. I, No. 72: Station 39. Six panels in a geometric Flatland style on an aged parchment background. Panel 1: A square police officer with a badge stops a circle citizen. Caption: Routine stop. Panel 2: Close-up of the square officer cutting the circle&rsquo;s hair with scissors. Caption: Evidence collection. Panel 3: Interior of Station 39, Montr&eacute;al-Nord. A pentagon senior officer admires a wall covered in rows of labelled hair trophies. Panel 4: A police chief square at a late-night podium, clock reading 10:30 PM. Speech bubble: We will not tolerate this. Caption: Friday. 10:30 PM. Panel 5: Outside the cleared precinct. A hexagon mayor holds a placard reading Body Cameras: Coming Soon. The original circle citizen watches silently from the edge. Caption: Progress."
+           style="width:100%;display:block;border:none;">
+    </div>
+  </div>
+
+</div></div><!-- /puzzles -->
+
+<div class="divider"></div>
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, No. 72 &bull; Saturday, June 13, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Weather data: wttr.in / Environment Canada / IMD. Air quality: Open-Meteo (US AQI scale). Market data carries inherent delays; verify with live sources before making financial decisions. India gold rates: IBJA (ibja.co), PM rates per gram ex-GST &amp; Making Charges. Currency rates: XE.com. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+function handleRead(btn) {
+  if (window._ttsUtterance) {
+    window.speechSynthesis.cancel();
+    if (window._ttsBtn) { window._ttsBtn.textContent = String.fromCodePoint(0x1F50A) + ' Read aloud'; }
+    if (window._ttsBtn === btn) { window._ttsUtterance = null; window._ttsBtn = null; return; }
+  }
+  const article = btn.closest('article');
+  const text = Array.from(article.querySelectorAll('p')).map(p => p.textContent).join(' ');
+  const u = new SpeechSynthesisUtterance(text);
+  u.onend = function() { btn.textContent = String.fromCodePoint(0x1F50A) + ' Read aloud'; window._ttsUtterance = null; window._ttsBtn = null; };
+  window._ttsUtterance = u;
+  window._ttsBtn = btn;
+  btn.textContent = String.fromCodePoint(0x23F9) + ' Stop';
+  window.speechSynthesis.speak(u);
+}
+</script>
+
+</body>
+</html>
