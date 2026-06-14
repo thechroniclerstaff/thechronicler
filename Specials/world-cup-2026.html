@@ -252,6 +252,11 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 .intro-collapsed .intro-body::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2em;background:linear-gradient(transparent,var(--cream));}
 .intro-toggle{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rust);background:transparent;border:1px solid var(--rule);padding:5px 14px;cursor:pointer;margin-top:8px;transition:all .2s;display:inline-block;}
 .intro-toggle:hover{background:var(--rust);color:#fff;border-color:var(--rust);}
+
+/* Mobile-only KO sections */
+.ko-mobile-section { display: none; }
+@media (max-width: 700px) { .ko-mobile-section { display: block; } }
+
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BS6DKVDMVD"></script>
 <script>
@@ -260,6 +265,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
   gtag('js', new Date());
   gtag('config', 'G-BS6DKVDMVD');
 </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "c2c9f324e65f4bde97c20728d6349a04"}'></script>
 </head>
 <body id="top">
 
@@ -694,65 +700,373 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 <div class="page">
   <div class="section-banner"><h2>All Fixtures</h2><div class="flag">Complete Schedule &mdash; 104 Matches &mdash; All Times ET</div></div>
 
-  <div class="fixtures-full">
+<style>
+.week-block { margin-bottom: 6px; border: 1px solid var(--rule); }
+.week-header {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--ink); color: var(--aged);
+  padding: 9px 14px; cursor: pointer; user-select: none;
+}
+.week-header:hover { background: #2a2010; }
+.week-header-title { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; }
+.week-header-dates { font-family: 'Source Sans 3', sans-serif; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; opacity: .65; }
+.week-badge {
+  font-family: 'Source Sans 3', sans-serif; font-size: 8px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  background: var(--rust); color: #fff; padding: 2px 7px; border-radius: 2px;
+  flex-shrink: 0;
+}
+.week-chevron { font-size: 10px; opacity: .6; margin-left: 8px; transition: transform .2s; flex-shrink: 0; }
+.week-header.open .week-chevron { transform: rotate(180deg); }
+.week-body { display: none; padding: 10px 14px 4px; background: var(--cream); }
+.week-body.open { display: block; }
 
-    <div class="fix-phase">
-      <div class="fix-phase-label">Group Stage &mdash; June 11&ndash;July 2, 2026</div>
+/* ── BRACKET STYLES ── */
+.ko-section { margin-bottom: 6px; border: 1px solid var(--rule); }
+.ko-header {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--ink); color: var(--aged);
+  padding: 9px 14px; cursor: pointer; user-select: none;
+}
+.ko-header:hover { background: #2a2010; }
+.ko-header-left {}
+.ko-header-title { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--aged); }
+.ko-header-dates { font-family: 'Source Sans 3', sans-serif; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; opacity: .65; margin-top: 2px; }
+.ko-chevron { font-size: 10px; opacity: .6; margin-left: 8px; transition: transform .2s; flex-shrink: 0; }
+.ko-header.open .ko-chevron { transform: rotate(180deg); }
+.ko-body { display: none; background: var(--cream); padding: 14px; }
+.ko-body.open { display: block; }
 
-      <div class="fix-day"><div class="fix-day-label">Thursday, June 11</div>
-        <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇲🇽 Mexico <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇿🇦 South Africa</div><div class="fix-score" id="s-mex-rsa">2–0</div><div class="fix-venue">Azteca, Mexico City</div></div>
-        <div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇰🇷 Korea Republic<span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇿 Czechia</div><div class="fix-score" id="s-kor-cze">2—1</div><div class="fix-venue">Akron, Guadalajara</div></div>
+/* Desktop bracket */
+.bracket-outer { display: flex; align-items: stretch; gap: 0; overflow-x: auto; min-width: 0; }
+.bracket-half { display: flex; flex: 1; gap: 0; min-width: 0; }
+.bracket-half.right { flex-direction: row-reverse; }
+.bracket-round { display: flex; flex-direction: column; flex: 1; min-width: 110px; padding: 0 4px; }
+.bracket-round-label { font-family: 'Source Sans 3', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--grey); text-align: center; padding: 4px 0 8px; border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+.bracket-matches { display: flex; flex-direction: column; justify-content: space-around; flex: 1; gap: 6px; }
+.bracket-match { background: #f2ead5; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+.bracket-match.canada { border-left: 3px solid var(--rust); }
+.bracket-team { font-family: 'Source Sans 3', sans-serif; font-size: 10px; padding: 4px 7px; color: var(--ink); border-bottom: 1px dotted var(--rule); display: flex; justify-content: space-between; align-items: center; }
+.bracket-team:last-child { border-bottom: none; }
+.bracket-team.tbd { color: var(--grey); font-style: italic; }
+.bracket-team-score { font-family: 'Playfair Display', serif; font-size: 11px; font-weight: 700; color: var(--rust); margin-left: 4px; flex-shrink: 0; }
+.bracket-date { font-family: 'Source Sans 3', sans-serif; font-size: 8px; color: var(--grey); padding: 2px 7px 3px; background: rgba(208,197,160,.2); }
+.bracket-sep { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 6px; flex-shrink: 0; }
+.bracket-sep-line { width: 1px; flex: 1; background: var(--rule); }
+
+/* Final centrepiece */
+.bracket-final { display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; padding: 0 10px; }
+.final-centrepiece { background: var(--ink); border: 2px solid var(--gold); border-radius: 4px; padding: 14px 12px; text-align: center; min-width: 100px; }
+.final-centrepiece-label { font-family: 'Source Sans 3', sans-serif; font-size: 8px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.final-centrepiece-date { font-family: 'Source Sans 3', sans-serif; font-size: 9px; color: rgba(244,237,214,.5); margin-top: 6px; }
+.final-centrepiece-teams { font-family: 'Playfair Display', serif; font-size: 11px; color: var(--aged); line-height: 1.7; }
+
+/* Half labels */
+.half-label-row { display: flex; gap: 0; margin-bottom: 4px; }
+.half-label { font-family: 'Source Sans 3', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--grey); flex: 1; text-align: center; padding: 2px 0; }
+.half-label-gap { width: 120px; flex-shrink: 0; }
+
+/* Mobile accordion */
+.ko-mobile { display: none; }
+.ko-mob-match { display: flex; align-items: flex-start; gap: 8px; padding: 7px 0; border-bottom: 1px dotted var(--rule); font-family: 'Source Sans 3', sans-serif; }
+.ko-mob-match:last-child { border-bottom: none; }
+.ko-mob-match.canada { background: rgba(139,37,19,.04); border-radius: 2px; padding-left: 6px; }
+.ko-mob-date { font-size: 9px; color: var(--grey); width: 52px; flex-shrink: 0; padding-top: 1px; }
+.ko-mob-teams { flex: 1; font-size: 11px; color: var(--ink); line-height: 1.6; }
+.ko-mob-teams.tbd { color: var(--grey); font-style: italic; }
+.ko-mob-venue { font-size: 9px; color: var(--grey); text-align: right; max-width: 90px; line-height: 1.4; }
+.ko-mob-score { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 12px; color: var(--rust); width: 32px; text-align: center; flex-shrink: 0; }
+
+@media (max-width: 700px) {
+  .bracket-outer { display: none; }
+  .half-label-row { display: none; }
+  .ko-mobile { display: block; }
+}
+
+</style>
+
+<div class="fixtures-full">
+
+  <div class="fix-phase" style="margin-bottom:6px;">
+    <div class="fix-phase-label">Group Stage &mdash; June 11–27, 2026</div>
+  </div>
+
+  <!-- WEEK 1 -->
+  <div class="week-block" id="week-1">
+    <div class="week-header open" onclick="toggleWeek('week-1')">
+      <div>
+        <div class="week-header-title">Week 1 &mdash; Matchday 1 (Part I)</div>
+        <div class="week-header-dates">Mon, June 8 &ndash; Sun, June 14</div>
       </div>
-
-      <div class="fix-day"><div class="fix-day-label">Friday, June 12 🇨🇦</div>
-        <div class="fix-row fix-canada"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp B</div><div class="fix-teams"><strong>🇨🇦 Canada</strong> <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇧🇦 Bosnia &amp; Herz.</div><div class="fix-score" id="s-can-bih">1–1</div><div class="fix-venue">BMO Field, Toronto</div></div>
-        <div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp D</div><div class="fix-teams">🇺🇸 USA <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇵🇾 Paraguay</div><div class="fix-score" id="s-usa-par">4–1</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="week-badge">Active</span>
+        <span class="week-chevron">▼</span>
       </div>
-
-      <div class="fix-day"><div class="fix-day-label">Saturday, June 13</div>
-        <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp B</div><div class="fix-teams">🇶🇦 Qatar <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇭 Switzerland</div><div class="fix-score" id="s-qat-sui">—</div><div class="fix-venue">Levi's, San Francisco</div></div>
-        <div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp C</div><div class="fix-teams">🇧🇷 Brazil <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇲🇦 Morocco</div><div class="fix-score" id="s-bra-mar">—</div><div class="fix-venue">MetLife, New Jersey</div></div>
-        <div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp C</div><div class="fix-teams">🇭🇹 Haiti <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</div><div class="fix-score" id="s-hai-sco">—</div><div class="fix-venue">Gillette, Foxborough</div></div>
-        <div class="fix-row"><div class="fix-time">12:00 AM†</div><div class="fix-group">Grp D</div><div class="fix-teams">🇦🇺 Australia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇹🇷 Türkiye</div><div class="fix-score" id="s-aus-tur">—</div><div class="fix-venue">BC Place, Vancouver</div></div>
-      </div>
-
-      <div class="fix-day"><div class="fix-day-label">Sunday, June 14</div>
-        <div class="fix-row"><div class="fix-time">1:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇩🇪 Germany <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇼 Curaçao</div><div class="fix-score" id="s-ger-cur">—</div><div class="fix-venue">NRG, Houston</div></div>
-        <div class="fix-row"><div class="fix-time">4:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇳🇱 Netherlands <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇯🇵 Japan</div><div class="fix-score" id="s-ned-jpn">—</div><div class="fix-venue">TBD</div></div>
-        <div class="fix-row"><div class="fix-time">7:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇨🇮 Ivory Coast <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇨 Ecuador</div><div class="fix-score" id="s-civ-ecu">—</div><div class="fix-venue">TBD</div></div>
-        <div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇸🇪 Sweden <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇹🇳 Tunisia</div><div class="fix-score" id="s-swe-tun">—</div><div class="fix-venue">TBD</div></div>
-      </div>
-
-      <div class="fix-day"><div class="fix-day-label">Monday, June 15</div>
-        <div class="fix-row"><div class="fix-time">12:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇪🇸 Spain <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇻 Cape Verde</div><div class="fix-score" id="s-esp-cpv">—</div><div class="fix-venue">Benz, Atlanta</div></div>
-        <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇧🇪 Belgium <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇬 Egypt</div><div class="fix-score" id="s-bel-egy">—</div><div class="fix-venue">Lumen, Seattle</div></div>
-        <div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇸🇦 Saudi Arabia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇺🇾 Uruguay</div><div class="fix-score" id="s-ksa-uru">—</div><div class="fix-venue">Hard Rock, Miami</div></div>
-        <div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇮🇷 Iran <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇳🇿 New Zealand</div><div class="fix-score" id="s-irn-nzl">—</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
-      </div>
-
-      <div class="fix-day"><div class="fix-day-label">Tuesday, June 16</div>
-        <div class="fix-row"><div class="fix-time">12:00 PM</div><div class="fix-group">Grp I</div><div class="fix-teams">🇫🇷 France <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇸🇳 Senegal</div><div class="fix-score" id="s-fra-sen">—</div><div class="fix-venue">MetLife, New Jersey</div></div>
-        <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp J</div><div class="fix-teams">🇦🇷 Argentina <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇩🇿 Algeria</div><div class="fix-score" id="s-arg-alg">—</div><div class="fix-venue">AT&amp;T, Dallas</div></div>
-        <div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp I</div><div class="fix-teams">🇮🇶 Iraq <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇳🇴 Norway</div><div class="fix-score" id="s-irq-nor">—</div><div class="fix-venue">TBD</div></div>
-        <div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp J</div><div class="fix-teams">🇦🇹 Austria <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇯🇴 Jordan</div><div class="fix-score" id="s-aut-jor">—</div><div class="fix-venue">TBD</div></div>
-      </div>
-
-      <div class="fix-day"><div class="fix-day-label">Wednesday, June 17</div>
-        <div class="fix-row"><div class="fix-time">12:00 PM</div><div class="fix-group">Grp K</div><div class="fix-teams">🇵🇹 Portugal <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇩 DR Congo</div><div class="fix-score" id="s-por-cod">—</div><div class="fix-venue">TBD</div></div>
-        <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp L</div><div class="fix-teams">🇬🇧 England <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇭🇷 Croatia</div><div class="fix-score" id="s-eng-cro">—</div><div class="fix-venue">TBD</div></div>
-        <div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp K</div><div class="fix-teams">🇺🇿 Uzbekistan <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇴 Colombia</div><div class="fix-score" id="s-uzb-col">—</div><div class="fix-venue">TBD</div></div>
-        <div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp L</div><div class="fix-teams">🇬🇭 Ghana <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇵🇦 Panama</div><div class="fix-score" id="s-gha-pan">—</div><div class="fix-venue">TBD</div></div>
-      </div>
-
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;padding:10px 0 4px;">Matchdays 2 &amp; 3 (June 18&ndash;July 2) and knockout rounds to be added as schedule is confirmed. 🇨🇦 Canada fixtures highlighted.</div>
     </div>
-
-    <div class="fix-phase">
-      <div class="fix-phase-label">Knockout Rounds &mdash; From July 1, 2026</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--grey);font-style:italic;padding:8px 0;">Round of 32 · Round of 16 · Quarter-finals · Semi-finals · Third Place Play-off · Final (July 19, MetLife Stadium). Bracket to be populated as group stage concludes.</div>
+    <div class="week-body open" id="week-1-body">
+<div class="fix-day"><div class="fix-day-label">Thursday, June 11</div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇲🇽 Mexico <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇿🇦 South Africa</div><div class="fix-score" id="s-mex-rsa">2–0</div><div class="fix-venue">Azteca, Mexico City</div></div>
+<div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇰🇷 Korea Republic <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇿 Czechia</div><div class="fix-score" id="s-kor-cze">2–1</div><div class="fix-venue">Akron, Guadalajara</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Friday, June 12 🇨🇦</div>
+<div class="fix-row fix-canada"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp B</div><div class="fix-teams"><strong>🇨🇦 Canada</strong> <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇧🇦 Bosnia &amp; Herz.</div><div class="fix-score" id="s-can-bih">1–1</div><div class="fix-venue">BMO Field, Toronto</div></div>
+<div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp D</div><div class="fix-teams">🇺🇸 USA <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇵🇾 Paraguay</div><div class="fix-score" id="s-usa-par">4–1</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Saturday, June 13</div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp B</div><div class="fix-teams">🇶🇦 Qatar <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇭 Switzerland</div><div class="fix-score" id="s-qat-sui">1–1</div><div class="fix-venue">Levi's, San Francisco</div></div>
+<div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp C</div><div class="fix-teams">🇧🇷 Brazil <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇲🇦 Morocco</div><div class="fix-score" id="s-bra-mar">1–1</div><div class="fix-venue">MetLife, New Jersey</div></div>
+<div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp C</div><div class="fix-teams">🇭🇹 Haiti <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</div><div class="fix-score" id="s-hai-sco">0–1</div><div class="fix-venue">Gillette, Foxborough</div></div>
+<div class="fix-row"><div class="fix-time">12:00 AM†</div><div class="fix-group">Grp D</div><div class="fix-teams">🇦🇺 Australia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇹🇷 Türkiye</div><div class="fix-score" id="s-aus-tur">2–0</div><div class="fix-venue">BC Place, Vancouver</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Sunday, June 14</div>
+<div class="fix-row"><div class="fix-time">1:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇩🇪 Germany <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇼 Curaçao</div><div class="fix-score" id="s-ger-cur">—</div><div class="fix-venue">NRG, Houston</div></div>
+<div class="fix-row"><div class="fix-time">4:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇳🇱 Netherlands <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇯🇵 Japan</div><div class="fix-score" id="s-ned-jpn">—</div><div class="fix-venue">AT&amp;T, Dallas</div></div>
+<div class="fix-row"><div class="fix-time">7:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇨🇮 Ivory Coast <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇨 Ecuador</div><div class="fix-score" id="s-civ-ecu">—</div><div class="fix-venue">Lincoln Financial, Philadelphia</div></div>
+<div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇸🇪 Sweden <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇹🇳 Tunisia ★</div><div class="fix-score" id="s-swe-tun">—</div><div class="fix-venue">BBVA, Monterrey</div></div>
+</div>
     </div>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="week-block" id="week-2">
+    <div class="week-header" onclick="toggleWeek('week-2')">
+      <div>
+        <div class="week-header-title">Week 2 &mdash; Matchday 1 (Part II) &amp; Matchday 2 (Part I)</div>
+        <div class="week-header-dates">Mon, June 15 &ndash; Sun, June 21</div>
+      </div>
+      <span class="week-chevron">▼</span>
+    </div>
+    <div class="week-body" id="week-2-body">
+<div class="fix-day"><div class="fix-day-label">Monday, June 15</div>
+<div class="fix-row"><div class="fix-time">12:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇪🇸 Spain <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇻 Cabo Verde</div><div class="fix-score" id="s-esp-cpv">—</div><div class="fix-venue">Mercedes-Benz, Atlanta</div></div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇧🇪 Belgium <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇬 Egypt</div><div class="fix-score" id="s-bel-egy">—</div><div class="fix-venue">Lumen Field, Seattle</div></div>
+<div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇸🇦 Saudi Arabia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇺🇾 Uruguay</div><div class="fix-score" id="s-ksa-uru">—</div><div class="fix-venue">Hard Rock, Miami</div></div>
+<div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇮🇷 Iran <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇳🇿 New Zealand</div><div class="fix-score" id="s-irn-nzl">—</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Tuesday, June 16</div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp I</div><div class="fix-teams">🇫🇷 France <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇸🇳 Senegal</div><div class="fix-score" id="s-fra-sen">—</div><div class="fix-venue">MetLife, New Jersey</div></div>
+<div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp I</div><div class="fix-teams">🇮🇶 Iraq <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇳🇴 Norway</div><div class="fix-score" id="s-irq-nor">—</div><div class="fix-venue">Gillette, Foxborough</div></div>
+<div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp J</div><div class="fix-teams">🇦🇷 Argentina <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇩🇿 Algeria</div><div class="fix-score" id="s-arg-alg">—</div><div class="fix-venue">Arrowhead, Kansas City</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Wednesday, June 17</div>
+<div class="fix-row"><div class="fix-time">12:00 AM†</div><div class="fix-group">Grp J</div><div class="fix-teams">🇦🇹 Austria <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇯🇴 Jordan</div><div class="fix-score" id="s-aut-jor">—</div><div class="fix-venue">Levi's, San Francisco</div></div>
+<div class="fix-row"><div class="fix-time">1:00 PM</div><div class="fix-group">Grp K</div><div class="fix-teams">🇵🇹 Portugal <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇩 DR Congo</div><div class="fix-score" id="s-por-cod">—</div><div class="fix-venue">NRG, Houston</div></div>
+<div class="fix-row"><div class="fix-time">4:00 PM</div><div class="fix-group">Grp L</div><div class="fix-teams">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇭🇷 Croatia</div><div class="fix-score" id="s-eng-cro">—</div><div class="fix-venue">AT&amp;T, Dallas</div></div>
+<div class="fix-row"><div class="fix-time">7:00 PM</div><div class="fix-group">Grp L</div><div class="fix-teams">🇬🇭 Ghana <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇵🇦 Panama</div><div class="fix-score" id="s-gha-pan">—</div><div class="fix-venue">BMO Field, Toronto</div></div>
+<div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp K</div><div class="fix-teams">🇺🇿 Uzbekistan <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇴 Colombia</div><div class="fix-score" id="s-uzb-col">—</div><div class="fix-venue">Azteca, Mexico City</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Thursday, June 18</div>
+<div class="fix-row"><div class="fix-time">12:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇨🇿 Czechia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇿🇦 South Africa</div><div class="fix-score" id="s-cze-rsa">—</div><div class="fix-venue">Mercedes-Benz, Atlanta</div></div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp B</div><div class="fix-teams">🇨🇭 Switzerland <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇧🇦 Bosnia &amp; Herz.</div><div class="fix-score" id="s-sui-bih">—</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
+<div class="fix-row fix-canada"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp B</div><div class="fix-teams"><strong>🇨🇦 Canada</strong> <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇶🇦 Qatar</div><div class="fix-score" id="s-can-qat">—</div><div class="fix-venue">BC Place, Vancouver</div></div>
+<div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇲🇽 Mexico <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇰🇷 Korea Republic</div><div class="fix-score" id="s-mex-kor">—</div><div class="fix-venue">Akron, Guadalajara</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Friday, June 19</div>
+<div class="fix-row"><div class="fix-time">12:00 AM†</div><div class="fix-group">Grp D</div><div class="fix-teams">🇹🇷 Türkiye <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇵🇾 Paraguay</div><div class="fix-score" id="s-tur-par">—</div><div class="fix-venue">Levi's, San Francisco</div></div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp D</div><div class="fix-teams">🇺🇸 USA <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇦🇺 Australia</div><div class="fix-score" id="s-usa-aus">—</div><div class="fix-venue">Lumen Field, Seattle</div></div>
+<div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp C</div><div class="fix-teams">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇲🇦 Morocco</div><div class="fix-score" id="s-sco-mar">—</div><div class="fix-venue">Gillette, Foxborough</div></div>
+<div class="fix-row"><div class="fix-time">8:30 PM</div><div class="fix-group">Grp C</div><div class="fix-teams">🇧🇷 Brazil <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇭🇹 Haiti</div><div class="fix-score" id="s-bra-hai">—</div><div class="fix-venue">Lincoln Financial, Philadelphia</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Saturday, June 20</div>
+<div class="fix-row"><div class="fix-time">1:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇳🇱 Netherlands <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇸🇪 Sweden</div><div class="fix-score" id="s-ned-swe">—</div><div class="fix-venue">NRG, Houston</div></div>
+<div class="fix-row"><div class="fix-time">4:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇩🇪 Germany <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇮 Ivory Coast</div><div class="fix-score" id="s-ger-civ">—</div><div class="fix-venue">BMO Field, Toronto</div></div>
+<div class="fix-row"><div class="fix-time">8:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇪🇨 Ecuador <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇼 Curaçao</div><div class="fix-score" id="s-ecu-cuw">—</div><div class="fix-venue">Arrowhead, Kansas City</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Sunday, June 21</div>
+<div class="fix-row"><div class="fix-time">12:00 AM†</div><div class="fix-group">Grp F</div><div class="fix-teams">🇹🇳 Tunisia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇯🇵 Japan ★</div><div class="fix-score" id="s-tun-jpn">—</div><div class="fix-venue">BBVA, Monterrey</div></div>
+<div class="fix-row"><div class="fix-time">12:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇪🇸 Spain <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇸🇦 Saudi Arabia</div><div class="fix-score" id="s-esp-ksa">—</div><div class="fix-venue">Mercedes-Benz, Atlanta</div></div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇧🇪 Belgium <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇮🇷 Iran</div><div class="fix-score" id="s-bel-irn">—</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
+<div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇺🇾 Uruguay <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇻 Cabo Verde</div><div class="fix-score" id="s-uru-cpv">—</div><div class="fix-venue">Hard Rock, Miami</div></div>
+<div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇳🇿 New Zealand <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇬 Egypt</div><div class="fix-score" id="s-nzl-egy">—</div><div class="fix-venue">BC Place, Vancouver</div></div>
+</div>
+    </div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="week-block" id="week-3">
+    <div class="week-header" onclick="toggleWeek('week-3')">
+      <div>
+        <div class="week-header-title">Week 3 &mdash; Matchday 2 (Part II), Matchday 3 &amp; Round of 32 (Part I)</div>
+        <div class="week-header-dates">Mon, June 22 &ndash; Sun, June 28</div>
+      </div>
+      <span class="week-chevron">▼</span>
+    </div>
+    <div class="week-body" id="week-3-body">
+<div class="fix-day"><div class="fix-day-label">Monday, June 22</div>
+<div class="fix-row"><div class="fix-time">1:00 PM</div><div class="fix-group">Grp J</div><div class="fix-teams">🇦🇷 Argentina <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇦🇹 Austria</div><div class="fix-score" id="s-arg-aut">—</div><div class="fix-venue">AT&amp;T, Dallas</div></div>
+<div class="fix-row"><div class="fix-time">5:00 PM</div><div class="fix-group">Grp I</div><div class="fix-teams">🇫🇷 France <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇮🇶 Iraq</div><div class="fix-score" id="s-fra-irq">—</div><div class="fix-venue">Lincoln Financial, Philadelphia</div></div>
+<div class="fix-row"><div class="fix-time">8:00 PM</div><div class="fix-group">Grp I</div><div class="fix-teams">🇳🇴 Norway <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇸🇳 Senegal</div><div class="fix-score" id="s-nor-sen">—</div><div class="fix-venue">MetLife, New Jersey</div></div>
+<div class="fix-row"><div class="fix-time">11:00 PM</div><div class="fix-group">Grp J</div><div class="fix-teams">🇯🇴 Jordan <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇩🇿 Algeria</div><div class="fix-score" id="s-jor-alg">—</div><div class="fix-venue">Levi's, San Francisco</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Tuesday, June 23</div>
+<div class="fix-row"><div class="fix-time">1:00 PM</div><div class="fix-group">Grp K</div><div class="fix-teams">🇵🇹 Portugal <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇺🇿 Uzbekistan</div><div class="fix-score" id="s-por-uzb">—</div><div class="fix-venue">NRG, Houston</div></div>
+<div class="fix-row"><div class="fix-time">4:00 PM</div><div class="fix-group">Grp L</div><div class="fix-teams">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇬🇭 Ghana</div><div class="fix-score" id="s-eng-gha">—</div><div class="fix-venue">Gillette, Foxborough</div></div>
+<div class="fix-row"><div class="fix-time">7:00 PM</div><div class="fix-group">Grp L</div><div class="fix-teams">🇵🇦 Panama <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇭🇷 Croatia</div><div class="fix-score" id="s-pan-cro">—</div><div class="fix-venue">BMO Field, Toronto</div></div>
+<div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp K</div><div class="fix-teams">🇨🇴 Colombia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇩 DR Congo</div><div class="fix-score" id="s-col-cod">—</div><div class="fix-venue">Akron, Guadalajara</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Wednesday, June 24</div>
+<div class="fix-row fix-canada"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp B</div><div class="fix-teams">🇨🇭 Switzerland <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> <strong>🇨🇦 Canada</strong></div><div class="fix-score" id="s-sui-can">—</div><div class="fix-venue">BC Place, Vancouver</div></div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp B</div><div class="fix-teams">🇧🇦 Bosnia &amp; Herz. <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇶🇦 Qatar</div><div class="fix-score" id="s-bih-qat">—</div><div class="fix-venue">Lumen Field, Seattle</div></div>
+<div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp C</div><div class="fix-teams">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇧🇷 Brazil</div><div class="fix-score" id="s-sco-bra">—</div><div class="fix-venue">Hard Rock, Miami</div></div>
+<div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp C</div><div class="fix-teams">🇲🇦 Morocco <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇭🇹 Haiti</div><div class="fix-score" id="s-mar-hai">—</div><div class="fix-venue">Mercedes-Benz, Atlanta</div></div>
+<div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇨🇿 Czechia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇲🇽 Mexico</div><div class="fix-score" id="s-cze-mex">—</div><div class="fix-venue">Azteca, Mexico City</div></div>
+<div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇿🇦 South Africa <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇰🇷 Korea Republic</div><div class="fix-score" id="s-rsa-kor">—</div><div class="fix-venue">BBVA, Monterrey</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Thursday, June 25</div>
+<div class="fix-row"><div class="fix-time">4:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇨🇼 Curaçao <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇮 Ivory Coast</div><div class="fix-score" id="s-cuw-civ">—</div><div class="fix-venue">Lincoln Financial, Philadelphia</div></div>
+<div class="fix-row"><div class="fix-time">4:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇪🇨 Ecuador <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇩🇪 Germany</div><div class="fix-score" id="s-ecu-ger">—</div><div class="fix-venue">MetLife, New Jersey</div></div>
+<div class="fix-row"><div class="fix-time">7:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇯🇵 Japan <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇸🇪 Sweden</div><div class="fix-score" id="s-jpn-swe">—</div><div class="fix-venue">AT&amp;T, Dallas</div></div>
+<div class="fix-row"><div class="fix-time">7:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇹🇳 Tunisia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇳🇱 Netherlands</div><div class="fix-score" id="s-tun-ned">—</div><div class="fix-venue">Arrowhead, Kansas City</div></div>
+<div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp D</div><div class="fix-teams">🇹🇷 Türkiye <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇺🇸 USA</div><div class="fix-score" id="s-tur-usa">—</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
+<div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp D</div><div class="fix-teams">🇵🇾 Paraguay <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇦🇺 Australia</div><div class="fix-score" id="s-par-aus">—</div><div class="fix-venue">Levi's, San Francisco</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Friday, June 26</div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp I</div><div class="fix-teams">🇳🇴 Norway <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇫🇷 France</div><div class="fix-score" id="s-nor-fra">—</div><div class="fix-venue">Gillette, Foxborough</div></div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp I</div><div class="fix-teams">🇸🇳 Senegal <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇮🇶 Iraq</div><div class="fix-score" id="s-sen-irq">—</div><div class="fix-venue">BMO Field, Toronto</div></div>
+<div class="fix-row"><div class="fix-time">8:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇨🇻 Cabo Verde <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇸🇦 Saudi Arabia</div><div class="fix-score" id="s-cpv-ksa">—</div><div class="fix-venue">NRG, Houston</div></div>
+<div class="fix-row"><div class="fix-time">8:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇺🇾 Uruguay <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇸 Spain</div><div class="fix-score" id="s-uru-esp">—</div><div class="fix-venue">Akron, Guadalajara</div></div>
+<div class="fix-row"><div class="fix-time">11:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇪🇬 Egypt <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇮🇷 Iran</div><div class="fix-score" id="s-egy-irn">—</div><div class="fix-venue">Lumen Field, Seattle</div></div>
+<div class="fix-row"><div class="fix-time">11:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇳🇿 New Zealand <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇧🇪 Belgium</div><div class="fix-score" id="s-nzl-bel">—</div><div class="fix-venue">BC Place, Vancouver</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Saturday, June 27</div>
+<div class="fix-row"><div class="fix-time">5:00 PM</div><div class="fix-group">Grp L</div><div class="fix-teams">🇵🇦 Panama <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</div><div class="fix-score" id="s-pan-eng">—</div><div class="fix-venue">MetLife, New Jersey</div></div>
+<div class="fix-row"><div class="fix-time">5:00 PM</div><div class="fix-group">Grp L</div><div class="fix-teams">🇭🇷 Croatia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇬🇭 Ghana</div><div class="fix-score" id="s-cro-gha">—</div><div class="fix-venue">Lincoln Financial, Philadelphia</div></div>
+<div class="fix-row"><div class="fix-time">7:30 PM</div><div class="fix-group">Grp K</div><div class="fix-teams">🇨🇴 Colombia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇵🇹 Portugal</div><div class="fix-score" id="s-col-por">—</div><div class="fix-venue">Hard Rock, Miami</div></div>
+<div class="fix-row"><div class="fix-time">7:30 PM</div><div class="fix-group">Grp K</div><div class="fix-teams">🇨🇩 DR Congo <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇺🇿 Uzbekistan</div><div class="fix-score" id="s-cod-uzb">—</div><div class="fix-venue">Mercedes-Benz, Atlanta</div></div>
+<div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp J</div><div class="fix-teams">🇩🇿 Algeria <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇦🇹 Austria</div><div class="fix-score" id="s-alg-aut">—</div><div class="fix-venue">Arrowhead, Kansas City</div></div>
+<div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp J</div><div class="fix-teams">🇯🇴 Jordan <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇦🇷 Argentina</div><div class="fix-score" id="s-jor-arg">—</div><div class="fix-venue">AT&amp;T, Dallas</div></div>
+</div>
+<div class="fix-day"><div class="fix-day-label">Sunday, June 28</div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group" style="font-size:8px;color:var(--grey);">M73</div><div class="fix-teams">2nd Grp A vs. 2nd Grp B</div><div class="fix-score" style="color:var(--grey);font-size:9px;">—</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
+</div>
+    </div>
+  </div>
+
+  <div class="fix-phase" style="margin:18px 0 8px;">
+    <div class="fix-phase-label">Knockout Rounds &mdash; June 28 &ndash; July 19, 2026</div>
+  </div>
+
+
+  <!-- ROUND OF 32 -->
+  <div class="ko-section" id="ko-r32">
+    <div class="ko-header" onclick="toggleKO('ko-r32')">
+      <div class="ko-header-left">
+        <div class="ko-header-title">Round of 32</div>
+        <div class="ko-header-dates">June 28 &ndash; July 3 &middot; 16 Matches</div>
+      </div>
+      <span class="ko-chevron">&#9660;</span>
+    </div>
+    <div class="ko-body" id="ko-r32-body">
+      
+      <div class="half-label-row">
+        <div class="half-label" style="flex:2">Top half</div>
+        <div class="half-label-gap"></div>
+        <div class="half-label" style="flex:2">Bottom half</div>
+      </div>
+      <div class="bracket-outer">
+        <div class="bracket-half">
+          <div class="bracket-round" style=""><div class="bracket-round-label">Round of 32</div><div class="bracket-matches"><div class="bracket-match"><div class="bracket-date">Sun Jun 28 · 3:00 PM</div><div class="bracket-team">2nd Grp A</div><div class="bracket-team tbd">2nd Grp B</div></div><div class="bracket-match"><div class="bracket-date">Mon Jun 29 · 4:30 PM</div><div class="bracket-team">1st Grp E</div><div class="bracket-team tbd">Best 3rd (A/B/C/D/F)</div></div><div class="bracket-match"><div class="bracket-date">Mon Jun 29 · 9:00 PM</div><div class="bracket-team">1st Grp F</div><div class="bracket-team tbd">2nd Grp C</div></div><div class="bracket-match canada"><div class="bracket-date">Thu Jul 2 · 11:00 PM</div><div class="bracket-team">🇨🇦 1st Grp B</div><div class="bracket-team tbd">Best 3rd (E/F/G/I/J)</div></div></div></div>
+          <div class="bracket-sep"><div class="bracket-sep-line"></div></div>
+          <div class="bracket-round" style="flex:.7"><div class="bracket-round-label">Round of 16</div><div class="bracket-matches"><div class="bracket-match"><div class="bracket-date">Sat Jul 4 · 1:00 PM</div><div class="bracket-team tbd">Winner M73</div><div class="bracket-team tbd">Winner M75</div></div><div class="bracket-match"><div class="bracket-date">Sat Jul 4 · 5:00 PM</div><div class="bracket-team tbd">Winner M74</div><div class="bracket-team tbd">Winner M77</div></div></div></div>
+          <div class="bracket-sep"><div class="bracket-sep-line"></div></div>
+        </div>
+        <div class="bracket-final">
+          <div class="final-centrepiece">
+            <div class="final-centrepiece-label">&#9917; Final</div>
+            <div class="final-centrepiece-teams">SF winner<br>vs<br>SF winner</div>
+            <div class="final-centrepiece-date">Jul 19 &middot; MetLife</div>
+          </div>
+        </div>
+        <div class="bracket-half right">
+          <div class="bracket-round" style=""><div class="bracket-round-label">Round of 32</div><div class="bracket-matches"><div class="bracket-match"><div class="bracket-date">Mon Jun 29 · 1:00 PM</div><div class="bracket-team">1st Grp C</div><div class="bracket-team tbd">2nd Grp F</div></div><div class="bracket-match"><div class="bracket-date">Tue Jun 30 · 1:00 PM</div><div class="bracket-team">2nd Grp E</div><div class="bracket-team tbd">2nd Grp I</div></div><div class="bracket-match"><div class="bracket-date">Tue Jun 30 · 5:00 PM</div><div class="bracket-team">1st Grp I</div><div class="bracket-team tbd">Best 3rd (C/D/F/G/H)</div></div><div class="bracket-match"><div class="bracket-date">Thu Jul 2 · 3:00 PM</div><div class="bracket-team">1st Grp H</div><div class="bracket-team tbd">2nd Grp J</div></div></div></div>
+          <div class="bracket-sep"><div class="bracket-sep-line"></div></div>
+          <div class="bracket-round" style="flex:.7"><div class="bracket-round-label">Round of 16</div><div class="bracket-matches"><div class="bracket-match"><div class="bracket-date">Sun Jul 5 · 4:00 PM</div><div class="bracket-team tbd">Winner M76</div><div class="bracket-team tbd">Winner M78</div></div><div class="bracket-match"><div class="bracket-date">Sun Jul 5 · 8:00 PM</div><div class="bracket-team tbd">Winner M77</div><div class="bracket-team tbd">Winner M79</div></div></div></div>
+          <div class="bracket-sep"><div class="bracket-sep-line"></div></div>
+        </div>
+      </div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);font-style:italic;margin-top:10px;">
+        Bracket pairings shown in abbreviated form. Full match IDs: M73&ndash;M88 (R32), M89&ndash;M96 (R16). 🇨🇦 Canada slot highlighted. Matchups determined by group-stage results.
+      </div>
+
+      <div class="ko-mobile"><div class="ko-mob-match"><div class="ko-mob-date">Jun 28</div><div class="ko-mob-teams tbd">2nd Grp A vs 2nd Grp B</div><div class="ko-mob-venue">SoFi, Inglewood CA</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jun 29</div><div class="ko-mob-teams tbd">1st Grp C vs 2nd Grp F</div><div class="ko-mob-venue">NRG, Houston</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jun 29</div><div class="ko-mob-teams tbd">1st Grp E vs Best 3rd</div><div class="ko-mob-venue">Gillette, Foxborough</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jun 29</div><div class="ko-mob-teams tbd">1st Grp F vs 2nd Grp C</div><div class="ko-mob-venue">BBVA, Monterrey</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jun 30</div><div class="ko-mob-teams tbd">2nd Grp E vs 2nd Grp I</div><div class="ko-mob-venue">AT&T, Dallas</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jun 30</div><div class="ko-mob-teams tbd">1st Grp I vs Best 3rd</div><div class="ko-mob-venue">MetLife, New Jersey</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jun 30</div><div class="ko-mob-teams tbd">1st Grp A vs Best 3rd</div><div class="ko-mob-venue">Azteca, Mexico City</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 1</div><div class="ko-mob-teams tbd">1st Grp L vs Best 3rd</div><div class="ko-mob-venue">Mercedes-Benz, Atlanta</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 1</div><div class="ko-mob-teams tbd">1st Grp G vs Best 3rd</div><div class="ko-mob-venue">Lumen Field, Seattle</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 1</div><div class="ko-mob-teams tbd">1st Grp D vs Best 3rd</div><div class="ko-mob-venue">Levi's, San Francisco</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 2</div><div class="ko-mob-teams tbd">1st Grp H vs 2nd Grp J</div><div class="ko-mob-venue">SoFi, Inglewood CA</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 2</div><div class="ko-mob-teams tbd">2nd Grp K vs 2nd Grp L</div><div class="ko-mob-venue">BMO Field, Toronto</div></div><div class="ko-mob-match canada"><div class="ko-mob-date">Jul 2</div><div class="ko-mob-teams tbd">🇨🇦 1st Grp B vs Best 3rd</div><div class="ko-mob-venue">BC Place, Vancouver</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 3</div><div class="ko-mob-teams tbd">2nd Grp D vs 2nd Grp G</div><div class="ko-mob-venue">AT&T, Dallas</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 3</div><div class="ko-mob-teams tbd">1st Grp J vs 2nd Grp H</div><div class="ko-mob-venue">Hard Rock, Miami</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 3</div><div class="ko-mob-teams tbd">1st Grp K vs Best 3rd</div><div class="ko-mob-venue">Arrowhead, Kansas City</div></div></div>
+    </div>
+  </div>
+
+
+  <div class="ko-mobile-section">
+  <!-- ROUND OF 16 -->
+  <div class="ko-section" id="ko-r16">
+    <div class="ko-header" onclick="toggleKO('ko-r16')">
+      <div class="ko-header-left">
+        <div class="ko-header-title">Round of 16</div>
+        <div class="ko-header-dates">July 4 &ndash; 7 &middot; 8 Matches</div>
+      </div>
+      <span class="ko-chevron">&#9660;</span>
+    </div>
+    <div class="ko-body" id="ko-r16-body">
+      
+      <div><div class="ko-mob-match"><div class="ko-mob-date">Jul 4</div><div class="ko-mob-teams tbd">Winner M90 vs Winner M89</div><div class="ko-mob-venue">NRG, Houston</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 4</div><div class="ko-mob-teams tbd">Winner M74 vs Winner M77</div><div class="ko-mob-venue">Lincoln Financial, Philadelphia</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 5</div><div class="ko-mob-teams tbd">Winner M76 vs Winner M78</div><div class="ko-mob-venue">MetLife, New Jersey</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 5</div><div class="ko-mob-teams tbd">Winner M79 vs Winner M80</div><div class="ko-mob-venue">Azteca, Mexico City</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 6</div><div class="ko-mob-teams tbd">Winner M83 vs Winner M84</div><div class="ko-mob-venue">AT&T, Dallas</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 6</div><div class="ko-mob-teams tbd">Winner M81 vs Winner M82</div><div class="ko-mob-venue">Lumen Field, Seattle</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 7</div><div class="ko-mob-teams tbd">Winner M86 vs Winner M88</div><div class="ko-mob-venue">Mercedes-Benz, Atlanta</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 7</div><div class="ko-mob-teams tbd">Winner M85 vs Winner M87</div><div class="ko-mob-venue">BC Place, Vancouver</div></div></div>
+    </div>
+  </div>
+
 
   </div>
+  <div class="ko-mobile-section">
+  <!-- QUARTER-FINALS -->
+  <div class="ko-section" id="ko-qf">
+    <div class="ko-header" onclick="toggleKO('ko-qf')">
+      <div class="ko-header-left">
+        <div class="ko-header-title">Quarter-finals</div>
+        <div class="ko-header-dates">July 9 &ndash; 11 &middot; 4 Matches</div>
+      </div>
+      <span class="ko-chevron">&#9660;</span>
+    </div>
+    <div class="ko-body" id="ko-qf-body">
+      
+      <div><div class="ko-mob-match"><div class="ko-mob-date">Jul 9</div><div class="ko-mob-teams tbd">Winner M89 vs Winner M90</div><div class="ko-mob-venue">Gillette, Foxborough</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 10</div><div class="ko-mob-teams tbd">Winner M93 vs Winner M94</div><div class="ko-mob-venue">SoFi, Inglewood CA</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 11</div><div class="ko-mob-teams tbd">Winner M91 vs Winner M92</div><div class="ko-mob-venue">Hard Rock, Miami</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 11</div><div class="ko-mob-teams tbd">Winner M95 vs Winner M96</div><div class="ko-mob-venue">Arrowhead, Kansas City</div></div></div>
+    </div>
+  </div>
+
+
+  </div>
+  <div class="ko-mobile-section">
+  <!-- SEMI-FINALS, THIRD PLACE &AMP; FINAL -->
+  <div class="ko-section" id="ko-final">
+    <div class="ko-header" onclick="toggleKO('ko-final')">
+      <div class="ko-header-left">
+        <div class="ko-header-title">Semi-finals, Third Place &amp; Final</div>
+        <div class="ko-header-dates">July 14 &ndash; 19 &middot; 4 Matches</div>
+      </div>
+      <span class="ko-chevron">&#9660;</span>
+    </div>
+    <div class="ko-body" id="ko-final-body">
+      
+      <div><div class="ko-mob-match"><div class="ko-mob-date">Jul 14</div><div class="ko-mob-teams tbd">Semi-final 1 (QF winners)</div><div class="ko-mob-venue">AT&T, Dallas</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 15</div><div class="ko-mob-teams tbd">Semi-final 2 (QF winners)</div><div class="ko-mob-venue">Mercedes-Benz, Atlanta</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 18</div><div class="ko-mob-teams tbd">3rd Place play-off</div><div class="ko-mob-venue">Hard Rock, Miami</div></div><div class="ko-mob-match"><div class="ko-mob-date">Jul 19</div><div class="ko-mob-teams tbd">&#127942; World Cup Final</div><div class="ko-mob-venue">MetLife, New Jersey</div></div></div>
+    </div>
+  </div>
+
+  </div>
+
+  <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);font-style:italic;margin-top:10px;border-top:1px solid var(--rule);padding-top:8px;">
+    ★ Tunisia vs. Japan (Jun 21, Monterrey) is the 1,000th match in FIFA World Cup history. &dagger; Kicks off after midnight ET. 🇨🇦 Canada fixtures highlighted. All times Eastern. Knockout matchups determined by group-stage results.
+  </div>
+
+<script>
+function toggleKO(id) {
+  var header = document.querySelector('#' + id + ' .ko-header');
+  var body = document.getElementById(id + '-body');
+  var open = body.classList.contains('open');
+  if (open) {
+    body.classList.remove('open');
+    header.classList.remove('open');
+  } else {
+    body.classList.add('open');
+    header.classList.add('open');
+  }
+}
+</script>
+
+</div>
 
 </div></div><!-- /all-fixtures -->
 
@@ -763,11 +1077,23 @@ footer.footer a{color:var(--rust);text-decoration:none;}
   <div class="section-banner"><h2>Articles</h2><div class="flag">Coverage As It Happens &mdash; Newest First</div></div>
 
   <div class="articles-stream">
+
+    <!-- ARTICLE — June 14: Australia 2-0 Türkiye -->
+    <article class="stream-item">
+      <div class="stream-date-pill">June 14, 2026 &mdash; Group D</div>
+      <h3>&#127462;&#127482; Beach the Hero as Irankunda and Metcalfe Sink T&uuml;rkiye in Vancouver Ambush</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Sunday, June 14, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Australia produced one of the tournament&rsquo;s great opening-round upsets, defeating T&uuml;rkiye 2&ndash;0 at BC Place in Vancouver to announce themselves as genuine Group D contenders. The result was built on fine individual goals from teenage forward Nestory Irankunda and midfielder Connor Metcalfe, and an extraordinary competitive debut from 22-year-old goalkeeper Patrick Beach, who was handed a surprise start ahead of the more experienced Mat Ryan by coach Tony Popovic. Beach justified that gamble emphatically &mdash; making eight saves, the most by any goalkeeper so far in the tournament, including a brilliant tip on to the post to deny Abdulkerim Barda&iuml;&iquest;&frac12; from distance in the first half. T&uuml;rkiye dominated possession throughout, finishing with 72 percent of the ball and 30 shots in total, but found no way through an Australian defensive shape that made 55 clearances.</p>
+      <p>The first goal came on the counter in the 27th minute &mdash; arriving just 18 seconds after Arda G&uuml;ler had fired a volley straight at Beach at the other end. Irankunda, the Watford forward, received the ball in space and finished with composure to become Australia&rsquo;s youngest-ever World Cup scorer. Metcalfe doubled the lead in the 75th minute with a low drive from distance into the bottom corner after Australia absorbed sustained Turkish pressure through the second half. The victory &mdash; just Australia&rsquo;s fifth in World Cup history &mdash; places the Socceroos second in Group D behind the United States on goal difference. They face the co-hosts in Seattle on June 19; T&uuml;rkiye, who cannot afford another loss, meet Paraguay on the same date.</p>
+      <div class="src">Sources: <a href="https://www.skysports.com/football/australia-vs-turkey/report/549773" target="_blank" rel="noopener">Sky Sports</a> &middot; <a href="https://www.sbs.com.au/news/live-blog/australia-vs-turkiye-world-cup-live-score-updates/e7r7yd3iz" target="_blank" rel="noopener">SBS News</a> &middot; June 13, 2026</div>
+    </article>
+
     <!-- ARTICLE — June 13: Haiti 0-1 Scotland -->
     <article class="stream-item">
       <div class="stream-date-pill">June 13, 2026 &mdash; Group C</div>
       <h3>&#127988;&#917607;&#917602;&#917619;&#917603;&#917620;&#917631; McGinn Strike Ends Scotland&#8217;s 28-Year World Cup Wait with Hard-Fought Win Over Haiti</h3>
-      <div class="by">The Chronicler Sport Desk &middot; Sunday, June 14, 2026</div>
+      <div class="by">The Chronicler Sport Desk &middot; Saturday, June 13, 2026</div>
       <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
       <p>Scotland claimed their first World Cup victory in 36 years with a tense 1&ndash;0 win over Haiti at Gillette Stadium in Foxborough, Massachusetts, John McGinn&rsquo;s deflected 28th-minute goal proving enough as Steve Clarke&rsquo;s side held off a dogged Haitian fightback to go top of Group C. McGinn struck inside the box after the rebound fell kindly to him, the deflection leaving goalkeeper Johny Placide helpless &mdash; Scotland&rsquo;s first World Cup goal since Craig Burley&rsquo;s strike against Norway in 1998. The Tartan Army, who returned to the World Cup stage for the first time since France 1998 after a dramatic qualifying win over Denmark at Hampden Park in November, were well supported in Boston and had the better of the opening exchanges before Haiti grew into the game. Ricardo Ade wasted an early equalising opportunity, heading a free-kick cross well wide, and Frantzdy Pierrot&rsquo;s late header flashed past the post as Haiti pressed hard for a leveller in the closing stages.</p>
       <p>Scotland survived a nervy conclusion to secure three points that, combined with the earlier 1&ndash;1 draw between Brazil and Morocco, placed them atop arguably the tournament&rsquo;s most competitive group. It was Scotland&rsquo;s first World Cup clean sheet since 1986, and the result carried extra significance given the company they keep in Group C: Brazil and Morocco await. McGinn, at 31 years and 238 days, became Scotland&rsquo;s oldest World Cup scorer, ending a personal 12-game scoreless run in international football. Scotland face Morocco in Boston on June 19.</p>
@@ -778,7 +1104,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
     <article class="stream-item">
       <div class="stream-date-pill">June 13, 2026 &mdash; Group C</div>
       <h3>&#127463;&#127479; Vini&ccedil;ius Equaliser Rescues Brazil After Saibari&rsquo;s Opener in Blockbuster Group C Draw</h3>
-      <div class="by">The Chronicler Sport Desk &middot; Saturday, June 14, 2026</div>
+      <div class="by">The Chronicler Sport Desk &middot; Saturday, June 13, 2026</div>
       <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
       <p>Five-time champions Brazil were held to a 1&ndash;1 draw by Morocco in a pulsating Group C opener before a crowd of 80,663 at MetLife Stadium in East Rutherford, New Jersey. Morocco dominated early and took the lead in the 21st minute through Ismael Saibari, who collected a through ball from Brahim D&iacute;az after a Lucas Paquet&aacute; error and chipped the ball over Alisson Becker for his tenth international goal. Brazil levelled eleven minutes later when Vin&iacute;cius J&uacute;nior exchanged passes with Bruno Guimar&atilde;es on the left flank, created space with two touches, and rifled a right-footed effort past the outstretched hand of Yassine Bounou for his own tenth international goal. Carlo Ancelotti &mdash; Brazil&rsquo;s first foreign World Cup coach &mdash; made tactical adjustments at the interval, withdrawing Casemiro and Roger Iba&ntilde;ez for Fabinho and Danilo, and his side gained greater control of possession in the second half without finding a winner.</p>
       <p>Saibari departed for Soufiane Rahimi as Morocco looked to hold their shape, and they remained dangerous in transition &mdash; most notably in the 71st minute when the goalscorer latched on to a chipped pass but could not beat Alisson. Brazil&rsquo;s best late chance arrived when Raphinha pounced on a poor back pass and raced clear, only for Bounou to react quickly and smother the effort. Alisson then produced a stunning double save deep in stoppage time to preserve the draw. The result leaves Scotland atop Group C on three points, with Brazil and Morocco level on one each. Brazil travel to Philadelphia to face Haiti on June 19; Morocco face Scotland in Boston on the same date.</p>
@@ -789,12 +1115,13 @@ footer.footer a{color:var(--rust);text-decoration:none;}
     <article class="stream-item">
       <div class="stream-date-pill">June 13, 2026 &mdash; Group B</div>
       <h3>&#127478;&#127462; Qatar Snatch Historic First World Cup Point with Khoukhi Header in Stoppage Time</h3>
-      <div class="by">The Chronicler Sport Desk &middot; Saturday, June 14, 2026</div>
+      <div class="by">The Chronicler Sport Desk &middot; Saturday, June 13, 2026</div>
       <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
       <p>Qatar secured the first point in their World Cup history with a dramatic 1&ndash;1 draw against Switzerland at Levi&rsquo;s Stadium in Santa Clara, captain Boualem Khoukhi powering a header into the far corner in the 94th minute to deny the Swiss what had appeared to be a routine victory. Switzerland had taken the lead in the 13th minute through Breel Embolo, who converted from the penalty spot after goalkeeper Mahmoud Abunada brought down Remo Freuler &mdash; the decision confirmed by VAR following a lengthy review. The Swiss dominated thereafter, accumulating 3.24 expected goals to Qatar&rsquo;s 0.76, but squandered chance after chance: Embolo shot into the side-netting late on and substitute Johan Manzambi fired narrowly wide with the goal at his mercy. Granit Xhaka sent a long-range effort over in the second half as the tempo dropped in the Santa Clara heat.</p>
       <p>Qatar, coached by Julen Lopetegui, absorbed the pressure and were rewarded when a deep cross from left-back Homam Al Amin found Khoukhi unmarked at the back post to spark bedlam on the Qatar bench &mdash; FIFA later confirming the effort was officially credited as a Miro Muheim own goal. The result left all four teams in Group B &mdash; Qatar, Switzerland, Canada and Bosnia and Herzegovina &mdash; level on a single point apiece. Switzerland face Bosnia and Herzegovina on Thursday, while Qatar await co-hosts Canada on the same date.</p>
       <div class="src">Sources: <a href="https://www.espn.com/soccer/report/_/gameId/760420" target="_blank" rel="noopener">ESPN</a> &middot; <a href="https://www.vavel.com/en-us/soccer/2026/06/13/1263343-qatar-vs-switzerland-live-score-2026-world-cup.html" target="_blank" rel="noopener">VAVEL USA</a> &middot; June 13, 2026</div>
     </article>
+
 
 
 
@@ -824,7 +1151,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
     <article class="stream-item">
       <div class="stream-date-pill">June 11, 2026 &mdash; Group A</div>
       <h3>&#127472;&#127479; South Korea Fights Back to Defeat Czechia 2&ndash;1 in Group A Opener</h3>
-      <div class="by">The Chronicler Sport Desk &middot; Saturday, June 13, 2026</div>
+      <div class="by">The Chronicler Sport Desk &middot; Friday, June 12, 2026</div>
       <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
       <p>South Korea rallied from a goal down to defeat Czechia 2&ndash;1 in their Group A opener at Estadio Guadalajara in Zapopan, Mexico, on the tournament&rsquo;s first evening of action. The match was a tepid affair for much of its duration, with both teams drawing jeers as they left the field at half-time, but the second period produced the drama that had been lacking. Czechia took the lead in the 59th minute through captain Ladislav Krej&ccaron;&#237; &mdash; who headed home from a Vladim&iacute;r Coufal long throw-in. The lead lasted only eight minutes before Hwang In-beom equalised, cutting inside from a Kang-In Lee pass and clipping a deft finish inside the post.</p>
       <p>Hwang then turned provider, crossing from the right flank for Oh Hyeon-gyu to strike the decisive goal in the 80th minute. The victory placed South Korea level on points with Mexico at the top of Group A after the hosts&rsquo; earlier win over South Africa. Hwang&rsquo;s goal and assist made him only the third Korean player to record both in a single World Cup match, after Choi Soon-ho in 1986 and Hong Myung-bo in 1994. In the next round of Group A matches on June 18, South Korea face Mexico in Guadalajara, while Czechia take on South Africa in Atlanta.</p>
@@ -835,7 +1162,7 @@ footer.footer a{color:var(--rust);text-decoration:none;}
     <article class="stream-item">
       <div class="stream-date-pill">June 11, 2026 &mdash; No. 71</div>
       <h3>&#127942; Mexico Open World Cup With 2&ndash;0 Win Over South Africa in Three-Red-Card Opener</h3>
-      <div class="by">The Chronicler Sport Desk &middot; Friday, June 13, 2026</div>
+      <div class="by">The Chronicler Sport Desk &middot; Friday, June 12, 2026</div>
       <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
       <p>Mexico ended a seven-match winless run in World Cup opening fixtures on Thursday, defeating South Africa 2&ndash;0 at a raucous Estadio Azteca before more than 80,000 fans massed in Mexican green &mdash; a result that carried the emotional weight of both a historic occasion and a long-awaited personal triumph. Juli&aacute;n Qui&ntilde;ones struck the tournament&rsquo;s first goal in the ninth minute, driving a low finish through the legs of goalkeeper Ronwen Williams after Yaya Sithole lost possession on the edge of his own box. It was the earliest goal to open a World Cup since Philipp Lahm scored for Germany against Costa Rica after six minutes in 2006. Mexico had played seven previous World Cup opening fixtures without a win; they put that right at the eighth attempt. Coach Javier Aguirre, who was in the opposite dugout when the two nations drew 1&ndash;1 in the 2010 tournament opener in Johannesburg, called it &ldquo;a perfect day.&rdquo;</p>
       <p>The second goal belonged to Ra&uacute;l Jim&eacute;nez &mdash; and carried a weight that statistics cannot convey. The 35-year-old Fulham striker, who suffered a catastrophic skull fracture in November 2020 that threatened to end his career, headed home Roberto Alvarado&rsquo;s cross at the back post in the 67th minute for his first-ever World Cup goal, visibly overcome with emotion. South Africa were already down to ten men by then after Sithole &mdash; whose error sparked the opening goal &mdash; received a straight red card in the 49th minute for bringing down Bryan Guti&eacute;rrez through on goal. VAR dismissed substitute Themba Zwane for unsporting behaviour in the 84th minute, reducing Bafana Bafana to nine. In stoppage time, Mexico defender C&eacute;sar Montes was himself sent off for serious foul play, giving the match three dismissals &mdash; one more than goals. Mexico face South Korea in Guadalajara on June 18; South Africa meet Czechia on June 16.</p>
