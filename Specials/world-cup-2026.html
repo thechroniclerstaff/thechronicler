@@ -1052,6 +1052,18 @@ footer.footer a{color:var(--rust);text-decoration:none;}
   </div>
 
 <script>
+function toggleWeek(id) {
+  var header = document.querySelector('#' + id + ' .week-header');
+  var body = document.getElementById(id + '-body');
+  var open = body.classList.contains('open');
+  if (open) {
+    body.classList.remove('open');
+    header.classList.remove('open');
+  } else {
+    body.classList.add('open');
+    header.classList.add('open');
+  }
+}
 function toggleKO(id) {
   var header = document.querySelector('#' + id + ' .ko-header');
   var body = document.getElementById(id + '-body');
