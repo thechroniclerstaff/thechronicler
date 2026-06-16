@@ -793,17 +793,16 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 
   <!-- WEEK 1 -->
   <div class="week-block" id="week-1">
-    <div class="week-header open" onclick="toggleWeek('week-1')">
+    <div class="week-header" onclick="toggleWeek('week-1')">
       <div>
         <div class="week-header-title">Week 1 &mdash; Matchday 1 (Part I)</div>
         <div class="week-header-dates">Mon, June 8 &ndash; Sun, June 14</div>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
-        <span class="week-badge">Active</span>
         <span class="week-chevron">▼</span>
       </div>
     </div>
-    <div class="week-body open" id="week-1-body">
+    <div class="week-body" id="week-1-body">
 <div class="fix-day"><div class="fix-day-label">Thursday, June 11</div>
 <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇲🇽 Mexico <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇿🇦 South Africa</div><div class="fix-score" id="s-mex-rsa">2–0</div><div class="fix-venue">Azteca, Mexico City</div></div>
 <div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp A</div><div class="fix-teams">🇰🇷 Korea Republic <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇿 Czechia</div><div class="fix-score" id="s-kor-cze">2–1</div><div class="fix-venue">Akron, Guadalajara</div></div>
@@ -819,29 +818,32 @@ footer.footer a{color:var(--rust);text-decoration:none;}
 <div class="fix-row"><div class="fix-time">12:00 AM†</div><div class="fix-group">Grp D</div><div class="fix-teams">🇦🇺 Australia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇹🇷 Türkiye</div><div class="fix-score" id="s-aus-tur">2–0</div><div class="fix-venue">BC Place, Vancouver</div></div>
 </div>
 <div class="fix-day"><div class="fix-day-label">Sunday, June 14</div>
-<div class="fix-row"><div class="fix-time">1:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇩🇪 Germany <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇼 Curaçao</div><div class="fix-score" id="s-ger-cur">—</div><div class="fix-venue">NRG, Houston</div></div>
-<div class="fix-row"><div class="fix-time">4:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇳🇱 Netherlands <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇯🇵 Japan</div><div class="fix-score" id="s-ned-jpn">—</div><div class="fix-venue">AT&amp;T, Dallas</div></div>
-<div class="fix-row"><div class="fix-time">7:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇨🇮 Ivory Coast <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇨 Ecuador</div><div class="fix-score" id="s-civ-ecu">—</div><div class="fix-venue">Lincoln Financial, Philadelphia</div></div>
-<div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇸🇪 Sweden <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇹🇳 Tunisia ★</div><div class="fix-score" id="s-swe-tun">—</div><div class="fix-venue">BBVA, Monterrey</div></div>
+<div class="fix-row"><div class="fix-time">1:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇩🇪 Germany <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇼 Curaçao</div><div class="fix-score" id="s-ger-cur">7–1</div><div class="fix-venue">NRG, Houston</div></div>
+<div class="fix-row"><div class="fix-time">4:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇳🇱 Netherlands <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇯🇵 Japan</div><div class="fix-score" id="s-ned-jpn">2–2</div><div class="fix-venue">AT&amp;T, Dallas</div></div>
+<div class="fix-row"><div class="fix-time">7:00 PM</div><div class="fix-group">Grp E</div><div class="fix-teams">🇨🇮 Ivory Coast <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇨 Ecuador</div><div class="fix-score" id="s-civ-ecu">1–0</div><div class="fix-venue">Lincoln Financial, Philadelphia</div></div>
+<div class="fix-row"><div class="fix-time">10:00 PM</div><div class="fix-group">Grp F</div><div class="fix-teams">🇸🇪 Sweden <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇹🇳 Tunisia ★</div><div class="fix-score" id="s-swe-tun">5–1</div><div class="fix-venue">BBVA, Monterrey</div></div>
 </div>
     </div>
   </div>
 
   <!-- WEEK 2 -->
   <div class="week-block" id="week-2">
-    <div class="week-header" onclick="toggleWeek('week-2')">
+    <div class="week-header open" onclick="toggleWeek('week-2')">
       <div>
         <div class="week-header-title">Week 2 &mdash; Matchday 1 (Part II) &amp; Matchday 2 (Part I)</div>
         <div class="week-header-dates">Mon, June 15 &ndash; Sun, June 21</div>
       </div>
-      <span class="week-chevron">▼</span>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="week-badge">Active</span>
+        <span class="week-chevron">▼</span>
+      </div>
     </div>
-    <div class="week-body" id="week-2-body">
+    <div class="week-body open" id="week-2-body">
 <div class="fix-day"><div class="fix-day-label">Monday, June 15</div>
-<div class="fix-row"><div class="fix-time">12:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇪🇸 Spain <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇻 Cabo Verde</div><div class="fix-score" id="s-esp-cpv">—</div><div class="fix-venue">Mercedes-Benz, Atlanta</div></div>
-<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇧🇪 Belgium <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇬 Egypt</div><div class="fix-score" id="s-bel-egy">—</div><div class="fix-venue">Lumen Field, Seattle</div></div>
-<div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇸🇦 Saudi Arabia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇺🇾 Uruguay</div><div class="fix-score" id="s-ksa-uru">—</div><div class="fix-venue">Hard Rock, Miami</div></div>
-<div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇮🇷 Iran <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇳🇿 New Zealand</div><div class="fix-score" id="s-irn-nzl">—</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
+<div class="fix-row"><div class="fix-time">12:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇪🇸 Spain <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇨🇻 Cabo Verde</div><div class="fix-score" id="s-esp-cpv">0–0</div><div class="fix-venue">Mercedes-Benz, Atlanta</div></div>
+<div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇧🇪 Belgium <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇪🇬 Egypt</div><div class="fix-score" id="s-bel-egy">1–1</div><div class="fix-venue">Lumen Field, Seattle</div></div>
+<div class="fix-row"><div class="fix-time">6:00 PM</div><div class="fix-group">Grp H</div><div class="fix-teams">🇸🇦 Saudi Arabia <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇺🇾 Uruguay</div><div class="fix-score" id="s-ksa-uru">1–1</div><div class="fix-venue">Hard Rock, Miami</div></div>
+<div class="fix-row"><div class="fix-time">9:00 PM</div><div class="fix-group">Grp G</div><div class="fix-teams">🇮🇷 Iran <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇳🇿 New Zealand</div><div class="fix-score" id="s-irn-nzl">2–2</div><div class="fix-venue">SoFi, Inglewood CA</div></div>
 </div>
 <div class="fix-day"><div class="fix-day-label">Tuesday, June 16</div>
 <div class="fix-row"><div class="fix-time">3:00 PM</div><div class="fix-group">Grp I</div><div class="fix-teams">🇫🇷 France <span style="color:var(--grey);margin:0 4px;font-size:9px;">vs</span> 🇸🇳 Senegal</div><div class="fix-score" id="s-fra-sen">—</div><div class="fix-venue">MetLife, New Jersey</div></div>
@@ -1089,6 +1091,94 @@ function toggleKO(id) {
   <div class="section-banner"><h2>Articles</h2><div class="flag">Coverage As It Happens &mdash; Newest First</div></div>
 
   <div class="articles-stream">
+
+    <!-- ARTICLE — June 15: Iran 2-2 New Zealand -->
+    <article class="stream-item">
+      <div class="stream-date-pill">June 15, 2026 &mdash; Group G</div>
+      <h3>&#127470;&#127479; Just Scores Twice but Iran Rally to Draw 2&ndash;2 in Four-Goal SoFi Thriller</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Iran and New Zealand produced one of the tournament&rsquo;s most dramatic finishes in a 2&ndash;2 draw at Los Angeles Stadium in Inglewood, capping what became the first day in the 2026 World Cup in which all four matches ended level. New Zealand&rsquo;s Elijah Just &mdash; a 24-year-old forward little known outside his home country &mdash; scored twice in the second half to give the All Whites a 2&ndash;1 lead, threatening an extraordinary result for a nation still searching for its first World Cup victory. But Iran levelled through Mohammad Mohebbi in the 78th minute to earn a share of the spoils. The match carried political weight off the pitch as well: FIFA had banned the pre-revolutionary Lion and Sun flag from inside the stadium, sparking protests among Iranian-American supporters gathered outside who were told they could not display a symbol they associate with opposition to the Islamic Republic.</p>
+      <p>On the field, Iran&rsquo;s Ali Alipour gave the Iranians a first-half lead before Just converted twice in quick succession to swing the game. Mohebbi&rsquo;s equaliser &mdash; celebrated with raw emotion by his teammates &mdash; rescued a point that left Group G entirely unresolved: all four sides &mdash; Belgium, Egypt, Iran and New Zealand &mdash; now have one point apiece after the opening round of fixtures. New Zealand next face Belgium in Vancouver on June 26; Iran take on Egypt in Seattle on the same date.</p>
+      <div class="src">Sources: <a href="https://sports.yahoo.com/soccer/live/world-cup-2026-live-updates-scores-schedule-results-135432707.html" target="_blank" rel="noopener">Yahoo Sports</a> &middot; <a href="https://www.nbcnews.com/sports/soccer/live-blog/fifa-world-cup-2026-june-15-live-updates-rcna350042" target="_blank" rel="noopener">NBC News</a> &middot; <a href="https://www.espn.com/espn/story/_/id/49074981/2026-fifa-world-cup-spain-cape-verde-belgium-egypt-uruguay-saudi-arabia-iran-new-zealand-recap" target="_blank" rel="noopener">ESPN</a> &middot; June 15, 2026</div>
+    </article>
+
+    <!-- ARTICLE — June 15: Saudi Arabia 1-1 Uruguay -->
+    <article class="stream-item">
+      <div class="stream-date-pill">June 15, 2026 &mdash; Group H</div>
+      <h3>&#127480;&#127462; Ara&uacute;jo&rsquo;s 80th-Minute Header Rescues Uruguay After Saudi Arabia Opener in Miami</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Uruguay were held to a 1&ndash;1 draw by Saudi Arabia at Hard Rock Stadium in Miami despite dominating possession and accumulating 28 shots to the Green Falcons&rsquo; seven. Abdulelah Al Amri gave Saudi Arabia a first-half lead &mdash; a clinical finish against the run of play that underscored how demanding Group H has become. Saudi Arabia sat deep and defended with extraordinary discipline as Uruguay pressed relentlessly. Expected goals strongly favoured the South Americans at 1.58 to Saudi Arabia&rsquo;s 0.99, yet Mohammed Al-Owais in the Saudi goal produced a series of critical saves to keep the Uruguayans at bay through the second half. The afternoon added to the day&rsquo;s overarching theme: European powers and South American heavyweights were being made to work exceptionally hard for points by nations many had dismissed on paper.</p>
+      <p>Maximiliano Ara&uacute;jo finally broke through in the 80th minute, heading a rebound from a saved header past Al-Owais to earn the point that Uruguay&rsquo;s prolonged dominance had arguably warranted. The result left both teams level on one point in a Group H that &mdash; following Spain&rsquo;s failure to beat Cape Verde in the day&rsquo;s opener &mdash; has thrown itself wide open. Uruguay will need significantly greater efficiency in front of goal when they face Spain in Guadalajara on June 26; Saudi Arabia meet Cape Verde in Houston on the same date.</p>
+      <div class="src">Sources: <a href="https://ca.sports.yahoo.com/news/world-cup-2026-live-updates-scores-schedule-results-135432872.html" target="_blank" rel="noopener">Yahoo Sports</a> &middot; <a href="https://www.espn.com/espn/story/_/id/49074981/2026-fifa-world-cup-spain-cape-verde-belgium-egypt-uruguay-saudi-arabia-iran-new-zealand-recap" target="_blank" rel="noopener">ESPN</a> &middot; June 15, 2026</div>
+    </article>
+
+    <!-- ARTICLE — June 15: Belgium 1-1 Egypt -->
+    <article class="stream-item">
+      <div class="stream-date-pill">June 15, 2026 &mdash; Group G</div>
+      <h3>&#127463;&#127466; Egypt Hold Belgium 1&ndash;1 as Ashour Opener and Hany Own Goal Define Tight Seattle Draw</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Egypt claimed a hard-earned 1&ndash;1 draw against Belgium at Lumen Field in Seattle, holding on tenaciously through a sustained Belgian second-half push to earn a point from one of the group stage&rsquo;s most anticipated matches. Egypt made the brighter start and took the lead in the 19th minute through Emam Ashour, who scored his first international goal with a composed finish inside the area. Belgium struggled to find an answer for much of the contest, their attacking shape blunted by a compact and disciplined Egyptian defensive structure. The introduction of veteran striker Romelu Lukaku midway through the second half visibly lifted the Belgian attack, his physical presence creating space and unsettling Egypt&rsquo;s back line. It was pressure from that Lukaku-inspired move that led directly to the equaliser: a Mohamed Hany own goal in the 66th minute restored parity.</p>
+      <p>Belgium finished the stronger side and pressed for a winner in the final quarter, but Egypt goalkeeper Mostafa Shobeir produced a series of confident stops to deny the Golden Generation a winning debut. The point leaves Group G entirely level after the opening round of matches &mdash; Belgium, Egypt, Iran, and New Zealand all sharing one point apiece. Belgium face New Zealand in Vancouver and Egypt take on Iran in Seattle when group play resumes on June 26.</p>
+      <div class="src">Sources: <a href="https://www.espn.com/espn/story/_/id/49074981/2026-fifa-world-cup-spain-cape-verde-belgium-egypt-uruguay-saudi-arabia-iran-new-zealand-recap" target="_blank" rel="noopener">ESPN</a> &middot; <a href="https://www.fourfourtwo.com/competition/all-of-the-world-cup-scores-so-far-at-the-2026-tournament" target="_blank" rel="noopener">FourFourTwo</a> &middot; June 15, 2026</div>
+    </article>
+
+    <!-- ARTICLE — June 15: Spain 0-0 Cape Verde -->
+    <article class="stream-item">
+      <div class="stream-date-pill">June 15, 2026 &mdash; Group H</div>
+      <h3>&#127464;&#127483; Vozinha and the Blue Sharks Stun Spain 0&ndash;0 in the Tournament&rsquo;s Biggest Shock</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>In the most stunning result of the 2026 World Cup to date, debutants Cape Verde &mdash; a nation of 600,000 people competing in their first-ever finals &mdash; held reigning European champions Spain to a goalless draw at Mercedes-Benz Stadium in Atlanta. The Blue Sharks, deployed in a disciplined 5-4-1 formation, restricted a Spain side missing the injured Nico Williams to a total of just three shots on target across 90 minutes. Centre-forward Mikel Oyarzabal did not register a touch of the ball for the opening 30 minutes of the match &mdash; the longest such drought by any player at the World Cup since records were first kept at the 1966 tournament. The performance of 40-year-old goalkeeper Vozinha, who plays his club football for Chaves in the Portuguese second division, was extraordinary: composed, commanding, and impenetrable across the full 90 minutes despite facing the world&rsquo;s top-ranked nation.</p>
+      <p>When Lamine Yamal was introduced from the bench in the second half, Spain found more purpose and Spain controlled possession without translating territory into genuine scoring opportunities against a Cape Verde unit that never wavered. The draw leaves Group H entirely upended. Spain, expected to cruise through their group, now sit level on one point with Cape Verde, Saudi Arabia, and Uruguay. The implications run deep: the European champions face Uruguay in Guadalajara on June 26 in a match they dare not drop.</p>
+      <div class="src">Sources: <a href="https://www.espn.com/espn/story/_/id/49074981/2026-fifa-world-cup-spain-cape-verde-belgium-egypt-uruguay-saudi-arabia-iran-new-zealand-recap" target="_blank" rel="noopener">ESPN</a> &middot; <a href="https://www.fourfourtwo.com/competition/all-of-the-world-cup-scores-so-far-at-the-2026-tournament" target="_blank" rel="noopener">FourFourTwo</a> &middot; June 15, 2026</div>
+    </article>
+
+    <!-- ARTICLE — June 14/15: Sweden 5-1 Tunisia -->
+    <article class="stream-item">
+      <div class="stream-date-pill">June 14&ndash;15, 2026 &mdash; Group F</div>
+      <h3>&#127480;&#127466; Isak, Gy&ouml;keres and Ayari Power Sweden to 5&ndash;1 Rout of Tunisia in Monterrey</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Sweden delivered the most emphatic performance of the 2026 World Cup so far, thrashing Tunisia 5&ndash;1 at Estadio BBVA in Monterrey in the final match of Day 4. The Swedes were on the board as early as the 7th minute when Yasin Ayari connected from well outside the box with a precise strike that gave Tunisia&rsquo;s goalkeeper no chance and immediately set the tone. Alexander Isak and Viktor Gy&ouml;keres &mdash; the two most valuable and celebrated players in the Swedish squad &mdash; both contributed to a commanding attacking performance that showcased the depth of a nation that many neutrals had anticipated would struggle in Group F. Mattias Svanberg added a fourth as goals flowed freely, and a fifth sealed a rout that left Tunisia&rsquo;s prospects of advancing extremely thin. Gy&ouml;keres, the Sporting CP striker who finished as one of Europe&rsquo;s most prolific scorers last season, was a constant physical and technical threat and his performance will sharpen interest in the Golden Boot race.</p>
+      <p>For Tunisia, the result was a severe blow to any aspirations of progressing as one of the eight best third-placed sides from the expanded group stage. They now face the Netherlands in Kansas City on June 25 needing to produce one of their best-ever performances under enormous pressure. Sweden, who had been placed in a group many considered genuinely difficult alongside the Dutch and Japan, have transformed the Group F picture. Their next assignment is Japan in Dallas on June 25 &mdash; now a match that carries significant early implications for who progresses.</p>
+      <div class="src">Sources: <a href="https://sports.yahoo.com/soccer/live/world-cup-2026-live-updates-scores-schedule-results-135432707.html" target="_blank" rel="noopener">Yahoo Sports</a> &middot; <a href="https://www.fourfourtwo.com/competition/all-of-the-world-cup-scores-so-far-at-the-2026-tournament" target="_blank" rel="noopener">FourFourTwo</a> &middot; June 14&ndash;15, 2026</div>
+    </article>
+
+    <!-- ARTICLE — June 14: Ivory Coast 1-0 Ecuador -->
+    <article class="stream-item">
+      <div class="stream-date-pill">June 14, 2026 &mdash; Group E</div>
+      <h3>&#127464;&#127470; Diallo&rsquo;s 90th-Minute Chip Stuns Ecuador as Ivory Coast Snatch Group E Points</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Monday, June 15, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Ivory Coast snatched all three points with a moment of individual brilliance in the 90th minute, Amad Diallo chipping home a cross from Wilfried Singo to lift the Elephants past Ecuador 1&ndash;0 at Lincoln Financial Field in Philadelphia. The Manchester United winger, who had entered the match as a substitute in the 56th minute, produced an instinctive finish at the back post that sent Ivory Coast&rsquo;s supporters into delirium. For much of a tightly contested and frequently frustrating contest the match had appeared destined for a goalless draw. Both teams struck the woodwork at different points, and Ivory Coast goalkeeper Yahia Fofana produced a vital stop to deny Gonzalo Plata what had seemed a certain goal in the second half. The Elephants finished with a 15&ndash;12 advantage in total shots and put four on target to Ecuador&rsquo;s one, suggesting a control of the match that the single-goal margin understates.</p>
+      <p>Ecuador, who held a slight possession edge across 90 minutes, will feel they created enough to at least take a point from a match in which they showed intermittent quality without the clinical edge that separates teams at this level. Ivory Coast join Germany at the top of Group E on three points following the four-time champions&rsquo; earlier demolition of Cura&ccedil;ao. Ecuador, who reached the Round of 16 in Qatar 2022, cannot afford another poor result when they face Germany in New Jersey on June 25.</p>
+      <div class="src">Sources: <a href="https://sports.yahoo.com/soccer/live/world-cup-2026-live-updates-scores-schedule-results-135432707.html" target="_blank" rel="noopener">Yahoo Sports</a> &middot; <a href="https://www.fourfourtwo.com/competition/all-of-the-world-cup-scores-so-far-at-the-2026-tournament" target="_blank" rel="noopener">FourFourTwo</a> &middot; June 14, 2026</div>
+    </article>
+
+    <!-- ARTICLE — June 14: Netherlands 2-2 Japan -->
+    <article class="stream-item">
+      <div class="stream-date-pill">June 14, 2026 &mdash; Group F</div>
+      <h3>&#127471;&#127477; Kamada&rsquo;s 88th-Minute Equaliser Denies Netherlands in Instant Group F Classic</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Monday, June 15, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Daichi Kamada scored in the 88th minute to earn Japan a 2&ndash;2 draw against the Netherlands in a breathless Group F contest at AT&amp;T Stadium in Dallas that was immediately being called the match of the tournament. All hell broke loose inside 13 frantic second-half minutes as three goals were scored in quick succession. The Netherlands had held the lead and appeared to be cruising towards a comfortable winning start when Japan pulled one back, setting up an extraordinary conclusion. Kamada&rsquo;s late equaliser &mdash; a composed finish that silenced a stadium of more than 90,000 supporters &mdash; completed Japan&rsquo;s comeback from a 2&ndash;1 deficit and earned a point that reflects credit on a side that twice came from behind to refuse defeat against a nation ranked among the genuine contenders for the title.</p>
+      <p>The draw leaves Group F remarkably competitive after the opening round: Netherlands and Japan are level on one point apiece, with Sweden&rsquo;s emphatic 5&ndash;1 win over Tunisia in the late match adding significant pressure from below. Japan, who have made the knockout stages in four of the past five tournaments, cannot afford any slip in their remaining group fixtures. The Netherlands face Sweden in Dallas on June 25 in what is already effectively a must-win match in everything but name.</p>
+      <div class="src">Sources: <a href="https://sports.yahoo.com/soccer/live/world-cup-2026-live-updates-scores-schedule-results-135432707.html" target="_blank" rel="noopener">Yahoo Sports</a> &middot; <a href="https://www.fourfourtwo.com/competition/all-of-the-world-cup-scores-so-far-at-the-2026-tournament" target="_blank" rel="noopener">FourFourTwo</a> &middot; June 14, 2026</div>
+    </article>
+
+    <!-- ARTICLE — June 14: Germany 7-1 Curaçao -->
+    <article class="stream-item">
+      <div class="stream-date-pill">June 14, 2026 &mdash; Group E</div>
+      <h3>&#127465;&#127466; Comenencia&rsquo;s Historic Equaliser Cannot Prevent Germany&rsquo;s 7&ndash;1 Demolition of Cura&ccedil;ao</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Monday, June 15, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Germany dismantled Cura&ccedil;ao 7&ndash;1 at NRG Stadium in Houston in a Group E opener that briefly threatened to become one of football&rsquo;s great upsets before the four-time world champions imposed their class with crushing authority. Cura&ccedil;ao &mdash; making their debut in the men&rsquo;s World Cup finals after qualifying through the CONCACAF route &mdash; produced the moment that will define their tournament regardless of subsequent results: Livano Comenencia equalised to make it 1&ndash;1, sending scenes of raw celebration across the Caribbean island nation of 190,000 people and briefly silencing a Houston stadium that had expected an uncomplicated German procession. It was a goal that deserved its moment in history. That moment lasted approximately eight minutes before Germany, galvanised rather than rattled by the setback, scored six times without reply to close out a rout of exceptional scale.</p>
+      <p>The victory &mdash; Germany&rsquo;s largest winning margin at a World Cup since they defeated Saudi Arabia 8&ndash;0 in 2002 &mdash; sends an unmistakable signal to the rest of the draw. Head coach Julian Nagelsmann had spoken before the tournament of a German side liberated from the weight of expectation that had crushed them at the past two tournaments. A 7&ndash;1 scoreline against a debutant was never in doubt as a measure of class, but the manner of the response after Comenencia&rsquo;s goal &mdash; clinical, remorseless, technically precise &mdash; suggested a team with genuine psychological depth to complement the talent of Jamal Musiala and Florian Wirtz. Germany next face Ecuador in New Jersey on June 25.</p>
+      <div class="src">Sources: <a href="https://sports.yahoo.com/soccer/live/world-cup-2026-live-updates-scores-schedule-results-135432707.html" target="_blank" rel="noopener">Yahoo Sports</a> &middot; <a href="https://www.fourfourtwo.com/competition/all-of-the-world-cup-scores-so-far-at-the-2026-tournament" target="_blank" rel="noopener">FourFourTwo</a> &middot; June 14, 2026</div>
+    </article>
 
     <!-- ARTICLE — June 14: Australia 2-0 Türkiye -->
     <article class="stream-item">
