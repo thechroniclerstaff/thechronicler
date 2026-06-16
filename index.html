@@ -1660,8 +1660,7 @@ document.addEventListener('keydown', e => {
 /* ============================================================
    WORLD CUP LIVE DATA — football-data.org
    ============================================================ */
-const WC_API_KEY = 'cdf24e9968274a9d87c125bc160c6a96';
-const WC_BASE    = 'https://api.football-data.org/v4/competitions/WC';
+const WC_BASE    = 'https://chronicler-football-proxy.thechronicler.workers.dev/wc';
 
 let wcMatches = [];
 let wcScorers = [];
@@ -1695,7 +1694,7 @@ async function fetchWCMatches() {
 
     const res = await fetch(
       `${WC_BASE}/matches?dateFrom=${fmt(yesterday)}&dateTo=${fmt(ahead)}`,
-      { headers: { 'X-Auth-Token': WC_API_KEY } }
+
     );
     const data = await res.json();
     const all = data.matches || [];
@@ -1726,7 +1725,7 @@ async function fetchWCScorers() {
   try {
     const res = await fetch(
       `${WC_BASE}/scorers?limit=5`,
-      { headers: { 'X-Auth-Token': WC_API_KEY } }
+
     );
     const data = await res.json();
     wcScorers = data.scorers || [];
