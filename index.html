@@ -1687,16 +1687,36 @@ function matchDateLabel(utcStr) {
 
 async function fetchWCMatches() {
   try {
-    const today = new Date();
-    const tom   = new Date(); tom.setDate(today.getDate() + 1);
-    const fmt   = d => d.toISOString().slice(0, 10);
+    // Fetch UTC yesterday through UTC tomorrow to capture all ET-day matches
+    // (ET is UTC-4/UTC-5, so a 9PM ET match is 1AM next day UTC)
+    const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+    const tomUTC    = new Date(); tomUTC.setDate(tomUTC.getDate() + 2);
+    const fmt = d => d.toISOString().slice(0, 10);
 
     const res = await fetch(
-      `${WC_BASE}/matches?dateFrom=${fmt(today)}&dateTo=${fmt(tom)}`,
+      `${WC_BASE}/matches?dateFrom=${fmt(yesterday)}&dateTo=${fmt(tomUTC)}`,
       { headers: { 'X-Auth-Token': WC_API_KEY } }
     );
     const data = await res.json();
-    wcMatches = data.matches || [];
+    const all = data.matches || [];
+
+    // Filter to matches whose ET kickoff falls today or tomorrow ET
+    const nowET = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Toronto' }));
+    const todayET = new Date(nowET); todayET.setHours(0,0,0,0);
+    const dayAfterET = new Date(todayET); dayAfterET.setDate(todayET.getDate() + 2);
+
+    wcMatches = all.filter(m => {
+      const kickoffET = new Date(new Date(m.utcDate).toLocaleString('en-US', { timeZone: 'America/Toronto' }));
+      // Include finished matches from today ET and all upcoming/live
+      if (m.status === 'FINISHED') {
+        const matchDayET = new Date(kickoffET); matchDayET.setHours(0,0,0,0);
+        return matchDayET.getTime() === todayET.getTime();
+      }
+      return kickoffET >= todayET && kickoffET < dayAfterET;
+    });
+
+    // Sort by UTC date
+    wcMatches.sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
   } catch(e) {
     wcMatches = [];
   }
