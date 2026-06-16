@@ -1116,6 +1116,50 @@ body {
   .tc-wc-strip { padding: 8px 16px; }
 }
 
+
+.tc-load-more-wrap {
+  padding: 8px 24px 32px;
+}
+
+.tc-load-more-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tc-load-more-btn {
+  background: #fff;
+  border: 0.5px solid #e5ddd0;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 13px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  color: #141008;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.15s;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.tc-load-more-btn:hover {
+  background: #141008;
+  color: #f5f1ea;
+  border-color: #141008;
+}
+
+.tc-load-more-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.tc-load-more-note {
+  font-size: 10px;
+  color: #c0b8a8;
+  letter-spacing: 0.3px;
+}
+
 </style>
 </head>
 
@@ -1184,6 +1228,16 @@ body {
   </div>
 </main>
 
+<!-- LOAD MORE -->
+<div class="tc-load-more-wrap">
+  <div class="tc-load-more-inner">
+    <button id="load-more-btn" onclick="loadMoreMonth()" class="tc-load-more-btn">
+      Load older editions
+    </button>
+    <div class="tc-load-more-note">Articles are organised by month. Each click loads one additional month.</div>
+  </div>
+</div>
+
 <!-- SPECIALS SECTION -->
 <section class="tc-specials-wrap">
   <div class="tc-specials-inner">
@@ -1245,7 +1299,15 @@ body {
 /* ============================================================
    CONFIGURATION
    ============================================================ */
-const DATA_FILE = 'articles.json';
+const MONTHS = [
+  '2026-06',
+  '2026-05',
+  '2026-04',
+  '2026-03',
+];
+
+let loadedMonths = [];
+let currentMonthIdx = 0;
 
 const CANADA_CITIES = [
   { name: 'Toronto',   lat: 43.7001, lon: -79.4163 },
@@ -1315,19 +1377,77 @@ function latestDate(articles) {
 /* ============================================================
    LOAD DATA
    ============================================================ */
-async function loadData() {
+async function loadMonth(monthStr) {
   try {
-    const res = await fetch(DATA_FILE + '?v=' + Date.now());
+    const res = await fetch(`articles-${monthStr}.json?v=${Date.now()}`);
+    if (!res.ok) return false;
     const json = await res.json();
-    allArticles = json.articles || [];
-    marketsData = json.markets || {};
-    const latest = latestDate(allArticles);
-    document.getElementById('edition-label').textContent =
-      formatDateDisplay(latest) + ' · Vol. I';
+    const articles = json.articles || [];
+    if (!articles.length) return false;
+    allArticles = [...allArticles, ...articles];
+    if (!Object.keys(marketsData).length) marketsData = json.markets || {};
+    loadedMonths.push(monthStr);
+    return true;
   } catch(e) {
+    return false;
+  }
+}
+
+async function loadData() {
+  const now = new Date();
+  const currentMonth = now.toISOString().slice(0, 7);
+  const prevMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1)
+    .toISOString().slice(0, 7);
+
+  // Always load current month
+  const loadedCurrent = await loadMonth(currentMonth);
+
+  // If current month is thin (under 20 articles), auto-load previous month too
+  if (allArticles.length < 20) {
+    await loadMonth(prevMonth);
+  }
+
+  // Update MONTHS registry to reflect actual available months
+  if (!MONTHS.includes(currentMonth)) MONTHS.unshift(currentMonth);
+  if (!MONTHS.includes(prevMonth)) MONTHS.splice(1, 0, prevMonth);
+
+  currentMonthIdx = loadedMonths.length;
+
+  if (!allArticles.length) {
     document.getElementById('tc-container').innerHTML =
       '<div class="no-results">Unable to load articles. Please refresh.</div>';
+    return;
   }
+
+  const latest = latestDate(allArticles);
+  document.getElementById('edition-label').textContent =
+    formatDateDisplay(latest) + ' · Vol. I';
+}
+
+async function loadMoreMonth() {
+  const btn = document.getElementById('load-more-btn');
+  if (btn) { btn.textContent = 'Loading...'; btn.disabled = true; }
+
+  const nextMonth = MONTHS[currentMonthIdx];
+  if (!nextMonth) {
+    if (btn) btn.textContent = 'No more editions';
+    return;
+  }
+
+  const loaded = await loadMonth(nextMonth);
+  currentMonthIdx++;
+
+  if (!loaded) {
+    if (currentMonthIdx < MONTHS.length) {
+      await loadMoreMonth();
+    } else {
+      if (btn) { btn.textContent = 'No more editions'; btn.disabled = true; }
+    }
+    return;
+  }
+
+  render();
+  if (btn) { btn.textContent = 'Load more'; btn.disabled = false; }
 }
 
 /* ============================================================
