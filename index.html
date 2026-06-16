@@ -842,6 +842,269 @@ body {
   .tc-curated { display: none; }
   .tc-search { max-width: 100%; }
 }
+
+/* ============================================================
+   WORLD CUP LIVE STRIP
+   ============================================================ */
+.tc-wc-strip {
+  background: #0a2e0a;
+  border-bottom: 2px solid #1a6b3c;
+  padding: 10px 24px;
+}
+
+.tc-wc-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.tc-wc-strip-label { flex-shrink: 0; }
+
+.tc-wc-badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #4caf72;
+  background: rgba(26,107,60,0.3);
+  padding: 3px 10px;
+  border-radius: 10px;
+  border: 0.5px solid #1a6b3c;
+  white-space: nowrap;
+}
+
+.tc-wc-matches {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;
+}
+
+.tc-wc-matches::-webkit-scrollbar { display: none; }
+
+.tc-wc-match {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 6px 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tc-wc-match.live {
+  border-color: #4caf72;
+  background: rgba(26,107,60,0.2);
+}
+
+.tc-wc-match.finished {
+  opacity: 0.7;
+}
+
+.tc-wc-teams {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+}
+
+.tc-wc-score {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(255,255,255,0.12);
+  padding: 2px 8px;
+  border-radius: 4px;
+  min-width: 36px;
+  text-align: center;
+}
+
+.tc-wc-score.live-score {
+  color: #4caf72;
+  background: rgba(26,107,60,0.3);
+}
+
+.tc-wc-time {
+  font-size: 10px;
+  color: #888;
+  letter-spacing: 0.3px;
+}
+
+.tc-wc-live-dot {
+  width: 5px;
+  height: 5px;
+  background: #4caf72;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+  flex-shrink: 0;
+}
+
+.tc-wc-status {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.tc-wc-status.live  { color: #4caf72; }
+.tc-wc-status.fin   { color: #666; }
+.tc-wc-status.timed { color: #a07800; }
+
+.tc-wc-more {
+  font-size: 10px;
+  font-weight: 600;
+  color: #4caf72;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.3px;
+  transition: color 0.15s;
+}
+
+.tc-wc-more:hover { color: #fff; }
+
+.tc-wc-loading {
+  font-size: 11px;
+  color: #555;
+  font-style: italic;
+}
+
+/* World Cup filter view */
+.tc-wc-full {
+  padding: 16px 0;
+}
+
+.tc-wc-section-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #1a6b3c;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 0.5px solid #e8e2d8;
+}
+
+.tc-wc-full-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .tc-wc-full-grid { grid-template-columns: 1fr; }
+}
+
+.tc-wc-full-match {
+  background: #faf8f4;
+  border: 0.5px solid #e5ddd0;
+  border-left: 3px solid #1a6b3c;
+  border-radius: 6px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tc-wc-full-match.live {
+  border-left-color: #4caf72;
+  background: #f0faf4;
+}
+
+.tc-wc-full-match.finished {
+  border-left-color: #ccc;
+}
+
+.tc-wc-full-teams {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #141008;
+}
+
+.tc-wc-full-meta {
+  font-size: 10px;
+  color: #999;
+  margin-top: 3px;
+}
+
+.tc-wc-full-score {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #141008;
+  text-align: center;
+  min-width: 60px;
+}
+
+.tc-wc-full-score.live-score { color: #1a6b3c; }
+
+.tc-wc-full-time {
+  font-size: 11px;
+  color: #a07800;
+  font-weight: 600;
+  text-align: center;
+  min-width: 60px;
+}
+
+.tc-wc-golden-boot {
+  background: #faf8f4;
+  border: 0.5px solid #e5ddd0;
+  border-top: 3px solid #a07800;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.tc-wc-scorer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 0.5px solid #eee;
+  font-size: 13px;
+}
+
+.tc-wc-scorer-row:last-child { border-bottom: none; }
+.tc-wc-scorer-name { color: #141008; font-weight: 600; }
+.tc-wc-scorer-team { color: #999; font-size: 11px; }
+.tc-wc-scorer-goals {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #a07800;
+}
+
+.tc-wc-fullcoverage {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #141008;
+  color: #f5f1ea;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: background 0.15s;
+}
+
+.tc-wc-fullcoverage:hover { background: #8b2513; }
+
+@media (max-width: 480px) {
+  .tc-wc-strip { padding: 8px 16px; }
+}
+
 </style>
 </head>
 
@@ -887,6 +1150,19 @@ body {
   <div class="tc-edition-inner">
     <span class="tc-edition-label" id="edition-label">Loading edition...</span>
     <div class="tc-live"><div class="tc-dot"></div>Live Edition</div>
+  </div>
+</div>
+
+<!-- WORLD CUP LIVE STRIP -->
+<div class="tc-wc-strip" id="wc-strip">
+  <div class="tc-wc-strip-inner">
+    <div class="tc-wc-strip-label">
+      <span class="tc-wc-badge">&#9917; World Cup 2026</span>
+    </div>
+    <div class="tc-wc-matches" id="wc-matches-strip">
+      <div class="tc-wc-loading">Fetching live match data...</div>
+    </div>
+    <a href="Specials/world-cup-2026.html" class="tc-wc-more">Full Coverage &#8594;</a>
   </div>
 </div>
 
@@ -1308,6 +1584,15 @@ function render() {
     html += `<div class="tc-article-grid">`;
     filtered.forEach(a => { html += articleHTML(a, allArticles.indexOf(a)); });
     html += `</div>`;
+  } else if (activeSection === 'world-cup') {
+    // World Cup full view — live API data + articles
+    html += renderWCFullView();
+    if (filtered.length) {
+      html += sectionRule('World Cup Coverage');
+      html += `<div class="tc-article-grid">`;
+      filtered.forEach(a => { html += articleHTML(a, allArticles.indexOf(a)); });
+      html += `</div>`;
+    }
   } else {
     html += sectionRule(SECTION_NAMES[activeSection] || activeSection);
     html += `<div class="tc-article-grid">`;
@@ -1371,12 +1656,210 @@ document.addEventListener('keydown', e => {
   }
 });
 
+
+/* ============================================================
+   WORLD CUP LIVE DATA — football-data.org
+   ============================================================ */
+const WC_API_KEY = 'cdf24e9968274a9d87c125bc160c6a96';
+const WC_BASE    = 'https://api.football-data.org/v4/competitions/WC';
+
+let wcMatches = [];
+let wcScorers = [];
+
+function toET(utcStr) {
+  const d = new Date(utcStr);
+  return d.toLocaleTimeString('en-CA', {
+    hour: 'numeric', minute: '2-digit',
+    timeZone: 'America/Toronto', hour12: true
+  });
+}
+
+function matchDateLabel(utcStr) {
+  const d = new Date(utcStr);
+  const today = new Date();
+  const tom   = new Date(); tom.setDate(today.getDate() + 1);
+  const isSameDay = (a, b) =>
+    a.toDateString() === b.toDateString();
+  if (isSameDay(d, today)) return 'Today';
+  if (isSameDay(d, tom))   return 'Tomorrow';
+  return d.toLocaleDateString('en-CA', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+async function fetchWCMatches() {
+  try {
+    const today = new Date();
+    const tom   = new Date(); tom.setDate(today.getDate() + 1);
+    const fmt   = d => d.toISOString().slice(0, 10);
+
+    const res = await fetch(
+      `${WC_BASE}/matches?dateFrom=${fmt(today)}&dateTo=${fmt(tom)}`,
+      { headers: { 'X-Auth-Token': WC_API_KEY } }
+    );
+    const data = await res.json();
+    wcMatches = data.matches || [];
+  } catch(e) {
+    wcMatches = [];
+  }
+}
+
+async function fetchWCScorers() {
+  try {
+    const res = await fetch(
+      `${WC_BASE}/scorers?limit=5`,
+      { headers: { 'X-Auth-Token': WC_API_KEY } }
+    );
+    const data = await res.json();
+    wcScorers = data.scorers || [];
+  } catch(e) {
+    wcScorers = [];
+  }
+}
+
+function scoreDisplay(match) {
+  const ft = match.score && match.score.fullTime;
+  if (!ft || ft.home === null) return null;
+  return `${ft.home} – ${ft.away}`;
+}
+
+function renderWCStrip() {
+  const el = document.getElementById('wc-matches-strip');
+  if (!el) return;
+
+  if (!wcMatches.length) {
+    el.innerHTML = '<div class="tc-wc-loading">No matches scheduled today.</div>';
+    return;
+  }
+
+  el.innerHTML = wcMatches.map(m => {
+    const home   = m.homeTeam.shortName || m.homeTeam.name;
+    const away   = m.awayTeam.shortName || m.awayTeam.name;
+    const status = m.status;
+    const score  = scoreDisplay(m);
+    const isLive = status === 'IN_PLAY' || status === 'PAUSED' || status === 'HALFTIME';
+    const isFin  = status === 'FINISHED';
+    const label  = matchDateLabel(m.utcDate);
+    const time   = toET(m.utcDate);
+
+    let cls = 'tc-wc-match';
+    if (isLive) cls += ' live';
+    if (isFin)  cls += ' finished';
+
+    let scoreHtml = '';
+    if (score && (isLive || isFin)) {
+      scoreHtml = `<span class="tc-wc-score${isLive?' live-score':''}">${score}</span>`;
+    } else {
+      scoreHtml = `<span class="tc-wc-time">${label} ${time}</span>`;
+    }
+
+    let statusHtml = '';
+    if (isLive) {
+      statusHtml = `<div class="tc-wc-live-dot"></div><span class="tc-wc-status live">Live</span>`;
+    } else if (isFin) {
+      statusHtml = `<span class="tc-wc-status fin">FT</span>`;
+    } else {
+      statusHtml = `<span class="tc-wc-status timed">${time}</span>`;
+    }
+
+    return `<div class="${cls}">
+      ${isLive ? '<div class="tc-wc-live-dot"></div>' : ''}
+      <div class="tc-wc-teams">${home} v ${away}</div>
+      ${scoreHtml}
+    </div>`;
+  }).join('');
+}
+
+function renderWCFullView() {
+  let html = '<div class="tc-wc-full">';
+
+  // Matches section
+  html += `<div class="tc-wc-section-label">Today &amp; Tomorrow's Fixtures</div>`;
+  html += '<div class="tc-wc-full-grid">';
+
+  if (!wcMatches.length) {
+    html += '<div style="color:#bbb;font-style:italic;font-size:13px;">No matches scheduled.</div>';
+  } else {
+    wcMatches.forEach(m => {
+      const home   = m.homeTeam.shortName || m.homeTeam.name;
+      const away   = m.awayTeam.shortName || m.awayTeam.name;
+      const status = m.status;
+      const score  = scoreDisplay(m);
+      const isLive = status === 'IN_PLAY' || status === 'PAUSED' || status === 'HALFTIME';
+      const isFin  = status === 'FINISHED';
+      const label  = matchDateLabel(m.utcDate);
+      const time   = toET(m.utcDate);
+
+      let cls = 'tc-wc-full-match';
+      if (isLive) cls += ' live';
+      if (isFin)  cls += ' finished';
+
+      let rightHtml = '';
+      if (score && (isLive || isFin)) {
+        rightHtml = `<div class="tc-wc-full-score${isLive?' live-score':''}">${score}</div>`;
+      } else {
+        rightHtml = `<div class="tc-wc-full-time">${label}<br>${time}</div>`;
+      }
+
+      html += `<div class="${cls}">
+        <div>
+          <div class="tc-wc-full-teams">${home} v ${away}</div>
+          <div class="tc-wc-full-meta">${isLive ? '🟢 Live now' : isFin ? 'Full time' : label + ' · ' + time + ' ET'}</div>
+        </div>
+        ${rightHtml}
+      </div>`;
+    });
+  }
+
+  html += '</div>';
+
+  // Golden Boot
+  html += `<div class="tc-wc-section-label" style="margin-top:8px;">Golden Boot — Top Scorers</div>`;
+  html += '<div class="tc-wc-golden-boot">';
+
+  if (!wcScorers.length) {
+    html += '<div style="color:#bbb;font-style:italic;font-size:13px;">Scorer data unavailable.</div>';
+  } else {
+    wcScorers.forEach((s, i) => {
+      html += `<div class="tc-wc-scorer-row">
+        <div>
+          <span class="tc-wc-scorer-name">${s.player.name}</span>
+          <span class="tc-wc-scorer-team"> · ${s.team.shortName || s.team.name}</span>
+        </div>
+        <div class="tc-wc-scorer-goals">${s.goals} ⚽</div>
+      </div>`;
+    });
+  }
+
+  html += '</div>';
+
+  // Full coverage link
+  html += `<a href="Specials/world-cup-2026.html" class="tc-wc-fullcoverage">
+    Full Tournament Coverage — Standings, Bracket &amp; More &#8594;
+  </a>`;
+
+  html += '</div>';
+  return html;
+}
+
+async function initWC() {
+  await Promise.all([fetchWCMatches(), fetchWCScorers()]);
+  renderWCStrip();
+}
+
+// Auto-refresh strip every 3 minutes for live scores
+setInterval(async () => {
+  await fetchWCMatches();
+  renderWCStrip();
+  // If World Cup view is active, re-render that too
+  if (activeSection === 'world-cup') render();
+}, 3 * 60 * 1000);
+
 /* ============================================================
    INIT
    ============================================================ */
 async function init() {
   await loadData();
   render();
+  initWC();
 }
 
 init();
