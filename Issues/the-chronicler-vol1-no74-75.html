@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicler &mdash; Tuesday, June 16, 2026 &mdash; Vol. I, Nos. 74&ndash;75</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:   #141008;
+  --aged:  #f4edd6;
+  --cream: #fdf9ee;
+  --rust:  #8b2513;
+  --gold:  #a07800;
+  --grey:  #635d4e;
+  --rule:  #d0c5a0;
+  --green: #1a6b3c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e2d9c0;font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:14px;line-height:1.65;}
+.sticky-shell{position:sticky;top:0;z-index:200;box-shadow:0 3px 10px rgba(0,0,0,.35);}
+.mini-mast{background:var(--ink);border-bottom:2px solid var(--rust);display:flex;justify-content:space-between;align-items:center;padding:5px 14px;}
+.mini-mast-title{font-family:'UnifrakturMaguntia',cursive;font-size:20px;color:var(--aged);text-decoration:none;letter-spacing:1px;line-height:1;}
+.mini-mast-btns{display:flex;gap:5px;}
+.mini-mast-btns a.top-btn{background:transparent;border:1px solid rgba(244,237,214,.2);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .2s;}
+.mini-mast-btns a.top-btn:hover{background:var(--rust);border-color:var(--rust);}
+.nav-bar{background:#1e1608;display:flex;justify-content:center;flex-wrap:wrap;}
+.nav-item{position:relative;}
+.nav-item>a{color:var(--aged);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;display:block;border-right:1px solid #2a2010;transition:background .2s;white-space:nowrap;}
+.nav-item>a:hover{background:var(--rust);color:#fff;}
+.nav-item:last-child>a{border-right:none;}
+.masthead{background:var(--cream);border-bottom:4px double var(--ink);padding:12px 16px 10px;text-align:center;}
+.mast-top{display:flex;justify-content:space-between;align-items:center;font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);letter-spacing:.04em;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:5px;flex-wrap:wrap;gap:4px;}
+.ig-link{display:flex;align-items:center;gap:4px;color:var(--rust);text-decoration:none;font-family:'Source Sans 3',sans-serif;font-size:10px;}
+.ig-link svg{width:13px;height:13px;flex-shrink:0;}
+.masthead h1{font-family:'UnifrakturMaguntia',cursive;font-size:clamp(30px,8vw,68px);color:var(--ink);letter-spacing:2px;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.07);}
+.mast-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:11px;color:var(--grey);margin-top:3px;}
+.page{max-width:1080px;margin:0 auto;background:var(--cream);padding:18px 16px 28px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);}
+.section-banner{text-align:center;margin:20px 0 14px;padding:11px 16px;background:var(--ink);color:var(--aged);}
+.section-banner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;}
+.section-banner .flag{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-top:2px;}
+.cat{font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust);padding-bottom:4px;margin:18px 0 12px;display:block;}
+.col-3{display:grid;grid-template-columns:1fr;gap:0;}
+.col-2{display:grid;grid-template-columns:1fr;gap:0;}
+article.s{border-right:none;border-bottom:1px solid var(--rule);padding:0 0 18px;margin-bottom:18px;}
+article.s:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+article.s h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:6px;}
+article.s .by{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);font-style:italic;margin-bottom:4px;}
+article.s p{font-size:13.5px;line-height:1.75;margin-bottom:8px;}
+article.s .src{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--grey);border-top:1px solid var(--rule);padding-top:5px;margin-top:6px;}
+article.s .src a{color:var(--rust);text-decoration:none;}
+.read-btn{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--rust);background:transparent;border:none;cursor:pointer;padding:3px 0 5px;display:inline-block;}
+.divider{height:8px;background:var(--ink);max-width:1080px;margin:0 auto;}
+.ticker-bar{background:var(--rust);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;text-align:center;line-height:1.6;}
+.w-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 6px;}
+.w-scroll::-webkit-scrollbar{height:4px;}
+.w-scroll::-webkit-scrollbar-thumb{background:var(--rule);}
+.w-track{display:flex;gap:8px;width:max-content;padding-bottom:4px;}
+.w-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 10px 7px;text-align:left;width:138px;flex-shrink:0;}
+.w-card.india-card{border-top-color:var(--rust);}
+.w-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;}
+.w-top .city{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--ink);line-height:1.2;}
+.w-top .w-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.w-temp{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);line-height:1;margin:2px 0;}
+.w-cond{font-family:'Libre Baskerville',serif;font-style:italic;font-size:9px;color:var(--grey);margin-bottom:4px;line-height:1.3;}
+.aqi-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;margin-bottom:3px;}
+.aqi-badge .al{font-weight:400;opacity:.8;}
+.aqi-good{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.aqi-moderate{background:#fff3cd;color:#856404;border:1px solid #ffeeba;}
+.aqi-poor{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-vpoor{background:#e2b4f5;color:#4b0082;border:1px solid #d19ee8;}
+.aqi-unhealthy{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.aqi-hazardous{background:#7e0023;color:#fff;border:1px solid #5a0019;}
+.w-drow{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-bottom:4px;}
+.wfc{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:4px;margin-top:2px;}
+.wfc .dm{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:7px;color:var(--grey);flex:1;line-height:1.3;}
+.wfc .dm span{display:block;font-size:8px;margin:1px 0;}
+.w-note{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);font-style:italic;margin-top:6px;padding-top:4px;border-top:1px solid var(--rule);}
+.mkt-note{border-left:3px solid var(--rust);padding:6px 10px;background:var(--aged);font-family:'Playfair Display',serif;font-style:italic;font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:10px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.mkt-card{background:#ede6cf;border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 11px 8px;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.mkt-card.currency{border-top-color:var(--gold);}
+.mkt-card.commodity-up{border-top-color:var(--green);}
+.mkt-card.commodity-down{border-top-color:var(--rust);}
+.mkt-card.world{background:var(--aged);}
+.mkt-card .mc-name{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--ink);line-height:1.15;}
+.mkt-card .mc-sub{font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.mkt-card .mc-val{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--ink);line-height:1.1;}
+.mc-chg{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;padding:2px 5px;border-radius:2px;display:inline-block;width:fit-content;}
+.mc-chg.up{background:#d4edda;color:#155724;}
+.mc-chg.down{background:#f8d7da;color:#721c24;}
+.mc-chg.flat{background:#fff3cd;color:#856404;}
+.mc-note{font-family:'Source Sans 3',sans-serif;font-size:8px;color:var(--grey);margin-top:1px;}
+.mkt-src{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.mkt-src a{color:var(--rust);text-decoration:none;}
+.india-mkt-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.gta-focus{background:#f0e8d0;border:1px dashed var(--rule);padding:16px;margin-top:16px;border-radius:4px;}
+.gta-focus-label{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:12px;border-bottom:1px solid var(--rule);padding-bottom:6px;}
+.games-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.puzzle-box{background:var(--aged);border:1px solid var(--rule);padding:14px 14px 12px;}
+.puzzle-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--rust);margin-bottom:4px;}
+.puzzle-sub{font-family:'Source Sans 3',sans-serif;font-size:9.5px;color:var(--grey);margin-bottom:10px;line-height:1.55;}
+.crunch-nums{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.crunch-tile{background:var(--ink);color:var(--aged);font-family:'Playfair Display',serif;font-weight:900;font-size:22px;width:46px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.crunch-target{background:var(--rust);color:#fff;font-family:'Playfair Display',serif;font-weight:900;font-size:24px;width:54px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.reveal-toggle{font-family:'Source Sans 3',sans-serif;font-size:9.5px;background:var(--ink);color:var(--aged);border:none;padding:5px 10px;cursor:pointer;margin-bottom:8px;letter-spacing:.08em;}
+.answer-box{display:none;background:var(--cream);border:1px solid var(--rule);padding:8px 10px;margin-bottom:8px;}
+.answer-cat{font-family:'Source Sans 3',sans-serif;font-size:10px;color:var(--ink);padding:4px 0;line-height:1.6;}
+.crunch-archive{font-family:'Source Sans 3',sans-serif;font-size:9px;color:var(--grey);margin-top:4px;}
+.crunch-archive a{color:var(--rust);text-decoration:none;}
+.ww-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;}
+.ww-mini-tile{background:var(--ink);color:var(--aged);font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:8px 4px;text-align:center;border-radius:3px;cursor:default;}
+footer.footer{background:var(--ink);color:rgba(244,237,214,.55);text-align:center;padding:20px 16px 16px;font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.05em;line-height:1.9;}
+footer.footer a{color:var(--rust);text-decoration:none;}
+.footer-ig{margin:8px 0 5px;display:flex;justify-content:center;align-items:center;gap:7px;}
+.footer-ig a{color:rgba(244,237,214,.7);display:flex;align-items:center;gap:6px;font-size:11px;text-decoration:none;}
+.footer-ig svg{width:16px;height:16px;}
+.footer-disc{font-size:9px;color:rgba(244,237,214,.35);max-width:660px;margin:8px auto 0;line-height:1.7;font-style:italic;}
+@media(min-width:680px){
+  .col-3{grid-template-columns:repeat(3,1fr);}
+  .col-2{grid-template-columns:repeat(2,1fr);}
+  article.s{border-right:1px solid var(--rule);border-bottom:none;padding:0 14px 0;}
+  article.s:last-child{border-right:none;}
+  .mkt-grid{grid-template-columns:repeat(4,1fr);}
+  .india-mkt-row{grid-template-columns:repeat(4,1fr);}
+}
+@media(max-width:480px){
+  .games-row{grid-template-columns:1fr;}
+  .ww-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BS6DKVDMVD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BS6DKVDMVD');
+</script>
+</head>
+<body id="top">
+<div class="sticky-shell">
+  <div class="mini-mast">
+    <a class="mini-mast-title" href="https://thechronicler.ca">The Chronicler</a>
+    <div class="mini-mast-btns">
+      <a class="top-btn" href="#top">Top</a>
+      <a class="top-btn" href="https://thechronicler.ca">Home</a>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-item"><a href="#canada">Canada</a></div>
+    <div class="nav-item"><a href="#india">India</a></div>
+    <div class="nav-item"><a href="#world">World</a></div>
+    <div class="nav-item"><a href="#sport">Sport</a></div>
+    <div class="nav-item"><a href="https://thechronicler.ca/Specials/world-cup-2026.html">World Cup</a></div>
+    <div class="nav-item"><a href="#puzzles">Funnies</a></div>
+  </nav>
+</div>
+
+<div class="masthead">
+  <div class="mast-top">
+    <span>Vol. I, Nos. 74&ndash;75 &nbsp;&middot;&nbsp; Tuesday, June 16, 2026</span>
+    <a class="ig-link" href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+    <span>Independent &nbsp;&middot;&nbsp; Daily &nbsp;&middot;&nbsp; Free</span>
+  </div>
+  <h1>The Chronicler</h1>
+  <div class="mast-tag">&ldquo;Today&rsquo;s Record. Tomorrow&rsquo;s Reference.&rdquo;</div>
+</div>
+
+<div class="ticker-bar">Iran&ndash;US Peace Deal Signed Friday in Geneva &mdash; G7 Opens in &Eacute;vian; Zelenskyy Seeks Trump Meeting &mdash; UK Bans Social Media for Under-16s &mdash; India WPI Inflation Hits 9.68% &mdash; DRDO Tests Indigenous Cruise Missile &mdash; Cuba Healthcare Collapsing Under US Blockade &mdash; India Beat Pakistan by 64 Runs in Women&rsquo;s T20 World Cup &mdash; Deepti Sharma Takes Best-Ever WT20I Figures &mdash; Mexican President Challenges FIFA on Ticket Prices &mdash; SIT Begins Overnight Probe at Ram Mandir</div>
+
+<!-- ==================== CANADA ==================== -->
+<div id="canada">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Canada</h2><div class="flag">The Chronicler Canada Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Toronto</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">11&deg;C</div>
+      <div class="w-cond">Clear</div>
+      <span class="aqi-badge aqi-good">AQI 29 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; WSW 10 km/h</span><span>&#128167; 94%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9928;&#65039;</span>19/14&deg;</div>
+        <div class="dm">Thu<span>&#9928;&#65039;</span>20/13&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Montr&eacute;al</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">13&deg;C</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 36 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; SW 5 km/h</span><span>&#128167; 82%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9928;&#65039;</span>18/13&deg;</div>
+        <div class="dm">Thu<span>&#9728;&#65039;</span>24/14&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Ottawa</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">9&deg;C</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 31 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; WSW 6 km/h</span><span>&#128167; 100%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9928;&#65039;</span>20/11&deg;</div>
+        <div class="dm">Thu<span>&#9728;&#65039;</span>22/12&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Edmonton</div><div class="w-icon">&#127787;&#65039;</div></div>
+      <div class="w-temp">13&deg;C</div>
+      <div class="w-cond">Mist</div>
+      <span class="aqi-badge aqi-moderate">AQI 54 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; WSW 8 km/h</span><span>&#128167; 94%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9928;&#65039;</span>17/9&deg;</div>
+        <div class="dm">Thu<span>&#9928;&#65039;</span>17/7&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Vancouver</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">15&deg;C</div>
+      <div class="w-cond">Clear</div>
+      <span class="aqi-badge aqi-moderate">AQI 64 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; E 16 km/h</span><span>&#128167; 72%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9928;&#65039;</span>20/11&deg;</div>
+        <div class="dm">Thu<span>&#9728;&#65039;</span>22/14&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Halifax</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">14&deg;C</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-good">AQI 33 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; SSW 4 km/h</span><span>&#128167; 88%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9928;&#65039;</span>20/13&deg;</div>
+        <div class="dm">Thu<span>&#9728;&#65039;</span>22/12&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card">
+      <div class="w-top"><div class="city">Winnipeg</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">11&deg;C</div>
+      <div class="w-cond">Clear</div>
+      <span class="aqi-badge aqi-good">AQI 15 <span class="al">Good</span></span>
+      <div class="w-drow"><span>&#128168; WSW 12 km/h</span><span>&#128167; 76%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9928;&#65039;</span>18/8&deg;</div>
+        <div class="dm">Thu<span>&#9728;&#65039;</span>15/4&deg;</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather data: Environment Canada / wttr.in. AQI: Open-Meteo (US AQI scale). Updated approx. 7:00 AM ET, June 16, 2026.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="canada-1">
+      <h3>Carney Arrives at G7 as Iran Peace Deal Dominates Summit Agenda</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Prime Minister Mark Carney arrived in &Eacute;vian, France on Monday for the G7 Leaders&rsquo; Summit, one day after U.S. President Donald Trump announced a peace agreement with Iran had been reached, ending months of conflict that had choked off global energy supplies through the Strait of Hormuz. Carney, who travelled through Ireland before flying to Geneva and then onward to the summit site in the French Alps, welcomed the development and said Canada stands ready to help restore shipping through the strait once the deal is formally signed. Speaking to reporters on the tarmac in Ireland, he said the situation in the Middle East underscores the need to make commodity systems more resilient to supply shocks of this kind. The formal agreement is scheduled to be signed in Switzerland on Friday, after which Trump has said he will authorize the strait&rsquo;s reopening to commercial traffic.</p>
+      <p>Carney joined the leaders of France, Germany, Italy and the United Kingdom in issuing a joint statement calling the moment an opportunity to restore regional stability and stabilize the global economy. The statement declared it vital that detailed negotiations be concluded swiftly and comprehensively implemented, and committed the five countries to a strictly defensive and independent mission to reassure commercial shipping and conduct mine clearance operations once the strait reopens. The leaders also reaffirmed that Iran must never acquire a nuclear weapon, and said they stand ready to lift relevant sanctions in response to clear, verifiable steps on Tehran&rsquo;s nuclear program. Carney is scheduled to meet on the sidelines with European Council President Antonio Costa and European Commission President Ursula von der Leyen, and while no bilateral meeting with Trump has been confirmed, Canada-U.S. Trade Minister Dominic LeBlanc and U.S. Trade Representative Jamieson Greer are expected to connect on the summit&rsquo;s margins.</p>
+      <div class="src">Source: <a href="https://globalnews.ca/news/11904543/carney-g7-france-iran-peace-deal/" target="_blank" rel="noopener">Global News</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="canada-2">
+      <h3>Liberals Table Long-Awaited Privacy Reform Bill Targeting AI and Children&rsquo;s Data</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The federal Liberal government introduced its long-promised overhaul of Canada&rsquo;s private-sector privacy law on Monday, tabling legislation in the House of Commons that is expected to enshrine privacy as a fundamental right, protect children&rsquo;s data, and place new constraints on how artificial intelligence systems collect and use Canadians&rsquo; personal information. AI Minister Evan Solomon tabled the bill, the third federal attempt to modernize the Personal Information Protection and Electronic Documents Act since 2020, after previous efforts in 2020 and 2023 failed to become law. The legislation is also expected to include measures preventing retailers from using Canadians&rsquo; data for surveillance pricing &mdash; a practice in which companies adjust prices based on individual consumer profiles.</p>
+      <p>The bill arrives amid mounting scrutiny of how generative AI platforms handle personal data. A joint investigation by federal and provincial privacy commissioners last month found that OpenAI, the company behind ChatGPT, engaged in overly broad data collection without obtaining Canadians&rsquo; consent, leading the company to commit to enhanced privacy safeguards. Federal Privacy Commissioner Philippe Dufresne has repeatedly called for stronger enforcement powers under PIPEDA, including the ability to issue monetary penalties. Critics have noted tension between the government&rsquo;s privacy ambitions and other legislation moving through Parliament simultaneously &mdash; most notably Bill C-22, which law professor Michael Geist of the University of Ottawa has argued could require tech companies to retain users&rsquo; metadata and create law enforcement access capabilities, raising its own significant privacy concerns.</p>
+      <div class="src">Source: <a href="https://globalnews.ca/news/11904549/liberals-bills-privacy-artificial-intelligence/" target="_blank" rel="noopener">Global News</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="canada-3">
+      <h3>Opioid Deaths Down 23% in 2025, But Canada Still Loses 15 Lives a Day</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The federal government reported Monday that opioid-related deaths in Canada declined by 23 per cent in 2025, a significant drop that health officials attributed to expanded naloxone distribution and shifts in the composition of the drug supply. Opioid-related hospitalizations fell by 12 per cent over the same period. Despite the improvement, Health Canada cautioned that the progress is uneven and fragile, and that the underlying crisis remains severe. More than 5,600 Canadians died from apparent opioid toxicity last year &mdash; an average of 15 lives lost every day &mdash; and the overall death toll remains far higher than it was a decade ago, when the public toxic drug crisis first emerged.</p>
+      <p>Health Canada said there is no single explanation for the decline and no single solution going forward. The crisis is described as complex, driven by factors including the unpredictable composition of the illicit drug supply, inadequate access to treatment, and deep social and economic vulnerabilities among affected populations. The government noted that progress in some regions has been offset by continued deterioration in others, and that sustained investment across prevention, harm reduction, treatment and enforcement remains necessary. Advocates and health experts have long called for a comprehensive national strategy that addresses root causes alongside immediate overdose response.</p>
+      <div class="src">Source: <a href="https://globalnews.ca/news/11904756/opioid-overdose-crisis-canada-deaths-rate-2025/" target="_blank" rel="noopener">Global News</a> &middot; June 15, 2026</div>
+    </article>
+
+  </div>
+
+  <div class="col-3">
+
+    <article class="s" id="canada-4">
+      <h3>Gas Prices Unlikely to Return to Pre-War Levels Soon, Experts Warn</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Canadians hoping the U.S.-Iran peace deal will quickly reverse the fuel price surge of the past several months may be disappointed, with economists and energy analysts warning that a full normalization of oil and gas markets could take the better part of a year &mdash; if it happens at all. The national average price for regular gasoline in Canada currently sits at just below $1.66 per litre, down from roughly $1.90 a month ago but well above the $1.35 seen one year ago. While the announcement of a peace deal has pushed oil prices lower &mdash; West Texas Intermediate crude was trading at around US$80 per barrel on Monday, down from a peak of approximately $113 in May &mdash; analysts say the road back to pre-war price levels is long and uncertain. Gas price analyst Dan McTeague of Canadians for Affordable Energy said Canadians should not expect the national average to fall much below $1.50 per litre in the near term.</p>
+      <p>The structural challenge is not simply political but physical: damaged oil facilities in the Persian Gulf, disrupted supply chains for crude, natural gas and fertilizer, and the logistical reality that oil tankers travel slowly mean supply recovery will lag the diplomatic timeline. Queen&rsquo;s University international business professor David Detomasi said the frequency of global supply shocks means consumers may need to accept a permanently elevated baseline. TD Economics analyst Marc Ercolao said that while pump prices should see some relief within days or weeks of the Strait of Hormuz reopening, full normalization of energy markets will be slow and uneven, potentially extending into 2027. Concordia University economics professor Moshe Lander noted that even a reopened strait does not guarantee unimpeded oil flow if port facilities on the far side remain damaged and require months of repair.</p>
+      <div class="src">Source: <a href="https://globalnews.ca/news/11904608/iran-peace-agreement-gas-prices/" target="_blank" rel="noopener">Global News</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="canada-5">
+      <h3>Metro Vancouver Outside Workers Walk Off the Job in Full-Scale Strike</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>More than 700 outside workers at Metro Vancouver escalated their labour dispute to a full-scale strike on Monday, walking off the job after 17 months without a collective agreement. The Greater Vancouver Regional District Employees&rsquo; Union, which represents workers in water and wastewater treatment, air quality monitoring, natural resources, parks, infrastructure and ecological reserves, said all members except those designated as essential-service staff participated in the work stoppage. The union is asking residents to consider avoiding 30 regional parks and greenways &mdash; including Grouse Mountain Regional Park, Pacific Spirit Park in Vancouver and Burnaby Lake Regional Park &mdash; as most district employees at those sites will not be working.</p>
+      <p>Union president Jesse Medeiros said workers are fed up with what he described as stalling and incompetence from Metro Vancouver management, and that the full strike was a necessary step to force the district back to the bargaining table without preconditions. The last collective agreement between Metro Vancouver and the union expired in December 2024. Metro Vancouver has said it offered possible restart dates without conditions attached, a claim the union disputes. No talks are currently scheduled. The union said members would decide Monday whether to continue the full strike or consider other forms of job action to restart negotiations. The work stoppage affects services that underpin daily life across the region, raising concern among municipal officials about the duration of the dispute heading into the summer months.</p>
+      <div class="src">Source: <a href="https://globalnews.ca/news/11904859/metro-vancouver-outside-workers-full-strike/" target="_blank" rel="noopener">Global News</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="canada-6">
+      <h3>Calgary Tables Nearly $1-Billion Ask to Ottawa for Water, Transit and Recreation</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Calgary city officials are recommending council seek close to $1 billion from the federal government in its upcoming pre-budget submission, covering critical infrastructure, transit expansion and recreational facilities as the city continues to grapple with the pressures of being Canada&rsquo;s fastest-growing major city. The largest single request is $190 million &mdash; half the cost of the Bearspaw feeder main replacement project, a fast-tracked emergency infrastructure effort following two ruptures in two years to the pipeline that carries 60 per cent of the city&rsquo;s drinking water. The first stage of the replacement, involving micro-tunnelling from the Shaganappi Pump Station to 73 Street N.W., is expected to cost $281 million, with a second open-cut stage adding $100 million. Mayor Jeromy Farkas described the Bearspaw project as addressing essential needs, not nice-to-haves.</p>
+      <p>The submission also requests $335 million for Calgary Transit, including $80 million to extend the Blue Line LRT north to 88 Avenue &mdash; a prerequisite for eventually connecting rail service to Calgary International Airport &mdash; along with $255 million for a new bus maintenance facility and fleet expansion. A further $320 million is sought for recreation infrastructure, including $150 million toward the Foothills Multisport Fieldhouse and $170 million spread across five facility redevelopments as part of the city&rsquo;s 25-year Gameplan recreation strategy. City officials are also seeking full federal funding for a proposed Prairie Economic Gateway logistics and manufacturing hub in the city&rsquo;s southeast. The intergovernmental affairs committee is set to debate the recommendations Thursday, with the mayor&rsquo;s letter to the federal finance minister to follow in July if approved.</p>
+      <div class="src">Source: <a href="https://globalnews.ca/news/11904525/calgary-seeking-nearly-1-billion-from-ottawa-for-infrastructure-transit/" target="_blank" rel="noopener">Global News</a> &middot; June 15, 2026</div>
+    </article>
+
+  </div>
+
+  <div class="gta-focus">
+    <div class="gta-focus-label">GTA Focus</div>
+    <div class="col-2">
+
+      <article class="s" id="gta-1">
+        <h3>Ontario Housing Starts Dip in May Despite Stronger Year Overall</h3>
+        <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+        <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+        <p>Ontario recorded a three per cent decline in housing starts in May compared to the same month last year, with work beginning on 5,661 new units &mdash; down from 5,866 in May 2025 &mdash; according to data released Monday by the Canada Mortgage and Housing Corporation. The national picture was similarly softer, with housing starts across Canada falling roughly five per cent year-over-year in May. The dip follows a relatively strong start to 2026: year-to-date Ontario housing starts are running 18 per cent ahead of last year&rsquo;s pace, with 26,084 new units begun so far. The broader improvement, however, does little to close the gap between the province&rsquo;s actual construction rate and its stated target. Ontario aims to build 175,000 new homes in 2026 as part of its 1.5 million homes by 2031 goal; with 42 per cent of the year elapsed, the province has achieved only 15 per cent of that annual target.</p>
+        <p>The Ford government has struggled to translate housing ambitions into construction outcomes for several years. It initially attributed slow starts to high interest rates, then to municipal development charges and permit costs &mdash; issues it has repeatedly tried to address through legislation. The 2026 provincial budget expanded an HST new home incentive to all buyers and partnered with Ottawa to reduce development charges, measures Housing Minister Rob Flack has said are generating buzz in sales offices across the province. The government has nonetheless acknowledged its own 1.5 million home target is unlikely to be met, with Finance Minister Peter Bethlenfalvy calling it a soft target late last year. Ontario achieved only 80 per cent of its 125,000 home goal in 2024, even after including basement units, long-term care beds and student residences.</p>
+        <div class="src">Source: <a href="https://globalnews.ca/news/11904820/ontario-may-housing-starts/" target="_blank" rel="noopener">Global News</a> &middot; June 15, 2026</div>
+      </article>
+
+      <article class="s" id="gta-2">
+        <h3>Three Quarters of Ontario ER Doctors Report Severe Overcrowding, OMA Survey Finds</h3>
+        <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+        <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+        <p>A new survey of Ontario emergency room physicians released Monday by the Ontario Medical Association paints a stark picture of a health-care system under serious strain, with 74 per cent of respondents describing overcrowding in their emergency departments as either severe or critical. The survey, which drew responses from roughly 15 per cent of the province&rsquo;s ER doctors, found that 76 per cent reported overcrowding affected their ability to provide timely care on most shifts or nearly every shift. The OMA said the findings reveal a system in profound crisis, with overwhelming consensus among emergency physicians about the severity of the challenges they face daily. A separate Ipsos poll, also commissioned by the OMA, found a majority of Ontarians believe the provincial government has done a poor job of addressing emergency room overcrowding.</p>
+        <p>The Ford government responded by pointing to record investment in the health-care system. A spokesperson for Health Minister Sylvia Jones said the province is investing over $101 billion in health care this year, including a four per cent funding increase to the hospital sector for the third consecutive year &mdash; bringing the cumulative hospital funding increase to over 50 per cent since 2018. The government also cited the addition of 50 new MRI and CT machines, 100,000 new annual diagnostic scans in community facilities, 3,500 new hospital beds, 20,000 new doctors and 100,000 new nurses since 2018. The OMA&rsquo;s findings nonetheless intensify pressure on Queen&rsquo;s Park ahead of what is expected to be a difficult summer for emergency departments, which historically see demand rise as the season progresses.</p>
+        <div class="src">Source: <a href="https://globalnews.ca/news/11905090/ontario-er-overcrowding-oma-survey/" target="_blank" rel="noopener">Global News</a> &middot; June 15, 2026</div>
+      </article>
+
+    </div>
+  </div>
+
+  <span class="cat">Canada Markets</span>
+  <div class="mkt-note">Canada market data reflects Tuesday, June 16, 2026 &mdash; intraday as at 7:00 AM ET. WTI Crude and Gold sourced from Google Finance. Currency rates sourced from Google Finance, June 16, 2026. S&amp;P/TSX intraday.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">S&amp;P/TSX</div>
+      <div class="mc-sub">Toronto Stock Exchange</div>
+      <div class="mc-val">35,275.64</div>
+      <span class="mc-chg up">&#9650; +337.79 (+0.97%)</span>
+      <div class="mc-note">Jun 16, 2026 &middot; intraday 7:00 AM ET &middot; CAD</div>
+    </div>
+    <div class="mkt-card commodity-down">
+      <div class="mc-name">WTI Crude</div>
+      <div class="mc-sub">NYMEX Front Month</div>
+      <div class="mc-val">$73.64</div>
+      <span class="mc-chg down">&#9660; &minus;1.08 (&minus;1.45%)</span>
+      <div class="mc-note">Jun 16, 2026 &middot; USD/bbl</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold</div>
+      <div class="mc-sub">COMEX Front Month</div>
+      <div class="mc-val">$4,367.80</div>
+      <span class="mc-chg up">&#9650; +16.20 (+0.37%)</span>
+      <div class="mc-note">Jun 16, 2026 &middot; USD/oz</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / USD</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">0.7146</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 16, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / INR</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">&#8377;67.5749</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 16, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / EUR</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">&#8364;0.6154</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 16, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">CAD / GBP</div>
+      <div class="mc-sub">Canadian Dollar</div>
+      <div class="mc-val">&#163;0.5321</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 16, 2026 &middot; Google Finance</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://finance.google.com" target="_blank" rel="noopener">Google Finance</a> &middot; Market data carries inherent delays; verify with live sources before making financial decisions.</div>
+
+</div></div><!-- /canada -->
+
+<!-- ==================== INDIA ==================== -->
+<div id="india">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>India</h2><div class="flag">The Chronicler India Desk</div></div>
+
+  <span class="cat">Weather</span>
+  <div class="w-scroll"><div class="w-track">
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">New Delhi</div><div class="w-icon">&#127787;&#65039;</div></div>
+      <div class="w-temp">32&deg;C</div>
+      <div class="w-cond">Haze</div>
+      <span class="aqi-badge aqi-hazardous">AQI 529 <span class="al">Hazardous</span></span>
+      <div class="w-drow"><span>&#128168; WNW 11 km/h</span><span>&#128167; 49%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#127787;&#65039;</span>41/32&deg;</div>
+        <div class="dm">Thu<span>&#127787;&#65039;</span>39/33&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chandigarh</div><div class="w-icon">&#9728;&#65039;</div></div>
+      <div class="w-temp">41&deg;C</div>
+      <div class="w-cond">Sunny</div>
+      <span class="aqi-badge aqi-unhealthy">AQI 151 <span class="al">Unhealthy</span></span>
+      <div class="w-drow"><span>&#128168; WNW 12 km/h</span><span>&#128167; 18%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9728;&#65039;</span>42/27&deg;</div>
+        <div class="dm">Thu<span>&#9728;&#65039;</span>41/29&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Kolkata</div><div class="w-icon">&#127787;&#65039;</div></div>
+      <div class="w-temp">31&deg;C</div>
+      <div class="w-cond">Haze</div>
+      <span class="aqi-badge aqi-poor">AQI 116 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; S 28 km/h</span><span>&#128167; 71%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#127787;&#65039;</span>38/29&deg;</div>
+        <div class="dm">Thu<span>&#127787;&#65039;</span>38/29&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Mumbai</div><div class="w-icon">&#127787;&#65039;</div></div>
+      <div class="w-temp">34&deg;C</div>
+      <div class="w-cond">Smoke</div>
+      <span class="aqi-badge aqi-moderate">AQI 60 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; W 22 km/h</span><span>&#128167; 60%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9928;&#65039;</span>31/29&deg;</div>
+        <div class="dm">Thu<span>&#9928;&#65039;</span>30/29&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Hyderabad</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">36&deg;C</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-poor">AQI 111 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; N 19 km/h</span><span>&#128167; 31%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9728;&#65039;</span>38/29&deg;</div>
+        <div class="dm">Thu<span>&#9928;&#65039;</span>36/29&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Bengaluru</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">32&deg;C</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-moderate">AQI 72 <span class="al">Moderate</span></span>
+      <div class="w-drow"><span>&#128168; NNW 21 km/h</span><span>&#128167; 52%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9928;&#65039;</span>32/22&deg;</div>
+        <div class="dm">Thu<span>&#9728;&#65039;</span>31/21&deg;</div>
+      </div>
+    </div>
+
+    <div class="w-card india-card">
+      <div class="w-top"><div class="city">Chennai</div><div class="w-icon">&#9925;&#65039;</div></div>
+      <div class="w-temp">39&deg;C</div>
+      <div class="w-cond">Partly Cloudy</div>
+      <span class="aqi-badge aqi-poor">AQI 106 <span class="al">Poor</span></span>
+      <div class="w-drow"><span>&#128168; SSE 18 km/h</span><span>&#128167; 48%</span></div>
+      <div class="wfc">
+        <div class="dm">Wed<span>&#9928;&#65039;</span>35/30&deg;</div>
+        <div class="dm">Thu<span>&#9925;&#65039;</span>33/29&deg;</div>
+      </div>
+    </div>
+
+  </div></div>
+  <div class="w-note">Weather data: IMD / India Meteorological Department / wttr.in. AQI: Open-Meteo (US AQI scale). Updated approx. 7:00 AM ET, June 16, 2026. New Delhi AQI 529: Hazardous &mdash; outdoor activity strongly discouraged.</div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="india-1">
+      <h3>India&rsquo;s Wholesale Inflation Surges to 9.68% in May on Fuel and Food Price Spike</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India&rsquo;s wholesale price inflation accelerated sharply to 9.68 per cent in May 2026, up from 8.26 per cent in April, driven by steep increases in fuel and power, manufactured goods and food prices, according to data released Monday by the Ministry of Commerce and Industry. The May reading is the first under a revised Wholesale Price Index series that adopts 2022-23 as the new base year, replacing the previous 2011-12 series. The updated basket expands tracked items to 957 from 697, incorporates renewable energy sources including solar and wind power, and moves crude petroleum and natural gas into the fuel and power category. Fuel and power inflation &mdash; the primary driver &mdash; surged to 30.33 per cent in May from 24.89 per cent in April, with crude petroleum inflation alone reaching 61.51 per cent, a direct consequence of the Strait of Hormuz blockade that cut off the majority of India&rsquo;s crude oil imports for several months. Manufactured products inflation rose to 7.48 per cent from 6.68 per cent, while food article inflation climbed to 3.60 per cent from 2.43 per cent in April.</p>
+      <p>The wholesale inflation data compounds pressure on the broader economy already reflected in retail prices. Consumer price index inflation hit a 16-month high of 3.93 per cent in May, and the Reserve Bank of India this month raised its inflation projection for the current fiscal year to 5.1 per cent from 4.6 per cent, citing mounting input costs driven by the pass-through of higher global energy prices to retail petrol and diesel. A Rs 7.50 per litre increase in petrol and diesel prices was implemented in the second half of May. The RBI has been mandated by the government to keep headline inflation at four per cent, with a tolerance band of two percentage points on either side, and the sustained rise in wholesale prices signals the task of returning to that target will be challenging in the months ahead.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/economy/news/india-s-wholesale-inflation-rises-to-9-68-in-may-on-high-fuel-food-prices-126061500331_1.html" target="_blank" rel="noopener">Business Standard</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="india-2">
+      <h3>DRDO Successfully Tests Indigenous Long-Range Cruise Missile Off Odisha Coast</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India&rsquo;s Defence Research and Development Organisation successfully conducted a flight test of the indigenously developed Long Range Land Attack Cruise Missile on Monday from Dr. APJ Abdul Kalam Island off the coast of Odisha, with all mission objectives met. The test was monitored by multiple tracking instruments deployed by the Integrated Test Range at Chandipur, with data confirming the successful performance of propulsion, guidance, navigation and control systems, and warhead delivery. Senior DRDO officials and user representatives from the Indian Navy and the Indian Air Force were present for the launch. Defence Minister Rajnath Singh congratulated the DRDO team and its industry partners, describing the test as a proud moment for the nation. The missile, approximately six metres in length and weighing around 1.5 tonnes, is powered by an indigenous turbofan engine and capable of engaging targets at ranges exceeding 1,000 kilometres while flying at subsonic speeds of approximately Mach 0.8. It can carry a conventional warhead of up to 400 kilograms.</p>
+      <p>The LRLACM is developed by the Aeronautical Development Establishment in Bengaluru, with contributions from other DRDO laboratories and Indian industry partners, and is intended for integration across the Army, Navy and Air Force, giving all three services a long-range precision land-attack capability. The test represents a significant step in India&rsquo;s Aatmanirbhar Bharat self-reliance initiative in strategic weapons, and follows the DRDO&rsquo;s maiden flight test of the same system in November 2024. The successful trial comes days after DRDO also conducted three consecutive tests of next-generation ballistic missile defence interceptors. India&rsquo;s push to develop Tomahawk-class cruise missile capability has taken on added strategic significance in the context of the regional security environment following the Iran war and ongoing military modernization across South Asia.</p>
+      <div class="src">Source: <a href="https://www.business-standard.com/external-affairs-defence-security/news/india-successfully-tests-indigenous-long-range-land-attack-cruise-missile-126061501155_1.html" target="_blank" rel="noopener">Business Standard</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="india-3">
+      <h3>Supreme Court Issues Notice to Centre and Punjab Over Failure to Implement RTE School Quota</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Supreme Court of India on Monday issued notices to both the Punjab government and the Union government, directing them to respond to a petition alleging that the state has failed to implement the Right of Children to Free and Compulsory Education Act, 2009, for the better part of 15 years. A bench of Chief Justice Surya Kant and Justice V. Mohana took up the plea, filed by the K.S. Raju Legal Trust, which alleges that Section 12(1)(c) of the RTE Act &mdash; requiring private unaided, non-minority schools to reserve at least 25 per cent of entry-level seats for children from economically weaker sections and disadvantaged groups &mdash; has not been meaningfully enforced across Punjab. The petitioner argued that based on official enrolment figures, approximately 50,000 children should be admitted annually under the EWS quota in Punjab&rsquo;s private schools, but that RTI data reveals some schools have not admitted a single child under the scheme in nearly 15 years.</p>
+      <p>The court asked the Central government to file an affidavit detailing the steps it proposes to take to ensure implementation of the Act in Punjab, and advised the petitioner to place concrete empirical data on record before the next hearing &mdash; including figures on the number of recognised private schools in representative districts, their board affiliations, total sanctioned seats, and admissions made under the EWS quota. The bench also sought clarification on the government&rsquo;s reimbursement mechanism for schools admitting students under the scheme. The petition seeks directions invoking Articles 256 and 355 of the Constitution to compel state compliance, and calls for a publicly accessible dashboard to monitor and verify implementation of the RTE quota on a continuing basis.</p>
+      <div class="src">Source: <a href="https://www.aninews.in/news/national/general-news/sc-seeks-response-from-punjab-on-plea-alleging-failure-to-implement-25-ews-quota-under-rte-act20260615171155/" target="_blank" rel="noopener">ANI</a> &middot; June 15, 2026</div>
+    </article>
+
+  </div>
+
+  <div class="col-3">
+
+    <article class="s" id="india-4">
+      <h3>Home Secretary Reviews NEET Re-Exam Security as June 21 Test Date Approaches</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Union Home Secretary Govind Mohan chaired a high-level security review meeting on Monday to assess preparedness for the NEET-UG re-examination, scheduled for June 21, with a sharp focus on preventing any recurrence of the paper leak allegations that forced the cancellation of the original May 3 test. Senior officials from the Ministries of Education, Home Affairs, Electronics and Information Technology, Health and Family Welfare and Information and Broadcasting attended, alongside representatives from the Indian Cyber Crime Coordination Centre, the Intelligence Bureau and the National Testing Agency. Mohan emphasised that close coordination among central ministries, state governments, district administrations and law enforcement agencies would be essential to protect the integrity of the examination while minimizing inconvenience to candidates.</p>
+      <p>The security framework for the re-examination is substantially more stringent than for the original test. Question paper setters, moderators and translators have been placed under lockdown at an undisclosed location until June 21, with digital devices and external communications restricted. The Indian Air Force has been deployed to transport question papers to 18 distribution hubs across the country, with Central Armed Police Forces providing a two-layer security arrangement for onward distribution to examination centres. The NTA has also extended the examination duration by 15 minutes to 195 minutes and doubled the rough-work space in question booklets from two to four pages. The CBI continues its investigation into the original leak, and has made multiple arrests in connection with the case.</p>
+      <div class="src">Source: <a href="https://aninews.in/news/national/politics/home-secretary-reviews-neet-ug-re-examination-preparedness-directs-states-and-agencies-to-ensure-security-protocols20260615221740/" target="_blank" rel="noopener">ANI</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="india-5">
+      <h3>Omar Abdullah Reaffirms Plan to Press Statehood Demand at Jantar Mantar</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Jammu and Kashmir Chief Minister Omar Abdullah on Monday reaffirmed that the National Conference-led government will proceed with its planned protest at Jantar Mantar in New Delhi at the start of Parliament&rsquo;s Monsoon Session, pressing the Centre to fulfil its commitment to restore statehood to the Union Territory. Speaking on the sidelines of an event at the Sher-i-Kashmir International Convention Centre in Srinagar, Abdullah said there has been no change in the party&rsquo;s plan, and that NC legislators, Members of Parliament and senior leaders would travel to Delhi to deliver a public message to the nation. He said the promise of statehood &mdash; made before the Supreme Court, in Parliament, and to the people of Jammu and Kashmir &mdash; must be honoured. Abdullah noted that he had raised the issue directly with Prime Minister Narendra Modi during a recent meeting in New Delhi, where he also discussed the Union Territory&rsquo;s financial position and the need to accelerate development projects.</p>
+      <p>The statehood demand has become the defining political cause for the NC government since it came to power following the 2024 assembly elections, the first held in the territory since its reorganization and downgrade from full statehood in 2019. The Supreme Court directed the Union government in December 2023 to restore statehood to Jammu and Kashmir at the earliest opportunity, but the Centre has not yet acted on that direction. The Peoples Democratic Party is expected to join the Jantar Mantar protest, and estranged NC MP Aga Syed Ruhullah Mehdi, who has additionally called for the restoration of Article 370, is also expected to participate. Abdullah indicated that discussions with Modi were productive, saying he hoped the people of Jammu and Kashmir would see tangible benefits from the conversations &mdash; but made clear that the protest would proceed regardless.</p>
+      <div class="src">Source: <a href="https://www.etvbharat.com/en/bharat/centre-must-honour-statehood-promise-omar-abdullah-reaffirms-push-for-key-demand-enn26061506098" target="_blank" rel="noopener">ETV Bharat</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="india-6">
+      <h3>SIT Reaches Ayodhya, Launches Overnight Probe Into Ram Mandir Donation Irregularities</h3>
+      <div class="by">The Chronicler Canada Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The Special Investigation Team constituted by the Uttar Pradesh government to probe alleged financial irregularities at the Shri Ram Janmabhoomi Teerth Kshetra Trust arrived at the Ram Mandir complex in Ayodhya on Monday and launched an intensive investigation that extended late into the night. The three-member SIT, formed on June 13 on the direction of Chief Minister Yogi Adityanath following a request from the temple trust itself, entered the complex at approximately 2:50 p.m. and did not depart until 10:30 p.m., after reviewing CCTV footage covering all donation boxes and conducting a detailed examination of cash removal and counting procedures. Investigators questioned nearly 42 individuals during the course of the day, including Ram Mandir Trust officials, bank employees and a large number of temple volunteers, and decided to remain overnight in Ayodhya to continue the probe the following morning. The SIT is expected to submit its final report within 15 days.</p>
+      <p>The controversy erupted earlier this month when allegations linked to a former accountant gained traction on social media, prompting Samajwadi Party president Akhilesh Yadav to claim publicly that crores of rupees in devotee offerings had gone missing and to demand judicial intervention. The Ram Mandir Trust requested the SIT formation itself, framing it as a necessary step to counter misinformation and protect public confidence in the institution. On June 10, central government emissary Nripendra Mishra visited Ayodhya to assess the situation and subsequently filed a report with the Union government. The SIT is now tasked with examining whether donation collection and accounting systems were properly implemented, whether financial records match physical cash flows, and whether any misappropriation of funds actually occurred. The temple, consecrated in January 2024 by Prime Minister Modi, receives donations from millions of devotees annually and holds enormous religious and political significance.</p>
+      <div class="src">Source: <a href="https://www.outlookindia.com/national/ram-temple-donation-controversy-explained-what-triggered-the-sit-probe-in-ayodhya" target="_blank" rel="noopener">Outlook India</a> &middot; June 14, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">India Gold &amp; Markets</span>
+  <div class="mkt-note">Indian equity indices (Sensex, Nifty 50) reflect Tuesday, June 16, 2026 close &mdash; NSE/BSE markets closed by 12:30 AM ET. IBJA gold rates AM session, June 16, 2026 (per gram, ex-GST and making charges). Currency rates sourced from Google Finance, June 16, 2026.</div>
+  <div class="india-mkt-row">
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Sensex</div>
+      <div class="mc-sub">BSE Sensitive Index</div>
+      <div class="mc-val">76,826.78</div>
+      <span class="mc-chg up">&#9650; +562.45 (+0.74%)</span>
+      <div class="mc-note">Jun 16, 2026 close &middot; INR</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE Index</div>
+      <div class="mc-val">23,989.15</div>
+      <span class="mc-chg up">&#9650; +135.25 (+0.57%)</span>
+      <div class="mc-note">Jun 16, 2026 close &middot; INR</div>
+    </div>
+    <div class="mkt-card commodity-up">
+      <div class="mc-name">Gold Fine 999</div>
+      <div class="mc-sub">IBJA &middot; 24KT (per gram)</div>
+      <div class="mc-val">&#8377;15,009</div>
+      <span class="mc-chg flat">&mdash; AM rate</span>
+      <div class="mc-note">Jun 16, 2026 &middot; Ex-GST, ex-making charges</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / USD</div>
+      <div class="mc-sub">Indian Rupee</div>
+      <div class="mc-val">$0.0106</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 16, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / CAD</div>
+      <div class="mc-sub">Indian Rupee</div>
+      <div class="mc-val">$0.0148</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 16, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / GBP</div>
+      <div class="mc-sub">Indian Rupee</div>
+      <div class="mc-val">&#163;0.0079</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 16, 2026 &middot; Google Finance</div>
+    </div>
+    <div class="mkt-card currency">
+      <div class="mc-name">INR / EUR</div>
+      <div class="mc-sub">Indian Rupee</div>
+      <div class="mc-val">&#8364;0.0091</div>
+      <span class="mc-chg flat">&mdash; mid-market</span>
+      <div class="mc-note">Jun 16, 2026 &middot; Google Finance</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://ibjarates.com/" target="_blank" rel="noopener">IBJA (ibjarates.com)</a> &middot; <a href="https://finance.google.com" target="_blank" rel="noopener">Google Finance</a> &middot; BSE India &middot; NSE India &middot; Market data carries inherent delays.</div>
+
+</div></div><!-- /india -->
+
+<!-- ==================== WORLD ==================== -->
+<div id="world">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>World</h2><div class="flag">The Chronicler World Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-3">
+
+    <article class="s" id="world-1">
+      <h3>G7 Leaders Convene in &Eacute;vian as Iran Peace Deal and Ukraine War Top the Agenda</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>World leaders gathered at a luxury resort in &Eacute;vian-les-Bains, France on Monday for the 52nd G7 Summit, with the freshly announced U.S.-Iran peace deal and the ongoing war in Ukraine dominating the opening day of the three-day gathering. U.S. President Donald Trump arrived in the French Alps shortly after Prime Minister Mark Carney, sitting down first with French President Emmanuel Macron for a bilateral meeting before joining a working dinner with G7 leaders. Trump opened his visit by declaring the Iran agreement a potential breakthrough for global security and a genuine opportunity to turn the page in Washington&rsquo;s long-adversarial relationship with Tehran. Macron, hosting his final G7 as French head of state, confirmed that the Strait of Hormuz and its reopening would be among the first items on the table. Ukrainian President Volodymyr Zelenskyy, also present at the summit at Macron&rsquo;s invitation, said Monday he had offered to meet Russian President Vladimir Putin at &Eacute;vian itself &mdash; with Trump and Macron both present &mdash; but that Putin had rejected the proposal.</p>
+      <p>Ukraine&rsquo;s place on the agenda carries particular weight given that Zelenskyy is not currently scheduled for a one-on-one meeting with Trump during the summit, and that Ukraine was not formally listed among U.S. goals for the gathering. European leaders reportedly believe the war is now moving in Ukraine&rsquo;s favour and plan to press Trump to tighten pressure on Moscow &mdash; a complicated ask given that Washington had granted a sanctions waiver on Russian oil during the Strait of Hormuz closure. Beyond the Iran deal and Ukraine, the summit agenda covers AI regulation, child safety online, critical mineral supply chains, illegal migration and trade. India&rsquo;s Prime Minister Narendra Modi, along with leaders from Kenya, South Korea, Qatar, the UAE and Egypt, are among the invited non-G7 participants. France has indicated the summit will not produce a traditional joint communiqu&eacute;, opting instead for a series of targeted statements across the three days.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/g7-iran-ukraine-trump-macron-zelenskyy-e7fad4eabaae8181f70fa5a0b9e499b2" target="_blank" rel="noopener">Associated Press</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="world-2">
+      <h3>Iran&ndash;U.S. Peace Deal Reached After 100 Days of War; Hormuz to Open Friday</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The United States and Iran reached a framework agreement on Sunday to end more than 100 days of war and reopen the Strait of Hormuz to global shipping, in a breakthrough announcement that sent oil prices falling sharply and stock markets surging across Asia and beyond. President Donald Trump announced the deal on his Truth Social platform, saying he had authorized the toll-free opening of the strait and the immediate removal of the U.S. naval blockade of Iranian ports. Pakistani Prime Minister Shehbaz Sharif, whose government mediated the negotiations alongside Qatar, confirmed the deal minutes later, with Iran&rsquo;s Supreme National Security Council subsequently confirming the two sides had finalized the wording of a memorandum of understanding. The formal signing ceremony is scheduled for Friday in Geneva, Switzerland. West Texas Intermediate crude fell more than 4.5 per cent to approximately US$80 per barrel on the announcement, its lowest level since early March, while Brent crude dropped roughly four per cent to around $83. Japan&rsquo;s Nikkei 225 surged 5.5 per cent in Monday morning trading and South Korea&rsquo;s Kospi jumped 5.7 per cent.</p>
+      <p>The war began on February 28 when the United States and Israel launched airstrikes against Iran, killing its Supreme Leader and destroying significant military and government infrastructure. Iran responded with missile and drone strikes against Israel and U.S. bases across the Middle East, and by closing the Strait of Hormuz &mdash; through which approximately 20 per cent of the world&rsquo;s seaborne oil and 20 per cent of global liquefied natural gas flows &mdash; triggering a global energy crisis. The MOU is reported to be a 14-point plan that codifies existing ceasefires in Iran and Lebanon and outlines a framework for further negotiations on core unresolved issues, including the mechanics of Hormuz reopening, Iranian nuclear concessions and sanctions relief. U.S. Vice President JD Vance said the deal could usher in a new era for the Middle East, crediting Trump&rsquo;s diplomacy with Gulf partners. Israel&rsquo;s National Security Minister Itamar Ben-Gvir said separately that the deal does not bind Israel.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/iran-us-war-oil-june-15-2026-77406473da38c6c126818610a219dc20" target="_blank" rel="noopener">Associated Press</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="world-3">
+      <h3>What the Iran&ndash;U.S. Deal Actually Says &mdash; and What It Leaves Unresolved</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>The memorandum of understanding announced between the United States and Iran on Sunday is a significant diplomatic milestone, but analysts and foreign policy experts caution that it is an interim framework, not a comprehensive peace settlement, and that the hardest negotiations lie ahead. Based on public reporting confirmed by Pakistani and Iranian officials, the 14-point MOU codifies the existing ceasefires in Iran and Lebanon, commits the United States to removing its naval blockade of Iranian ports, and establishes that the Strait of Hormuz will reopen to commercial shipping. The agreement also reportedly includes a mechanism for Iran to receive humanitarian aid and commits the U.S. to discussions on sanctions relief and the unfreezing of Iranian assets held overseas. The formal signing is set for Friday in Geneva. Neither Washington nor Tehran has publicly released the full text of the document.</p>
+      <p>Critical issues remain unresolved and are deferred to a second phase of negotiations. These include the precise mechanics of how Hormuz will be reopened and managed &mdash; including whether Iran will be permitted to charge passage fees or service charges on commercial vessels &mdash; as well as the scope of Iranian nuclear concessions required for sanctions to be lifted. The Council on Foreign Relations noted that getting as close as possible to the pre-war status quo on Hormuz will be important not only for global commerce but to avoid setting dangerous precedents for other strategically vital waterways. Israel is not party to the MOU; Prime Minister Benjamin Netanyahu has said he is aware of its contents and has been in contact with Trump, but Israeli attacks on Lebanon have continued. Domestic critics in the United States, Israel and Iran have each raised objections to the deal&rsquo;s as-yet-unconfirmed contents. The Atlantic Council described the MOU as likely to temporarily reduce violence and increase maritime traffic, providing parties with more time to negotiate a durable settlement &mdash; but noted it stops well short of resolving the conflict&rsquo;s underlying causes.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/iran-us-war-ceasefire-deal-e0a9e4e1152ea8da10ea066ad174a23a" target="_blank" rel="noopener">Associated Press</a> &middot; June 15, 2026</div>
+    </article>
+
+  </div>
+
+  <div class="col-3">
+
+    <article class="s" id="world-4">
+      <h3>Cuba Says U.S. Energy Blockade Is Killing Children and Destroying Its Healthcare System</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Cuba&rsquo;s state-run media published a detailed accounting on Monday of the humanitarian toll of the U.S. energy blockade, reporting that the survival rate for children with cancer on the island has fallen from 85 per cent to 65 per cent since fuel restrictions took hold in January, and that the country&rsquo;s 16-vaccine immunization programme for infants is now at risk. The report, released by Cubadebate, also said 100,000 children under the age of seven are no longer receiving the daily litre of milk previously provided by the state, that 100,000 Cubans are on surgical waiting lists, and that the treatment schedules of nearly 3,000 kidney dialysis patients have been disrupted. United Nations officials have warned of a looming humanitarian crisis on the island, and in late March launched an emergency appeal for funds &mdash; though on Monday the UN said several of its agencies involved in the appeal are facing significant logistical challenges. The regional Pan American Health Organization separately reported delays in shipments of antibiotics and laboratory reagents due to flight cancellations linked to the blockade.</p>
+      <p>The Trump administration moved in January to cut off Cuba&rsquo;s oil supply by threatening tariffs against any nation selling fuel to the island, directly or indirectly. The measures forced Mexico, Cuba&rsquo;s second-largest oil supplier, to abandon its latest shipment, and Venezuela&rsquo;s oil exports to Cuba &mdash; previously the island&rsquo;s largest source of supply &mdash; were also severed through U.S. military and sanctions action. Cuba&rsquo;s domestic production meets only a fraction of its energy needs, leaving its power grid, transportation network, hospitals and water system acutely exposed. Paolo Spadoni, an associate professor at Augusta University in Georgia, told the Associated Press that while Cuba&rsquo;s healthcare system faced pre-existing pressures, the blockade has vastly amplified those problems and pushed conditions into a different dimension entirely. The Cuban government has framed the blockade as an extreme and unjustifiable form of collective punishment against its people.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/cuba-us-oil-embargo-blockade-healthcare-6fa86704197b96be84372ef84fdf474f" target="_blank" rel="noopener">Associated Press</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="world-5">
+      <h3>Indian Sailors Killed in Hormuz as U.S. Strikes on Commercial Tankers Stoke Diplomatic Crisis</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>At least three Indian sailors were killed and dozens more placed in danger over a five-day period this month as U.S. Navy strikes on commercial tankers in the Gulf of Oman intensified enforcement of the naval blockade against Iran, triggering a formal diplomatic protest from New Delhi. The U.S. military confirmed striking the Palau-flagged MT Marivex on June 8, saying the vessel had failed to comply with instructions from U.S. forces and continued toward an Iranian port in violation of the blockade. In a separate incident on June 11, a third tanker was struck off the coast of Oman, catching fire with Indian crew members aboard. India&rsquo;s Ministry of External Affairs summoned the U.S. charg&eacute; d&rsquo;affaires in New Delhi to register a formal protest, saying it expected Washington to take due note of its concerns and that the safety of civilian mariners and commercial shipping must be protected regardless of the wider conflict. India&rsquo;s shipping ministry reported that 13 Indian-flagged vessels were stranded in or near the Strait of Hormuz, and that more than 18,000 Indian seafarers are currently deployed across the Gulf region.</p>
+      <p>The deaths and detentions placed India in an increasingly difficult position, as a country that has sought to maintain relationships with both the United States and Iran while avoiding direct involvement in the conflict. Iran has at times allowed vessels from nations it considers friendly to pass through the strait, and Indian-crewed ships had navigated that ambiguity with varying results across the three months of the war. India&rsquo;s shipping ministry said its Directorate General of Shipping control room had been operating around the clock since the crisis began, facilitating the repatriation of over 1,100 Indian seafarers from Gulf airports and regional locations. The diplomatic friction comes at a sensitive moment in U.S.-India relations, and with the formal signing of the Iran peace deal now set for Friday in Geneva, attention has turned to whether the Strait of Hormuz can reopen quickly enough to free the hundreds of Indian seafarers still stranded in the war zone.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/iran-war-blockade-disabled-tanker-indian-sailors-0b193ba0d4fab935db871390227b7d20" target="_blank" rel="noopener">Associated Press</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="world-6">
+      <h3>Britain Bans Social Media for Under-16s in Sweeping Online Safety Move</h3>
+      <div class="by">The Chronicler World Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>British Prime Minister Keir Starmer announced Monday that the United Kingdom will ban children under the age of 16 from using a range of social media platforms &mdash; including TikTok, Snapchat, YouTube, Instagram, Facebook and X &mdash; in what he described as the most far-reaching child online safety legislation in the world. Speaking at a Downing Street press conference, Starmer said social media is making children unhappy and that the government would fight back if technology companies resisted the move. Enforcement action, he emphasised, will target the platforms themselves rather than children. Companies that fail to take reasonable steps to exclude under-16 users face multimillion-dollar fines. The legislation, which the government hopes will be in effect by spring 2027, will not apply to messaging services such as WhatsApp and Signal, or to YouTube Kids. Authorities are also considering supplementary measures including overnight usage curfews and mandatory breaks in infinite scrolling for users under 18, with further details expected next month.</p>
+      <p>Starmer said the UK intends to go further than Australia, which last year became the first country to implement a sweeping social media ban for minors. Technology Secretary Liz Kendall said tech companies have had countless opportunities to keep children safe and have failed to act, and that the government is transferring power away from the tech giants and back to parents. YouTube&rsquo;s parent company Alphabet and Meta, the owner of Facebook and Instagram, both warned that blanket bans risk pushing young people out of curated, supervised environments and into less regulated online spaces. The announcement places Britain alongside Canada, Brazil, Indonesia, France, Spain, Denmark, Thailand and South Korea in a growing global movement to restrict children&rsquo;s social media access, and arrives on the same day that the Liberal government in Ottawa tabled its own privacy reform bill with specific protections for children&rsquo;s data.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/uk-teen-social-media-ban-starmer-55de428636b586ff5553b604783f6fb3" target="_blank" rel="noopener">Associated Press</a> &middot; June 15, 2026</div>
+    </article>
+
+  </div>
+
+  <span class="cat">Global Markets</span>
+  <div class="mkt-note">World indices reflect Tuesday, June 16, 2026 &mdash; intraday as at 7:00 AM ET. Sources: Google Finance. Market data carries inherent delays; verify with live sources before making financial decisions.</div>
+  <div class="mkt-grid">
+    <div class="mkt-card world commodity-up">
+      <div class="mc-name">DJIA</div>
+      <div class="mc-sub">Dow Jones Industrial</div>
+      <div class="mc-val">51,671.03</div>
+      <span class="mc-chg up">&#9650; +468.77 (+0.92%)</span>
+      <div class="mc-note">Jun 16, 2026 &middot; intraday &middot; USD</div>
+    </div>
+    <div class="mkt-card world commodity-up">
+      <div class="mc-name">Nasdaq-100</div>
+      <div class="mc-sub">Technology Index</div>
+      <div class="mc-val">30,543.92</div>
+      <span class="mc-chg up">&#9650; +907.97 (+3.06%)</span>
+      <div class="mc-note">Jun 16, 2026 &middot; intraday &middot; USD</div>
+    </div>
+    <div class="mkt-card world commodity-up">
+      <div class="mc-name">S&amp;P 500</div>
+      <div class="mc-sub">US Broad Market</div>
+      <div class="mc-val">7,554.29</div>
+      <span class="mc-chg up">&#9650; +122.83 (+1.65%)</span>
+      <div class="mc-note">Jun 16, 2026 &middot; intraday &middot; USD</div>
+    </div>
+    <div class="mkt-card world commodity-up">
+      <div class="mc-name">FTSE 100</div>
+      <div class="mc-sub">London Stock Exchange</div>
+      <div class="mc-val">10,491.56</div>
+      <span class="mc-chg up">&#9650; +60.94 (+0.58%)</span>
+      <div class="mc-note">Jun 16, 2026 &middot; intraday &middot; GBP</div>
+    </div>
+    <div class="mkt-card world commodity-up">
+      <div class="mc-name">Nifty 50</div>
+      <div class="mc-sub">NSE India</div>
+      <div class="mc-val">23,989.15</div>
+      <span class="mc-chg up">&#9650; +135.25 (+0.57%)</span>
+      <div class="mc-note">Jun 16, 2026 close &middot; INR</div>
+    </div>
+    <div class="mkt-card world commodity-down">
+      <div class="mc-name">Hang Seng</div>
+      <div class="mc-sub">Hong Kong</div>
+      <div class="mc-val">24,493.95</div>
+      <span class="mc-chg down">&#9660; &minus;348.72 (&minus;1.40%)</span>
+      <div class="mc-note">Jun 16, 2026 &middot; intraday &middot; HKD</div>
+    </div>
+    <div class="mkt-card world commodity-up">
+      <div class="mc-name">Nikkei 225</div>
+      <div class="mc-sub">Tokyo Stock Exchange</div>
+      <div class="mc-val">69,404.50</div>
+      <span class="mc-chg up">&#9650; +87.00 (+0.13%)</span>
+      <div class="mc-note">Jun 16, 2026 &middot; intraday &middot; JPY</div>
+    </div>
+  </div>
+  <div class="mkt-src">Sources: <a href="https://finance.google.com" target="_blank" rel="noopener">Google Finance</a> &middot; Market data carries inherent delays; verify with live sources before making financial decisions.</div>
+
+</div></div><!-- /world -->
+
+<!-- ==================== SPORT ==================== -->
+<div id="sport">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>Sport</h2><div class="flag">The Chronicler Sport Desk</div></div>
+
+  <span class="cat">Top Stories</span>
+  <div class="col-2">
+
+    <article class="s" id="sport-1">
+      <h3>Sheinbaum Calls on FIFA to Reflect as World Cup Ticket Prices Lock Out Mexican Fans</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Mexican President Claudia Sheinbaum called on FIFA Monday to reflect on the high cost of tickets for the 2026 World Cup, saying that football must be more than a business and that prices have placed the tournament out of reach for the vast majority of Mexicans. Sheinbaum told journalists that while it is acceptable for the World Cup to operate commercially, the sport should also serve as a space for bringing people together &mdash; and that the current pricing structure fails that purpose. FIFA did not respond publicly to her remarks. The comments come as tournament attendance figures in Mexico have drawn scrutiny, with parts of stadiums in Guadalajara having visibly empty seats. Tickets for the tournament went on sale earlier this year at prices ranging from $140 to $8,680 for matches in the three host countries. Tickets for the final are priced at $32,970, and in April FIFA&rsquo;s own resale platform listed four final tickets at approximately $2.3 million each. FIFA president Gianni Infantino last week defended the pricing as fitting for the North American market, citing a record 150 million ticket requests during the latest sales window.</p>
+      <p>Sheinbaum herself broke with the tradition of host-country presidents attending the opening match, instead giving her ticket to a 21-year-old Indigenous female soccer player who had no financial means to purchase one. Her government directed roughly 500 public officials&rsquo; tickets to participants in Social World Cup community activities, and 88 additional tickets were distributed to community recipients. Half a million people attended 18 street festivals across Mexico City on June 11 to watch the opening match on public screens, in which Mexico defeated South Africa. Sheinbaum&rsquo;s handling of the World Cup has nonetheless drawn criticism from social movements in Mexico City, who say the government is prioritizing the tournament over pressing domestic social needs. The tension between the spectacle of the world&rsquo;s largest sporting event and the economic realities of its host communities has emerged as one of the defining narratives of the 2026 edition.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/mexico-world-cup-prices-president-fifa-74b3d0d08b248d838c846f522ea89807" target="_blank" rel="noopener">Associated Press</a> &middot; June 15, 2026</div>
+    </article>
+
+    <article class="s" id="sport-2">
+      <h3>Acquitted and Available, Stefon Diggs Hints at Maryland Homecoming With Commanders</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>Wide receiver Stefon Diggs remains unsigned heading into the 2026 NFL season, but the Maryland-born pass-catcher has dropped his strongest public hint yet that a homecoming to the Washington Commanders may be his preferred destination. Responding to a question from a Commanders fan on social media, Diggs said he and his brother, cornerback Trevon Diggs &mdash; also a free agent &mdash; are going to talk about it real soon, adding that a joint landing in Washington is what everybody is talking about right now. The Commanders have cap space and a need at wide receiver, and the prospect of both Diggs brothers joining Jayden Daniels&rsquo; offence has generated significant speculation in NFL circles. Diggs grew up in Gaithersburg, Maryland, played college football for the University of Maryland Terrapins, and has spoken openly about the appeal of finishing his career close to home. The Baltimore Ravens, who could pair Diggs with Lamar Jackson, and the Los Angeles Rams, where he would join Davante Adams and Puka Nacua in a Sean McVay offence built around Matthew Stafford, are also considered serious contenders.</p>
+      <p>Diggs, 32, enters the market following his release by the New England Patriots in March, despite a productive season in which he caught 85 passes for 1,013 yards and four touchdowns &mdash; his seventh career 1,000-yard season &mdash; as the Patriots reached Super Bowl LX. The Patriots traded for A.J. Brown on June 1, eliminating any possibility of a return. A cloud over Diggs&rsquo;s availability has now largely lifted: he was found not guilty of strangulation and assault charges stemming from a December 2025 incident involving his former private chef, clearing a legal obstacle that had kept teams at arm&rsquo;s length for months. The acquittal makes Diggs arguably the most impactful receiver still on the open market as training camps approach. Across 11 NFL seasons with the Vikings, Bills, Texans and Patriots, Diggs has accumulated 11,504 receiving yards and 74 touchdowns, but has yet to win a Super Bowl ring &mdash; a pursuit that is likely to factor heavily in his final destination.</p>
+      <div class="src">Source: <a href="https://www.hindustantimes.com/sports/us-sports/stefon-diggs-drops-major-hint-on-next-landing-spot-teases-possible-homecoming-figuring-it-out-101781559078413.html" target="_blank" rel="noopener">Hindustan Times</a> &middot; June 15, 2026</div>
+    </article>
+
+  </div>
+
+  <div class="col-2">
+
+    <article class="s" id="sport-3">
+      <h3>Deepti&rsquo;s Five-Wicket Masterclass Fires India to 64-Run Win Over Pakistan in Women&rsquo;s T20 World Cup</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India opened their ICC Women&rsquo;s T20 World Cup 2026 campaign with a dominant 64-run victory over Pakistan on Sunday at a sold-out Edgbaston Cricket Ground in Birmingham, with Smriti Mandhana&rsquo;s 68 and Deepti Sharma&rsquo;s historic five-wicket haul providing the twin pillars of an emphatic statement win. Mandhana top-scored to rescue India from a precarious 18 for 2, anchoring a recovery that included a composed 34 from wicketkeeper Richa Ghosh and 36 from captain Harmanpreet Kaur, as India posted 170 for 6 &mdash; their highest total against Pakistan in a T20 World Cup. Pakistan&rsquo;s chase began brightly, with openers reaching 38 before Deepti&rsquo;s intervention changed the complexion of the match entirely. A direct hit run-out of the dangerous Muneeba Ali for 41 triggered a cascade &mdash; Pakistan lost five wickets for 26 runs through the middle overs as India&rsquo;s spinners tightened their grip. Deepti then sealed the victory in the 17th over, claiming three wickets in five balls to finish with figures of 5 for 10, the best bowling figures ever recorded in a women&rsquo;s T20 international. Pakistan were bowled out for 106.</p>
+      <p>Tournament debutant Shree Charani complemented Deepti&rsquo;s brilliance with 3 for 21 on her World Cup debut, underscoring the depth of India&rsquo;s spin resources at this edition, being held across seven venues in England from June 12 to July 5. Earlier in the day, Bangladesh won their opening match against the Netherlands &mdash; also making their T20 World Cup debut &mdash; by six wickets at Edgbaston, in Bangladesh&rsquo;s highest successful run chase in Women&rsquo;s T20 World Cups. The Dutch were restricted to 139 for 8, with Babette de Leede&rsquo;s 50 from 45 balls holding their innings together before she was run out in the 17th over. Bangladesh&rsquo;s medium-pacers Marufa Akter and Ritu Moni led the bowling, and an unbroken 56-run partnership between Sharmin Akhter and Shorna Akter saw Bangladesh home in 19.1 overs. India, Pakistan, Australia, South Africa, Bangladesh and the Netherlands make up Group 1 of the tournament, with the top two advancing to the semi-finals at The Oval.</p>
+      <div class="src">Source: <a href="https://apnews.com/article/women-t20-world-cup-india-pakistan-bangladesh-2244b89f37dd3cdcae3d491d0f823a8b" target="_blank" rel="noopener">Associated Press</a> &middot; June 14, 2026</div>
+    </article>
+
+    <article class="s" id="sport-4">
+      <h3>Tilak Varma&rsquo;s Super Over Gamble Backfires as India A Fall to Sri Lanka A in Fading Light</h3>
+      <div class="by">The Chronicler Sport Desk &middot; Tuesday, June 16, 2026</div>
+      <button class="read-btn" onclick="handleRead(this)">&#128266; Read aloud</button>
+      <p>India A captain Tilak Varma&rsquo;s decision to press for a super over against Sri Lanka A &mdash; against the explicit advice of on-field umpires concerned about dangerously fading light &mdash; cost his side the match and ignited a fierce debate about captaincy judgment and player conduct toward match officials. The incident unfolded after Sri Lanka A tied the match off the final ball, at which point the umpires initially indicated play would be called off and the result declared a tie. Varma and Sri Lanka A captain Sahan Arachchige entered into a prolonged discussion with the on-field officials that lasted between 10 and 15 minutes, during which the umpires made clear they were reluctant to allow the super over to proceed given the deteriorating visibility. The officials ultimately and, by accounts of those present, reluctantly agreed to continue &mdash; by which point the ambient light had dimmed further still. Sri Lanka A won the super over, with conditions having worsened materially from when the original request was made.</p>
+      <p>Reactions on social media were sharp, with fans and cricket commentators widely criticising Varma&rsquo;s refusal to accept a shared point and his persistence in what many described as a costly misjudgment under pressure. The decision to force the officials&rsquo; hand drew particular scrutiny: the consensus view among critics was that Varma&rsquo;s insistence, and the team management&rsquo;s backing of it, undermined both the umpires&rsquo; authority and India A&rsquo;s own prospects in conditions that were already unfit for play. Others countered that the competitive instinct to seek a result rather than a tie is defensible in itself, and that responsibility for the outcome rests more squarely on the execution in the super over than the decision to play it. Tilak Varma, one of Indian cricket&rsquo;s most exciting young batting talents and a regular in the senior T20 international side, now faces scrutiny of his captaincy temperament at a time when he is widely considered a future pillar of India&rsquo;s batting order.</p>
+      <div class="src">Source: <a href="https://www.hindustantimes.com/cricket/ball-dikh-hi-nahi-raha-hai-tilak-varmas-super-over-crusade-leaves-officials-facing-scrutiny-amid-fading-light-drama-101781545442638.html" target="_blank" rel="noopener">Hindustan Times</a> &middot; June 15, 2026</div>
+    </article>
+
+  </div>
+
+</div></div><!-- /sport -->
+
+<!-- ==================== PUZZLES ==================== -->
+<div id="puzzles">
+<div class="divider"></div>
+<div class="page">
+  <div class="section-banner"><h2>The Chronicler Funnies</h2><div class="flag">Puzzles &amp; Games</div></div>
+
+  <div class="games-row">
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Crunch</div>
+      <div class="puzzle-sub">Use all four numbers with +, &minus;, &times;, &divide; and brackets to reach the target. All intermediate steps must produce whole numbers.</div>
+      <div class="crunch-nums">
+        <div class="crunch-tile">3</div>
+        <div class="crunch-tile">4</div>
+        <div class="crunch-tile">7</div>
+        <div class="crunch-tile">8</div>
+        <span style="font-size:20px;color:var(--grey);">=</span>
+        <div class="crunch-target">60</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat" style="background:#d4edda;padding:6px 8px;border-radius:3px;"><strong>3 &times; ((4 &times; 7) &minus; 8) = 60</strong> &nbsp;&#10003;<br>Step 1: 4 &times; 7 = 28 &nbsp;&middot;&nbsp; Step 2: 28 &minus; 8 = 20 &nbsp;&middot;&nbsp; Step 3: 3 &times; 20 = 60 &#10003;</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">4 solutions found &middot; Python-verified &middot; Editions Nos. 74&ndash;75.</div>
+      </div>
+      <div class="crunch-archive">Past puzzles: <a href="https://thechronicler.ca/Specials/the-chronicler-crunch-archive.html">The Chronicler Crunch Archive &rarr;</a></div>
+    </div>
+
+    <div class="puzzle-box">
+      <div class="puzzle-title">Word Web</div>
+      <div class="puzzle-sub">Find the two hidden connections. Group the 8 tiles into two sets of 4.</div>
+      <div class="ww-grid">
+        <div class="ww-mini-tile">&Eacute;VIAN</div>
+        <div class="ww-mini-tile">HORMUZ</div>
+        <div class="ww-mini-tile">DEEPTI</div>
+        <div class="ww-mini-tile">AYODHYA</div>
+        <div class="ww-mini-tile">BIRMINGHAM</div>
+        <div class="ww-mini-tile">WPI</div>
+        <div class="ww-mini-tile">GENEVA</div>
+        <div class="ww-mini-tile">NEET</div>
+      </div>
+      <button class="reveal-toggle" onclick="this.nextElementSibling.style.display='block';this.style.display='none';">&#9654; Show solution</button>
+      <div class="answer-box">
+        <div class="answer-cat">&#129001; <strong>Cities at the centre of major stories today:</strong> &Eacute;VIAN &middot; BIRMINGHAM &middot; GENEVA &middot; AYODHYA</div>
+        <div class="answer-cat">&#129000; <strong>India in the headlines today:</strong> WPI &middot; DEEPTI &middot; NEET &middot; HORMUZ</div>
+        <div class="answer-cat" style="font-size:9px;color:var(--grey);margin-top:4px;">Decoy: HORMUZ is a location &mdash; readers will instinctively place it with the cities. But in today&rsquo;s edition it belongs in the India group: the Hormuz blockade is the direct driver of India&rsquo;s WPI inflation spike. AYODHYA could mislead into Group B given the &ldquo;record&rdquo; quality of the SIT probe controversy.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div></div><!-- /puzzles -->
+
+<div class="divider"></div>
+
+<footer class="footer">
+  <div>The Chronicler &bull; Vol. I, Nos. 74&ndash;75 &bull; Tuesday, June 16, 2026 &bull; Independent &bull; Daily &bull; Free &bull; <a href="https://thechronicler.ca">thechronicler.ca</a></div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/the.chronicler.news" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#8b2513" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#8b2513" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#8b2513"/></svg>
+      @the.chronicler.news
+    </a>
+  </div>
+  <div class="footer-disc">The Chronicler is an independent news digest compiled from publicly available third-party reporting. It does not employ foreign correspondents and does not claim original reporting unless explicitly stated. All source material remains the copyright of its respective publishers and is cited in each article. The Chronicler is not affiliated with any cited outlet. Weather data: wttr.in / Open-Meteo. AQI: Open-Meteo (US AQI scale). Market data carries inherent delays; verify with live sources before making financial decisions. India gold rates: IBJA (ibjarates.com), rates per gram ex-GST &amp; making charges. Currency rates: Google Finance. This publication is created using AI tools for content curation, research, drafting, and presentation.</div>
+</footer>
+
+<script>
+function handleRead(btn) {
+  if (window._ttsUtterance) {
+    window.speechSynthesis.cancel();
+    if (window._ttsBtn) { window._ttsBtn.textContent = String.fromCodePoint(0x1F50A) + ' Read aloud'; }
+    if (window._ttsBtn === btn) { window._ttsUtterance = null; window._ttsBtn = null; return; }
+  }
+  const article = btn.closest('article');
+  const text = Array.from(article.querySelectorAll('p')).map(p => p.textContent).join(' ');
+  const u = new SpeechSynthesisUtterance(text);
+  u.onend = function() { btn.textContent = String.fromCodePoint(0x1F50A) + ' Read aloud'; window._ttsUtterance = null; window._ttsBtn = null; };
+  window._ttsUtterance = u;
+  window._ttsBtn = btn;
+  btn.textContent = String.fromCodePoint(0x23F9) + ' Stop';
+  window.speechSynthesis.speak(u);
+}
+</script>
+
+<script>(function(){var s=document.createElement("script");s.defer=true;s.src="https://static.cloudflareinsights.com/beacon.min.js";s.setAttribute('data-cf-beacon','{"token": "c2c9f324e65f4bde97c20728d6349a04"}');document.head.appendChild(s);})();</script>
+
+</body>
+</html>
