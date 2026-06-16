@@ -45,7 +45,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Source Sans 3', sans-serif;
-  background: #ffffff;
+  background: #f5f1ea;
   color: var(--ink);
   font-size: 15px;
   line-height: 1.6;
@@ -153,13 +153,13 @@ body {
    FILTER BAR
    ============================================================ */
 .tc-filter-bar {
-  background: var(--warm);
-  border-bottom: 0.5px solid var(--rule);
+  background: #f5f1ea;
+  border-bottom: 0.5px solid #e0d8cc;
   padding: 10px 24px;
   position: sticky;
   top: 97px;
   z-index: 199;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
 }
 
 .tc-filter-inner {
@@ -251,7 +251,7 @@ body {
 .tc-body-wrap {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 24px 24px;
 }
 
 /* ============================================================
@@ -259,7 +259,6 @@ body {
    ============================================================ */
 .tc-weather-wrap {
   padding: 16px 0 14px;
-  border-bottom: 0.5px solid var(--rule);
 }
 
 .tc-data-label {
@@ -285,7 +284,7 @@ body {
   background: #fff;
   border: 0.5px solid #e5ddd0;
   border-top: 3px solid var(--ink);
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 10px 12px;
   min-width: 88px;
   text-align: center;
@@ -333,7 +332,8 @@ body {
   align-items: center;
   background: var(--ink);
   padding: 7px 0;
-  margin: 24px 0 0;
+  margin: 24px 0 16px;
+  border-radius: 4px;
 }
 
 .tc-section-label {
@@ -359,8 +359,8 @@ body {
 .tc-article-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-left: 0.5px solid #eee;
-  border-top: 0.5px solid #eee;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
 @media (max-width: 768px) {
@@ -377,14 +377,17 @@ body {
 
 .tc-article {
   padding: 18px 16px;
-  border-bottom: 0.5px solid #eee;
-  border-right: 0.5px solid #eee;
+  border: 0.5px solid #e5ddd0;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.12s;
+  transition: transform 0.12s, box-shadow 0.12s;
   background: #fff;
 }
 
-.tc-article:hover { background: var(--warm); }
+.tc-article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(20,16,8,0.06);
+}
 
 .tc-article-meta {
   display: flex;
@@ -393,16 +396,24 @@ body {
   margin-bottom: 8px;
 }
 
-.tc-desk-flag {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: var(--rust);
-  background: #fdf0ee;
-  padding: 2px 7px;
-  border-radius: 3px;
-}
+.tc-article[data-section="world"]     { border-top: 3px solid #185FA5; }
+.tc-article[data-section="canada"]   { border-top: 3px solid #8b2513; }
+.tc-article[data-section="india"]    { border-top: 3px solid #a07800; }
+.tc-article[data-section="sport"]    { border-top: 3px solid #1a6b3c; }
+.tc-article[data-section="world-cup"]{ border-top: 3px solid #1a6b3c; }
+
+.tc-desk-flag { font-size: 9px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; }
+.tc-desk-flag.world   { color: #185FA5; background: #e6f1fb; }
+.tc-desk-flag.canada  { color: #8b2513; background: #fdf0ee; }
+.tc-desk-flag.india   { color: #a07800; background: #faeeda; }
+.tc-desk-flag.sport   { color: #1a6b3c; background: #eaf3de; }
+.tc-desk-flag.world-cup { color: #1a6b3c; background: #eaf3de; }
+
+.tc-read-more.world   { color: #185FA5; }
+.tc-read-more.canada  { color: #8b2513; }
+.tc-read-more.india   { color: #a07800; }
+.tc-read-more.sport   { color: #1a6b3c; }
+.tc-read-more.world-cup { color: #1a6b3c; }
 
 .tc-article-date {
   font-size: 11px;
@@ -446,10 +457,10 @@ body {
   display: none;
   grid-column: 1 / -1;
   padding: 28px 24px;
-  background: var(--warm);
+  background: #fff;
+  border: 0.5px solid #e5ddd0;
   border-top: 2px solid var(--rust);
-  border-bottom: 0.5px solid var(--rule);
-  border-right: 0.5px solid #eee;
+  border-radius: 8px;
 }
 
 .tc-article-full.open {
@@ -588,9 +599,9 @@ body {
 }
 
 .tc-mkt-card {
-  background: var(--warm);
+  background: #fff;
   border: 0.5px solid #e5ddd0;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 13px 14px;
   border-top: 3px solid var(--ink);
 }
@@ -1478,15 +1489,16 @@ function renderMarketsView() {
 function articleHTML(a, idx) {
   const isOpen = openArticle === idx;
   const bodyHTML = (a.body || []).map(p => `<p>${p}</p>`).join('');
+  const sec = a.section || 'world';
   return `
-  <div class="tc-article" onclick="toggleArticle(${idx})" role="button" tabindex="0" aria-expanded="${isOpen}">
+  <div class="tc-article" data-section="${sec}" onclick="toggleArticle(${idx})" role="button" tabindex="0" aria-expanded="${isOpen}">
     <div class="tc-article-meta">
-      <span class="tc-desk-flag">${a.desk}</span>
+      <span class="tc-desk-flag ${sec}">${a.desk}</span>
       <span class="tc-article-date">${formatDateDisplay(a.date)}</span>
     </div>
     <div class="tc-headline">${a.headline}</div>
     <div class="tc-summary">${a.summary}</div>
-    <div class="tc-read-more">&#8594; Read full article</div>
+    <div class="tc-read-more ${sec}">&#8594; Read full article</div>
   </div>
   <div class="tc-article-full${isOpen?' open':''}" id="af-${idx}">
     <div class="tc-full-headline">${a.headline}</div>
