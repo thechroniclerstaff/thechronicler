@@ -1687,37 +1687,37 @@ function matchDateLabel(utcStr) {
 
 async function fetchWCMatches() {
   try {
-    // Fetch UTC yesterday through UTC tomorrow to capture all ET-day matches
-    // (ET is UTC-4/UTC-5, so a 9PM ET match is 1AM next day UTC)
-    const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
-    const tomUTC    = new Date(); tomUTC.setDate(tomUTC.getDate() + 2);
-    const fmt = d => d.toISOString().slice(0, 10);
+    // Fetch yesterday through 3 days ahead in UTC to capture all ET-timezone matches
+    const d = new Date();
+    const yesterday = new Date(d); yesterday.setDate(d.getDate() - 1);
+    const ahead     = new Date(d); ahead.setDate(d.getDate() + 3);
+    const fmt = x => x.toISOString().slice(0, 10);
 
     const res = await fetch(
-      `${WC_BASE}/matches?dateFrom=${fmt(yesterday)}&dateTo=${fmt(tomUTC)}`,
+      `${WC_BASE}/matches?dateFrom=${fmt(yesterday)}&dateTo=${fmt(ahead)}`,
       { headers: { 'X-Auth-Token': WC_API_KEY } }
     );
     const data = await res.json();
     const all = data.matches || [];
 
-    // Filter to matches whose ET kickoff falls today or tomorrow ET
-    const nowET = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Toronto' }));
-    const todayET = new Date(nowET); todayET.setHours(0,0,0,0);
-    const dayAfterET = new Date(todayET); dayAfterET.setDate(todayET.getDate() + 2);
+    // Show: all live/in-play matches + upcoming next 24hrs + finished today UTC
+    const now = Date.now();
+    const in24hrs = now + 24 * 60 * 60 * 1000;
+    const startOfToday = new Date(d);
+    startOfToday.setUTCHours(0, 0, 0, 0);
 
     wcMatches = all.filter(m => {
-      const kickoffET = new Date(new Date(m.utcDate).toLocaleString('en-US', { timeZone: 'America/Toronto' }));
-      // Include finished matches from today ET and all upcoming/live
-      if (m.status === 'FINISHED') {
-        const matchDayET = new Date(kickoffET); matchDayET.setHours(0,0,0,0);
-        return matchDayET.getTime() === todayET.getTime();
-      }
-      return kickoffET >= todayET && kickoffET < dayAfterET;
+      const kickoff = new Date(m.utcDate).getTime();
+      const status  = m.status;
+      if (status === 'IN_PLAY' || status === 'PAUSED' || status === 'HALFTIME') return true;
+      if (status === 'FINISHED' && kickoff >= startOfToday.getTime()) return true;
+      if (status === 'TIMED' && kickoff <= in24hrs) return true;
+      return false;
     });
 
-    // Sort by UTC date
     wcMatches.sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
   } catch(e) {
+    console.error('WC fetch error:', e);
     wcMatches = [];
   }
 }
@@ -1746,46 +1746,47 @@ function renderWCStrip() {
   if (!el) return;
 
   if (!wcMatches.length) {
-    el.innerHTML = '<div class="tc-wc-loading">No matches scheduled today.</div>';
+    el.innerHTML = '<div class="tc-wc-loading">No matches in the next 24 hours.</div>';
     return;
   }
 
-  el.innerHTML = wcMatches.map(m => {
-    const home   = m.homeTeam.shortName || m.homeTeam.name;
-    const away   = m.awayTeam.shortName || m.awayTeam.name;
-    const status = m.status;
-    const score  = scoreDisplay(m);
-    const isLive = status === 'IN_PLAY' || status === 'PAUSED' || status === 'HALFTIME';
-    const isFin  = status === 'FINISHED';
-    const label  = matchDateLabel(m.utcDate);
-    const time   = toET(m.utcDate);
+  try {
+    el.innerHTML = wcMatches.map(m => {
+      const home   = (m.homeTeam && (m.homeTeam.shortName || m.homeTeam.name)) || '?';
+      const away   = (m.awayTeam && (m.awayTeam.shortName || m.awayTeam.name)) || '?';
+      const status = m.status || '';
+      const score  = scoreDisplay(m);
+      const isLive = status === 'IN_PLAY' || status === 'PAUSED' || status === 'HALFTIME';
+      const isFin  = status === 'FINISHED';
+      const time   = toET(m.utcDate);
 
-    let cls = 'tc-wc-match';
-    if (isLive) cls += ' live';
-    if (isFin)  cls += ' finished';
+      let cls = 'tc-wc-match';
+      if (isLive) cls += ' live';
+      if (isFin)  cls += ' finished';
 
-    let scoreHtml = '';
-    if (score && (isLive || isFin)) {
-      scoreHtml = `<span class="tc-wc-score${isLive?' live-score':''}">${score}</span>`;
-    } else {
-      scoreHtml = `<span class="tc-wc-time">${label} ${time}</span>`;
-    }
+      let rightHtml = '';
+      if (score && (isLive || isFin)) {
+        rightHtml = `<span class="tc-wc-score${isLive?' live-score':''}">${score}</span>`;
+      } else {
+        rightHtml = `<span class="tc-wc-time">${time} ET</span>`;
+      }
 
-    let statusHtml = '';
-    if (isLive) {
-      statusHtml = `<div class="tc-wc-live-dot"></div><span class="tc-wc-status live">Live</span>`;
-    } else if (isFin) {
-      statusHtml = `<span class="tc-wc-status fin">FT</span>`;
-    } else {
-      statusHtml = `<span class="tc-wc-status timed">${time}</span>`;
-    }
+      const liveIndicator = isLive ? '<div class="tc-wc-live-dot"></div>' : '';
+      const statusTag = isLive
+        ? '<span class="tc-wc-status live">LIVE</span>'
+        : isFin ? '<span class="tc-wc-status fin">FT</span>' : '';
 
-    return `<div class="${cls}">
-      ${isLive ? '<div class="tc-wc-live-dot"></div>' : ''}
-      <div class="tc-wc-teams">${home} v ${away}</div>
-      ${scoreHtml}
-    </div>`;
-  }).join('');
+      return `<div class="${cls}">
+        ${liveIndicator}
+        <div class="tc-wc-teams">${home} v ${away}</div>
+        ${rightHtml}
+        ${statusTag}
+      </div>`;
+    }).join('');
+  } catch(err) {
+    el.innerHTML = '<div class="tc-wc-loading">Error rendering matches.</div>';
+    console.error('WC strip render error:', err);
+  }
 }
 
 function renderWCFullView() {
