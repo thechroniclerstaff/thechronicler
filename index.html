@@ -350,7 +350,10 @@ body {
 
 .tc-w-card.india { border-top-color: var(--rust); }
 
-/* Day-phase tinting \u2014 derived from each city\u2019s own sunrise/sunset, not the clock here */
+/* Day-phase tinting -- derived from each city's own sunrise/sunset, not the clock here */
+.tc-w-card.phase-day {
+  background: linear-gradient(165deg, #dbeaf5 0%, #fff 60%);
+}
 .tc-w-card.phase-dawn {
   background: linear-gradient(165deg, #fff3d6 0%, #fff 60%);
 }
@@ -466,7 +469,7 @@ body {
   font-style: italic;
 }
 
-/* AQI bar \u2014 full-bleed strip at the card's bottom edge */
+/* AQI bar -- full-bleed strip at the card's bottom edge */
 .tc-w-aqi {
   display: flex;
   align-items: baseline;
@@ -1821,7 +1824,7 @@ function weatherCard(w, isIndia) {
     ? `<div class="tc-w-aqi ${band.cls}"><span>AQI ${w.aqi}</span><span class="tc-w-aqi-cat">${band.label}</span></div>`
     : '';
 
-  const phaseClass = (w.phase && w.phase !== 'day') ? ` phase-${w.phase}` : '';
+  const phaseClass = w.phase ? ` phase-${w.phase}` : '';
 
   return `<div class="tc-w-card${isIndia?' india':''}${phaseClass}">
     <div class="tc-w-city">${w.city}</div>
