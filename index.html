@@ -343,9 +343,33 @@ body {
   text-align: center;
   flex: 1;
   flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.4s ease;
 }
 
 .tc-w-card.india { border-top-color: var(--rust); }
+
+/* Day-phase tinting \u2014 derived from each city\u2019s own sunrise/sunset, not the clock here */
+.tc-w-card.phase-dawn {
+  background: linear-gradient(165deg, #fff3d6 0%, #fff 60%);
+}
+.tc-w-card.phase-dusk {
+  background: linear-gradient(165deg, #fbe1d2 0%, #fff 60%);
+}
+.tc-w-card.phase-night {
+  background: #181208;
+  border-color: #2e2614;
+}
+.tc-w-card.phase-night.india { border-top-color: #a8492f; }
+.tc-w-card.phase-night .tc-w-city     { color: #c9a227; }
+.tc-w-card.phase-night .tc-w-temp     { color: #f5f1ea; }
+.tc-w-card.phase-night .tc-w-cond     { color: #9b9176; }
+.tc-w-card.phase-night .tc-w-hilo     { color: #837a60; }
+.tc-w-card.phase-night .tc-w-forecast { border-top-color: #332a18; }
+.tc-w-card.phase-night .tc-w-fday-label { color: #756c52; }
+.tc-w-card.phase-night .tc-w-fday-temps { color: #948a6e; }
+.tc-w-card.phase-night .tc-w-advisory { background: #2e1f1a; color: #e09a7a; }
 
 .tc-w-city {
   font-size: 9px;
@@ -441,6 +465,34 @@ body {
   padding: 12px 0;
   font-style: italic;
 }
+
+/* AQI bar \u2014 full-bleed strip at the card's bottom edge */
+.tc-w-aqi {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 9px -12px -10px;
+  padding: 5px 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #fff;
+}
+
+.tc-w-aqi-cat {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.tc-w-aqi.aqi-good       { background: #1a6b3c; }
+.tc-w-aqi.aqi-moderate   { background: var(--gold); }
+.tc-w-aqi.aqi-poor       { background: #b5651d; }
+.tc-w-aqi.aqi-unhealthy  { background: #9c2b2b; }
+.tc-w-aqi.aqi-vunhealthy { background: #5e3080; }
+.tc-w-aqi.aqi-hazardous  { background: #3d1010; }
 
 /* ============================================================
    SECTION RULE — ink band
@@ -1605,9 +1657,10 @@ const WMO_ICON = {
   95:'⛈️',96:'⛈️',99:'⛈️'
 };
 
-function weatherIcon(code, windKph) {
+function weatherIcon(code, windKph, isNight) {
   // Wind advisory override — sustained wind over 40kph shown as windy regardless of sky
   if (windKph && windKph >= 40) return '💨';
+  if (isNight && (code === 0 || code === 1)) return '🌙';
   return WMO_ICON[code] || '🌡️';
 }
 
@@ -1616,16 +1669,60 @@ function dayLabel(dateStr, offset) {
   return d.toLocaleDateString('en-CA', { weekday: 'short' });
 }
 
+// AQI score -> { label, css class }, EPA 6-band scale
+function aqiBand(aqi) {
+  if (aqi == null || isNaN(aqi)) return null;
+  if (aqi <= 50)  return { label: 'Good',           cls: 'aqi-good' };
+  if (aqi <= 100) return { label: 'Moderate',        cls: 'aqi-moderate' };
+  if (aqi <= 150) return { label: 'Poor',            cls: 'aqi-poor' };
+  if (aqi <= 200) return { label: 'Unhealthy',       cls: 'aqi-unhealthy' };
+  if (aqi <= 300) return { label: 'Very Unhealthy',  cls: 'aqi-vunhealthy' };
+  return                 { label: 'Hazardous',       cls: 'aqi-hazardous' };
+}
+
+// Day-phase for a city from its own local current/sunrise/sunset times.
+// Open-Meteo returns all three in the same local-naive reference frame
+// (timezone=auto), so comparing the HH:MM substrings avoids UTC math entirely.
+function dayPhase(currentISO, sunriseISO, sunsetISO) {
+  if (!currentISO || !sunriseISO || !sunsetISO) return 'day';
+  const toMin = s => {
+    const [h, m] = s.slice(11, 16).split(':').map(Number);
+    return h * 60 + m;
+  };
+  const TWILIGHT = 45; // minutes either side of sunrise/sunset
+  const t = toMin(currentISO), sr = toMin(sunriseISO), ss = toMin(sunsetISO);
+  if (Math.abs(t - sr) <= TWILIGHT) return 'dawn';
+  if (Math.abs(t - ss) <= TWILIGHT) return 'dusk';
+  return (t > sr && t < ss) ? 'day' : 'night';
+}
+
+async function fetchAQI(cities) {
+  const lats = cities.map(c => c.lat).join(',');
+  const lons = cities.map(c => c.lon).join(',');
+  const url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lats}&longitude=${lons}&current=us_aqi&timezone=auto`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    const results = Array.isArray(data) ? data : [data];
+    return cities.map((city, i) => {
+      const v = (results[i] || {}).current?.us_aqi;
+      return (v == null) ? null : Math.round(v);
+    });
+  } catch(e) {
+    return cities.map(() => null);
+  }
+}
+
 async function fetchWeather(cities, isIndia) {
   const key = isIndia ? 'india' : 'canada';
   if (weatherCache[key]) return weatherCache[key];
 
   const lats = cities.map(c => c.lat).join(',');
   const lons = cities.map(c => c.lon).join(',');
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}&current=temperature_2m,weathercode,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min,weathercode,wind_speed_10m_max&timezone=auto&forecast_days=4`;
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}&current=temperature_2m,weathercode,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min,weathercode,wind_speed_10m_max,sunrise,sunset&timezone=auto&forecast_days=4`;
 
   try {
-    const res = await fetch(url);
+    const [res, aqiList] = await Promise.all([fetch(url), fetchAQI(cities)]);
     const data = await res.json();
     const results = Array.isArray(data) ? data : [data];
     weatherCache[key] = cities.map((city, i) => {
@@ -1634,6 +1731,9 @@ async function fetchWeather(cities, isIndia) {
       const daily = d.daily || {};
       const windNow = cur.wind_speed_10m ?? 0;
       const advisory = windNow >= 40 || (daily.wind_speed_10m_max || [])[0] >= 50;
+      const sunrise = (daily.sunrise || [])[0];
+      const sunset  = (daily.sunset  || [])[0];
+      const phase = dayPhase(cur.time, sunrise, sunset);
 
       const forecast = [];
       const times = daily.time || [];
@@ -1651,16 +1751,18 @@ async function fetchWeather(cities, isIndia) {
         city: city.name,
         temp: Math.round(cur.temperature_2m ?? '--'),
         cond: WMO[cur.weathercode] || 'Unknown',
-        icon: weatherIcon(cur.weathercode, windNow),
+        icon: weatherIcon(cur.weathercode, windNow, phase === 'night'),
         hi: Math.round((daily.temperature_2m_max || [])[0] ?? '--'),
         lo: Math.round((daily.temperature_2m_min || [])[0] ?? '--'),
         advisory,
-        forecast
+        forecast,
+        aqi: aqiList[i] ?? null,
+        phase
       };
     });
     return weatherCache[key];
   } catch(e) {
-    return cities.map(c => ({ city: c.name, temp: '--', cond: 'Unavailable', icon: '🌡️', hi: '--', lo: '--', advisory: false, forecast: [] }));
+    return cities.map(c => ({ city: c.name, temp: '--', cond: 'Unavailable', icon: '🌡️', hi: '--', lo: '--', advisory: false, forecast: [], aqi: null, phase: 'day' }));
   }
 }
 
@@ -1714,7 +1816,14 @@ function weatherCard(w, isIndia) {
       </div>`
     : '';
 
-  return `<div class="tc-w-card${isIndia?' india':''}">
+  const band = aqiBand(w.aqi);
+  const aqiBar = band
+    ? `<div class="tc-w-aqi ${band.cls}"><span>AQI ${w.aqi}</span><span class="tc-w-aqi-cat">${band.label}</span></div>`
+    : '';
+
+  const phaseClass = (w.phase && w.phase !== 'day') ? ` phase-${w.phase}` : '';
+
+  return `<div class="tc-w-card${isIndia?' india':''}${phaseClass}">
     <div class="tc-w-city">${w.city}</div>
     <div class="tc-w-main">
       <div class="tc-w-icon">${w.icon}</div>
@@ -1724,6 +1833,7 @@ function weatherCard(w, isIndia) {
     <div class="tc-w-hilo">H:${w.hi}° L:${w.lo}°</div>
     ${advisoryBadge}
     ${forecastStrip}
+    ${aqiBar}
   </div>`;
 }
 
