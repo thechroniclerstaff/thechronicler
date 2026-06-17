@@ -56,7 +56,7 @@ body {
    ============================================================ */
 .tc-header {
   background: var(--ink);
-  padding: 16px 24px 14px;
+  padding: 14px 24px 12px;
   position: sticky;
   top: 0;
   z-index: 200;
@@ -70,16 +70,11 @@ body {
 
 .tc-mast-row {
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   justify-content: space-between;
+  margin-bottom: 2px;
   flex-wrap: wrap;
-  gap: 16px;
-}
-
-.tc-mast-left {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 
 .tc-masthead {
@@ -93,48 +88,45 @@ body {
 .tc-mast-meta {
   display: flex;
   align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .tc-vol {
-  font-size: 11px;
-  color: #d0c5b0;
+  font-size: 10px;
+  color: #555;
   letter-spacing: 0.5px;
-  font-weight: 600;
 }
 
 .tc-tagline {
-  font-size: 11px;
-  color: #d0c5b0;
+  font-size: 10px;
+  color: #555;
   letter-spacing: 0.4px;
   font-style: italic;
 }
 
-.tc-mast-right {
+.tc-search-row {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
 }
 
 .tc-search {
   display: flex;
   align-items: center;
-  background: #ffffff;
-  border: 0.5px solid #e5ddd0;
+  background: #1a1a1a;
+  border: 0.5px solid #2e2e2e;
   border-radius: 6px;
-  padding: 8px 14px;
+  padding: 7px 12px;
   gap: 8px;
   width: 100%;
-  max-width: 340px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  max-width: 400px;
 }
 
 .tc-search svg {
   width: 15px;
   height: 15px;
-  stroke: #999;
+  stroke: #555;
   flex-shrink: 0;
 }
 
@@ -142,17 +134,17 @@ body {
   background: none;
   border: none;
   outline: none;
-  color: var(--ink);
+  color: #ffffff;
   font-size: 13px;
   font-family: 'Source Sans 3', sans-serif;
   width: 100%;
 }
 
-.tc-search input::placeholder { color: #b0a890; }
+.tc-search input::placeholder { color: #444; }
 
 .tc-curated {
   font-size: 10px;
-  color: #777;
+  color: #444;
   font-style: italic;
   white-space: nowrap;
 }
@@ -254,51 +246,6 @@ body {
 }
 
 /* ============================================================
-   TODAY SUB-PILLS
-   ============================================================ */
-.tc-subpill-bar {
-  background: #fff;
-  border-bottom: 0.5px solid #e0d8cc;
-  padding: 8px 24px;
-}
-
-.tc-subpill-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.tc-subpill {
-  background: transparent;
-  border: 0.5px solid #e5ddd0;
-  color: #888;
-  font-size: 10px;
-  font-family: 'Source Sans 3', sans-serif;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 14px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.15s;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-}
-
-.tc-subpill:hover:not(.active) {
-  border-color: #b0a890;
-  color: var(--ink);
-  background: #faf8f4;
-}
-
-.tc-subpill.active {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #f5f1ea;
-}
-
-/* ============================================================
    BODY WRAPPER
    ============================================================ */
 .tc-body-wrap {
@@ -338,8 +285,8 @@ body {
   border: 0.5px solid #e5ddd0;
   border-top: 3px solid var(--ink);
   border-radius: 8px;
-  padding: 12px 12px 10px;
-  min-width: 120px;
+  padding: 10px 12px;
+  min-width: 88px;
   text-align: center;
   flex: 1;
   flex-shrink: 0;
@@ -352,87 +299,22 @@ body {
   color: var(--gold);
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   font-weight: 600;
-}
-
-.tc-w-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 2px;
-}
-
-.tc-w-icon {
-  font-size: 22px;
-  line-height: 1;
 }
 
 .tc-w-temp {
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--ink);
   line-height: 1;
 }
 
 .tc-w-cond {
-  font-size: 10px;
-  color: #888;
-  margin-top: 2px;
-}
-
-.tc-w-hilo {
-  font-size: 10px;
-  color: #b0a890;
+  font-size: 9px;
+  color: #aaa;
   margin-top: 3px;
-  font-weight: 600;
-}
-
-.tc-w-advisory {
-  font-size: 9px;
-  color: var(--rust);
-  background: #fdf0ee;
-  border-radius: 4px;
-  padding: 3px 6px;
-  margin-top: 6px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-}
-
-.tc-w-forecast {
-  display: flex;
-  justify-content: space-between;
-  gap: 4px;
-  margin-top: 9px;
-  padding-top: 8px;
-  border-top: 0.5px solid #f0ece4;
-}
-
-.tc-w-fday {
-  flex: 1;
-  text-align: center;
-}
-
-.tc-w-fday-label {
-  font-size: 8px;
-  color: #c0b8a8;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-  margin-bottom: 2px;
-}
-
-.tc-w-fday-icon {
-  font-size: 14px;
-  line-height: 1;
-  margin-bottom: 2px;
-}
-
-.tc-w-fday-temps {
-  font-size: 9px;
-  color: #888;
-  font-weight: 600;
 }
 
 .tc-w-loading {
@@ -1287,22 +1169,20 @@ body {
 <header class="tc-header">
   <div class="tc-header-inner">
     <div class="tc-mast-row">
-      <div class="tc-mast-left">
-        <div class="tc-masthead">The Chronicler</div>
-        <div class="tc-mast-meta">
-          <div class="tc-vol">Vol. I · Est. March 2026</div>
-          <div class="tc-tagline">Today's Record. Tomorrow's Reference.</div>
-        </div>
+      <div class="tc-masthead">The Chronicler</div>
+      <div class="tc-mast-meta">
+        <div class="tc-vol">Vol. I · Est. March 2026</div>
+        <div class="tc-tagline">Today's Record. Tomorrow's Reference.</div>
       </div>
-      <div class="tc-mast-right">
-        <div class="tc-search">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-          <input type="text" id="tc-search" placeholder="Search headlines, topics, sections..." aria-label="Search articles">
-        </div>
-        <div class="tc-curated">Independent · AI-assisted · Curated daily</div>
+    </div>
+    <div class="tc-search-row">
+      <div class="tc-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="tc-search" placeholder="Search headlines, topics, sections..." aria-label="Search articles">
       </div>
+      <div class="tc-curated">Independent · AI-assisted · Curated daily</div>
     </div>
   </div>
 </header>
@@ -1310,8 +1190,7 @@ body {
 <!-- FILTER BAR -->
 <nav class="tc-filter-bar" aria-label="Section filters">
   <div class="tc-filter-inner" id="filter-pills">
-    <button class="tc-pill active" data-section="today">Today</button>
-    <button class="tc-pill" data-section="all">All</button>
+    <button class="tc-pill active" data-section="all">All</button>
     <button class="tc-pill" data-section="canada">Canada</button>
     <button class="tc-pill" data-section="india">India</button>
     <button class="tc-pill" data-section="world">World</button>
@@ -1328,18 +1207,6 @@ body {
     <div class="tc-live"><div class="tc-dot"></div>Live Edition</div>
   </div>
 </div>
-
-<!-- TODAY SUB-PILLS — only visible when Today is active -->
-<nav class="tc-subpill-bar" id="today-subpills" aria-label="Today's desks" style="display:none;">
-  <div class="tc-subpill-inner">
-    <button class="tc-subpill active" data-subsection="all">Full Issue</button>
-    <button class="tc-subpill" data-subsection="canada">Canada</button>
-    <button class="tc-subpill" data-subsection="india">India</button>
-    <button class="tc-subpill" data-subsection="world">World</button>
-    <button class="tc-subpill" data-subsection="sport">Sport</button>
-    <button class="tc-subpill" data-subsection="funnies">Funnies</button>
-  </div>
-</nav>
 
 <!-- WORLD CUP LIVE STRIP -->
 <div class="tc-wc-strip" id="wc-strip">
@@ -1484,8 +1351,7 @@ const SECTION_NAMES = {
    ============================================================ */
 let allArticles = [];
 let marketsData  = {};
-let activeSection = 'today';
-let todaySubsection = 'all';
+let activeSection = 'all';
 let searchQuery   = '';
 let openArticle   = null;
 let weatherCache  = {};
@@ -1594,35 +1460,13 @@ const WMO = {
   80:'Showers',81:'Showers',82:'Heavy showers',95:'Thunderstorm',96:'T-storm + hail'
 };
 
-// Weather code -> emoji icon
-const WMO_ICON = {
-  0:'☀️',1:'🌤️',2:'⛅',3:'☁️',
-  45:'🌫️',48:'🌫️',
-  51:'🌦️',53:'🌦️',55:'🌧️',
-  61:'🌦️',63:'🌧️',65:'⛈️',
-  71:'🌨️',73:'❄️',75:'❄️',
-  80:'🌦️',81:'🌧️',82:'⛈️',
-  95:'⛈️',96:'⛈️',99:'⛈️'
-};
-
-function weatherIcon(code, windKph) {
-  // Wind advisory override — sustained wind over 40kph shown as windy regardless of sky
-  if (windKph && windKph >= 40) return '💨';
-  return WMO_ICON[code] || '🌡️';
-}
-
-function dayLabel(dateStr, offset) {
-  const d = new Date(dateStr + 'T12:00:00');
-  return d.toLocaleDateString('en-CA', { weekday: 'short' });
-}
-
 async function fetchWeather(cities, isIndia) {
   const key = isIndia ? 'india' : 'canada';
   if (weatherCache[key]) return weatherCache[key];
 
   const lats = cities.map(c => c.lat).join(',');
   const lons = cities.map(c => c.lon).join(',');
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}&current=temperature_2m,weathercode,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min,weathercode,wind_speed_10m_max&timezone=auto&forecast_days=4`;
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}&current=temperature_2m,weathercode&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=1`;
 
   try {
     const res = await fetch(url);
@@ -1632,35 +1476,17 @@ async function fetchWeather(cities, isIndia) {
       const d = results[i] || {};
       const cur = d.current || {};
       const daily = d.daily || {};
-      const windNow = cur.wind_speed_10m ?? 0;
-      const advisory = windNow >= 40 || (daily.wind_speed_10m_max || [])[0] >= 50;
-
-      const forecast = [];
-      const times = daily.time || [];
-      for (let day = 1; day <= 3; day++) {
-        if (!times[day]) continue;
-        forecast.push({
-          label: dayLabel(times[day], day),
-          icon: weatherIcon(daily.weathercode[day], daily.wind_speed_10m_max[day]),
-          hi: Math.round(daily.temperature_2m_max[day]),
-          lo: Math.round(daily.temperature_2m_min[day])
-        });
-      }
-
       return {
         city: city.name,
         temp: Math.round(cur.temperature_2m ?? '--'),
         cond: WMO[cur.weathercode] || 'Unknown',
-        icon: weatherIcon(cur.weathercode, windNow),
         hi: Math.round((daily.temperature_2m_max || [])[0] ?? '--'),
-        lo: Math.round((daily.temperature_2m_min || [])[0] ?? '--'),
-        advisory,
-        forecast
+        lo: Math.round((daily.temperature_2m_min || [])[0] ?? '--')
       };
     });
     return weatherCache[key];
   } catch(e) {
-    return cities.map(c => ({ city: c.name, temp: '--', cond: 'Unavailable', icon: '🌡️', hi: '--', lo: '--', advisory: false, forecast: [] }));
+    return cities.map(c => ({ city: c.name, temp: '--', cond: 'Unavailable', hi: '--', lo: '--' }));
   }
 }
 
@@ -1698,32 +1524,10 @@ async function fetchCurrencies() {
    RENDER HELPERS
    ============================================================ */
 function weatherCard(w, isIndia) {
-  const advisoryBadge = w.advisory
-    ? `<div class="tc-w-advisory">⚠️ Wind advisory</div>`
-    : '';
-
-  const forecastStrip = (w.forecast && w.forecast.length)
-    ? `<div class="tc-w-forecast">
-        ${w.forecast.map(f => `
-          <div class="tc-w-fday">
-            <div class="tc-w-fday-label">${f.label}</div>
-            <div class="tc-w-fday-icon">${f.icon}</div>
-            <div class="tc-w-fday-temps">${f.hi}°/${f.lo}°</div>
-          </div>
-        `).join('')}
-      </div>`
-    : '';
-
   return `<div class="tc-w-card${isIndia?' india':''}">
     <div class="tc-w-city">${w.city}</div>
-    <div class="tc-w-main">
-      <div class="tc-w-icon">${w.icon}</div>
-      <div class="tc-w-temp">${w.temp}°</div>
-    </div>
+    <div class="tc-w-temp">${w.temp}°</div>
     <div class="tc-w-cond">${w.cond}</div>
-    <div class="tc-w-hilo">H:${w.hi}° L:${w.lo}°</div>
-    ${advisoryBadge}
-    ${forecastStrip}
   </div>`;
 }
 
@@ -1864,12 +1668,6 @@ function weatherWrap(label, stripId, isIndia) {
 function render() {
   const c = document.getElementById('tc-container');
 
-  // Show/hide Today sub-pills based on active section
-  const subpillBar = document.getElementById('today-subpills');
-  if (subpillBar) {
-    subpillBar.style.display = activeSection === 'today' ? 'block' : 'none';
-  }
-
   if (activeSection === 'markets') {
     c.innerHTML = renderMarketsView();
     renderCurrencyCards(['CAD/INR','CAD/USD','CAD/GBP','CAD/EUR'], 'curr-canada');
@@ -1877,30 +1675,8 @@ function render() {
     return;
   }
 
-  // Funnies sub-pill is a direct link out, not a filtered article view
-  if (activeSection === 'today' && todaySubsection === 'funnies') {
-    c.innerHTML = `<div class="no-results" style="padding:64px 24px;">
-      <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--ink);margin-bottom:12px;">The Chronicler Funnies</div>
-      <div style="font-size:13px;color:#888;margin-bottom:20px;max-width:420px;margin-left:auto;margin-right:auto;">Crunch and Word Web puzzles live on their own archive page — fresh puzzles added with every edition.</div>
-      <a href="Specials/the-chronicler-crunch-archive.html" style="display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#f5f1ea;font-size:12px;font-weight:600;padding:10px 20px;border-radius:6px;text-decoration:none;letter-spacing:0.3px;">Open Crunch Archive &#8594;</a>
-    </div>`;
-    return;
-  }
-
-  const todayISOStr = todayISO();
-
   const filtered = allArticles.filter(a => {
-    let ms;
-    if (activeSection === 'today') {
-      ms = a.date === todayISOStr;
-      if (ms && todaySubsection !== 'all') {
-        ms = a.section === todaySubsection;
-      }
-    } else if (activeSection === 'all') {
-      ms = true;
-    } else {
-      ms = a.section === activeSection;
-    }
+    const ms = activeSection === 'all' || a.section === activeSection;
     const mq = !searchQuery ||
       a.headline.toLowerCase().includes(searchQuery) ||
       a.summary.toLowerCase().includes(searchQuery) ||
@@ -1909,28 +1685,13 @@ function render() {
   });
 
   if (!filtered.length) {
-    const emptyMsg = activeSection === 'today'
-      ? `No ${todaySubsection === 'all' ? '' : SECTION_NAMES[todaySubsection] + ' '}articles published yet today. Check back soon, or browse <a href="#" onclick="document.querySelector('[data-section=all]').click();return false;" style="color:var(--rust);font-weight:600;">All articles</a>.`
-      : `No articles found${searchQuery ? ` for "${searchQuery}"` : ''}.`;
-    c.innerHTML = `<div class="no-results">${emptyMsg}</div>`;
+    c.innerHTML = `<div class="no-results">No articles found${searchQuery ? ` for "${searchQuery}"` : ''}.</div>`;
     return;
   }
 
   let html = '';
 
-  if (activeSection === 'today' && todaySubsection !== 'all') {
-    // Single-desk view within Today
-    const showWeather = todaySubsection === 'canada' || todaySubsection === 'india';
-    if (showWeather) {
-      html += todaySubsection === 'canada'
-        ? weatherWrap('Canada Weather', 'weather-canada', false)
-        : weatherWrap('India Weather', 'weather-india', true);
-    }
-    html += sectionRule(SECTION_NAMES[todaySubsection] || todaySubsection);
-    html += `<div class="tc-article-grid">`;
-    filtered.forEach(a => { html += articleHTML(a, allArticles.indexOf(a)); });
-    html += `</div>`;
-  } else if (activeSection === 'today' || activeSection === 'all') {
+  if (activeSection === 'all') {
     html += weatherWrap('Canada Weather', 'weather-canada', false);
     const groups = {};
     filtered.forEach(a => {
@@ -2004,20 +1765,6 @@ document.querySelectorAll('.tc-pill').forEach(btn => {
     document.querySelectorAll('.tc-pill').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     activeSection = btn.dataset.section;
-    todaySubsection = 'all';
-    document.querySelectorAll('.tc-subpill').forEach(b => b.classList.remove('active'));
-    const fullIssueBtn = document.querySelector('.tc-subpill[data-subsection="all"]');
-    if (fullIssueBtn) fullIssueBtn.classList.add('active');
-    openArticle = null;
-    render();
-  });
-});
-
-document.querySelectorAll('.tc-subpill').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tc-subpill').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    todaySubsection = btn.dataset.subsection;
     openArticle = null;
     render();
   });
